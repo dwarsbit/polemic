@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@electron/remote": "^2.0.10",
+    "@tailwindcss/postcss": "^4.0.0-alpha.14",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
