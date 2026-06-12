@@ -64,7 +64,7 @@ export function tokenizeLaTeX(content: string): LaTeXToken[] {
   
   while (position < content.length) {
     // Skip whitespace
-    if (\\s.test(content[position])) {
+    if (/\s/.test(content[position])) {
       position++;
       continue;
     }
@@ -72,7 +72,7 @@ export function tokenizeLaTeX(content: string): LaTeXToken[] {
     // Check for comments
     if (content[position] === '%') {
       const start = position;
-      while (position < content.length && content[position] !== '\\n') {
+      while (position < content.length && content[position] !== '\n') {
         position++;
       }
       tokens.push({
@@ -117,7 +117,7 @@ export function tokenizeLaTeX(content: string): LaTeXToken[] {
     }
     
     // Check for LaTeX commands (\...)
-    if (content[position] === '\\\\' && position < content.length - 1) {
+    if (content[position] === '\\' && position < content.length - 1) {
       const start = position;
       let end = position + 1;
       
@@ -166,12 +166,12 @@ export function tokenizeLaTeX(content: string): LaTeXToken[] {
     }
     
     // Check for environments (\begin{...}...\end{...})
-    if (content.slice(position, position + 6) === '\\\\begin') {
+    if (content.slice(position, position + 6) === '\\begin') {
       const start = position;
       let end = position + 6;
       
       // Skip whitespace
-      while (end < content.length && \\s.test(content[end])) {
+      while (end < content.length && /\s/.test(content[end])) {
         end++;
       }
       
@@ -195,7 +195,7 @@ export function tokenizeLaTeX(content: string): LaTeXToken[] {
       
       // Find matching \end{...}
       let envEnd = end;
-      const searchEnd = `\\\\end{${envName}}`;
+      const searchEnd = `\\end{${envName}}`;
       const endIndex = content.indexOf(searchEnd, envEnd);
       
       if (endIndex !== -1) {
@@ -222,7 +222,7 @@ export function tokenizeLaTeX(content: string): LaTeXToken[] {
       position++;
       
       while (position < content.length && content[position] !== quote) {
-        if (content[position] === '\\\\') {
+        if (content[position] === '\\') {
           position++; // Skip escaped quote
         }
         position++;
@@ -243,7 +243,7 @@ export function tokenizeLaTeX(content: string): LaTeXToken[] {
     
     // Default: text
     const start = position;
-    while (position < content.length && !/\\s|\\%|\\$|\\\\|\\{|\\}/.test(content[position])) {
+    while (position < content.length && !/\s|\%|\$|\\|\{|\}/.test(content[position])) {
       position++;
     }
     
@@ -274,7 +274,7 @@ export function parseLaTeX(content: string): LaTeXSyntaxTree {
     
     if (token.type === 'environment') {
       // Extract environment name from \begin{...}
-      const beginMatch = token.value.match(\\\\begin\\{([^}]+)\\});
+      const beginMatch = token.value.match(/\\begin\{([^}]+)\}/);
       if (beginMatch) {
         const envName = beginMatch[1];
         const start = token.start;
@@ -282,7 +282,7 @@ export function parseLaTeX(content: string): LaTeXSyntaxTree {
         
         // Find the content between \begin and \end
         const contentStart = token.value.indexOf('}') + 1;
-        const contentEnd = token.value.lastIndexOf('\\\\end');
+        const contentEnd = token.value.lastIndexOf('\\end');
         const innerContent = token.value.slice(contentStart, contentEnd);
         
         // Parse inner content
@@ -325,7 +325,7 @@ export function extractCommands(content: string): string[] {
  * Extract all environments from LaTeX content
  */
 export function extractEnvironments(content: string): string[] {
-  const envRegex = /\\\\begin\\{([^}]+)\\}/g;
+  const envRegex = /\\begin\{([^}]+)\}/g;
   const environments: Set<string> = new Set();
   
   let match;
@@ -343,8 +343,8 @@ export function validateLaTeX(content: string): { valid: boolean; errors: string
   const errors: string[] = [];
   
   // Check for unclosed environments
-  const beginRegex = /\\\\begin\\{([^}]+)\\}/g;
-  const endRegex = /\\\\end\\{([^}]+)\\}/g;
+  const beginRegex = /\\begin\{([^}]+)\}/g;
+  const endRegex = /\\end\{([^}]+)\}/g;
   
   const begins: string[] = [];
   const ends: string[] = [];
@@ -399,9 +399,9 @@ export function validateLaTeX(content: string): { valid: boolean; errors: string
 export function countStats(content: string): { words: number; characters: number; lines: number } {
   // Remove LaTeX commands for word counting
   const cleanContent = content.replace(/\\\\[a-zA-Z]+/g, ' ');
-  const words = cleanContent.trim().split(/\\s+/).filter(word => word.length > 0).length;
+  const words = cleanContent.trim().split(/\s+/).filter(word => word.length > 0).length;
   const characters = content.length;
-  const lines = content.split('\\n').length;
+  const lines = content.split('\n').length;
   
   return { words, characters, lines };
 }
