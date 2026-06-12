@@ -1,0 +1,144 @@
+# Electron Builder Configuration
+# https://www.electron.build/configuration
+
+appId: com.dwarsbit.polemic
+productName: Polemic
+artifactName: polemic-${version}-${os}-${arch}.${ext}
+
+# Directories
+directories:
+  output: dist/build
+  buildResources: build
+  app: dist
+
+# Files to include
+files:
+  - dist/**/*
+  - node_modules/**/*
+  - package.json
+
+extraResources:
+  - from: public/
+    to: public/
+    filter:
+      - **/*
+
+# Platform-specific configurations
+win:
+  target:
+    - nsis
+    - portable
+  icon: build/icon.ico
+  requestedExecutionLevel: asInvoker
+
+mac:
+  target:
+    - dmg
+    - zip
+  icon: build/icon.icns
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+  extendInfo:
+    NSRequiresAqua: true
+
+linux:
+  target:
+    - AppImage
+    - deb
+    - rpm
+    - tar.gz
+  icon: build/icon.png
+  category: Office
+  maintainer: dwarsbit
+  synopsis: Open-Source LaTeX Editor
+  description: A modern, cross-platform LaTeX editor with real-time preview
+
+# NSIS Configuration (Windows)
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  installerHeaderIcon: build/icon.ico
+  createStartMenuShortcut: true
+  createDesktopShortcut: true
+  shortcutName: Polemic
+  include: build/installer.nsh
+  script: build/installer.nsi
+  artifactName: polemic-${version}-win-setup.${ext}
+
+# DMG Configuration (macOS)
+dmg:
+  title: Polemic
+  icon: build/icon.icns
+  iconSize: 128
+  contents:
+    - x: 410
+      y: 150
+      type: link
+      path: /Applications
+    - x: 130
+      y: 150
+      type: file
+      path: Polemic.app
+
+# AppImage Configuration (Linux)
+appImage:
+  artifactName: polemic-${version}-linux-x64.${ext}
+
+# Deb Configuration (Linux)
+deb:
+  synopsis: Open-Source LaTeX Editor
+  maintainer: dwarsbit
+  homepage: https://github.com/dwarsbit/polemic
+  priority: optional
+  section: editors
+  lintianOverrides:
+    - binary-without-manpage
+
+# RPM Configuration (Linux)
+rpm:
+  synopsis: Open-Source LaTeX Editor
+  maintainer: dwarsbit
+  homepage: https://github.com/dwarsbit/polemic
+  license: MIT
+
+# Publishing
+publish:
+  - provider: GitHub
+    owner: dwarsbit
+    repo: polemic
+    vPrefixedTagName: true
+    releaseType: release
+    draft: true
+    prerelease: false
+
+# Build Configuration
+buildDependencies:
+  prebuild: npm install
+
+# Compression
+compression: maximum
+macTargetType: dir
+
+# Signing (uncomment and configure for production)
+# signing:
+#   mac:
+#     identity: Developer ID Application: Your Name (ABCDEFGHIJ)
+#     entitlements: build/entitlements.mac.plist
+#     entitlementsInherit: build/entitlements.mac.plist
+#   win:
+#     certificateFile: build/cert.pfx
+#     signingHashAlgorithms:
+#       - sha256
+#   linux:
+#     certificateFile: build/cert.pfx
+
+# Update Configuration
+update:
+  enabled: true
+  provider: GitHub
+  owner: dwarsbit
+  repo: polemic
+  channel: latest
+  autoDownload: true
