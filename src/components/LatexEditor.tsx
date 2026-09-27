@@ -29,7 +29,9 @@ export function LatexEditor() {
           EditorView.lineWrapping,
           EditorView.theme({
             "&": { height: "100%" },
-            ".cm-scroller": { fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace" },
+            ".cm-scroller": {
+              fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+            },
           }),
           keymap.of([
             {

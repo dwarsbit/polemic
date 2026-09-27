@@ -25,8 +25,7 @@ interface ProjectState {
 
 function findFile(entries: api.FileEntry[], path: string): boolean {
   return entries.some(
-    (entry) =>
-      (!entry.isDir && entry.path === path) || findFile(entry.children, path),
+    (entry) => (!entry.isDir && entry.path === path) || findFile(entry.children, path),
   );
 }
 
@@ -56,10 +55,12 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     const files = await api.listFiles(info.path);
     const settings = await api.getSettings();
     const storedMain = settings.mainFiles[info.path];
-    let mainFile: string | null = null;
-    if (storedMain && findFile(files, storedMain)) mainFile = storedMain;
-    else if (findFile(files, "main.tex")) mainFile = "main.tex";
-    else mainFile = firstTex(files);
+    const mainFile: string | null =
+      storedMain && findFile(files, storedMain)
+        ? storedMain
+        : findFile(files, "main.tex")
+          ? "main.tex"
+          : firstTex(files);
     set({ project: info, files, mainFile });
     if (mainFile) await get().openFile(mainFile);
     await get().refreshSnapshots();

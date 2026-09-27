@@ -164,7 +164,13 @@ export function synctexBackward(
   x: number,
   y: number,
 ): Promise<SynctexBackward> {
-  return invoke<SynctexBackward>("synctex_backward", { projectDir, mainTex, page, x, y });
+  return invoke<SynctexBackward>("synctex_backward", {
+    projectDir,
+    mainTex,
+    page,
+    x,
+    y,
+  });
 }
 
 export function createSnapshot(projectDir: string): Promise<SnapshotInfo> {

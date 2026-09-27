@@ -10,7 +10,15 @@ import { Button } from "@/components/ui/button";
 import { detectTex } from "@/lib/tauri";
 import { openUrl } from "@tauri-apps/plugin-opener";
 
-function StatusRow({ label, found, hint }: { label: string; found: boolean | null; hint?: string }) {
+function StatusRow({
+  label,
+  found,
+  hint,
+}: {
+  label: string;
+  found: boolean | null;
+  hint?: string;
+}) {
   return (
     <div className="flex items-start gap-2 py-1">
       {found === null ? (
@@ -113,7 +121,9 @@ export function TexHelpDialog({
         <Button
           variant="outline"
           className="w-full"
-          onClick={() => void queryClient.invalidateQueries({ queryKey: ["tex-status"] })}
+          onClick={() =>
+            void queryClient.invalidateQueries({ queryKey: ["tex-status"] })
+          }
         >
           <RefreshCcw />
           Re-check

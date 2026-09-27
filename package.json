@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run"
   },
   "dependencies": {
     "@codemirror/language": "^6.12.4",
@@ -32,14 +35,21 @@
     "zustand": "^5.0.15"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.3.3",
     "@tauri-apps/cli": "^2.12.0",
     "@types/node": "^26.6.3",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^6.0.2",
+    "eslint": "^10.11.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "prettier": "^3.9.9",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.3",
-    "vite": "^8.0.16"
-  }
+    "typescript-eslint": "^8.70.1",
+    "vite": "^8.0.16",
+    "vitest": "^5.0.2"
+  },
+  "packageManager": "pnpm@12.6.0"
 }

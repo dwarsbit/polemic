@@ -33,8 +33,7 @@ export const usePreviewStore = create<PreviewState>((set) => ({
   scrollTarget: null,
   scrollVersion: 0,
   autoCompile: true,
-  toggleAutoCompile: () =>
-    set((state) => ({ autoCompile: !state.autoCompile })),
+  toggleAutoCompile: () => set((state) => ({ autoCompile: !state.autoCompile })),
   requestScroll: (target) =>
     set((state) => ({ scrollTarget: target, scrollVersion: state.scrollVersion + 1 })),
   compileNow: async () => {

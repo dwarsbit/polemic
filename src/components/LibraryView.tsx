@@ -79,20 +79,29 @@ export function LibraryView() {
               if (e.key === "Enter" && name.trim() !== "") void handleCreate();
             }}
           />
-          <Button onClick={() => void handleCreate()} disabled={busy || name.trim() === ""}>
+          <Button
+            onClick={() => void handleCreate()}
+            disabled={busy || name.trim() === ""}
+          >
             <Plus />
             Create
           </Button>
         </div>
         <div className="mt-2">
-          <Button variant="outline" className="w-full" onClick={() => void handleOpenFolder()}>
+          <Button
+            variant="outline"
+            className="w-full"
+            onClick={() => void handleOpenFolder()}
+          >
             <FolderOpen />
             Open existing folder
           </Button>
         </div>
         {error && <p className="mt-2 text-xs text-destructive">{error}</p>}
         <Separator className="my-4" />
-        <h2 className="mb-2 text-xs font-medium text-muted-foreground">RECENT PROJECTS</h2>
+        <h2 className="mb-2 text-xs font-medium text-muted-foreground">
+          RECENT PROJECTS
+        </h2>
         {settings === null ? (
           <p className="text-sm text-muted-foreground">Loading…</p>
         ) : settings.recentProjects.length === 0 ? (
@@ -110,7 +119,9 @@ export function LibraryView() {
                   onClick={() => void handleOpen(project.path)}
                 >
                   <span className="truncate text-sm font-medium">{project.name}</span>
-                  <span className="truncate text-xs text-muted-foreground">{project.path}</span>
+                  <span className="truncate text-xs text-muted-foreground">
+                    {project.path}
+                  </span>
                 </button>
                 <div className="flex items-center gap-1">
                   <Button

@@ -11,7 +11,13 @@ interface FileTreeProps {
   onSetMain: (entry: FileEntry) => void;
 }
 
-export function FileTree({ entries, depth = 0, onRename, onDelete, onSetMain }: FileTreeProps) {
+export function FileTree({
+  entries,
+  depth = 0,
+  onRename,
+  onDelete,
+  onSetMain,
+}: FileTreeProps) {
   const activeFile = useProjectStore((s) => s.activeFile);
   const mainFile = useProjectStore((s) => s.mainFile);
   const openFile = useProjectStore((s) => s.openFile);

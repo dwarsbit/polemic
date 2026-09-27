@@ -16,7 +16,8 @@ type BadgeState = {
 function texBadge(tex: Awaited<ReturnType<typeof detectTex>> | undefined): BadgeState {
   if (tex === undefined) return { label: "TeX: checking", variant: "outline" };
   if (tex === null) return { label: "TeX: n/a (browser)", variant: "secondary" };
-  if (tex.pdflatex.found && tex.latexmk.found) return { label: "TeX ready", variant: "default" };
+  if (tex.pdflatex.found && tex.latexmk.found)
+    return { label: "TeX ready", variant: "default" };
   if (tex.pdflatex.found) return { label: "latexmk missing", variant: "destructive" };
   return { label: "TeX not found", variant: "destructive" };
 }
@@ -40,7 +41,12 @@ export function TopBar() {
   return (
     <header className="flex h-12 shrink-0 items-center justify-between border-b px-4">
       <div className="flex min-w-0 items-center gap-2">
-        <Button variant="ghost" size="icon" onClick={closeProject} title="Back to projects">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={closeProject}
+          title="Back to projects"
+        >
           <ArrowLeft />
         </Button>
         <span className="text-sm font-semibold tracking-tight">Polemic</span>
@@ -48,7 +54,11 @@ export function TopBar() {
         <span className="truncate text-sm font-medium">{project?.name ?? ""}</span>
       </div>
       <div className="flex items-center gap-2">
-        <button type="button" onClick={() => setTexHelpOpen(true)} title="TeX status and install help">
+        <button
+          type="button"
+          onClick={() => setTexHelpOpen(true)}
+          title="TeX status and install help"
+        >
           <Badge variant={badge.variant}>{badge.label}</Badge>
         </button>
         <Button

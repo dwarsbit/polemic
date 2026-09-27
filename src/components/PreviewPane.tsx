@@ -11,6 +11,28 @@ pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
 
 const RENDER_SCALE = 1.2;
 
+// Cmd/Ctrl+click in the PDF: jump to the source line (SyncTeX backward).
+function onCanvasClick(event: MouseEvent) {
+  if (!(event.metaKey || event.ctrlKey)) return;
+  const canvas = event.currentTarget as HTMLCanvasElement;
+  const page = Number(canvas.dataset.page);
+  const pdfWidth = Number(canvas.dataset.pdfWidth);
+  const pdfHeight = Number(canvas.dataset.pdfHeight);
+  const x = (event.offsetX / canvas.clientWidth) * pdfWidth;
+  const y = (event.offsetY / canvas.clientHeight) * pdfHeight;
+  void (async () => {
+    const { project, mainFile } = useProjectStore.getState();
+    if (!project || !mainFile) return;
+    try {
+      const hit = await synctexBackward(project.path, mainFile, page, x, y);
+      await useProjectStore.getState().openFile(hit.file);
+      useEditorStore.getState().jumpTo(hit.line);
+    } catch (e) {
+      usePreviewStore.setState({ status: "error", error: String(e) });
+    }
+  })();
+}
+
 export function PreviewPane() {
   const status = usePreviewStore((s) => s.status);
   const pdfBytes = usePreviewStore((s) => s.pdfBytes);
@@ -47,7 +69,10 @@ export function PreviewPane() {
       }
     })().catch((e) => {
       if (!cancelled) {
-        usePreviewStore.setState({ status: "error", error: `failed to render PDF: ${e}` });
+        usePreviewStore.setState({
+          status: "error",
+          error: `failed to render PDF: ${e}`,
+        });
       }
     });
 
@@ -55,28 +80,6 @@ export function PreviewPane() {
       cancelled = true;
     };
   }, [pdfBytes]);
-
-  // Cmd/Ctrl+click in the PDF: jump to the source line (SyncTeX backward).
-  function onCanvasClick(event: MouseEvent) {
-    if (!(event.metaKey || event.ctrlKey)) return;
-    const canvas = event.currentTarget as HTMLCanvasElement;
-    const page = Number(canvas.dataset.page);
-    const pdfWidth = Number(canvas.dataset.pdfWidth);
-    const pdfHeight = Number(canvas.dataset.pdfHeight);
-    const x = (event.offsetX / canvas.clientWidth) * pdfWidth;
-    const y = (event.offsetY / canvas.clientHeight) * pdfHeight;
-    void (async () => {
-      const { project, mainFile } = useProjectStore.getState();
-      if (!project || !mainFile) return;
-      try {
-        const hit = await synctexBackward(project.path, mainFile, page, x, y);
-        await useProjectStore.getState().openFile(hit.file);
-        useEditorStore.getState().jumpTo(hit.line);
-      } catch (e) {
-        usePreviewStore.setState({ status: "error", error: String(e) });
-      }
-    })();
-  }
 
   // Forward search: scroll to (and briefly highlight) the requested spot.
   useEffect(() => {

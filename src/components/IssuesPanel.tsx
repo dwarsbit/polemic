@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { AlertTriangle, ChevronDown, ChevronUp, Loader2, ScrollText } from "lucide-react";
+import {
+  AlertTriangle,
+  ChevronDown,
+  ChevronUp,
+  Loader2,
+  ScrollText,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -72,7 +78,11 @@ export function IssuesPanel() {
             title={collapsed ? "Show issues" : "Hide issues"}
             onClick={() => setCollapsed((c) => !c)}
           >
-            {collapsed ? <ChevronUp className="size-3.5" /> : <ChevronDown className="size-3.5" />}
+            {collapsed ? (
+              <ChevronUp className="size-3.5" />
+            ) : (
+              <ChevronDown className="size-3.5" />
+            )}
           </Button>
         </div>
       </div>

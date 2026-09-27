@@ -54,7 +54,8 @@ export function Sidebar() {
           break;
         case "rename": {
           const entry = target as FileEntry;
-          if (entry && path && path !== entry.path) await store.renameEntry(entry.path, path);
+          if (entry && path && path !== entry.path)
+            await store.renameEntry(entry.path, path);
           break;
         }
         case "delete": {
@@ -105,9 +106,13 @@ export function Sidebar() {
         ) : (
           <FileTree
             entries={files}
-            onRename={(entry) => openDialog("rename", { target: entry, name: entry.path })}
+            onRename={(entry) =>
+              openDialog("rename", { target: entry, name: entry.path })
+            }
             onDelete={(entry) => openDialog("delete", { target: entry })}
-            onSetMain={(entry) => void useProjectStore.getState().setMainFile(entry.path)}
+            onSetMain={(entry) =>
+              void useProjectStore.getState().setMainFile(entry.path)
+            }
           />
         )}
       </div>
@@ -157,7 +162,10 @@ export function Sidebar() {
         ) : (
           <ul>
             {snapshots.map((snap) => (
-              <li key={snap.id} className="flex items-center justify-between rounded px-2 py-1">
+              <li
+                key={snap.id}
+                className="flex items-center justify-between rounded px-2 py-1"
+              >
                 <span className="truncate text-xs">
                   {new Date(snap.createdAtMillis).toLocaleString()}
                 </span>
@@ -209,7 +217,9 @@ export function Sidebar() {
           ) : (
             <Input
               autoFocus
-              placeholder={dialogKind === "newFolder" ? "chapters" : "chapters/intro.tex"}
+              placeholder={
+                dialogKind === "newFolder" ? "chapters" : "chapters/intro.tex"
+              }
               value={entryName}
               onChange={(e) => setEntryName(e.target.value)}
               onKeyDown={(e) => {
@@ -219,10 +229,20 @@ export function Sidebar() {
           )}
           {dialogError && <p className="text-xs text-destructive">{dialogError}</p>}
           <DialogFooter>
-            <Button variant="outline" onClick={() => setDialogKind(null)}>Cancel</Button>
+            <Button variant="outline" onClick={() => setDialogKind(null)}>
+              Cancel
+            </Button>
             <Button
-              variant={dialogKind === "delete" || dialogKind === "restore" ? "destructive" : "default"}
-              disabled={dialogKind !== "delete" && dialogKind !== "restore" && entryName.trim() === ""}
+              variant={
+                dialogKind === "delete" || dialogKind === "restore"
+                  ? "destructive"
+                  : "default"
+              }
+              disabled={
+                dialogKind !== "delete" &&
+                dialogKind !== "restore" &&
+                entryName.trim() === ""
+              }
               onClick={() => void handleConfirm()}
             >
               {dialogKind === "delete" && "Delete"}
