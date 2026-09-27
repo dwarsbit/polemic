@@ -73,17 +73,9 @@ export function FileTree({
                 <Star className="size-3 shrink-0 fill-amber-400 text-amber-400" />
               )}
               <span className="hidden items-center gap-0.5 group-hover:flex">
-                {entry.path.endsWith(".tex") && (
-                  <ActionButton
-                    title={mainFile === entry.path ? "Main file" : "Set as main file"}
-                    onClick={() => onSetMain(entry)}
-                  >
-                    <Star
-                      className={cn(
-                        "size-3",
-                        mainFile === entry.path && "fill-amber-400 text-amber-400",
-                      )}
-                    />
+                {entry.path.endsWith(".tex") && mainFile !== entry.path && (
+                  <ActionButton title="Set as main file" onClick={() => onSetMain(entry)}>
+                    <Star className="size-3" />
                   </ActionButton>
                 )}
                 <ActionButton title="Rename" onClick={() => onRename(entry)}>
