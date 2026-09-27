@@ -5,6 +5,7 @@ import { stex } from "@codemirror/legacy-modes/mode/stex";
 import { EditorView, basicSetup } from "codemirror";
 import { keymap } from "@codemirror/view";
 import { latexAutocompletion } from "@/lib/completion";
+import { useSettingsStore } from "@/store/settings";
 import { synctexForward } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
@@ -16,6 +17,7 @@ export function LatexEditor() {
   const jumpTarget = useEditorStore((s) => s.jumpTarget);
   const clearJump = useEditorStore((s) => s.clearJump);
   const docVersion = useEditorStore((s) => s.docVersion);
+  const fontSize = useSettingsStore((s) => s.fontSize);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -33,6 +35,7 @@ export function LatexEditor() {
             "&": { height: "100%" },
             ".cm-scroller": {
               fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+              fontSize: "var(--editor-font-size, 14px)",
             },
           }),
           keymap.of([
@@ -113,5 +116,11 @@ export function LatexEditor() {
     clearJump();
   }, [jumpTarget, clearJump]);
 
-  return <div ref={containerRef} className="h-full overflow-hidden" />;
+  return (
+    <div
+      ref={containerRef}
+      className="h-full overflow-hidden"
+      style={{ "--editor-font-size": `${fontSize}px` } as React.CSSProperties}
+    />
+  );
 }

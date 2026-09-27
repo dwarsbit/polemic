@@ -18,6 +18,14 @@ import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 
+function wordCount(source: string): number {
+  const stripped = source
+    .replace(/%[^\n]*/g, " ")
+    .replace(/\\[a-zA-Z]+(\[[^\]]*\])?(\{[^}]*\})?/g, " ")
+    .replace(/[{}]/g, " ");
+  return stripped.split(/\s+/).filter((w) => w.length > 0).length;
+}
+
 function issueIcon(issue: CompileIssue) {
   if (issue.severity === "error") {
     return <AlertTriangle className="mt-0.5 size-3.5 shrink-0 text-destructive" />;
@@ -42,6 +50,8 @@ export function IssuesPanel() {
   const issues = usePreviewStore((s) => s.issues);
   const status = usePreviewStore((s) => s.status);
   const log = usePreviewStore((s) => s.log);
+  const content = useEditorStore((s) => s.content);
+  const activeFile = useProjectStore((s) => s.activeFile);
   const [collapsed, setCollapsed] = useState(false);
   const [logOpen, setLogOpen] = useState(false);
 
@@ -60,6 +70,11 @@ export function IssuesPanel() {
           </span>
         )}
         <div className="ml-auto flex items-center gap-1">
+          {activeFile !== null && (
+            <span className="mr-1 text-xs text-muted-foreground tabular-nums">
+              {wordCount(content).toLocaleString()} words
+            </span>
+          )}
           {log !== null && (
             <Button
               variant="ghost"

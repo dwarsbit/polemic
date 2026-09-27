@@ -20,6 +20,11 @@ pub struct Settings {
     pub recent_projects: Vec<RecentProject>,
     pub main_files: HashMap<String, String>,
     pub open_files: HashMap<String, Vec<String>>,
+    pub pinned_projects: Vec<String>,
+    pub last_project_path: Option<String>,
+    pub theme: Option<String>,
+    pub auto_compile: Option<bool>,
+    pub font_size: Option<u32>,
 }
 
 /// Managed state holding the in-memory settings.

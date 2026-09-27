@@ -15,8 +15,16 @@ interface CommandSpec {
 
 const COMMANDS: CommandSpec[] = [
   { label: "\\section", template: "\\section{${title}}", detail: "Section heading" },
-  { label: "\\subsection", template: "\\subsection{${title}}", detail: "Subsection heading" },
-  { label: "\\subsubsection", template: "\\subsubsection{${title}}", detail: "Subsubsection heading" },
+  {
+    label: "\\subsection",
+    template: "\\subsection{${title}}",
+    detail: "Subsection heading",
+  },
+  {
+    label: "\\subsubsection",
+    template: "\\subsubsection{${title}}",
+    detail: "Subsubsection heading",
+  },
   { label: "\\textbf", template: "\\textbf{${text}}", detail: "Bold text" },
   { label: "\\textit", template: "\\textit{${text}}", detail: "Italic text" },
   { label: "\\emph", template: "\\emph{${text}}", detail: "Emphasize" },
@@ -26,12 +34,20 @@ const COMMANDS: CommandSpec[] = [
   { label: "\\label", template: "\\label{${key}}", detail: "Label for referencing" },
   { label: "\\ref", template: "\\ref{${key}}", detail: "Reference a label" },
   { label: "\\eqref", template: "\\eqref{${key}}", detail: "Reference an equation" },
-  { label: "\\usepackage", template: "\\usepackage{${package}}", detail: "Load a package" },
+  {
+    label: "\\usepackage",
+    template: "\\usepackage{${package}}",
+    detail: "Load a package",
+  },
   { label: "\\title", template: "\\title{${title}}", detail: "Document title" },
   { label: "\\author", template: "\\author{${author}}", detail: "Document author" },
   { label: "\\date", template: "\\date{${date}}", detail: "Document date" },
   { label: "\\maketitle", template: "\\maketitle", detail: "Render title block" },
-  { label: "\\tableofcontents", template: "\\tableofcontents", detail: "Table of contents" },
+  {
+    label: "\\tableofcontents",
+    template: "\\tableofcontents",
+    detail: "Table of contents",
+  },
   { label: "\\newpage", template: "\\newpage", detail: "Page break" },
   {
     label: "\\includegraphics",
@@ -54,7 +70,8 @@ const ENVIRONMENTS: { name: string; template: string }[] = [
   { name: "abstract", template: "\\begin{abstract}\n  ${content}\n\\end{abstract}" },
   {
     name: "equation",
-    template: "\\begin{equation}\n  \\label{eq:${label}}\n  ${equation}\n\\end{equation}",
+    template:
+      "\\begin{equation}\n  \\label{eq:${label}}\n  ${equation}\n\\end{equation}",
   },
   {
     name: "align",
@@ -104,7 +121,9 @@ function commandOptions(): Completion[] {
   return [...envOptions, ...cmdOptions];
 }
 
-export function latexCompletionSource(context: CompletionContext): CompletionResult | null {
+export function latexCompletionSource(
+  context: CompletionContext,
+): CompletionResult | null {
   // Environment name inside \begin{...}
   const envContext = context.matchBefore(/\\begin\{[a-zA-Z*]*/);
   if (envContext && envContext.to === context.pos) {

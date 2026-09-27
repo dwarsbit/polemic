@@ -203,8 +203,9 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       activeFile: removeInside(get().activeFile),
       mainFile: removeInside(get().mainFile),
       openFiles: get().openFiles.filter((f) => !isInside(path, f)),
-      lastSavedContent:
-        isInside(path, get().activeFile ?? "") ? null : get().lastSavedContent,
+      lastSavedContent: isInside(path, get().activeFile ?? "")
+        ? null
+        : get().lastSavedContent,
     });
     await get().refreshFiles();
   },

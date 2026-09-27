@@ -21,6 +21,11 @@ export interface Settings {
   recentProjects: RecentProject[];
   mainFiles: Record<string, string>;
   openFiles: Record<string, string[]>;
+  pinnedProjects: string[];
+  lastProjectPath: string | null;
+  theme: string | null;
+  autoCompile: boolean | null;
+  fontSize: number | null;
 }
 
 export interface ProjectInfo {
@@ -93,6 +98,30 @@ export function openProject(path: string): Promise<ProjectInfo> {
 
 export function removeRecentProject(path: string): Promise<Settings> {
   return invoke<Settings>("remove_recent_project", { path });
+}
+
+export function updatePreferences(
+  theme?: string,
+  autoCompile?: boolean,
+  fontSize?: number,
+): Promise<Settings> {
+  const args: Record<string, unknown> = {};
+  if (theme !== undefined) args.theme = theme;
+  if (autoCompile !== undefined) args.autoCompile = autoCompile;
+  if (fontSize !== undefined) args.fontSize = fontSize;
+  return invoke<Settings>("update_preferences", args);
+}
+
+export function setPinnedProject(path: string, pinned: boolean): Promise<Settings> {
+  return invoke<Settings>("set_pinned_project", { path, pinned });
+}
+
+export function renameProject(path: string, newName: string): Promise<ProjectInfo> {
+  return invoke<ProjectInfo>("rename_project", { path, newName });
+}
+
+export function deleteProject(path: string): Promise<Settings> {
+  return invoke<Settings>("delete_project", { path });
 }
 
 export function listFiles(projectDir: string): Promise<FileEntry[]> {

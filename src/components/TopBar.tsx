@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, FolderOpen, Loader2, Play, Zap } from "lucide-react";
+import { ArrowLeft, FolderOpen, Loader2, Play, Settings, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { SettingsDialog } from "@/components/SettingsDialog";
 import { TexHelpDialog } from "@/components/TexHelpDialog";
 import { detectTex, revealBuildFolder } from "@/lib/tauri";
 import { usePreviewStore } from "@/store/preview";
@@ -24,6 +25,7 @@ function texBadge(tex: Awaited<ReturnType<typeof detectTex>> | undefined): Badge
 
 export function TopBar() {
   const [texHelpOpen, setTexHelpOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const { data: tex } = useQuery({
     queryKey: ["tex-status"],
     queryFn: detectTex,
@@ -80,6 +82,14 @@ export function TopBar() {
           <FolderOpen />
         </Button>
         <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setSettingsOpen(true)}
+          title="Settings"
+        >
+          <Settings />
+        </Button>
+        <Button
           size="sm"
           variant="outline"
           onClick={() => void compileNow()}
@@ -90,6 +100,7 @@ export function TopBar() {
         </Button>
       </div>
       <TexHelpDialog open={texHelpOpen} onOpenChange={setTexHelpOpen} />
+      <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} />
     </header>
   );
 }

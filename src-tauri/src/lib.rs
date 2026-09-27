@@ -201,6 +201,7 @@ fn open_project(app: tauri::AppHandle, path: String) -> Result<ProjectInfo, Stri
     let info = project_info(&dir);
     settings::update(&app, |s| {
         settings::upsert_recent(s, &info.name, &info.path);
+        s.last_project_path = Some(info.path.clone());
     })?;
     Ok(info)
 }
@@ -209,6 +210,100 @@ fn open_project(app: tauri::AppHandle, path: String) -> Result<ProjectInfo, Stri
 fn remove_recent_project(app: tauri::AppHandle, path: String) -> Result<Settings, String> {
     settings::update(&app, |s| {
         s.recent_projects.retain(|r| r.path != path);
+        s.clone()
+    })
+}
+
+#[tauri::command]
+fn update_preferences(
+    app: tauri::AppHandle,
+    theme: Option<String>,
+    auto_compile: Option<bool>,
+    font_size: Option<u32>,
+) -> Result<Settings, String> {
+    settings::update(&app, |s| {
+        if theme.is_some() {
+            s.theme = theme;
+        }
+        if auto_compile.is_some() {
+            s.auto_compile = auto_compile;
+        }
+        if font_size.is_some() {
+            s.font_size = font_size;
+        }
+        s.clone()
+    })
+}
+
+#[tauri::command]
+fn set_pinned_project(app: tauri::AppHandle, path: String, pinned: bool) -> Result<Settings, String> {
+    settings::update(&app, |s| {
+        s.pinned_projects.retain(|p| p != &path);
+        if pinned {
+            s.pinned_projects.insert(0, path);
+        }
+        s.clone()
+    })
+}
+
+#[tauri::command]
+fn rename_project(
+    app: tauri::AppHandle,
+    path: String,
+    new_name: String,
+) -> Result<ProjectInfo, String> {
+    validate_project_name(&new_name)?;
+    let dir = canonical_project(&path)?;
+    let parent = dir
+        .parent()
+        .ok_or("project has no parent folder")?
+        .to_path_buf();
+    let new_dir = parent.join(new_name.trim());
+    if new_dir.exists() {
+        return Err(format!("\"{}\" already exists", new_name.trim()));
+    }
+    fs::rename(&dir, &new_dir).map_err(|e| format!("failed to rename project: {e}"))?;
+    let old_path = dir.to_string_lossy().to_string();
+    let new_path = new_dir.to_string_lossy().to_string();
+    settings::update(&app, |s| {
+        if let Some(v) = s.main_files.remove(&old_path) {
+            s.main_files.insert(new_path.clone(), v);
+        }
+        if let Some(v) = s.open_files.remove(&old_path) {
+            s.open_files.insert(new_path.clone(), v);
+        }
+        for recent in s.recent_projects.iter_mut() {
+            if recent.path == old_path {
+                recent.path = new_path.clone();
+                recent.name = new_name.trim().to_string();
+            }
+        }
+        for pinned in s.pinned_projects.iter_mut() {
+            if *pinned == old_path {
+                *pinned = new_path.clone();
+            }
+        }
+        if s.last_project_path.as_deref() == Some(old_path.as_str()) {
+            s.last_project_path = Some(new_path.clone());
+        }
+    })?;
+    Ok(project_info(&new_dir))
+}
+
+/// Move a project folder to the OS trash.
+#[tauri::command]
+fn delete_project(app: tauri::AppHandle, path: String) -> Result<Settings, String> {
+    let dir = canonical_project(&path)?;
+    trash::delete(&dir).map_err(|e| format!("failed to move project to trash: {e}"))?;
+    let old_path = dir.to_string_lossy().to_string();
+    settings::update(&app, |s| {
+        s.recent_projects.retain(|r| r.path != old_path);
+        s.pinned_projects.retain(|p| *p != old_path);
+        s.main_files.remove(&old_path);
+        s.open_files.remove(&old_path);
+        if s.last_project_path.as_deref() == Some(old_path.as_str()) {
+            s.last_project_path = None;
+        }
         s.clone()
     })
 }
@@ -492,6 +587,10 @@ pub fn run() {
             create_project,
             open_project,
             remove_recent_project,
+            update_preferences,
+            set_pinned_project,
+            rename_project,
+            delete_project,
             list_files,
             read_project_file,
             write_project_file,

@@ -1,22 +1,46 @@
 import { useEffect, useState } from "react";
 import { open as openDialog } from "@tauri-apps/plugin-dialog";
-import { ArrowUpRight, FolderOpen, Plus, Trash2 } from "lucide-react";
+import {
+  ArrowUpRight,
+  FolderOpen,
+  Pencil,
+  Pin,
+  PinOff,
+  Plus,
+  Trash2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import {
   createProject,
+  deleteProject,
   getSettings,
-  removeRecentProject,
+  renameProject,
+  setPinnedProject,
   type Settings,
 } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
 
+type ActionDialog =
+  | { kind: "none" }
+  | { kind: "rename"; path: string; name: string }
+  | { kind: "delete"; path: string; name: string };
+
 export function LibraryView() {
   const [settings, setSettings] = useState<Settings | null>(null);
   const [name, setName] = useState("");
+  const [newName, setNewName] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [action, setAction] = useState<ActionDialog>({ kind: "none" });
   const openProject = useProjectStore((s) => s.openProject);
 
   useEffect(() => {
@@ -24,6 +48,14 @@ export function LibraryView() {
       .then(setSettings)
       .catch((e) => setError(String(e)));
   }, []);
+
+  async function refresh() {
+    try {
+      setSettings(await getSettings());
+    } catch (e) {
+      setError(String(e));
+    }
+  }
 
   async function handleCreate() {
     setError(null);
@@ -53,10 +85,24 @@ export function LibraryView() {
     if (typeof dir === "string" && dir) await handleOpen(dir);
   }
 
-  async function handleRemoveRecent(path: string) {
+  const projects = settings
+    ? [...settings.recentProjects].sort((a, b) => {
+        const aPinned = settings.pinnedProjects.includes(a.path) ? 0 : 1;
+        const bPinned = settings.pinnedProjects.includes(b.path) ? 0 : 1;
+        return aPinned - bPinned;
+      })
+    : [];
+
+  async function confirmAction() {
     setError(null);
     try {
-      setSettings(await removeRecentProject(path));
+      if (action.kind === "rename") {
+        await renameProject(action.path, newName);
+        await refresh();
+      } else if (action.kind === "delete") {
+        setSettings(await deleteProject(action.path));
+      }
+      setAction({ kind: "none" });
     } catch (e) {
       setError(String(e));
     }
@@ -104,48 +150,118 @@ export function LibraryView() {
         </h2>
         {settings === null ? (
           <p className="text-sm text-muted-foreground">Loading…</p>
-        ) : settings.recentProjects.length === 0 ? (
+        ) : projects.length === 0 ? (
           <p className="text-sm text-muted-foreground">No projects yet.</p>
         ) : (
           <ul className="space-y-1">
-            {settings.recentProjects.map((project) => (
-              <li
-                key={project.path}
-                className="flex items-center justify-between rounded px-2 py-1.5 hover:bg-accent"
-              >
-                <button
-                  type="button"
-                  className="flex min-w-0 flex-col text-left"
-                  onClick={() => void handleOpen(project.path)}
+            {projects.map((project) => {
+              const pinned = settings.pinnedProjects.includes(project.path);
+              return (
+                <li
+                  key={project.path}
+                  className="group flex items-center justify-between rounded px-2 py-1.5 hover:bg-accent"
                 >
-                  <span className="truncate text-sm font-medium">{project.name}</span>
-                  <span className="truncate text-xs text-muted-foreground">
-                    {project.path}
-                  </span>
-                </button>
-                <div className="flex items-center gap-1">
-                  <Button
-                    variant="ghost"
-                    size="icon"
+                  <button
+                    type="button"
+                    className="flex min-w-0 flex-col text-left"
                     onClick={() => void handleOpen(project.path)}
-                    title="Open project"
                   >
-                    <ArrowUpRight />
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => void handleRemoveRecent(project.path)}
-                    title="Remove from recents (files are kept on disk)"
-                  >
-                    <Trash2 />
-                  </Button>
-                </div>
-              </li>
-            ))}
+                    <span className="truncate text-sm font-medium">
+                      {pinned && <Pin className="mr-1 inline size-3 -rotate-45" />}
+                      {project.name}
+                    </span>
+                    <span className="truncate text-xs text-muted-foreground">
+                      {project.path}
+                    </span>
+                  </button>
+                  <div className="flex shrink-0 items-center gap-1">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      title={pinned ? "Unpin project" : "Pin project"}
+                      onClick={() => {
+                        void setPinnedProject(project.path, !pinned).then(refresh);
+                      }}
+                    >
+                      {pinned ? <PinOff /> : <Pin />}
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      title="Rename project"
+                      onClick={() => {
+                        setNewName(project.name);
+                        setAction({ kind: "rename", ...project });
+                      }}
+                    >
+                      <Pencil />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      title="Move project to trash"
+                      onClick={() => setAction({ kind: "delete", ...project })}
+                    >
+                      <Trash2 />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      title="Open project"
+                      onClick={() => void handleOpen(project.path)}
+                    >
+                      <ArrowUpRight />
+                    </Button>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         )}
       </div>
+
+      <Dialog
+        open={action.kind !== "none"}
+        onOpenChange={(open) => {
+          if (!open) setAction({ kind: "none" });
+        }}
+      >
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>
+              {action.kind === "rename" ? "Rename project" : "Delete project"}
+            </DialogTitle>
+          </DialogHeader>
+          {action.kind === "rename" ? (
+            <Input
+              autoFocus
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && newName.trim() !== "") void confirmAction();
+              }}
+            />
+          ) : action.kind === "delete" ? (
+            <p className="text-sm">
+              Move <span className="font-medium">{action.name}</span> to the trash? The
+              folder stays in the trash until you empty it.
+            </p>
+          ) : null}
+          {error && <p className="text-xs text-destructive">{error}</p>}
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setAction({ kind: "none" })}>
+              Cancel
+            </Button>
+            <Button
+              variant={action.kind === "delete" ? "destructive" : "default"}
+              disabled={action.kind === "rename" && newName.trim() === ""}
+              onClick={() => void confirmAction()}
+            >
+              {action.kind === "delete" ? "Move to trash" : "Rename"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
