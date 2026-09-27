@@ -14,7 +14,9 @@
       {
         "title": "Polemic",
         "width": 1400,
-        "height": 900
+        "height": 900,
+        "minWidth": 960,
+        "minHeight": 600
       }
     ],
     "security": {
@@ -30,6 +32,9 @@
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ]
+    ],
+    "shortDescription": "Local-first LaTeX editor",
+    "longDescription": "Polemic is an open source, local-first LaTeX editor. Write LaTeX with a code editor and live PDF preview, compiled on your own machine with your own TeX distribution.",
+    "copyright": "Copyright (c) 2026 Leon"
   }
 }
