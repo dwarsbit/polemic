@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseOutline } from "@/lib/outline";
+import { extractLabels, parseOutline } from "@/lib/outline";
 
 describe("parseOutline", () => {
   it("finds sections, subsections and subsubsections with line numbers", () => {
@@ -30,5 +30,17 @@ describe("parseOutline", () => {
 
   it("returns empty for a source without sections", () => {
     expect(parseOutline("hello world")).toEqual([]);
+  });
+});
+
+describe("extractLabels", () => {
+  it("collects all labels in order", () => {
+    const source =
+      "Some \\label{intro} text \\label{eq:main} more \\label{fig:chart} end";
+    expect(extractLabels(source)).toEqual(["intro", "eq:main", "fig:chart"]);
+  });
+
+  it("returns empty when there are no labels", () => {
+    expect(extractLabels("no labels here")).toEqual([]);
   });
 });

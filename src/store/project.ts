@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import * as api from "@/lib/tauri";
+import { extractLabels } from "@/lib/outline";
 import { useEditorStore } from "@/store/editor";
 
 interface ProjectState {
@@ -10,6 +11,8 @@ interface ProjectState {
   mainFile: string | null;
   lastSavedContent: string | null;
   snapshots: api.SnapshotInfo[];
+  labelsByFile: Record<string, string[]>;
+  allLabels: () => string[];
   openProject: (path: string) => Promise<void>;
   closeProject: () => void;
   refreshFiles: () => Promise<void>;
@@ -44,6 +47,18 @@ function isInside(parentPath: string, childPath: string): boolean {
   return childPath === parentPath || childPath.startsWith(parentPath + "/");
 }
 
+function collectTexPaths(entries: api.FileEntry[]): string[] {
+  const paths: string[] = [];
+  for (const entry of entries) {
+    if (entry.isDir) {
+      paths.push(...collectTexPaths(entry.children));
+    } else if (entry.path.endsWith(".tex")) {
+      paths.push(entry.path);
+    }
+  }
+  return paths;
+}
+
 export const useProjectStore = create<ProjectState>((set, get) => ({
   project: null,
   files: [],
@@ -52,6 +67,14 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   mainFile: null,
   lastSavedContent: null,
   snapshots: [],
+  labelsByFile: {},
+  allLabels: () => {
+    const seen = new Set<string>();
+    for (const labels of Object.values(useProjectStore.getState().labelsByFile)) {
+      for (const label of labels) seen.add(label);
+    }
+    return [...seen];
+  },
 
   openProject: async (path) => {
     const info = await api.openProject(path);
@@ -67,7 +90,17 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     const storedOpen = (settings.openFiles[info.path] ?? []).filter((f) =>
       findFile(files, f),
     );
-    set({ project: info, files, mainFile, openFiles: storedOpen });
+    const labelsByFile: Record<string, string[]> = {};
+    for (const texPath of collectTexPaths(files)) {
+      try {
+        labelsByFile[texPath] = extractLabels(
+          await api.readProjectFile(info.path, texPath),
+        );
+      } catch {
+        // unreadable file: skip its labels
+      }
+    }
+    set({ project: info, files, mainFile, openFiles: storedOpen, labelsByFile });
     const target = storedOpen.length > 0 ? storedOpen[storedOpen.length - 1] : mainFile;
     if (target) {
       await get().openFile(target);
@@ -87,6 +120,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       mainFile: null,
       lastSavedContent: null,
       snapshots: [],
+      labelsByFile: {},
     }),
 
   refreshFiles: async () => {
@@ -102,7 +136,12 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     const content = await api.readProjectFile(project.path, path);
     useEditorStore.getState().loadContent(content);
     const nextOpen = openFiles.includes(path) ? openFiles : [...openFiles, path];
-    set({ activeFile: path, lastSavedContent: content, openFiles: nextOpen });
+    set({
+      activeFile: path,
+      lastSavedContent: content,
+      openFiles: nextOpen,
+      labelsByFile: { ...get().labelsByFile, [path]: extractLabels(content) },
+    });
     void api.setOpenFiles(project.path, nextOpen);
   },
 
@@ -183,7 +222,10 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     const content = useEditorStore.getState().content;
     if (content === lastSavedContent) return false;
     await api.writeProjectFile(project.path, activeFile, content);
-    set({ lastSavedContent: content });
+    set({
+      lastSavedContent: content,
+      labelsByFile: { ...get().labelsByFile, [activeFile]: extractLabels(content) },
+    });
     return true;
   },
 

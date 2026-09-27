@@ -18,3 +18,14 @@ export function parseOutline(source: string): OutlineEntry[] {
   });
   return entries;
 }
+
+export function extractLabels(source: string): string[] {
+  const labels: string[] = [];
+  const re = /\\label\{([^}]+)\}/g;
+  let match = re.exec(source);
+  while (match !== null) {
+    labels.push(match[1]);
+    match = re.exec(source);
+  }
+  return labels;
+}

@@ -4,6 +4,7 @@ import { StreamLanguage } from "@codemirror/language";
 import { stex } from "@codemirror/legacy-modes/mode/stex";
 import { EditorView, basicSetup } from "codemirror";
 import { keymap } from "@codemirror/view";
+import { latexAutocompletion } from "@/lib/completion";
 import { synctexForward } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
@@ -26,6 +27,7 @@ export function LatexEditor() {
         extensions: [
           basicSetup,
           StreamLanguage.define(stex),
+          latexAutocompletion,
           EditorView.lineWrapping,
           EditorView.theme({
             "&": { height: "100%" },
