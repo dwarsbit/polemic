@@ -76,7 +76,7 @@ export function Sidebar() {
   }
 
   return (
-    <aside className="flex w-60 shrink-0 flex-col border-r">
+    <aside className="flex h-full w-full flex-col border-r">
       <div className="flex items-center justify-between px-3 py-2">
         <span className="text-xs font-medium text-muted-foreground">FILES</span>
         <div className="flex items-center gap-0.5">

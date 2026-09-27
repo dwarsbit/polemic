@@ -1,15 +1,13 @@
 import { useEffect, useRef } from "react";
 import * as pdfjs from "pdfjs-dist";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
-import { AlertTriangle, FileText, Loader2 } from "lucide-react";
+import { AlertTriangle, FileText, Loader2, ZoomIn, ZoomOut } from "lucide-react";
 import { synctexBackward } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 
 pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
-
-const RENDER_SCALE = 1.2;
 
 // Cmd/Ctrl+click in the PDF: jump to the source line (SyncTeX backward).
 function onCanvasClick(event: MouseEvent) {
@@ -39,9 +37,12 @@ export function PreviewPane() {
   const error = usePreviewStore((s) => s.error);
   const scrollTarget = usePreviewStore((s) => s.scrollTarget);
   const scrollVersion = usePreviewStore((s) => s.scrollVersion);
+  const zoom = usePreviewStore((s) => s.zoom);
+  const zoomIn = usePreviewStore((s) => s.zoomIn);
+  const zoomOut = usePreviewStore((s) => s.zoomOut);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Render the PDF document.
+  // Render the PDF document. Zoom 1 = fit pane width.
   useEffect(() => {
     const container = containerRef.current;
     if (!container || !pdfBytes) return;
@@ -52,17 +53,20 @@ export function PreviewPane() {
       const doc = await pdfjs.getDocument({ data: pdfBytes.slice() }).promise;
       if (cancelled) return;
       container.replaceChildren();
+      const fitWidth = container.clientWidth;
       for (let pageNumber = 1; pageNumber <= doc.numPages; pageNumber++) {
         if (cancelled) return;
         const page = await doc.getPage(pageNumber);
-        const viewport = page.getViewport({ scale: RENDER_SCALE });
+        const base = page.getViewport({ scale: 1 });
+        const fitScale = Math.max(0.1, fitWidth / base.width);
+        const viewport = page.getViewport({ scale: fitScale * zoom });
         const canvas = document.createElement("canvas");
         canvas.width = viewport.width;
         canvas.height = viewport.height;
-        canvas.className = "block w-full border-b bg-white shadow-sm";
+        canvas.className = "block border-b bg-white shadow-sm";
         canvas.dataset.page = String(pageNumber);
-        canvas.dataset.pdfWidth = String(viewport.width / RENDER_SCALE);
-        canvas.dataset.pdfHeight = String(viewport.height / RENDER_SCALE);
+        canvas.dataset.pdfWidth = String(base.width);
+        canvas.dataset.pdfHeight = String(base.height);
         canvas.addEventListener("click", onCanvasClick);
         container.appendChild(canvas);
         await page.render({ canvas, viewport }).promise;
@@ -79,7 +83,7 @@ export function PreviewPane() {
     return () => {
       cancelled = true;
     };
-  }, [pdfBytes]);
+  }, [pdfBytes, zoom]);
 
   // Forward search: scroll to (and briefly highlight) the requested spot.
   useEffect(() => {
@@ -109,12 +113,33 @@ export function PreviewPane() {
 
   return (
     <div className="flex h-full w-full flex-col">
-      <div className="flex items-center justify-between border-b px-3 py-2 text-xs font-medium text-muted-foreground">
-        PREVIEW
-        <span className="text-[10px]">Cmd+click: jump to source</span>
-        {status === "compiling" && <Loader2 className="size-3.5 animate-spin" />}
+      <div className="flex h-9 shrink-0 items-center justify-between border-b px-3 text-xs font-medium text-muted-foreground">
+        <span>PREVIEW</span>
+        <div className="flex items-center gap-1">
+          <span className="text-[10px]">Cmd+click: source</span>
+          <button
+            type="button"
+            className="rounded p-1 hover:bg-accent"
+            title="Zoom out"
+            onClick={zoomOut}
+          >
+            <ZoomOut className="size-3.5" />
+          </button>
+          <span className="w-9 text-center text-[10px] tabular-nums">
+            {Math.round(zoom * 100)}%
+          </span>
+          <button
+            type="button"
+            className="rounded p-1 hover:bg-accent"
+            title="Zoom in"
+            onClick={zoomIn}
+          >
+            <ZoomIn className="size-3.5" />
+          </button>
+          {status === "compiling" && <Loader2 className="ml-1 size-3.5 animate-spin" />}
+        </div>
       </div>
-      <div className="relative flex-1 overflow-y-auto bg-muted/40">
+      <div className="relative flex-1 overflow-auto bg-muted/40">
         {status === "error" && error ? (
           <div className="flex h-full flex-col items-center gap-2 p-6">
             <AlertTriangle className="size-8 text-destructive" />
@@ -130,7 +155,7 @@ export function PreviewPane() {
             </p>
           </div>
         ) : pdfBytes ? (
-          <div ref={containerRef} className="mx-auto w-full max-w-[2000px]" />
+          <div ref={containerRef} className="mx-auto w-full" />
         ) : (
           <div className="flex h-full items-center justify-center">
             <div className="flex max-w-64 flex-col items-center gap-2 text-muted-foreground">

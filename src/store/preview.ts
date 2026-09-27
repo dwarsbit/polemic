@@ -18,8 +18,12 @@ interface PreviewState {
   log: string | null;
   scrollTarget: ScrollTarget | null;
   scrollVersion: number;
+  zoom: number;
+  zoomIn: () => void;
+  zoomOut: () => void;
   autoCompile: boolean;
   toggleAutoCompile: () => void;
+  setAutoCompile: (value: boolean) => void;
   requestScroll: (target: ScrollTarget) => void;
   compileNow: () => Promise<void>;
 }
@@ -32,8 +36,12 @@ export const usePreviewStore = create<PreviewState>((set) => ({
   log: null,
   scrollTarget: null,
   scrollVersion: 0,
+  zoom: 1,
+  zoomIn: () => set((s) => ({ zoom: Math.min(s.zoom + 0.25, 3) })),
+  zoomOut: () => set((s) => ({ zoom: Math.max(s.zoom - 0.25, 0.5) })),
   autoCompile: true,
   toggleAutoCompile: () => set((state) => ({ autoCompile: !state.autoCompile })),
+  setAutoCompile: (value) => set({ autoCompile: value }),
   requestScroll: (target) =>
     set((state) => ({ scrollTarget: target, scrollVersion: state.scrollVersion + 1 })),
   compileNow: async () => {

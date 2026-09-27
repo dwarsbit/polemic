@@ -5,6 +5,7 @@ import { useEditorStore } from "@/store/editor";
 interface ProjectState {
   project: api.ProjectInfo | null;
   files: api.FileEntry[];
+  openFiles: string[];
   activeFile: string | null;
   mainFile: string | null;
   lastSavedContent: string | null;
@@ -13,6 +14,7 @@ interface ProjectState {
   closeProject: () => void;
   refreshFiles: () => Promise<void>;
   openFile: (path: string) => Promise<void>;
+  closeFile: (path: string) => Promise<void>;
   createEntry: (path: string, isDir: boolean) => Promise<void>;
   renameEntry: (path: string, newPath: string) => Promise<void>;
   deleteEntry: (path: string) => Promise<void>;
@@ -45,6 +47,7 @@ function isInside(parentPath: string, childPath: string): boolean {
 export const useProjectStore = create<ProjectState>((set, get) => ({
   project: null,
   files: [],
+  openFiles: [],
   activeFile: null,
   mainFile: null,
   lastSavedContent: null,
@@ -61,8 +64,17 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
         : findFile(files, "main.tex")
           ? "main.tex"
           : firstTex(files);
-    set({ project: info, files, mainFile });
-    if (mainFile) await get().openFile(mainFile);
+    const storedOpen = (settings.openFiles[info.path] ?? []).filter((f) =>
+      findFile(files, f),
+    );
+    set({ project: info, files, mainFile, openFiles: storedOpen });
+    const target = storedOpen.length > 0 ? storedOpen[storedOpen.length - 1] : mainFile;
+    if (target) {
+      await get().openFile(target);
+    } else {
+      useEditorStore.getState().loadContent("");
+      set({ activeFile: null, lastSavedContent: null });
+    }
     await get().refreshSnapshots();
   },
 
@@ -70,6 +82,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     set({
       project: null,
       files: [],
+      openFiles: [],
       activeFile: null,
       mainFile: null,
       lastSavedContent: null,
@@ -84,11 +97,35 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
 
   openFile: async (path) => {
     await get().saveActiveFile();
-    const { project } = get();
+    const { project, openFiles } = get();
     if (!project) return;
     const content = await api.readProjectFile(project.path, path);
     useEditorStore.getState().loadContent(content);
-    set({ activeFile: path, lastSavedContent: content });
+    const nextOpen = openFiles.includes(path) ? openFiles : [...openFiles, path];
+    set({ activeFile: path, lastSavedContent: content, openFiles: nextOpen });
+    void api.setOpenFiles(project.path, nextOpen);
+  },
+
+  closeFile: async (path) => {
+    const { project, activeFile, openFiles } = get();
+    if (!project || !openFiles.includes(path)) return;
+    if (activeFile === path) {
+      await get().saveActiveFile();
+    }
+    const index = openFiles.indexOf(path);
+    const remaining = openFiles.filter((f) => f !== path);
+    set({ openFiles: remaining });
+    await api.setOpenFiles(project.path, remaining);
+    if (activeFile !== path) return;
+    if (remaining.length > 0) {
+      const next = remaining[Math.min(index, remaining.length - 1)];
+      const content = await api.readProjectFile(project.path, next);
+      useEditorStore.getState().loadContent(content);
+      set({ activeFile: next, lastSavedContent: content });
+    } else {
+      useEditorStore.getState().loadContent("");
+      set({ activeFile: null, lastSavedContent: null });
+    }
   },
 
   createEntry: async (path, isDir) => {
@@ -103,13 +140,13 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     const { project } = get();
     if (!project) return;
     await api.renameEntry(project.path, path, newPath);
-    if (get().activeFile !== null && isInside(path, get().activeFile!)) {
-      const suffix = get().activeFile!.slice(path.length);
-      set({ activeFile: newPath + suffix });
-    }
-    if (get().mainFile !== null && isInside(path, get().mainFile!)) {
-      const suffix = get().mainFile!.slice(path.length);
-      await get().setMainFile(newPath + suffix);
+    const remap = (file: string | null) =>
+      file !== null && isInside(path, file) ? newPath + file.slice(path.length) : file;
+    const activeFile = remap(get().activeFile);
+    const mainFile = remap(get().mainFile);
+    set({ activeFile, openFiles: get().openFiles.map((f) => remap(f) ?? f) });
+    if (mainFile !== null && mainFile !== get().mainFile) {
+      await get().setMainFile(mainFile);
     }
     await get().refreshFiles();
   },
@@ -118,13 +155,18 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     const { project } = get();
     if (!project) return;
     await api.deleteEntry(project.path, path);
-    if (get().activeFile !== null && isInside(path, get().activeFile!)) {
+    const removeInside = (file: string | null) =>
+      file !== null && isInside(path, file) ? null : file;
+    if (isInside(path, get().activeFile ?? "")) {
       useEditorStore.getState().loadContent("");
-      set({ activeFile: null, lastSavedContent: null });
     }
-    if (get().mainFile !== null && isInside(path, get().mainFile!)) {
-      set({ mainFile: null });
-    }
+    set({
+      activeFile: removeInside(get().activeFile),
+      mainFile: removeInside(get().mainFile),
+      openFiles: get().openFiles.filter((f) => !isInside(path, f)),
+      lastSavedContent:
+        isInside(path, get().activeFile ?? "") ? null : get().lastSavedContent,
+    });
     await get().refreshFiles();
   },
 

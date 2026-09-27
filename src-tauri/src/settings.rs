@@ -19,6 +19,7 @@ pub struct Settings {
     pub projects_root: Option<String>,
     pub recent_projects: Vec<RecentProject>,
     pub main_files: HashMap<String, String>,
+    pub open_files: HashMap<String, Vec<String>>,
 }
 
 /// Managed state holding the in-memory settings.

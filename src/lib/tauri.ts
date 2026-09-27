@@ -20,6 +20,7 @@ export interface Settings {
   projectsRoot: string;
   recentProjects: RecentProject[];
   mainFiles: Record<string, string>;
+  openFiles: Record<string, string[]>;
 }
 
 export interface ProjectInfo {
@@ -132,6 +133,10 @@ export function deleteEntry(projectDir: string, path: string): Promise<void> {
 
 export function setMainFile(projectDir: string, mainFile: string): Promise<void> {
   return invoke<void>("set_main_file", { projectDir, mainFile });
+}
+
+export function setOpenFiles(projectDir: string, files: string[]): Promise<void> {
+  return invoke<void>("set_open_files", { projectDir, files });
 }
 
 export function compileProject(

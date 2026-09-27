@@ -285,6 +285,19 @@ fn set_main_file(
     })
 }
 
+#[tauri::command]
+fn set_open_files(
+    app: tauri::AppHandle,
+    project_dir: String,
+    files: Vec<String>,
+) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    settings::update(&app, |s| {
+        s.open_files
+            .insert(dir.to_string_lossy().to_string(), files);
+    })
+}
+
 // --- compilation ----------------------------------------------------------
 
 #[tauri::command]
@@ -486,6 +499,7 @@ pub fn run() {
             rename_entry,
             delete_entry,
             set_main_file,
+            set_open_files,
             compile_project,
             get_pdf,
             synctex_forward,
