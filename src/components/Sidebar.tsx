@@ -18,6 +18,14 @@ import { useProjectStore } from "@/store/project";
 
 type DialogKind = null | "newFile" | "newFolder" | "rename" | "delete" | "restore";
 
+/** Append .tex to extensionless names (new files, or renames of .tex files). */
+function ensureTexExtension(path: string, wasTex = true): string {
+  if (!path.includes(".")) {
+    return wasTex ? `${path}.tex` : path;
+  }
+  return path;
+}
+
 export function Sidebar() {
   const files = useProjectStore((s) => s.files);
   const activeFile = useProjectStore((s) => s.activeFile);
@@ -43,19 +51,20 @@ export function Sidebar() {
 
   async function handleConfirm() {
     const store = useProjectStore.getState();
-    const path = entryName.trim();
+    const raw = entryName.trim();
     try {
       switch (dialogKind) {
         case "newFile":
-          if (path) await store.createEntry(path, false);
+          if (raw) await store.createEntry(ensureTexExtension(raw), false);
           break;
         case "newFolder":
-          if (path) await store.createEntry(path, true);
+          if (raw) await store.createEntry(raw, true);
           break;
         case "rename": {
           const entry = target as FileEntry;
-          if (entry && path && path !== entry.path)
-            await store.renameEntry(entry.path, path);
+          const wasTex = entry?.path.endsWith(".tex") ?? false;
+          if (entry && raw && raw !== entry.path)
+            await store.renameEntry(entry.path, ensureTexExtension(raw, wasTex));
           break;
         }
         case "delete": {

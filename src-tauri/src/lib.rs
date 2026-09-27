@@ -247,6 +247,23 @@ fn set_pinned_project(app: tauri::AppHandle, path: String, pinned: bool) -> Resu
 }
 
 #[tauri::command]
+fn set_panel_layout(
+    app: tauri::AppHandle,
+    layout: std::collections::HashMap<String, f64>,
+) -> Result<(), String> {
+    settings::update(&app, |s| {
+        s.panel_layout = Some(layout);
+    })
+}
+
+#[tauri::command]
+fn set_preview_zoom(app: tauri::AppHandle, zoom: f64) -> Result<(), String> {
+    settings::update(&app, |s| {
+        s.preview_zoom = Some(zoom);
+    })
+}
+
+#[tauri::command]
 fn rename_project(
     app: tauri::AppHandle,
     path: String,
@@ -588,6 +605,8 @@ pub fn run() {
             open_project,
             remove_recent_project,
             update_preferences,
+            set_panel_layout,
+            set_preview_zoom,
             set_pinned_project,
             rename_project,
             delete_project,

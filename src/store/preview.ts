@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { compileProject, getPdf, type CompileIssue } from "@/lib/tauri";
+import { compileProject, getPdf, setPreviewZoom, type CompileIssue } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
 
 export type PreviewStatus = "idle" | "compiling" | "ok" | "error";
@@ -10,6 +10,9 @@ export interface ScrollTarget {
   y: number;
 }
 
+// Guards against overlapping compiles: only the newest run may apply its result.
+let compileGeneration = 0;
+
 interface PreviewState {
   status: PreviewStatus;
   pdfBytes: Uint8Array | null;
@@ -19,6 +22,7 @@ interface PreviewState {
   scrollTarget: ScrollTarget | null;
   scrollVersion: number;
   zoom: number;
+  setZoom: (zoom: number) => void;
   zoomIn: () => void;
   zoomOut: () => void;
   autoCompile: boolean;
@@ -26,6 +30,11 @@ interface PreviewState {
   setAutoCompile: (value: boolean) => void;
   requestScroll: (target: ScrollTarget) => void;
   compileNow: () => Promise<void>;
+}
+
+function adjustZoom(set: (partial: { zoom: number }) => void, zoom: number) {
+  set({ zoom });
+  void setPreviewZoom(zoom);
 }
 
 export const usePreviewStore = create<PreviewState>((set) => ({
@@ -37,8 +46,9 @@ export const usePreviewStore = create<PreviewState>((set) => ({
   scrollTarget: null,
   scrollVersion: 0,
   zoom: 1,
-  zoomIn: () => set((s) => ({ zoom: Math.min(s.zoom + 0.25, 3) })),
-  zoomOut: () => set((s) => ({ zoom: Math.max(s.zoom - 0.25, 0.5) })),
+  setZoom: (zoom) => set({ zoom }),
+  zoomIn: () => adjustZoom(set, Math.min(usePreviewStore.getState().zoom + 0.25, 3)),
+  zoomOut: () => adjustZoom(set, Math.max(usePreviewStore.getState().zoom - 0.25, 0.5)),
   autoCompile: true,
   toggleAutoCompile: () => set((state) => ({ autoCompile: !state.autoCompile })),
   setAutoCompile: (value) => set({ autoCompile: value }),
@@ -55,12 +65,15 @@ export const usePreviewStore = create<PreviewState>((set) => ({
       });
       return;
     }
+    const generation = ++compileGeneration;
     set({ status: "compiling" });
     try {
       const outcome = await compileProject(project.path, mainFile);
+      if (generation !== compileGeneration) return;
       if (outcome.success) {
         try {
           const pdfBytes = await getPdf(project.path, mainFile);
+          if (generation !== compileGeneration) return;
           set({
             status: "ok",
             pdfBytes,
@@ -82,7 +95,9 @@ export const usePreviewStore = create<PreviewState>((set) => ({
       }
     } catch (e) {
       // Infrastructure failure (e.g. latexmk missing).
-      set({ status: "error", error: String(e), issues: [], log: null });
+      if (generation === compileGeneration) {
+        set({ status: "error", error: String(e), issues: [], log: null });
+      }
     }
   },
 }));

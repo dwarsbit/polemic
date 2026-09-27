@@ -1,4 +1,4 @@
-import { FileText, Folder, Pencil, Star, Trash2 } from "lucide-react";
+import { BookMarked, FileText, Folder, Pencil, Star, Trash2 } from "lucide-react";
 import type { FileEntry } from "@/lib/tauri";
 import { cn } from "@/lib/utils";
 import { useProjectStore } from "@/store/project";
@@ -66,7 +66,11 @@ export function FileTree({
                 className="flex min-w-0 flex-1 items-center gap-1.5 text-left"
                 onClick={() => void openFile(entry.path)}
               >
-                <FileText className="size-3.5 shrink-0 text-muted-foreground" />
+                {entry.path.endsWith(".bib") ? (
+                  <BookMarked className="size-3.5 shrink-0 text-muted-foreground" />
+                ) : (
+                  <FileText className="size-3.5 shrink-0 text-muted-foreground" />
+                )}
                 <span className="truncate">{entry.name}</span>
               </button>
               {mainFile === entry.path && (
@@ -74,7 +78,10 @@ export function FileTree({
               )}
               <span className="hidden items-center gap-0.5 group-hover:flex">
                 {entry.path.endsWith(".tex") && mainFile !== entry.path && (
-                  <ActionButton title="Set as main file" onClick={() => onSetMain(entry)}>
+                  <ActionButton
+                    title="Set as main file"
+                    onClick={() => onSetMain(entry)}
+                  >
                     <Star className="size-3" />
                   </ActionButton>
                 )}

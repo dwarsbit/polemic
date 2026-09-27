@@ -25,6 +25,8 @@ pub struct Settings {
     pub theme: Option<String>,
     pub auto_compile: Option<bool>,
     pub font_size: Option<u32>,
+    pub panel_layout: Option<HashMap<String, f64>>,
+    pub preview_zoom: Option<f64>,
 }
 
 /// Managed state holding the in-memory settings.

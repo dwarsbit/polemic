@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { updatePreferences, type Settings } from "@/lib/tauri";
+import { setPanelLayout, updatePreferences, type Settings } from "@/lib/tauri";
 import { applyTheme, type ThemePreference } from "@/lib/theme";
 import { usePreviewStore } from "@/store/preview";
 
@@ -8,10 +8,12 @@ interface SettingsState {
   theme: ThemePreference;
   fontSize: number;
   projectsRoot: string | null;
+  panelLayout: Record<string, number> | null;
   hydrate: (settings: Settings) => void;
   setTheme: (theme: ThemePreference) => Promise<void>;
   setFontSize: (fontSize: number) => Promise<void>;
   setProjectsRoot: (root: string | null) => void;
+  persistPanelLayout: (layout: Record<string, number>) => void;
 }
 
 const DEFAULT_THEME: ThemePreference = "system";
@@ -22,12 +24,14 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   theme: DEFAULT_THEME,
   fontSize: DEFAULT_FONT_SIZE,
   projectsRoot: null,
+  panelLayout: null,
   hydrate: (settings) =>
     set({
       loaded: true,
       theme: (settings.theme as ThemePreference | null) ?? DEFAULT_THEME,
       fontSize: settings.fontSize ?? DEFAULT_FONT_SIZE,
       projectsRoot: settings.projectsRoot,
+      panelLayout: settings.panelLayout,
     }),
   setTheme: async (theme) => {
     set({ theme });
@@ -39,6 +43,9 @@ export const useSettingsStore = create<SettingsState>((set) => ({
     await updatePreferences(undefined, undefined, fontSize);
   },
   setProjectsRoot: (root) => set({ projectsRoot: root }),
+  persistPanelLayout: (layout) => {
+    void setPanelLayout(layout);
+  },
 }));
 
 /** Apply the persisted preferences to other stores and the document. */
@@ -46,5 +53,8 @@ export function applySettingsSideEffects(settings: Settings) {
   applyTheme(settings.theme ?? DEFAULT_THEME);
   if (settings.autoCompile !== null) {
     usePreviewStore.getState().setAutoCompile(settings.autoCompile);
+  }
+  if (settings.previewZoom !== null) {
+    usePreviewStore.getState().setZoom(settings.previewZoom);
   }
 }

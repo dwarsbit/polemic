@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import * as api from "@/lib/tauri";
+import { extractCiteKeys } from "@/lib/bibtex";
 import { extractLabels } from "@/lib/outline";
 import { useEditorStore } from "@/store/editor";
 
@@ -13,6 +14,8 @@ interface ProjectState {
   snapshots: api.SnapshotInfo[];
   labelsByFile: Record<string, string[]>;
   allLabels: () => string[];
+  citeKeysByFile: Record<string, string[]>;
+  allCiteKeys: () => string[];
   openProject: (path: string) => Promise<void>;
   closeProject: () => void;
   refreshFiles: () => Promise<void>;
@@ -47,12 +50,12 @@ function isInside(parentPath: string, childPath: string): boolean {
   return childPath === parentPath || childPath.startsWith(parentPath + "/");
 }
 
-function collectTexPaths(entries: api.FileEntry[]): string[] {
+function collectPaths(entries: api.FileEntry[], extension: string): string[] {
   const paths: string[] = [];
   for (const entry of entries) {
     if (entry.isDir) {
-      paths.push(...collectTexPaths(entry.children));
-    } else if (entry.path.endsWith(".tex")) {
+      paths.push(...collectPaths(entry.children, extension));
+    } else if (entry.path.endsWith(extension)) {
       paths.push(entry.path);
     }
   }
@@ -75,6 +78,14 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     }
     return [...seen];
   },
+  citeKeysByFile: {},
+  allCiteKeys: () => {
+    const seen = new Set<string>();
+    for (const keys of Object.values(useProjectStore.getState().citeKeysByFile)) {
+      for (const key of keys) seen.add(key);
+    }
+    return [...seen];
+  },
 
   openProject: async (path) => {
     const info = await api.openProject(path);
@@ -91,7 +102,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       findFile(files, f),
     );
     const labelsByFile: Record<string, string[]> = {};
-    for (const texPath of collectTexPaths(files)) {
+    for (const texPath of collectPaths(files, ".tex")) {
       try {
         labelsByFile[texPath] = extractLabels(
           await api.readProjectFile(info.path, texPath),
@@ -100,7 +111,24 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
         // unreadable file: skip its labels
       }
     }
-    set({ project: info, files, mainFile, openFiles: storedOpen, labelsByFile });
+    const citeKeysByFile: Record<string, string[]> = {};
+    for (const bibPath of collectPaths(files, ".bib")) {
+      try {
+        citeKeysByFile[bibPath] = extractCiteKeys(
+          await api.readProjectFile(info.path, bibPath),
+        );
+      } catch {
+        // unreadable file: skip its keys
+      }
+    }
+    set({
+      project: info,
+      files,
+      mainFile,
+      openFiles: storedOpen,
+      labelsByFile,
+      citeKeysByFile,
+    });
     const target = storedOpen.length > 0 ? storedOpen[storedOpen.length - 1] : mainFile;
     if (target) {
       await get().openFile(target);
@@ -121,6 +149,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       lastSavedContent: null,
       snapshots: [],
       labelsByFile: {},
+      citeKeysByFile: {},
     }),
 
   refreshFiles: async () => {
@@ -141,6 +170,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       lastSavedContent: content,
       openFiles: nextOpen,
       labelsByFile: { ...get().labelsByFile, [path]: extractLabels(content) },
+      citeKeysByFile: { ...get().citeKeysByFile, [path]: extractCiteKeys(content) },
     });
     void api.setOpenFiles(project.path, nextOpen);
   },
@@ -226,6 +256,10 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     set({
       lastSavedContent: content,
       labelsByFile: { ...get().labelsByFile, [activeFile]: extractLabels(content) },
+      citeKeysByFile: {
+        ...get().citeKeysByFile,
+        [activeFile]: extractCiteKeys(content),
+      },
     });
     return true;
   },

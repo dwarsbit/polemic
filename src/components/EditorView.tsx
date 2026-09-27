@@ -9,6 +9,7 @@ import { TopBar } from "@/components/TopBar";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
+import { useSettingsStore } from "@/store/settings";
 
 const AUTO_SAVE_DELAY_MS = 1200;
 
@@ -19,6 +20,8 @@ function ResizeHandle() {
 export function EditorView() {
   const content = useEditorStore((s) => s.content);
   const activeFile = useProjectStore((s) => s.activeFile);
+  const panelLayout = useSettingsStore((s) => s.panelLayout);
+  const persistPanelLayout = useSettingsStore((s) => s.persistPanelLayout);
 
   // Debounced auto-save, then auto-compile when enabled.
   useEffect(() => {
@@ -38,12 +41,17 @@ export function EditorView() {
     <div className="flex h-screen flex-col bg-background text-foreground">
       <TopBar />
       <div className="min-h-0 flex-1">
-        <Group orientation="horizontal" className="flex h-full">
-          <Panel defaultSize={0.16} minSize={0.12}>
+        <Group
+          orientation="horizontal"
+          className="flex h-full"
+          defaultLayout={panelLayout ?? undefined}
+          onLayoutChanged={(layout) => persistPanelLayout(layout)}
+        >
+          <Panel id="sidebar" defaultSize={0.16} minSize={0.12}>
             <Sidebar />
           </Panel>
           <ResizeHandle />
-          <Panel defaultSize={0.52} minSize={0.25}>
+          <Panel id="editor" defaultSize={0.52} minSize={0.25}>
             <div className="flex h-full flex-col">
               <TabsBar />
               <div className="min-h-0 flex-1">
@@ -53,7 +61,7 @@ export function EditorView() {
             </div>
           </Panel>
           <ResizeHandle />
-          <Panel defaultSize={0.32} minSize={0.18}>
+          <Panel id="preview" defaultSize={0.32} minSize={0.18}>
             <PreviewPane />
           </Panel>
         </Group>

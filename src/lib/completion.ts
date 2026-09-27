@@ -147,6 +147,19 @@ export function latexCompletionSource(
     };
   }
 
+  // Citation key inside \cite{...}
+  const citeContext = context.matchBefore(/\\cite\{[^}]*/);
+  if (citeContext && citeContext.to === context.pos) {
+    const citeKeys = useProjectStore.getState().allCiteKeys();
+    if (citeKeys.length === 0) return null;
+    const brace = citeContext.text.lastIndexOf("{");
+    return {
+      from: citeContext.from + brace + 1,
+      options: citeKeys.map((key) => ({ label: key, type: "variable" })),
+      validFor: /^[^}]*$/,
+    };
+  }
+
   // Command name after a backslash
   const cmdContext = context.matchBefore(/\\[a-zA-Z]*/);
   if (cmdContext && cmdContext.to === context.pos) {

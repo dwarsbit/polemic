@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as pdfjs from "pdfjs-dist";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import { AlertTriangle, FileText, Loader2, ZoomIn, ZoomOut } from "lucide-react";
@@ -41,11 +41,26 @@ export function PreviewPane() {
   const zoomIn = usePreviewStore((s) => s.zoomIn);
   const zoomOut = usePreviewStore((s) => s.zoomOut);
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+
+  // Refit the pages when the preview pane is resized.
+  useEffect(() => {
+    const element = scrollRef.current;
+    if (!element) return;
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setContainerWidth(Math.round(entry.contentRect.width));
+      }
+    });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   // Render the PDF document. Zoom 1 = fit pane width.
   useEffect(() => {
     const container = containerRef.current;
-    if (!container || !pdfBytes) return;
+    if (!container || !pdfBytes || containerWidth === 0) return;
     let cancelled = false;
 
     (async () => {
@@ -53,7 +68,7 @@ export function PreviewPane() {
       const doc = await pdfjs.getDocument({ data: pdfBytes.slice() }).promise;
       if (cancelled) return;
       container.replaceChildren();
-      const fitWidth = container.clientWidth;
+      const fitWidth = containerWidth;
       for (let pageNumber = 1; pageNumber <= doc.numPages; pageNumber++) {
         if (cancelled) return;
         const page = await doc.getPage(pageNumber);
@@ -83,7 +98,7 @@ export function PreviewPane() {
     return () => {
       cancelled = true;
     };
-  }, [pdfBytes, zoom]);
+  }, [pdfBytes, zoom, containerWidth]);
 
   // Forward search: scroll to (and briefly highlight) the requested spot.
   useEffect(() => {
@@ -139,7 +154,7 @@ export function PreviewPane() {
           {status === "compiling" && <Loader2 className="ml-1 size-3.5 animate-spin" />}
         </div>
       </div>
-      <div className="relative flex-1 overflow-auto bg-muted/40">
+      <div ref={scrollRef} className="relative flex-1 overflow-auto bg-muted/40">
         {status === "error" && error ? (
           <div className="flex h-full flex-col items-center gap-2 p-6">
             <AlertTriangle className="size-8 text-destructive" />

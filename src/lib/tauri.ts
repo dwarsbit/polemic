@@ -26,6 +26,8 @@ export interface Settings {
   theme: string | null;
   autoCompile: boolean | null;
   fontSize: number | null;
+  panelLayout: Record<string, number> | null;
+  previewZoom: number | null;
 }
 
 export interface ProjectInfo {
@@ -110,6 +112,14 @@ export function updatePreferences(
   if (autoCompile !== undefined) args.autoCompile = autoCompile;
   if (fontSize !== undefined) args.fontSize = fontSize;
   return invoke<Settings>("update_preferences", args);
+}
+
+export function setPanelLayout(layout: Record<string, number>): Promise<void> {
+  return invoke<void>("set_panel_layout", { layout });
+}
+
+export function setPreviewZoom(zoom: number): Promise<void> {
+  return invoke<void>("set_preview_zoom", { zoom });
 }
 
 export function setPinnedProject(path: string, pinned: boolean): Promise<Settings> {
