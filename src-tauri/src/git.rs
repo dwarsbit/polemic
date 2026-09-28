@@ -307,7 +307,9 @@ mod tests {
 
         let info = status(&dir);
         assert!(info.available && info.is_repo);
-        assert_eq!(info.branch.as_deref(), Some("main"));
+        // The default branch name depends on the runner's git config
+        // ("main" locally, "master" on some CI runners); any name is fine.
+        assert!(info.branch.is_some());
         // main.tex plus the .gitignore written by init().
         assert_eq!(info.entries.len(), 2);
         assert!(info.entries.iter().all(|entry| entry.x == "?"));
