@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Camera, GitBranch, Info } from "lucide-react";
+import { Camera, GitBranch, History, Info } from "lucide-react";
 import { Group, Panel, Separator, usePanelRef } from "react-resizable-panels";
 import type { PanelImperativeHandle } from "react-resizable-panels";
 import { IssuesPanel } from "@/components/IssuesPanel";
@@ -8,6 +8,7 @@ import { PreviewPane } from "@/components/PreviewPane";
 import { PropertiesPanel } from "@/components/PropertiesPanel";
 import { Sidebar } from "@/components/Sidebar";
 import { GitPanel } from "@/components/GitPanel";
+import { HistoryPanel } from "@/components/HistoryPanel";
 import { SnapshotsPanel } from "@/components/SnapshotsPanel";
 import { TabsBar } from "@/components/TabsBar";
 import { TopBar } from "@/components/TopBar";
@@ -20,7 +21,7 @@ import { cn } from "cn";
 const AUTO_SAVE_DELAY_MS = 1200;
 const EDITOR_PANEL_IDS = ["editor-doc", "editor-issues"];
 
-type RightTab = "version-control" | "properties";
+type RightTab = "version-control" | "history" | "properties";
 
 function pickLayout(
   all: Record<string, number> | null,
@@ -53,6 +54,9 @@ export function EditorView() {
       label: versionControl === "git" ? "Git" : "Snapshots",
       icon: versionControl === "git" ? GitBranch : Camera,
     },
+    ...(versionControl === "git"
+      ? [{ id: "history" as const, label: "History", icon: History }]
+      : []),
     { id: "properties" as const, label: "Properties", icon: Info },
   ];
 
@@ -197,6 +201,8 @@ export function EditorView() {
                 <div className="min-w-0 flex-1 overflow-hidden">
                   {activeTab === "properties" ? (
                     <PropertiesPanel />
+                  ) : activeTab === "history" && versionControl === "git" ? (
+                    <HistoryPanel />
                   ) : versionControl === "git" ? (
                     <GitPanel />
                   ) : (

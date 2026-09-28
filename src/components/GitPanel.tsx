@@ -8,15 +8,12 @@ import { Input } from "@/components/ui/input";
 import {
   gitCommit,
   gitInit,
-  gitLog,
   gitStage,
   gitStatus,
   gitUnstage,
   type GitEntry,
 } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
-
-const LOG_LIMIT = 20;
 
 function codeLabel(code: string): string {
   switch (code) {
@@ -61,12 +58,6 @@ export function GitPanel() {
     queryFn: () => gitStatus(project!.path),
     enabled: project !== null,
     refetchOnWindowFocus: true,
-  });
-
-  const { data: log } = useQuery({
-    queryKey: ["git-log", project?.path],
-    queryFn: () => gitLog(project!.path, LOG_LIMIT),
-    enabled: project !== null && (status?.isRepo ?? false),
   });
 
   async function refresh() {
@@ -224,28 +215,6 @@ export function GitPanel() {
               </Button>
             </div>
             {error && <p className="mt-1 px-2 text-xs text-destructive">{error}</p>}
-
-            {(log ?? []).length > 0 && (
-              <>
-                <p className="mt-3 px-2 text-[11px] font-medium text-muted-foreground">
-                  HISTORY
-                </p>
-                <ul className="px-2">
-                  {(log ?? []).map((commit) => (
-                    <li
-                      key={commit.hash}
-                      className="truncate py-0.5 text-xs"
-                      title={`${commit.author} — ${commit.hash}`}
-                    >
-                      <span className="font-mono text-[11px] text-muted-foreground">
-                        {commit.hash.slice(0, 7)}
-                      </span>{" "}
-                      {commit.message}
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
           </>
         )}
       </div>
