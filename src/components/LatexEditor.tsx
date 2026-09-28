@@ -117,7 +117,12 @@ export function LatexEditor() {
           }),
           EditorView.updateListener.of((update) => {
             if (update.docChanged) {
-              setContent(update.state.doc.toString());
+              const content = update.state.doc.toString();
+              setContent(content);
+              const { activeFile, lastSavedContent } = useProjectStore.getState();
+              if (activeFile !== null && content !== lastSavedContent) {
+                useProjectStore.getState().markDirty(activeFile, content);
+              }
             }
           }),
         ],

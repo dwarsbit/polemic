@@ -46,6 +46,24 @@ function App() {
     return () => media.removeEventListener("change", onChange);
   }, []);
 
+  // Flush unsaved buffers to disk before the window closes.
+  useEffect(() => {
+    let unlisten: (() => void) | undefined;
+    void (async () => {
+      try {
+        const { getCurrentWindow } = await import("@tauri-apps/api/window");
+        unlisten = await getCurrentWindow().onCloseRequested(async (event) => {
+          event.preventDefault();
+          await useProjectStore.getState().flushBuffers();
+          await getCurrentWindow().destroy();
+        });
+      } catch {
+        // Not running inside the desktop app.
+      }
+    })();
+    return () => unlisten?.();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       {loaded ? hasProject ? <EditorView /> : <LibraryView /> : null}

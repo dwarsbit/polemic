@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { Search } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import * as api from "@/lib/tauri";
+import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 
@@ -26,7 +27,13 @@ function collectSearchablePaths(entries: api.FileEntry[]): string[] {
   return paths;
 }
 
-export function ProjectSearch() {
+export function ProjectSearch({
+  collapsed,
+  onToggle,
+}: {
+  collapsed: boolean;
+  onToggle: () => void;
+}) {
   const project = useProjectStore((s) => s.project);
   const files = useProjectStore((s) => s.files);
   const openFile = useProjectStore((s) => s.openFile);
@@ -74,12 +81,21 @@ export function ProjectSearch() {
   }, [query, files, project]);
 
   return (
-    <div className="flex flex-col">
-      <div className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-muted-foreground">
-        <Search className="size-3.5" />
-        SEARCH
+    <div className="flex h-full flex-col">
+      <div className="flex h-9 shrink-0 items-center gap-1 px-3 text-xs font-medium text-muted-foreground">
+        <button
+          type="button"
+          title={collapsed ? "Expand" : "Collapse"}
+          className="rounded p-0.5 hover:bg-accent hover:text-foreground"
+          onClick={onToggle}
+        >
+          <ChevronDown
+            className={cn("size-3.5 transition-transform", collapsed && "-rotate-90")}
+          />
+        </button>
+        <span className="flex-1">SEARCH</span>
       </div>
-      <div className="px-2">
+      <div className="px-3 pb-2">
         <Input
           className="h-7 text-xs"
           placeholder="Find in project…"
@@ -88,7 +104,7 @@ export function ProjectSearch() {
         />
       </div>
       {results.length > 0 && (
-        <div className="max-h-36 overflow-y-auto px-2 pt-1">
+        <div className="flex-1 overflow-y-auto px-3 pb-2">
           <ul>
             {results.map((result, index) => (
               <li key={`${result.file}-${result.line}-${index}`}>

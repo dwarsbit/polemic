@@ -11,11 +11,15 @@ interface ProjectState {
   activeFile: string | null;
   mainFile: string | null;
   lastSavedContent: string | null;
+  /** Unsaved (dirty) file contents, keyed by project-relative path. */
+  buffers: Record<string, string>;
   snapshots: api.SnapshotInfo[];
   labelsByFile: Record<string, string[]>;
   allLabels: () => string[];
   citeKeysByFile: Record<string, string[]>;
   allCiteKeys: () => string[];
+  markDirty: (path: string, content: string) => void;
+  flushBuffers: () => Promise<void>;
   openProject: (path: string) => Promise<void>;
   closeProject: () => void;
   refreshFiles: () => Promise<void>;
@@ -69,6 +73,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   activeFile: null,
   mainFile: null,
   lastSavedContent: null,
+  buffers: {},
   snapshots: [],
   labelsByFile: {},
   allLabels: () => {
@@ -85,6 +90,24 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       for (const key of keys) seen.add(key);
     }
     return [...seen];
+  },
+  markDirty: (path, content) =>
+    set((state) => ({ buffers: { ...state.buffers, [path]: content } })),
+  flushBuffers: async () => {
+    const { project, buffers, activeFile } = get();
+    if (!project) return;
+    const paths = Object.keys(buffers);
+    if (paths.length === 0) return;
+    for (const path of paths) {
+      await api.writeProjectFile(project.path, path, buffers[path]);
+    }
+    const next = { ...buffers };
+    for (const path of paths) delete next[path];
+    const patch: Partial<ProjectState> = { buffers: next };
+    if (activeFile !== null && paths.includes(activeFile)) {
+      patch.lastSavedContent = useEditorStore.getState().content;
+    }
+    set(patch);
   },
 
   openProject: async (path) => {
@@ -139,7 +162,8 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     await get().refreshSnapshots();
   },
 
-  closeProject: () =>
+  closeProject: () => {
+    // Dirty buffers are flushed by the caller before closing.
     set({
       project: null,
       files: [],
@@ -147,10 +171,12 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       activeFile: null,
       mainFile: null,
       lastSavedContent: null,
+      buffers: {},
       snapshots: [],
       labelsByFile: {},
       citeKeysByFile: {},
-    }),
+    });
+  },
 
   refreshFiles: async () => {
     const { project } = get();
@@ -159,10 +185,10 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   },
 
   openFile: async (path) => {
-    await get().saveActiveFile();
-    const { project, openFiles } = get();
+    const { project, openFiles, buffers } = get();
     if (!project) return;
-    const content = await api.readProjectFile(project.path, path);
+    // Prefer the unsaved buffer over disk so dirty state survives tab switches.
+    const content = buffers[path] ?? (await api.readProjectFile(project.path, path));
     useEditorStore.getState().loadContent(content);
     const nextOpen = openFiles.includes(path) ? openFiles : [...openFiles, path];
     set({
@@ -176,10 +202,14 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   },
 
   closeFile: async (path) => {
-    const { project, activeFile, openFiles } = get();
+    const { project, activeFile, openFiles, buffers } = get();
     if (!project || !openFiles.includes(path)) return;
-    if (activeFile === path) {
-      await get().saveActiveFile();
+    // Never lose unsaved changes when a tab is closed.
+    if (buffers[path] !== undefined) {
+      await api.writeProjectFile(project.path, path, buffers[path]);
+      const nextBuffers = { ...buffers };
+      delete nextBuffers[path];
+      set({ buffers: nextBuffers });
     }
     const index = openFiles.indexOf(path);
     const remaining = openFiles.filter((f) => f !== path);
@@ -188,9 +218,10 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     if (activeFile !== path) return;
     if (remaining.length > 0) {
       const next = remaining[Math.min(index, remaining.length - 1)];
-      const content = await api.readProjectFile(project.path, next);
-      useEditorStore.getState().loadContent(content);
-      set({ activeFile: next, lastSavedContent: content });
+      const nextContent =
+        get().buffers[next] ?? (await api.readProjectFile(project.path, next));
+      useEditorStore.getState().loadContent(nextContent);
+      set({ activeFile: next, lastSavedContent: nextContent });
     } else {
       useEditorStore.getState().loadContent("");
       set({ activeFile: null, lastSavedContent: null });
@@ -206,14 +237,22 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   },
 
   renameEntry: async (path, newPath) => {
-    const { project } = get();
+    const { project, buffers } = get();
     if (!project) return;
     await api.renameEntry(project.path, path, newPath);
     const remap = (file: string | null) =>
       file !== null && isInside(path, file) ? newPath + file.slice(path.length) : file;
     const activeFile = remap(get().activeFile);
     const mainFile = remap(get().mainFile);
-    set({ activeFile, openFiles: get().openFiles.map((f) => remap(f) ?? f) });
+    const nextBuffers: Record<string, string> = {};
+    for (const [file, content] of Object.entries(buffers)) {
+      nextBuffers[remap(file) ?? file] = content;
+    }
+    set({
+      activeFile,
+      buffers: nextBuffers,
+      openFiles: get().openFiles.map((f) => remap(f) ?? f),
+    });
     if (mainFile !== null && mainFile !== get().mainFile) {
       await get().setMainFile(mainFile);
     }
@@ -221,11 +260,15 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   },
 
   deleteEntry: async (path) => {
-    const { project } = get();
+    const { project, buffers } = get();
     if (!project) return;
     await api.deleteEntry(project.path, path);
     const removeInside = (file: string | null) =>
       file !== null && isInside(path, file) ? null : file;
+    const nextBuffers: Record<string, string> = {};
+    for (const [file, content] of Object.entries(buffers)) {
+      if (!isInside(path, file)) nextBuffers[file] = content;
+    }
     if (isInside(path, get().activeFile ?? "")) {
       useEditorStore.getState().loadContent("");
     }
@@ -233,6 +276,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       activeFile: removeInside(get().activeFile),
       mainFile: removeInside(get().mainFile),
       openFiles: get().openFiles.filter((f) => !isInside(path, f)),
+      buffers: nextBuffers,
       lastSavedContent: isInside(path, get().activeFile ?? "")
         ? null
         : get().lastSavedContent,
@@ -248,13 +292,17 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   },
 
   saveActiveFile: async () => {
-    const { project, activeFile, lastSavedContent } = get();
+    const { project, activeFile, lastSavedContent, buffers } = get();
     if (!project || !activeFile) return false;
     const content = useEditorStore.getState().content;
-    if (content === lastSavedContent) return false;
+    const dirty = buffers[activeFile] !== undefined || content !== lastSavedContent;
+    if (!dirty) return false;
     await api.writeProjectFile(project.path, activeFile, content);
+    const nextBuffers = { ...buffers };
+    delete nextBuffers[activeFile];
     set({
       lastSavedContent: content,
+      buffers: nextBuffers,
       labelsByFile: { ...get().labelsByFile, [activeFile]: extractLabels(content) },
       citeKeysByFile: {
         ...get().citeKeysByFile,
@@ -281,6 +329,8 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     const { project, mainFile, activeFile } = get();
     if (!project) return;
     await api.restoreSnapshot(project.path, id);
+    // Restored files replace unsaved buffers entirely.
+    set({ buffers: {} });
     await get().refreshFiles();
     await get().refreshSnapshots();
     // Reload from disk without saving, so restored content is not clobbered.

@@ -46,20 +46,25 @@ async function jumpToIssue(issue: CompileIssue) {
   }
 }
 
-export function IssuesPanel() {
+export function IssuesPanel({
+  collapsed,
+  onToggle,
+}: {
+  collapsed: boolean;
+  onToggle: () => void;
+}) {
   const issues = usePreviewStore((s) => s.issues);
   const status = usePreviewStore((s) => s.status);
   const log = usePreviewStore((s) => s.log);
   const content = useEditorStore((s) => s.content);
   const activeFile = useProjectStore((s) => s.activeFile);
-  const [collapsed, setCollapsed] = useState(false);
   const [logOpen, setLogOpen] = useState(false);
 
   const errors = issues.filter((i) => i.severity === "error").length;
   const warnings = issues.length - errors;
 
   return (
-    <div className="flex h-44 shrink-0 flex-col border-t">
+    <div className="flex h-full flex-col border-t">
       <div className="flex h-8 shrink-0 items-center gap-2 px-3">
         <span className="text-xs font-medium text-muted-foreground">ISSUES</span>
         {status === "compiling" && <Loader2 className="size-3 animate-spin" />}
@@ -91,7 +96,7 @@ export function IssuesPanel() {
             size="icon"
             className="size-6"
             title={collapsed ? "Show issues" : "Hide issues"}
-            onClick={() => setCollapsed((c) => !c)}
+            onClick={onToggle}
           >
             {collapsed ? (
               <ChevronUp className="size-3.5" />

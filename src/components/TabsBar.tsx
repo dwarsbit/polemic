@@ -7,6 +7,7 @@ export function TabsBar() {
   const openFiles = useProjectStore((s) => s.openFiles);
   const activeFile = useProjectStore((s) => s.activeFile);
   const lastSavedContent = useProjectStore((s) => s.lastSavedContent);
+  const buffers = useProjectStore((s) => s.buffers);
   const content = useEditorStore((s) => s.content);
   const openFile = useProjectStore((s) => s.openFile);
   const closeFile = useProjectStore((s) => s.closeFile);
@@ -17,7 +18,8 @@ export function TabsBar() {
     <div className="flex h-8 shrink-0 items-stretch gap-0.5 overflow-x-auto border-b bg-muted/30">
       {openFiles.map((file) => {
         const active = file === activeFile;
-        const dirty = active && content !== lastSavedContent;
+        const dirty =
+          buffers[file] !== undefined || (active && content !== lastSavedContent);
         return (
           <div
             key={file}

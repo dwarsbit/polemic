@@ -52,7 +52,12 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   },
   setProjectsRoot: (root) => set({ projectsRoot: root }),
   persistPanelLayout: (layout) => {
-    void setPanelLayout(layout);
+    const merged = {
+      ...(useSettingsStore.getState().panelLayout ?? {}),
+      ...layout,
+    };
+    set({ panelLayout: merged });
+    void setPanelLayout(merged);
   },
 }));
 

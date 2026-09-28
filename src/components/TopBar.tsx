@@ -46,7 +46,6 @@ export function TopBar() {
   const badge = texBadge(tex);
 
   const project = useProjectStore((s) => s.project);
-  const closeProject = useProjectStore((s) => s.closeProject);
   const status = usePreviewStore((s) => s.status);
   const compileNow = usePreviewStore((s) => s.compileNow);
   const autoCompile = usePreviewStore((s) => s.autoCompile);
@@ -58,7 +57,12 @@ export function TopBar() {
         <Button
           variant="ghost"
           size="icon"
-          onClick={closeProject}
+          onClick={() => {
+            void useProjectStore
+              .getState()
+              .flushBuffers()
+              .finally(() => useProjectStore.getState().closeProject());
+          }}
           title="Back to projects"
         >
           <ArrowLeft />
