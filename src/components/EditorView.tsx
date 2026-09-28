@@ -5,6 +5,7 @@ import { IssuesPanel } from "@/components/IssuesPanel";
 import { LatexEditor } from "@/components/LatexEditor";
 import { PreviewPane } from "@/components/PreviewPane";
 import { Sidebar } from "@/components/Sidebar";
+import { GitPanel } from "@/components/GitPanel";
 import { SnapshotsPanel } from "@/components/SnapshotsPanel";
 import { TabsBar } from "@/components/TabsBar";
 import { TopBar } from "@/components/TopBar";
@@ -15,6 +16,7 @@ import { useSettingsStore } from "@/store/settings";
 
 const AUTO_SAVE_DELAY_MS = 1200;
 const EDITOR_PANEL_IDS = ["editor-doc", "editor-issues"];
+const RIGHT_PANEL_IDS = ["right-git", "right-snapshots"];
 
 function pickLayout(
   all: Record<string, number> | null,
@@ -173,7 +175,32 @@ export function EditorView() {
             onResize={(size) => setRightSidebarOpen(size.inPixels > 1)}
           >
             <div className="flex h-full flex-col border-l bg-sidebar text-sidebar-foreground">
-              <SnapshotsPanel />
+              <Group
+                orientation="vertical"
+                className="h-full"
+                defaultLayout={pickLayout(panelLayout, RIGHT_PANEL_IDS)}
+                onLayoutChanged={(layout) => persistPanelLayout(layout)}
+              >
+                <Panel
+                  id="right-git"
+                  defaultSize={0.55}
+                  minSize={0.15}
+                  collapsible
+                  collapsedSize="2.25rem"
+                >
+                  <GitPanel />
+                </Panel>
+                <Separator className="h-px w-full bg-border hover:bg-primary/50" />
+                <Panel
+                  id="right-snapshots"
+                  defaultSize={0.45}
+                  minSize={0.15}
+                  collapsible
+                  collapsedSize="2.25rem"
+                >
+                  <SnapshotsPanel />
+                </Panel>
+              </Group>
             </div>
           </Panel>
         </Group>

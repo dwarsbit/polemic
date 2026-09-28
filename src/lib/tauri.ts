@@ -339,3 +339,57 @@ export function restoreSnapshotFile(
 export function revealBuildFolder(projectDir: string): Promise<void> {
   return invoke<void>("reveal_build_folder", { projectDir });
 }
+
+// --- git --------------------------------------------------------------------
+
+export interface GitEntry {
+  path: string;
+  /** Porcelain X code: staged change ("?" when untracked, " " when none). */
+  x: string;
+  /** Porcelain Y code: unstaged change ("?" when untracked, " " when none). */
+  y: string;
+}
+
+export interface GitStatus {
+  available: boolean;
+  isRepo: boolean;
+  branch: string | null;
+  ahead: number;
+  behind: number;
+  entries: GitEntry[];
+}
+
+export interface GitCommit {
+  hash: string;
+  message: string;
+  author: string;
+  timestampMillis: number;
+}
+
+export function gitStatus(projectDir: string): Promise<GitStatus> {
+  return invoke<GitStatus>("git_status", { projectDir });
+}
+
+export function gitInit(projectDir: string): Promise<void> {
+  return invoke<void>("git_init", { projectDir });
+}
+
+export function gitStage(projectDir: string, paths: string[]): Promise<void> {
+  return invoke<void>("git_stage", { projectDir, paths });
+}
+
+export function gitUnstage(projectDir: string, paths: string[]): Promise<void> {
+  return invoke<void>("git_unstage", { projectDir, paths });
+}
+
+export function gitCommit(projectDir: string, message: string): Promise<GitCommit> {
+  return invoke<GitCommit>("git_commit", { projectDir, message });
+}
+
+export function gitLog(projectDir: string, limit: number): Promise<GitCommit[]> {
+  return invoke<GitCommit[]>("git_log", { projectDir, limit });
+}
+
+export function gitShowHead(projectDir: string, path: string): Promise<string | null> {
+  return invoke<string | null>("git_show_head", { projectDir, path });
+}

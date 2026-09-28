@@ -1,4 +1,5 @@
 mod files;
+mod git;
 mod logparse;
 mod settings;
 mod snapshots;
@@ -772,6 +773,50 @@ fn restore_snapshot_file(
     snapshots::restore_file(&dir, &id, &path)
 }
 
+// --- git --------------------------------------------------------------------
+
+#[tauri::command]
+fn git_status(project_dir: String) -> Result<git::GitStatusInfo, String> {
+    let dir = canonical_project(&project_dir)?;
+    Ok(git::status(&dir))
+}
+
+#[tauri::command]
+fn git_init(project_dir: String) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    git::init(&dir)
+}
+
+#[tauri::command]
+fn git_stage(project_dir: String, paths: Vec<String>) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    git::stage(&dir, &paths)
+}
+
+#[tauri::command]
+fn git_unstage(project_dir: String, paths: Vec<String>) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    git::unstage(&dir, &paths)
+}
+
+#[tauri::command]
+fn git_commit(project_dir: String, message: String) -> Result<git::GitCommitInfo, String> {
+    let dir = canonical_project(&project_dir)?;
+    git::commit(&dir, &message)
+}
+
+#[tauri::command]
+fn git_log(project_dir: String, limit: u32) -> Result<Vec<git::GitCommitInfo>, String> {
+    let dir = canonical_project(&project_dir)?;
+    git::log(&dir, limit)
+}
+
+#[tauri::command]
+fn git_show_head(project_dir: String, path: String) -> Result<Option<String>, String> {
+    let dir = canonical_project(&project_dir)?;
+    git::show_head(&dir, &path)
+}
+
 // --- misc ------------------------------------------------------------------
 
 #[tauri::command]
@@ -1053,6 +1098,13 @@ pub fn run() {    tauri::Builder::default()
             list_snapshot_changes,
             read_snapshot_file,
             restore_snapshot_file,
+            git_status,
+            git_init,
+            git_stage,
+            git_unstage,
+            git_commit,
+            git_log,
+            git_show_head,
             reveal_build_folder
         ])
         .run(tauri::generate_context!())
