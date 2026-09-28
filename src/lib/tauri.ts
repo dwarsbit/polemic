@@ -33,6 +33,7 @@ export interface Settings {
   supsubBraces: boolean | null;
   convertDoubleDollar: boolean | null;
   reopenLastProject: boolean | null;
+  autoIncludeNewFiles: boolean | null;
   /** "git" or "snapshots"; null means auto (git when installed). */
   versionControl: string | null;
 }
@@ -143,6 +144,7 @@ export function updatePreferences(
   supsubBraces?: boolean,
   convertDoubleDollar?: boolean,
   reopenLastProject?: boolean,
+  autoIncludeNewFiles?: boolean,
 ): Promise<Settings> {
   const args: Record<string, unknown> = {};
   if (theme !== undefined) args.theme = theme;
@@ -152,6 +154,7 @@ export function updatePreferences(
   if (supsubBraces !== undefined) args.supsubBraces = supsubBraces;
   if (convertDoubleDollar !== undefined) args.convertDoubleDollar = convertDoubleDollar;
   if (reopenLastProject !== undefined) args.reopenLastProject = reopenLastProject;
+  if (autoIncludeNewFiles !== undefined) args.autoIncludeNewFiles = autoIncludeNewFiles;
   return invoke<Settings>("update_preferences", args);
 }
 

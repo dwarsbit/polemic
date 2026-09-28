@@ -222,6 +222,7 @@ fn update_preferences(
     supsub_braces: Option<bool>,
     convert_double_dollar: Option<bool>,
     reopen_last_project: Option<bool>,
+    auto_include_new_files: Option<bool>,
 ) -> Result<Settings, String> {
     settings::update(&app, |s| {
         if theme.is_some() {
@@ -244,6 +245,9 @@ fn update_preferences(
         }
         if reopen_last_project.is_some() {
             s.reopen_last_project = reopen_last_project;
+        }
+        if auto_include_new_files.is_some() {
+            s.auto_include_new_files = auto_include_new_files;
         }
         s.clone()
     })

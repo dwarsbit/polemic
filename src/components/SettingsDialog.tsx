@@ -92,6 +92,8 @@ export function SettingsDialog({
   const setConvertDoubleDollar = useSettingsStore((s) => s.setConvertDoubleDollar);
   const reopenLastProject = useSettingsStore((s) => s.reopenLastProject);
   const setReopenLastProject = useSettingsStore((s) => s.setReopenLastProject);
+  const autoIncludeNewFiles = useSettingsStore((s) => s.autoIncludeNewFiles);
+  const setAutoIncludeNewFiles = useSettingsStore((s) => s.setAutoIncludeNewFiles);
   const versionControl = useSettingsStore((s) => resolveVersionControl(s));
   const setVersionControl = useSettingsStore((s) => s.setVersionControl);
   const gitAvailable = useSettingsStore((s) => s.gitAvailable);
@@ -176,6 +178,15 @@ export function SettingsDialog({
                   <Switch
                     checked={reopenLastProject}
                     onCheckedChange={(v) => void setReopenLastProject(v)}
+                  />
+                </SettingRow>
+                <SettingRow
+                  label="Include new files automatically"
+                  description="Files created in the Files panel are added to the main document with \input{}."
+                >
+                  <Switch
+                    checked={autoIncludeNewFiles}
+                    onCheckedChange={(v) => void setAutoIncludeNewFiles(v)}
                   />
                 </SettingRow>
                 <SettingRow

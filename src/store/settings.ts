@@ -18,6 +18,7 @@ interface SettingsState {
   supsubBraces: boolean;
   convertDoubleDollar: boolean;
   reopenLastProject: boolean;
+  autoIncludeNewFiles: boolean;
   /** Explicit version-control choice; null means auto. */
   versionControl: "git" | "snapshots" | null;
   /** Whether the git binary is on PATH (part of startup gating). */
@@ -33,6 +34,7 @@ interface SettingsState {
   setSupsubBraces: (enabled: boolean) => Promise<void>;
   setConvertDoubleDollar: (enabled: boolean) => Promise<void>;
   setReopenLastProject: (enabled: boolean) => Promise<void>;
+  setAutoIncludeNewFiles: (enabled: boolean) => Promise<void>;
   setVersionControl: (value: "git" | "snapshots") => Promise<void>;
   setGitAvailable: (available: boolean) => void;
   setSettingsDialogOpen: (open: boolean) => void;
@@ -52,6 +54,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   supsubBraces: false,
   convertDoubleDollar: true,
   reopenLastProject: true,
+  autoIncludeNewFiles: true,
   versionControl: null,
   gitAvailable: false,
   settingsDialogOpen: false,
@@ -67,6 +70,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       supsubBraces: settings.supsubBraces ?? false,
       convertDoubleDollar: settings.convertDoubleDollar ?? true,
       reopenLastProject: settings.reopenLastProject ?? true,
+      autoIncludeNewFiles: settings.autoIncludeNewFiles ?? true,
       versionControl:
         settings.versionControl === "git" || settings.versionControl === "snapshots"
           ? settings.versionControl
@@ -105,6 +109,19 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   setReopenLastProject: async (enabled) => {
     set({ reopenLastProject: enabled });
     await updatePreferences(
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      enabled,
+    );
+  },
+  setAutoIncludeNewFiles: async (enabled) => {
+    set({ autoIncludeNewFiles: enabled });
+    await updatePreferences(
+      undefined,
       undefined,
       undefined,
       undefined,

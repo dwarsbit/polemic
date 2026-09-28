@@ -175,3 +175,42 @@ export function sortTreeByDocumentOrder<
         : entry,
     );
 }
+
+/** Split a line into [code, comment]; the comment starts at an unescaped %. */
+function splitComment(line: string): [string, string] {
+  for (let i = 0; i < line.length; i++) {
+    if (line[i] === "%" && (i === 0 || line[i - 1] !== "\\")) {
+      return [line.slice(0, i), line.slice(i)];
+    }
+  }
+  return [line, ""];
+}
+
+/**
+ * Rewrite include specs under a renamed directory:
+ * \input{oldDir/intro} -> \input{newDir/intro}, preserving the
+ * extension style of every directive. Commented includes are left alone.
+ */
+export function replaceIncludeSpecPrefix(
+  content: string,
+  fromDir: string,
+  toDir: string,
+): string {
+  return content
+    .split("\n")
+    .map((line) => {
+      const [code, comment] = splitComment(line);
+      const rewritten = code.replace(
+        /\\(input|include)\s*\{([^}]*)\}/g,
+        (match, directive: string, rawSpec: string) => {
+          const spec = rawSpec.trim();
+          if (spec === fromDir || spec.startsWith(`${fromDir}/`)) {
+            return `\\${directive}{${toDir}${spec.slice(fromDir.length)}}`;
+          }
+          return match;
+        },
+      );
+      return rewritten + comment;
+    })
+    .join("\n");
+}

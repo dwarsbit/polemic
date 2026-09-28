@@ -6,9 +6,11 @@ import {
   insertInclude,
   removeInclude,
   replaceIncludeSpec,
+  replaceIncludeSpecPrefix,
 } from "@/lib/doc-structure";
 import { extractLabels } from "@/lib/outline";
 import { useEditorStore } from "@/store/editor";
+import { useSettingsStore } from "@/store/settings";
 
 interface ProjectState {
   project: api.ProjectInfo | null;
@@ -293,7 +295,13 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       await api.createProjectEntry(project.path, path, isDir);
       await get().refreshFiles();
       // New .tex files join the document: add an \input to the main file.
-      if (!isDir && path.endsWith(".tex") && mainFile && mainFile !== path) {
+      if (
+        !isDir &&
+        path.endsWith(".tex") &&
+        mainFile &&
+        mainFile !== path &&
+        useSettingsStore.getState().autoIncludeNewFiles
+      ) {
         const content = await currentContent(mainFile);
         if (content !== null) {
           await applyContentUpdate(mainFile, insertInclude(content, includeSpec(path)));
@@ -325,10 +333,17 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         await get().setMainFile(mainFile);
       }
       await get().refreshFiles();
-      // Renamed .tex files: rewrite \input/\include specs everywhere.
+      // Keep \input/\include specs in sync everywhere: renamed files
+      // rewrite their exact spec, renamed directories rewrite the specs
+      // of everything under them.
       if (path.endsWith(".tex")) {
         await syncIncludes(collectPaths(get().files, ".tex"), (content) => {
           const next = replaceIncludeSpec(content, path, newPath);
+          return next === content ? null : next;
+        });
+      } else {
+        await syncIncludes(collectPaths(get().files, ".tex"), (content) => {
+          const next = replaceIncludeSpecPrefix(content, path, newPath);
           return next === content ? null : next;
         });
       }

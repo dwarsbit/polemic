@@ -6,6 +6,7 @@ import {
   insertInclude,
   removeInclude,
   replaceIncludeSpec,
+  replaceIncludeSpecPrefix,
   resolveIncludePath,
   sortTreeByDocumentOrder,
 } from "./doc-structure";
@@ -197,5 +198,31 @@ describe("sortTreeByDocumentOrder", () => {
   it("keeps the original order without positions", () => {
     const sorted = sortTreeByDocumentOrder(tree, new Map());
     expect(sorted.map((entry) => entry.path)).toEqual(tree.map((entry) => entry.path));
+  });
+});
+
+describe("replaceIncludeSpecPrefix", () => {
+  it("rewrites specs under the renamed directory", () => {
+    const content =
+      "\\input{chapters/intro}\n\\include{chapters/sub/a.tex}\n\\input{other/intro}\n";
+    const result = replaceIncludeSpecPrefix(content, "chapters", "chap");
+    expect(result).toBe(
+      "\\input{chap/intro}\n\\include{chap/sub/a.tex}\n\\input{other/intro}\n",
+    );
+  });
+
+  it("does not match sibling directories with a shared prefix", () => {
+    const content = "\\input{chapters-old/x}\n";
+    expect(replaceIncludeSpecPrefix(content, "chapters", "new")).toBe(content);
+  });
+
+  it("ignores commented includes", () => {
+    const content = "% \\input{chapters/intro}\n";
+    expect(replaceIncludeSpecPrefix(content, "chapters", "new")).toBe(content);
+  });
+
+  it("leaves specs outside the directory untouched", () => {
+    const content = "see chapters/intro for details\n\\input{intro}\n";
+    expect(replaceIncludeSpecPrefix(content, "chapters", "new")).toBe(content);
   });
 });

@@ -32,6 +32,7 @@ pub struct Settings {
     pub supsub_braces: Option<bool>,
     pub convert_double_dollar: Option<bool>,
     pub reopen_last_project: Option<bool>,
+    pub auto_include_new_files: Option<bool>,
     /// "git" or "snapshots"; None means auto (git when installed).
     pub version_control: Option<String>,
     pub user_words: Vec<String>,
