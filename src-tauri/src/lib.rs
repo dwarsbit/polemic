@@ -748,9 +748,83 @@ fn reveal_build_folder(app: tauri::AppHandle, project_dir: String) -> Result<(),
         .map_err(|e| format!("failed to reveal folder: {e}"))
 }
 
+/// Build the native OS menu and forward its items to the frontend.
+fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
+    use tauri::menu::{MenuBuilder, MenuItem, SubmenuBuilder};
+
+    let handle = app.handle();
+    let new_project =
+        MenuItem::with_id(handle, "new_project", "New Project", true, Some("CmdOrCtrl+N"))?;
+    let save = MenuItem::with_id(handle, "save", "Save", true, Some("CmdOrCtrl+S"))?;
+    let export_pdf =
+        MenuItem::with_id(handle, "export_pdf", "Export PDF as…", true, Some("CmdOrCtrl+E"))?;
+    let settings = MenuItem::with_id(handle, "settings", "Settings", true, Some("CmdOrCtrl+,"))?;
+
+    #[cfg(target_os = "macos")]
+    let menu = {
+        let app_menu = SubmenuBuilder::new(handle, "Polemic")
+            .about(None)
+            .separator()
+            .item(&settings)
+            .separator()
+            .services()
+            .hide()
+            .hide_others()
+            .show_all()
+            .separator()
+            .quit()
+            .build()?;
+        let file_menu = SubmenuBuilder::new(handle, "File")
+            .item(&new_project)
+            .separator()
+            .item(&save)
+            .item(&export_pdf)
+            .separator()
+            .quit()
+            .build()?;
+        MenuBuilder::new(handle).items(&[&app_menu, &file_menu]).build()?
+    };
+
+    #[cfg(not(target_os = "macos"))]
+    let menu = {
+        let file_menu = SubmenuBuilder::new(handle, "File")
+            .item(&new_project)
+            .separator()
+            .item(&save)
+            .item(&export_pdf)
+            .separator()
+            .item(&settings)
+            .separator()
+            .quit()
+            .build()?;
+        MenuBuilder::new(handle).items(&[&file_menu]).build()?
+    };
+
+    #[cfg(target_os = "macos")]
+    handle.set_menu(menu)?;
+    #[cfg(not(target_os = "macos"))]
+    if let Some(window) = handle.get_webview_window("main") {
+        window.set_menu(Some(menu))?;
+    }
+
+    handle.on_menu_event(|app, event| {
+        use tauri::Emitter;
+        let id = event.id().as_ref();
+        let event_name = match id {
+            "new_project" => "menu://new-project",
+            "save" => "menu://save",
+            "export_pdf" => "menu://export-pdf",
+            "settings" => "menu://settings",
+            _ => return,
+        };
+        let _ = app.emit(event_name, ());
+    });
+
+    Ok(())
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
-pub fn run() {
-    tauri::Builder::default()
+pub fn run() {    tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_window_state::Builder::default().build())
@@ -771,6 +845,7 @@ pub fn run() {
                 load_language_wordlist(app.handle(), &lang, &user_words)
                     .unwrap_or_else(|_| spell::SpellState::new(&user_words));
             app.manage(std::sync::Mutex::new(spell_state));
+            build_app_menu(app)?;
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![

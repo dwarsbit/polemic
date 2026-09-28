@@ -16,7 +16,13 @@ pub struct Template {
     pub files: &'static [(&'static str, &'static str)],
 }
 
-pub const TEMPLATES: [Template; 4] = [
+pub const TEMPLATES: [Template; 5] = [
+    Template {
+        id: "blank",
+        name: "No template",
+        description: "An empty project folder.",
+        files: &[],
+    },
     Template {
         id: "article",
         name: "Article",

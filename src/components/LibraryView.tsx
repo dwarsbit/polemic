@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { TemplateArt } from "@/components/TemplateArt";
 import {
   createProject,
   deleteProject,
@@ -144,27 +145,29 @@ export function LibraryView() {
         {templates.length > 0 && (
           <div className="mt-2">
             <p className="mb-1.5 text-xs font-medium text-muted-foreground">TEMPLATE</p>
-            <div className="grid grid-cols-2 gap-1.5">
+            <div className="grid grid-cols-3 gap-1.5">
               {templates.map((template) => (
                 <button
                   key={template.id}
                   type="button"
                   title={template.description}
                   className={cn(
-                    "rounded-md border px-3 py-2 text-left text-sm transition-colors",
+                    "flex flex-col items-center gap-1 rounded-md border px-2 py-2.5 text-xs transition-colors",
                     templateId === template.id
                       ? "border-primary bg-primary/10 font-medium"
                       : "hover:bg-accent",
                   )}
                   onClick={() => setTemplateId(template.id)}
                 >
+                  <TemplateArt id={template.id} />
                   {template.name}
                 </button>
               ))}
             </div>
           </div>
         )}
-        <div className="mt-2">
+        <Separator className="mt-3" />
+        <div className="mt-3">
           <Button
             variant="outline"
             className="w-full"

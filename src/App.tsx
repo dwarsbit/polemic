@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { EditorView } from "@/components/EditorView";
 import { LibraryView } from "@/components/LibraryView";
+import { exportPdfAs } from "@/lib/pdf-export";
 import { getSettings } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
 import { applySettingsSideEffects, useSettingsStore } from "@/store/settings";
@@ -57,6 +58,52 @@ function App() {
           await useProjectStore.getState().flushBuffers();
           await getCurrentWindow().destroy();
         });
+      } catch {
+        // Not running inside the desktop app.
+      }
+    })();
+    return () => unlisten?.();
+  }, []);
+
+  // Native OS menu events.
+  useEffect(() => {
+    let unlisten: (() => void) | undefined;
+    void (async () => {
+      try {
+        const { listen } = await import("@tauri-apps/api/event");
+        const handlers: [string, () => void][] = [
+          [
+            "menu://save",
+            () => {
+              void useProjectStore.getState().saveActiveFile();
+            },
+          ],
+          [
+            "menu://export-pdf",
+            () => {
+              void exportPdfAs();
+            },
+          ],
+          [
+            "menu://new-project",
+            () => {
+              void useProjectStore
+                .getState()
+                .flushBuffers()
+                .finally(() => useProjectStore.getState().closeProject());
+            },
+          ],
+          [
+            "menu://settings",
+            () => {
+              useSettingsStore.getState().setSettingsDialogOpen(true);
+            },
+          ],
+        ];
+        const unsubscribers = await Promise.all(
+          handlers.map(([event, handler]) => listen(event, handler)),
+        );
+        unlisten = () => unsubscribers.forEach((u) => u());
       } catch {
         // Not running inside the desktop app.
       }

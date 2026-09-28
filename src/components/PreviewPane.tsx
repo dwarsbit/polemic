@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { save as saveDialog } from "@tauri-apps/plugin-dialog";
 import * as pdfjs from "pdfjs-dist";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import {
@@ -11,7 +10,8 @@ import {
   ZoomIn,
   ZoomOut,
 } from "lucide-react";
-import { exportPdf, openPdf, synctexBackward } from "@/lib/tauri";
+import { openPdf, synctexBackward } from "@/lib/tauri";
+import { exportPdfAs } from "@/lib/pdf-export";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
@@ -155,19 +155,7 @@ export function PreviewPane() {
 
   // Copy the built PDF to a location chosen by the user.
   async function handleExport() {
-    const { project, mainFile } = useProjectStore.getState();
-    if (!project || !mainFile) return;
-    try {
-      const dest = await saveDialog({
-        defaultPath: `${project.name}.pdf`,
-        filters: [{ name: "PDF", extensions: ["pdf"] }],
-      });
-      if (typeof dest === "string" && dest) {
-        await exportPdf(project.path, mainFile, dest);
-      }
-    } catch (e) {
-      usePreviewStore.setState({ status: "error", error: String(e) });
-    }
+    await exportPdfAs();
   }
 
   async function handleOpenPdf() {

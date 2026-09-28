@@ -14,6 +14,7 @@ interface SettingsState {
   fontSize: number;
   spellcheckEnabled: boolean;
   spellcheckLanguage: string;
+  settingsDialogOpen: boolean;
   projectsRoot: string | null;
   panelLayout: Record<string, number> | null;
   hydrate: (settings: Settings) => void;
@@ -21,6 +22,7 @@ interface SettingsState {
   setFontSize: (fontSize: number) => Promise<void>;
   setSpellcheck: (enabled: boolean) => Promise<void>;
   setSpellcheckLanguage: (lang: string) => Promise<void>;
+  setSettingsDialogOpen: (open: boolean) => void;
   setProjectsRoot: (root: string | null) => void;
   persistPanelLayout: (layout: Record<string, number>) => void;
 }
@@ -34,6 +36,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   fontSize: DEFAULT_FONT_SIZE,
   spellcheckEnabled: true,
   spellcheckLanguage: "en",
+  settingsDialogOpen: false,
   projectsRoot: null,
   panelLayout: null,
   hydrate: (settings) =>
@@ -63,6 +66,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
     set({ spellcheckLanguage: lang });
     await persistSpellcheckLanguage(lang);
   },
+  setSettingsDialogOpen: (open) => set({ settingsDialogOpen: open }),
   setProjectsRoot: (root) => set({ projectsRoot: root }),
   persistPanelLayout: (layout) => {
     const merged = {

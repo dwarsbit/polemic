@@ -18,6 +18,7 @@ import { AboutDialog, ShortcutsDialog } from "@/components/HelpDialogs";
 import { detectTex, revealBuildFolder } from "@/lib/tauri";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
+import { useSettingsStore } from "@/store/settings";
 
 type BadgeState = {
   label: string;
@@ -35,7 +36,8 @@ function texBadge(tex: Awaited<ReturnType<typeof detectTex>> | undefined): Badge
 
 export function TopBar() {
   const [texHelpOpen, setTexHelpOpen] = useState(false);
-  const [settingsOpen, setSettingsOpen] = useState(false);
+  const settingsOpen = useSettingsStore((s) => s.settingsDialogOpen);
+  const setSettingsOpen = useSettingsStore((s) => s.setSettingsDialogOpen);
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const { data: tex } = useQuery({
