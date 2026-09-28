@@ -5,7 +5,6 @@ import type { PanelImperativeHandle } from "react-resizable-panels";
 import { FileTree } from "@/components/FileTree";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SymbolsPanel } from "@/components/SymbolsPanel";
-import { ProjectSearch } from "@/components/ProjectSearch";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -23,12 +22,7 @@ import { useSettingsStore } from "@/store/settings";
 
 type DialogKind = null | "newFile" | "newFolder" | "rename" | "delete";
 
-const SIDEBAR_PANEL_IDS = [
-  "sidebar-files",
-  "sidebar-search",
-  "sidebar-outline",
-  "sidebar-symbols",
-];
+const SIDEBAR_PANEL_IDS = ["sidebar-files", "sidebar-outline", "sidebar-symbols"];
 
 /** Pixel height of a collapsed section (the header strip). */
 const COLLAPSED_THRESHOLD_PX = 44;
@@ -42,7 +36,6 @@ function ensureTexExtension(path: string, wasTex = true): string {
 }
 
 export function Sidebar() {
-  const project = useProjectStore((s) => s.project);
   const files = useProjectStore((s) => s.files);
   const activeFile = useProjectStore((s) => s.activeFile);
   const content = useEditorStore((s) => s.content);
@@ -52,7 +45,6 @@ export function Sidebar() {
   const persistPanelLayout = useSettingsStore((s) => s.persistPanelLayout);
 
   const filesRef = usePanelRef();
-  const searchRef = usePanelRef();
   const outlineRef = usePanelRef();
   const symbolsRef = usePanelRef();
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
@@ -141,7 +133,7 @@ export function Sidebar() {
       >
         <Panel
           id="sidebar-files"
-          defaultSize={0.28}
+          defaultSize={0.32}
           minSize={0.12}
           collapsible
           collapsedSize="2.25rem"
@@ -198,24 +190,8 @@ export function Sidebar() {
         </Panel>
         <Separator className="h-px w-full bg-border hover:bg-primary/50" />
         <Panel
-          id="sidebar-search"
-          defaultSize={0.16}
-          minSize={0.1}
-          collapsible
-          collapsedSize="2.25rem"
-          panelRef={searchRef}
-          onResize={(size) => syncCollapsed("sidebar-search", size.inPixels)}
-        >
-          <ProjectSearch
-            key={project?.path ?? "none"}
-            collapsed={collapsed["sidebar-search"] ?? false}
-            onToggle={() => togglePanel("sidebar-search", searchRef)}
-          />
-        </Panel>
-        <Separator className="h-px w-full bg-border hover:bg-primary/50" />
-        <Panel
           id="sidebar-outline"
-          defaultSize={0.24}
+          defaultSize={0.38}
           minSize={0.12}
           collapsible
           collapsedSize="2.25rem"
@@ -257,7 +233,7 @@ export function Sidebar() {
         <Separator className="h-px w-full bg-border hover:bg-primary/50" />
         <Panel
           id="sidebar-symbols"
-          defaultSize={0.18}
+          defaultSize={0.3}
           minSize={0.1}
           collapsible
           collapsedSize="2.25rem"
