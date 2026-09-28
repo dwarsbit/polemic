@@ -748,6 +748,30 @@ fn reveal_build_folder(app: tauri::AppHandle, project_dir: String) -> Result<(),
         .map_err(|e| format!("failed to reveal folder: {e}"))
 }
 
+/// The app menu, kept around so items can be enabled/disabled at runtime.
+pub struct MenuState(pub std::sync::Mutex<Option<tauri::menu::Menu<tauri::Wry>>>);
+
+/// Menu items that only make sense with a project open.
+const PROJECT_MENU_ITEMS: [&str; 3] = ["new_project", "save", "export_pdf"];
+
+#[tauri::command]
+fn set_project_menu_enabled(
+    state: tauri::State<MenuState>,
+    enabled: bool,
+) -> Result<(), String> {
+    let guard = state.0.lock().map_err(|e| e.to_string())?;
+    let Some(menu) = guard.as_ref() else {
+        return Ok(());
+    };
+    for id in PROJECT_MENU_ITEMS {
+        if let Some(tauri::menu::MenuItemKind::MenuItem(item)) = menu.get(id) {
+            item.set_enabled(enabled)
+                .map_err(|e| format!("failed to update menu item {id}: {e}"))?;
+        }
+    }
+    Ok(())
+}
+
 /// Build the native OS menu and forward its items to the frontend.
 fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     use tauri::menu::{MenuBuilder, MenuItem, SubmenuBuilder};
@@ -801,10 +825,23 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     };
 
     #[cfg(target_os = "macos")]
-    handle.set_menu(menu)?;
+    handle.set_menu(menu.clone())?;
     #[cfg(not(target_os = "macos"))]
     if let Some(window) = handle.get_webview_window("main") {
-        window.set_menu(Some(menu))?;
+        window.set_menu(Some(menu.clone()))?;
+    }
+
+    // Keep the menu so menu items can be enabled/disabled at runtime.
+    // Start with project items disabled; the frontend enables them on open.
+    for id in PROJECT_MENU_ITEMS {
+        if let Some(tauri::menu::MenuItemKind::MenuItem(item)) = menu.get(id) {
+            let _ = item.set_enabled(false);
+        }
+    }
+    if let Some(state) = handle.try_state::<MenuState>() {
+        if let Ok(mut guard) = state.0.lock() {
+            *guard = Some(menu);
+        }
     }
 
     handle.on_menu_event(|app, event| {
@@ -845,6 +882,7 @@ pub fn run() {    tauri::Builder::default()
                 load_language_wordlist(app.handle(), &lang, &user_words)
                     .unwrap_or_else(|_| spell::SpellState::new(&user_words));
             app.manage(std::sync::Mutex::new(spell_state));
+            app.manage(MenuState(std::sync::Mutex::new(None)));
             build_app_menu(app)?;
             Ok(())
         })
@@ -862,6 +900,7 @@ pub fn run() {    tauri::Builder::default()
             list_spellcheck_languages,
             install_spellcheck_language,
             set_spellcheck_language,
+            set_project_menu_enabled,
             set_panel_layout,
             set_preview_zoom,
             set_pinned_project,

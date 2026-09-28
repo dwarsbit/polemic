@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { EditorView } from "@/components/EditorView";
 import { LibraryView } from "@/components/LibraryView";
+import { SettingsDialog } from "@/components/SettingsDialog";
 import { exportPdfAs } from "@/lib/pdf-export";
 import { getSettings } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
@@ -13,6 +14,8 @@ function App() {
   const hasProject = useProjectStore((s) => s.project !== null);
   const openProject = useProjectStore((s) => s.openProject);
   const loaded = useSettingsStore((s) => s.loaded);
+  const settingsDialogOpen = useSettingsStore((s) => s.settingsDialogOpen);
+  const setSettingsDialogOpen = useSettingsStore((s) => s.setSettingsDialogOpen);
 
   // Load preferences, apply theme/auto-compile, and reopen the last project.
   useEffect(() => {
@@ -114,6 +117,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       {loaded ? hasProject ? <EditorView /> : <LibraryView /> : null}
+      <SettingsDialog open={settingsDialogOpen} onOpenChange={setSettingsDialogOpen} />
     </QueryClientProvider>
   );
 }

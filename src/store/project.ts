@@ -152,6 +152,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       labelsByFile,
       citeKeysByFile,
     });
+    void api.setProjectMenuEnabled(true);
     const target = storedOpen.length > 0 ? storedOpen[storedOpen.length - 1] : mainFile;
     if (target) {
       await get().openFile(target);
@@ -164,6 +165,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
 
   closeProject: () => {
     // Dirty buffers are flushed by the caller before closing.
+    void api.setProjectMenuEnabled(false);
     set({
       project: null,
       files: [],

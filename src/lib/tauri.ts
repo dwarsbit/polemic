@@ -177,6 +177,11 @@ export function openPdf(projectDir: string, mainTex: string): Promise<void> {
   return invoke<void>("open_pdf", { projectDir, mainTex });
 }
 
+export function setProjectMenuEnabled(enabled: boolean): Promise<void> {
+  if (!isTauri()) return Promise.resolve();
+  return invoke<void>("set_project_menu_enabled", { enabled });
+}
+
 export function setPanelLayout(layout: Record<string, number>): Promise<void> {
   return invoke<void>("set_panel_layout", { layout });
 }

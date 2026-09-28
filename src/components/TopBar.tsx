@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { SettingsDialog } from "@/components/SettingsDialog";
 import { TexHelpDialog } from "@/components/TexHelpDialog";
 import { AboutDialog, ShortcutsDialog } from "@/components/HelpDialogs";
 import { detectTex, revealBuildFolder } from "@/lib/tauri";
@@ -36,7 +35,6 @@ function texBadge(tex: Awaited<ReturnType<typeof detectTex>> | undefined): Badge
 
 export function TopBar() {
   const [texHelpOpen, setTexHelpOpen] = useState(false);
-  const settingsOpen = useSettingsStore((s) => s.settingsDialogOpen);
   const setSettingsOpen = useSettingsStore((s) => s.setSettingsDialogOpen);
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -134,7 +132,6 @@ export function TopBar() {
         </Button>
       </div>
       <TexHelpDialog open={texHelpOpen} onOpenChange={setTexHelpOpen} />
-      <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} />
       <ShortcutsDialog open={shortcutsOpen} onOpenChange={setShortcutsOpen} />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </header>
