@@ -6,6 +6,7 @@ import {
   type CompletionResult,
 } from "@codemirror/autocomplete";
 import { useProjectStore } from "@/store/project";
+import { MATH_SYMBOL_CATEGORIES } from "@/lib/math-symbols";
 
 interface CommandSpec {
   label: string;
@@ -118,7 +119,55 @@ function commandOptions(): Completion[] {
     detail: cmd.detail,
     apply: snippet(cmd.template),
   }));
-  return [...envOptions, ...cmdOptions];
+  return [...envOptions, ...cmdOptions, ...mathCommandOptions()];
+}
+
+/** Completions for math symbols from the symbols panel data. */
+function mathCommandOptions(): Completion[] {
+  const seen = new Set<string>();
+  const out: Completion[] = [];
+  for (const category of MATH_SYMBOL_CATEGORIES) {
+    for (const symbol of category.symbols) {
+      const cmd = symbol.insert.trim();
+      if (!cmd.startsWith("\\") || cmd.includes("{") || seen.has(cmd)) continue;
+      seen.add(cmd);
+      out.push({
+        label: cmd,
+        type: "constant",
+        detail: symbol.glyph,
+        apply: snippet(`${cmd} `),
+      });
+    }
+  }
+  // Math constructs with argument templates (skipped above due to braces).
+  const constructs: [string, string][] = [
+    ["\\frac", "\\frac{${num}}{${den}}"],
+    ["\\sqrt", "\\sqrt{${x}}"],
+    ["\\sum", "\\sum_{${lower}}^{${upper}}"],
+    ["\\int", "\\int_{${lower}}^{${upper}}"],
+    ["\\lim", "\\lim_{${to}}"],
+    ["\\binom", "\\binom{${n}}{${k}}"],
+    ["\\bar", "\\bar{${x}}"],
+    ["\\vec", "\\vec{${x}}"],
+    ["\\hat", "\\hat{${x}}"],
+    ["\\tilde", "\\tilde{${x}}"],
+    ["\\overline", "\\overline{${x}}"],
+    ["\\underline", "\\underline{${x}}"],
+    ["\\mathbb", "\\mathbb{${x}}"],
+    ["\\mathcal", "\\mathcal{${x}}"],
+    ["\\mathrm", "\\mathrm{${x}}"],
+  ];
+  for (const [label, template] of constructs) {
+    if (seen.has(label)) continue;
+    seen.add(label);
+    out.push({
+      label,
+      type: "function",
+      detail: "Math",
+      apply: snippet(template),
+    });
+  }
+  return out;
 }
 
 export function latexCompletionSource(

@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
-import { Camera, ChevronDown, FilePlus2, FolderPlus, RotateCcw } from "lucide-react";
+import { Camera, FilePlus2, FolderPlus, RotateCcw } from "lucide-react";
 import { Group, Panel, Separator, usePanelRef } from "react-resizable-panels";
 import type { PanelImperativeHandle } from "react-resizable-panels";
 import { FileTree } from "@/components/FileTree";
+import { SectionHeader } from "@/components/SectionHeader";
+import { SymbolsPanel } from "@/components/SymbolsPanel";
 import { ProjectSearch } from "@/components/ProjectSearch";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,7 +16,6 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { parseOutline } from "@/lib/outline";
-import { cn } from "@/lib/utils";
 import type { FileEntry, SnapshotInfo } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
@@ -26,6 +27,7 @@ const SIDEBAR_PANEL_IDS = [
   "sidebar-files",
   "sidebar-search",
   "sidebar-outline",
+  "sidebar-symbols",
   "sidebar-snapshots",
 ];
 
@@ -38,37 +40,6 @@ function ensureTexExtension(path: string, wasTex = true): string {
     return wasTex ? `${path}.tex` : path;
   }
   return path;
-}
-
-function SectionHeader({
-  label,
-  collapsed,
-  onToggle,
-  actions,
-}: {
-  label: string;
-  collapsed: boolean;
-  onToggle?: () => void;
-  actions?: React.ReactNode;
-}) {
-  return (
-    <div className="flex h-9 shrink-0 items-center gap-1 px-3 text-xs font-medium text-muted-foreground">
-      {onToggle && (
-        <button
-          type="button"
-          title={collapsed ? "Expand" : "Collapse"}
-          className="rounded p-0.5 hover:bg-accent hover:text-foreground"
-          onClick={onToggle}
-        >
-          <ChevronDown
-            className={cn("size-3.5 transition-transform", collapsed && "-rotate-90")}
-          />
-        </button>
-      )}
-      <span className="flex-1">{label}</span>
-      {actions}
-    </div>
-  );
 }
 
 export function Sidebar() {
@@ -85,6 +56,7 @@ export function Sidebar() {
   const filesRef = usePanelRef();
   const searchRef = usePanelRef();
   const outlineRef = usePanelRef();
+  const symbolsRef = usePanelRef();
   const snapshotsRef = usePanelRef();
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
 
@@ -177,7 +149,7 @@ export function Sidebar() {
       >
         <Panel
           id="sidebar-files"
-          defaultSize={0.34}
+          defaultSize={0.28}
           minSize={0.12}
           collapsible
           collapsedSize="2.25rem"
@@ -235,7 +207,7 @@ export function Sidebar() {
         <Separator className="h-px w-full bg-border hover:bg-primary/50" />
         <Panel
           id="sidebar-search"
-          defaultSize={0.2}
+          defaultSize={0.16}
           minSize={0.1}
           collapsible
           collapsedSize="2.25rem"
@@ -251,7 +223,7 @@ export function Sidebar() {
         <Separator className="h-px w-full bg-border hover:bg-primary/50" />
         <Panel
           id="sidebar-outline"
-          defaultSize={0.3}
+          defaultSize={0.24}
           minSize={0.12}
           collapsible
           collapsedSize="2.25rem"
@@ -292,8 +264,23 @@ export function Sidebar() {
         </Panel>
         <Separator className="h-px w-full bg-border hover:bg-primary/50" />
         <Panel
+          id="sidebar-symbols"
+          defaultSize={0.18}
+          minSize={0.1}
+          collapsible
+          collapsedSize="2.25rem"
+          panelRef={symbolsRef}
+          onResize={(size) => syncCollapsed("sidebar-symbols", size.inPixels)}
+        >
+          <SymbolsPanel
+            collapsed={collapsed["sidebar-symbols"] ?? false}
+            onToggle={() => togglePanel("sidebar-symbols", symbolsRef)}
+          />
+        </Panel>
+        <Separator className="h-px w-full bg-border hover:bg-primary/50" />
+        <Panel
           id="sidebar-snapshots"
-          defaultSize={0.16}
+          defaultSize={0.14}
           minSize={0.08}
           collapsible
           collapsedSize="2.25rem"

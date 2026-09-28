@@ -218,6 +218,7 @@ fn update_preferences(
     auto_compile: Option<bool>,
     font_size: Option<u32>,
     spellcheck: Option<bool>,
+    supsub_braces: Option<bool>,
 ) -> Result<Settings, String> {
     settings::update(&app, |s| {
         if theme.is_some() {
@@ -231,6 +232,9 @@ fn update_preferences(
         }
         if spellcheck.is_some() {
             s.spellcheck = spellcheck;
+        }
+        if supsub_braces.is_some() {
+            s.supsub_braces = supsub_braces;
         }
         s.clone()
     })

@@ -6,6 +6,8 @@ import { linter, lintGutter, setDiagnostics, type Diagnostic } from "@codemirror
 import { EditorView, basicSetup } from "codemirror";
 import { keymap, Decoration } from "@codemirror/view";
 import { latexAutocompletion } from "@/lib/completion";
+import { mathPairing } from "@/lib/math-pairing";
+import { setInsertHandler } from "@/lib/editor-insert";
 import {
   clearSpellcheckCache,
   misspelledWordAt,
@@ -55,6 +57,7 @@ export function LatexEditor() {
           basicSetup,
           StreamLanguage.define(stex),
           latexAutocompletion,
+          mathPairing,
           linter(() => []),
           lintGutter(),
           spellcheckExtension,
@@ -132,7 +135,20 @@ export function LatexEditor() {
       parent: container,
     });
     viewRef.current = view;
+    // Serve the math symbols panel: insert text at the cursor.
+    setInsertHandler((text, cursorOffset) => {
+      const range = view.state.selection.main;
+      const anchor = range.from + (cursorOffset ?? text.length);
+      view.dispatch({
+        changes: { from: range.from, to: range.to, insert: text },
+        selection: { anchor },
+        scrollIntoView: true,
+        userEvent: "input.paste",
+      });
+      view.focus();
+    });
     return () => {
+      setInsertHandler(null);
       view.destroy();
       viewRef.current = null;
     };

@@ -29,6 +29,7 @@ pub struct Settings {
     pub preview_zoom: Option<f64>,
     pub spellcheck: Option<bool>,
     pub spellcheck_language: Option<String>,
+    pub supsub_braces: Option<bool>,
     pub user_words: Vec<String>,
 }
 

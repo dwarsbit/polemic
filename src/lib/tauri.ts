@@ -30,6 +30,7 @@ export interface Settings {
   previewZoom: number | null;
   spellcheck: boolean | null;
   spellcheckLanguage: string | null;
+  supsubBraces: boolean | null;
 }
 
 export interface ProjectInfo {
@@ -128,12 +129,14 @@ export function updatePreferences(
   autoCompile?: boolean,
   fontSize?: number,
   spellcheck?: boolean,
+  supsubBraces?: boolean,
 ): Promise<Settings> {
   const args: Record<string, unknown> = {};
   if (theme !== undefined) args.theme = theme;
   if (autoCompile !== undefined) args.autoCompile = autoCompile;
   if (fontSize !== undefined) args.fontSize = fontSize;
   if (spellcheck !== undefined) args.spellcheck = spellcheck;
+  if (supsubBraces !== undefined) args.supsubBraces = supsubBraces;
   return invoke<Settings>("update_preferences", args);
 }
 

@@ -45,6 +45,8 @@ export function SettingsDialog({
   const setSpellcheck = useSettingsStore((s) => s.setSpellcheck);
   const spellcheckLanguage = useSettingsStore((s) => s.spellcheckLanguage);
   const setSpellcheckLanguage = useSettingsStore((s) => s.setSpellcheckLanguage);
+  const supsubBraces = useSettingsStore((s) => s.supsubBraces);
+  const setSupsubBraces = useSettingsStore((s) => s.setSupsubBraces);
   const [downloaded, setDownloaded] = useState<string[]>(["en"]);
   const [downloading, setDownloading] = useState<string | null>(null);
   const [langError, setLangError] = useState<string | null>(null);
@@ -127,6 +129,22 @@ export function SettingsDialog({
                   {size}
                 </Button>
               ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-1.5 font-medium">Auto-braces for ^ and _</p>
+            <div className="flex items-center gap-2">
+              <Button
+                size="sm"
+                variant={supsubBraces ? "default" : "outline"}
+                onClick={() => void setSupsubBraces(!supsubBraces)}
+              >
+                {supsubBraces ? "On" : "Off"}
+              </Button>
+              <span className="text-xs text-muted-foreground">
+                Typing ^ or _ inserts braces with the cursor inside (^{"{"}).
+              </span>
             </div>
           </div>
 

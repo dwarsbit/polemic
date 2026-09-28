@@ -14,6 +14,7 @@ interface SettingsState {
   fontSize: number;
   spellcheckEnabled: boolean;
   spellcheckLanguage: string;
+  supsubBraces: boolean;
   settingsDialogOpen: boolean;
   projectsRoot: string | null;
   panelLayout: Record<string, number> | null;
@@ -22,6 +23,7 @@ interface SettingsState {
   setFontSize: (fontSize: number) => Promise<void>;
   setSpellcheck: (enabled: boolean) => Promise<void>;
   setSpellcheckLanguage: (lang: string) => Promise<void>;
+  setSupsubBraces: (enabled: boolean) => Promise<void>;
   setSettingsDialogOpen: (open: boolean) => void;
   setProjectsRoot: (root: string | null) => void;
   persistPanelLayout: (layout: Record<string, number>) => void;
@@ -36,6 +38,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   fontSize: DEFAULT_FONT_SIZE,
   spellcheckEnabled: true,
   spellcheckLanguage: "en",
+  supsubBraces: false,
   settingsDialogOpen: false,
   projectsRoot: null,
   panelLayout: null,
@@ -46,6 +49,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       fontSize: settings.fontSize ?? DEFAULT_FONT_SIZE,
       spellcheckEnabled: settings.spellcheck ?? true,
       spellcheckLanguage: settings.spellcheckLanguage ?? "en",
+      supsubBraces: settings.supsubBraces ?? false,
       projectsRoot: settings.projectsRoot,
       panelLayout: settings.panelLayout,
     }),
@@ -61,6 +65,10 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   setSpellcheck: async (enabled) => {
     set({ spellcheckEnabled: enabled });
     await updatePreferences(undefined, undefined, undefined, enabled);
+  },
+  setSupsubBraces: async (enabled) => {
+    set({ supsubBraces: enabled });
+    await updatePreferences(undefined, undefined, undefined, undefined, enabled);
   },
   setSpellcheckLanguage: async (lang) => {
     set({ spellcheckLanguage: lang });
