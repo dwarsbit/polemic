@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { FilePlus2, FolderPlus } from "lucide-react";
 import { FileTree } from "@/components/FileTree";
 import { SectionHeader } from "@/components/SectionHeader";
+import { useDocumentOrder } from "@/hooks/useDocumentOrder";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -11,6 +12,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { sortTreeByDocumentOrder } from "@/lib/doc-structure";
 import type { FileEntry } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
 
@@ -26,6 +28,15 @@ function ensureTexExtension(path: string, wasTex = true): string {
 
 export function FilesPanel() {
   const files = useProjectStore((s) => s.files);
+  const order = useDocumentOrder();
+
+  // Display order: .tex files (and directories containing them) sorted
+  // by their position in the document; everything else keeps its order.
+  const sortedFiles = useMemo(() => {
+    const positionOf = new Map<string, number>();
+    (order ?? []).forEach((path, index) => positionOf.set(path, index));
+    return sortTreeByDocumentOrder(files, positionOf);
+  }, [files, order]);
 
   const [dialogKind, setDialogKind] = useState<DialogKind>(null);
   const [entryName, setEntryName] = useState("");
@@ -105,7 +116,7 @@ export function FilesPanel() {
           <p className="px-2 text-xs text-muted-foreground">Empty project.</p>
         ) : (
           <FileTree
-            entries={files}
+            entries={sortedFiles}
             onRename={(entry) =>
               openDialog("rename", { target: entry, name: entry.path })
             }

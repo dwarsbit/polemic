@@ -2,7 +2,12 @@ import { describe, expect, it } from "vitest";
 import {
   buildDocumentOrder,
   extractIncludes,
+  includeSpec,
+  insertInclude,
+  removeInclude,
+  replaceIncludeSpec,
   resolveIncludePath,
+  sortTreeByDocumentOrder,
 } from "./doc-structure";
 
 describe("extractIncludes", () => {
@@ -89,5 +94,108 @@ describe("buildDocumentOrder", () => {
       "main.tex",
     ]);
     expect(order).toEqual(["main.tex"]);
+  });
+});
+
+describe("include helpers", () => {
+  it("builds the idiomatic spec (without .tex)", () => {
+    expect(includeSpec("chapters/intro.tex")).toBe("chapters/intro");
+    expect(includeSpec("data.bib")).toBe("data.bib");
+  });
+
+  it("inserts after the last include", () => {
+    const content = "\\input{a}\ntext\n\\include{b}\ntext\n\\end{document}\n";
+    const result = insertInclude(content, "c");
+    expect(result).toBe(
+      "\\input{a}\ntext\n\\include{b}\n\\input{c}\ntext\n\\end{document}\n",
+    );
+  });
+
+  it("inserts before end{document} when there are no includes", () => {
+    const content = "text\n\\end{document}\n";
+    expect(insertInclude(content, "a")).toBe("text\n\\input{a}\n\\end{document}\n");
+  });
+
+  it("appends at the end as a last resort", () => {
+    expect(insertInclude("fragment", "a")).toBe("fragment\n\\input{a}");
+  });
+
+  it("ignores commented includes when finding the anchor", () => {
+    const content = "\\input{a}\n% \\input{b}\n\\end{document}\n";
+    expect(insertInclude(content, "c")).toBe(
+      "\\input{a}\n\\input{c}\n% \\input{b}\n\\end{document}\n",
+    );
+  });
+
+  it("replaces specs in both extension styles on rename", () => {
+    const content =
+      "\\input{chapters/intro}\n\\include{chapters/intro.tex}\n\\input{other}\n";
+    const result = replaceIncludeSpec(
+      content,
+      "chapters/intro.tex",
+      "chapters/prelude.tex",
+    );
+    expect(result).toBe(
+      "\\input{chapters/prelude}\n\\include{chapters/prelude.tex}\n\\input{other}\n",
+    );
+  });
+
+  it("leaves other content untouched on rename", () => {
+    const content = "The file chapters/intro is nice.\n\\input{other}\n";
+    expect(replaceIncludeSpec(content, "chapters/intro.tex", "x.tex")).toBe(content);
+  });
+
+  it("removes include lines for the path in both styles", () => {
+    const content =
+      "\\input{a}\n\\input{intro}\ntext\n\\include{intro.tex}\n\\input{b}\n";
+    const result = removeInclude(content, "intro.tex");
+    expect(result).toBe("\\input{a}\ntext\n\\input{b}\n");
+  });
+
+  it("keeps commented include lines when removing", () => {
+    const content = "% \\input{a}\ntext\n";
+    expect(removeInclude(content, "a.tex")).toBe("% \\input{a}\ntext\n");
+  });
+});
+
+describe("sortTreeByDocumentOrder", () => {
+  const tree = [
+    { path: "appendix.tex", isDir: false, children: [] },
+    { path: "build", isDir: true, children: [] },
+    {
+      path: "chapters",
+      isDir: true,
+      children: [
+        { path: "chapters/intro.tex", isDir: false, children: [] },
+        { path: "chapters/zmethod.tex", isDir: false, children: [] },
+      ],
+    },
+    { path: "main.tex", isDir: false, children: [] },
+  ];
+  const positions = new Map<string, number>([
+    ["main.tex", 0],
+    ["chapters/intro.tex", 1],
+    ["chapters/zmethod.tex", 2],
+    ["appendix.tex", 3],
+  ]);
+
+  it("sorts files into document order", () => {
+    const sorted = sortTreeByDocumentOrder(tree, positions);
+    expect(sorted.map((entry) => entry.path)).toEqual([
+      "main.tex",
+      "chapters",
+      "appendix.tex",
+      "build",
+    ]);
+    const chapters = sorted.find((entry) => entry.path === "chapters");
+    expect(chapters!.children.map((entry) => entry.path)).toEqual([
+      "chapters/intro.tex",
+      "chapters/zmethod.tex",
+    ]);
+  });
+
+  it("keeps the original order without positions", () => {
+    const sorted = sortTreeByDocumentOrder(tree, new Map());
+    expect(sorted.map((entry) => entry.path)).toEqual(tree.map((entry) => entry.path));
   });
 });

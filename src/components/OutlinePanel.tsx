@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { SectionHeader } from "@/components/SectionHeader";
-import { buildDocumentOrder } from "@/lib/doc-structure";
+import { useDocumentOrder } from "@/hooks/useDocumentOrder";
 import { parseOutline, type OutlineEntry } from "@/lib/outline";
-import { readProjectFile, type FileEntry } from "@/lib/tauri";
+import { readProjectFile } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 
@@ -11,55 +11,39 @@ interface FileOutline {
   entries: OutlineEntry[];
 }
 
-function collectTexPaths(entries: FileEntry[]): string[] {
-  const paths: string[] = [];
-  for (const entry of entries) {
-    if (entry.isDir) {
-      paths.push(...collectTexPaths(entry.children));
-    } else if (entry.path.endsWith(".tex")) {
-      paths.push(entry.path);
-    }
-  }
-  return paths;
-}
-
 export function OutlinePanel() {
   const project = useProjectStore((s) => s.project);
-  const mainFile = useProjectStore((s) => s.mainFile);
   const activeFile = useProjectStore((s) => s.activeFile);
-  const files = useProjectStore((s) => s.files);
   const buffers = useProjectStore((s) => s.buffers);
   const content = useEditorStore((s) => s.content);
   const jumpTo = useEditorStore((s) => s.jumpTo);
+  const order = useDocumentOrder();
   const [docOutline, setDocOutline] = useState<FileOutline[] | null>(null);
 
-  // Rebuild the document outline (debounced): walk the main file's
-  // includes, use the live editor content for the active file and
-  // unsaved buffers or disk for the rest.
+  // Parse sections per ordered file (debounced): the active file from
+  // the live editor content, other files from buffers or disk.
   useEffect(() => {
     let cancelled = false;
     const timer = setTimeout(() => {
       void (async () => {
-        if (!project || !mainFile) {
+        if (!project || order === null) {
           setDocOutline(null);
           return;
         }
-        const texPaths = collectTexPaths(files);
-        const readText = async (path: string): Promise<string | null> => {
-          if (path === activeFile) return content;
-          const buffer = buffers[path];
-          if (buffer !== undefined) return buffer;
-          try {
-            return await readProjectFile(project.path, path);
-          } catch {
-            return null;
-          }
-        };
-        const order = await buildDocumentOrder(mainFile, readText, texPaths);
-        if (cancelled) return;
         const groups: FileOutline[] = [];
         for (const path of order) {
-          const text = await readText(path);
+          let text: string | null;
+          if (path === activeFile) {
+            text = content;
+          } else if (buffers[path] !== undefined) {
+            text = buffers[path];
+          } else {
+            try {
+              text = await readProjectFile(project.path, path);
+            } catch {
+              text = null;
+            }
+          }
           groups.push({ file: path, entries: text === null ? [] : parseOutline(text) });
         }
         if (!cancelled) setDocOutline(groups);
@@ -69,7 +53,7 @@ export function OutlinePanel() {
       cancelled = true;
       clearTimeout(timer);
     };
-  }, [project, mainFile, activeFile, files, buffers, content]);
+  }, [project, order, activeFile, buffers, content]);
 
   function goTo(file: string, line: number) {
     if (file === activeFile) {
