@@ -47,6 +47,8 @@ export function SettingsDialog({
   const setSpellcheckLanguage = useSettingsStore((s) => s.setSpellcheckLanguage);
   const supsubBraces = useSettingsStore((s) => s.supsubBraces);
   const setSupsubBraces = useSettingsStore((s) => s.setSupsubBraces);
+  const convertDoubleDollar = useSettingsStore((s) => s.convertDoubleDollar);
+  const setConvertDoubleDollar = useSettingsStore((s) => s.setConvertDoubleDollar);
   const [downloaded, setDownloaded] = useState<string[]>(["en"]);
   const [downloading, setDownloading] = useState<string | null>(null);
   const [langError, setLangError] = useState<string | null>(null);
@@ -129,6 +131,23 @@ export function SettingsDialog({
                   {size}
                 </Button>
               ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-1.5 font-medium">Convert $$ to \[ \]</p>
+            <div className="flex items-center gap-2">
+              <Button
+                size="sm"
+                variant={convertDoubleDollar ? "default" : "outline"}
+                onClick={() => void setConvertDoubleDollar(!convertDoubleDollar)}
+              >
+                {convertDoubleDollar ? "On" : "Off"}
+              </Button>
+              <span className="text-xs text-muted-foreground">
+                Typing the second $ of a pair creates display-math brackets instead of
+                $$.
+              </span>
             </div>
           </div>
 

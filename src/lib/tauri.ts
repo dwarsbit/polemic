@@ -31,6 +31,7 @@ export interface Settings {
   spellcheck: boolean | null;
   spellcheckLanguage: string | null;
   supsubBraces: boolean | null;
+  convertDoubleDollar: boolean | null;
 }
 
 export interface ProjectInfo {
@@ -130,6 +131,7 @@ export function updatePreferences(
   fontSize?: number,
   spellcheck?: boolean,
   supsubBraces?: boolean,
+  convertDoubleDollar?: boolean,
 ): Promise<Settings> {
   const args: Record<string, unknown> = {};
   if (theme !== undefined) args.theme = theme;
@@ -137,6 +139,7 @@ export function updatePreferences(
   if (fontSize !== undefined) args.fontSize = fontSize;
   if (spellcheck !== undefined) args.spellcheck = spellcheck;
   if (supsubBraces !== undefined) args.supsubBraces = supsubBraces;
+  if (convertDoubleDollar !== undefined) args.convertDoubleDollar = convertDoubleDollar;
   return invoke<Settings>("update_preferences", args);
 }
 

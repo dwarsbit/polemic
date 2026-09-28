@@ -30,6 +30,7 @@ pub struct Settings {
     pub spellcheck: Option<bool>,
     pub spellcheck_language: Option<String>,
     pub supsub_braces: Option<bool>,
+    pub convert_double_dollar: Option<bool>,
     pub user_words: Vec<String>,
 }
 

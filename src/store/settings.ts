@@ -15,6 +15,7 @@ interface SettingsState {
   spellcheckEnabled: boolean;
   spellcheckLanguage: string;
   supsubBraces: boolean;
+  convertDoubleDollar: boolean;
   settingsDialogOpen: boolean;
   projectsRoot: string | null;
   panelLayout: Record<string, number> | null;
@@ -24,6 +25,7 @@ interface SettingsState {
   setSpellcheck: (enabled: boolean) => Promise<void>;
   setSpellcheckLanguage: (lang: string) => Promise<void>;
   setSupsubBraces: (enabled: boolean) => Promise<void>;
+  setConvertDoubleDollar: (enabled: boolean) => Promise<void>;
   setSettingsDialogOpen: (open: boolean) => void;
   setProjectsRoot: (root: string | null) => void;
   persistPanelLayout: (layout: Record<string, number>) => void;
@@ -39,6 +41,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   spellcheckEnabled: true,
   spellcheckLanguage: "en",
   supsubBraces: false,
+  convertDoubleDollar: true,
   settingsDialogOpen: false,
   projectsRoot: null,
   panelLayout: null,
@@ -50,6 +53,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       spellcheckEnabled: settings.spellcheck ?? true,
       spellcheckLanguage: settings.spellcheckLanguage ?? "en",
       supsubBraces: settings.supsubBraces ?? false,
+      convertDoubleDollar: settings.convertDoubleDollar ?? true,
       projectsRoot: settings.projectsRoot,
       panelLayout: settings.panelLayout,
     }),
@@ -69,6 +73,17 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   setSupsubBraces: async (enabled) => {
     set({ supsubBraces: enabled });
     await updatePreferences(undefined, undefined, undefined, undefined, enabled);
+  },
+  setConvertDoubleDollar: async (enabled) => {
+    set({ convertDoubleDollar: enabled });
+    await updatePreferences(
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      enabled,
+    );
   },
   setSpellcheckLanguage: async (lang) => {
     set({ spellcheckLanguage: lang });

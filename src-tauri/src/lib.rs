@@ -219,6 +219,7 @@ fn update_preferences(
     font_size: Option<u32>,
     spellcheck: Option<bool>,
     supsub_braces: Option<bool>,
+    convert_double_dollar: Option<bool>,
 ) -> Result<Settings, String> {
     settings::update(&app, |s| {
         if theme.is_some() {
@@ -235,6 +236,9 @@ fn update_preferences(
         }
         if supsub_braces.is_some() {
             s.supsub_braces = supsub_braces;
+        }
+        if convert_double_dollar.is_some() {
+            s.convert_double_dollar = convert_double_dollar;
         }
         s.clone()
     })
