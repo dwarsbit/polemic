@@ -851,7 +851,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     handle.set_menu(menu.clone())?;
     #[cfg(not(target_os = "macos"))]
     if let Some(window) = handle.get_webview_window("main") {
-        window.set_menu(Some(menu.clone()))?;
+        window.set_menu(menu.clone())?;
     }
 
     // Keep the menu so menu items can be enabled/disabled at runtime.
