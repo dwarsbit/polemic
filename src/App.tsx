@@ -6,7 +6,7 @@ import { LoadingScreen } from "@/components/LoadingScreen";
 import { SettingsDialog } from "@/components/SettingsDialog";
 import { AboutDialog, ShortcutsDialog } from "@/components/HelpDialogs";
 import { exportPdfAs } from "@/lib/pdf-export";
-import { getSettings } from "@/lib/tauri";
+import { getSettings, revealBuildFolder } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
 import { applySettingsSideEffects, useSettingsStore } from "@/store/settings";
 import { useDialogsStore } from "@/store/dialogs";
@@ -99,6 +99,13 @@ function App() {
             "menu://export-pdf",
             () => {
               void exportPdfAs();
+            },
+          ],
+          [
+            "menu://reveal-build",
+            () => {
+              const { project } = useProjectStore.getState();
+              if (project) void revealBuildFolder(project.path);
             },
           ],
           [

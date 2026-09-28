@@ -764,7 +764,12 @@ fn reveal_build_folder(app: tauri::AppHandle, project_dir: String) -> Result<(),
 pub struct MenuState(pub std::sync::Mutex<Option<tauri::menu::Menu<tauri::Wry>>>);
 
 /// Menu items that only make sense with a project open.
-const PROJECT_MENU_ITEMS: [&str; 3] = ["new_project", "save", "export_pdf"];
+const PROJECT_MENU_ITEMS: [&str; 4] = [
+    "new_project",
+    "save",
+    "export_pdf",
+    "reveal_build",
+];
 
 /// Find a menu item by id, searching through the menu's submenus.
 /// (Menu::get only looks at direct children.)
@@ -817,6 +822,13 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     let save = MenuItem::with_id(handle, "save", "Save", true, Some("CmdOrCtrl+S"))?;
     let export_pdf =
         MenuItem::with_id(handle, "export_pdf", "Export PDF as…", true, Some("CmdOrCtrl+E"))?;
+    let reveal_build = MenuItem::with_id(
+        handle,
+        "reveal_build",
+        "Reveal Build Folder",
+        true,
+        Some("CmdOrCtrl+Shift+E"),
+    )?;
     let settings = MenuItem::with_id(handle, "settings", "Settings", true, Some("CmdOrCtrl+,"))?;
     let shortcuts =
         MenuItem::with_id(handle, "shortcuts", "Keyboard Shortcuts", true, Some("CmdOrCtrl+/"))?;
@@ -842,6 +854,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .separator()
             .item(&save)
             .item(&export_pdf)
+            .item(&reveal_build)
             .separator()
             .quit()
             .build()?;
@@ -855,6 +868,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .separator()
             .item(&save)
             .item(&export_pdf)
+            .item(&reveal_build)
             .separator()
             .item(&settings)
             .item(&shortcuts)
@@ -894,6 +908,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             "new_project" => "menu://new-project",
             "save" => "menu://save",
             "export_pdf" => "menu://export-pdf",
+            "reveal_build" => "menu://reveal-build",
             "settings" => "menu://settings",
             "shortcuts" => "menu://shortcuts",
             "about" => "menu://about",
@@ -916,8 +931,11 @@ fn create_main_window(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>
         .min_inner_size(960.0, 600.0)
         .title_bar_style(TitleBarStyle::Overlay)
         .hidden_title(true)
-        // Center the 12px-tall lights in the 48px top bar.
-        .traffic_light_position(LogicalPosition::new(12.0, 18.0))
+        // The builder insets the *title bar container* (button height + y);
+        // the buttons keep their ~8px offset from the container bottom, so
+        // the effective top offset is y - 8. y = 26 centers the 12px lights
+        // in the 48px top bar.
+        .traffic_light_position(LogicalPosition::new(12.0, 26.0))
         .build()?;
     Ok(())
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { open as openDialog } from "@tauri-apps/plugin-dialog";
 import { Download, FolderOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { TexStatusSection } from "@/components/TexStatus";
 import {
   Dialog,
   DialogContent,
@@ -252,6 +253,8 @@ export function SettingsDialog({
           </div>
 
           {error && <p className="text-xs text-destructive">{error}</p>}
+
+          <TexStatusSection />
         </div>
       </DialogContent>
     </Dialog>
