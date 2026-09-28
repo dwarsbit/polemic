@@ -754,6 +754,29 @@ pub struct MenuState(pub std::sync::Mutex<Option<tauri::menu::Menu<tauri::Wry>>>
 /// Menu items that only make sense with a project open.
 const PROJECT_MENU_ITEMS: [&str; 3] = ["new_project", "save", "export_pdf"];
 
+/// Find a menu item by id, searching through the menu's submenus.
+/// (Menu::get only looks at direct children.)
+fn find_menu_item(
+    menu: &tauri::menu::Menu<tauri::Wry>,
+    id: &str,
+) -> Option<tauri::menu::MenuItemKind<tauri::Wry>> {
+    for item in menu.items().unwrap_or_default() {
+        match &item {
+            tauri::menu::MenuItemKind::Submenu(submenu) => {
+                if let Some(found) = submenu.get(id) {
+                    return Some(found);
+                }
+            }
+            _ => {
+                if item.id().0 == id {
+                    return Some(item.clone());
+                }
+            }
+        }
+    }
+    None
+}
+
 #[tauri::command]
 fn set_project_menu_enabled(
     state: tauri::State<MenuState>,
@@ -764,7 +787,7 @@ fn set_project_menu_enabled(
         return Ok(());
     };
     for id in PROJECT_MENU_ITEMS {
-        if let Some(tauri::menu::MenuItemKind::MenuItem(item)) = menu.get(id) {
+        if let Some(tauri::menu::MenuItemKind::MenuItem(item)) = find_menu_item(menu, id) {
             item.set_enabled(enabled)
                 .map_err(|e| format!("failed to update menu item {id}: {e}"))?;
         }
@@ -834,7 +857,9 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     // Keep the menu so menu items can be enabled/disabled at runtime.
     // Start with project items disabled; the frontend enables them on open.
     for id in PROJECT_MENU_ITEMS {
-        if let Some(tauri::menu::MenuItemKind::MenuItem(item)) = menu.get(id) {
+        if let Some(tauri::menu::MenuItemKind::MenuItem(item)) =
+            find_menu_item(&menu, id)
+        {
             let _ = item.set_enabled(false);
         }
     }
