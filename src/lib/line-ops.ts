@@ -1,4 +1,4 @@
-import { EditorState } from "@codemirror/state";
+import { EditorState, Prec } from "@codemirror/state";
 import { EditorView, keymap } from "@codemirror/view";
 
 /**
@@ -67,9 +67,15 @@ export function deleteLines(view: EditorView): boolean {
  * Line-level shortcuts. Mod-x/Mod-c only act when nothing is selected
  * (otherwise they fall through to the native cut/copy); Mod-d always
  * deletes the line(s) spanned by the selection.
+ *
+ * Highest precedence: the search keymap bundled with basicSetup also
+ * binds Mod-d (selectNextOccurrence) and, with a cursor in a word,
+ * handles the key by selecting the word - our delete must win.
  */
-export const lineOps = keymap.of([
-  { key: "Mod-c", run: copyLine },
-  { key: "Mod-x", run: cutLine },
-  { key: "Mod-d", run: deleteLines },
-]);
+export const lineOps = Prec.highest(
+  keymap.of([
+    { key: "Mod-c", run: copyLine },
+    { key: "Mod-x", run: cutLine },
+    { key: "Mod-d", run: deleteLines },
+  ]),
+);
