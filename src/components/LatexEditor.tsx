@@ -6,6 +6,7 @@ import { linter, lintGutter, setDiagnostics, type Diagnostic } from "@codemirror
 import { EditorView, basicSetup } from "codemirror";
 import { keymap, Decoration } from "@codemirror/view";
 import { latexAutocompletion } from "@/lib/completion";
+import { lineOps } from "@/lib/line-ops";
 import { mathPairing } from "@/lib/math-pairing";
 import { setInsertHandler } from "@/lib/editor-insert";
 import {
@@ -58,6 +59,7 @@ export function LatexEditor() {
           StreamLanguage.define(stex),
           latexAutocompletion,
           mathPairing,
+          lineOps,
           linter(() => []),
           lintGutter(),
           spellcheckExtension,

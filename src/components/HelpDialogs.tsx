@@ -11,6 +11,9 @@ import {
 const SHORTCUTS: [string, string][] = [
   ["Cmd/Ctrl + P", "Open the command palette"],
   ["Cmd/Ctrl + S", "Save and compile"],
+  ["Cmd/Ctrl + C", "Copy the current line (when nothing is selected)"],
+  ["Cmd/Ctrl + X", "Cut the current line (when nothing is selected)"],
+  ["Cmd/Ctrl + D", "Delete the current line"],
   ["Cmd/Ctrl + F", "Find in the current file"],
   ["Cmd/Ctrl + click (editor)", "Jump to this spot in the PDF (SyncTeX)"],
   ["Cmd/Ctrl + click (PDF)", "Jump to the source line (SyncTeX)"],
