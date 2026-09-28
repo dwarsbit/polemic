@@ -7,11 +7,13 @@ interface SettingsState {
   loaded: boolean;
   theme: ThemePreference;
   fontSize: number;
+  spellcheckEnabled: boolean;
   projectsRoot: string | null;
   panelLayout: Record<string, number> | null;
   hydrate: (settings: Settings) => void;
   setTheme: (theme: ThemePreference) => Promise<void>;
   setFontSize: (fontSize: number) => Promise<void>;
+  setSpellcheck: (enabled: boolean) => Promise<void>;
   setProjectsRoot: (root: string | null) => void;
   persistPanelLayout: (layout: Record<string, number>) => void;
 }
@@ -23,6 +25,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   loaded: false,
   theme: DEFAULT_THEME,
   fontSize: DEFAULT_FONT_SIZE,
+  spellcheckEnabled: true,
   projectsRoot: null,
   panelLayout: null,
   hydrate: (settings) =>
@@ -30,6 +33,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       loaded: true,
       theme: (settings.theme as ThemePreference | null) ?? DEFAULT_THEME,
       fontSize: settings.fontSize ?? DEFAULT_FONT_SIZE,
+      spellcheckEnabled: settings.spellcheck ?? true,
       projectsRoot: settings.projectsRoot,
       panelLayout: settings.panelLayout,
     }),
@@ -41,6 +45,10 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   setFontSize: async (fontSize) => {
     set({ fontSize });
     await updatePreferences(undefined, undefined, fontSize);
+  },
+  setSpellcheck: async (enabled) => {
+    set({ spellcheckEnabled: enabled });
+    await updatePreferences(undefined, undefined, undefined, enabled);
   },
   setProjectsRoot: (root) => set({ projectsRoot: root }),
   persistPanelLayout: (layout) => {

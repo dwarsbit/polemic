@@ -43,6 +43,8 @@ export function PreviewPane() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Refit the pages when the preview pane is resized.
   useEffect(() => {
@@ -68,6 +70,8 @@ export function PreviewPane() {
       const doc = await pdfjs.getDocument({ data: pdfBytes.slice() }).promise;
       if (cancelled) return;
       container.replaceChildren();
+      setPageCount(doc.numPages);
+      setCurrentPage(1);
       const fitWidth = containerWidth;
       for (let pageNumber = 1; pageNumber <= doc.numPages; pageNumber++) {
         if (cancelled) return;
@@ -126,10 +130,27 @@ export function PreviewPane() {
     return () => clearTimeout(timer);
   }, [scrollVersion, scrollTarget]);
 
+  // Track which page is at the top of the viewport.
+  function updateCurrentPage() {
+    const container = scrollRef.current;
+    if (!container) return;
+    const canvases = container.querySelectorAll<HTMLCanvasElement>("canvas[data-page]");
+    const top = container.scrollTop + 20;
+    for (const canvas of canvases) {
+      if (canvas.offsetTop + canvas.offsetHeight >= top) {
+        setCurrentPage(Number(canvas.dataset.page));
+        return;
+      }
+    }
+  }
+
   return (
     <div className="flex h-full w-full flex-col">
       <div className="flex h-9 shrink-0 items-center justify-between border-b px-3 text-xs font-medium text-muted-foreground">
         <span>PREVIEW</span>
+        <span className="text-[10px] text-muted-foreground">
+          {pageCount > 0 ? `page ${currentPage} / ${pageCount}` : ""}
+        </span>
         <div className="flex items-center gap-1">
           <span className="text-[10px]">Cmd+click: source</span>
           <button
@@ -154,7 +175,11 @@ export function PreviewPane() {
           {status === "compiling" && <Loader2 className="ml-1 size-3.5 animate-spin" />}
         </div>
       </div>
-      <div ref={scrollRef} className="relative flex-1 overflow-auto bg-muted/40">
+      <div
+        ref={scrollRef}
+        className="relative flex-1 overflow-auto bg-muted/40"
+        onScroll={updateCurrentPage}
+      >
         {status === "error" && error ? (
           <div className="flex h-full flex-col items-center gap-2 p-6">
             <AlertTriangle className="size-8 text-destructive" />

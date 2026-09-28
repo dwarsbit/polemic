@@ -28,6 +28,7 @@ export interface Settings {
   fontSize: number | null;
   panelLayout: Record<string, number> | null;
   previewZoom: number | null;
+  spellcheck: boolean | null;
 }
 
 export interface ProjectInfo {
@@ -106,12 +107,22 @@ export function updatePreferences(
   theme?: string,
   autoCompile?: boolean,
   fontSize?: number,
+  spellcheck?: boolean,
 ): Promise<Settings> {
   const args: Record<string, unknown> = {};
   if (theme !== undefined) args.theme = theme;
   if (autoCompile !== undefined) args.autoCompile = autoCompile;
   if (fontSize !== undefined) args.fontSize = fontSize;
+  if (spellcheck !== undefined) args.spellcheck = spellcheck;
   return invoke<Settings>("update_preferences", args);
+}
+
+export function checkWords(words: string[]): Promise<boolean[]> {
+  return invoke<boolean[]>("check_words", { words });
+}
+
+export function addSpellcheckWord(word: string): Promise<void> {
+  return invoke<void>("add_spellcheck_word", { word });
 }
 
 export function setPanelLayout(layout: Record<string, number>): Promise<void> {

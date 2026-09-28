@@ -2,6 +2,7 @@ mod files;
 mod logparse;
 mod settings;
 mod snapshots;
+mod spell;
 
 use serde::Serialize;
 use std::fs;
@@ -220,6 +221,7 @@ fn update_preferences(
     theme: Option<String>,
     auto_compile: Option<bool>,
     font_size: Option<u32>,
+    spellcheck: Option<bool>,
 ) -> Result<Settings, String> {
     settings::update(&app, |s| {
         if theme.is_some() {
@@ -231,7 +233,39 @@ fn update_preferences(
         if font_size.is_some() {
             s.font_size = font_size;
         }
+        if spellcheck.is_some() {
+            s.spellcheck = spellcheck;
+        }
         s.clone()
+    })
+}
+
+// --- spellcheck ------------------------------------------------------------
+
+#[tauri::command]
+fn check_words(
+    state: tauri::State<'_, std::sync::Mutex<spell::SpellState>>,
+    words: Vec<String>,
+) -> Result<Vec<bool>, String> {
+    let state = state.lock().map_err(|e| e.to_string())?;
+    Ok(state.check(&words))
+}
+
+#[tauri::command]
+fn add_spellcheck_word(
+    app: tauri::AppHandle,
+    state: tauri::State<'_, std::sync::Mutex<spell::SpellState>>,
+    word: String,
+) -> Result<(), String> {
+    let word = word.trim().to_lowercase();
+    if word.is_empty() {
+        return Err("empty word".into());
+    }
+    state.lock().map_err(|e| e.to_string())?.add(&word);
+    settings::update(&app, |s| {
+        if !s.user_words.contains(&word) {
+            s.user_words.push(word.clone());
+        }
     })
 }
 
@@ -593,8 +627,16 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_window_state::Builder::default().build())
         .setup(|app| {
             app.manage(SettingsState(std::sync::Mutex::new(settings::load(app.handle()))));
+            let user_words = app
+                .state::<SettingsState>()
+                .0
+                .lock()
+                .map(|s| s.user_words.clone())
+                .unwrap_or_default();
+            app.manage(std::sync::Mutex::new(spell::SpellState::new(&user_words)));
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
@@ -605,6 +647,8 @@ pub fn run() {
             open_project,
             remove_recent_project,
             update_preferences,
+            check_words,
+            add_spellcheck_word,
             set_panel_layout,
             set_preview_zoom,
             set_pinned_project,

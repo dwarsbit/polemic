@@ -26,6 +26,8 @@ export function SettingsDialog({
   const setTheme = useSettingsStore((s) => s.setTheme);
   const fontSize = useSettingsStore((s) => s.fontSize);
   const setFontSize = useSettingsStore((s) => s.setFontSize);
+  const spellcheckEnabled = useSettingsStore((s) => s.spellcheckEnabled);
+  const setSpellcheck = useSettingsStore((s) => s.setSpellcheck);
   const projectsRoot = useSettingsStore((s) => s.projectsRoot);
   const setRoot = useSettingsStore((s) => s.setProjectsRoot);
   const [error, setError] = useState<string | null>(null);
@@ -80,6 +82,22 @@ export function SettingsDialog({
                   {size}
                 </Button>
               ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-1.5 font-medium">Spellcheck</p>
+            <div className="flex items-center gap-2">
+              <Button
+                size="sm"
+                variant={spellcheckEnabled ? "default" : "outline"}
+                onClick={() => void setSpellcheck(!spellcheckEnabled)}
+              >
+                {spellcheckEnabled ? "On" : "Off"}
+              </Button>
+              <span className="text-xs text-muted-foreground">
+                English (US). Right-click a marked word to add it to your dictionary.
+              </span>
             </div>
           </div>
 

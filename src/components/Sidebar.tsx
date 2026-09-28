@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Camera, FilePlus2, FolderPlus, ListTree, RotateCcw } from "lucide-react";
 import { FileTree } from "@/components/FileTree";
+import { ProjectSearch } from "@/components/ProjectSearch";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -27,6 +28,7 @@ function ensureTexExtension(path: string, wasTex = true): string {
 }
 
 export function Sidebar() {
+  const project = useProjectStore((s) => s.project);
   const files = useProjectStore((s) => s.files);
   const activeFile = useProjectStore((s) => s.activeFile);
   const snapshots = useProjectStore((s) => s.snapshots);
@@ -125,6 +127,8 @@ export function Sidebar() {
           />
         )}
       </div>
+      <Separator />
+      <ProjectSearch key={project?.path ?? "none"} />
       <Separator />
       <div className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-muted-foreground">
         <ListTree className="size-3.5" />

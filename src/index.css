@@ -137,3 +137,10 @@ body,
 body {
   margin: 0;
 }
+
+/* Spellcheck: wavy underline for misspelled words */
+.cm-misspelled {
+  text-decoration: underline wavy;
+  text-decoration-skip-ink: none;
+  text-decoration-color: var(--destructive);
+}

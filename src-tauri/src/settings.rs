@@ -27,6 +27,8 @@ pub struct Settings {
     pub font_size: Option<u32>,
     pub panel_layout: Option<HashMap<String, f64>>,
     pub preview_zoom: Option<f64>,
+    pub spellcheck: Option<bool>,
+    pub user_words: Vec<String>,
 }
 
 /// Managed state holding the in-memory settings.

@@ -1,15 +1,28 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { EditorState } from "@codemirror/state";
 import { StreamLanguage } from "@codemirror/language";
 import { stex } from "@codemirror/legacy-modes/mode/stex";
+import { linter, lintGutter, setDiagnostics, type Diagnostic } from "@codemirror/lint";
 import { EditorView, basicSetup } from "codemirror";
-import { keymap } from "@codemirror/view";
+import { keymap, Decoration } from "@codemirror/view";
 import { latexAutocompletion } from "@/lib/completion";
+import {
+  misspelledWordAt,
+  runSpellcheck,
+  setMisspells,
+  spellcheckExtension,
+} from "@/lib/spellcheck";
 import { useSettingsStore } from "@/store/settings";
-import { synctexForward } from "@/lib/tauri";
+import { addSpellcheckWord, synctexForward } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
+
+interface SpellPopover {
+  word: string;
+  x: number;
+  y: number;
+}
 
 export function LatexEditor() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,7 +30,17 @@ export function LatexEditor() {
   const jumpTarget = useEditorStore((s) => s.jumpTarget);
   const clearJump = useEditorStore((s) => s.clearJump);
   const docVersion = useEditorStore((s) => s.docVersion);
+  const content = useEditorStore((s) => s.content);
   const fontSize = useSettingsStore((s) => s.fontSize);
+  const spellcheckEnabled = useSettingsStore((s) => s.spellcheckEnabled);
+  const issues = usePreviewStore((s) => s.issues);
+  const activeFile = useProjectStore((s) => s.activeFile);
+  const [popover, setPopover] = useState<SpellPopover | null>(null);
+  const popoverRef = useRef<((p: SpellPopover) => void) | null>(null);
+
+  useEffect(() => {
+    popoverRef.current = (p) => setPopover(p);
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -30,6 +53,9 @@ export function LatexEditor() {
           basicSetup,
           StreamLanguage.define(stex),
           latexAutocompletion,
+          linter(() => []),
+          lintGutter(),
+          spellcheckExtension,
           EditorView.lineWrapping,
           EditorView.theme({
             "&": { height: "100%" },
@@ -74,6 +100,20 @@ export function LatexEditor() {
               })();
               return true;
             },
+            // Right-click on a misspelled word: offer adding it to the dictionary.
+            contextmenu(event, view) {
+              const pos = view.posAtCoords({ x: event.clientX, y: event.clientY });
+              if (pos === null) return false;
+              const hit = misspelledWordAt(view, pos);
+              if (!hit) return false;
+              event.preventDefault();
+              popoverRef.current?.({
+                word: hit.word,
+                x: event.clientX,
+                y: event.clientY,
+              });
+              return true;
+            },
           }),
           EditorView.updateListener.of((update) => {
             if (update.docChanged) {
@@ -116,11 +156,70 @@ export function LatexEditor() {
     clearJump();
   }, [jumpTarget, clearJump]);
 
+  // Show compile issues for the active file as squiggles and gutter marks.
+  useEffect(() => {
+    const view = viewRef.current;
+    if (!view) return;
+    const diagnostics: Diagnostic[] = [];
+    if (activeFile !== null) {
+      for (const issue of issues) {
+        if (issue.file !== activeFile || issue.line === null) continue;
+        const lineNo = Math.min(issue.line, view.state.doc.lines);
+        const line = view.state.doc.line(lineNo);
+        diagnostics.push({
+          from: line.from,
+          to: line.to,
+          severity: issue.severity === "error" ? "error" : "warning",
+          message: issue.message,
+        });
+      }
+    }
+    view.dispatch(setDiagnostics(view.state, diagnostics));
+  }, [issues, activeFile, docVersion]);
+
+  // Debounced spellcheck over the current document.
+  useEffect(() => {
+    const view = viewRef.current;
+    if (!view) return;
+    if (!spellcheckEnabled) {
+      view.dispatch({ effects: setMisspells.of(Decoration.none) });
+      return;
+    }
+    const timer = setTimeout(() => void runSpellcheck(view), 500);
+    return () => clearTimeout(timer);
+  }, [content, docVersion, spellcheckEnabled]);
+
   return (
     <div
       ref={containerRef}
-      className="h-full overflow-hidden"
+      className="relative h-full overflow-hidden"
       style={{ "--editor-font-size": `${fontSize}px` } as React.CSSProperties}
-    />
+      onMouseDown={() => setPopover(null)}
+    >
+      {popover && (
+        <div
+          className="fixed z-50 rounded-md border bg-popover p-1 text-xs shadow-md"
+          style={{ left: popover.x, top: popover.y + 8 }}
+        >
+          <button
+            type="button"
+            className="block w-full rounded px-2 py-1 text-left hover:bg-accent"
+            onClick={() => {
+              const view = viewRef.current;
+              void (async () => {
+                try {
+                  await addSpellcheckWord(popover.word);
+                  if (view) await runSpellcheck(view);
+                } finally {
+                  setPopover(null);
+                }
+              })();
+            }}
+          >
+            Add “{popover.word}” to dictionary
+          </button>
+        </div>
+      )}
+    </div>
   );
 }

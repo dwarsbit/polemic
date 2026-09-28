@@ -1,10 +1,20 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, FolderOpen, Loader2, Play, Settings, Zap } from "lucide-react";
+import {
+  ArrowLeft,
+  FolderOpen,
+  Keyboard,
+  Loader2,
+  Play,
+  Settings,
+  Sparkles,
+  Zap,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SettingsDialog } from "@/components/SettingsDialog";
 import { TexHelpDialog } from "@/components/TexHelpDialog";
+import { AboutDialog, ShortcutsDialog } from "@/components/HelpDialogs";
 import { detectTex, revealBuildFolder } from "@/lib/tauri";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
@@ -26,6 +36,8 @@ function texBadge(tex: Awaited<ReturnType<typeof detectTex>> | undefined): Badge
 export function TopBar() {
   const [texHelpOpen, setTexHelpOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [shortcutsOpen, setShortcutsOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const { data: tex } = useQuery({
     queryKey: ["tex-status"],
     queryFn: detectTex,
@@ -90,6 +102,22 @@ export function TopBar() {
           <Settings />
         </Button>
         <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setShortcutsOpen(true)}
+          title="Keyboard shortcuts"
+        >
+          <Keyboard />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setAboutOpen(true)}
+          title="About Polemic"
+        >
+          <Sparkles />
+        </Button>
+        <Button
           size="sm"
           variant="outline"
           onClick={() => void compileNow()}
@@ -101,6 +129,8 @@ export function TopBar() {
       </div>
       <TexHelpDialog open={texHelpOpen} onOpenChange={setTexHelpOpen} />
       <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} />
+      <ShortcutsDialog open={shortcutsOpen} onOpenChange={setShortcutsOpen} />
+      <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </header>
   );
 }
