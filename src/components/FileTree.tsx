@@ -3,12 +3,21 @@ import type { FileEntry } from "@/lib/tauri";
 import { cn } from "@/lib/utils";
 import { useProjectStore } from "@/store/project";
 
+export type FileStatus = "added" | "changed" | "ignored";
+
+const STATUS_CLASS: Record<FileStatus, string> = {
+  added: "text-emerald-600 dark:text-emerald-400",
+  changed: "text-sky-600 dark:text-sky-400",
+  ignored: "text-orange-500 dark:text-orange-400",
+};
+
 interface FileTreeProps {
   entries: FileEntry[];
   depth?: number;
   onRename: (entry: FileEntry) => void;
   onDelete: (entry: FileEntry) => void;
   onSetMain: (entry: FileEntry) => void;
+  statusOf?: (path: string) => FileStatus | undefined;
 }
 
 export function FileTree({
@@ -17,6 +26,7 @@ export function FileTree({
   onRename,
   onDelete,
   onSetMain,
+  statusOf,
 }: FileTreeProps) {
   const activeFile = useProjectStore((s) => s.activeFile);
   const mainFile = useProjectStore((s) => s.mainFile);
@@ -49,6 +59,7 @@ export function FileTree({
                 onRename={onRename}
                 onDelete={onDelete}
                 onSetMain={onSetMain}
+                statusOf={statusOf}
               />
             </details>
           </li>
@@ -71,7 +82,16 @@ export function FileTree({
                 ) : (
                   <FileText className="size-3.5 shrink-0 text-muted-foreground" />
                 )}
-                <span className="truncate">{entry.name}</span>
+                <span
+                  className={cn(
+                    "truncate",
+                    statusOf &&
+                      statusOf(entry.path) &&
+                      STATUS_CLASS[statusOf(entry.path)!],
+                  )}
+                >
+                  {entry.name}
+                </span>
               </button>
               {mainFile === entry.path && (
                 <Star className="size-3 shrink-0 fill-amber-400 text-amber-400" />

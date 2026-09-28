@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { FilePlus2, FolderPlus } from "lucide-react";
 import { FileTree } from "@/components/FileTree";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -13,7 +14,8 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { sortTreeByDocumentOrder } from "@/lib/doc-structure";
-import type { FileEntry } from "@/lib/tauri";
+import { gitIgnored, gitStatus, type FileEntry } from "@/lib/tauri";
+import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 import { useProjectStore } from "@/store/project";
 
 type DialogKind = null | "newFile" | "newFolder" | "rename" | "delete";
@@ -28,7 +30,32 @@ function ensureTexExtension(path: string, wasTex = true): string {
 
 export function FilesPanel() {
   const files = useProjectStore((s) => s.files);
+  const project = useProjectStore((s) => s.project);
+  const versionControl = useSettingsStore((s) => resolveVersionControl(s));
   const order = useDocumentOrder();
+
+  const gitEnabled = versionControl === "git" && project !== null;
+  const { data: status } = useQuery({
+    queryKey: ["git-status", project?.path],
+    queryFn: () => gitStatus(project!.path),
+    enabled: gitEnabled,
+  });
+  const { data: ignored } = useQuery({
+    queryKey: ["git-ignored", project?.path],
+    queryFn: () => gitIgnored(project!.path),
+    enabled: gitEnabled,
+  });
+
+  const statusOf = useMemo(() => {
+    const map = new Map<string, "added" | "changed" | "ignored">();
+    for (const entry of status?.entries ?? []) {
+      map.set(entry.path, entry.x === "?" || entry.x === "A" ? "added" : "changed");
+    }
+    for (const path of ignored ?? []) {
+      map.set(path, "ignored");
+    }
+    return (path: string) => map.get(path);
+  }, [status, ignored]);
 
   // Display order: .tex files (and directories containing them) sorted
   // by their position in the document; everything else keeps its order.
@@ -117,6 +144,7 @@ export function FilesPanel() {
         ) : (
           <FileTree
             entries={sortedFiles}
+            statusOf={gitEnabled ? statusOf : undefined}
             onRename={(entry) =>
               openDialog("rename", { target: entry, name: entry.path })
             }

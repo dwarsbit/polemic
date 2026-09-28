@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { EditorState } from "@codemirror/state";
 import { StreamLanguage } from "@codemirror/language";
 import { stex } from "@codemirror/legacy-modes/mode/stex";
@@ -6,6 +7,8 @@ import { linter, lintGutter, setDiagnostics, type Diagnostic } from "@codemirror
 import { EditorView, basicSetup } from "codemirror";
 import { keymap, Decoration } from "@codemirror/view";
 import { latexAutocompletion } from "@/lib/completion";
+import { gitLineGutter, setGitLines } from "@/lib/git-gutter";
+import { lineStatus } from "@/lib/git-line-status";
 import { lineOps } from "@/lib/line-ops";
 import { mathPairing } from "@/lib/math-pairing";
 import { setInsertHandler } from "@/lib/editor-insert";
@@ -16,8 +19,8 @@ import {
   setMisspells,
   spellcheckExtension,
 } from "@/lib/spellcheck";
-import { useSettingsStore } from "@/store/settings";
-import { addSpellcheckWord, synctexForward } from "@/lib/tauri";
+import { resolveVersionControl, useSettingsStore } from "@/store/settings";
+import { addSpellcheckWord, gitShowHead, synctexForward } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
@@ -40,6 +43,8 @@ export function LatexEditor() {
   const spellcheckLanguage = useSettingsStore((s) => s.spellcheckLanguage);
   const issues = usePreviewStore((s) => s.issues);
   const activeFile = useProjectStore((s) => s.activeFile);
+  const projectPath = useProjectStore((s) => s.project?.path);
+  const versionControl = useSettingsStore((s) => resolveVersionControl(s));
   const [popover, setPopover] = useState<SpellPopover | null>(null);
   const popoverRef = useRef<((p: SpellPopover) => void) | null>(null);
 
@@ -60,6 +65,7 @@ export function LatexEditor() {
           latexAutocompletion,
           mathPairing,
           lineOps,
+          gitLineGutter,
           linter(() => []),
           lintGutter(),
           spellcheckExtension,
@@ -167,6 +173,38 @@ export function LatexEditor() {
       });
     }
   }, [docVersion]);
+
+  // Git change bars: the HEAD version comes through react-query (so
+  // git actions can invalidate it); the diff against the live content
+  // is recomputed debounced while typing.
+  const gitEnabled = versionControl === "git" && projectPath !== null;
+  const { data: head } = useQuery({
+    queryKey: ["git-head", projectPath, activeFile],
+    queryFn: () => gitShowHead(projectPath!, activeFile!),
+    enabled: gitEnabled && activeFile !== null,
+    staleTime: Infinity,
+  });
+
+  useEffect(() => {
+    const view = viewRef.current;
+    if (!view) return;
+    if (!gitEnabled || activeFile === null || head === undefined) {
+      view.dispatch({ effects: setGitLines.of(new Map()) });
+      return;
+    }
+    let cancelled = false;
+    const timer = setTimeout(() => {
+      const current = viewRef.current;
+      if (cancelled || !current) return;
+      current.dispatch({
+        effects: setGitLines.of(lineStatus(head, useEditorStore.getState().content)),
+      });
+    }, 300);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [gitEnabled, activeFile, head, content]);
 
   useEffect(() => {
     const view = viewRef.current;

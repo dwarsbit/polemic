@@ -167,6 +167,10 @@ export function gitAvailable(): Promise<boolean> {
   return invoke<boolean>("git_available");
 }
 
+export function gitIgnored(projectDir: string): Promise<string[]> {
+  return invoke<string[]>("git_ignored", { projectDir });
+}
+
 export function checkWords(words: string[]): Promise<boolean[]> {
   return invoke<boolean[]>("check_words", { words });
 }

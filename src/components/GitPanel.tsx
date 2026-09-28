@@ -63,6 +63,10 @@ export function GitPanel() {
   async function refresh() {
     await queryClient.invalidateQueries({ queryKey: ["git-status"] });
     await queryClient.invalidateQueries({ queryKey: ["git-log"] });
+    // HEAD changed (commit): editor change bars need a recompute; the
+    // ignored list can change when a repo is initialized.
+    await queryClient.invalidateQueries({ queryKey: ["git-head"] });
+    await queryClient.invalidateQueries({ queryKey: ["git-ignored"] });
   }
 
   async function run(action: () => Promise<unknown>) {

@@ -269,6 +269,14 @@ fn git_available() -> bool {
     git::available()
 }
 
+#[tauri::command]
+fn git_ignored(project_dir: String) -> Vec<String> {
+    match canonical_project(&project_dir) {
+        Ok(dir) => git::ignored(&dir),
+        Err(_) => Vec::new(),
+    }
+}
+
 // --- spellcheck ------------------------------------------------------------
 
 #[tauri::command]
@@ -1126,6 +1134,7 @@ pub fn run() {    tauri::Builder::default()
             git_log,
             git_show_head,
             git_available,
+            git_ignored,
             set_version_control,
             reveal_build_folder
         ])

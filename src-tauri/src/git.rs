@@ -350,3 +350,15 @@ mod tests {
         let _ = std::fs::remove_dir_all(&dir);
     }
 }
+
+/// Files ignored by git (via .gitignore), for file-list coloring.
+pub fn ignored(dir: &Path) -> Vec<String> {
+    match run_git(dir, &["status", "--porcelain", "--ignored"]) {
+        Ok(output) => output
+            .lines()
+            .filter_map(|line| line.strip_prefix("!! "))
+            .map(str::to_string)
+            .collect(),
+        Err(_) => Vec::new(),
+    }
+}

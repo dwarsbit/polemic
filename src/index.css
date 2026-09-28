@@ -198,3 +198,11 @@ body {
   border: none;
   background: transparent;
 }
+
+/* Git change bars in the editor gutter (Tailwind emerald-500 / sky-500). */
+.cm-gutters .cm-git-line-added {
+  box-shadow: inset 3px 0 0 oklch(69.6% 0.17 162.48);
+}
+.cm-gutters .cm-git-line-modified {
+  box-shadow: inset 3px 0 0 oklch(68.5% 0.169 237.323);
+}
