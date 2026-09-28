@@ -12,11 +12,10 @@ import { TopBar } from "@/components/TopBar";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
-import { useSettingsStore } from "@/store/settings";
+import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 
 const AUTO_SAVE_DELAY_MS = 1200;
 const EDITOR_PANEL_IDS = ["editor-doc", "editor-issues"];
-const RIGHT_PANEL_IDS = ["right-git", "right-snapshots"];
 
 function pickLayout(
   all: Record<string, number> | null,
@@ -34,6 +33,7 @@ export function EditorView() {
   const activeFile = useProjectStore((s) => s.activeFile);
   const panelLayout = useSettingsStore((s) => s.panelLayout);
   const persistPanelLayout = useSettingsStore((s) => s.persistPanelLayout);
+  const versionControl = useSettingsStore((s) => resolveVersionControl(s));
   const issuesRef = usePanelRef();
   const [issuesCollapsed, setIssuesCollapsed] = useState(false);
   const leftSidebarRef = usePanelRef();
@@ -175,32 +175,7 @@ export function EditorView() {
             onResize={(size) => setRightSidebarOpen(size.inPixels > 1)}
           >
             <div className="flex h-full flex-col border-l bg-sidebar text-sidebar-foreground">
-              <Group
-                orientation="vertical"
-                className="h-full"
-                defaultLayout={pickLayout(panelLayout, RIGHT_PANEL_IDS)}
-                onLayoutChanged={(layout) => persistPanelLayout(layout)}
-              >
-                <Panel
-                  id="right-git"
-                  defaultSize={0.55}
-                  minSize={0.15}
-                  collapsible
-                  collapsedSize="2.25rem"
-                >
-                  <GitPanel />
-                </Panel>
-                <Separator className="h-px w-full bg-border hover:bg-primary/50" />
-                <Panel
-                  id="right-snapshots"
-                  defaultSize={0.45}
-                  minSize={0.15}
-                  collapsible
-                  collapsedSize="2.25rem"
-                >
-                  <SnapshotsPanel />
-                </Panel>
-              </Group>
+              {versionControl === "git" ? <GitPanel /> : <SnapshotsPanel />}
             </div>
           </Panel>
         </Group>

@@ -16,7 +16,7 @@ import { revealBuildFolder, type FileEntry } from "@/lib/tauri";
 import { useDialogsStore } from "@/store/dialogs";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
-import { useSettingsStore } from "@/store/settings";
+import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 import { cn } from "cn";
 
 interface Command {
@@ -48,6 +48,7 @@ export function CommandPalette() {
 
   const project = useProjectStore((s) => s.project);
   const files = useProjectStore((s) => s.files);
+  const versionControl = useSettingsStore((s) => resolveVersionControl(s));
 
   const commands = useMemo<Command[]>(() => {
     const app: Command[] = [
@@ -112,13 +113,17 @@ export function CommandPalette() {
         icon: FolderOpen,
         run: () => void revealBuildFolder(project.path),
       },
-      {
-        id: "snapshot",
-        title: "Take snapshot",
-        icon: Camera,
-        keywords: "backup version save",
-        run: () => void useProjectStore.getState().takeSnapshot(),
-      },
+      ...(versionControl === "snapshots"
+        ? [
+            {
+              id: "snapshot",
+              title: "Take snapshot",
+              icon: Camera,
+              keywords: "backup version save",
+              run: () => void useProjectStore.getState().takeSnapshot(),
+            },
+          ]
+        : []),
       {
         id: "toggle-autocompile",
         title: `Auto-compile: turn ${usePreviewStore.getState().autoCompile ? "off" : "on"}`,
@@ -127,7 +132,7 @@ export function CommandPalette() {
       },
       ...app,
     ];
-  }, [project]);
+  }, [project, versionControl]);
 
   const fileCommands = useMemo<Command[]>(() => {
     if (!project) return [];

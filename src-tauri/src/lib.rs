@@ -249,6 +249,22 @@ fn update_preferences(
     })
 }
 
+#[tauri::command]
+fn set_version_control(app: tauri::AppHandle, value: String) -> Result<settings::Settings, String> {
+    if value != "git" && value != "snapshots" {
+        return Err("invalid version control setting".into());
+    }
+    settings::update(&app, |s| {
+        s.version_control = Some(value.clone());
+        s.clone()
+    })
+}
+
+#[tauri::command]
+fn git_available() -> bool {
+    git::available()
+}
+
 // --- spellcheck ------------------------------------------------------------
 
 #[tauri::command]
@@ -1105,6 +1121,8 @@ pub fn run() {    tauri::Builder::default()
             git_commit,
             git_log,
             git_show_head,
+            git_available,
+            set_version_control,
             reveal_build_folder
         ])
         .run(tauri::generate_context!())

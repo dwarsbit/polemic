@@ -33,6 +33,8 @@ export interface Settings {
   supsubBraces: boolean | null;
   convertDoubleDollar: boolean | null;
   reopenLastProject: boolean | null;
+  /** "git" or "snapshots"; null means auto (git when installed). */
+  versionControl: string | null;
 }
 
 export interface ProjectInfo {
@@ -151,6 +153,15 @@ export function updatePreferences(
   if (convertDoubleDollar !== undefined) args.convertDoubleDollar = convertDoubleDollar;
   if (reopenLastProject !== undefined) args.reopenLastProject = reopenLastProject;
   return invoke<Settings>("update_preferences", args);
+}
+
+export function setVersionControl(value: "git" | "snapshots"): Promise<Settings> {
+  return invoke<Settings>("set_version_control", { value });
+}
+
+export function gitAvailable(): Promise<boolean> {
+  if (!isTauri()) return Promise.resolve(false);
+  return invoke<boolean>("git_available");
 }
 
 export function checkWords(words: string[]): Promise<boolean[]> {

@@ -2,6 +2,7 @@ import { create } from "zustand";
 import {
   setPanelLayout,
   setSpellcheckLanguage as persistSpellcheckLanguage,
+  setVersionControl as persistVersionControl,
   updatePreferences,
   type Settings,
 } from "@/lib/tauri";
@@ -17,6 +18,10 @@ interface SettingsState {
   supsubBraces: boolean;
   convertDoubleDollar: boolean;
   reopenLastProject: boolean;
+  /** Explicit version-control choice; null means auto. */
+  versionControl: "git" | "snapshots" | null;
+  /** Whether the git binary is on PATH (part of startup gating). */
+  gitAvailable: boolean;
   settingsDialogOpen: boolean;
   projectsRoot: string | null;
   panelLayout: Record<string, number> | null;
@@ -28,6 +33,8 @@ interface SettingsState {
   setSupsubBraces: (enabled: boolean) => Promise<void>;
   setConvertDoubleDollar: (enabled: boolean) => Promise<void>;
   setReopenLastProject: (enabled: boolean) => Promise<void>;
+  setVersionControl: (value: "git" | "snapshots") => Promise<void>;
+  setGitAvailable: (available: boolean) => void;
   setSettingsDialogOpen: (open: boolean) => void;
   setProjectsRoot: (root: string | null) => void;
   persistPanelLayout: (layout: Record<string, number>) => void;
@@ -45,6 +52,8 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   supsubBraces: false,
   convertDoubleDollar: true,
   reopenLastProject: true,
+  versionControl: null,
+  gitAvailable: false,
   settingsDialogOpen: false,
   projectsRoot: null,
   panelLayout: null,
@@ -58,6 +67,10 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       supsubBraces: settings.supsubBraces ?? false,
       convertDoubleDollar: settings.convertDoubleDollar ?? true,
       reopenLastProject: settings.reopenLastProject ?? true,
+      versionControl:
+        settings.versionControl === "git" || settings.versionControl === "snapshots"
+          ? settings.versionControl
+          : null,
       projectsRoot: settings.projectsRoot,
       panelLayout: settings.panelLayout,
     }),
@@ -101,6 +114,11 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       enabled,
     );
   },
+  setVersionControl: async (value) => {
+    set({ versionControl: value });
+    await persistVersionControl(value);
+  },
+  setGitAvailable: (available) => set({ gitAvailable: available }),
   setSpellcheckLanguage: async (lang) => {
     set({ spellcheckLanguage: lang });
     await persistSpellcheckLanguage(lang);
@@ -126,4 +144,14 @@ export function applySettingsSideEffects(settings: Settings) {
   if (settings.previewZoom !== null) {
     usePreviewStore.getState().setZoom(settings.previewZoom);
   }
+}
+
+/** The version-control mode in effect: git only when it is installed. */
+export function resolveVersionControl(state: {
+  versionControl: "git" | "snapshots" | null;
+  gitAvailable: boolean;
+}): "git" | "snapshots" {
+  if (state.versionControl === "snapshots") return "snapshots";
+  if (state.versionControl === "git" && state.gitAvailable) return "git";
+  return state.gitAvailable ? "git" : "snapshots";
 }

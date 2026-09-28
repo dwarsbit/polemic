@@ -21,7 +21,7 @@ import {
   spellcheckLanguageUrl,
 } from "@/lib/tauri";
 import type { ThemePreference } from "@/lib/theme";
-import { useSettingsStore } from "@/store/settings";
+import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 
 const THEMES: ThemePreference[] = ["light", "dark", "system"];
 const THEME_LABELS: Record<ThemePreference, string> = {
@@ -92,6 +92,9 @@ export function SettingsDialog({
   const setConvertDoubleDollar = useSettingsStore((s) => s.setConvertDoubleDollar);
   const reopenLastProject = useSettingsStore((s) => s.reopenLastProject);
   const setReopenLastProject = useSettingsStore((s) => s.setReopenLastProject);
+  const versionControl = useSettingsStore((s) => resolveVersionControl(s));
+  const setVersionControl = useSettingsStore((s) => s.setVersionControl);
+  const gitAvailable = useSettingsStore((s) => s.gitAvailable);
   const projectsRoot = useSettingsStore((s) => s.projectsRoot);
   const setRoot = useSettingsStore((s) => s.setProjectsRoot);
 
@@ -174,6 +177,38 @@ export function SettingsDialog({
                     checked={reopenLastProject}
                     onCheckedChange={(v) => void setReopenLastProject(v)}
                   />
+                </SettingRow>
+                <SettingRow
+                  label="Version control"
+                  description={
+                    gitAvailable
+                      ? "By default Polemic uses git when it is installed and snapshots otherwise."
+                      : "git was not found on your PATH; snapshots are used."
+                  }
+                >
+                  <ToggleButtonGroup
+                    type="single"
+                    value={versionControl}
+                    onValueChange={(value) => {
+                      if (value === "git" || value === "snapshots") {
+                        void setVersionControl(value);
+                      }
+                    }}
+                  >
+                    <ToggleButton
+                      value="git"
+                      size="sm"
+                      disabled={!gitAvailable}
+                      title={
+                        gitAvailable ? "Use git" : "git is not installed on this system"
+                      }
+                    >
+                      Git
+                    </ToggleButton>
+                    <ToggleButton value="snapshots" size="sm">
+                      Snapshots
+                    </ToggleButton>
+                  </ToggleButtonGroup>
                 </SettingRow>
                 <SettingRow
                   label="Projects folder"

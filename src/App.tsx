@@ -7,7 +7,7 @@ import { LoadingScreen } from "@/components/LoadingScreen";
 import { SettingsDialog } from "@/components/SettingsDialog";
 import { AboutDialog, ShortcutsDialog } from "@/components/HelpDialogs";
 import { exportPdfAs } from "@/lib/pdf-export";
-import { getSettings, isTauri, revealBuildFolder } from "@/lib/tauri";
+import { getSettings, gitAvailable, isTauri, revealBuildFolder } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
 import { applySettingsSideEffects, useSettingsStore } from "@/store/settings";
 import { useDialogsStore } from "@/store/dialogs";
@@ -36,6 +36,11 @@ function App() {
         if (cancelled) return;
         useSettingsStore.getState().hydrate(settings);
         applySettingsSideEffects(settings);
+        // Known before the loading screen lifts so the right column does
+        // not flash the wrong version-control panel.
+        useSettingsStore
+          .getState()
+          .setGitAvailable(await gitAvailable().catch(() => false));
         const reopen = settings.reopenLastProject ?? true;
         if (reopen && settings.lastProjectPath) {
           try {
