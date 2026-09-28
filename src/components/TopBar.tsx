@@ -3,21 +3,19 @@ import { useQuery } from "@tanstack/react-query";
 import {
   ArrowLeft,
   FolderOpen,
-  Keyboard,
   Loader2,
+  PanelLeft,
+  PanelRight,
   Play,
-  Settings,
-  Sparkles,
   Zap,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { TexHelpDialog } from "@/components/TexHelpDialog";
-import { AboutDialog, ShortcutsDialog } from "@/components/HelpDialogs";
+import { STOPLIGHT_WIDTH, isMac } from "@/lib/platform";
 import { detectTex, revealBuildFolder } from "@/lib/tauri";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
-import { useSettingsStore } from "@/store/settings";
 
 type BadgeState = {
   label: string;
@@ -33,11 +31,18 @@ function texBadge(tex: Awaited<ReturnType<typeof detectTex>> | undefined): Badge
   return { label: "TeX not found", variant: "destructive" };
 }
 
-export function TopBar() {
+export function TopBar({
+  leftSidebarOpen,
+  onToggleLeftSidebar,
+  rightSidebarOpen,
+  onToggleRightSidebar,
+}: {
+  leftSidebarOpen: boolean;
+  onToggleLeftSidebar: () => void;
+  rightSidebarOpen: boolean;
+  onToggleRightSidebar: () => void;
+}) {
   const [texHelpOpen, setTexHelpOpen] = useState(false);
-  const setSettingsOpen = useSettingsStore((s) => s.setSettingsDialogOpen);
-  const [shortcutsOpen, setShortcutsOpen] = useState(false);
-  const [aboutOpen, setAboutOpen] = useState(false);
   const { data: tex } = useQuery({
     queryKey: ["tex-status"],
     queryFn: detectTex,
@@ -52,8 +57,20 @@ export function TopBar() {
   const toggleAutoCompile = usePreviewStore((s) => s.toggleAutoCompile);
 
   return (
-    <header className="flex h-12 shrink-0 items-center justify-between border-b px-4">
-      <div className="flex min-w-0 items-center gap-2">
+    <header
+      data-tauri-drag-region
+      className="flex h-12 shrink-0 items-center justify-between border-b bg-background"
+      style={isMac ? { paddingLeft: STOPLIGHT_WIDTH } : undefined}
+    >
+      <div className="flex min-w-0 items-center gap-1.5 pl-4">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onToggleLeftSidebar}
+          title={leftSidebarOpen ? "Hide sidebar" : "Show sidebar"}
+        >
+          <PanelLeft />
+        </Button>
         <Button
           variant="ghost"
           size="icon"
@@ -71,7 +88,7 @@ export function TopBar() {
         <span className="text-sm text-muted-foreground">/</span>
         <span className="truncate text-sm font-medium">{project?.name ?? ""}</span>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 pr-4">
         <button
           type="button"
           onClick={() => setTexHelpOpen(true)}
@@ -98,30 +115,6 @@ export function TopBar() {
           <FolderOpen />
         </Button>
         <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setSettingsOpen(true)}
-          title="Settings"
-        >
-          <Settings />
-        </Button>
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setShortcutsOpen(true)}
-          title="Keyboard shortcuts"
-        >
-          <Keyboard />
-        </Button>
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setAboutOpen(true)}
-          title="About Polemic"
-        >
-          <Sparkles />
-        </Button>
-        <Button
           size="sm"
           variant="outline"
           onClick={() => void compileNow()}
@@ -130,10 +123,16 @@ export function TopBar() {
           {status === "compiling" ? <Loader2 className="animate-spin" /> : <Play />}
           Compile
         </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onToggleRightSidebar}
+          title={rightSidebarOpen ? "Hide right sidebar" : "Show right sidebar"}
+        >
+          <PanelRight />
+        </Button>
       </div>
       <TexHelpDialog open={texHelpOpen} onOpenChange={setTexHelpOpen} />
-      <ShortcutsDialog open={shortcutsOpen} onOpenChange={setShortcutsOpen} />
-      <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </header>
   );
 }

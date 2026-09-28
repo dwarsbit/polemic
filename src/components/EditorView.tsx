@@ -5,6 +5,7 @@ import { IssuesPanel } from "@/components/IssuesPanel";
 import { LatexEditor } from "@/components/LatexEditor";
 import { PreviewPane } from "@/components/PreviewPane";
 import { Sidebar } from "@/components/Sidebar";
+import { SnapshotsPanel } from "@/components/SnapshotsPanel";
 import { TabsBar } from "@/components/TabsBar";
 import { TopBar } from "@/components/TopBar";
 import { useEditorStore } from "@/store/editor";
@@ -33,6 +34,10 @@ export function EditorView() {
   const persistPanelLayout = useSettingsStore((s) => s.persistPanelLayout);
   const issuesRef = usePanelRef();
   const [issuesCollapsed, setIssuesCollapsed] = useState(false);
+  const leftSidebarRef = usePanelRef();
+  const rightSidebarRef = usePanelRef();
+  const [leftSidebarOpen, setLeftSidebarOpen] = useState(true);
+  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
 
   // Debounced auto-save, then auto-compile when enabled.
   useEffect(() => {
@@ -48,6 +53,14 @@ export function EditorView() {
     return () => clearTimeout(timer);
   }, [content, activeFile]);
 
+  // Start with the right sidebar collapsed unless a layout was restored.
+  // The panels' onResize callbacks keep the open/closed state in sync.
+  useEffect(() => {
+    if (useSettingsStore.getState().panelLayout?.["right"] === undefined) {
+      rightSidebarRef.current?.collapse();
+    }
+  }, [rightSidebarRef]);
+
   function toggleIssues() {
     const panel: PanelImperativeHandle | null = issuesRef.current;
     if (!panel) return;
@@ -60,21 +73,63 @@ export function EditorView() {
     }
   }
 
+  function toggleLeftSidebar() {
+    const panel: PanelImperativeHandle | null = leftSidebarRef.current;
+    if (!panel) return;
+    const wasOpen = leftSidebarOpen;
+    setLeftSidebarOpen(!wasOpen);
+    if (wasOpen) {
+      panel.collapse();
+    } else {
+      panel.expand();
+    }
+  }
+
+  function toggleRightSidebar() {
+    const panel: PanelImperativeHandle | null = rightSidebarRef.current;
+    if (!panel) return;
+    const wasOpen = rightSidebarOpen;
+    setRightSidebarOpen(!wasOpen);
+    if (wasOpen) {
+      panel.collapse();
+    } else {
+      panel.expand();
+    }
+  }
+
   return (
     <div className="flex h-screen flex-col bg-background text-foreground">
-      <TopBar />
+      <TopBar
+        leftSidebarOpen={leftSidebarOpen}
+        onToggleLeftSidebar={toggleLeftSidebar}
+        rightSidebarOpen={rightSidebarOpen}
+        onToggleRightSidebar={toggleRightSidebar}
+      />
       <div className="min-h-0 flex-1">
         <Group
           orientation="horizontal"
           className="flex h-full"
-          defaultLayout={pickLayout(panelLayout, ["sidebar", "editor", "preview"])}
+          defaultLayout={pickLayout(panelLayout, [
+            "sidebar",
+            "editor",
+            "preview",
+            "right",
+          ])}
           onLayoutChanged={(layout) => persistPanelLayout(layout)}
         >
-          <Panel id="sidebar" defaultSize={0.16} minSize={0.12}>
+          <Panel
+            id="sidebar"
+            defaultSize={0.17}
+            minSize={0.12}
+            collapsible
+            collapsedSize={0}
+            panelRef={leftSidebarRef}
+            onResize={(size) => setLeftSidebarOpen(size.inPixels > 1)}
+          >
             <Sidebar />
           </Panel>
           <Separator className="w-px bg-border transition-colors hover:bg-primary/50" />
-          <Panel id="editor" defaultSize={0.52} minSize={0.25}>
+          <Panel id="editor" defaultSize={0.42} minSize={0.25}>
             <Group
               orientation="vertical"
               className="h-full"
@@ -104,8 +159,22 @@ export function EditorView() {
             </Group>
           </Panel>
           <Separator className="w-px bg-border transition-colors hover:bg-primary/50" />
-          <Panel id="preview" defaultSize={0.32} minSize={0.18}>
+          <Panel id="preview" defaultSize={0.28} minSize={0.15}>
             <PreviewPane />
+          </Panel>
+          <Separator className="w-px bg-border transition-colors hover:bg-primary/50" />
+          <Panel
+            id="right"
+            defaultSize={0.13}
+            minSize={0.1}
+            collapsible
+            collapsedSize={0}
+            panelRef={rightSidebarRef}
+            onResize={(size) => setRightSidebarOpen(size.inPixels > 1)}
+          >
+            <div className="flex h-full flex-col border-l bg-sidebar text-sidebar-foreground">
+              <SnapshotsPanel />
+            </div>
           </Panel>
         </Group>
       </div>

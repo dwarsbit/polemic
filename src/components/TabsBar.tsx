@@ -15,7 +15,7 @@ export function TabsBar() {
   if (openFiles.length === 0) return null;
 
   return (
-    <div className="flex h-8 shrink-0 items-stretch gap-0.5 overflow-x-auto border-b bg-muted/30">
+    <div className="flex h-9 shrink-0 items-end gap-0.5 overflow-x-auto border-b bg-sidebar px-1 pt-1">
       {openFiles.map((file) => {
         const active = file === activeFile;
         const dirty =
@@ -24,8 +24,10 @@ export function TabsBar() {
           <div
             key={file}
             className={cn(
-              "group flex shrink-0 items-center gap-1.5 border-b-2 px-2.5 text-xs",
-              active ? "border-primary bg-background" : "border-transparent",
+              "group flex shrink-0 items-center gap-1.5 rounded-t-md border px-2.5 text-xs",
+              active
+                ? "border-border border-b-transparent bg-background text-foreground"
+                : "border-transparent text-muted-foreground hover:bg-accent/50",
             )}
             onAuxClick={(e) => {
               if (e.button === 1) void closeFile(file);

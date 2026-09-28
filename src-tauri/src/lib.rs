@@ -814,12 +814,16 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     let export_pdf =
         MenuItem::with_id(handle, "export_pdf", "Export PDF as…", true, Some("CmdOrCtrl+E"))?;
     let settings = MenuItem::with_id(handle, "settings", "Settings", true, Some("CmdOrCtrl+,"))?;
+    let shortcuts =
+        MenuItem::with_id(handle, "shortcuts", "Keyboard Shortcuts", true, Some("CmdOrCtrl+/"))?;
+    let about = MenuItem::with_id(handle, "about", "About Polemic", true, Option::<&str>::None)?;
 
     #[cfg(target_os = "macos")]
     let menu = {
         let app_menu = SubmenuBuilder::new(handle, "Polemic")
-            .about(None)
+            .item(&about)
             .separator()
+            .item(&shortcuts)
             .item(&settings)
             .separator()
             .services()
@@ -849,6 +853,8 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .item(&export_pdf)
             .separator()
             .item(&settings)
+            .item(&shortcuts)
+            .item(&about)
             .separator()
             .quit()
             .build()?;
@@ -885,6 +891,8 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             "save" => "menu://save",
             "export_pdf" => "menu://export-pdf",
             "settings" => "menu://settings",
+            "shortcuts" => "menu://shortcuts",
+            "about" => "menu://about",
             _ => return,
         };
         let _ = app.emit(event_name, ());

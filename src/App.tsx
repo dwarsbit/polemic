@@ -3,10 +3,12 @@ import { useEffect } from "react";
 import { EditorView } from "@/components/EditorView";
 import { LibraryView } from "@/components/LibraryView";
 import { SettingsDialog } from "@/components/SettingsDialog";
+import { AboutDialog, ShortcutsDialog } from "@/components/HelpDialogs";
 import { exportPdfAs } from "@/lib/pdf-export";
 import { getSettings } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
 import { applySettingsSideEffects, useSettingsStore } from "@/store/settings";
+import { useDialogsStore } from "@/store/dialogs";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +18,10 @@ function App() {
   const loaded = useSettingsStore((s) => s.loaded);
   const settingsDialogOpen = useSettingsStore((s) => s.settingsDialogOpen);
   const setSettingsDialogOpen = useSettingsStore((s) => s.setSettingsDialogOpen);
+  const shortcutsOpen = useDialogsStore((s) => s.shortcutsOpen);
+  const setShortcutsOpen = useDialogsStore((s) => s.setShortcutsOpen);
+  const aboutOpen = useDialogsStore((s) => s.aboutOpen);
+  const setAboutOpen = useDialogsStore((s) => s.setAboutOpen);
 
   // Load preferences, apply theme/auto-compile, and reopen the last project.
   useEffect(() => {
@@ -102,6 +108,18 @@ function App() {
               useSettingsStore.getState().setSettingsDialogOpen(true);
             },
           ],
+          [
+            "menu://shortcuts",
+            () => {
+              useDialogsStore.getState().setShortcutsOpen(true);
+            },
+          ],
+          [
+            "menu://about",
+            () => {
+              useDialogsStore.getState().setAboutOpen(true);
+            },
+          ],
         ];
         const unsubscribers = await Promise.all(
           handlers.map(([event, handler]) => listen(event, handler)),
@@ -118,6 +136,8 @@ function App() {
     <QueryClientProvider client={queryClient}>
       {loaded ? hasProject ? <EditorView /> : <LibraryView /> : null}
       <SettingsDialog open={settingsDialogOpen} onOpenChange={setSettingsDialogOpen} />
+      <ShortcutsDialog open={shortcutsOpen} onOpenChange={setShortcutsOpen} />
+      <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </QueryClientProvider>
   );
 }
