@@ -51,12 +51,13 @@ export function EditorView() {
   function toggleIssues() {
     const panel: PanelImperativeHandle | null = issuesRef.current;
     if (!panel) return;
-    if (panel.isCollapsed()) {
+    const wasCollapsed = issuesCollapsed;
+    setIssuesCollapsed(!wasCollapsed);
+    if (wasCollapsed) {
       panel.expand();
     } else {
       panel.collapse();
     }
-    setIssuesCollapsed(panel.isCollapsed());
   }
 
   return (
@@ -96,6 +97,7 @@ export function EditorView() {
                 collapsible
                 collapsedSize="2rem"
                 panelRef={issuesRef}
+                onResize={(size) => setIssuesCollapsed(size.inPixels <= 40)}
               >
                 <IssuesPanel collapsed={issuesCollapsed} onToggle={toggleIssues} />
               </Panel>

@@ -29,6 +29,9 @@ const SIDEBAR_PANEL_IDS = [
   "sidebar-snapshots",
 ];
 
+/** Pixel height of a collapsed section (the header strip). */
+const COLLAPSED_THRESHOLD_PX = 44;
+
 /** Append .tex to extensionless names (new files, or renames of .tex files). */
 function ensureTexExtension(path: string, wasTex = true): string {
   if (!path.includes(".")) {
@@ -81,6 +84,7 @@ export function Sidebar() {
 
   const filesRef = usePanelRef();
   const searchRef = usePanelRef();
+  const outlineRef = usePanelRef();
   const snapshotsRef = usePanelRef();
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
 
@@ -92,12 +96,21 @@ export function Sidebar() {
   function togglePanel(id: string, ref: React.RefObject<PanelImperativeHandle | null>) {
     const panel = ref.current;
     if (!panel) return;
-    if (panel.isCollapsed()) {
+    const wasCollapsed = collapsed[id] ?? false;
+    setCollapsed((state) => ({ ...state, [id]: !wasCollapsed }));
+    if (wasCollapsed) {
       panel.expand();
     } else {
       panel.collapse();
     }
-    setCollapsed((state) => ({ ...state, [id]: panel.isCollapsed() }));
+  }
+
+  /** Keep the chevron state in sync when the panel is resized (incl. drag). */
+  function syncCollapsed(id: string, sizeInPixels: number) {
+    const isCollapsed = sizeInPixels <= COLLAPSED_THRESHOLD_PX;
+    if ((collapsed[id] ?? false) !== isCollapsed) {
+      setCollapsed((state) => ({ ...state, [id]: isCollapsed }));
+    }
   }
 
   function openDialog(
@@ -169,6 +182,7 @@ export function Sidebar() {
           collapsible
           collapsedSize="2.25rem"
           panelRef={filesRef}
+          onResize={(size) => syncCollapsed("sidebar-files", size.inPixels)}
         >
           <div className="flex h-full flex-col">
             <SectionHeader
@@ -198,22 +212,24 @@ export function Sidebar() {
                 </div>
               }
             />
-            <div className="flex-1 overflow-y-auto px-2 pb-2">
-              {files.length === 0 ? (
-                <p className="px-2 text-xs text-muted-foreground">Empty project.</p>
-              ) : (
-                <FileTree
-                  entries={files}
-                  onRename={(entry) =>
-                    openDialog("rename", { target: entry, name: entry.path })
-                  }
-                  onDelete={(entry) => openDialog("delete", { target: entry })}
-                  onSetMain={(entry) =>
-                    void useProjectStore.getState().setMainFile(entry.path)
-                  }
-                />
-              )}
-            </div>
+            {(collapsed["sidebar-files"] ?? false) === false && (
+              <div className="flex-1 overflow-y-auto px-2 pb-2">
+                {files.length === 0 ? (
+                  <p className="px-2 text-xs text-muted-foreground">Empty project.</p>
+                ) : (
+                  <FileTree
+                    entries={files}
+                    onRename={(entry) =>
+                      openDialog("rename", { target: entry, name: entry.path })
+                    }
+                    onDelete={(entry) => openDialog("delete", { target: entry })}
+                    onSetMain={(entry) =>
+                      void useProjectStore.getState().setMainFile(entry.path)
+                    }
+                  />
+                )}
+              </div>
+            )}
           </div>
         </Panel>
         <Separator className="h-px w-full bg-border hover:bg-primary/50" />
@@ -224,6 +240,7 @@ export function Sidebar() {
           collapsible
           collapsedSize="2.25rem"
           panelRef={searchRef}
+          onResize={(size) => syncCollapsed("sidebar-search", size.inPixels)}
         >
           <ProjectSearch
             key={project?.path ?? "none"}
@@ -232,31 +249,45 @@ export function Sidebar() {
           />
         </Panel>
         <Separator className="h-px w-full bg-border hover:bg-primary/50" />
-        <Panel id="sidebar-outline" defaultSize={0.3} minSize={0.12}>
+        <Panel
+          id="sidebar-outline"
+          defaultSize={0.3}
+          minSize={0.12}
+          collapsible
+          collapsedSize="2.25rem"
+          panelRef={outlineRef}
+          onResize={(size) => syncCollapsed("sidebar-outline", size.inPixels)}
+        >
           <div className="flex h-full flex-col">
-            <SectionHeader label="OUTLINE" collapsed={false} />
-            <div className="flex-1 overflow-y-auto px-2 pb-2">
-              {outline.length === 0 ? (
-                <p className="px-2 text-xs text-muted-foreground">
-                  {activeFile ? "No sections in this file." : "No file open."}
-                </p>
-              ) : (
-                <ul>
-                  {outline.map((entry) => (
-                    <li key={`${entry.line}-${entry.title}`}>
-                      <button
-                        type="button"
-                        className="block w-full truncate rounded px-2 py-1 text-left text-sm hover:bg-accent"
-                        style={{ paddingLeft: `${8 + entry.level * 12}px` }}
-                        onClick={() => jumpTo(entry.line)}
-                      >
-                        {entry.title}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            <SectionHeader
+              label="OUTLINE"
+              collapsed={collapsed["sidebar-outline"] ?? false}
+              onToggle={() => togglePanel("sidebar-outline", outlineRef)}
+            />
+            {(collapsed["sidebar-outline"] ?? false) === false && (
+              <div className="flex-1 overflow-y-auto px-2 pb-2">
+                {outline.length === 0 ? (
+                  <p className="px-2 text-xs text-muted-foreground">
+                    {activeFile ? "No sections in this file." : "No file open."}
+                  </p>
+                ) : (
+                  <ul>
+                    {outline.map((entry) => (
+                      <li key={`${entry.line}-${entry.title}`}>
+                        <button
+                          type="button"
+                          className="block w-full truncate rounded px-2 py-1 text-left text-sm hover:bg-accent"
+                          style={{ paddingLeft: `${8 + entry.level * 12}px` }}
+                          onClick={() => jumpTo(entry.line)}
+                        >
+                          {entry.title}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
           </div>
         </Panel>
         <Separator className="h-px w-full bg-border hover:bg-primary/50" />
@@ -267,6 +298,7 @@ export function Sidebar() {
           collapsible
           collapsedSize="2.25rem"
           panelRef={snapshotsRef}
+          onResize={(size) => syncCollapsed("sidebar-snapshots", size.inPixels)}
         >
           <div className="flex h-full flex-col">
             <SectionHeader
@@ -285,33 +317,37 @@ export function Sidebar() {
                 </Button>
               }
             />
-            <div className="flex-1 overflow-y-auto px-2 pb-2">
-              {snapshots.length === 0 ? (
-                <p className="px-2 text-xs text-muted-foreground">No snapshots yet.</p>
-              ) : (
-                <ul>
-                  {snapshots.map((snap) => (
-                    <li
-                      key={snap.id}
-                      className="flex items-center justify-between rounded px-2 py-1"
-                    >
-                      <span className="truncate text-xs">
-                        {new Date(snap.createdAtMillis).toLocaleString()}
-                      </span>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="size-5"
-                        title="Restore this snapshot"
-                        onClick={() => openDialog("restore", { target: snap })}
+            {(collapsed["sidebar-snapshots"] ?? false) === false && (
+              <div className="flex-1 overflow-y-auto px-2 pb-2">
+                {snapshots.length === 0 ? (
+                  <p className="px-2 text-xs text-muted-foreground">
+                    No snapshots yet.
+                  </p>
+                ) : (
+                  <ul>
+                    {snapshots.map((snap) => (
+                      <li
+                        key={snap.id}
+                        className="flex items-center justify-between rounded px-2 py-1"
                       >
-                        <RotateCcw className="size-3" />
-                      </Button>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+                        <span className="truncate text-xs">
+                          {new Date(snap.createdAtMillis).toLocaleString()}
+                        </span>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="size-5"
+                          title="Restore this snapshot"
+                          onClick={() => openDialog("restore", { target: snap })}
+                        >
+                          <RotateCcw className="size-3" />
+                        </Button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
           </div>
         </Panel>
       </Group>

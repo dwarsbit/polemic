@@ -95,15 +95,17 @@ export function ProjectSearch({
         </button>
         <span className="flex-1">SEARCH</span>
       </div>
-      <div className="px-3 pb-2">
-        <Input
-          className="h-7 text-xs"
-          placeholder="Find in project…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-      </div>
-      {results.length > 0 && (
+      {!collapsed && (
+        <div className="px-3 pb-2">
+          <Input
+            className="h-7 text-xs"
+            placeholder="Find in project…"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
+      )}
+      {!collapsed && results.length > 0 && (
         <div className="flex-1 overflow-y-auto px-3 pb-2">
           <ul>
             {results.map((result, index) => (
