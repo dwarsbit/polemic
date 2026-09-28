@@ -747,6 +747,31 @@ fn restore_snapshot(project_dir: String, id: String) -> Result<(), String> {
     snapshots::restore(&dir, &id)
 }
 
+#[tauri::command]
+fn list_snapshot_changes(
+    project_dir: String,
+    id: String,
+) -> Result<Vec<snapshots::SnapshotChange>, String> {
+    let dir = canonical_project(&project_dir)?;
+    snapshots::list_changes(&dir, &id)
+}
+
+#[tauri::command]
+fn read_snapshot_file(project_dir: String, id: String, path: String) -> Result<String, String> {
+    let dir = canonical_project(&project_dir)?;
+    snapshots::read_file(&dir, &id, &path)
+}
+
+#[tauri::command]
+fn restore_snapshot_file(
+    project_dir: String,
+    id: String,
+    path: String,
+) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    snapshots::restore_file(&dir, &id, &path)
+}
+
 // --- misc ------------------------------------------------------------------
 
 #[tauri::command]
@@ -1025,6 +1050,9 @@ pub fn run() {    tauri::Builder::default()
             create_snapshot,
             list_snapshots,
             restore_snapshot,
+            list_snapshot_changes,
+            read_snapshot_file,
+            restore_snapshot_file,
             reveal_build_folder
         ])
         .run(tauri::generate_context!())

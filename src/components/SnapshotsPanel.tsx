@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Camera, RotateCcw } from "lucide-react";
+import { Camera, FileDiff, RotateCcw } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
+import { SnapshotDiffDialog } from "@/components/SnapshotDiffDialog";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -15,6 +16,7 @@ import { useProjectStore } from "@/store/project";
 export function SnapshotsPanel() {
   const snapshots = useProjectStore((s) => s.snapshots);
   const [restoreTarget, setRestoreTarget] = useState<SnapshotInfo | null>(null);
+  const [diffTarget, setDiffTarget] = useState<SnapshotInfo | null>(null);
   const [dialogError, setDialogError] = useState<string | null>(null);
 
   async function confirmRestore() {
@@ -58,15 +60,26 @@ export function SnapshotsPanel() {
                 <span className="truncate text-xs">
                   {new Date(snap.createdAtMillis).toLocaleString()}
                 </span>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="size-5"
-                  title="Restore this snapshot"
-                  onClick={() => setRestoreTarget(snap)}
-                >
-                  <RotateCcw className="size-3" />
-                </Button>
+                <span className="flex shrink-0 items-center">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="size-5"
+                    title="View changes against the current project"
+                    onClick={() => setDiffTarget(snap)}
+                  >
+                    <FileDiff className="size-3" />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="size-5"
+                    title="Restore this snapshot"
+                    onClick={() => setRestoreTarget(snap)}
+                  >
+                    <RotateCcw className="size-3" />
+                  </Button>
+                </span>
               </li>
             ))}
           </ul>
@@ -101,6 +114,10 @@ export function SnapshotsPanel() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {diffTarget && (
+        <SnapshotDiffDialog snapshot={diffTarget} onClose={() => setDiffTarget(null)} />
+      )}
     </div>
   );
 }

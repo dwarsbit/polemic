@@ -91,6 +91,13 @@ export interface SnapshotInfo {
   createdAtMillis: number;
 }
 
+export interface SnapshotChange {
+  path: string;
+  status: "added" | "removed" | "modified";
+  addedLines: number;
+  removedLines: number;
+}
+
 type RawPdf = Uint8Array | ArrayBuffer | number[];
 
 export function isTauri(): boolean {
@@ -304,6 +311,29 @@ export function listSnapshots(projectDir: string): Promise<SnapshotInfo[]> {
 
 export function restoreSnapshot(projectDir: string, id: string): Promise<void> {
   return invoke<void>("restore_snapshot", { projectDir, id });
+}
+
+export function listSnapshotChanges(
+  projectDir: string,
+  id: string,
+): Promise<SnapshotChange[]> {
+  return invoke<SnapshotChange[]>("list_snapshot_changes", { projectDir, id });
+}
+
+export function readSnapshotFile(
+  projectDir: string,
+  id: string,
+  path: string,
+): Promise<string> {
+  return invoke<string>("read_snapshot_file", { projectDir, id, path });
+}
+
+export function restoreSnapshotFile(
+  projectDir: string,
+  id: string,
+  path: string,
+): Promise<void> {
+  return invoke<void>("restore_snapshot_file", { projectDir, id, path });
 }
 
 export function revealBuildFolder(projectDir: string): Promise<void> {
