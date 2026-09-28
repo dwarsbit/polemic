@@ -28,6 +28,7 @@ pub struct Settings {
     pub panel_layout: Option<HashMap<String, f64>>,
     pub preview_zoom: Option<f64>,
     pub spellcheck: Option<bool>,
+    pub spellcheck_language: Option<String>,
     pub user_words: Vec<String>,
 }
 

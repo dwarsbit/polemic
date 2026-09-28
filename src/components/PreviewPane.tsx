@@ -1,8 +1,17 @@
 import { useEffect, useRef, useState } from "react";
+import { save as saveDialog } from "@tauri-apps/plugin-dialog";
 import * as pdfjs from "pdfjs-dist";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
-import { AlertTriangle, FileText, Loader2, ZoomIn, ZoomOut } from "lucide-react";
-import { synctexBackward } from "@/lib/tauri";
+import {
+  AlertTriangle,
+  Download,
+  ExternalLink,
+  FileText,
+  Loader2,
+  ZoomIn,
+  ZoomOut,
+} from "lucide-react";
+import { exportPdf, openPdf, synctexBackward } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
@@ -144,6 +153,33 @@ export function PreviewPane() {
     }
   }
 
+  // Copy the built PDF to a location chosen by the user.
+  async function handleExport() {
+    const { project, mainFile } = useProjectStore.getState();
+    if (!project || !mainFile) return;
+    try {
+      const dest = await saveDialog({
+        defaultPath: `${project.name}.pdf`,
+        filters: [{ name: "PDF", extensions: ["pdf"] }],
+      });
+      if (typeof dest === "string" && dest) {
+        await exportPdf(project.path, mainFile, dest);
+      }
+    } catch (e) {
+      usePreviewStore.setState({ status: "error", error: String(e) });
+    }
+  }
+
+  async function handleOpenPdf() {
+    const { project, mainFile } = useProjectStore.getState();
+    if (!project || !mainFile) return;
+    try {
+      await openPdf(project.path, mainFile);
+    } catch (e) {
+      usePreviewStore.setState({ status: "error", error: String(e) });
+    }
+  }
+
   return (
     <div className="flex h-full w-full flex-col">
       <div className="flex h-9 shrink-0 items-center justify-between border-b px-3 text-xs font-medium text-muted-foreground">
@@ -153,6 +189,22 @@ export function PreviewPane() {
         </span>
         <div className="flex items-center gap-1">
           <span className="text-[10px]">Cmd+click: source</span>
+          <button
+            type="button"
+            className="rounded p-1 hover:bg-accent"
+            title="Save PDF as…"
+            onClick={() => void handleExport()}
+          >
+            <Download className="size-3.5" />
+          </button>
+          <button
+            type="button"
+            className="rounded p-1 hover:bg-accent"
+            title="Open PDF in system viewer"
+            onClick={() => void handleOpenPdf()}
+          >
+            <ExternalLink className="size-3.5" />
+          </button>
           <button
             type="button"
             className="rounded p-1 hover:bg-accent"

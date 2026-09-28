@@ -7,6 +7,7 @@ import { EditorView, basicSetup } from "codemirror";
 import { keymap, Decoration } from "@codemirror/view";
 import { latexAutocompletion } from "@/lib/completion";
 import {
+  clearSpellcheckCache,
   misspelledWordAt,
   runSpellcheck,
   setMisspells,
@@ -33,6 +34,7 @@ export function LatexEditor() {
   const content = useEditorStore((s) => s.content);
   const fontSize = useSettingsStore((s) => s.fontSize);
   const spellcheckEnabled = useSettingsStore((s) => s.spellcheckEnabled);
+  const spellcheckLanguage = useSettingsStore((s) => s.spellcheckLanguage);
   const issues = usePreviewStore((s) => s.issues);
   const activeFile = useProjectStore((s) => s.activeFile);
   const [popover, setPopover] = useState<SpellPopover | null>(null);
@@ -193,6 +195,18 @@ export function LatexEditor() {
     const timer = setTimeout(() => void runSpellcheck(view), 500);
     return () => clearTimeout(timer);
   }, [content, docVersion, spellcheckEnabled]);
+
+  // Re-check with a fresh cache when the spellcheck language changes.
+  useEffect(() => {
+    const view = viewRef.current;
+    if (!view) return;
+    clearSpellcheckCache();
+    if (spellcheckEnabled) {
+      void runSpellcheck(view);
+    }
+    // spellcheckLanguage intentionally drives re-runs; content handled above.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [spellcheckLanguage]);
 
   return (
     <div

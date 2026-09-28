@@ -23,10 +23,13 @@ import {
   createProject,
   deleteProject,
   getSettings,
+  listTemplates,
   renameProject,
   setPinnedProject,
   type Settings,
+  type TemplateInfo,
 } from "@/lib/tauri";
+import { cn } from "@/lib/utils";
 import { useProjectStore } from "@/store/project";
 
 type ActionDialog =
@@ -41,11 +44,16 @@ export function LibraryView() {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [action, setAction] = useState<ActionDialog>({ kind: "none" });
+  const [templates, setTemplates] = useState<TemplateInfo[]>([]);
+  const [templateId, setTemplateId] = useState("article");
   const openProject = useProjectStore((s) => s.openProject);
 
   useEffect(() => {
     void getSettings()
       .then(setSettings)
+      .catch((e) => setError(String(e)));
+    void listTemplates()
+      .then(setTemplates)
       .catch((e) => setError(String(e)));
   }, []);
 
@@ -61,7 +69,7 @@ export function LibraryView() {
     setError(null);
     setBusy(true);
     try {
-      const info = await createProject(name);
+      const info = await createProject(name, templateId);
       await openProject(info.path);
     } catch (e) {
       setError(String(e));
@@ -133,6 +141,29 @@ export function LibraryView() {
             Create
           </Button>
         </div>
+        {templates.length > 0 && (
+          <div className="mt-2">
+            <p className="mb-1.5 text-xs font-medium text-muted-foreground">TEMPLATE</p>
+            <div className="grid grid-cols-2 gap-1.5">
+              {templates.map((template) => (
+                <button
+                  key={template.id}
+                  type="button"
+                  title={template.description}
+                  className={cn(
+                    "rounded-md border px-3 py-2 text-left text-sm transition-colors",
+                    templateId === template.id
+                      ? "border-primary bg-primary/10 font-medium"
+                      : "hover:bg-accent",
+                  )}
+                  onClick={() => setTemplateId(template.id)}
+                >
+                  {template.name}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
         <div className="mt-2">
           <Button
             variant="outline"

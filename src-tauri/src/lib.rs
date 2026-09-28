@@ -3,6 +3,7 @@ mod logparse;
 mod settings;
 mod snapshots;
 mod spell;
+mod templates;
 
 use serde::Serialize;
 use std::fs;
@@ -57,29 +58,6 @@ pub struct SynctexBackward {
     pub line: u32,
 }
 
-const STARTER_TEMPLATE: &str = r"\documentclass[11pt]{article}
-
-\usepackage[T1]{fontenc}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{hyperref}
-
-\title{Untitled Document}
-\author{}
-\date{}
-
-\begin{document}
-
-\maketitle
-
-\section{Introduction}
-
-Write here.
-
-\section{Conclusion}
-
-\end{document}
-";
 
 fn probe(tool: &str) -> ToolInfo {
     match Command::new(tool).arg("--version").output() {
@@ -173,8 +151,14 @@ fn set_projects_root(app: tauri::AppHandle, path: String) -> Result<Settings, St
 }
 
 #[tauri::command]
-fn create_project(app: tauri::AppHandle, name: String) -> Result<ProjectInfo, String> {
+fn create_project(
+    app: tauri::AppHandle,
+    name: String,
+    template_id: String,
+) -> Result<ProjectInfo, String> {
     validate_project_name(&name)?;
+    let template = templates::find(&template_id)
+        .ok_or_else(|| format!("unknown template: {template_id}"))?;
     let name = name.trim().to_string();
     let cfg = settings::effective(&app)?;
     let root = cfg.projects_root.expect("projects root is set by effective()");
@@ -184,13 +168,25 @@ fn create_project(app: tauri::AppHandle, name: String) -> Result<ProjectInfo, St
         return Err(format!("a project named \"{name}\" already exists"));
     }
     fs::create_dir_all(&dir).map_err(|e| format!("failed to create project: {e}"))?;
-    fs::write(dir.join("main.tex"), STARTER_TEMPLATE)
-        .map_err(|e| format!("failed to write starter template: {e}"))?;
+    for (path, content) in template.files {
+        let target = dir.join(path);
+        if let Some(parent) = target.parent() {
+            fs::create_dir_all(parent)
+                .map_err(|e| format!("failed to create folder: {e}"))?;
+        }
+        fs::write(&target, content)
+            .map_err(|e| format!("failed to write template file {path}: {e}"))?;
+    }
     let info = project_info(&dir);
     settings::update(&app, |s| {
         settings::upsert_recent(s, &info.name, &info.path);
     })?;
     Ok(info)
+}
+
+#[tauri::command]
+fn list_templates() -> Vec<templates::TemplateInfo> {
+    templates::infos()
 }
 
 #[tauri::command]
@@ -267,6 +263,107 @@ fn add_spellcheck_word(
             s.user_words.push(word.clone());
         }
     })
+}
+
+// --- spellcheck languages --------------------------------------------------
+
+/// Wordlists that can be downloaded on demand (hermitdave/FrequencyWords, MIT).
+const DOWNLOADABLE_LANGUAGES: [&str; 5] = ["de", "fr", "es", "it", "nl"];
+
+fn spelling_dir(app: &tauri::AppHandle) -> Result<std::path::PathBuf, String> {
+    let dir = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| format!("no app data dir: {e}"))?
+        .join("spelling");
+    fs::create_dir_all(&dir).map_err(|e| format!("failed to create spelling dir: {e}"))?;
+    Ok(dir)
+}
+
+fn load_language_wordlist(
+    app: &tauri::AppHandle,
+    lang: &str,
+    user_words: &[String],
+) -> Result<spell::SpellState, String> {
+    if lang == "en" {
+        return Ok(spell::SpellState::new(user_words));
+    }
+    let file = spelling_dir(app)?.join(format!("{lang}.txt"));
+    let content = fs::read_to_string(&file)
+        .map_err(|e| format!("dictionary for \"{lang}\" is not downloaded: {e}"))?;
+    Ok(spell::SpellState::from_words(
+        spell::parse_frequency_list(&content),
+        user_words,
+    ))
+}
+
+#[tauri::command]
+fn list_spellcheck_languages(app: tauri::AppHandle) -> Result<Vec<String>, String> {
+    let mut languages = vec!["en".to_string()];
+    if let Ok(dir) = spelling_dir(&app) {
+        if let Ok(read) = fs::read_dir(&dir) {
+            for entry in read.filter_map(Result::ok) {
+                let name = entry.file_name().to_string_lossy().to_string();
+                if let Some(lang) = name.strip_suffix(".txt") {
+                    if DOWNLOADABLE_LANGUAGES.contains(&lang) && !languages.iter().any(|l| l == lang) {
+                        languages.push(lang.to_string());
+                    }
+                }
+            }
+        }
+    }
+    Ok(languages)
+}
+
+/// Store a wordlist downloaded by the frontend and switch the spellcheck to it.
+#[tauri::command]
+fn install_spellcheck_language(
+    app: tauri::AppHandle,
+    state: tauri::State<'_, std::sync::Mutex<spell::SpellState>>,
+    lang: String,
+    content: String,
+) -> Result<(), String> {
+    if !DOWNLOADABLE_LANGUAGES.contains(&lang.as_str()) {
+        return Err(format!("unsupported language: {lang}"));
+    }
+    let file = spelling_dir(&app)?.join(format!("{lang}.txt"));
+    fs::write(&file, content).map_err(|e| format!("failed to store dictionary: {e}"))?;
+    set_spellcheck_language_inner(&app, &state, &lang)?;
+    settings::update(&app, |s| {
+        s.spellcheck_language = Some(lang.clone());
+    })
+}
+
+#[tauri::command]
+fn set_spellcheck_language(
+    app: tauri::AppHandle,
+    state: tauri::State<'_, std::sync::Mutex<spell::SpellState>>,
+    lang: String,
+) -> Result<(), String> {
+    if lang != "en" && !DOWNLOADABLE_LANGUAGES.contains(&lang.as_str()) {
+        return Err(format!("unsupported language: {lang}"));
+    }
+    set_spellcheck_language_inner(&app, &state, &lang)?;
+    settings::update(&app, |s| {
+        s.spellcheck_language = Some(lang.clone());
+    })
+}
+
+fn set_spellcheck_language_inner(
+    app: &tauri::AppHandle,
+    state: &tauri::State<'_, std::sync::Mutex<spell::SpellState>>,
+    lang: &str,
+) -> Result<(), String> {
+    let user_words = app
+        .state::<SettingsState>()
+        .0
+        .lock()
+        .map_err(|e| e.to_string())?
+        .user_words
+        .clone();
+    let new_state = load_language_wordlist(app, lang, &user_words)?;
+    *state.lock().map_err(|e| e.to_string())? = new_state;
+    Ok(())
 }
 
 #[tauri::command]
@@ -493,6 +590,35 @@ fn get_pdf(project_dir: String, main_tex: String) -> Result<tauri::ipc::Response
     Ok(tauri::ipc::Response::new(pdf))
 }
 
+/// Copy the built PDF to a location chosen by the user.
+#[tauri::command]
+fn export_pdf(project_dir: String, main_tex: String, dest_path: String) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    let pdf_path = dir.join("build").join(pdf_output_path(&main_tex));
+    fs::copy(&pdf_path, std::path::Path::new(&dest_path))
+        .map(|_| ())
+        .map_err(|e| {
+        format!(
+            "failed to copy PDF to {}: {e}",
+            std::path::Path::new(&dest_path).display()
+        )
+    })
+}
+
+/// Open the built PDF in the system viewer.
+#[tauri::command]
+fn open_pdf(app: tauri::AppHandle, project_dir: String, main_tex: String) -> Result<(), String> {
+    use tauri_plugin_opener::OpenerExt;
+    let dir = canonical_project(&project_dir)?;
+    let pdf_path = dir.join("build").join(pdf_output_path(&main_tex));
+    if !pdf_path.is_file() {
+        return Err("no compiled PDF yet".into());
+    }
+    app.opener()
+        .open_path(pdf_path.to_string_lossy(), None::<&str>)
+        .map_err(|e| format!("failed to open PDF: {e}"))
+}
+
 // --- synctex navigation ----------------------------------------------------
 
 #[tauri::command]
@@ -630,13 +756,21 @@ pub fn run() {
         .plugin(tauri_plugin_window_state::Builder::default().build())
         .setup(|app| {
             app.manage(SettingsState(std::sync::Mutex::new(settings::load(app.handle()))));
-            let user_words = app
-                .state::<SettingsState>()
-                .0
-                .lock()
-                .map(|s| s.user_words.clone())
-                .unwrap_or_default();
-            app.manage(std::sync::Mutex::new(spell::SpellState::new(&user_words)));
+            let (user_words, lang) = {
+                let settings_state = app.state::<SettingsState>();
+                let guard = settings_state.0.lock().map_err(|e| e.to_string())?;
+                (
+                    guard.user_words.clone(),
+                    guard
+                        .spellcheck_language
+                        .clone()
+                        .unwrap_or_else(|| "en".into()),
+                )
+            };
+            let spell_state =
+                load_language_wordlist(app.handle(), &lang, &user_words)
+                    .unwrap_or_else(|_| spell::SpellState::new(&user_words));
+            app.manage(std::sync::Mutex::new(spell_state));
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
@@ -644,11 +778,15 @@ pub fn run() {
             get_settings,
             set_projects_root,
             create_project,
+            list_templates,
             open_project,
             remove_recent_project,
             update_preferences,
             check_words,
             add_spellcheck_word,
+            list_spellcheck_languages,
+            install_spellcheck_language,
+            set_spellcheck_language,
             set_panel_layout,
             set_preview_zoom,
             set_pinned_project,
@@ -664,6 +802,8 @@ pub fn run() {
             set_open_files,
             compile_project,
             get_pdf,
+            export_pdf,
+            open_pdf,
             synctex_forward,
             synctex_backward,
             create_snapshot,

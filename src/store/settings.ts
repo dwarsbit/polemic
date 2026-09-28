@@ -1,5 +1,10 @@
 import { create } from "zustand";
-import { setPanelLayout, updatePreferences, type Settings } from "@/lib/tauri";
+import {
+  setPanelLayout,
+  setSpellcheckLanguage as persistSpellcheckLanguage,
+  updatePreferences,
+  type Settings,
+} from "@/lib/tauri";
 import { applyTheme, type ThemePreference } from "@/lib/theme";
 import { usePreviewStore } from "@/store/preview";
 
@@ -8,12 +13,14 @@ interface SettingsState {
   theme: ThemePreference;
   fontSize: number;
   spellcheckEnabled: boolean;
+  spellcheckLanguage: string;
   projectsRoot: string | null;
   panelLayout: Record<string, number> | null;
   hydrate: (settings: Settings) => void;
   setTheme: (theme: ThemePreference) => Promise<void>;
   setFontSize: (fontSize: number) => Promise<void>;
   setSpellcheck: (enabled: boolean) => Promise<void>;
+  setSpellcheckLanguage: (lang: string) => Promise<void>;
   setProjectsRoot: (root: string | null) => void;
   persistPanelLayout: (layout: Record<string, number>) => void;
 }
@@ -26,6 +33,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   theme: DEFAULT_THEME,
   fontSize: DEFAULT_FONT_SIZE,
   spellcheckEnabled: true,
+  spellcheckLanguage: "en",
   projectsRoot: null,
   panelLayout: null,
   hydrate: (settings) =>
@@ -34,6 +42,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       theme: (settings.theme as ThemePreference | null) ?? DEFAULT_THEME,
       fontSize: settings.fontSize ?? DEFAULT_FONT_SIZE,
       spellcheckEnabled: settings.spellcheck ?? true,
+      spellcheckLanguage: settings.spellcheckLanguage ?? "en",
       projectsRoot: settings.projectsRoot,
       panelLayout: settings.panelLayout,
     }),
@@ -49,6 +58,10 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   setSpellcheck: async (enabled) => {
     set({ spellcheckEnabled: enabled });
     await updatePreferences(undefined, undefined, undefined, enabled);
+  },
+  setSpellcheckLanguage: async (lang) => {
+    set({ spellcheckLanguage: lang });
+    await persistSpellcheckLanguage(lang);
   },
   setProjectsRoot: (root) => set({ projectsRoot: root }),
   persistPanelLayout: (layout) => {

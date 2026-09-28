@@ -29,12 +29,28 @@ export interface Settings {
   panelLayout: Record<string, number> | null;
   previewZoom: number | null;
   spellcheck: boolean | null;
+  spellcheckLanguage: string | null;
 }
 
 export interface ProjectInfo {
   name: string;
   path: string;
 }
+
+export interface TemplateInfo {
+  id: string;
+  name: string;
+  description: string;
+}
+
+/** Languages with ready wordlists (bundled or downloadable on demand). */
+export const DOWNLOADABLE_LANGUAGES = [
+  { id: "de", name: "German" },
+  { id: "fr", name: "French" },
+  { id: "es", name: "Spanish" },
+  { id: "it", name: "Italian" },
+  { id: "nl", name: "Dutch" },
+] as const;
 
 export interface FileEntry {
   name: string;
@@ -91,8 +107,12 @@ export function setProjectsRoot(path: string): Promise<Settings> {
   return invoke<Settings>("set_projects_root", { path });
 }
 
-export function createProject(name: string): Promise<ProjectInfo> {
-  return invoke<ProjectInfo>("create_project", { name });
+export function listTemplates(): Promise<TemplateInfo[]> {
+  return invoke<TemplateInfo[]>("list_templates");
+}
+
+export function createProject(name: string, templateId: string): Promise<ProjectInfo> {
+  return invoke<ProjectInfo>("create_project", { name, templateId });
 }
 
 export function openProject(path: string): Promise<ProjectInfo> {
@@ -123,6 +143,38 @@ export function checkWords(words: string[]): Promise<boolean[]> {
 
 export function addSpellcheckWord(word: string): Promise<void> {
   return invoke<void>("add_spellcheck_word", { word });
+}
+
+export function listSpellcheckLanguages(): Promise<string[]> {
+  return invoke<string[]>("list_spellcheck_languages");
+}
+
+/** Download URL for an on-demand wordlist (hermitdave/FrequencyWords, MIT). */
+export function spellcheckLanguageUrl(lang: string): string {
+  return `https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/${lang}/${lang}_full.txt`;
+}
+
+export function installSpellcheckLanguage(
+  lang: string,
+  content: string,
+): Promise<void> {
+  return invoke<void>("install_spellcheck_language", { lang, content });
+}
+
+export function setSpellcheckLanguage(lang: string): Promise<void> {
+  return invoke<void>("set_spellcheck_language", { lang });
+}
+
+export function exportPdf(
+  projectDir: string,
+  mainTex: string,
+  destPath: string,
+): Promise<void> {
+  return invoke<void>("export_pdf", { projectDir, mainTex, destPath });
+}
+
+export function openPdf(projectDir: string, mainTex: string): Promise<void> {
+  return invoke<void>("open_pdf", { projectDir, mainTex });
 }
 
 export function setPanelLayout(layout: Record<string, number>): Promise<void> {
