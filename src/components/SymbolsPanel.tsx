@@ -4,11 +4,11 @@ import { insertAtCursor } from "@/lib/editor-insert";
 import { SectionHeader } from "@/components/SectionHeader";
 
 export function SymbolsPanel({
-  collapsed,
+  collapsed = false,
   onToggle,
 }: {
-  collapsed: boolean;
-  onToggle: () => void;
+  collapsed?: boolean;
+  onToggle?: () => void;
 }) {
   const [categoryId, setCategoryId] = useState(MATH_SYMBOL_CATEGORIES[0].id);
   const category =

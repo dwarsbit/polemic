@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { Camera, GitBranch, Info, ListTree } from "lucide-react";
+import { Camera, GitBranch, Info } from "lucide-react";
 import { Group, Panel, Separator, usePanelRef } from "react-resizable-panels";
 import type { PanelImperativeHandle } from "react-resizable-panels";
 import { IssuesPanel } from "@/components/IssuesPanel";
 import { LatexEditor } from "@/components/LatexEditor";
-import { OutlinePanel } from "@/components/OutlinePanel";
 import { PreviewPane } from "@/components/PreviewPane";
 import { PropertiesPanel } from "@/components/PropertiesPanel";
 import { Sidebar } from "@/components/Sidebar";
@@ -21,7 +20,7 @@ import { cn } from "cn";
 const AUTO_SAVE_DELAY_MS = 1200;
 const EDITOR_PANEL_IDS = ["editor-doc", "editor-issues"];
 
-type RightTab = "version-control" | "outline" | "properties";
+type RightTab = "version-control" | "properties";
 
 function pickLayout(
   all: Record<string, number> | null,
@@ -54,7 +53,6 @@ export function EditorView() {
       label: versionControl === "git" ? "Git" : "Snapshots",
       icon: versionControl === "git" ? GitBranch : Camera,
     },
-    { id: "outline" as const, label: "Outline", icon: ListTree },
     { id: "properties" as const, label: "Properties", icon: Info },
   ];
 
@@ -141,11 +139,14 @@ export function EditorView() {
             defaultSize={0.17}
             minSize={0.12}
             collapsible
-            collapsedSize={0}
+            collapsedSize="2.5rem"
             panelRef={leftSidebarRef}
-            onResize={(size) => setLeftSidebarOpen(size.inPixels > 1)}
+            onResize={(size) => setLeftSidebarOpen(size.inPixels > 60)}
           >
-            <Sidebar />
+            <Sidebar
+              open={leftSidebarOpen}
+              onExpand={() => leftSidebarRef.current?.expand()}
+            />
           </Panel>
           <Separator className="w-px bg-border transition-colors hover:bg-primary/50" />
           <Panel id="editor" defaultSize={0.42} minSize={0.25}>
@@ -194,9 +195,7 @@ export function EditorView() {
             <div className="flex h-full border-l bg-sidebar text-sidebar-foreground">
               {rightSidebarOpen && (
                 <div className="min-w-0 flex-1 overflow-hidden">
-                  {activeTab === "outline" ? (
-                    <OutlinePanel />
-                  ) : activeTab === "properties" ? (
+                  {activeTab === "properties" ? (
                     <PropertiesPanel />
                   ) : versionControl === "git" ? (
                     <GitPanel />
