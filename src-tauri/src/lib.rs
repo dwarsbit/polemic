@@ -832,6 +832,13 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     let settings = MenuItem::with_id(handle, "settings", "Settings", true, Some("CmdOrCtrl+,"))?;
     let shortcuts =
         MenuItem::with_id(handle, "shortcuts", "Keyboard Shortcuts", true, Some("CmdOrCtrl+/"))?;
+    let palette = MenuItem::with_id(
+        handle,
+        "command_palette",
+        "Command Palette…",
+        true,
+        Some("CmdOrCtrl+P"),
+    )?;
     let about = MenuItem::with_id(handle, "about", "About Polemic", true, Option::<&str>::None)?;
 
     #[cfg(target_os = "macos")]
@@ -840,6 +847,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .item(&about)
             .separator()
             .item(&shortcuts)
+            .item(&palette)
             .item(&settings)
             .separator()
             .services()
@@ -872,6 +880,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .separator()
             .item(&settings)
             .item(&shortcuts)
+            .item(&palette)
             .item(&about)
             .separator()
             .quit()
@@ -911,6 +920,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             "reveal_build" => "menu://reveal-build",
             "settings" => "menu://settings",
             "shortcuts" => "menu://shortcuts",
+            "command_palette" => "menu://palette",
             "about" => "menu://about",
             _ => return,
         };

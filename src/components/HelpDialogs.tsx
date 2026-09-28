@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 
 const SHORTCUTS: [string, string][] = [
+  ["Cmd/Ctrl + P", "Open the command palette"],
   ["Cmd/Ctrl + S", "Save and compile"],
   ["Cmd/Ctrl + F", "Find in the current file"],
   ["Cmd/Ctrl + click (editor)", "Jump to this spot in the PDF (SyncTeX)"],

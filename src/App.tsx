@@ -1,12 +1,13 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { CommandPalette } from "@/components/CommandPalette";
 import { EditorView } from "@/components/EditorView";
 import { LibraryView } from "@/components/LibraryView";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { SettingsDialog } from "@/components/SettingsDialog";
 import { AboutDialog, ShortcutsDialog } from "@/components/HelpDialogs";
 import { exportPdfAs } from "@/lib/pdf-export";
-import { getSettings, revealBuildFolder } from "@/lib/tauri";
+import { getSettings, isTauri, revealBuildFolder } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
 import { applySettingsSideEffects, useSettingsStore } from "@/store/settings";
 import { useDialogsStore } from "@/store/dialogs";
@@ -23,6 +24,7 @@ function App() {
   const setShortcutsOpen = useDialogsStore((s) => s.setShortcutsOpen);
   const aboutOpen = useDialogsStore((s) => s.aboutOpen);
   const setAboutOpen = useDialogsStore((s) => s.setAboutOpen);
+  const paletteOpen = useDialogsStore((s) => s.paletteOpen);
 
   // Load preferences, apply theme/auto-compile, and reopen the last project.
   // The loading screen stays up until the startup decision is final.
@@ -124,6 +126,12 @@ function App() {
             },
           ],
           [
+            "menu://palette",
+            () => {
+              useDialogsStore.getState().setPaletteOpen(true);
+            },
+          ],
+          [
             "menu://shortcuts",
             () => {
               useDialogsStore.getState().setShortcutsOpen(true);
@@ -147,12 +155,27 @@ function App() {
     return () => unlisten?.();
   }, []);
 
+  // Cmd/Ctrl+P opens the palette in the browser; in the desktop app the
+  // OS menu accelerator intercepts the key before the webview sees it.
+  useEffect(() => {
+    if (isTauri()) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "p") {
+        event.preventDefault();
+        useDialogsStore.getState().setPaletteOpen(true);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       {!startupDone ? <LoadingScreen /> : hasProject ? <EditorView /> : <LibraryView />}
       <SettingsDialog open={settingsDialogOpen} onOpenChange={setSettingsDialogOpen} />
       <ShortcutsDialog open={shortcutsOpen} onOpenChange={setShortcutsOpen} />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
+      {paletteOpen && <CommandPalette />}
     </QueryClientProvider>
   );
 }
