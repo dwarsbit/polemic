@@ -64,6 +64,17 @@ describe("extractWordRanges", () => {
     expect(all).toContain("stay");
   });
 
+  it("skips command names entirely, not just their first letter", () => {
+    const all = words(
+      "\\documentclass{article}\n\\begin{document}\n\\maketitle\n\\usepackage{amsmath}\n\\tableofcontents\n\\end{document}\n",
+    );
+    expect(all).not.toContain("ocumentclass");
+    expect(all).not.toContain("aketitle");
+    expect(all).not.toContain("sepackage");
+    expect(all).not.toContain("ableofcontents");
+    expect(all).toEqual([]);
+  });
+
   it("produces positions that slice back to the word", () => {
     const ranges = extractWordRanges("Hello wrld");
     expect(ranges.map((r) => "Hello wrld".slice(r.from, r.to))).toEqual([

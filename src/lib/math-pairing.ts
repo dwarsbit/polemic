@@ -5,10 +5,29 @@ import type { EditorView } from "@codemirror/view";
 
 export type DollarAction = "wrap" | "skip" | "plain" | "pair" | "convert";
 
+/**
+ * Length of the trailing run of backslashes. An odd run means the last
+ * backslash starts a command (so "\$" is a literal dollar); an even run
+ * (including "\\\\" line breaks) leaves the following character
+ * unescaped.
+ */
+function trailingBackslashRun(text: string): number {
+  let count = 0;
+  for (let i = text.length - 1; i >= 0 && text[i] === "\\"; i--) {
+    count++;
+  }
+  return count;
+}
+
+/** True if the char after the cursor position would be escaped. */
+function isEscaped(textBefore: string): boolean {
+  return trailingBackslashRun(textBefore) % 2 === 1;
+}
+
 function countUnescapedDollars(text: string): number {
   let count = 0;
   for (let i = 0; i < text.length; i++) {
-    if (text[i] === "$" && (i === 0 || text[i - 1] !== "\\")) {
+    if (text[i] === "$" && !isEscaped(text.slice(0, i))) {
       count++;
     }
   }
@@ -29,7 +48,7 @@ export function decideDollar(
   convertDoubleDollar: boolean,
 ): DollarAction {
   // \$ is a literal dollar, never a math delimiter.
-  if (textBefore.endsWith("\\")) return "plain";
+  if (isEscaped(textBefore)) return "plain";
   if (hasSelection) return "wrap";
   if (convertDoubleDollar && textBefore.endsWith("$") && textAfter.startsWith("$")) {
     return "convert";
@@ -44,12 +63,13 @@ export function decideDollar(
 export type BracketAction = "pair-display" | "skip-close" | "default";
 
 /**
- * Typing "[" right after a backslash starts display math: pair it with
- * "\]". Typing "]" right after a backslash in front of "\]" jumps over
- * the closing bracket.
+ * Typing "[" right after an unescaped backslash starts display math:
+ * pair it with "\]". Typing "]" right after a backslash in front of
+ * "\]" jumps over the closing bracket. After a line break (\\) the "["
+ * belongs to its spacing argument and is left alone.
  */
 export function decideBracket(textBefore: string, textAfter: string): BracketAction {
-  if (!textBefore.endsWith("\\")) return "default";
+  if (!isEscaped(textBefore)) return "default";
   if (textAfter.startsWith("\\]")) return "skip-close";
   return "pair-display";
 }

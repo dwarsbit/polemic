@@ -34,8 +34,14 @@ describe("decideDollar", () => {
   it("ignores escaped dollars when counting delimiters", () => {
     // \$5 costs $ leaves the count at 1 (odd) -> typing $ closes math
     expect(decideDollar("Costs \\$5 and $x", "", false, true)).toBe("plain");
-    // \\$ is a literal dollar (escaped backslash + dollar); count is 0 -> pair
-    expect(decideDollar("\\\\$ or ", "", false, true)).toBe("pair");
+    // \\$ is a line break followed by an opening $: math is open,
+    // so typing $ closes it.
+    expect(decideDollar("\\\\$ or ", "", false, true)).toBe("plain");
+  });
+
+  it("pairs a dollar after a line break (\\\\)", () => {
+    // Even backslash run: the $ after it is a normal delimiter.
+    expect(decideDollar("line \\\\", "", false, true)).toBe("pair");
   });
 
   it("counts delimiters only on the current line", () => {
@@ -72,5 +78,12 @@ describe("decideBracket", () => {
     expect(decideBracket("sqrt", "")).toBe("default");
     expect(decideBracket("left", "[x")).toBe("default");
     expect(decideBracket("", "")).toBe("default");
+  });
+
+  it("leaves line-break spacing arguments alone", () => {
+    // \\[2mm] is a line break with spacing, not display math.
+    expect(decideBracket("line \\\\", "")).toBe("default");
+    // An odd backslash run (\\ \[) does start display math.
+    expect(decideBracket("line \\\\\\", "")).toBe("pair-display");
   });
 });

@@ -120,7 +120,8 @@ export function extractWordRanges(text: string): WordRange[] {
     if (!inlineMath && !braceStack.includes(true) && /[A-Za-z]/.test(ch)) {
       const isCommandName = i > 0 && text[i - 1] === "\\";
       if (isCommandName) {
-        i++;
+        // Consume the whole command name (\maketitle), not just one letter.
+        while (i < end && /[A-Za-z@]/.test(text[i])) i++;
         continue;
       }
       // Consume letters, then (apostrophe + letters)* groups.
