@@ -49,6 +49,8 @@ export function SettingsDialog({
   const setSupsubBraces = useSettingsStore((s) => s.setSupsubBraces);
   const convertDoubleDollar = useSettingsStore((s) => s.convertDoubleDollar);
   const setConvertDoubleDollar = useSettingsStore((s) => s.setConvertDoubleDollar);
+  const reopenLastProject = useSettingsStore((s) => s.reopenLastProject);
+  const setReopenLastProject = useSettingsStore((s) => s.setReopenLastProject);
   const [downloaded, setDownloaded] = useState<string[]>(["en"]);
   const [downloading, setDownloading] = useState<string | null>(null);
   const [langError, setLangError] = useState<string | null>(null);
@@ -102,6 +104,22 @@ export function SettingsDialog({
         </DialogHeader>
 
         <div className="space-y-4 text-sm">
+          <div>
+            <p className="mb-1.5 font-medium">Reopen last project</p>
+            <div className="flex items-center gap-2">
+              <Button
+                size="sm"
+                variant={reopenLastProject ? "default" : "outline"}
+                onClick={() => void setReopenLastProject(!reopenLastProject)}
+              >
+                {reopenLastProject ? "On" : "Off"}
+              </Button>
+              <span className="text-xs text-muted-foreground">
+                On launch, open the project you worked on last.
+              </span>
+            </div>
+          </div>
+
           <div>
             <p className="mb-1.5 font-medium">Theme</p>
             <div className="flex gap-1">

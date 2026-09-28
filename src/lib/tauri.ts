@@ -32,6 +32,7 @@ export interface Settings {
   spellcheckLanguage: string | null;
   supsubBraces: boolean | null;
   convertDoubleDollar: boolean | null;
+  reopenLastProject: boolean | null;
 }
 
 export interface ProjectInfo {
@@ -132,6 +133,7 @@ export function updatePreferences(
   spellcheck?: boolean,
   supsubBraces?: boolean,
   convertDoubleDollar?: boolean,
+  reopenLastProject?: boolean,
 ): Promise<Settings> {
   const args: Record<string, unknown> = {};
   if (theme !== undefined) args.theme = theme;
@@ -140,6 +142,7 @@ export function updatePreferences(
   if (spellcheck !== undefined) args.spellcheck = spellcheck;
   if (supsubBraces !== undefined) args.supsubBraces = supsubBraces;
   if (convertDoubleDollar !== undefined) args.convertDoubleDollar = convertDoubleDollar;
+  if (reopenLastProject !== undefined) args.reopenLastProject = reopenLastProject;
   return invoke<Settings>("update_preferences", args);
 }
 

@@ -220,6 +220,7 @@ fn update_preferences(
     spellcheck: Option<bool>,
     supsub_braces: Option<bool>,
     convert_double_dollar: Option<bool>,
+    reopen_last_project: Option<bool>,
 ) -> Result<Settings, String> {
     settings::update(&app, |s| {
         if theme.is_some() {
@@ -239,6 +240,9 @@ fn update_preferences(
         }
         if convert_double_dollar.is_some() {
             s.convert_double_dollar = convert_double_dollar;
+        }
+        if reopen_last_project.is_some() {
+            s.reopen_last_project = reopen_last_project;
         }
         s.clone()
     })

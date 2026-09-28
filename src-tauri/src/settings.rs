@@ -31,6 +31,7 @@ pub struct Settings {
     pub spellcheck_language: Option<String>,
     pub supsub_braces: Option<bool>,
     pub convert_double_dollar: Option<bool>,
+    pub reopen_last_project: Option<bool>,
     pub user_words: Vec<String>,
 }
 

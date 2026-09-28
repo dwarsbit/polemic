@@ -1,7 +1,8 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { EditorView } from "@/components/EditorView";
 import { LibraryView } from "@/components/LibraryView";
+import { LoadingScreen } from "@/components/LoadingScreen";
 import { SettingsDialog } from "@/components/SettingsDialog";
 import { AboutDialog, ShortcutsDialog } from "@/components/HelpDialogs";
 import { exportPdfAs } from "@/lib/pdf-export";
@@ -15,7 +16,7 @@ const queryClient = new QueryClient();
 function App() {
   const hasProject = useProjectStore((s) => s.project !== null);
   const openProject = useProjectStore((s) => s.openProject);
-  const loaded = useSettingsStore((s) => s.loaded);
+  const [startupDone, setStartupDone] = useState(false);
   const settingsDialogOpen = useSettingsStore((s) => s.settingsDialogOpen);
   const setSettingsDialogOpen = useSettingsStore((s) => s.setSettingsDialogOpen);
   const shortcutsOpen = useDialogsStore((s) => s.shortcutsOpen);
@@ -24,6 +25,7 @@ function App() {
   const setAboutOpen = useDialogsStore((s) => s.setAboutOpen);
 
   // Load preferences, apply theme/auto-compile, and reopen the last project.
+  // The loading screen stays up until the startup decision is final.
   useEffect(() => {
     let cancelled = false;
     void (async () => {
@@ -32,12 +34,18 @@ function App() {
         if (cancelled) return;
         useSettingsStore.getState().hydrate(settings);
         applySettingsSideEffects(settings);
-        if (settings.lastProjectPath) {
-          await openProject(settings.lastProjectPath);
+        const reopen = settings.reopenLastProject ?? true;
+        if (reopen && settings.lastProjectPath) {
+          try {
+            await openProject(settings.lastProjectPath);
+          } catch {
+            // Project unavailable: start at the library.
+          }
         }
       } catch {
-        // Settings or project unavailable: start at the library.
+        // Settings unavailable: start at the library.
       }
+      if (!cancelled) setStartupDone(true);
     })();
     return () => {
       cancelled = true;
@@ -134,7 +142,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {loaded ? hasProject ? <EditorView /> : <LibraryView /> : null}
+      {!startupDone ? <LoadingScreen /> : hasProject ? <EditorView /> : <LibraryView />}
       <SettingsDialog open={settingsDialogOpen} onOpenChange={setSettingsDialogOpen} />
       <ShortcutsDialog open={shortcutsOpen} onOpenChange={setShortcutsOpen} />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
