@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { Camera, GitBranch, Info, ListTree } from "lucide-react";
 import { Group, Panel, Separator, usePanelRef } from "react-resizable-panels";
 import type { PanelImperativeHandle } from "react-resizable-panels";
 import { IssuesPanel } from "@/components/IssuesPanel";
 import { LatexEditor } from "@/components/LatexEditor";
+import { OutlinePanel } from "@/components/OutlinePanel";
 import { PreviewPane } from "@/components/PreviewPane";
+import { PropertiesPanel } from "@/components/PropertiesPanel";
 import { Sidebar } from "@/components/Sidebar";
 import { GitPanel } from "@/components/GitPanel";
 import { SnapshotsPanel } from "@/components/SnapshotsPanel";
@@ -13,9 +16,12 @@ import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
+import { cn } from "cn";
 
 const AUTO_SAVE_DELAY_MS = 1200;
 const EDITOR_PANEL_IDS = ["editor-doc", "editor-issues"];
+
+type RightTab = "version-control" | "outline" | "properties";
 
 function pickLayout(
   all: Record<string, number> | null,
@@ -40,6 +46,17 @@ export function EditorView() {
   const rightSidebarRef = usePanelRef();
   const [leftSidebarOpen, setLeftSidebarOpen] = useState(true);
   const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<RightTab>("version-control");
+
+  const rightTabs = [
+    {
+      id: "version-control" as const,
+      label: versionControl === "git" ? "Git" : "Snapshots",
+      icon: versionControl === "git" ? GitBranch : Camera,
+    },
+    { id: "outline" as const, label: "Outline", icon: ListTree },
+    { id: "properties" as const, label: "Properties", icon: Info },
+  ];
 
   // Debounced auto-save, then auto-compile when enabled.
   useEffect(() => {
@@ -170,12 +187,52 @@ export function EditorView() {
             defaultSize={0.13}
             minSize={0.1}
             collapsible
-            collapsedSize={0}
+            collapsedSize="2.5rem"
             panelRef={rightSidebarRef}
-            onResize={(size) => setRightSidebarOpen(size.inPixels > 1)}
+            onResize={(size) => setRightSidebarOpen(size.inPixels > 60)}
           >
-            <div className="flex h-full flex-col border-l bg-sidebar text-sidebar-foreground">
-              {versionControl === "git" ? <GitPanel /> : <SnapshotsPanel />}
+            <div className="flex h-full border-l bg-sidebar text-sidebar-foreground">
+              {rightSidebarOpen && (
+                <div className="min-w-0 flex-1 overflow-hidden">
+                  {activeTab === "outline" ? (
+                    <OutlinePanel />
+                  ) : activeTab === "properties" ? (
+                    <PropertiesPanel />
+                  ) : versionControl === "git" ? (
+                    <GitPanel />
+                  ) : (
+                    <SnapshotsPanel />
+                  )}
+                </div>
+              )}
+              <div className="flex w-10 shrink-0 flex-col items-center gap-1 border-l py-2">
+                {rightTabs.map((tab) => {
+                  const Icon = tab.icon;
+                  const isActive = activeTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      title={tab.label}
+                      aria-current={isActive}
+                      className={cn(
+                        "flex size-8 items-center justify-center rounded-lg transition-colors",
+                        isActive
+                          ? "bg-accent text-accent-foreground"
+                          : "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
+                      )}
+                      onClick={() => {
+                        setActiveTab(tab.id);
+                        if (!rightSidebarOpen) {
+                          rightSidebarRef.current?.expand();
+                        }
+                      }}
+                    >
+                      <Icon className="size-4" />
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </Panel>
         </Group>
