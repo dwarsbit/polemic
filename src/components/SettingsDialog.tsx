@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { open as openDialog } from "@tauri-apps/plugin-dialog";
-import { Download, FolderOpen } from "lucide-react";
+import { Download, FolderOpen, Palette, Package, PencilLine } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TexStatusSection } from "@/components/TexStatus";
 import {
@@ -9,6 +9,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Switch } from "@/components/ui/switch";
+import { ToggleButton } from "@/components/ui/toggle-button";
+import { ToggleButtonGroup } from "@/components/ui/toggle-button-group";
 import {
   DOWNLOADABLE_LANGUAGES,
   installSpellcheckLanguage,
@@ -20,16 +24,50 @@ import type { ThemePreference } from "@/lib/theme";
 import { useSettingsStore } from "@/store/settings";
 
 const THEMES: ThemePreference[] = ["light", "dark", "system"];
+const THEME_LABELS: Record<ThemePreference, string> = {
+  light: "Light",
+  dark: "Dark",
+  system: "System",
+};
 const FONT_SIZES = [12, 14, 16, 18];
 
 const LANGUAGE_NAMES: Record<string, string> = {
-  en: "English (built-in)",
+  en: "English",
   de: "German",
   fr: "French",
   es: "Spanish",
   it: "Italian",
   nl: "Dutch",
 };
+
+const SECTIONS = [
+  { id: "general", label: "General", icon: FolderOpen },
+  { id: "appearance", label: "Appearance", icon: Palette },
+  { id: "editor", label: "Editor", icon: PencilLine },
+  { id: "tex", label: "TeX Distribution", icon: Package },
+] as const;
+
+type SectionId = (typeof SECTIONS)[number]["id"];
+
+function SettingRow({
+  label,
+  description,
+  children,
+}: {
+  label: string;
+  description?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex items-center justify-between gap-4 py-3">
+      <div className="min-w-0">
+        <p className="text-sm font-medium">{label}</p>
+        {description && <p className="text-xs text-muted-foreground">{description}</p>}
+      </div>
+      {children}
+    </div>
+  );
+}
 
 export function SettingsDialog({
   open,
@@ -38,6 +76,8 @@ export function SettingsDialog({
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
+  const [section, setSection] = useState<SectionId>("general");
+
   const theme = useSettingsStore((s) => s.theme);
   const setTheme = useSettingsStore((s) => s.setTheme);
   const fontSize = useSettingsStore((s) => s.fontSize);
@@ -52,12 +92,13 @@ export function SettingsDialog({
   const setConvertDoubleDollar = useSettingsStore((s) => s.setConvertDoubleDollar);
   const reopenLastProject = useSettingsStore((s) => s.reopenLastProject);
   const setReopenLastProject = useSettingsStore((s) => s.setReopenLastProject);
+  const projectsRoot = useSettingsStore((s) => s.projectsRoot);
+  const setRoot = useSettingsStore((s) => s.setProjectsRoot);
+
   const [downloaded, setDownloaded] = useState<string[]>(["en"]);
   const [downloading, setDownloading] = useState<string | null>(null);
   const [langError, setLangError] = useState<string | null>(null);
-  const projectsRoot = useSettingsStore((s) => s.projectsRoot);
-  const setRoot = useSettingsStore((s) => s.setProjectsRoot);
-  const [error, setError] = useState<string | null>(null);
+  const [rootError, setRootError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -85,176 +126,192 @@ export function SettingsDialog({
   }
 
   async function pickRoot() {
-    setError(null);
+    setRootError(null);
     const dir = await openDialog({ directory: true, multiple: false });
     if (typeof dir === "string" && dir) {
       try {
         await setProjectsRoot(dir);
         setRoot(dir);
       } catch (e) {
-        setError(String(e));
+        setRootError(String(e));
       }
     }
   }
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md">
-        <DialogHeader>
+      <DialogContent className="flex h-[540px] max-h-[85vh] flex-col gap-0 overflow-hidden p-0 sm:max-w-2xl">
+        <DialogHeader className="px-6 pt-6 pb-4">
           <DialogTitle>Settings</DialogTitle>
         </DialogHeader>
-
-        <div className="space-y-4 text-sm">
-          <div>
-            <p className="mb-1.5 font-medium">Reopen last project</p>
-            <div className="flex items-center gap-2">
+        <div className="grid flex-1 min-h-0 grid-cols-[200px_1fr] px-6 pb-6">
+          <nav className="flex flex-col gap-1 border-r pr-4">
+            {SECTIONS.map(({ id, label, icon: Icon }) => (
               <Button
+                key={id}
+                variant="ghost"
                 size="sm"
-                variant={reopenLastProject ? "default" : "outline"}
-                onClick={() => void setReopenLastProject(!reopenLastProject)}
+                className={
+                  section === id
+                    ? "justify-start bg-muted text-foreground"
+                    : "justify-start text-muted-foreground"
+                }
+                onClick={() => setSection(id)}
               >
-                {reopenLastProject ? "On" : "Off"}
+                <Icon />
+                {label}
               </Button>
-              <span className="text-xs text-muted-foreground">
-                On launch, open the project you worked on last.
-              </span>
-            </div>
-          </div>
-
-          <div>
-            <p className="mb-1.5 font-medium">Theme</p>
-            <div className="flex gap-1">
-              {THEMES.map((option) => (
-                <Button
-                  key={option}
-                  size="sm"
-                  variant={theme === option ? "default" : "outline"}
-                  onClick={() => void setTheme(option)}
+            ))}
+          </nav>
+          <ScrollArea className="min-h-0 pl-6">
+            {section === "general" && (
+              <div className="text-sm">
+                <SettingRow
+                  label="Reopen last project"
+                  description="On launch, open the project you worked on last."
                 >
-                  {option}
-                </Button>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <p className="mb-1.5 font-medium">Editor font size</p>
-            <div className="flex gap-1">
-              {FONT_SIZES.map((size) => (
-                <Button
-                  key={size}
-                  size="sm"
-                  variant={fontSize === size ? "default" : "outline"}
-                  onClick={() => void setFontSize(size)}
+                  <Switch
+                    checked={reopenLastProject}
+                    onCheckedChange={(v) => void setReopenLastProject(v)}
+                  />
+                </SettingRow>
+                <SettingRow
+                  label="Projects folder"
+                  description="New projects are created here. Existing projects stay where they are."
                 >
-                  {size}
-                </Button>
-              ))}
-            </div>
-          </div>
+                  <Button variant="outline" size="sm" onClick={() => void pickRoot()}>
+                    <FolderOpen />
+                    Choose folder
+                  </Button>
+                </SettingRow>
+                <p className="mt-1 truncate rounded border bg-muted px-2 py-1 font-mono text-xs">
+                  {projectsRoot ?? "(default)"}
+                </p>
+                {rootError && (
+                  <p className="mt-1 text-xs text-destructive">{rootError}</p>
+                )}
+              </div>
+            )}
 
-          <div>
-            <p className="mb-1.5 font-medium">Convert $$ to \[ \]</p>
-            <div className="flex items-center gap-2">
-              <Button
-                size="sm"
-                variant={convertDoubleDollar ? "default" : "outline"}
-                onClick={() => void setConvertDoubleDollar(!convertDoubleDollar)}
-              >
-                {convertDoubleDollar ? "On" : "Off"}
-              </Button>
-              <span className="text-xs text-muted-foreground">
-                Typing the second $ of a pair creates display-math brackets instead of
-                $$.
-              </span>
-            </div>
-          </div>
+            {section === "appearance" && (
+              <div className="text-sm">
+                <SettingRow label="Theme">
+                  <ToggleButtonGroup
+                    type="single"
+                    value={theme}
+                    onValueChange={(value) => {
+                      if (value) void setTheme(value as ThemePreference);
+                    }}
+                  >
+                    {THEMES.map((option) => (
+                      <ToggleButton key={option} value={option} size="sm">
+                        {THEME_LABELS[option]}
+                      </ToggleButton>
+                    ))}
+                  </ToggleButtonGroup>
+                </SettingRow>
+                <SettingRow label="Editor font size">
+                  <ToggleButtonGroup
+                    type="single"
+                    value={String(fontSize)}
+                    onValueChange={(value) => {
+                      if (value) void setFontSize(Number(value));
+                    }}
+                  >
+                    {FONT_SIZES.map((size) => (
+                      <ToggleButton key={size} value={String(size)} size="sm">
+                        {size}
+                      </ToggleButton>
+                    ))}
+                  </ToggleButtonGroup>
+                </SettingRow>
+              </div>
+            )}
 
-          <div>
-            <p className="mb-1.5 font-medium">Auto-braces for ^ and _</p>
-            <div className="flex items-center gap-2">
-              <Button
-                size="sm"
-                variant={supsubBraces ? "default" : "outline"}
-                onClick={() => void setSupsubBraces(!supsubBraces)}
-              >
-                {supsubBraces ? "On" : "Off"}
-              </Button>
-              <span className="text-xs text-muted-foreground">
-                Typing ^ or _ inserts braces with the cursor inside (^{"{"}).
-              </span>
-            </div>
-          </div>
-
-          <div>
-            <p className="mb-1.5 font-medium">Spellcheck</p>
-            <div className="flex items-center gap-2">
-              <Button
-                size="sm"
-                variant={spellcheckEnabled ? "default" : "outline"}
-                onClick={() => void setSpellcheck(!spellcheckEnabled)}
-              >
-                {spellcheckEnabled ? "On" : "Off"}
-              </Button>
-              <span className="text-xs text-muted-foreground">
-                Right-click a marked word to add it to your dictionary.
-              </span>
-            </div>
-            <p className="mt-3 mb-1.5 text-xs text-muted-foreground">LANGUAGE</p>
-            <div className="flex flex-wrap gap-1.5">
-              {(["en", ...DOWNLOADABLE_LANGUAGES.map((l) => l.id)] as string[]).map(
-                (lang) => {
-                  const isDownloaded = downloaded.includes(lang);
-                  const isActive = spellcheckLanguage === lang;
-                  return (
-                    <Button
-                      key={lang}
-                      size="sm"
-                      variant={isActive ? "default" : "outline"}
-                      disabled={downloading !== null}
-                      title={
-                        isDownloaded
-                          ? "Use this language"
-                          : "Download the wordlist (about 10-20 MB) and use this language"
+            {section === "editor" && (
+              <div className="text-sm">
+                <SettingRow
+                  label="Spellcheck"
+                  description="Right-click a marked word to add it to your dictionary."
+                >
+                  <Switch
+                    checked={spellcheckEnabled}
+                    onCheckedChange={(v) => void setSpellcheck(v)}
+                  />
+                </SettingRow>
+                <SettingRow
+                  label="Spellcheck language"
+                  description="Languages without a check mark are downloaded on demand."
+                >
+                  <ToggleButtonGroup
+                    type="single"
+                    className="flex-wrap"
+                    value={spellcheckLanguage}
+                    onValueChange={(lang) => {
+                      if (!lang) return;
+                      if (downloaded.includes(lang)) {
+                        void setSpellcheckLanguage(lang);
+                      } else {
+                        void downloadLanguage(lang);
                       }
-                      onClick={() => {
-                        if (isActive) return;
-                        if (isDownloaded) {
-                          void setSpellcheckLanguage(lang);
-                        } else {
-                          void downloadLanguage(lang);
+                    }}
+                  >
+                    {(
+                      ["en", ...DOWNLOADABLE_LANGUAGES.map((l) => l.id)] as string[]
+                    ).map((lang) => (
+                      <ToggleButton
+                        key={lang}
+                        value={lang}
+                        size="sm"
+                        disabled={downloading !== null}
+                        title={
+                          downloaded.includes(lang)
+                            ? "Use this language"
+                            : "Download the wordlist (about 10-20 MB) and use this language"
                         }
-                      }}
-                    >
-                      {downloading === lang
-                        ? "Downloading…"
-                        : !isDownloaded && <Download className="size-3" />}
-                      {LANGUAGE_NAMES[lang] ?? lang}
-                    </Button>
-                  );
-                },
-              )}
-            </div>
-            {langError && <p className="mt-1 text-xs text-destructive">{langError}</p>}
-          </div>
+                      >
+                        {downloading === lang
+                          ? "Downloading…"
+                          : !downloaded.includes(lang) && <Download />}
+                        {LANGUAGE_NAMES[lang] ?? lang}
+                      </ToggleButton>
+                    ))}
+                  </ToggleButtonGroup>
+                </SettingRow>
+                {langError && (
+                  <p className="mb-2 text-xs text-destructive">{langError}</p>
+                )}
 
-          <div>
-            <p className="mb-1.5 font-medium">Projects folder</p>
-            <p className="mb-1.5 truncate rounded border bg-muted px-2 py-1 font-mono text-xs">
-              {projectsRoot ?? "(default)"}
-            </p>
-            <Button variant="outline" size="sm" onClick={() => void pickRoot()}>
-              <FolderOpen />
-              Choose folder
-            </Button>
-            <p className="mt-1 text-xs text-muted-foreground">
-              New projects are created here. Existing projects stay where they are.
-            </p>
-          </div>
+                <p className="mt-4 mb-1 text-xs font-medium text-muted-foreground">
+                  MATH INPUT
+                </p>
+                <SettingRow
+                  label="Auto-braces for ^ and _"
+                  description="Typing ^ or _ inserts braces with the cursor inside (^{})."
+                >
+                  <Switch
+                    checked={supsubBraces}
+                    onCheckedChange={(v) => void setSupsubBraces(v)}
+                  />
+                </SettingRow>
+                <SettingRow
+                  label="Convert $$ to \[ \]"
+                  description="Typing the second $ of a pair creates display-math brackets instead of $$."
+                >
+                  <Switch
+                    checked={convertDoubleDollar}
+                    onCheckedChange={(v) => void setConvertDoubleDollar(v)}
+                  />
+                </SettingRow>
+              </div>
+            )}
 
-          {error && <p className="text-xs text-destructive">{error}</p>}
-
-          <TexStatusSection />
+            {section === "tex" && (
+              <div className="text-sm">
+                <TexStatusSection />
+              </div>
+            )}
+          </ScrollArea>
         </div>
       </DialogContent>
     </Dialog>
