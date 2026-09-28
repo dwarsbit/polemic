@@ -905,12 +905,41 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+/// The main window is created programmatically so the macOS traffic
+/// lights can be centered in the custom top bar (builder-only API).
+#[cfg(target_os = "macos")]
+fn create_main_window(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
+    use tauri::{LogicalPosition, TitleBarStyle, WebviewUrl, WebviewWindowBuilder};
+    WebviewWindowBuilder::new(app, "main", WebviewUrl::default())
+        .title("Polemic")
+        .inner_size(1400.0, 900.0)
+        .min_inner_size(960.0, 600.0)
+        .title_bar_style(TitleBarStyle::Overlay)
+        .hidden_title(true)
+        // Center the 12px-tall lights in the 48px top bar.
+        .traffic_light_position(LogicalPosition::new(12.0, 18.0))
+        .build()?;
+    Ok(())
+}
+
+#[cfg(not(target_os = "macos"))]
+fn create_main_window(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
+    use tauri::{WebviewUrl, WebviewWindowBuilder};
+    WebviewWindowBuilder::new(app, "main", WebviewUrl::default())
+        .title("Polemic")
+        .inner_size(1400.0, 900.0)
+        .min_inner_size(960.0, 600.0)
+        .build()?;
+    Ok(())
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {    tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_window_state::Builder::default().build())
         .setup(|app| {
+            create_main_window(app)?;
             app.manage(SettingsState(std::sync::Mutex::new(settings::load(app.handle()))));
             let (user_words, lang) = {
                 let settings_state = app.state::<SettingsState>();
