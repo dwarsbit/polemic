@@ -48,75 +48,78 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* Tailwind v4 mauve scale (see tailwindcss/theme.css), used for all
+   grays; mauve-800 is the primary color. */
 :root {
   /* Obsidian-inspired light theme */
-  --background: #ffffff;
-  --foreground: #222222;
-  --card: #ffffff;
-  --card-foreground: #222222;
-  --popover: #ffffff;
-  --popover-foreground: #222222;
-  --primary: #7c3aed;
-  --primary-foreground: #ffffff;
-  --secondary: #f2f3f5;
-  --secondary-foreground: #222222;
-  --muted: #f2f3f5;
-  --muted-foreground: #666666;
-  --accent: #e8e8e8;
-  --accent-foreground: #222222;
+  --background: oklch(98.5% 0 none); /* mauve-50 */
+  --foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  --card: oklch(98.5% 0 none); /* mauve-50 */
+  --card-foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  --popover: oklch(98.5% 0 none); /* mauve-50 */
+  --popover-foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  --primary: oklch(26.3% 0.024 320.12); /* mauve-800 */
+  --primary-foreground: oklch(98.5% 0 none); /* mauve-50 */
+  --secondary: oklch(96% 0.003 325.6); /* mauve-100 */
+  --secondary-foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  --muted: oklch(96% 0.003 325.6); /* mauve-100 */
+  --muted-foreground: oklch(54.2% 0.034 322.5); /* mauve-500 */
+  --accent: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --accent-foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #dcdcdc;
-  --input: #dcdcdc;
-  --ring: #7c3aed;
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --border: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --input: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --ring: oklch(26.3% 0.024 320.12); /* mauve-800 */
+  --chart-1: oklch(86.5% 0.012 325.68); /* mauve-300 */
+  --chart-2: oklch(71.1% 0.019 323.02); /* mauve-400 */
+  --chart-3: oklch(54.2% 0.034 322.5); /* mauve-500 */
+  --chart-4: oklch(43.5% 0.029 321.78); /* mauve-600 */
+  --chart-5: oklch(36.4% 0.029 323.89); /* mauve-700 */
   --radius: 0.375rem;
-  --sidebar: #f2f3f5;
-  --sidebar-foreground: #222222;
-  --sidebar-primary: #7c3aed;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e0e0e0;
-  --sidebar-accent-foreground: #222222;
-  --sidebar-border: #dcdcdc;
-  --sidebar-ring: #7c3aed;
+  --sidebar: oklch(96% 0.003 325.6); /* mauve-100 */
+  --sidebar-foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  --sidebar-primary: oklch(26.3% 0.024 320.12); /* mauve-800 */
+  --sidebar-primary-foreground: oklch(98.5% 0 none); /* mauve-50 */
+  --sidebar-accent: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --sidebar-accent-foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  --sidebar-border: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --sidebar-ring: oklch(26.3% 0.024 320.12); /* mauve-800 */
 }
 
 .dark {
-  /* Obsidian-inspired dark theme */
-  --background: #1e1e1e;
-  --foreground: #dadada;
-  --card: #262626;
-  --card-foreground: #dadada;
-  --popover: #262626;
-  --popover-foreground: #dadada;
-  --primary: #8b5cf6;
-  --primary-foreground: #ffffff;
-  --secondary: #2a2a2a;
-  --secondary-foreground: #dadada;
-  --muted: #2a2a2a;
-  --muted-foreground: #999999;
-  --accent: #363636;
-  --accent-foreground: #dadada;
+  /* Obsidian-inspired dark theme (mauve-400 stands in for primary in
+     dark mode: mauve-800 would vanish against the mauve-900 background) */
+  --background: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  --foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --card: oklch(26.3% 0.024 320.12); /* mauve-800 */
+  --card-foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --popover: oklch(26.3% 0.024 320.12); /* mauve-800 */
+  --popover-foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --primary: oklch(71.1% 0.019 323.02); /* mauve-400 */
+  --primary-foreground: oklch(14.5% 0.008 326); /* mauve-950 */
+  --secondary: oklch(26.3% 0.024 320.12); /* mauve-800 */
+  --secondary-foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --muted: oklch(26.3% 0.024 320.12); /* mauve-800 */
+  --muted-foreground: oklch(71.1% 0.019 323.02); /* mauve-400 */
+  --accent: oklch(36.4% 0.029 323.89); /* mauve-700 */
+  --accent-foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
   --destructive: oklch(0.704 0.191 22.216);
-  --border: #2a2a2a;
-  --input: #363636;
-  --ring: #8b5cf6;
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: #1a1a1a;
-  --sidebar-foreground: #dadada;
-  --sidebar-primary: #8b5cf6;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #2a2a2a;
-  --sidebar-accent-foreground: #dadada;
-  --sidebar-border: #2a2a2a;
-  --sidebar-ring: #8b5cf6;
+  --border: oklch(26.3% 0.024 320.12); /* mauve-800 */
+  --input: oklch(36.4% 0.029 323.89); /* mauve-700 */
+  --ring: oklch(71.1% 0.019 323.02); /* mauve-400 */
+  --chart-1: oklch(86.5% 0.012 325.68); /* mauve-300 */
+  --chart-2: oklch(71.1% 0.019 323.02); /* mauve-400 */
+  --chart-3: oklch(54.2% 0.034 322.5); /* mauve-500 */
+  --chart-4: oklch(43.5% 0.029 321.78); /* mauve-600 */
+  --chart-5: oklch(36.4% 0.029 323.89); /* mauve-700 */
+  --sidebar: oklch(14.5% 0.008 326); /* mauve-950 */
+  --sidebar-foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --sidebar-primary: oklch(71.1% 0.019 323.02); /* mauve-400 */
+  --sidebar-primary-foreground: oklch(14.5% 0.008 326); /* mauve-950 */
+  --sidebar-accent: oklch(26.3% 0.024 320.12); /* mauve-800 */
+  --sidebar-accent-foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --sidebar-border: oklch(26.3% 0.024 320.12); /* mauve-800 */
+  --sidebar-ring: oklch(71.1% 0.019 323.02); /* mauve-400 */
 }
 
 @layer base {
