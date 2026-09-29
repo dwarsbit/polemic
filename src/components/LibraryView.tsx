@@ -31,6 +31,7 @@ import {
   type TemplateInfo,
 } from "@/lib/tauri";
 import { cn } from "@/lib/utils";
+import logo from "../../assets/polemic-logo.svg";
 import { useProjectStore } from "@/store/project";
 
 type ActionDialog =
@@ -120,10 +121,13 @@ export function LibraryView() {
   return (
     <div className="flex h-screen items-center justify-center bg-background text-foreground">
       <div className="w-full max-w-lg rounded-xl border bg-card p-6 shadow-sm">
-        <h1 className="text-lg font-semibold tracking-tight">Polemic</h1>
-        <p className="text-sm text-muted-foreground">
-          Local-first LaTeX editing, compiled on your machine.
-        </p>
+        <div className="flex flex-col items-center gap-1.5">
+          <img src={logo} alt="Polemic" className="size-14" draggable={false} />
+          <h1 className="text-lg font-semibold tracking-tight">Polemic</h1>
+          <p className="text-center text-sm text-muted-foreground">
+            Local-first LaTeX editing, compiled on your machine.
+          </p>
+        </div>
         <Separator className="my-4" />
         <div className="flex gap-2">
           <Input

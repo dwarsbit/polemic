@@ -1,13 +1,21 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/inter";
+/* Editor fonts (bundled so they render identically on every machine). */
+@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/fira-code";
+@import "@fontsource-variable/source-code-pro";
+@import "@fontsource/ibm-plex-mono/400.css";
+/* Math hover preview rendering. */
+@import "katex/dist/katex.min.css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --font-heading: var(--font-sans);
-  --font-sans: "Inter Variable", sans-serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    "Helvetica Neue", Arial, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,78 +56,90 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Tailwind v4 mauve scale (see tailwindcss/theme.css), used for all
-   grays; mauve-800 is the primary color. */
+/* Design tokens: generated with the shadcn theme creator
+   (https://ui.shadcn.com/create?preset=b6YpVdQcC). */
 :root {
-  /* Obsidian-inspired light theme */
-  --background: oklch(98.5% 0 none); /* mauve-50 */
-  --foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
-  --card: oklch(98.5% 0 none); /* mauve-50 */
-  --card-foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
-  --popover: oklch(98.5% 0 none); /* mauve-50 */
-  --popover-foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
-  --primary: oklch(26.3% 0.024 320.12); /* mauve-800 */
-  --primary-foreground: oklch(98.5% 0 none); /* mauve-50 */
-  --secondary: oklch(96% 0.003 325.6); /* mauve-100 */
-  --secondary-foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
-  --muted: oklch(96% 0.003 325.6); /* mauve-100 */
-  --muted-foreground: oklch(54.2% 0.034 322.5); /* mauve-500 */
-  --accent: oklch(92.2% 0.005 325.62); /* mauve-200 */
-  --accent-foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  /* shadcn theme: preset b6YpVdQcC (vega, mauve, radius small). */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0.008 326);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0.008 326);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0.008 326);
+  --primary: oklch(0.212 0.019 322.12);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.003 325.6);
+  --secondary-foreground: oklch(0.212 0.019 322.12);
+  --muted: oklch(0.96 0.003 325.6);
+  --muted-foreground: oklch(0.542 0.034 322.5);
+  --accent: oklch(0.96 0.003 325.6);
+  --accent-foreground: oklch(0.212 0.019 322.12);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(92.2% 0.005 325.62); /* mauve-200 */
-  --input: oklch(92.2% 0.005 325.62); /* mauve-200 */
-  --ring: oklch(26.3% 0.024 320.12); /* mauve-800 */
-  --chart-1: oklch(86.5% 0.012 325.68); /* mauve-300 */
-  --chart-2: oklch(71.1% 0.019 323.02); /* mauve-400 */
-  --chart-3: oklch(54.2% 0.034 322.5); /* mauve-500 */
-  --chart-4: oklch(43.5% 0.029 321.78); /* mauve-600 */
-  --chart-5: oklch(36.4% 0.029 323.89); /* mauve-700 */
-  --radius: 0.375rem;
-  --sidebar: oklch(96% 0.003 325.6); /* mauve-100 */
-  --sidebar-foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
-  --sidebar-primary: oklch(26.3% 0.024 320.12); /* mauve-800 */
-  --sidebar-primary-foreground: oklch(98.5% 0 none); /* mauve-50 */
-  --sidebar-accent: oklch(92.2% 0.005 325.62); /* mauve-200 */
-  --sidebar-accent-foreground: oklch(21.2% 0.019 322.12); /* mauve-900 */
-  --sidebar-border: oklch(92.2% 0.005 325.62); /* mauve-200 */
-  --sidebar-ring: oklch(26.3% 0.024 320.12); /* mauve-800 */
+  --border: oklch(0.922 0.005 325.62);
+  --input: oklch(0.922 0.005 325.62);
+  --ring: oklch(0.711 0.019 323.02);
+  --chart-1: oklch(0.865 0.012 325.68);
+  --chart-2: oklch(0.542 0.034 322.5);
+  --chart-3: oklch(0.435 0.029 321.78);
+  --chart-4: oklch(0.364 0.029 323.89);
+  --chart-5: oklch(0.263 0.024 320.12);
+  --radius: 0.45rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0.008 326);
+  --sidebar-primary: oklch(0.212 0.019 322.12);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.96 0.003 325.6);
+  --sidebar-accent-foreground: oklch(0.212 0.019 322.12);
+  --sidebar-border: oklch(0.922 0.005 325.62);
+  --sidebar-ring: oklch(0.711 0.019 323.02);
+}
+
+/* macOS vibrancy: the chrome (header, rails, status bar) is fully
+   transparent so the window material shows through there. The material
+   can render dark even in light appearance, so the webview paints a
+   translucent scrim over the vibrancy: the backdrop reads light in
+   light mode while the blur stays subtly visible. The content surfaces
+   (editor, preview, panels, dialogs) are opaque cards for readability. */
+html.mac body {
+  background-color: oklch(0.985 0 0 / 85%);
+}
+
+html.mac.dark body {
+  background-color: oklch(0.145 0.008 326 / 80%);
 }
 
 .dark {
-  /* Obsidian-inspired dark theme (mauve-400 stands in for primary in
-     dark mode: mauve-800 would vanish against the mauve-900 background) */
-  --background: oklch(21.2% 0.019 322.12); /* mauve-900 */
-  --foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
-  --card: oklch(26.3% 0.024 320.12); /* mauve-800 */
-  --card-foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
-  --popover: oklch(26.3% 0.024 320.12); /* mauve-800 */
-  --popover-foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
-  --primary: oklch(71.1% 0.019 323.02); /* mauve-400 */
-  --primary-foreground: oklch(14.5% 0.008 326); /* mauve-950 */
-  --secondary: oklch(26.3% 0.024 320.12); /* mauve-800 */
-  --secondary-foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
-  --muted: oklch(26.3% 0.024 320.12); /* mauve-800 */
-  --muted-foreground: oklch(71.1% 0.019 323.02); /* mauve-400 */
-  --accent: oklch(36.4% 0.029 323.89); /* mauve-700 */
-  --accent-foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --background: oklch(0.145 0.008 326);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.212 0.019 322.12);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.212 0.019 322.12);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0.005 325.62);
+  --primary-foreground: oklch(0.212 0.019 322.12);
+  --secondary: oklch(0.263 0.024 320.12);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.263 0.024 320.12);
+  --muted-foreground: oklch(0.711 0.019 323.02);
+  --accent: oklch(0.263 0.024 320.12);
+  --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(26.3% 0.024 320.12); /* mauve-800 */
-  --input: oklch(36.4% 0.029 323.89); /* mauve-700 */
-  --ring: oklch(71.1% 0.019 323.02); /* mauve-400 */
-  --chart-1: oklch(86.5% 0.012 325.68); /* mauve-300 */
-  --chart-2: oklch(71.1% 0.019 323.02); /* mauve-400 */
-  --chart-3: oklch(54.2% 0.034 322.5); /* mauve-500 */
-  --chart-4: oklch(43.5% 0.029 321.78); /* mauve-600 */
-  --chart-5: oklch(36.4% 0.029 323.89); /* mauve-700 */
-  --sidebar: oklch(14.5% 0.008 326); /* mauve-950 */
-  --sidebar-foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
-  --sidebar-primary: oklch(71.1% 0.019 323.02); /* mauve-400 */
-  --sidebar-primary-foreground: oklch(14.5% 0.008 326); /* mauve-950 */
-  --sidebar-accent: oklch(26.3% 0.024 320.12); /* mauve-800 */
-  --sidebar-accent-foreground: oklch(92.2% 0.005 325.62); /* mauve-200 */
-  --sidebar-border: oklch(26.3% 0.024 320.12); /* mauve-800 */
-  --sidebar-ring: oklch(71.1% 0.019 323.02); /* mauve-400 */
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.542 0.034 322.5);
+  --chart-1: oklch(0.865 0.012 325.68);
+  --chart-2: oklch(0.542 0.034 322.5);
+  --chart-3: oklch(0.435 0.029 321.78);
+  --chart-4: oklch(0.364 0.029 323.89);
+  --chart-5: oklch(0.263 0.024 320.12);
+  --sidebar: oklch(0.212 0.019 322.12);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.263 0.024 320.12);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.542 0.034 322.5);
 }
 
 @layer base {
@@ -132,6 +152,20 @@
   html {
     @apply font-sans;
   }
+}
+
+/* Native-app feel: text is not selectable, except where the user types
+   (the CodeMirror editor and input fields). */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input,
+textarea,
+.cm-content {
+  -webkit-user-select: text;
+  user-select: text;
 }
 html,
 body,
@@ -199,10 +233,88 @@ body {
   background: transparent;
 }
 
-/* Git change bars in the editor gutter (Tailwind emerald-500 / sky-500). */
-.cm-gutters .cm-git-line-added {
+/* Git change bars in the line-numbers gutter (Tailwind emerald-500 /
+   sky-500). Scoped to one gutter: gutterLineClass marks render in
+   every gutter, which would duplicate the bar. */
+.cm-lineNumbers .cm-git-line-added {
   box-shadow: inset 3px 0 0 oklch(69.6% 0.17 162.48);
 }
-.cm-gutters .cm-git-line-modified {
+.cm-lineNumbers .cm-git-line-modified {
   box-shadow: inset 3px 0 0 oklch(68.5% 0.169 237.323);
+}
+
+/* Long-line hint in the line-numbers gutter (Tailwind orange-500). */
+.cm-lineNumbers .cm-line-too-long {
+  box-shadow: inset 3px 0 0 oklch(70.5% 0.213 47.604);
+}
+
+/* CodeMirror's default gutter background is opaque; let the vibrancy
+   through (the runtime-injected theme needs !important to override). */
+.cm-editor .cm-gutters {
+  background-color: transparent !important;
+}
+
+/* Comment bars: clickable category-colored marks in their own gutter. */
+.cm-comment-gutter {
+  width: 8px;
+}
+
+.cm-comment-gutter .cm-gutterElement {
+  padding: 0;
+}
+
+.cm-comment-bar {
+  width: 4px;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+.cm-comment-bar:hover {
+  opacity: 1;
+}
+
+.cm-comment-bar.resolved {
+  opacity: 0.3;
+}
+
+/* Math hover preview card, in the shadcn card style (rounded-xl border
+   bg-card shadow-sm). The tooltip dom itself is the card, so the
+   two-class selector wins over CodeMirror's default .cm-tooltip. */
+.cm-tooltip.math-hover-card {
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  padding: 0.5rem 0.75rem;
+  max-width: calc(100vw - 32px);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+}
+
+.math-hover-card .katex {
+  font-size: 1.05em;
+}
+
+.math-hover-card .katex-display {
+  margin: 0;
+}
+
+/* Loading screen: indeterminate progress bar fill sliding through the
+   track (positioned absolutely within the rounded track). */
+@keyframes loading-bar {
+  0% {
+    left: -33%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.loading-bar-fill {
+  position: absolute;
+  animation: loading-bar 1.4s ease-in-out infinite;
 }

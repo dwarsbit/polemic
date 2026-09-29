@@ -14,7 +14,8 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { sortTreeByDocumentOrder } from "@/lib/doc-structure";
-import { gitIgnored, gitStatus, type FileEntry } from "@/lib/tauri";
+import { gitIgnored, gitStatus, isTauri, type FileEntry } from "@/lib/tauri";
+import { showNativeContextMenu } from "@/lib/native-menu";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 import { useProjectStore } from "@/store/project";
 
@@ -68,14 +69,17 @@ export function FilesPanel() {
   const [dialogKind, setDialogKind] = useState<DialogKind>(null);
   const [entryName, setEntryName] = useState("");
   const [target, setTarget] = useState<FileEntry | null>(null);
+  /** Folder path new entries are created in; null means the project root. */
+  const [targetDir, setTargetDir] = useState<string | null>(null);
   const [dialogError, setDialogError] = useState<string | null>(null);
 
   function openDialog(
     kind: Exclude<DialogKind, null>,
-    opts?: { target?: FileEntry; name?: string },
+    opts?: { target?: FileEntry; name?: string; dir?: string | null },
   ) {
     setDialogError(null);
     setTarget(opts?.target ?? null);
+    setTargetDir(opts?.dir ?? null);
     setEntryName(opts?.name ?? "");
     setDialogKind(kind);
   }
@@ -83,13 +87,20 @@ export function FilesPanel() {
   async function handleConfirm() {
     const store = useProjectStore.getState();
     const raw = entryName.trim();
+    const path = targetDir !== null ? `${targetDir}/${raw}` : raw;
     try {
       switch (dialogKind) {
         case "newFile":
-          if (raw) await store.createEntry(ensureTexExtension(raw), false);
+          if (raw) {
+            const name = ensureTexExtension(raw);
+            await store.createEntry(
+              targetDir !== null ? `${targetDir}/${name}` : name,
+              false,
+            );
+          }
           break;
         case "newFolder":
-          if (raw) await store.createEntry(raw, true);
+          if (raw) await store.createEntry(path, true);
           break;
         case "rename": {
           const entry = target as FileEntry;
@@ -138,13 +149,35 @@ export function FilesPanel() {
           </div>
         }
       />
-      <div className="flex-1 overflow-y-auto px-2 pb-2">
+      <div
+        className="flex-1 overflow-y-auto px-2 pb-2"
+        onContextMenu={(event) => {
+          // Empty area: create at the project root (row handlers stop
+          // propagation before this fires).
+          if (!isTauri()) return;
+          event.preventDefault();
+          void showNativeContextMenu([
+            {
+              id: "new-file",
+              text: "New File",
+              action: () => openDialog("newFile"),
+            },
+            {
+              id: "new-folder",
+              text: "New Folder",
+              action: () => openDialog("newFolder"),
+            },
+          ]);
+        }}
+      >
         {files.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">Empty project.</p>
         ) : (
           <FileTree
             entries={sortedFiles}
             statusOf={gitEnabled ? statusOf : undefined}
+            onNewFile={(dir) => openDialog("newFile", { dir })}
+            onNewFolder={(dir) => openDialog("newFolder", { dir })}
             onRename={(entry) =>
               openDialog("rename", { target: entry, name: entry.path })
             }
@@ -181,7 +214,13 @@ export function FilesPanel() {
             <Input
               autoFocus
               placeholder={
-                dialogKind === "newFolder" ? "chapters" : "chapters/intro.tex"
+                dialogKind === "newFolder"
+                  ? targetDir !== null
+                    ? `${targetDir}/chapters`
+                    : "chapters"
+                  : targetDir !== null
+                    ? `${targetDir}/intro.tex`
+                    : "chapters/intro.tex"
               }
               value={entryName}
               onChange={(e) => setEntryName(e.target.value)}

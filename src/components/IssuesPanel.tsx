@@ -1,30 +1,16 @@
-import { useState } from "react";
 import {
   AlertTriangle,
   ChevronDown,
-  ChevronUp,
   Loader2,
-  ScrollText,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import type { CompileIssue } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 
-function wordCount(source: string): number {
-  const stripped = source
-    .replace(/%[^\n]*/g, " ")
-    .replace(/\\[a-zA-Z]+(\[[^\]]*\])?(\{[^}]*\})?/g, " ")
-    .replace(/[{}]/g, " ");
-  return stripped.split(/\s+/).filter((w) => w.length > 0).length;
-}
+/** Bottom-dock tools, selected by the bottom icons of the left rail. */
+export type IssuesTool = "issues" | "log";
 
 function issueIcon(issue: CompileIssue) {
   if (issue.severity === "error") {
@@ -46,72 +32,57 @@ async function jumpToIssue(issue: CompileIssue) {
   }
 }
 
+/** The bottom dock, spanning the width of the center stack. Shows the
+ *  issues list or the full compile log, depending on the left rail. */
 export function IssuesPanel({
-  collapsed,
+  tool,
   onToggle,
 }: {
-  collapsed: boolean;
+  tool: IssuesTool;
   onToggle: () => void;
 }) {
   const issues = usePreviewStore((s) => s.issues);
   const status = usePreviewStore((s) => s.status);
   const log = usePreviewStore((s) => s.log);
-  const content = useEditorStore((s) => s.content);
-  const activeFile = useProjectStore((s) => s.activeFile);
-  const [logOpen, setLogOpen] = useState(false);
 
   const errors = issues.filter((i) => i.severity === "error").length;
   const warnings = issues.length - errors;
 
   return (
-    <div className="flex h-full flex-col border-t">
+    <div className="flex h-full flex-col overflow-hidden rounded-xl border bg-card shadow-sm">
       <div className="flex h-8 shrink-0 items-center gap-2 px-3">
-        <span className="text-xs font-medium text-muted-foreground">ISSUES</span>
-        {status === "compiling" && <Loader2 className="size-3 animate-spin" />}
-        {issues.length > 0 && (
-          <span className="text-xs">
-            <span className="font-medium text-destructive">{errors} errors</span>
-            <span className="text-muted-foreground">, {warnings} warnings</span>
-          </span>
+        <span className="text-xs font-medium text-muted-foreground">
+          {tool === "issues" ? "ISSUES" : "COMPILE LOG"}
+        </span>
+        {tool === "issues" && (
+          <>
+            {status === "compiling" && <Loader2 className="size-3 animate-spin" />}
+            {issues.length > 0 && (
+              <span className="text-xs">
+                <span className="font-medium text-destructive">{errors} errors</span>
+                <span className="text-muted-foreground">, {warnings} warnings</span>
+              </span>
+            )}
+          </>
         )}
         <div className="ml-auto flex items-center gap-1">
-          {activeFile !== null && (
-            <span className="mr-1 text-xs text-muted-foreground tabular-nums">
-              {wordCount(content).toLocaleString()} words
-            </span>
-          )}
-          {log !== null && (
-            <Button
-              variant="ghost"
-              size="icon"
-              className="size-6"
-              title="View full compile log"
-              onClick={() => setLogOpen(true)}
-            >
-              <ScrollText className="size-3.5" />
-            </Button>
-          )}
           <Button
             variant="ghost"
             size="icon"
             className="size-6"
-            title={collapsed ? "Show issues" : "Hide issues"}
+            title="Hide panel"
             onClick={onToggle}
           >
-            {collapsed ? (
-              <ChevronUp className="size-3.5" />
-            ) : (
-              <ChevronDown className="size-3.5" />
-            )}
+            <ChevronDown className="size-3.5" />
           </Button>
         </div>
       </div>
-      {!collapsed && (
-        <div className="flex-1 overflow-y-auto px-3 pb-2">
-          {issues.length === 0 ? (
+      <div className="flex-1 overflow-y-auto px-3 pb-2">
+        {tool === "issues" ? (
+          issues.length === 0 ? (
             <p className="text-xs text-muted-foreground">
               {status === "error"
-                ? "Compilation failed with no parsed issues — check the full log."
+                ? "Compilation failed with no parsed issues — check the compile log."
                 : "No issues."}
             </p>
           ) : (
@@ -135,19 +106,13 @@ export function IssuesPanel({
                 </li>
               ))}
             </ul>
-          )}
-        </div>
-      )}
-      <Dialog open={logOpen} onOpenChange={setLogOpen}>
-        <DialogContent className="max-w-3xl">
-          <DialogHeader>
-            <DialogTitle>Compile log</DialogTitle>
-          </DialogHeader>
-          <pre className="max-h-96 overflow-auto rounded bg-muted p-3 font-mono text-xs whitespace-pre-wrap">
-            {log ?? ""}
-          </pre>
-        </DialogContent>
-      </Dialog>
+          )
+        ) : log === null ? (
+          <p className="text-xs text-muted-foreground">Nothing compiled yet.</p>
+        ) : (
+          <pre className="font-mono text-xs whitespace-pre-wrap">{log}</pre>
+        )}
+      </div>
     </div>
   );
 }

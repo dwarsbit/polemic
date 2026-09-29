@@ -16,6 +16,10 @@ function collectTexPaths(entries: FileEntry[]): string[] {
   return paths;
 }
 
+/** The last computed order per project, so reopening the files panel
+ * does not flash the tree in its unsorted order first. */
+const orderCache = new Map<string, string[]>();
+
 /**
  * The project's files in document order (include walk from the main
  * file), recomputed with a debounce. The active file's content comes
@@ -29,7 +33,9 @@ export function useDocumentOrder(): string[] | null {
   const files = useProjectStore((s) => s.files);
   const buffers = useProjectStore((s) => s.buffers);
   const content = useEditorStore((s) => s.content);
-  const [order, setOrder] = useState<string[] | null>(null);
+  const [order, setOrder] = useState<string[] | null>(() =>
+    project ? (orderCache.get(project.path) ?? null) : null,
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -54,7 +60,10 @@ export function useDocumentOrder(): string[] | null {
           readText,
           collectTexPaths(files),
         );
-        if (!cancelled) setOrder(next);
+        if (!cancelled) {
+          orderCache.set(project.path, next);
+          setOrder(next);
+        }
       })();
     }, 250);
     return () => {

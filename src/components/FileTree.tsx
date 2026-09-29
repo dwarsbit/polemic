@@ -1,5 +1,10 @@
 import { BookMarked, FileText, Folder, Pencil, Star, Trash2 } from "lucide-react";
 import type { FileEntry } from "@/lib/tauri";
+import { isTauri } from "@/lib/tauri";
+import {
+  showNativeContextMenu,
+  type NativeMenuEntry,
+} from "@/lib/native-menu";
 import { cn } from "@/lib/utils";
 import { useProjectStore } from "@/store/project";
 
@@ -11,9 +16,19 @@ const STATUS_CLASS: Record<FileStatus, string> = {
   ignored: "text-orange-500 dark:text-orange-400",
 };
 
+/** The parent folder path of a file, or null when it is at the root. */
+function parentDirOf(path: string): string | null {
+  const parts = path.split("/");
+  parts.pop();
+  return parts.length > 0 ? parts.join("/") : null;
+}
+
 interface FileTreeProps {
   entries: FileEntry[];
   depth?: number;
+  /** dir is the folder to create in: null means the project root. */
+  onNewFile: (dir: string | null) => void;
+  onNewFolder: (dir: string | null) => void;
   onRename: (entry: FileEntry) => void;
   onDelete: (entry: FileEntry) => void;
   onSetMain: (entry: FileEntry) => void;
@@ -23,6 +38,8 @@ interface FileTreeProps {
 export function FileTree({
   entries,
   depth = 0,
+  onNewFile,
+  onNewFolder,
   onRename,
   onDelete,
   onSetMain,
@@ -31,6 +48,28 @@ export function FileTree({
   const activeFile = useProjectStore((s) => s.activeFile);
   const mainFile = useProjectStore((s) => s.mainFile);
   const openFile = useProjectStore((s) => s.openFile);
+
+  // OS-native right-click menu: new file(s) in the target folder, then
+  // rename/delete for a specific entry. In the browser the hover buttons
+  // on the rows remain the UI.
+  function openMenu(event: React.MouseEvent, entry: FileEntry) {
+    if (!isTauri()) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const dir = entry.isDir ? entry.path : parentDirOf(entry.path);
+    const items: NativeMenuEntry[] = [
+      { id: "new-file", text: "New File", action: () => onNewFile(dir) },
+    ];
+    if (entry.isDir) {
+      items.push({ id: "new-folder", text: "New Folder", action: () => onNewFolder(dir) });
+    }
+    items.push(
+      "separator",
+      { id: "rename", text: "Rename", action: () => onRename(entry) },
+      { id: "delete", text: "Delete", action: () => onDelete(entry) },
+    );
+    void showNativeContextMenu(items);
+  }
 
   return (
     <ul className="text-sm">
@@ -41,6 +80,7 @@ export function FileTree({
               <summary
                 className="group flex cursor-pointer items-center gap-1.5 rounded px-2 py-1 hover:bg-accent"
                 style={{ paddingLeft: 8 + depth * 12 }}
+                onContextMenu={(event) => openMenu(event, entry)}
               >
                 <Folder className="size-3.5 shrink-0 text-muted-foreground" />
                 <span className="truncate">{entry.name}</span>
@@ -56,6 +96,8 @@ export function FileTree({
               <FileTree
                 entries={entry.children}
                 depth={depth + 1}
+                onNewFile={onNewFile}
+                onNewFolder={onNewFolder}
                 onRename={onRename}
                 onDelete={onDelete}
                 onSetMain={onSetMain}
@@ -71,6 +113,7 @@ export function FileTree({
                 activeFile === entry.path ? "bg-accent" : "hover:bg-accent",
               )}
               style={{ paddingLeft: 8 + depth * 12 }}
+              onContextMenu={(event) => openMenu(event, entry)}
             >
               <button
                 type="button"

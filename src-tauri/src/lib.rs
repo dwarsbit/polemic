@@ -1,12 +1,13 @@
 mod files;
 mod git;
 mod logparse;
+mod comments;
 mod settings;
 mod snapshots;
 mod spell;
 mod templates;
 
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::fs;
 use std::process::Command;
 
@@ -218,9 +219,13 @@ fn update_preferences(
     theme: Option<String>,
     auto_compile: Option<bool>,
     font_size: Option<u32>,
+    editor_font: Option<String>,
+    syntax_theme: Option<String>,
     spellcheck: Option<bool>,
     supsub_braces: Option<bool>,
     convert_double_dollar: Option<bool>,
+    format_on_save: Option<bool>,
+    math_preview_engine: Option<String>,
     reopen_last_project: Option<bool>,
     auto_include_new_files: Option<bool>,
 ) -> Result<Settings, String> {
@@ -234,6 +239,12 @@ fn update_preferences(
         if font_size.is_some() {
             s.font_size = font_size;
         }
+        if editor_font.is_some() {
+            s.editor_font = editor_font;
+        }
+        if syntax_theme.is_some() {
+            s.syntax_theme = syntax_theme;
+        }
         if spellcheck.is_some() {
             s.spellcheck = spellcheck;
         }
@@ -242,6 +253,12 @@ fn update_preferences(
         }
         if convert_double_dollar.is_some() {
             s.convert_double_dollar = convert_double_dollar;
+        }
+        if format_on_save.is_some() {
+            s.format_on_save = format_on_save;
+        }
+        if math_preview_engine.is_some() {
+            s.math_preview_engine = math_preview_engine;
         }
         if reopen_last_project.is_some() {
             s.reopen_last_project = reopen_last_project;
@@ -804,6 +821,19 @@ fn restore_snapshot_file(
 // --- git --------------------------------------------------------------------
 
 #[tauri::command]
+fn list_comments(project_dir: String) -> Result<Vec<comments::Comment>, String> {
+    Ok(comments::list(&canonical_project(&project_dir)?))
+}
+
+#[tauri::command]
+fn save_comments(
+    project_dir: String,
+    comments: Vec<comments::Comment>,
+) -> Result<(), String> {
+    comments::save(&canonical_project(&project_dir)?, &comments)
+}
+
+#[tauri::command]
 fn git_status(project_dir: String) -> Result<git::GitStatusInfo, String> {
     let dir = canonical_project(&project_dir)?;
     Ok(git::status(&dir))
@@ -862,11 +892,15 @@ fn reveal_build_folder(app: tauri::AppHandle, project_dir: String) -> Result<(),
 pub struct MenuState(pub std::sync::Mutex<Option<tauri::menu::Menu<tauri::Wry>>>);
 
 /// Menu items that only make sense with a project open.
-const PROJECT_MENU_ITEMS: [&str; 4] = [
+const PROJECT_MENU_ITEMS: [&str; 8] = [
     "new_project",
     "save",
+    "format",
     "export_pdf",
     "reveal_build",
+    "toggle_sidebar",
+    "toggle_preview",
+    "toggle_right",
 ];
 
 /// Find a menu item by id, searching through the menu's submenus.
@@ -918,6 +952,8 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     let new_project =
         MenuItem::with_id(handle, "new_project", "New Project", true, Some("CmdOrCtrl+N"))?;
     let save = MenuItem::with_id(handle, "save", "Save", true, Some("CmdOrCtrl+S"))?;
+    let format =
+        MenuItem::with_id(handle, "format", "Format Document", true, Some("CmdOrCtrl+Shift+F"))?;
     let export_pdf =
         MenuItem::with_id(handle, "export_pdf", "Export PDF as…", true, Some("CmdOrCtrl+E"))?;
     let reveal_build = MenuItem::with_id(
@@ -927,6 +963,32 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
         true,
         Some("CmdOrCtrl+Shift+E"),
     )?;
+    let toggle_sidebar =
+        MenuItem::with_id(handle, "toggle_sidebar", "Toggle Sidebar", true, Some("CmdOrCtrl+B"))?;
+    let toggle_preview = MenuItem::with_id(
+        handle,
+        "toggle_preview",
+        "Toggle PDF Preview",
+        true,
+        Some("CmdOrCtrl+Shift+P"),
+    )?;
+    let toggle_right =
+        MenuItem::with_id(handle, "toggle_right", "Toggle Right Panel", true, Some("CmdOrCtrl+J"))?;
+
+    // The native Edit menu: its predefined items deliver Cmd+X/C/V and
+    // friends to the focused webview (the custom menu replaced the
+    // Tauri default, which ships this submenu).
+    #[cfg(target_os = "macos")]
+    let edit_menu = SubmenuBuilder::new(handle, "Edit")
+        .undo()
+        .redo()
+        .separator()
+        .cut()
+        .copy()
+        .paste()
+        .separator()
+        .select_all()
+        .build()?;
     let settings = MenuItem::with_id(handle, "settings", "Settings", true, Some("CmdOrCtrl+,"))?;
     let shortcuts =
         MenuItem::with_id(handle, "shortcuts", "Keyboard Shortcuts", true, Some("CmdOrCtrl+/"))?;
@@ -959,12 +1021,20 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .item(&new_project)
             .separator()
             .item(&save)
+            .item(&format)
             .item(&export_pdf)
             .item(&reveal_build)
             .separator()
             .quit()
             .build()?;
-        MenuBuilder::new(handle).items(&[&app_menu, &file_menu]).build()?
+        let view_menu = SubmenuBuilder::new(handle, "View")
+            .item(&toggle_sidebar)
+            .item(&toggle_preview)
+            .item(&toggle_right)
+            .build()?;
+        MenuBuilder::new(handle)
+            .items(&[&app_menu, &file_menu, &edit_menu, &view_menu])
+            .build()?
     };
 
     #[cfg(not(target_os = "macos"))]
@@ -973,8 +1043,13 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .item(&new_project)
             .separator()
             .item(&save)
+            .item(&format)
             .item(&export_pdf)
             .item(&reveal_build)
+            .separator()
+            .item(&toggle_sidebar)
+            .item(&toggle_preview)
+            .item(&toggle_right)
             .separator()
             .item(&settings)
             .item(&shortcuts)
@@ -983,7 +1058,19 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .separator()
             .quit()
             .build()?;
-        MenuBuilder::new(handle).items(&[&file_menu]).build()?
+        let edit_menu = SubmenuBuilder::new(handle, "Edit")
+            .undo()
+            .redo()
+            .separator()
+            .cut()
+            .copy()
+            .paste()
+            .separator()
+            .select_all()
+            .build()?;
+        MenuBuilder::new(handle)
+            .items(&[&file_menu, &edit_menu])
+            .build()?
     };
 
     #[cfg(target_os = "macos")]
@@ -1014,13 +1101,24 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
         let event_name = match id {
             "new_project" => "menu://new-project",
             "save" => "menu://save",
+            "format" => "menu://format",
+            "toggle_sidebar" => "menu://toggle-sidebar",
+            "toggle_preview" => "menu://toggle-preview",
+            "toggle_right" => "menu://toggle-right",
             "export_pdf" => "menu://export-pdf",
             "reveal_build" => "menu://reveal-build",
             "settings" => "menu://settings",
             "shortcuts" => "menu://shortcuts",
             "command_palette" => "menu://palette",
             "about" => "menu://about",
-            _ => return,
+            _ => {
+                // Context menu items (show_context_menu) carry a "ctx/"
+                // prefix; forward the selection to the frontend.
+                if let Some(action) = id.strip_prefix("ctx/") {
+                    let _ = app.emit("menu://context", action);
+                }
+                return;
+            }
         };
         let _ = app.emit(event_name, ());
     });
@@ -1028,10 +1126,53 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+/// An entry of a native context menu, as sent by the frontend.
+#[derive(Deserialize)]
+#[serde(tag = "kind", rename_all = "camelCase")]
+enum ContextMenuItem {
+    Separator,
+    Item { id: String, text: String },
+}
+
+/// Pop up the OS-native context menu at the cursor with the given
+/// items. Blocks until the menu is dismissed; the picked item (if any)
+/// arrives in the frontend as a `menu://context` event, like the app
+/// menu items.
+#[tauri::command]
+fn show_context_menu(
+    app: tauri::AppHandle,
+    window: tauri::Window,
+    items: Vec<ContextMenuItem>,
+) -> Result<(), String> {
+    use tauri::menu::{ContextMenu, MenuBuilder, MenuItem};
+
+    let mut builder = MenuBuilder::new(&app);
+    for item in items {
+        match item {
+            ContextMenuItem::Separator => builder = builder.separator(),
+            ContextMenuItem::Item { id, text } => {
+                let menu_item = MenuItem::with_id(
+                    &app,
+                    format!("ctx/{id}"),
+                    text,
+                    true,
+                    Option::<&str>::None,
+                )
+                .map_err(|e| e.to_string())?;
+                builder = builder.item(&menu_item);
+            }
+        }
+    }
+    let menu = builder.build().map_err(|e| e.to_string())?;
+    menu.popup(window).map_err(|e| e.to_string())
+}
+
 /// The main window is created programmatically so the macOS traffic
 /// lights can be centered in the custom top bar (builder-only API).
 #[cfg(target_os = "macos")]
 fn create_main_window(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
+    use tauri::utils::config::WindowEffectsConfig;
+    use tauri::utils::{WindowEffect, WindowEffectState};
     use tauri::{LogicalPosition, TitleBarStyle, WebviewUrl, WebviewWindowBuilder};
     WebviewWindowBuilder::new(app, "main", WebviewUrl::default())
         .title("Polemic")
@@ -1039,6 +1180,20 @@ fn create_main_window(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>
         .min_inner_size(960.0, 600.0)
         .title_bar_style(TitleBarStyle::Overlay)
         .hidden_title(true)
+        // Frosted-glass backdrop: the vibrancy material shows through
+        // the transparent webview wherever the app's surfaces are
+        // translucent (html.mac overrides in index.css).
+        // WindowBackground is the light window-surface material in
+        // light appearance (UnderWindowBackground stays dark gray
+        // even in light mode) and follows the system dark mode.
+        .transparent(true)
+        .effects(WindowEffectsConfig {
+            effects: vec![WindowEffect::WindowBackground],
+            state: Some(WindowEffectState::Active),
+            radius: None,
+            color: None,
+            interactive: false,
+        })
         // The builder insets the *title bar container* (button height + y);
         // the buttons keep their ~8px offset from the container bottom, so
         // the effective top offset is y - 8. y = 26 centers the 12px lights
@@ -1136,7 +1291,10 @@ pub fn run() {    tauri::Builder::default()
             git_available,
             git_ignored,
             set_version_control,
-            reveal_build_folder
+            reveal_build_folder,
+            show_context_menu,
+            list_comments,
+            save_comments
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

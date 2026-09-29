@@ -1,27 +1,40 @@
 import { useEffect, useState } from "react";
-import { Camera, GitBranch, History, Info } from "lucide-react";
+import { Camera, GitBranch, History, Info, MessageSquare } from "lucide-react";
 import { Group, Panel, Separator, usePanelRef } from "react-resizable-panels";
-import type { PanelImperativeHandle } from "react-resizable-panels";
+import { CommentDialog } from "@/components/CommentDialog";
+import { CommentsPanel } from "@/components/CommentsPanel";
 import { IssuesPanel } from "@/components/IssuesPanel";
+import type { IssuesTool } from "@/components/IssuesPanel";
 import { LatexEditor } from "@/components/LatexEditor";
+import { LeftRail } from "@/components/LeftRail";
 import { PreviewPane } from "@/components/PreviewPane";
 import { PropertiesPanel } from "@/components/PropertiesPanel";
+import { RightRail } from "@/components/RightRail";
 import { Sidebar } from "@/components/Sidebar";
+import type { LeftTab } from "@/components/Sidebar";
 import { GitPanel } from "@/components/GitPanel";
 import { HistoryPanel } from "@/components/HistoryPanel";
 import { SnapshotsPanel } from "@/components/SnapshotsPanel";
+import { StatusBar } from "@/components/StatusBar";
 import { TabsBar } from "@/components/TabsBar";
+import { setPanelCommandHandler } from "@/lib/panel-commands";
+import { setCommentDialogHandler, type CommentTarget } from "@/lib/editor-comments";
+import { useCommentsStore } from "@/store/comments";
+import { isMac } from "@/lib/platform";
 import { TopBar } from "@/components/TopBar";
-import { useEditorStore } from "@/store/editor";
-import { usePreviewStore } from "@/store/preview";
-import { useProjectStore } from "@/store/project";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 import { cn } from "cn";
 
-const AUTO_SAVE_DELAY_MS = 1200;
-const EDITOR_PANEL_IDS = ["editor-doc", "editor-issues"];
+const COLUMN_PANEL_IDS = ["navigator", "editor", "preview", "properties"];
+const ROW_PANEL_IDS = ["columns", "issues"];
 
-type RightTab = "version-control" | "history" | "properties";
+/** Panels float as white cards on the window backdrop. */
+const CARD = "h-full overflow-hidden rounded-xl border bg-card shadow-sm";
+/** Resize handles live in the backdrop gap between cards. */
+const HANDLE_X = "w-2 rounded bg-transparent hover:bg-primary/20";
+const HANDLE_Y = "h-2 w-full rounded bg-transparent hover:bg-primary/20";
+
+type RightTab = "version-control" | "history" | "comments" | "properties";
 
 function pickLayout(
   all: Record<string, number> | null,
@@ -35,18 +48,49 @@ function pickLayout(
 }
 
 export function EditorView() {
-  const content = useEditorStore((s) => s.content);
-  const activeFile = useProjectStore((s) => s.activeFile);
   const panelLayout = useSettingsStore((s) => s.panelLayout);
   const persistPanelLayout = useSettingsStore((s) => s.persistPanelLayout);
+  // The PDF preview is optional; hidden panels restore hidden.
+  const previewVisible = panelLayout?.["preview-visible"] !== 0;
+  const togglePreview = () =>
+    useSettingsStore.getState().persistPanelLayout({
+      "preview-visible": previewVisible ? 0 : 1,
+    });
   const versionControl = useSettingsStore((s) => resolveVersionControl(s));
+
+  const navigatorRef = usePanelRef();
+  const propertiesRef = usePanelRef();
   const issuesRef = usePanelRef();
-  const [issuesCollapsed, setIssuesCollapsed] = useState(false);
-  const leftSidebarRef = usePanelRef();
-  const rightSidebarRef = usePanelRef();
-  const [leftSidebarOpen, setLeftSidebarOpen] = useState(true);
-  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<RightTab>("version-control");
+  const [navigatorOpen, setNavigatorOpen] = useState(true);
+  const [propertiesOpen, setPropertiesOpen] = useState(false);
+  const [issuesOpen, setIssuesOpen] = useState(true);
+  const [navigatorTab, setNavigatorTab] = useState<LeftTab>("files");
+  const [rightTab, setRightTab] = useState<RightTab>("version-control");
+  const [issuesTool, setIssuesTool] = useState<IssuesTool>("issues");
+
+  // macOS fullscreen ignores the custom traffic-light position: the
+  // lights sit in the auto-hiding menu bar zone above the app, so the
+  // layout shifts down by that zone's height while fullscreen.
+  const [fullscreen, setFullscreen] = useState(false);
+  useEffect(() => {
+    if (!isMac) return;
+    let unlisten: (() => void) | undefined;
+    void (async () => {
+      try {
+        const { getCurrentWindow } = await import("@tauri-apps/api/window");
+        const sync = () =>
+          void getCurrentWindow()
+            .isFullscreen()
+            .then(setFullscreen)
+            .catch(() => undefined);
+        sync();
+        unlisten = await getCurrentWindow().listen("tauri://resize", sync);
+      } catch {
+        // Browser dev.
+      }
+    })();
+    return () => unlisten?.();
+  }, []);
 
   const rightTabs = [
     {
@@ -54,194 +98,224 @@ export function EditorView() {
       label: versionControl === "git" ? "Git" : "Snapshots",
       icon: versionControl === "git" ? GitBranch : Camera,
     },
+    { id: "comments" as const, label: "Comments", icon: MessageSquare },
     ...(versionControl === "git"
       ? [{ id: "history" as const, label: "History", icon: History }]
       : []),
     { id: "properties" as const, label: "Properties", icon: Info },
   ];
 
-  // Debounced auto-save, then auto-compile when enabled.
+  // Start with the properties column collapsed unless a layout was
+  // restored. The panels' onResize callbacks keep the open/closed state
+  // in sync.
   useEffect(() => {
-    if (activeFile === null) return;
-    const timer = setTimeout(() => {
-      void (async () => {
-        const saved = await useProjectStore.getState().saveActiveFile();
-        if (saved && usePreviewStore.getState().autoCompile) {
-          void usePreviewStore.getState().compileNow();
-        }
-      })();
-    }, AUTO_SAVE_DELAY_MS);
-    return () => clearTimeout(timer);
-  }, [content, activeFile]);
-
-  // Start with the right sidebar collapsed unless a layout was restored.
-  // The panels' onResize callbacks keep the open/closed state in sync.
-  useEffect(() => {
-    if (useSettingsStore.getState().panelLayout?.["right"] === undefined) {
-      rightSidebarRef.current?.collapse();
+    if (useSettingsStore.getState().panelLayout?.["properties"] === undefined) {
+      propertiesRef.current?.collapse();
     }
-  }, [rightSidebarRef]);
+  }, [propertiesRef]);
+
+  /** JetBrains-style rail clicks: the active icon of an open dock hides
+   *  it, any other icon switches the panel and shows it. */
+  function selectNavigatorTab(tab: LeftTab) {
+    if (navigatorOpen && tab === navigatorTab) {
+      navigatorRef.current?.collapse();
+      return;
+    }
+    setNavigatorTab(tab);
+    if (!navigatorOpen) navigatorRef.current?.expand();
+  }
+
+  function selectRightTab(tab: string) {
+    const next = tab as RightTab;
+    if (propertiesOpen && next === rightTab) {
+      propertiesRef.current?.collapse();
+      return;
+    }
+    setRightTab(next);
+    if (!propertiesOpen) propertiesRef.current?.expand();
+  }
+
+  function selectIssuesTool(tool: IssuesTool) {
+    if (issuesOpen && tool === issuesTool) {
+      issuesRef.current?.collapse();
+      return;
+    }
+    setIssuesTool(tool);
+    if (!issuesOpen) issuesRef.current?.expand();
+  }
+
+  function toggleNavigator() {
+    const panel = navigatorRef.current;
+    if (!panel) return;
+    if (navigatorOpen) {
+      panel.collapse();
+    } else {
+      panel.expand();
+    }
+  }
+
+  function toggleProperties() {
+    const panel = propertiesRef.current;
+    if (!panel) return;
+    if (propertiesOpen) {
+      panel.collapse();
+    } else {
+      panel.expand();
+    }
+  }
 
   function toggleIssues() {
-    const panel: PanelImperativeHandle | null = issuesRef.current;
+    const panel = issuesRef.current;
     if (!panel) return;
-    const wasCollapsed = issuesCollapsed;
-    setIssuesCollapsed(!wasCollapsed);
-    if (wasCollapsed) {
-      panel.expand();
-    } else {
-      panel.collapse();
-    }
-  }
-
-  function toggleLeftSidebar() {
-    const panel: PanelImperativeHandle | null = leftSidebarRef.current;
-    if (!panel) return;
-    const wasOpen = leftSidebarOpen;
-    setLeftSidebarOpen(!wasOpen);
-    if (wasOpen) {
+    if (issuesOpen) {
       panel.collapse();
     } else {
       panel.expand();
     }
   }
 
-  function toggleRightSidebar() {
-    const panel: PanelImperativeHandle | null = rightSidebarRef.current;
-    if (!panel) return;
-    const wasOpen = rightSidebarOpen;
-    setRightSidebarOpen(!wasOpen);
-    if (wasOpen) {
-      panel.collapse();
-    } else {
-      panel.expand();
-    }
-  }
+  // Comments: load on open, host the add/edit dialog.
+  const [commentTarget, setCommentTarget] = useState<CommentTarget | null>(null);
+  useEffect(() => {
+    setCommentDialogHandler(setCommentTarget);
+    void useCommentsStore.getState().load();
+    return () => {
+      setCommentDialogHandler(null);
+      useCommentsStore.setState({ comments: [], loaded: false });
+    };
+  }, []);
+
+  // Serve the OS menu and the command palette while the editor is up.
+  useEffect(() => {
+    setPanelCommandHandler("toggle-sidebar", toggleNavigator);
+    setPanelCommandHandler("toggle-preview", togglePreview);
+    setPanelCommandHandler("toggle-right", toggleProperties);
+    return () => {
+      setPanelCommandHandler("toggle-sidebar", null);
+      setPanelCommandHandler("toggle-preview", null);
+      setPanelCommandHandler("toggle-right", null);
+    };
+  });
 
   return (
-    <div className="flex h-screen flex-col bg-background text-foreground">
-      <TopBar
-        leftSidebarOpen={leftSidebarOpen}
-        onToggleLeftSidebar={toggleLeftSidebar}
-        rightSidebarOpen={rightSidebarOpen}
-        onToggleRightSidebar={toggleRightSidebar}
-      />
-      <div className="min-h-0 flex-1">
-        <Group
-          orientation="horizontal"
-          className="flex h-full"
-          defaultLayout={pickLayout(panelLayout, [
-            "sidebar",
-            "editor",
-            "preview",
-            "right",
-          ])}
-          onLayoutChanged={(layout) => persistPanelLayout(layout)}
-        >
-          <Panel
-            id="sidebar"
-            defaultSize={0.17}
-            minSize={0.12}
-            collapsible
-            collapsedSize="2.5rem"
-            panelRef={leftSidebarRef}
-            onResize={(size) => setLeftSidebarOpen(size.inPixels > 60)}
+    <div
+      className={cn(
+        "flex h-screen flex-col text-foreground",
+        isMac && fullscreen && "pt-7",
+      )}
+    >
+      <TopBar />
+      <div className="flex min-h-0 flex-1">
+        <LeftRail
+          navigatorTab={navigatorTab}
+          navigatorOpen={navigatorOpen}
+          onSelectNavigatorTab={selectNavigatorTab}
+          issuesTool={issuesTool}
+          issuesOpen={issuesOpen}
+          onSelectIssuesTool={selectIssuesTool}
+        />
+        <div className="flex min-w-0 flex-1 flex-col p-2">
+          <Group
+            orientation="vertical"
+            className="flex min-h-0 flex-1"
+            defaultLayout={pickLayout(panelLayout, ROW_PANEL_IDS)}
+            onLayoutChanged={(layout) => persistPanelLayout(layout)}
           >
-            <Sidebar
-              open={leftSidebarOpen}
-              onExpand={() => leftSidebarRef.current?.expand()}
-            />
-          </Panel>
-          <Separator className="w-px bg-border transition-colors hover:bg-primary/50" />
-          <Panel id="editor" defaultSize={0.42} minSize={0.25}>
-            <Group
-              orientation="vertical"
-              className="h-full"
-              defaultLayout={pickLayout(panelLayout, EDITOR_PANEL_IDS)}
-              onLayoutChanged={(layout) => persistPanelLayout(layout)}
-            >
-              <Panel id="editor-doc" defaultSize={0.72} minSize={0.3}>
-                <div className="flex h-full flex-col">
-                  <TabsBar />
-                  <div className="min-h-0 flex-1">
-                    <LatexEditor />
-                  </div>
-                </div>
-              </Panel>
-              <Separator className="h-px w-full bg-border transition-colors hover:bg-primary/50" />
-              <Panel
-                id="editor-issues"
-                defaultSize={0.28}
-                minSize={0.1}
-                collapsible
-                collapsedSize="2rem"
-                panelRef={issuesRef}
-                onResize={(size) => setIssuesCollapsed(size.inPixels <= 40)}
+            <Panel id="columns" defaultSize="72%" minSize="25%">
+              <Group
+                orientation="horizontal"
+                className="flex h-full"
+                defaultLayout={pickLayout(panelLayout, COLUMN_PANEL_IDS)}
+                onLayoutChanged={(layout) => persistPanelLayout(layout)}
               >
-                <IssuesPanel collapsed={issuesCollapsed} onToggle={toggleIssues} />
-              </Panel>
-            </Group>
-          </Panel>
-          <Separator className="w-px bg-border transition-colors hover:bg-primary/50" />
-          <Panel id="preview" defaultSize={0.28} minSize={0.15}>
-            <PreviewPane />
-          </Panel>
-          <Separator className="w-px bg-border transition-colors hover:bg-primary/50" />
-          <Panel
-            id="right"
-            defaultSize={0.13}
-            minSize={0.1}
-            collapsible
-            collapsedSize="2.5rem"
-            panelRef={rightSidebarRef}
-            onResize={(size) => setRightSidebarOpen(size.inPixels > 60)}
-          >
-            <div className="flex h-full border-l bg-sidebar text-sidebar-foreground">
-              {rightSidebarOpen && (
-                <div className="min-w-0 flex-1 overflow-hidden">
-                  {activeTab === "properties" ? (
-                    <PropertiesPanel />
-                  ) : activeTab === "history" && versionControl === "git" ? (
-                    <HistoryPanel />
-                  ) : versionControl === "git" ? (
-                    <GitPanel />
-                  ) : (
-                    <SnapshotsPanel />
-                  )}
-                </div>
-              )}
-              <div className="flex w-10 shrink-0 flex-col items-center gap-1 border-l py-2">
-                {rightTabs.map((tab) => {
-                  const Icon = tab.icon;
-                  const isActive = activeTab === tab.id;
-                  return (
-                    <button
-                      key={tab.id}
-                      type="button"
-                      title={tab.label}
-                      aria-current={isActive}
-                      className={cn(
-                        "flex size-8 items-center justify-center rounded-lg transition-colors",
-                        isActive
-                          ? "bg-accent text-accent-foreground"
-                          : "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
-                      )}
-                      onClick={() => {
-                        setActiveTab(tab.id);
-                        if (!rightSidebarOpen) {
-                          rightSidebarRef.current?.expand();
-                        }
-                      }}
-                    >
-                      <Icon className="size-4" />
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </Panel>
-        </Group>
+                <Panel
+                  id="navigator"
+                  defaultSize="17%"
+                  minSize="176px"
+                  collapsible
+                  collapsedSize="0px"
+                  panelRef={navigatorRef}
+                  onResize={(size) => setNavigatorOpen(size.inPixels > 60)}
+                >
+                  <div className={cn(CARD, "flex")}>
+                    <Sidebar activeTab={navigatorTab} />
+                  </div>
+                </Panel>
+                {navigatorOpen && <Separator className={HANDLE_X} />}
+                <Panel id="editor" defaultSize="42%" minSize="25%">
+                  <div className="flex h-full flex-col overflow-hidden rounded-xl border bg-card shadow-sm">
+                    <TabsBar
+                      previewVisible={previewVisible}
+                      onTogglePreview={togglePreview}
+                    />
+                    <div className="min-h-0 flex-1">
+                      <LatexEditor />
+                    </div>
+                  </div>
+                </Panel>
+                {previewVisible && (
+                  <>
+                    <Separator className={HANDLE_X} />
+                    <Panel id="preview" defaultSize="28%" minSize="15%">
+                      <div className={CARD}>
+                        <PreviewPane />
+                      </div>
+                    </Panel>
+                  </>
+                )}
+                {propertiesOpen && <Separator className={HANDLE_X} />}
+                <Panel
+                  id="properties"
+                  defaultSize="13%"
+                  minSize="200px"
+                  collapsible
+                  collapsedSize="0px"
+                  panelRef={propertiesRef}
+                  onResize={(size) => setPropertiesOpen(size.inPixels > 60)}
+                >
+                  <div className={cn(CARD, "flex")}>
+                    {propertiesOpen && (
+                      <div className="min-h-0 min-w-0 flex-1 overflow-hidden">
+                        {rightTab === "comments" ? (
+                          <CommentsPanel />
+                        ) : rightTab === "properties" ? (
+                          <PropertiesPanel />
+                        ) : rightTab === "history" && versionControl === "git" ? (
+                          <HistoryPanel />
+                        ) : versionControl === "git" ? (
+                          <GitPanel />
+                        ) : (
+                          <SnapshotsPanel />
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </Panel>
+              </Group>
+            </Panel>
+            {issuesOpen && <Separator className={HANDLE_Y} />}
+            <Panel
+              id="issues"
+              defaultSize="28%"
+              minSize="96px"
+              collapsible
+              collapsedSize="0px"
+              panelRef={issuesRef}
+              onResize={(size) => setIssuesOpen(size.inPixels > 40)}
+            >
+              <IssuesPanel tool={issuesTool} onToggle={toggleIssues} />
+            </Panel>
+          </Group>
+        </div>
+        <RightRail
+          tabs={rightTabs}
+          activeTab={rightTab}
+          panelOpen={propertiesOpen}
+          onSelect={selectRightTab}
+        />
       </div>
+      <StatusBar />
+      <CommentDialog target={commentTarget} onClose={() => setCommentTarget(null)} />
     </div>
   );
 }

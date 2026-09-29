@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { CommandPalette } from "@/components/CommandPalette";
 import { EditorView } from "@/components/EditorView";
@@ -7,17 +7,21 @@ import { LoadingScreen } from "@/components/LoadingScreen";
 import { SettingsDialog } from "@/components/SettingsDialog";
 import { AboutDialog, ShortcutsDialog } from "@/components/HelpDialogs";
 import { exportPdfAs } from "@/lib/pdf-export";
+import { formatDocument } from "@/lib/editor-format";
+import { runPanelCommand } from "@/lib/panel-commands";
+import { queryClient, refetchGitState } from "@/lib/query-client";
 import { getSettings, gitAvailable, isTauri, revealBuildFolder } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
+import { usePreviewStore } from "@/store/preview";
 import { applySettingsSideEffects, useSettingsStore } from "@/store/settings";
 import { useDialogsStore } from "@/store/dialogs";
-
-const queryClient = new QueryClient();
 
 function App() {
   const hasProject = useProjectStore((s) => s.project !== null);
   const openProject = useProjectStore((s) => s.openProject);
   const [startupDone, setStartupDone] = useState(false);
+  // Keep the splash up for at least 2s so it never flashes on fast startups.
+  const [splashMinElapsed, setSplashMinElapsed] = useState(false);
   const settingsDialogOpen = useSettingsStore((s) => s.settingsDialogOpen);
   const setSettingsDialogOpen = useSettingsStore((s) => s.setSettingsDialogOpen);
   const shortcutsOpen = useDialogsStore((s) => s.shortcutsOpen);
@@ -59,6 +63,11 @@ function App() {
     };
   }, [openProject]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => setSplashMinElapsed(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   // Follow OS dark/light changes while theme is "system".
   useEffect(() => {
     const media = window.matchMedia("(prefers-color-scheme: dark)");
@@ -89,6 +98,40 @@ function App() {
     return () => unlisten?.();
   }, []);
 
+  // Refetch git state when the desktop window regains focus, picking up
+  // changes made outside the app (git CLI, other editors). The webview
+  // does not emit the browser focus events react-query listens to, and
+  // in the browser refetchOnWindowFocus already covers this. Losing
+  // focus saves the active file (the only auto-save; a timed one would
+  // fight the format-on-save reformatting).
+  useEffect(() => {
+    const saveOnBlur = () => {
+      void (async () => {
+        const saved = await useProjectStore.getState().saveActiveFile();
+        if (saved && usePreviewStore.getState().autoCompile) {
+          void usePreviewStore.getState().compileNow();
+        }
+      })();
+    };
+    let unlisten: (() => void) | undefined;
+    void (async () => {
+      try {
+        const { getCurrentWindow } = await import("@tauri-apps/api/window");
+        unlisten = await getCurrentWindow().onFocusChanged(({ payload: focused }) => {
+          if (focused) void refetchGitState();
+          else saveOnBlur();
+        });
+      } catch {
+        // Not running inside the desktop app: fall back to blur.
+        window.addEventListener("blur", saveOnBlur);
+      }
+    })();
+    return () => {
+      unlisten?.();
+      window.removeEventListener("blur", saveOnBlur);
+    };
+  }, []);
+
   // Native OS menu events.
   useEffect(() => {
     let unlisten: (() => void) | undefined;
@@ -102,6 +145,15 @@ function App() {
               void useProjectStore.getState().saveActiveFile();
             },
           ],
+          [
+            "menu://format",
+            () => {
+              formatDocument();
+            },
+          ],
+          ["menu://toggle-sidebar", () => runPanelCommand("toggle-sidebar")],
+          ["menu://toggle-preview", () => runPanelCommand("toggle-preview")],
+          ["menu://toggle-right", () => runPanelCommand("toggle-right")],
           [
             "menu://export-pdf",
             () => {
@@ -176,7 +228,13 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {!startupDone ? <LoadingScreen /> : hasProject ? <EditorView /> : <LibraryView />}
+      {!startupDone || !splashMinElapsed ? (
+        <LoadingScreen />
+      ) : hasProject ? (
+        <EditorView />
+      ) : (
+        <LibraryView />
+      )}
       <SettingsDialog open={settingsDialogOpen} onOpenChange={setSettingsDialogOpen} />
       <ShortcutsDialog open={shortcutsOpen} onOpenChange={setShortcutsOpen} />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />

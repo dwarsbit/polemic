@@ -4,13 +4,20 @@ import {
   FileText,
   FolderOpen,
   Keyboard,
+  MessageSquare,
+  PanelLeft,
+  PanelRight,
   Play,
   Save,
   Settings,
   Sparkles,
+  WandSparkles,
   Zap,
 } from "lucide-react";
 import { exportPdfAs } from "@/lib/pdf-export";
+import { formatDocument } from "@/lib/editor-format";
+import { addCommentAtCursor, addFileComment } from "@/lib/editor-comments";
+import { runPanelCommand } from "@/lib/panel-commands";
 import { fuzzyRank, type FuzzyItem } from "@/lib/fuzzy";
 import { revealBuildFolder, type FileEntry } from "@/lib/tauri";
 import { useDialogsStore } from "@/store/dialogs";
@@ -85,6 +92,13 @@ export function CommandPalette() {
         run: () => void store.saveActiveFile(),
       },
       {
+        id: "format",
+        title: "Format document",
+        icon: WandSparkles,
+        shortcut: "Cmd/Ctrl + Shift + F",
+        run: () => formatDocument(),
+      },
+      {
         id: "compile",
         title: "Compile project",
         icon: Play,
@@ -112,6 +126,42 @@ export function CommandPalette() {
         title: "Reveal build folder",
         icon: FolderOpen,
         run: () => void revealBuildFolder(project.path),
+      },
+      {
+        id: "add-comment",
+        title: "Add comment",
+        icon: MessageSquare,
+        shortcut: "Cmd/Ctrl + Alt + C",
+        keywords: "note annotation review",
+        run: () => addCommentAtCursor(),
+      },
+      {
+        id: "add-file-comment",
+        title: "Add comment on file",
+        icon: MessageSquare,
+        keywords: "note annotation file",
+        run: () => addFileComment(),
+      },
+      {
+        id: "toggle-sidebar",
+        title: "Toggle sidebar",
+        icon: PanelLeft,
+        keywords: "files outline symbols hide show",
+        run: () => runPanelCommand("toggle-sidebar"),
+      },
+      {
+        id: "toggle-preview",
+        title: "Toggle PDF preview",
+        icon: PanelRight,
+        keywords: "pdf hide show",
+        run: () => runPanelCommand("toggle-preview"),
+      },
+      {
+        id: "toggle-right",
+        title: "Toggle right panel",
+        icon: PanelRight,
+        keywords: "git snapshots history properties hide show",
+        run: () => runPanelCommand("toggle-right"),
       },
       ...(versionControl === "snapshots"
         ? [

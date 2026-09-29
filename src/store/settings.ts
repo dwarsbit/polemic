@@ -13,10 +13,14 @@ interface SettingsState {
   loaded: boolean;
   theme: ThemePreference;
   fontSize: number;
+  editorFont: string;
+  syntaxTheme: string;
   spellcheckEnabled: boolean;
   spellcheckLanguage: string;
   supsubBraces: boolean;
   convertDoubleDollar: boolean;
+  formatOnSave: boolean;
+  mathPreviewEngine: "katex" | "off";
   reopenLastProject: boolean;
   autoIncludeNewFiles: boolean;
   /** Explicit version-control choice; null means auto. */
@@ -29,10 +33,14 @@ interface SettingsState {
   hydrate: (settings: Settings) => void;
   setTheme: (theme: ThemePreference) => Promise<void>;
   setFontSize: (fontSize: number) => Promise<void>;
+  setEditorFont: (font: string) => Promise<void>;
+  setSyntaxTheme: (theme: string) => Promise<void>;
   setSpellcheck: (enabled: boolean) => Promise<void>;
   setSpellcheckLanguage: (lang: string) => Promise<void>;
   setSupsubBraces: (enabled: boolean) => Promise<void>;
   setConvertDoubleDollar: (enabled: boolean) => Promise<void>;
+  setFormatOnSave: (enabled: boolean) => Promise<void>;
+  setMathPreviewEngine: (engine: "katex" | "off") => Promise<void>;
   setReopenLastProject: (enabled: boolean) => Promise<void>;
   setAutoIncludeNewFiles: (enabled: boolean) => Promise<void>;
   setVersionControl: (value: "git" | "snapshots") => Promise<void>;
@@ -44,15 +52,22 @@ interface SettingsState {
 
 const DEFAULT_THEME: ThemePreference = "system";
 const DEFAULT_FONT_SIZE = 14;
+export const DEFAULT_EDITOR_FONT = "system";
+export const DEFAULT_SYNTAX_THEME = "default";
+export const DEFAULT_MATH_PREVIEW_ENGINE = "katex";
 
 export const useSettingsStore = create<SettingsState>((set) => ({
   loaded: false,
   theme: DEFAULT_THEME,
   fontSize: DEFAULT_FONT_SIZE,
+  editorFont: DEFAULT_EDITOR_FONT,
+  syntaxTheme: DEFAULT_SYNTAX_THEME,
   spellcheckEnabled: true,
   spellcheckLanguage: "en",
   supsubBraces: false,
   convertDoubleDollar: true,
+  formatOnSave: true,
+  mathPreviewEngine: DEFAULT_MATH_PREVIEW_ENGINE,
   reopenLastProject: true,
   autoIncludeNewFiles: true,
   versionControl: null,
@@ -65,10 +80,15 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       loaded: true,
       theme: (settings.theme as ThemePreference | null) ?? DEFAULT_THEME,
       fontSize: settings.fontSize ?? DEFAULT_FONT_SIZE,
+      editorFont: settings.editorFont ?? DEFAULT_EDITOR_FONT,
+      syntaxTheme: settings.syntaxTheme ?? DEFAULT_SYNTAX_THEME,
       spellcheckEnabled: settings.spellcheck ?? true,
       spellcheckLanguage: settings.spellcheckLanguage ?? "en",
       supsubBraces: settings.supsubBraces ?? false,
       convertDoubleDollar: settings.convertDoubleDollar ?? true,
+      formatOnSave: settings.formatOnSave ?? true,
+      mathPreviewEngine:
+        settings.mathPreviewEngine === "off" ? "off" : DEFAULT_MATH_PREVIEW_ENGINE,
       reopenLastProject: settings.reopenLastProject ?? true,
       autoIncludeNewFiles: settings.autoIncludeNewFiles ?? true,
       versionControl:
@@ -81,55 +101,47 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   setTheme: async (theme) => {
     set({ theme });
     applyTheme(theme);
-    await updatePreferences(theme);
+    await updatePreferences({ theme });
   },
   setFontSize: async (fontSize) => {
     set({ fontSize });
-    await updatePreferences(undefined, undefined, fontSize);
+    await updatePreferences({ fontSize });
+  },
+  setEditorFont: async (font) => {
+    set({ editorFont: font });
+    await updatePreferences({ editorFont: font });
+  },
+  setSyntaxTheme: async (theme) => {
+    set({ syntaxTheme: theme });
+    await updatePreferences({ syntaxTheme: theme });
   },
   setSpellcheck: async (enabled) => {
     set({ spellcheckEnabled: enabled });
-    await updatePreferences(undefined, undefined, undefined, enabled);
+    await updatePreferences({ spellcheck: enabled });
   },
   setSupsubBraces: async (enabled) => {
     set({ supsubBraces: enabled });
-    await updatePreferences(undefined, undefined, undefined, undefined, enabled);
+    await updatePreferences({ supsubBraces: enabled });
   },
   setConvertDoubleDollar: async (enabled) => {
     set({ convertDoubleDollar: enabled });
-    await updatePreferences(
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      enabled,
-    );
+    await updatePreferences({ convertDoubleDollar: enabled });
+  },
+  setFormatOnSave: async (enabled) => {
+    set({ formatOnSave: enabled });
+    await updatePreferences({ formatOnSave: enabled });
+  },
+  setMathPreviewEngine: async (engine) => {
+    set({ mathPreviewEngine: engine });
+    await updatePreferences({ mathPreviewEngine: engine });
   },
   setReopenLastProject: async (enabled) => {
     set({ reopenLastProject: enabled });
-    await updatePreferences(
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      enabled,
-    );
+    await updatePreferences({ reopenLastProject: enabled });
   },
   setAutoIncludeNewFiles: async (enabled) => {
     set({ autoIncludeNewFiles: enabled });
-    await updatePreferences(
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      enabled,
-    );
+    await updatePreferences({ autoIncludeNewFiles: enabled });
   },
   setVersionControl: async (value) => {
     set({ versionControl: value });

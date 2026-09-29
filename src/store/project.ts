@@ -9,6 +9,9 @@ import {
   replaceIncludeSpecPrefix,
 } from "@/lib/doc-structure";
 import { extractLabels } from "@/lib/outline";
+import { extractRefPositions } from "@/lib/label-refs";
+import { formatDocument } from "@/lib/editor-format";
+import { invalidateGitState } from "@/lib/query-client";
 import { useEditorStore } from "@/store/editor";
 import { useSettingsStore } from "@/store/settings";
 
@@ -23,7 +26,9 @@ interface ProjectState {
   buffers: Record<string, string>;
   snapshots: api.SnapshotInfo[];
   labelsByFile: Record<string, string[]>;
+  refsByFile: Record<string, string[]>;
   allLabels: () => string[];
+  allRefs: () => string[];
   citeKeysByFile: Record<string, string[]>;
   allCiteKeys: () => string[];
   markDirty: (path: string, content: string) => void;
@@ -32,7 +37,9 @@ interface ProjectState {
   closeProject: () => void;
   refreshFiles: () => Promise<void>;
   openFile: (path: string) => Promise<void>;
-  closeFile: (path: string) => Promise<void>;
+  closeFile: (path: string, opts?: { discard?: boolean }) => Promise<void>;
+  reorderOpenFiles: (from: number, to: number) => void;
+  renameProject: (name: string) => Promise<void>;
   createEntry: (path: string, isDir: boolean) => Promise<void>;
   renameEntry: (path: string, newPath: string) => Promise<void>;
   deleteEntry: (path: string) => Promise<void>;
@@ -97,6 +104,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     const { project, activeFile, buffers } = get();
     if (!project) return;
     await api.writeProjectFile(project.path, path, content);
+    void invalidateGitState();
     const nextBuffers = { ...buffers };
     delete nextBuffers[path];
     set({ buffers: nextBuffers });
@@ -134,10 +142,18 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     buffers: {},
     snapshots: [],
     labelsByFile: {},
+    refsByFile: {},
     allLabels: () => {
       const seen = new Set<string>();
       for (const labels of Object.values(useProjectStore.getState().labelsByFile)) {
         for (const label of labels) seen.add(label);
+      }
+      return [...seen];
+    },
+    allRefs: () => {
+      const seen = new Set<string>();
+      for (const refs of Object.values(useProjectStore.getState().refsByFile)) {
+        for (const ref of refs) seen.add(ref);
       }
       return [...seen];
     },
@@ -159,6 +175,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       for (const path of paths) {
         await api.writeProjectFile(project.path, path, buffers[path]);
       }
+      void invalidateGitState();
       const next = { ...buffers };
       for (const path of paths) delete next[path];
       const patch: Partial<ProjectState> = { buffers: next };
@@ -183,11 +200,12 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         findFile(files, f),
       );
       const labelsByFile: Record<string, string[]> = {};
+      const refsByFile: Record<string, string[]> = {};
       for (const texPath of collectPaths(files, ".tex")) {
         try {
-          labelsByFile[texPath] = extractLabels(
-            await api.readProjectFile(info.path, texPath),
-          );
+          const content = await api.readProjectFile(info.path, texPath);
+          labelsByFile[texPath] = extractLabels(content);
+          refsByFile[texPath] = extractRefPositions(content).map((ref) => ref.name);
         } catch {
           // unreadable file: skip its labels
         }
@@ -208,6 +226,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         mainFile,
         openFiles: storedOpen,
         labelsByFile,
+        refsByFile,
         citeKeysByFile,
       });
       void api.setProjectMenuEnabled(true);
@@ -235,6 +254,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         buffers: {},
         snapshots: [],
         labelsByFile: {},
+    refsByFile: {},
         citeKeysByFile: {},
       });
     },
@@ -257,6 +277,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         lastSavedContent: content,
         openFiles: nextOpen,
         labelsByFile: { ...get().labelsByFile, [path]: extractLabels(content) },
+        refsByFile: {
+          ...get().refsByFile,
+          [path]: extractRefPositions(content).map((ref) => ref.name),
+        },
         citeKeysByFile: { ...get().citeKeysByFile, [path]: extractCiteKeys(content) },
       });
       void api.setOpenFiles(project.path, nextOpen);
@@ -268,6 +292,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       // Never lose unsaved changes when a tab is closed.
       if (buffers[path] !== undefined) {
         await api.writeProjectFile(project.path, path, buffers[path]);
+        void invalidateGitState();
         const nextBuffers = { ...buffers };
         delete nextBuffers[path];
         set({ buffers: nextBuffers });
@@ -289,10 +314,31 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       }
     },
 
+    /** Move an open file's tab to a new position. */
+    reorderOpenFiles: (from, to) => {
+      const { project, openFiles } = get();
+      if (!project || from === to || from < 0 || to < 0) return;
+      if (from >= openFiles.length || to >= openFiles.length) return;
+      const next = [...openFiles];
+      const [moved] = next.splice(from, 1);
+      next.splice(to, 0, moved);
+      set({ openFiles: next });
+      void api.setOpenFiles(project.path, next);
+    },
+
+    /** Rename the project folder; the open project switches paths. */
+    renameProject: async (name) => {
+      const { project } = get();
+      if (!project || name === project.name) return;
+      const info = await api.renameProject(project.path, name);
+      set({ project: info });
+    },
+
     createEntry: async (path, isDir) => {
       const { project, mainFile } = get();
       if (!project) return;
       await api.createProjectEntry(project.path, path, isDir);
+      void invalidateGitState();
       await get().refreshFiles();
       // New .tex files join the document: add an \input to the main file.
       if (
@@ -314,6 +360,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       const { project, buffers } = get();
       if (!project) return;
       await api.renameEntry(project.path, path, newPath);
+      void invalidateGitState();
       const remap = (file: string | null) =>
         file !== null && isInside(path, file)
           ? newPath + file.slice(path.length)
@@ -353,6 +400,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       const { project, buffers } = get();
       if (!project) return;
       await api.deleteEntry(project.path, path);
+      void invalidateGitState();
       const removeInside = (file: string | null) =>
         file !== null && isInside(path, file) ? null : file;
       const nextBuffers: Record<string, string> = {};
@@ -391,16 +439,24 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     saveActiveFile: async () => {
       const { project, activeFile, lastSavedContent, buffers } = get();
       if (!project || !activeFile) return false;
-      const content = useEditorStore.getState().content;
-      const dirty = buffers[activeFile] !== undefined || content !== lastSavedContent;
+      const current = useEditorStore.getState().content;
+      const dirty = buffers[activeFile] !== undefined || current !== lastSavedContent;
       if (!dirty) return false;
+      // Format on save: the formatter itself skips non-.tex files.
+      if (useSettingsStore.getState().formatOnSave) formatDocument();
+      const content = useEditorStore.getState().content;
       await api.writeProjectFile(project.path, activeFile, content);
+      void invalidateGitState();
       const nextBuffers = { ...buffers };
       delete nextBuffers[activeFile];
       set({
         lastSavedContent: content,
         buffers: nextBuffers,
         labelsByFile: { ...get().labelsByFile, [activeFile]: extractLabels(content) },
+        refsByFile: {
+          ...get().refsByFile,
+          [activeFile]: extractRefPositions(content).map((ref) => ref.name),
+        },
         citeKeysByFile: {
           ...get().citeKeysByFile,
           [activeFile]: extractCiteKeys(content),
@@ -426,6 +482,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       const { project, mainFile, activeFile } = get();
       if (!project) return;
       await api.restoreSnapshot(project.path, id);
+      void invalidateGitState();
       // Restored files replace unsaved buffers entirely.
       set({ buffers: {} });
       await get().refreshFiles();

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { collapseContext, lineDiff } from "@/lib/diff";
+import { invalidateGitState } from "@/lib/query-client";
 import {
   listSnapshotChanges,
   readProjectFile,
@@ -126,6 +127,7 @@ export function SnapshotDiffDialog({
       await queryClient.invalidateQueries({
         queryKey: ["snapshot-diff", project.path, snapshot.id],
       });
+      await invalidateGitState();
     } catch (e) {
       setRestoreError(String(e));
     }

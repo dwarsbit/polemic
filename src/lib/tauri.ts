@@ -26,12 +26,16 @@ export interface Settings {
   theme: string | null;
   autoCompile: boolean | null;
   fontSize: number | null;
+  editorFont: string | null;
+  syntaxTheme: string | null;
   panelLayout: Record<string, number> | null;
   previewZoom: number | null;
   spellcheck: boolean | null;
   spellcheckLanguage: string | null;
   supsubBraces: boolean | null;
   convertDoubleDollar: boolean | null;
+  formatOnSave: boolean | null;
+  mathPreviewEngine: string | null;
   reopenLastProject: boolean | null;
   autoIncludeNewFiles: boolean | null;
   /** "git" or "snapshots"; null means auto (git when installed). */
@@ -41,6 +45,25 @@ export interface Settings {
 export interface ProjectInfo {
   name: string;
   path: string;
+}
+
+export interface CommentAnchor {
+  text: string;
+  /** 1-based line number at creation time. */
+  line: number;
+}
+
+export interface Comment {
+  id: string;
+  /** Project-relative file path. */
+  file: string;
+  /** A COMMENT_CATEGORIES id (see lib/comment-categories). */
+  category: string;
+  text: string;
+  createdAt: number;
+  resolved: boolean;
+  /** null: a whole-file comment. */
+  anchor: CommentAnchor | null;
 }
 
 export interface TemplateInfo {
@@ -136,30 +159,49 @@ export function removeRecentProject(path: string): Promise<Settings> {
   return invoke<Settings>("remove_recent_project", { path });
 }
 
-export function updatePreferences(
-  theme?: string,
-  autoCompile?: boolean,
-  fontSize?: number,
-  spellcheck?: boolean,
-  supsubBraces?: boolean,
-  convertDoubleDollar?: boolean,
-  reopenLastProject?: boolean,
-  autoIncludeNewFiles?: boolean,
-): Promise<Settings> {
+export interface EditorPreferences {
+  theme?: string;
+  autoCompile?: boolean;
+  fontSize?: number;
+  editorFont?: string;
+  syntaxTheme?: string;
+  spellcheck?: boolean;
+  supsubBraces?: boolean;
+  convertDoubleDollar?: boolean;
+  formatOnSave?: boolean;
+  mathPreviewEngine?: string;
+  reopenLastProject?: boolean;
+  autoIncludeNewFiles?: boolean;
+}
+
+export function updatePreferences(prefs: EditorPreferences): Promise<Settings> {
   const args: Record<string, unknown> = {};
-  if (theme !== undefined) args.theme = theme;
-  if (autoCompile !== undefined) args.autoCompile = autoCompile;
-  if (fontSize !== undefined) args.fontSize = fontSize;
-  if (spellcheck !== undefined) args.spellcheck = spellcheck;
-  if (supsubBraces !== undefined) args.supsubBraces = supsubBraces;
-  if (convertDoubleDollar !== undefined) args.convertDoubleDollar = convertDoubleDollar;
-  if (reopenLastProject !== undefined) args.reopenLastProject = reopenLastProject;
-  if (autoIncludeNewFiles !== undefined) args.autoIncludeNewFiles = autoIncludeNewFiles;
+  for (const [key, value] of Object.entries(prefs)) {
+    if (value !== undefined) args[key] = value;
+  }
   return invoke<Settings>("update_preferences", args);
 }
 
 export function setVersionControl(value: "git" | "snapshots"): Promise<Settings> {
   return invoke<Settings>("set_version_control", { value });
+}
+
+/** A native context menu entry, shown by the show_context_menu command. */
+export type ContextMenuSpec =
+  | { kind: "item"; id: string; text: string }
+  | { kind: "separator" };
+
+/** Pop up the OS-native context menu at the cursor (blocks until dismissed). */
+export function showContextMenu(items: ContextMenuSpec[]): Promise<void> {
+  return invoke<void>("show_context_menu", { items });
+}
+
+export function listComments(projectDir: string): Promise<Comment[]> {
+  return invoke<Comment[]>("list_comments", { projectDir });
+}
+
+export function saveComments(projectDir: string, comments: Comment[]): Promise<void> {
+  return invoke<void>("save_comments", { projectDir, comments });
 }
 
 export function gitAvailable(): Promise<boolean> {

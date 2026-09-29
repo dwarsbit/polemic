@@ -1,15 +1,32 @@
 import { useEffect, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { EditorState } from "@codemirror/state";
+import { EditorState, Compartment } from "@codemirror/state";
 import { StreamLanguage } from "@codemirror/language";
 import { stex } from "@codemirror/legacy-modes/mode/stex";
 import { linter, lintGutter, setDiagnostics, type Diagnostic } from "@codemirror/lint";
 import { EditorView, basicSetup } from "codemirror";
 import { keymap, Decoration } from "@codemirror/view";
 import { latexAutocompletion } from "@/lib/completion";
+import { lineAnchor } from "@/lib/comment-anchor";
+import { commentGutter, refreshComments } from "@/lib/comment-gutter";
+import {
+  addCommentAtCursor,
+  openCommentDialog,
+  setAddCommentAtCursorHandler,
+} from "@/lib/editor-comments";
+import { showNativeContextMenu } from "@/lib/native-menu";
+import { labelLine, refAt } from "@/lib/label-refs";
+import { refLabelLint } from "@/lib/ref-label-lint";
+import { setFormatDocumentHandler, formatDocument } from "@/lib/editor-format";
+import { editorFontStack } from "@/lib/editor-fonts";
+import { editorHighlightExtension } from "@/lib/editor-themes";
+import { formatLatex } from "@/lib/latex-format";
+import { lineWidthGutter } from "@/lib/line-width-gutter";
+import { mathHover, mathHoverEnabled } from "@/lib/math-hover";
 import { gitLineGutter, setGitLines } from "@/lib/git-gutter";
 import { lineStatus } from "@/lib/git-line-status";
 import { lineOps } from "@/lib/line-ops";
+import { tabIndent } from "@/lib/tab-indent";
 import { mathPairing } from "@/lib/math-pairing";
 import { setInsertHandler } from "@/lib/editor-insert";
 import {
@@ -20,9 +37,16 @@ import {
   spellcheckExtension,
 } from "@/lib/spellcheck";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
-import { addSpellcheckWord, gitShowHead, synctexForward } from "@/lib/tauri";
+import {
+  addSpellcheckWord,
+  gitShowHead,
+  isTauri,
+  readProjectFile,
+  synctexForward,
+} from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
+import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
 
 interface SpellPopover {
@@ -34,16 +58,22 @@ interface SpellPopover {
 export function LatexEditor() {
   const containerRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<EditorView | null>(null);
+  const highlightCompartmentRef = useRef<Compartment | null>(null);
+  const mathHoverCompartmentRef = useRef<Compartment | null>(null);
   const jumpTarget = useEditorStore((s) => s.jumpTarget);
   const clearJump = useEditorStore((s) => s.clearJump);
   const docVersion = useEditorStore((s) => s.docVersion);
   const content = useEditorStore((s) => s.content);
   const fontSize = useSettingsStore((s) => s.fontSize);
+  const editorFont = useSettingsStore((s) => s.editorFont);
+  const syntaxTheme = useSettingsStore((s) => s.syntaxTheme);
+  const mathPreviewEngine = useSettingsStore((s) => s.mathPreviewEngine);
   const spellcheckEnabled = useSettingsStore((s) => s.spellcheckEnabled);
   const spellcheckLanguage = useSettingsStore((s) => s.spellcheckLanguage);
   const issues = usePreviewStore((s) => s.issues);
   const activeFile = useProjectStore((s) => s.activeFile);
   const projectPath = useProjectStore((s) => s.project?.path);
+  const comments = useCommentsStore((s) => s.comments);
   const versionControl = useSettingsStore((s) => resolveVersionControl(s));
   const [popover, setPopover] = useState<SpellPopover | null>(null);
   const popoverRef = useRef<((p: SpellPopover) => void) | null>(null);
@@ -52,32 +82,106 @@ export function LatexEditor() {
     popoverRef.current = (p) => setPopover(p);
   }, []);
 
+  // The syntax theme follows the setting and the app's light/dark mode
+  // (the "dark" class applyTheme toggles on the root element).
+  const [isDark, setIsDark] = useState(() =>
+    document.documentElement.classList.contains("dark"),
+  );
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const compartment = highlightCompartmentRef.current;
+    const view = viewRef.current;
+    if (!compartment || !view) return;
+    view.dispatch({
+      effects: compartment.reconfigure(editorHighlightExtension(syntaxTheme, isDark)),
+    });
+  }, [syntaxTheme, isDark]);
+
+  // Comment bars follow the comments and the open file.
+  useEffect(() => {
+    const view = viewRef.current;
+    if (view) view.dispatch({ effects: refreshComments.of(null) });
+  }, [comments, activeFile]);
+
+  // Math hover previews follow the engine setting.
+  useEffect(() => {
+    const compartment = mathHoverCompartmentRef.current;
+    const view = viewRef.current;
+    if (!compartment || !view) return;
+    view.dispatch({
+      effects: compartment.reconfigure(
+        mathHoverEnabled.of(mathPreviewEngine === "katex"),
+      ),
+    });
+  }, [mathPreviewEngine]);
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
     const setContent = useEditorStore.getState().setContent;
+    const highlightCompartment = new Compartment();
+    highlightCompartmentRef.current = highlightCompartment;
+    const mathHoverCompartment = new Compartment();
+    mathHoverCompartmentRef.current = mathHoverCompartment;
     const view = new EditorView({
       state: EditorState.create({
         doc: useEditorStore.getState().content,
         extensions: [
           basicSetup,
           StreamLanguage.define(stex),
+          highlightCompartment.of(
+            editorHighlightExtension(
+              useSettingsStore.getState().syntaxTheme,
+              document.documentElement.classList.contains("dark"),
+            ),
+          ),
           latexAutocompletion,
           mathPairing,
           lineOps,
+          tabIndent,
           gitLineGutter,
           linter(() => []),
+          refLabelLint,
           lintGutter(),
           spellcheckExtension,
+          mathHoverCompartment.of(
+            mathHoverEnabled.of(
+              useSettingsStore.getState().mathPreviewEngine === "katex",
+            ),
+          ),
+          mathHover,
           EditorView.lineWrapping,
+          lineWidthGutter,
+          commentGutter,
           EditorView.theme({
             "&": { height: "100%" },
             ".cm-scroller": {
-              fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+              fontFamily: "var(--editor-font-family, ui-monospace, SFMono-Regular, Menlo, monospace)",
               fontSize: "var(--editor-font-size, 14px)",
             },
           }),
           keymap.of([
+            {
+              key: "Mod-Alt-c",
+              run: () => {
+                addCommentAtCursor();
+                return true;
+              },
+            },
+            {
+              key: "Mod-Shift-f",
+              run: () => formatDocument(),
+            },
             {
               key: "Mod-s",
               run: () => {
@@ -89,12 +193,42 @@ export function LatexEditor() {
               },
             },
           ]),
-          // Cmd/Ctrl+click in the source: scroll the preview (SyncTeX forward).
+          // Cmd/Ctrl+click in the source: jump to a \ref's \label, or
+          // scroll the preview (SyncTeX forward) when not on a ref.
           EditorView.domEventHandlers({
             mousedown(event, view) {
               if (!(event.metaKey || event.ctrlKey)) return false;
               const pos = view.posAtCoords({ x: event.clientX, y: event.clientY });
               if (pos === null) return false;
+
+              // A ref under the cursor wins: jump to its label.
+              const source = view.state.doc.toString();
+              const ref = refAt(source, pos);
+              if (ref !== null) {
+                void (async () => {
+                  const { project, activeFile, labelsByFile, buffers } =
+                    useProjectStore.getState();
+                  if (!project) return;
+                  const file = Object.keys(labelsByFile).find((path) =>
+                    labelsByFile[path].includes(ref.name),
+                  );
+                  if (file === undefined) return; // the lint hint reports it
+                  const content =
+                    file === activeFile
+                      ? source
+                      : (buffers[file] ??
+                        (await readProjectFile(project.path, file).catch(() => null)));
+                  if (content === null || content === undefined) return;
+                  const line = labelLine(content, ref.name);
+                  if (line === null) return;
+                  if (file !== activeFile) {
+                    await useProjectStore.getState().openFile(file);
+                  }
+                  useEditorStore.getState().jumpTo(line);
+                })();
+                return true;
+              }
+
               const line = view.state.doc.lineAt(pos);
               void (async () => {
                 const { project, activeFile } = useProjectStore.getState();
@@ -113,12 +247,34 @@ export function LatexEditor() {
               })();
               return true;
             },
-            // Right-click on a misspelled word: offer adding it to the dictionary.
+            // Right-click on a misspelled word: offer adding it to the
+            // dictionary; otherwise offer adding a comment.
             contextmenu(event, view) {
               const pos = view.posAtCoords({ x: event.clientX, y: event.clientY });
               if (pos === null) return false;
               const hit = misspelledWordAt(view, pos);
-              if (!hit) return false;
+              if (!hit) {
+                if (!isTauri()) return false;
+                event.preventDefault();
+                void showNativeContextMenu([
+                  {
+                    id: "add-comment",
+                    text: "Add Comment",
+                    action: addCommentAtCursor,
+                  },
+                  {
+                    id: "add-file-comment",
+                    text: "Comment on File",
+                    action: () => {
+                      const file = useProjectStore.getState().activeFile;
+                      if (file !== null) {
+                        openCommentDialog({ kind: "new", file, anchor: null });
+                      }
+                    },
+                  },
+                ]);
+                return true;
+              }
               event.preventDefault();
               popoverRef.current?.({
                 word: hit.word,
@@ -143,6 +299,19 @@ export function LatexEditor() {
       parent: container,
     });
     viewRef.current = view;
+    // Serve the keymap, command palette, menu item, and format-on-save:
+    // apply the formatter to the live document (single undoable change).
+    setFormatDocumentHandler(() => {
+      const activeFile = useProjectStore.getState().activeFile;
+      if (!activeFile?.endsWith(".tex")) return false;
+      const current = view.state.doc.toString();
+      const formatted = formatLatex(current);
+      if (formatted === current) return false;
+      view.dispatch({
+        changes: { from: 0, to: view.state.doc.length, insert: formatted },
+      });
+      return true;
+    });
     // Serve the math symbols panel: insert text at the cursor.
     setInsertHandler((text, cursorOffset) => {
       const range = view.state.selection.main;
@@ -155,8 +324,24 @@ export function LatexEditor() {
       });
       view.focus();
     });
+    // Serve comment creation: anchor to the selection or the line.
+    setAddCommentAtCursorHandler(() => {
+      const file = useProjectStore.getState().activeFile;
+      if (file === null) return;
+      const selection = view.state.selection.main;
+      const line = view.state.doc.lineAt(selection.head).number;
+      const anchor = !selection.empty
+        ? {
+            text: view.state.sliceDoc(selection.from, selection.to),
+            line,
+          }
+        : lineAnchor(view.state.doc.toString(), line);
+      openCommentDialog({ kind: "new", file, anchor });
+    });
     return () => {
       setInsertHandler(null);
+      setFormatDocumentHandler(null);
+      setAddCommentAtCursorHandler(null);
       view.destroy();
       viewRef.current = null;
     };
@@ -268,7 +453,12 @@ export function LatexEditor() {
     <div
       ref={containerRef}
       className="relative h-full overflow-hidden"
-      style={{ "--editor-font-size": `${fontSize}px` } as React.CSSProperties}
+      style={
+        {
+          "--editor-font-size": `${fontSize}px`,
+          "--editor-font-family": editorFontStack(editorFont),
+        } as React.CSSProperties
+      }
       onMouseDown={() => setPopover(null)}
     >
       {popover && (

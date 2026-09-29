@@ -21,6 +21,8 @@ import {
   spellcheckLanguageUrl,
 } from "@/lib/tauri";
 import type { ThemePreference } from "@/lib/theme";
+import { EDITOR_FONTS } from "@/lib/editor-fonts";
+import { SYNTAX_THEMES } from "@/lib/editor-themes";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 
 const THEMES: ThemePreference[] = ["light", "dark", "system"];
@@ -82,6 +84,10 @@ export function SettingsDialog({
   const setTheme = useSettingsStore((s) => s.setTheme);
   const fontSize = useSettingsStore((s) => s.fontSize);
   const setFontSize = useSettingsStore((s) => s.setFontSize);
+  const editorFont = useSettingsStore((s) => s.editorFont);
+  const setEditorFont = useSettingsStore((s) => s.setEditorFont);
+  const syntaxTheme = useSettingsStore((s) => s.syntaxTheme);
+  const setSyntaxTheme = useSettingsStore((s) => s.setSyntaxTheme);
   const spellcheckEnabled = useSettingsStore((s) => s.spellcheckEnabled);
   const setSpellcheck = useSettingsStore((s) => s.setSpellcheck);
   const spellcheckLanguage = useSettingsStore((s) => s.spellcheckLanguage);
@@ -90,6 +96,10 @@ export function SettingsDialog({
   const setSupsubBraces = useSettingsStore((s) => s.setSupsubBraces);
   const convertDoubleDollar = useSettingsStore((s) => s.convertDoubleDollar);
   const setConvertDoubleDollar = useSettingsStore((s) => s.setConvertDoubleDollar);
+  const formatOnSave = useSettingsStore((s) => s.formatOnSave);
+  const setFormatOnSave = useSettingsStore((s) => s.setFormatOnSave);
+  const mathPreviewEngine = useSettingsStore((s) => s.mathPreviewEngine);
+  const setMathPreviewEngine = useSettingsStore((s) => s.setMathPreviewEngine);
   const reopenLastProject = useSettingsStore((s) => s.reopenLastProject);
   const setReopenLastProject = useSettingsStore((s) => s.setReopenLastProject);
   const autoIncludeNewFiles = useSettingsStore((s) => s.autoIncludeNewFiles);
@@ -256,7 +266,29 @@ export function SettingsDialog({
                     ))}
                   </ToggleButtonGroup>
                 </SettingRow>
-                <SettingRow label="Editor font size">
+                <SettingRow
+                  label="Editor font"
+                  description="Fonts are bundled with the app."
+                >
+                  <ToggleButtonGroup
+                    type="single"
+                    className="flex-wrap"
+                    value={editorFont}
+                    onValueChange={(value) => {
+                      if (value) void setEditorFont(value);
+                    }}
+                  >
+                    {EDITOR_FONTS.map((font) => (
+                      <ToggleButton key={font.id} value={font.id} size="sm">
+                        {font.label}
+                      </ToggleButton>
+                    ))}
+                  </ToggleButtonGroup>
+                </SettingRow>
+                <SettingRow
+                  label="Editor font size"
+                  description="Font and syntax theme apply to the source editor."
+                >
                   <ToggleButtonGroup
                     type="single"
                     value={String(fontSize)}
@@ -267,6 +299,25 @@ export function SettingsDialog({
                     {FONT_SIZES.map((size) => (
                       <ToggleButton key={size} value={String(size)} size="sm">
                         {size}
+                      </ToggleButton>
+                    ))}
+                  </ToggleButtonGroup>
+                </SettingRow>
+                <SettingRow
+                  label="Syntax theme"
+                  description="Each theme follows the app's light or dark mode."
+                >
+                  <ToggleButtonGroup
+                    type="single"
+                    className="flex-wrap"
+                    value={syntaxTheme}
+                    onValueChange={(value) => {
+                      if (value) void setSyntaxTheme(value);
+                    }}
+                  >
+                    {SYNTAX_THEMES.map((theme) => (
+                      <ToggleButton key={theme.id} value={theme.id} size="sm">
+                        {theme.label}
                       </ToggleButton>
                     ))}
                   </ToggleButtonGroup>
@@ -327,6 +378,36 @@ export function SettingsDialog({
                 {langError && (
                   <p className="mb-2 text-xs text-destructive">{langError}</p>
                 )}
+                <SettingRow
+                  label="Format on save"
+                  description="Indent environments and normalize whitespace when saving .tex files (Cmd/Ctrl+Shift+F formats on demand)."
+                >
+                  <Switch
+                    checked={formatOnSave}
+                    onCheckedChange={(v) => void setFormatOnSave(v)}
+                  />
+                </SettingRow>
+                <SettingRow
+                  label="Math preview"
+                  description="A hover card above math blocks shows how they render. More engines can be added."
+                >
+                  <ToggleButtonGroup
+                    type="single"
+                    value={mathPreviewEngine}
+                    onValueChange={(value) => {
+                      if (value === "katex" || value === "off") {
+                        void setMathPreviewEngine(value);
+                      }
+                    }}
+                  >
+                    <ToggleButton value="katex" size="sm">
+                      KaTeX
+                    </ToggleButton>
+                    <ToggleButton value="off" size="sm">
+                      Off
+                    </ToggleButton>
+                  </ToggleButtonGroup>
+                </SettingRow>
 
                 <p className="mt-4 mb-1 text-xs font-medium text-muted-foreground">
                   MATH INPUT
