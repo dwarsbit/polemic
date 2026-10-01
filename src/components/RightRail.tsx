@@ -22,7 +22,7 @@ export function RightRail({
   onSelect: (tab: string) => void;
 }) {
   return (
-    <nav className="flex w-10 shrink-0 flex-col items-center gap-1.5 py-3">
+    <nav className="flex w-10 shrink-0 flex-col items-center gap-1.5 py-2 pr-2">
       {tabs.map((tab) => {
         const Icon = tab.icon;
         const active = panelOpen && activeTab === tab.id;

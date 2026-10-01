@@ -7,6 +7,7 @@ import {
 } from "@codemirror/autocomplete";
 import { useProjectStore } from "@/store/project";
 import { MATH_SYMBOL_CATEGORIES } from "@/lib/math-symbols";
+import type { FileEntry } from "@/lib/tauri";
 
 interface CommandSpec {
   label: string;
@@ -170,6 +171,57 @@ function mathCommandOptions(): Completion[] {
   return out;
 }
 
+/** Extensions \includegraphics accepts (and our path completion offers). */
+export const IMAGE_EXTENSIONS = [
+  ".pdf",
+  ".png",
+  ".jpg",
+  ".jpeg",
+  ".eps",
+  ".gif",
+];
+
+/** Commands whose first braced argument is a project file path. */
+const PATH_COMMANDS: Record<string, { extensions: string[]; kind: string }> = {
+  input: { extensions: [".tex"], kind: "TeX file" },
+  include: { extensions: [".tex"], kind: "TeX file" },
+  includegraphics: { extensions: IMAGE_EXTENSIONS, kind: "Image" },
+  bibliography: { extensions: [".bib"], kind: "Bibliography" },
+  addbibresource: { extensions: [".bib"], kind: "Bibliography" },
+};
+
+/** Project-relative paths of all files in the tree, depth first. */
+function flattenFilePaths(entries: FileEntry[], out: string[] = []): string[] {
+  for (const entry of entries) {
+    if (entry.isDir) {
+      flattenFilePaths(entry.children, out);
+    } else {
+      out.push(entry.path);
+    }
+  }
+  return out;
+}
+
+/**
+ * Completion labels for path arguments: LaTeX resolves these extensions
+ * itself, so paths are inserted without one. Image paths keep their
+ * extension when two files share a stem, so the reference stays
+ * unambiguous (e.g. plot.pdf next to plot.png).
+ */
+export function pathCompletionLabels(
+  paths: string[],
+): Map<string, string> {
+  const stems = paths.map((path) => path.replace(/\.[^./]+$/, ""));
+  const ambiguous = new Set(
+    stems.filter((stem, index) => stems.indexOf(stem) !== index),
+  );
+  const out = new Map<string, string>();
+  paths.forEach((path, index) => {
+    out.set(ambiguous.has(stems[index]) ? path : stems[index], path);
+  });
+  return out;
+}
+
 export function latexCompletionSource(
   context: CompletionContext,
 ): CompletionResult | null {
@@ -196,17 +248,56 @@ export function latexCompletionSource(
     };
   }
 
-  // Citation key inside \cite{...}
-  const citeContext = context.matchBefore(/\\cite\{[^}]*/);
+  // Citation keys inside the \cite family (\citep, \textcite, …)
+  const citeContext = context.matchBefore(
+    /\\[A-Za-z]*cite\*?(?:\[[^\]]*\])*\{[^}]*/,
+  );
   if (citeContext && citeContext.to === context.pos) {
     const citeKeys = useProjectStore.getState().allCiteKeys();
     if (citeKeys.length === 0) return null;
     const brace = citeContext.text.lastIndexOf("{");
+    const from = citeContext.from + brace + 1;
+    // With a multi-key \cite{a,b}, complete the key the cursor is in.
+    const typed = citeContext.text.slice(brace + 1);
+    const keyStart = typed.lastIndexOf(",") + 1;
     return {
-      from: citeContext.from + brace + 1,
+      from: from + keyStart,
       options: citeKeys.map((key) => ({ label: key, type: "variable" })),
-      validFor: /^[^}]*$/,
+      validFor: /^[^},]*/,
     };
+  }
+
+  // File path inside \input{...}, \include{...}, \includegraphics{...},
+  // \bibliography{...} or \addbibresource{...} (\includegraphics may
+  // carry options between the command and the brace)
+  const pathContext = context.matchBefore(
+    /\\(includegraphics|include|input|bibliography|addbibresource)(?:\[[^\]]*\])?\{[^}]*/,
+  );
+  if (pathContext && pathContext.to === context.pos) {
+    const spec =
+      PATH_COMMANDS[pathContext.text.match(/^\\(\w+)/)?.[1] ?? ""];
+    if (spec) {
+      const { files, activeFile } = useProjectStore.getState();
+      const candidates = flattenFilePaths(files).filter(
+        (path) =>
+          path !== activeFile &&
+          spec.extensions.some((ext) => path.toLowerCase().endsWith(ext)),
+      );
+      if (candidates.length === 0) return null;
+      const brace = pathContext.text.lastIndexOf("{");
+      const labels = pathCompletionLabels(candidates);
+      return {
+        from: pathContext.from + brace + 1,
+        options: [...labels.entries()].map(([label, path]) => ({
+          label,
+          type: "file",
+          detail: `${spec.kind} (${path})`,
+          // Shorter paths first.
+          boost: -label.length,
+        })),
+        validFor: /^[^}\s]*$/,
+      };
+    }
   }
 
   // Command name after a backslash

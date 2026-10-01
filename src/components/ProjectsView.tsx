@@ -33,13 +33,14 @@ import {
 import { cn } from "@/lib/utils";
 import logo from "../../assets/polemic-logo.svg";
 import { useProjectStore } from "@/store/project";
+import { useUiStore } from "@/store/ui";
 
 type ActionDialog =
   | { kind: "none" }
   | { kind: "rename"; path: string; name: string }
   | { kind: "delete"; path: string; name: string };
 
-export function LibraryView() {
+export function ProjectsView() {
   const [settings, setSettings] = useState<Settings | null>(null);
   const [name, setName] = useState("");
   const [newName, setNewName] = useState("");
@@ -72,6 +73,7 @@ export function LibraryView() {
     setBusy(true);
     try {
       const info = await createProject(name, templateId);
+      useUiStore.getState().setMode("editor");
       await openProject(info.path);
     } catch (e) {
       setError(String(e));
@@ -83,6 +85,7 @@ export function LibraryView() {
   async function handleOpen(path: string) {
     setError(null);
     try {
+      useUiStore.getState().setMode("editor");
       await openProject(path);
     } catch (e) {
       setError(String(e));
@@ -119,7 +122,7 @@ export function LibraryView() {
   }
 
   return (
-    <div className="flex h-screen items-center justify-center bg-background text-foreground">
+    <div className="flex h-full items-center justify-center bg-background text-foreground">
       <div className="w-full max-w-lg rounded-xl border bg-card p-6 shadow-sm">
         <div className="flex flex-col items-center gap-1.5">
           <img src={logo} alt="Polemic" className="size-14" draggable={false} />

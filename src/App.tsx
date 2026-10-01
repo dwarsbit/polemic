@@ -1,33 +1,56 @@
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { CommandPalette } from "@/components/CommandPalette";
+import { TableDialog } from "@/components/TableDialog";
+import { PackagesDialog } from "@/components/PackagesDialog";
 import { EditorView } from "@/components/EditorView";
-import { LibraryView } from "@/components/LibraryView";
+import { BibWorkspaceView } from "@/components/BibWorkspaceView";
+import { ProjectsView } from "@/components/ProjectsView";
+import { TopBar } from "@/components/TopBar";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { SettingsDialog } from "@/components/SettingsDialog";
 import { AboutDialog, ShortcutsDialog } from "@/components/HelpDialogs";
 import { exportPdfAs } from "@/lib/pdf-export";
 import { formatDocument } from "@/lib/editor-format";
+import { wrapFigure } from "@/lib/editor-figure";
+import { insertTikzSnippet } from "@/lib/tikz-snippets";
 import { runPanelCommand } from "@/lib/panel-commands";
 import { queryClient, refetchGitState } from "@/lib/query-client";
 import { getSettings, gitAvailable, isTauri, revealBuildFolder } from "@/lib/tauri";
+import { isMac } from "@/lib/platform";
 import { useProjectStore } from "@/store/project";
 import { usePreviewStore } from "@/store/preview";
 import { applySettingsSideEffects, useSettingsStore } from "@/store/settings";
 import { useDialogsStore } from "@/store/dialogs";
+import { useUiStore } from "@/store/ui";
+import { cn } from "cn";
 
 function App() {
   const hasProject = useProjectStore((s) => s.project !== null);
+  const hasLibraryTabs = useProjectStore((s) =>
+    s.openFiles.some((file) => file.startsWith("library:")),
+  );
   const openProject = useProjectStore((s) => s.openProject);
+  const mode = useUiStore((s) => s.mode);
   const [startupDone, setStartupDone] = useState(false);
   // Keep the splash up for at least 2s so it never flashes on fast startups.
   const [splashMinElapsed, setSplashMinElapsed] = useState(false);
+  // macOS fullscreen ignores the custom traffic-light position: the
+  // lights sit in the auto-hiding menu bar zone above the app, so the
+  // layout shifts down by that zone's height while fullscreen.
+  const [fullscreen, setFullscreen] = useState(false);
   const settingsDialogOpen = useSettingsStore((s) => s.settingsDialogOpen);
   const setSettingsDialogOpen = useSettingsStore((s) => s.setSettingsDialogOpen);
   const shortcutsOpen = useDialogsStore((s) => s.shortcutsOpen);
   const setShortcutsOpen = useDialogsStore((s) => s.setShortcutsOpen);
   const aboutOpen = useDialogsStore((s) => s.aboutOpen);
   const setAboutOpen = useDialogsStore((s) => s.setAboutOpen);
+  const tableDialogOpen = useDialogsStore((s) => s.tableDialogOpen);
+  const setTableDialogOpen = useDialogsStore((s) => s.setTableDialogOpen);
+  const packagesDialogOpen = useDialogsStore((s) => s.packagesDialogOpen);
+  const setPackagesDialogOpen = useDialogsStore(
+    (s) => s.setPackagesDialogOpen,
+  );
   const paletteOpen = useDialogsStore((s) => s.paletteOpen);
 
   // Load preferences, apply theme/auto-compile, and reopen the last project.
@@ -66,6 +89,27 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => setSplashMinElapsed(true), 2000);
     return () => clearTimeout(timer);
+  }, []);
+
+  // Track macOS fullscreen for the traffic-light padding (all modes).
+  useEffect(() => {
+    if (!isMac) return;
+    let unlisten: (() => void) | undefined;
+    void (async () => {
+      try {
+        const { getCurrentWindow } = await import("@tauri-apps/api/window");
+        const sync = () =>
+          void getCurrentWindow()
+            .isFullscreen()
+            .then(setFullscreen)
+            .catch(() => undefined);
+        sync();
+        unlisten = await getCurrentWindow().listen("tauri://resize", sync);
+      } catch {
+        // Browser dev.
+      }
+    })();
+    return () => unlisten?.();
   }, []);
 
   // Follow OS dark/light changes while theme is "system".
@@ -154,6 +198,19 @@ function App() {
           ["menu://toggle-sidebar", () => runPanelCommand("toggle-sidebar")],
           ["menu://toggle-preview", () => runPanelCommand("toggle-preview")],
           ["menu://toggle-right", () => runPanelCommand("toggle-right")],
+          ["menu://toggle-search", () => runPanelCommand("toggle-search")],
+          ["menu://toggle-issues", () => runPanelCommand("toggle-issues")],
+          ["menu://toggle-log", () => runPanelCommand("toggle-log")],
+          [
+            "menu://insert-table",
+            () => useDialogsStore.getState().setTableDialogOpen(true),
+          ],
+          ["menu://wrap-figure", () => wrapFigure()],
+          ["menu://insert-tikz", () => insertTikzSnippet("scaffold")],
+          [
+            "menu://packages",
+            () => useDialogsStore.getState().setPackagesDialogOpen(true),
+          ],
           [
             "menu://export-pdf",
             () => {
@@ -166,6 +223,20 @@ function App() {
               const { project } = useProjectStore.getState();
               if (project) void revealBuildFolder(project.path);
             },
+          ],
+          [
+            "menu://mode-editor",
+            () => useUiStore.getState().setMode("editor"),
+          ],
+          [
+            "menu://sources",
+            () => {
+              useSettingsStore.getState().openSettings("bibliography");
+            },
+          ],
+          [
+            "menu://mode-library",
+            () => useUiStore.getState().setMode("library"),
           ],
           [
             "menu://new-project",
@@ -214,12 +285,26 @@ function App() {
 
   // Cmd/Ctrl+P opens the palette in the browser; in the desktop app the
   // OS menu accelerator intercepts the key before the webview sees it.
+  // The same applies to the workspace shortcuts (Cmd/Ctrl+Alt+1..3).
   useEffect(() => {
     if (isTauri()) return;
     const onKeyDown = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "p") {
         event.preventDefault();
         useDialogsStore.getState().setPaletteOpen(true);
+      }
+      if ((event.metaKey || event.ctrlKey) && event.altKey) {
+        const index = Number(event.key) - 1;
+        if (index === 0) {
+          event.preventDefault();
+          useUiStore.getState().setMode("editor");
+        } else if (index === 1) {
+          event.preventDefault();
+          useSettingsStore.getState().openSettings("bibliography");
+        } else if (index === 2) {
+          event.preventDefault();
+          useUiStore.getState().setMode("library");
+        }
       }
     };
     window.addEventListener("keydown", onKeyDown);
@@ -230,14 +315,39 @@ function App() {
     <QueryClientProvider client={queryClient}>
       {!startupDone || !splashMinElapsed ? (
         <LoadingScreen />
-      ) : hasProject ? (
-        <EditorView />
       ) : (
-        <LibraryView />
+        <div
+          className={cn(
+            "flex h-screen flex-col text-foreground",
+            isMac && fullscreen && "pt-7",
+          )}
+        >
+          <TopBar />
+          <div className="min-h-0 flex-1">
+            {mode === "library" ? (
+              <div className="flex h-full items-center justify-center bg-background">
+                <div className="rounded-xl border bg-card px-6 py-4 text-center text-sm text-muted-foreground shadow-sm">
+                  The global asset library is coming soon.
+                </div>
+              </div>
+            ) : hasProject ? (
+              <EditorView />
+            ) : hasLibraryTabs ? (
+              <BibWorkspaceView />
+            ) : (
+              <ProjectsView />
+            )}
+          </div>
+        </div>
       )}
       <SettingsDialog open={settingsDialogOpen} onOpenChange={setSettingsDialogOpen} />
       <ShortcutsDialog open={shortcutsOpen} onOpenChange={setShortcutsOpen} />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
+      <TableDialog open={tableDialogOpen} onOpenChange={setTableDialogOpen} />
+      <PackagesDialog
+        open={packagesDialogOpen}
+        onOpenChange={setPackagesDialogOpen}
+      />
       {paletteOpen && <CommandPalette />}
     </QueryClientProvider>
   );

@@ -1,7 +1,19 @@
 import type { ReactNode } from "react";
-import { AlertTriangle, Folder, ListTree, ScrollText, Sigma } from "lucide-react";
+import {
+  AlertTriangle,
+  BookOpen,
+  Folder,
+  Images,
+  ListTree,
+  Package,
+  ScrollText,
+  Search,
+  Sigma,
+  Tags,
+} from "lucide-react";
 import type { IssuesTool } from "@/components/IssuesPanel";
 import type { LeftTab } from "@/components/Sidebar";
+import { useDialogsStore } from "@/store/dialogs";
 import { cn } from "cn";
 
 /** Navigator panels, selectable from the top of the rail. */
@@ -9,12 +21,16 @@ const NAVIGATOR_TABS: { id: LeftTab; label: string; icon: typeof Folder }[] = [
   { id: "files", label: "Files", icon: Folder },
   { id: "outline", label: "Outline", icon: ListTree },
   { id: "symbols", label: "Symbols", icon: Sigma },
+  { id: "assets", label: "Assets", icon: Images },
+  { id: "labels", label: "Labels", icon: Tags },
+  { id: "bibliography", label: "Bibliography", icon: BookOpen },
 ];
 
 /** Bottom-dock tools (the issues row), selectable from the bottom. */
 const ISSUE_TOOLS: { id: IssuesTool; label: string; icon: typeof Folder }[] = [
   { id: "issues", label: "Issues", icon: AlertTriangle },
   { id: "log", label: "Compile Log", icon: ScrollText },
+  { id: "search", label: "Search", icon: Search },
 ];
 
 function RailButton({
@@ -65,7 +81,7 @@ export function LeftRail({
   onSelectIssuesTool: (tool: IssuesTool) => void;
 }) {
   return (
-    <nav className="flex w-10 shrink-0 flex-col items-center gap-1.5 py-3">
+    <nav className="flex w-10 shrink-0 flex-col items-center gap-1.5 py-2 pl-2">
       {NAVIGATOR_TABS.map((tab) => {
         const Icon = tab.icon;
         return (
@@ -79,6 +95,17 @@ export function LeftRail({
           </RailButton>
         );
       })}
+      {/* An action, not a panel: opens the package manager dialog. */}
+      <div className="my-1 w-5 border-t" />
+      <RailButton
+        label="Manage packages (Cmd/Ctrl + Alt + P)"
+        active={false}
+        onClick={() =>
+          useDialogsStore.getState().setPackagesDialogOpen(true)
+        }
+      >
+        <Package className="size-4" />
+      </RailButton>
       <div className="mt-auto flex flex-col items-center gap-1.5">
         {ISSUE_TOOLS.map((tool) => {
           const Icon = tool.icon;

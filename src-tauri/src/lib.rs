@@ -2,6 +2,8 @@ mod files;
 mod git;
 mod logparse;
 mod comments;
+mod assets;
+mod library;
 mod settings;
 mod snapshots;
 mod spell;
@@ -13,7 +15,11 @@ use std::process::Command;
 
 use tauri::Manager;
 use files::FileEntry;
-use settings::{Settings, SettingsState};
+use library::{
+    get_library_root, import_library_file, list_library_files, read_library_file,
+    set_library_root, write_library_file,
+};
+use settings::{Settings, SettingsState, SourceDef};
 
 #[derive(Serialize, Clone)]
 #[serde(rename_all = "camelCase")]
@@ -226,8 +232,12 @@ fn update_preferences(
     convert_double_dollar: Option<bool>,
     format_on_save: Option<bool>,
     math_preview_engine: Option<String>,
+    caret_style: Option<String>,
+    caret_color: Option<String>,
+    caret_custom_color: Option<String>,
     reopen_last_project: Option<bool>,
     auto_include_new_files: Option<bool>,
+    sources: Option<Vec<SourceDef>>,
 ) -> Result<Settings, String> {
     settings::update(&app, |s| {
         if theme.is_some() {
@@ -260,11 +270,23 @@ fn update_preferences(
         if math_preview_engine.is_some() {
             s.math_preview_engine = math_preview_engine;
         }
+        if caret_style.is_some() {
+            s.caret_style = caret_style;
+        }
+        if caret_color.is_some() {
+            s.caret_color = caret_color;
+        }
+        if caret_custom_color.is_some() {
+            s.caret_custom_color = caret_custom_color;
+        }
         if reopen_last_project.is_some() {
             s.reopen_last_project = reopen_last_project;
         }
         if auto_include_new_files.is_some() {
             s.auto_include_new_files = auto_include_new_files;
+        }
+        if sources.is_some() {
+            s.sources = sources.unwrap();
         }
         s.clone()
     })
@@ -573,6 +595,65 @@ fn delete_entry(project_dir: String, path: String) -> Result<(), String> {
     }
 }
 
+/// Read any project file as raw bytes (binary-safe), for asset previews.
+#[tauri::command]
+fn read_asset(project_dir: String, path: String) -> Result<tauri::ipc::Response, String> {
+    let target = files::resolve_in_project(&project_dir, &path)?;
+    let bytes = fs::read(&target).map_err(|e| format!("failed to read {path}: {e}"))?;
+    Ok(tauri::ipc::Response::new(bytes))
+}
+
+/// Copy files into the project's assets/ folder (copy-in imports).
+/// Sources already inside the project pass through untouched: their
+/// relative path is returned without copying. Other name collisions
+/// get a numeric suffix. Returns the relative paths of the results.
+#[tauri::command]
+fn import_assets(project_dir: String, sources: Vec<String>) -> Result<Vec<String>, String> {
+    let dir = canonical_project(&project_dir)?;
+    let assets = dir.join("assets");
+    fs::create_dir_all(&assets)
+        .map_err(|e| format!("failed to create assets folder: {e}"))?;
+    let mut imported = Vec::new();
+    for source in sources {
+        let from = fs::canonicalize(&source)
+            .map_err(|e| format!("cannot read source file {source}: {e}"))?;
+        if !from.is_file() {
+            return Err(format!("not a file: {source}"));
+        }
+        // Already in the project: no copy, just resolve the path.
+        if from.strip_prefix(&dir).is_ok() {
+            imported.push(from.strip_prefix(&dir).unwrap().to_string_lossy().to_string());
+            continue;
+        }
+        let name = from
+            .file_name()
+            .ok_or("source has no file name")?
+            .to_string_lossy()
+            .to_string();
+        let stem = std::path::Path::new(&name)
+            .file_stem()
+            .map(|s| s.to_string_lossy().to_string())
+            .unwrap_or_else(|| name.clone());
+        let ext = std::path::Path::new(&name)
+            .extension()
+            .map(|e| format!(".{}", e.to_string_lossy()))
+            .unwrap_or_default();
+        let mut dest = assets.join(&name);
+        let mut n = 1;
+        while dest.exists() {
+            dest = assets.join(format!("{stem}-{n}{ext}"));
+            n += 1;
+        }
+        fs::copy(&from, &dest).map_err(|e| format!("failed to copy {source}: {e}"))?;
+        let rel = dest
+            .strip_prefix(&dir)
+            .map(|p| p.to_string_lossy().to_string())
+            .unwrap_or_else(|_| name.clone());
+        imported.push(rel);
+    }
+    Ok(imported)
+}
+
 #[tauri::command]
 fn set_main_file(
     app: tauri::AppHandle,
@@ -875,6 +956,78 @@ fn git_show_head(project_dir: String, path: String) -> Result<Option<String>, St
     git::show_head(&dir, &path)
 }
 
+// --- asset metadata ---------------------------------------------------------
+
+/// Asset tags, persisted in the project's .polemic/assets.json.
+#[tauri::command]
+fn list_asset_meta(
+    project_dir: String,
+) -> Result<std::collections::HashMap<String, Vec<String>>, String> {
+    Ok(assets::list(&canonical_project(&project_dir)?))
+}
+
+#[tauri::command]
+fn save_asset_meta(
+    project_dir: String,
+    tags: std::collections::HashMap<String, Vec<String>>,
+) -> Result<(), String> {
+    assets::save(&canonical_project(&project_dir)?, &tags)
+}
+
+// --- TeX packages -----------------------------------------------------------
+
+#[derive(Serialize, Clone)]
+#[serde(rename_all = "camelCase")]
+pub struct TexPackageInfo {
+    /// Whether the package's file resolves in the local TeX dist.
+    pub installed: bool,
+    /// Short description from the local distribution, if available.
+    pub description: Option<String>,
+}
+
+/// Resolve packages against the local TeX distribution: `kpsewhich`
+/// decides installed, `tlmgr info` provides the short description
+/// (empty when tlmgr is unavailable, e.g. on MiKTeX). Async with
+/// spawn_blocking — the probes spawn TeX processes, which must never
+/// block the main thread (a synchronous command would freeze the UI
+/// for seconds).
+#[tauri::command]
+async fn tex_package_info(names: Vec<String>) -> Result<Vec<TexPackageInfo>, String> {
+    Ok(tauri::async_runtime::spawn_blocking(move || {
+        names
+            .iter()
+            .map(|name| {
+                let installed = ["sty", "tex", "cls"].iter().any(|ext| {
+                    Command::new("kpsewhich")
+                        .arg(format!("{name}.{ext}"))
+                        .output()
+                        .map(|out| {
+                            out.status.success()
+                                && !String::from_utf8_lossy(&out.stdout).trim().is_empty()
+                        })
+                        .unwrap_or(false)
+                });
+                let description = if installed {
+                    Command::new("tlmgr")
+                        .args(["info", "--data", "shortdesc", name])
+                        .output()
+                        .ok()
+                        .map(|out| String::from_utf8_lossy(&out.stdout).trim().to_string())
+                        .filter(|text| !text.is_empty())
+                } else {
+                    None
+                };
+                TexPackageInfo {
+                    installed,
+                    description,
+                }
+            })
+            .collect::<Vec<TexPackageInfo>>()
+    })
+    .await
+    .map_err(|e| e.to_string())?)
+}
+
 // --- misc ------------------------------------------------------------------
 
 #[tauri::command]
@@ -892,7 +1045,7 @@ fn reveal_build_folder(app: tauri::AppHandle, project_dir: String) -> Result<(),
 pub struct MenuState(pub std::sync::Mutex<Option<tauri::menu::Menu<tauri::Wry>>>);
 
 /// Menu items that only make sense with a project open.
-const PROJECT_MENU_ITEMS: [&str; 8] = [
+const PROJECT_MENU_ITEMS: [&str; 15] = [
     "new_project",
     "save",
     "format",
@@ -901,6 +1054,13 @@ const PROJECT_MENU_ITEMS: [&str; 8] = [
     "toggle_sidebar",
     "toggle_preview",
     "toggle_right",
+    "search",
+    "issues",
+    "log",
+    "insert_table",
+    "wrap_figure",
+    "insert_tikz",
+    "packages",
 ];
 
 /// Find a menu item by id, searching through the menu's submenus.
@@ -953,7 +1113,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
         MenuItem::with_id(handle, "new_project", "New Project", true, Some("CmdOrCtrl+N"))?;
     let save = MenuItem::with_id(handle, "save", "Save", true, Some("CmdOrCtrl+S"))?;
     let format =
-        MenuItem::with_id(handle, "format", "Format Document", true, Some("CmdOrCtrl+Shift+F"))?;
+        MenuItem::with_id(handle, "format", "Format Document", true, Some("Shift+Alt+F"))?;
     let export_pdf =
         MenuItem::with_id(handle, "export_pdf", "Export PDF as…", true, Some("CmdOrCtrl+E"))?;
     let reveal_build = MenuItem::with_id(
@@ -964,7 +1124,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
         Some("CmdOrCtrl+Shift+E"),
     )?;
     let toggle_sidebar =
-        MenuItem::with_id(handle, "toggle_sidebar", "Toggle Sidebar", true, Some("CmdOrCtrl+B"))?;
+        MenuItem::with_id(handle, "toggle_sidebar", "Toggle Sidebar", true, Some("CmdOrCtrl+Alt+B"))?;
     let toggle_preview = MenuItem::with_id(
         handle,
         "toggle_preview",
@@ -974,6 +1134,68 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     )?;
     let toggle_right =
         MenuItem::with_id(handle, "toggle_right", "Toggle Right Panel", true, Some("CmdOrCtrl+J"))?;
+    let search = MenuItem::with_id(
+        handle,
+        "search",
+        "Search in Project…",
+        true,
+        Some("CmdOrCtrl+Shift+F"),
+    )?;
+    let issues =
+        MenuItem::with_id(handle, "issues", "Show Issues", true, Option::<&str>::None)?;
+    let log = MenuItem::with_id(
+        handle,
+        "log",
+        "Show Compile Log",
+        true,
+        Option::<&str>::None,
+    )?;
+    let insert_table = MenuItem::with_id(
+        handle,
+        "insert_table",
+        "Table…",
+        true,
+        Some("CmdOrCtrl+Shift+T"),
+    )?;
+    let wrap_figure = MenuItem::with_id(
+        handle,
+        "wrap_figure",
+        "Figure from Image…",
+        true,
+        Some("CmdOrCtrl+Alt+G"),
+    )?;
+    let insert_tikz = MenuItem::with_id(
+        handle,
+        "insert_tikz",
+        "TikZ Picture…",
+        true,
+        Some("CmdOrCtrl+Alt+T"),
+    )?;
+    let packages = MenuItem::with_id(
+        handle,
+        "packages",
+        "Packages…",
+        true,
+        Some("CmdOrCtrl+Alt+P"),
+    )?;
+    // The workspace modes from the header toggle; Sources now lives in
+    // the settings dialog's Bibliography section.
+    let mode_editor =
+        MenuItem::with_id(handle, "mode_editor", "Go to Editor", true, Some("CmdOrCtrl+Alt+1"))?;
+    let sources = MenuItem::with_id(
+        handle,
+        "sources",
+        "Sources…",
+        true,
+        Some("CmdOrCtrl+Alt+2"),
+    )?;
+    let mode_library = MenuItem::with_id(
+        handle,
+        "mode_library",
+        "Go to Library",
+        true,
+        Some("CmdOrCtrl+Alt+3"),
+    )?;
 
     // The native Edit menu: its predefined items deliver Cmd+X/C/V and
     // friends to the focused webview (the custom menu replaced the
@@ -1028,12 +1250,27 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .quit()
             .build()?;
         let view_menu = SubmenuBuilder::new(handle, "View")
+            .item(&mode_editor)
+            .item(&sources)
+            .item(&mode_library)
+            .separator()
             .item(&toggle_sidebar)
             .item(&toggle_preview)
             .item(&toggle_right)
+            .separator()
+            .item(&search)
+            .item(&issues)
+            .item(&log)
+            .build()?;
+        let insert_menu = SubmenuBuilder::new(handle, "Insert")
+            .item(&insert_table)
+            .item(&wrap_figure)
+            .item(&insert_tikz)
+            .separator()
+            .item(&packages)
             .build()?;
         MenuBuilder::new(handle)
-            .items(&[&app_menu, &file_menu, &edit_menu, &view_menu])
+            .items(&[&app_menu, &file_menu, &insert_menu, &edit_menu, &view_menu])
             .build()?
     };
 
@@ -1044,12 +1281,24 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .separator()
             .item(&save)
             .item(&format)
+            .item(&insert_table)
+            .item(&wrap_figure)
+            .item(&insert_tikz)
+            .item(&packages)
             .item(&export_pdf)
             .item(&reveal_build)
             .separator()
             .item(&toggle_sidebar)
             .item(&toggle_preview)
             .item(&toggle_right)
+            .separator()
+            .item(&mode_editor)
+            .item(&sources)
+            .item(&mode_library)
+            .separator()
+            .item(&search)
+            .item(&issues)
+            .item(&log)
             .separator()
             .item(&settings)
             .item(&shortcuts)
@@ -1105,6 +1354,16 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             "toggle_sidebar" => "menu://toggle-sidebar",
             "toggle_preview" => "menu://toggle-preview",
             "toggle_right" => "menu://toggle-right",
+            "search" => "menu://toggle-search",
+            "issues" => "menu://toggle-issues",
+            "log" => "menu://toggle-log",
+            "insert_table" => "menu://insert-table",
+            "wrap_figure" => "menu://wrap-figure",
+            "insert_tikz" => "menu://insert-tikz",
+            "packages" => "menu://packages",
+            "mode_editor" => "menu://mode-editor",
+            "sources" => "menu://sources",
+            "mode_library" => "menu://mode-library",
             "export_pdf" => "menu://export-pdf",
             "reveal_build" => "menu://reveal-build",
             "settings" => "menu://settings",
@@ -1245,6 +1504,12 @@ pub fn run() {    tauri::Builder::default()
             detect_tex,
             get_settings,
             set_projects_root,
+            get_library_root,
+            set_library_root,
+            list_library_files,
+            read_library_file,
+            write_library_file,
+            import_library_file,
             create_project,
             list_templates,
             open_project,
@@ -1267,6 +1532,11 @@ pub fn run() {    tauri::Builder::default()
             create_project_entry,
             rename_entry,
             delete_entry,
+            read_asset,
+            import_assets,
+            list_asset_meta,
+            save_asset_meta,
+            tex_package_info,
             set_main_file,
             set_open_files,
             compile_project,

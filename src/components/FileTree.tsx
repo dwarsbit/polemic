@@ -1,6 +1,7 @@
 import { BookMarked, FileText, Folder, Pencil, Star, Trash2 } from "lucide-react";
 import type { FileEntry } from "@/lib/tauri";
 import { isTauri } from "@/lib/tauri";
+import { startAssetDrag, wasDragged } from "@/lib/editor-drag";
 import {
   showNativeContextMenu,
   type NativeMenuEntry,
@@ -118,7 +119,11 @@ export function FileTree({
               <button
                 type="button"
                 className="flex min-w-0 flex-1 items-center gap-1.5 text-left"
-                onClick={() => void openFile(entry.path)}
+                onClick={() => {
+                  if (wasDragged()) return;
+                  void openFile(entry.path);
+                }}
+                onPointerDown={(event) => startAssetDrag(entry.path, event)}
               >
                 {entry.path.endsWith(".bib") ? (
                   <BookMarked className="size-3.5 shrink-0 text-muted-foreground" />

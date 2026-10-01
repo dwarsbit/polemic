@@ -6,10 +6,12 @@ import { CommentsPanel } from "@/components/CommentsPanel";
 import { IssuesPanel } from "@/components/IssuesPanel";
 import type { IssuesTool } from "@/components/IssuesPanel";
 import { LatexEditor } from "@/components/LatexEditor";
+import { BibFileEditor } from "@/components/BibFileEditor";
 import { LeftRail } from "@/components/LeftRail";
 import { PreviewPane } from "@/components/PreviewPane";
 import { PropertiesPanel } from "@/components/PropertiesPanel";
 import { RightRail } from "@/components/RightRail";
+import { SearchPanel } from "@/components/SearchPanel";
 import { Sidebar } from "@/components/Sidebar";
 import type { LeftTab } from "@/components/Sidebar";
 import { GitPanel } from "@/components/GitPanel";
@@ -17,12 +19,15 @@ import { HistoryPanel } from "@/components/HistoryPanel";
 import { SnapshotsPanel } from "@/components/SnapshotsPanel";
 import { StatusBar } from "@/components/StatusBar";
 import { TabsBar } from "@/components/TabsBar";
+import { EditorToolbar } from "@/components/EditorToolbar";
+import { VisualModeStub } from "@/components/VisualModeStub";
 import { setPanelCommandHandler } from "@/lib/panel-commands";
 import { setCommentDialogHandler, type CommentTarget } from "@/lib/editor-comments";
 import { useCommentsStore } from "@/store/comments";
-import { isMac } from "@/lib/platform";
-import { TopBar } from "@/components/TopBar";
+import { useEditorStore } from "@/store/editor";
+import { useProjectStore } from "@/store/project";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
+import { useUiStore } from "@/store/ui";
 import { cn } from "cn";
 
 const COLUMN_PANEL_IDS = ["navigator", "editor", "preview", "properties"];
@@ -67,30 +72,21 @@ export function EditorView() {
   const [navigatorTab, setNavigatorTab] = useState<LeftTab>("files");
   const [rightTab, setRightTab] = useState<RightTab>("version-control");
   const [issuesTool, setIssuesTool] = useState<IssuesTool>("issues");
+  const activeFile = useProjectStore((s) => s.activeFile);
+  // .bib files edit through their own two-faced editor.
+  const activeFileIsBib = activeFile !== null && activeFile.endsWith(".bib");
+  const activeFileIsTex = activeFile !== null && activeFile.endsWith(".tex");
+  const texEditorMode = useUiStore((s) => s.texEditorMode);
+  const setTexEditorMode = useUiStore((s) => s.setTexEditorMode);
+  const texVisual = activeFileIsTex && texEditorMode === "visual";
+  const jumpTarget = useEditorStore((s) => s.jumpTarget);
 
-  // macOS fullscreen ignores the custom traffic-light position: the
-  // lights sit in the auto-hiding menu bar zone above the app, so the
-  // layout shifts down by that zone's height while fullscreen.
-  const [fullscreen, setFullscreen] = useState(false);
+  // A jump request (labels, bibliography) needs the source text.
   useEffect(() => {
-    if (!isMac) return;
-    let unlisten: (() => void) | undefined;
-    void (async () => {
-      try {
-        const { getCurrentWindow } = await import("@tauri-apps/api/window");
-        const sync = () =>
-          void getCurrentWindow()
-            .isFullscreen()
-            .then(setFullscreen)
-            .catch(() => undefined);
-        sync();
-        unlisten = await getCurrentWindow().listen("tauri://resize", sync);
-      } catch {
-        // Browser dev.
-      }
-    })();
-    return () => unlisten?.();
-  }, []);
+    if (jumpTarget !== null && activeFileIsTex) {
+      useUiStore.getState().setTexEditorMode("code");
+    }
+  }, [jumpTarget, activeFileIsTex]);
 
   const rightTabs = [
     {
@@ -190,21 +186,21 @@ export function EditorView() {
     setPanelCommandHandler("toggle-sidebar", toggleNavigator);
     setPanelCommandHandler("toggle-preview", togglePreview);
     setPanelCommandHandler("toggle-right", toggleProperties);
+    setPanelCommandHandler("toggle-search", () => selectIssuesTool("search"));
+    setPanelCommandHandler("toggle-issues", () => selectIssuesTool("issues"));
+    setPanelCommandHandler("toggle-log", () => selectIssuesTool("log"));
     return () => {
       setPanelCommandHandler("toggle-sidebar", null);
       setPanelCommandHandler("toggle-preview", null);
       setPanelCommandHandler("toggle-right", null);
+      setPanelCommandHandler("toggle-search", null);
+      setPanelCommandHandler("toggle-issues", null);
+      setPanelCommandHandler("toggle-log", null);
     };
   });
 
   return (
-    <div
-      className={cn(
-        "flex h-screen flex-col text-foreground",
-        isMac && fullscreen && "pt-7",
-      )}
-    >
-      <TopBar />
+    <div className="flex h-full min-h-0 flex-col">
       <div className="flex min-h-0 flex-1">
         <LeftRail
           navigatorTab={navigatorTab}
@@ -244,12 +240,25 @@ export function EditorView() {
                 {navigatorOpen && <Separator className={HANDLE_X} />}
                 <Panel id="editor" defaultSize="42%" minSize="25%">
                   <div className="flex h-full flex-col overflow-hidden rounded-xl border bg-card shadow-sm">
-                    <TabsBar
-                      previewVisible={previewVisible}
-                      onTogglePreview={togglePreview}
-                    />
+                    <TabsBar />
+                    {!activeFileIsBib && !texVisual && <EditorToolbar />}
                     <div className="min-h-0 flex-1">
-                      <LatexEditor />
+                      {activeFileIsBib ? (
+                        <BibFileEditor />
+                      ) : (
+                        <div className="flex h-full flex-col">
+                          {/* The CodeMirror view stays mounted across the
+                              Visual/Code toggle so undo history survives. */}
+                          <div className={cn("min-h-0 flex-1", texVisual && "hidden")}>
+                            <LatexEditor visible={!texVisual} />
+                          </div>
+                          {texVisual && (
+                            <VisualModeStub
+                              onGoToCode={() => setTexEditorMode("code")}
+                            />
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Panel>
@@ -303,7 +312,11 @@ export function EditorView() {
               panelRef={issuesRef}
               onResize={(size) => setIssuesOpen(size.inPixels > 40)}
             >
-              <IssuesPanel tool={issuesTool} onToggle={toggleIssues} />
+              {issuesTool === "search" ? (
+                <SearchPanel onToggle={toggleIssues} />
+              ) : (
+                <IssuesPanel tool={issuesTool} onToggle={toggleIssues} />
+              )}
             </Panel>
           </Group>
         </div>

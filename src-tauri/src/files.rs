@@ -8,6 +8,10 @@ pub struct FileEntry {
     pub name: String,
     pub path: String,
     pub is_dir: bool,
+    /// File size in bytes (files only). */
+    pub size: Option<u64>,
+    /// Last modified, unix seconds (files only). */
+    pub modified: Option<u64>,
     pub children: Vec<FileEntry>,
 }
 
@@ -56,10 +60,23 @@ pub fn list_tree(dir: &Path, rel_prefix: &str) -> Vec<FileEntry> {
             } else {
                 Vec::new()
             };
+            let (size, modified) = if is_dir {
+                (None, None)
+            } else {
+                let metadata = entry.metadata().ok();
+                let modified = metadata
+                    .as_ref()
+                    .and_then(|m| m.modified().ok())
+                    .and_then(|time| time.duration_since(std::time::UNIX_EPOCH).ok())
+                    .map(|duration| duration.as_secs());
+                (metadata.map(|m| m.len()), modified)
+            };
             Some(FileEntry {
                 name,
                 path,
                 is_dir,
+                size,
+                modified,
                 children,
             })
         })

@@ -1,5 +1,6 @@
 import { linter, type Diagnostic } from "@codemirror/lint";
 import type { EditorView } from "@codemirror/view";
+import { extractCitePositions } from "@/lib/cite-refs";
 import {
   extractLabelPositions,
   extractRefPositions,
@@ -7,12 +8,14 @@ import {
 import { useProjectStore } from "@/store/project";
 
 /**
- * Cross-reference hints: refs to labels that no file defines, and
- * labels no file references. The active document is scanned live, so
- * hints settle as you type (the linter itself debounces).
+ * Cross-reference hints: refs to labels that no file defines, labels
+ * no file references, and citations of keys no .bib file defines.
+ * The active document is scanned live, so hints settle as you type
+ * (the linter itself debounces).
  */
 export const refLabelLint = linter((view: EditorView) => {
-  const { activeFile, labelsByFile, refsByFile } = useProjectStore.getState();
+  const { activeFile, labelsByFile, refsByFile, citeKeysByFile } =
+    useProjectStore.getState();
   if (activeFile === null) return [];
 
   const source = view.state.doc.toString();
@@ -53,6 +56,22 @@ export const refLabelLint = linter((view: EditorView) => {
         message: `Label "${label.name}" is not referenced`,
         actions: [],
       });
+    }
+  }
+  // Cited keys that no .bib file defines (only when a .bib exists —
+  // otherwise every citation would warn).
+  const bibKeys = new Set(Object.values(citeKeysByFile).flat());
+  if (bibKeys.size > 0) {
+    for (const cite of extractCitePositions(source)) {
+      if (!bibKeys.has(cite.key)) {
+        diagnostics.push({
+          from: cite.from,
+          to: cite.to,
+          severity: "warning",
+          message: `No BibTeX entry with key "${cite.key}"`,
+          actions: [],
+        });
+      }
     }
   }
   return diagnostics;

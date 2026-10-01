@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Eye, EyeOff, X } from "lucide-react";
+import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -10,15 +10,13 @@ import {
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/editor";
-import { useProjectStore } from "@/store/project";
+import {
+  isLibraryPath,
+  libraryRelative,
+  useProjectStore,
+} from "@/store/project";
 
-export function TabsBar({
-  previewVisible,
-  onTogglePreview,
-}: {
-  previewVisible: boolean;
-  onTogglePreview: () => void;
-}) {
+export function TabsBar() {
   const openFiles = useProjectStore((s) => s.openFiles);
   const activeFile = useProjectStore((s) => s.activeFile);
   const lastSavedContent = useProjectStore((s) => s.lastSavedContent);
@@ -122,9 +120,17 @@ export function TabsBar({
               <button
                 type="button"
                 className="max-w-40 truncate py-1.5"
+                title={file}
                 onClick={() => void openFile(file)}
               >
-                {file.split("/").pop()}
+                {isLibraryPath(file) && (
+                  <span className="mr-1 rounded bg-accent px-1 text-[9px] uppercase tracking-wide text-muted-foreground">
+                    lib
+                  </span>
+                )}
+                {(isLibraryPath(file) ? libraryRelative(file) : file)
+                  .split("/")
+                  .pop()}
               </button>
               <span
                 className={cn(
@@ -144,15 +150,6 @@ export function TabsBar({
           );
         })}
       </div>
-      <Button
-        variant="ghost"
-        size="icon-xs"
-        className="mb-1 shrink-0 self-end"
-        title={previewVisible ? "Hide PDF preview" : "Show PDF preview"}
-        onClick={onTogglePreview}
-      >
-        {previewVisible ? <EyeOff /> : <Eye />}
-      </Button>
 
       {/* Closing a tab with unsaved changes needs a decision. */}
       <Dialog

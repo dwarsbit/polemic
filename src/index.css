@@ -303,6 +303,73 @@ body {
   margin: 0;
 }
 
+/* Editor caret (the text cursor), driven by the cursor settings.
+   CodeMirror draws the caret as a left border; --caret-color is set on
+   the root element by LatexEditor. The line style is a fixed 2px,
+   centered on the character boundary. */
+.cm-editor .cm-cursor {
+  border-left-width: 2px !important;
+  margin-left: -1px !important;
+  border-left-color: var(--caret-color, black) !important;
+}
+
+/* The inline "image options" cog, shown right after a hovered
+   \includegraphics; zero-width so it never shifts the text. */
+.cm-graphics-cog {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+.cm-graphics-cog svg {
+  position: absolute;
+  top: 0;
+  left: 4px;
+  width: 14px;
+  height: 14px;
+  padding: 1px;
+  color: var(--muted-foreground);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cm-graphics-cog svg:hover {
+  color: var(--foreground);
+  background: var(--accent);
+}
+
+/* The path argument of a hovered \includegraphics. */
+.cm-graphics-path {
+  background-color: color-mix(in oklab, var(--primary) 8%, transparent);
+  border-radius: 2px;
+}
+
+/* \includegraphics span while its options card is open. */
+.cm-graphics-assist {
+  background-color: color-mix(in oklab, var(--primary) 12%, transparent);
+  border-radius: 2px;
+}
+
+/* \includegraphics span while Cmd/Ctrl-hovering it (the options card
+   is a Cmd/Ctrl+click away). */
+.cm-graphics-hover {
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+}
+
+/* Block style: a translucent static block over the character. */
+html.caret-style-block .cm-editor .cm-cursor {
+  border-left-width: 0.55em !important;
+  margin-left: 0 !important;
+  opacity: 0.45 !important;
+}
+html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
+  animation: none !important;
+}
+
 /* Loading screen: indeterminate progress bar fill sliding through the
    track (positioned absolutely within the rounded track). */
 @keyframes loading-bar {

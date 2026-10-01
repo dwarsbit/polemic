@@ -16,8 +16,27 @@ export interface RecentProject {
   path: string;
 }
 
+/** A reference source: a bib file/folder in the library, or a Zotero
+ *  connection. Searched by "Add from Sources…" when enabled. */
+export interface SourceDef {
+  id: string;
+  kind: "bib" | "zotero-app" | "zotero-cloud";
+  enabled: boolean;
+  name: string | null;
+  /** Library-relative path of a .bib file or folder; null = the
+   *  whole library root. Bib sources only. */
+  path: string | null;
+  /** Zotero cloud credentials; zotero-cloud sources only. */
+  userId: string | null;
+  apiKey: string | null;
+}
+
 export interface Settings {
   projectsRoot: string;
+  /** The global library root (sources and assets across projects). */
+  libraryRoot: string | null;
+  /** The user's reference sources (see SourceDef). */
+  sources: SourceDef[];
   recentProjects: RecentProject[];
   mainFiles: Record<string, string>;
   openFiles: Record<string, string[]>;
@@ -36,6 +55,9 @@ export interface Settings {
   convertDoubleDollar: boolean | null;
   formatOnSave: boolean | null;
   mathPreviewEngine: string | null;
+  caretStyle: string | null;
+  caretColor: string | null;
+  caretCustomColor: string | null;
   reopenLastProject: boolean | null;
   autoIncludeNewFiles: boolean | null;
   /** "git" or "snapshots"; null means auto (git when installed). */
@@ -85,6 +107,10 @@ export interface FileEntry {
   name: string;
   path: string;
   isDir: boolean;
+  /** File size in bytes (files only). */
+  size: number | null;
+  /** Last modified, unix seconds (files only). */
+  modified: number | null;
   children: FileEntry[];
 }
 
@@ -170,8 +196,13 @@ export interface EditorPreferences {
   convertDoubleDollar?: boolean;
   formatOnSave?: boolean;
   mathPreviewEngine?: string;
+  caretStyle?: string;
+  caretColor?: string;
+  caretCustomColor?: string;
   reopenLastProject?: boolean;
   autoIncludeNewFiles?: boolean;
+  /** The user's reference sources (see SourceDef). */
+  sources?: SourceDef[];
 }
 
 export function updatePreferences(prefs: EditorPreferences): Promise<Settings> {
@@ -294,12 +325,38 @@ export function writeProjectFile(
   return invoke<void>("write_project_file", { projectDir, path, content });
 }
 
+/** The global library root, created when missing. */
+export function getLibraryRoot(): Promise<{ path: string }> {
+  return invoke<{ path: string }>("get_library_root");
+}
+
+export function setLibraryRoot(path: string): Promise<void> {
+  return invoke<void>("set_library_root", { path });
+}
+
+export function listLibraryFiles(): Promise<FileEntry[]> {
+  return invoke<FileEntry[]>("list_library_files");
+}
+
+export function readLibraryFile(path: string): Promise<string> {
+  return invoke<string>("read_library_file", { path });
+}
+
+export function writeLibraryFile(path: string, content: string): Promise<void> {
+  return invoke<void>("write_library_file", { path, content });
+}
+
+/** Copy a file from anywhere into the library root; returns the
+ *  library-relative destination path. */
+export function importLibraryFile(source: string): Promise<string> {
+  return invoke<string>("import_library_file", { source });
+}
+
 export function createProjectEntry(
   projectDir: string,
   path: string,
   isDir: boolean,
-): Promise<void> {
-  return invoke<void>("create_project_entry", { projectDir, path, isDir });
+): Promise<void> {  return invoke<void>("create_project_entry", { projectDir, path, isDir });
 }
 
 export function renameEntry(
@@ -334,6 +391,46 @@ export async function getPdf(projectDir: string, mainTex: string): Promise<Uint8
   if (res instanceof Uint8Array) return res;
   if (res instanceof ArrayBuffer) return new Uint8Array(res);
   return new Uint8Array(res);
+}
+
+/** Read any project file as raw bytes (binary-safe, e.g. images). */
+export async function readAsset(projectDir: string, path: string): Promise<Uint8Array> {
+  const res = await invoke<RawPdf>("read_asset", { projectDir, path });
+  if (res instanceof Uint8Array) return res;
+  if (res instanceof ArrayBuffer) return new Uint8Array(res);
+  return new Uint8Array(res);
+}
+
+/** Copy files into the project's assets/ folder; returns the relative paths. */
+export function importAssets(
+  projectDir: string,
+  sources: string[],
+): Promise<string[]> {
+  return invoke<string[]>("import_assets", { projectDir, sources });
+}
+
+/** Asset tags per project-relative path (`.polemic/assets.json`). */
+export type AssetTags = Record<string, string[]>;
+
+export function listAssetMeta(projectDir: string): Promise<AssetTags> {
+  return invoke<AssetTags>("list_asset_meta", { projectDir });
+}
+
+export function saveAssetMeta(
+  projectDir: string,
+  tags: AssetTags,
+): Promise<void> {
+  return invoke<void>("save_asset_meta", { projectDir, tags });
+}
+
+/** Local TeX distribution info about a package. */
+export interface TexPackageInfo {
+  installed: boolean;
+  description: string | null;
+}
+
+export function texPackageInfo(names: string[]): Promise<TexPackageInfo[]> {
+  return invoke<TexPackageInfo[]>("tex_package_info", { names });
 }
 
 export function synctexForward(

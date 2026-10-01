@@ -21,6 +21,9 @@ interface SettingsState {
   convertDoubleDollar: boolean;
   formatOnSave: boolean;
   mathPreviewEngine: "katex" | "off";
+  caretStyle: "line" | "block";
+  caretColor: "primary" | "custom";
+  caretCustomColor: string;
   reopenLastProject: boolean;
   autoIncludeNewFiles: boolean;
   /** Explicit version-control choice; null means auto. */
@@ -28,6 +31,8 @@ interface SettingsState {
   /** Whether the git binary is on PATH (part of startup gating). */
   gitAvailable: boolean;
   settingsDialogOpen: boolean;
+  /** The section the settings dialog opens on; null = last used. */
+  settingsSection: string | null;
   projectsRoot: string | null;
   panelLayout: Record<string, number> | null;
   hydrate: (settings: Settings) => void;
@@ -41,11 +46,18 @@ interface SettingsState {
   setConvertDoubleDollar: (enabled: boolean) => Promise<void>;
   setFormatOnSave: (enabled: boolean) => Promise<void>;
   setMathPreviewEngine: (engine: "katex" | "off") => Promise<void>;
+  setCaretStyle: (style: "line" | "block") => Promise<void>;
+  setCaretColor: (color: "primary" | "custom") => Promise<void>;
+  setCaretCustomColor: (color: string) => Promise<void>;
   setReopenLastProject: (enabled: boolean) => Promise<void>;
   setAutoIncludeNewFiles: (enabled: boolean) => Promise<void>;
   setVersionControl: (value: "git" | "snapshots") => Promise<void>;
   setGitAvailable: (available: boolean) => void;
   setSettingsDialogOpen: (open: boolean) => void;
+  /** Open the settings dialog, optionally on a specific section. */
+  openSettings: (section: string | null) => void;
+  /** Drop a targeted-open section (the user navigated away). */
+  clearSettingsSection: () => void;
   setProjectsRoot: (root: string | null) => void;
   persistPanelLayout: (layout: Record<string, number>) => void;
 }
@@ -55,6 +67,7 @@ const DEFAULT_FONT_SIZE = 14;
 export const DEFAULT_EDITOR_FONT = "system";
 export const DEFAULT_SYNTAX_THEME = "default";
 export const DEFAULT_MATH_PREVIEW_ENGINE = "katex";
+export const DEFAULT_CARET_CUSTOM_COLOR = "#e11d48";
 
 export const useSettingsStore = create<SettingsState>((set) => ({
   loaded: false,
@@ -68,11 +81,15 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   convertDoubleDollar: true,
   formatOnSave: true,
   mathPreviewEngine: DEFAULT_MATH_PREVIEW_ENGINE,
+  caretStyle: "line",
+  caretColor: "primary",
+  caretCustomColor: DEFAULT_CARET_CUSTOM_COLOR,
   reopenLastProject: true,
   autoIncludeNewFiles: true,
   versionControl: null,
   gitAvailable: false,
   settingsDialogOpen: false,
+  settingsSection: null,
   projectsRoot: null,
   panelLayout: null,
   hydrate: (settings) =>
@@ -89,6 +106,15 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       formatOnSave: settings.formatOnSave ?? true,
       mathPreviewEngine:
         settings.mathPreviewEngine === "off" ? "off" : DEFAULT_MATH_PREVIEW_ENGINE,
+      // Older builds stored "pulse"/"highlight"/"accent"; those map
+      // onto the current options.
+      caretStyle:
+        settings.caretStyle === "block" || settings.caretStyle === "highlight"
+          ? "block"
+          : "line",
+      caretColor: settings.caretColor === "custom" ? "custom" : "primary",
+      caretCustomColor:
+        settings.caretCustomColor ?? DEFAULT_CARET_CUSTOM_COLOR,
       reopenLastProject: settings.reopenLastProject ?? true,
       autoIncludeNewFiles: settings.autoIncludeNewFiles ?? true,
       versionControl:
@@ -135,6 +161,18 @@ export const useSettingsStore = create<SettingsState>((set) => ({
     set({ mathPreviewEngine: engine });
     await updatePreferences({ mathPreviewEngine: engine });
   },
+  setCaretStyle: async (style) => {
+    set({ caretStyle: style });
+    await updatePreferences({ caretStyle: style });
+  },
+  setCaretColor: async (color) => {
+    set({ caretColor: color });
+    await updatePreferences({ caretColor: color });
+  },
+  setCaretCustomColor: async (color) => {
+    set({ caretCustomColor: color });
+    await updatePreferences({ caretCustomColor: color });
+  },
   setReopenLastProject: async (enabled) => {
     set({ reopenLastProject: enabled });
     await updatePreferences({ reopenLastProject: enabled });
@@ -152,7 +190,14 @@ export const useSettingsStore = create<SettingsState>((set) => ({
     set({ spellcheckLanguage: lang });
     await persistSpellcheckLanguage(lang);
   },
-  setSettingsDialogOpen: (open) => set({ settingsDialogOpen: open }),
+  setSettingsDialogOpen: (open) =>
+    set(
+      open
+        ? { settingsDialogOpen: true }
+        : { settingsDialogOpen: false, settingsSection: null },
+    ),
+  openSettings: (section) => set({ settingsDialogOpen: true, settingsSection: section }),
+  clearSettingsSection: () => set({ settingsSection: null }),
   setProjectsRoot: (root) => set({ projectsRoot: root }),
   persistPanelLayout: (layout) => {
     const merged = {

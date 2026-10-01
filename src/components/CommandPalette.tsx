@@ -1,21 +1,33 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
+  AlertTriangle,
+  BookOpen,
   Camera,
   FileText,
   FolderOpen,
+  Image,
+  Images,
   Keyboard,
   MessageSquare,
+  Package,
   PanelLeft,
   PanelRight,
+  Pencil,
   Play,
   Save,
+  ScrollText,
+  Search,
   Settings,
+  Shapes,
   Sparkles,
+  TableProperties,
   WandSparkles,
   Zap,
 } from "lucide-react";
 import { exportPdfAs } from "@/lib/pdf-export";
 import { formatDocument } from "@/lib/editor-format";
+import { wrapFigure } from "@/lib/editor-figure";
+import { insertTikzSnippet, TIKZ_SNIPPETS } from "@/lib/tikz-snippets";
 import { addCommentAtCursor, addFileComment } from "@/lib/editor-comments";
 import { runPanelCommand } from "@/lib/panel-commands";
 import { fuzzyRank, type FuzzyItem } from "@/lib/fuzzy";
@@ -24,6 +36,7 @@ import { useDialogsStore } from "@/store/dialogs";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
+import { useUiStore } from "@/store/ui";
 import { cn } from "cn";
 
 interface Command {
@@ -60,6 +73,30 @@ export function CommandPalette() {
   const commands = useMemo<Command[]>(() => {
     const app: Command[] = [
       {
+        id: "mode-editor",
+        title: "Go to Editor",
+        icon: Pencil,
+        shortcut: "Cmd/Ctrl + Alt + 1",
+        keywords: "workspace project editor",
+        run: () => useUiStore.getState().setMode("editor"),
+      },
+      {
+        id: "mode-sources",
+        title: "Sources…",
+        icon: BookOpen,
+        shortcut: "Cmd/Ctrl + Alt + 2",
+        keywords: "workspace bibliography sources zotero settings",
+        run: () => useSettingsStore.getState().openSettings("bibliography"),
+      },
+      {
+        id: "mode-library",
+        title: "Go to Library",
+        icon: Images,
+        shortcut: "Cmd/Ctrl + Alt + 3",
+        keywords: "workspace assets global",
+        run: () => useUiStore.getState().setMode("library"),
+      },
+      {
         id: "settings",
         title: "Open settings",
         icon: Settings,
@@ -95,7 +132,7 @@ export function CommandPalette() {
         id: "format",
         title: "Format document",
         icon: WandSparkles,
-        shortcut: "Cmd/Ctrl + Shift + F",
+        shortcut: "Shift + Alt + F",
         run: () => formatDocument(),
       },
       {
@@ -163,6 +200,59 @@ export function CommandPalette() {
         keywords: "git snapshots history properties hide show",
         run: () => runPanelCommand("toggle-right"),
       },
+      {
+        id: "toggle-search",
+        title: "Search in project",
+        icon: Search,
+        shortcut: "Cmd/Ctrl + Shift + F",
+        keywords: "find grep across files",
+        run: () => runPanelCommand("toggle-search"),
+      },
+      {
+        id: "toggle-issues",
+        title: "Show issues",
+        icon: AlertTriangle,
+        keywords: "errors warnings problems hide show",
+        run: () => runPanelCommand("toggle-issues"),
+      },
+      {
+        id: "toggle-log",
+        title: "Show compile log",
+        icon: ScrollText,
+        keywords: "latexmk output hide show",
+        run: () => runPanelCommand("toggle-log"),
+      },
+      {
+        id: "insert-table",
+        title: "Insert table…",
+        icon: TableProperties,
+        shortcut: "Cmd/Ctrl + Shift + T",
+        keywords: "tabular booktabs rows columns skeleton",
+        run: () => useDialogsStore.getState().setTableDialogOpen(true),
+      },
+      {
+        id: "packages",
+        title: "Manage packages…",
+        icon: Package,
+        shortcut: "Cmd/Ctrl + Alt + P",
+        keywords: "ctan usepackage libraries install latex",
+        run: () => useDialogsStore.getState().setPackagesDialogOpen(true),
+      },
+      {
+        id: "wrap-figure",
+        title: "Wrap in figure",
+        icon: Image,
+        shortcut: "Cmd/Ctrl + Alt + G",
+        keywords: "includegraphics caption float graphic",
+        run: () => wrapFigure(),
+      },
+      ...TIKZ_SNIPPETS.map((snippet) => ({
+        id: `tikz-${snippet.id}`,
+        title: snippet.title,
+        icon: Shapes,
+        keywords: snippet.keywords,
+        run: () => insertTikzSnippet(snippet.id),
+      })),
       ...(versionControl === "snapshots"
         ? [
             {

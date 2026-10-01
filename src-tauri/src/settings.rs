@@ -13,10 +13,33 @@ pub struct RecentProject {
     pub path: String,
 }
 
+/// One reference source: where "Add from Sources…" searches. Bib
+/// sources point into the library folder; the Zotero kinds carry
+/// their connection details.
+#[derive(Serialize, Deserialize, Clone, Debug)]
+#[serde(rename_all = "camelCase")]
+pub struct SourceDef {
+    pub id: String,
+    /// "bib", "zotero-app", or "zotero-cloud".
+    pub kind: String,
+    pub enabled: bool,
+    pub name: Option<String>,
+    /// Library-relative path of a .bib file or a folder; None means
+    /// the whole library root. Bib sources only.
+    pub path: Option<String>,
+    /// Zotero cloud credentials; "zotero-cloud" sources only.
+    pub user_id: Option<String>,
+    pub api_key: Option<String>,
+}
+
 #[derive(Serialize, Deserialize, Clone, Debug, Default)]
 #[serde(rename_all = "camelCase", default)]
 pub struct Settings {
     pub projects_root: Option<String>,
+    /// The global library root (sources + assets shared across projects).
+    pub library_root: Option<String>,
+    /// The user's reference sources; seeded with the library itself.
+    pub sources: Vec<SourceDef>,
     pub recent_projects: Vec<RecentProject>,
     pub main_files: HashMap<String, String>,
     pub open_files: HashMap<String, Vec<String>>,
@@ -35,6 +58,12 @@ pub struct Settings {
     pub convert_double_dollar: Option<bool>,
     pub format_on_save: Option<bool>,
     pub math_preview_engine: Option<String>,
+    /// Text cursor style: "line" or "block".
+    pub caret_style: Option<String>,
+    /// Text cursor color: "primary" (theme) or "custom".
+    pub caret_color: Option<String>,
+    /// Hex color used when caret_color is "custom".
+    pub caret_custom_color: Option<String>,
     pub reopen_last_project: Option<bool>,
     pub auto_include_new_files: Option<bool>,
     /// "git" or "snapshots"; None means auto (git when installed).
@@ -91,11 +120,38 @@ pub fn update<T>(app: &AppHandle, f: impl FnOnce(&mut Settings) -> T) -> Result<
     Ok(out)
 }
 
+fn default_library_root() -> String {
+    let home = std::env::var("HOME")
+        .or_else(|_| std::env::var("USERPROFILE"))
+        .unwrap_or_else(|_| ".".into());
+    PathBuf::from(home)
+        .join("Documents")
+        .join("Polemic Library")
+        .to_string_lossy()
+        .to_string()
+}
+
 /// The settings with a guaranteed concrete projects root.
 pub fn effective(app: &AppHandle) -> Result<Settings, String> {
     update(app, |s| {
         if s.projects_root.is_none() {
             s.projects_root = Some(default_projects_root());
+        }
+        if s.library_root.is_none() {
+            s.library_root = Some(default_library_root());
+        }
+        // A fresh install starts with the library itself as the one
+        // reference source.
+        if s.sources.is_empty() {
+            s.sources = vec![SourceDef {
+                id: "library".to_string(),
+                kind: "bib".to_string(),
+                enabled: true,
+                name: Some("Polemic Library".to_string()),
+                path: None,
+                user_id: None,
+                api_key: None,
+            }];
         }
         s.clone()
     })

@@ -10,7 +10,7 @@ import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 
 /** Bottom-dock tools, selected by the bottom icons of the left rail. */
-export type IssuesTool = "issues" | "log";
+export type IssuesTool = "issues" | "log" | "search";
 
 function issueIcon(issue: CompileIssue) {
   if (issue.severity === "error") {
@@ -38,7 +38,7 @@ export function IssuesPanel({
   tool,
   onToggle,
 }: {
-  tool: IssuesTool;
+  tool: "issues" | "log";
   onToggle: () => void;
 }) {
   const issues = usePreviewStore((s) => s.issues);

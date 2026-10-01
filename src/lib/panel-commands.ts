@@ -3,7 +3,13 @@
  * and the command palette. The editor registers the handlers while it
  * is mounted (it owns the panel refs and toggle state).
  */
-export type PanelCommand = "toggle-sidebar" | "toggle-preview" | "toggle-right";
+export type PanelCommand =
+  | "toggle-sidebar"
+  | "toggle-preview"
+  | "toggle-right"
+  | "toggle-search"
+  | "toggle-issues"
+  | "toggle-log";
 
 const handlers = new Map<PanelCommand, () => void>();
 
