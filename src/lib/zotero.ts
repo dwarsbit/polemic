@@ -1,15 +1,16 @@
 /**
- * The Zotero connection layer: live queries against the Zotero 7
- * desktop server (localhost:23119, no key — the "local" source) and
+ * The Zotero connection layer: live queries against the Zotero
+ * desktop server (localhost:23119, no key — the "app" source) and
  * the Zotero Web API (api.zotero.org with user ID + API key — the
  * "cloud" source). No sync: searches hit Zotero directly and results
- * are converted at insert time (see zotero-convert.ts).
+ * are converted at insert time (see zotero-convert.ts). The desktop
+ * server drops webview requests (they carry an Origin header), so
+ * its requests go through the Rust-side zotero_local_fetch command.
  */
 
 import type { ZoteroItemData } from "./zotero-convert";
+import { zoteroLocalFetch } from "./tauri";
 
-/** Zotero 7's built-in server, when "Allow other applications…" is on. */
-const LOCAL_BASE = "http://localhost:23119/api";
 const WEB_BASE = "https://api.zotero.org";
 
 export interface ZoteroCollection {
@@ -58,10 +59,15 @@ function toItems(payload: unknown): ZoteroItemData[] {
 
 // --- Local (desktop Zotero) ------------------------------------------------
 
+/** One GET against the desktop server, through Rust. */
+async function localJson(path: string, query: string): Promise<unknown> {
+  return JSON.parse(await zoteroLocalFetch(path, query));
+}
+
 /** Is the Zotero desktop server reachable? */
 export async function zoteroLocalStatus(): Promise<boolean> {
   try {
-    await fetchJson(`${LOCAL_BASE}/users/0/items?limit=1`);
+    await localJson("users/0/items", "limit=1");
     return true;
   } catch {
     return false;
@@ -73,15 +79,15 @@ export async function zoteroLocalSearch(
   collection: string | null,
 ): Promise<ZoteroItemData[]> {
   const { params, collection: collectionKey } = itemParams(query, collection, 50);
-  const url =
+  const path =
     collectionKey === null
-      ? `${LOCAL_BASE}/users/0/items?${params}`
-      : `${LOCAL_BASE}/users/0/collections/${collectionKey}/items?${params}`;
-  return toItems(await fetchJson(url));
+      ? "users/0/items"
+      : `users/0/collections/${collectionKey}/items`;
+  return toItems(await localJson(path, params));
 }
 
 export async function zoteroLocalCollections(): Promise<ZoteroCollection[]> {
-  const payload = await fetchJson(`${LOCAL_BASE}/users/0/collections?v=3`);
+  const payload = await localJson("users/0/collections", "v=3");
   if (!Array.isArray(payload)) return [];
   return payload
     .filter((entry): entry is ZoteroResponseItem =>

@@ -8,6 +8,7 @@ mod settings;
 mod snapshots;
 mod spell;
 mod templates;
+mod zotero;
 
 use serde::{Deserialize, Serialize};
 use std::fs;
@@ -20,6 +21,7 @@ use library::{
     set_library_root, write_library_file,
 };
 use settings::{Settings, SettingsState, SourceDef};
+use zotero::zotero_local_fetch;
 
 #[derive(Serialize, Clone)]
 #[serde(rename_all = "camelCase")]
@@ -1510,6 +1512,7 @@ pub fn run() {    tauri::Builder::default()
             read_library_file,
             write_library_file,
             import_library_file,
+            zotero_local_fetch,
             create_project,
             list_templates,
             open_project,

@@ -352,6 +352,15 @@ export function importLibraryFile(source: string): Promise<string> {
   return invoke<string>("import_library_file", { source });
 }
 
+/**
+ * GET one path of the local Zotero API. Routed through Rust: Zotero
+ * drops connections that carry an Origin header, so the webview
+ * cannot fetch it directly.
+ */
+export function zoteroLocalFetch(path: string, query: string): Promise<string> {
+  return invoke<string>("zotero_local_fetch", { path, query });
+}
+
 export function createProjectEntry(
   projectDir: string,
   path: string,
