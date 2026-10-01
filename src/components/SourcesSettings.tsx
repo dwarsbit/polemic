@@ -39,13 +39,20 @@ import { useProjectStore } from "@/store/project";
 import { useUiStore } from "@/store/ui";
 import { cn } from "cn";
 
-/** A Zotero connection's state: pulsing while it initializes. */
-type ZoteroStatus = "checking" | "ok" | "error";
+/** A Zotero connection's state: pulsing while it initializes, gray
+ *  while the source is disabled. */
+type ZoteroStatus = "checking" | "ok" | "error" | "off";
 
 /** The status dot next to a Zotero source. */
 function Dot({ state }: { state: ZoteroStatus }) {
   const color =
-    state === "ok" ? "bg-emerald-500" : state === "error" ? "bg-rose-500" : "bg-muted-foreground/60";
+    state === "ok"
+      ? "bg-emerald-500"
+      : state === "error"
+        ? "bg-rose-500"
+        : state === "off"
+          ? "bg-muted-foreground/40"
+          : "bg-muted-foreground/60";
   return (
     <span className="relative flex size-2 shrink-0">
       {state === "checking" && (
@@ -77,6 +84,8 @@ function sourceSubtitle(
           : `The folder ${source.path}`;
     return entryCount === null ? where : `${where} · ${entryCount} entries`;
   }
+  // A disabled source is not searched, so its connection is moot.
+  if (!source.enabled) return "Disabled";
   if (source.kind === "zotero-app") {
     if (status === "checking") return "Checking…";
     if (status === "ok") return "Connected";
@@ -146,11 +155,14 @@ export function SourcesSettingsCard() {
     void listLibraryFiles()
       .then((files) => setAllBib(flattenBibPaths(files)))
       .catch(() => setAllBib([]));
-    // Probe every Zotero connection (also rechecks after edits),
-    // deferred past the commit so no state is set during it.
+    // Probe every enabled Zotero connection (also rechecks after
+    // edits), deferred past the commit so no state is set during it.
     const timer = setTimeout(() => {
       for (const source of sources) {
-        if (source.kind === "zotero-app" || source.kind === "zotero-cloud") {
+        if (
+          source.enabled &&
+          (source.kind === "zotero-app" || source.kind === "zotero-cloud")
+        ) {
           void probeSource(source);
         }
       }
@@ -273,7 +285,10 @@ export function SourcesSettingsCard() {
             const isExpanded = expanded.has(source.id);
             const isZotero =
               source.kind === "zotero-app" || source.kind === "zotero-cloud";
-            const status: ZoteroStatus = statuses[source.id] ?? "checking";
+            // A disabled source is gray, whatever its last check said.
+            const status: ZoteroStatus = source.enabled
+              ? statuses[source.id] ?? "checking"
+              : "off";
             return (
               <div key={source.id} className="py-2.5">
                 <div className="flex items-center gap-3">
@@ -294,8 +309,12 @@ export function SourcesSettingsCard() {
                       variant="ghost"
                       size="icon-sm"
                       className="shrink-0"
-                      title="Recheck the connection"
-                      disabled={status === "checking"}
+                      title={
+                        source.enabled
+                          ? "Recheck the connection"
+                          : "Enable the source to recheck the connection"
+                      }
+                      disabled={!source.enabled || status === "checking"}
                       onClick={() => void probeSource(source)}
                     >
                       <RefreshCw
