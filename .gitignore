@@ -31,3 +31,6 @@ src-tauri/gen/schemas
 *.tsbuildinfo
 vite.config.js
 vite.config.d.ts
+
+# Agent skills cache (npx skills)
+.agents/

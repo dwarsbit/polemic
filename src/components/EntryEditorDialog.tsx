@@ -21,6 +21,7 @@ import {
   REQUIRED_FIELDS,
   missingFields,
   suggestKey,
+  typeLabel,
   type EntryDraft,
 } from "@/lib/bib-entries";
 import { cn } from "cn";
@@ -134,13 +135,13 @@ export function EntryEditorDialog({
                 value={draft.type}
                 onValueChange={(type) => setDraft({ ...draft, type })}
               >
-                <SelectTrigger className="h-7 w-full text-xs">
+                <SelectTrigger className="h-7 w-full text-xs" title={draft.type}>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
                   {TYPES.map((type) => (
                     <SelectItem key={type} value={type}>
-                      {type}
+                      {typeLabel(type)}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -242,8 +243,8 @@ export function EntryEditorDialog({
           )}
           {missing.length > 0 && (
             <p className="text-xs text-amber-600 dark:text-amber-400">
-              Missing for {draft.type}: {missing.join(", ")} — a warning only,
-              saving works.
+              Missing for {typeLabel(draft.type)}: {missing.join(", ")} — a
+              warning only, saving works.
             </p>
           )}
         </div>

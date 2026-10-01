@@ -286,6 +286,61 @@ export function entryTitle(entry: Pick<BibEntry, "fields">): string {
   return title || (entry.fields.find((field) => field.name === "author")?.value ?? "");
 }
 
+/** Friendly names for the common BibTeX types; unknown types fall
+ *  back to the raw name. */
+export const TYPE_LABELS: Record<string, string> = {
+  article: "Journal article",
+  inproceedings: "Conference paper",
+  conference: "Conference paper",
+  incollection: "Book chapter",
+  book: "Book",
+  inbook: "Book section",
+  phdthesis: "PhD thesis",
+  mastersthesis: "Master's thesis",
+  techreport: "Technical report",
+  unpublished: "Unpublished",
+  proceedings: "Proceedings",
+  manual: "Manual",
+  online: "Online source",
+  dataset: "Dataset",
+  patent: "Patent",
+  misc: "Miscellaneous",
+};
+
+/** The entry type's friendly label (raw name when unknown). */
+export function typeLabel(type: string): string {
+  return TYPE_LABELS[type] ?? type;
+}
+
+/** The first author's surname, with "et al." for more. */
+function authorByline(entry: Pick<BibEntry, "fields">): string {
+  const raw =
+    entry.fields.find((field) => field.name === "author")?.value ??
+    entry.fields.find((field) => field.name === "editor")?.value;
+  if (raw === undefined) return "";
+  const names = displayValue(raw)
+    .split(/\s+and\s+/i)
+    .map((name) => name.trim())
+    .filter((name) => name.length > 0);
+  if (names.length === 0) return "";
+  const first = names[0];
+  const surname = first.includes(",")
+    ? first.split(",")[0].trim()
+    : (first.split(/\s+/).pop() ?? "");
+  return names.length > 1 ? `${surname} et al.` : surname;
+}
+
+/** The entry's byline: first author's surname and year, e.g.
+ *  "Knuth et al. · 1984". */
+export function entryByline(entry: Pick<BibEntry, "fields">): string {
+  const yearRaw =
+    entry.fields.find((field) => field.name === "year")?.value ??
+    entry.fields.find((field) => field.name === "date")?.value ??
+    "";
+  const year = displayValue(yearRaw).match(/\d{4}/)?.[0] ?? "";
+  return [authorByline(entry), year].filter((part) => part.length > 0).join(" · ");
+}
+
 /** Format a new entry to append to a .bib file. */
 export function formatEntry(
   type: string,

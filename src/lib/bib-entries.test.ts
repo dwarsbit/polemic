@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   displayValue,
+  entryByline,
   entryTitle,
   findMatching,
   formatEntry,
@@ -9,6 +10,7 @@ import {
   parseBibEntries,
   planEntryEdits,
   suggestKey,
+  typeLabel,
 } from "./bib-entries";
 import { applyEdits } from "./label-index";
 
@@ -213,5 +215,46 @@ describe("suggestKey", () => {
     expect(suggestKey("misc", [{ name: "year", value: "2001" }], [])).toBe(
       "misc2001",
     );
+  });
+});
+
+describe("typeLabel", () => {
+  it("maps the common types to friendly names", () => {
+    expect(typeLabel("article")).toBe("Journal article");
+    expect(typeLabel("inproceedings")).toBe("Conference paper");
+    expect(typeLabel("phdthesis")).toBe("PhD thesis");
+  });
+
+  it("passes unknown types through", () => {
+    expect(typeLabel("customthing")).toBe("customthing");
+  });
+});
+
+describe("entryByline", () => {
+  it("gives the surname, et al., and the year", () => {
+    const { entries } = parseBibEntries(source);
+    const knuth = entries.find((entry) => entry.key === "knuth84")!;
+    expect(entryByline(knuth)).toBe("Knuth · 1984");
+  });
+
+  it("uses a bare surname for single authors", () => {
+    const { entries } = parseBibEntries(source);
+    const lamport = entries.find((entry) => entry.key === "lamport94")!;
+    expect(entryByline(lamport)).toBe("Lamport · 1994");
+  });
+
+  it("splits authors on 'and' and reads years from date fields", () => {
+    const entry = {
+      fields: [
+        { name: "author", value: "Doe, Jane and Smith, John" },
+        { name: "date", value: "2021-05-01" },
+      ],
+    };
+    expect(entryByline(entry as never)).toBe("Doe et al. · 2021");
+  });
+
+  it("is empty without author or year", () => {
+    const entry = { fields: [{ name: "title", value: "Only a title" }] };
+    expect(entryByline(entry as never)).toBe("");
   });
 });
