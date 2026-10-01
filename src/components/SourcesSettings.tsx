@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { open as openDialog } from "@tauri-apps/plugin-dialog";
 import {
   BookOpen,
@@ -9,6 +9,7 @@ import {
   FolderOpen,
   Pencil,
   Plus,
+  RefreshCw,
   Trash2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -27,7 +28,7 @@ import {
   importLibraryFile,
   listLibraryFiles,
 } from "@/lib/tauri";
-import { zoteroLocalStatus } from "@/lib/zotero";
+import { zoteroLocalStatus, zoteroWebValidateKey } from "@/lib/zotero";
 import {
   bibSourceFiles,
   sourceName,
@@ -38,21 +39,35 @@ import { useProjectStore } from "@/store/project";
 import { useUiStore } from "@/store/ui";
 import { cn } from "cn";
 
+/** A Zotero connection's state: pulsing while it initializes. */
+type ZoteroStatus = "checking" | "ok" | "error";
+
 /** The status dot next to a Zotero source. */
-function Dot({ ok }: { ok: boolean | null }) {
+function Dot({ state }: { state: ZoteroStatus }) {
+  const color =
+    state === "ok" ? "bg-emerald-500" : state === "error" ? "bg-rose-500" : "bg-muted-foreground/60";
   return (
-    <span
-      className={cn(
-        "size-2 shrink-0 rounded-full",
-        ok === null ? "bg-muted-foreground/40" : ok ? "bg-emerald-500" : "bg-amber-500",
+    <span className="relative flex size-2 shrink-0">
+      {state === "checking" && (
+        <span
+          className={cn(
+            "absolute inline-flex h-full w-full animate-ping rounded-full opacity-60",
+            color,
+          )}
+        />
       )}
-    />
+      <span className={cn("relative inline-flex size-2 rounded-full", color)} />
+    </span>
   );
 }
 
 const KIND_ICONS = { bib: BookOpen, "zotero-app": Boxes, "zotero-cloud": Cloud };
 
-function sourceSubtitle(source: SourceDef, entryCount: number | null): string {
+function sourceSubtitle(
+  source: SourceDef,
+  entryCount: number | null,
+  status: ZoteroStatus,
+): string {
   if (source.kind === "bib") {
     const where =
       source.path === null || source.path.length === 0
@@ -62,15 +77,37 @@ function sourceSubtitle(source: SourceDef, entryCount: number | null): string {
           : `The folder ${source.path}`;
     return entryCount === null ? where : `${where} · ${entryCount} entries`;
   }
-  if (source.kind === "zotero-app") return "The Zotero app on this computer (live, no key)";
-  const userId = source.userId ?? "";
-  return userId.length > 0 ? `Your library at zotero.org · User ${userId}` : "Not connected";
+  if (source.kind === "zotero-app") {
+    if (status === "checking") return "Checking…";
+    if (status === "ok") return "Connected";
+    return "Not detected — enable “Allow other applications…” in Zotero's settings";
+  }
+  const configured =
+    (source.userId ?? "").length > 0 && (source.apiKey ?? "").length > 0;
+  if (!configured) return "Not connected";
+  if (status === "checking") return `Checking · User ${source.userId}`;
+  if (status === "ok") return `Connected · User ${source.userId}`;
+  return "Key rejected — check the API key";
+}
+
+/** Probe a Zotero connection: app server reachability, or key
+ *  validity for cloud sources. */
+async function checkZotero(source: SourceDef): Promise<ZoteroStatus> {
+  if (source.kind === "zotero-app") {
+    return (await zoteroLocalStatus()) ? "ok" : "error";
+  }
+  if ((source.userId ?? "").length === 0 || (source.apiKey ?? "").length === 0) {
+    return "error";
+  }
+  return (await zoteroWebValidateKey(source.apiKey ?? "")) !== null ? "ok" : "error";
 }
 
 /**
  * The Bibliography section's source list: every reference source the
  * "Add from Sources…" search covers. Add, enable, edit, or remove;
- * bib sources open their files in the editor.
+ * bib sources open their files in the editor. Zotero rows carry a
+ * live connection status: pulsing while checking, green when set
+ * up, red on errors, with a refresh button per row.
  */
 export function SourcesSettingsCard() {
   const sources = useSourcesStore((s) => s.sources);
@@ -85,25 +122,41 @@ export function SourcesSettingsCard() {
   const [allBib, setAllBib] = useState<string[]>([]);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [message, setMessage] = useState<string | null>(null);
-  const [zoteroRunning, setZoteroRunning] = useState<boolean | null>(null);
+  const [statuses, setStatuses] = useState<Record<string, ZoteroStatus>>({});
   const [cloudDialog, setCloudDialog] = useState<{
     open: boolean;
     source: SourceDef | null;
   }>({ open: false, source: null });
+
+  /** Probe one Zotero connection; the dot pulses while it runs. */
+  const probeSource = useCallback(async (source: SourceDef) => {
+    if (source.kind !== "zotero-app" && source.kind !== "zotero-cloud") return;
+    setStatuses((prev) => ({ ...prev, [source.id]: "checking" }));
+    const status = await checkZotero(source);
+    setStatuses((prev) => ({ ...prev, [source.id]: status }));
+  }, []);
 
   // Load the source list and the library's file listing.
   useEffect(() => {
     void useSourcesStore.getState().refresh();
   }, []);
   useEffect(() => {
-    if (!loading) {
-      void getLibraryRoot().then((root) => setLibraryRoot(root.path));
-      void listLibraryFiles()
-        .then((files) => setAllBib(flattenBibPaths(files)))
-        .catch(() => setAllBib([]));
-      void zoteroLocalStatus().then((running) => setZoteroRunning(running));
-    }
-  }, [loading, sources.length]);
+    if (loading) return;
+    void getLibraryRoot().then((root) => setLibraryRoot(root.path));
+    void listLibraryFiles()
+      .then((files) => setAllBib(flattenBibPaths(files)))
+      .catch(() => setAllBib([]));
+    // Probe every Zotero connection (also rechecks after edits),
+    // deferred past the commit so no state is set during it.
+    const timer = setTimeout(() => {
+      for (const source of sources) {
+        if (source.kind === "zotero-app" || source.kind === "zotero-cloud") {
+          void probeSource(source);
+        }
+      }
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [loading, sources, probeSource]);
 
   const hasZoteroApp = useMemo(
     () => sources.some((source) => source.kind === "zotero-app"),
@@ -218,6 +271,9 @@ export function SourcesSettingsCard() {
                 : null;
             const Icon = KIND_ICONS[source.kind];
             const isExpanded = expanded.has(source.id);
+            const isZotero =
+              source.kind === "zotero-app" || source.kind === "zotero-cloud";
+            const status: ZoteroStatus = statuses[source.id] ?? "checking";
             return (
               <div key={source.id} className="py-2.5">
                 <div className="flex items-center gap-3">
@@ -226,15 +282,30 @@ export function SourcesSettingsCard() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="flex items-center gap-1.5 text-sm font-medium">
-                      {source.kind === "zotero-app" && (
-                        <Dot ok={zoteroRunning} />
-                      )}
+                      {isZotero && <Dot state={status} />}
                       {sourceName(source)}
                     </p>
                     <p className="truncate text-xs text-muted-foreground">
-                      {sourceSubtitle(source, entryCount)}
+                      {sourceSubtitle(source, entryCount, status)}
                     </p>
                   </div>
+                  {isZotero && (
+                    <Button
+                      variant="ghost"
+                      size="icon-sm"
+                      className="shrink-0"
+                      title="Recheck the connection"
+                      disabled={status === "checking"}
+                      onClick={() => void probeSource(source)}
+                    >
+                      <RefreshCw
+                        className={cn(
+                          "size-3.5",
+                          status === "checking" && "animate-spin",
+                        )}
+                      />
+                    </Button>
+                  )}
                   {source.kind === "bib" && files.length === 1 && (
                     <Button
                       variant="ghost"
