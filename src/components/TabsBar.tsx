@@ -11,8 +11,6 @@ import {
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/editor";
 import {
-  isLibraryPath,
-  libraryRelative,
   useProjectStore,
 } from "@/store/project";
 
@@ -123,14 +121,7 @@ export function TabsBar() {
                 title={file}
                 onClick={() => void openFile(file)}
               >
-                {isLibraryPath(file) && (
-                  <span className="mr-1 rounded bg-accent px-1 text-[9px] uppercase tracking-wide text-muted-foreground">
-                    lib
-                  </span>
-                )}
-                {(isLibraryPath(file) ? libraryRelative(file) : file)
-                  .split("/")
-                  .pop()}
+                {file.split("/").pop()}
               </button>
               <span
                 className={cn(

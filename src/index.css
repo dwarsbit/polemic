@@ -385,3 +385,294 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   position: absolute;
   animation: loading-bar 1.4s ease-in-out infinite;
 }
+
+/* ------------------------------------------------------------------ */
+/* Visual (.tex) editor — the rich text face */
+
+/* The document itself: a paper-like reading column. */
+.visual-editor {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--foreground);
+}
+.visual-editor:focus {
+  outline: none;
+}
+.visual-editor h1,
+.visual-editor h2,
+.visual-editor h3,
+.visual-editor h4,
+.visual-editor h5,
+.visual-editor h6 {
+  font-weight: 600;
+  margin: 1.4em 0 0.5em;
+  line-height: 1.3;
+}
+.visual-editor h1 { font-size: 1.5rem; }
+.visual-editor h2 { font-size: 1.3rem; }
+.visual-editor h3 { font-size: 1.15rem; }
+.visual-editor h4 { font-size: 1.05rem; }
+.visual-editor h5,
+.visual-editor h6 { font-size: 1rem; }
+.visual-editor p {
+  margin: 0.6em 0;
+}
+.visual-editor ul,
+.visual-editor ol {
+  margin: 0.6em 0;
+  padding-left: 1.5rem;
+}
+.visual-editor li > p {
+  margin: 0.2em 0;
+}
+.visual-editor pre {
+  margin: 0;
+}
+
+/* Comments: faded, never mistaken for content. */
+.visual-editor .vis-comment {
+  color: var(--muted-foreground);
+  font-style: italic;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* Math nodes: rendered by KaTeX; the raw source shows on selection
+   (handled by the node views). A quiet base when KaTeX fails. */
+.visual-editor .vis-math .vis-math-error {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--muted-foreground);
+}
+.visual-editor .vis-math .katex-display {
+  margin: 0.6em 0;
+}
+.visual-editor .vis-math-block {
+  text-align: center;
+}
+
+/* Raw TeX fallbacks: gray monospace, clearly "source". */
+.visual-editor .vis-raw-src {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--muted-foreground);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.visual-editor .vis-raw-block,
+.visual-editor .vis-figure,
+.visual-editor .vis-preamble {
+  margin: 0.5em 0;
+}
+.visual-editor .vis-raw-inline .vis-raw-src {
+  font-size: 0.9em;
+  background: color-mix(in oklab, var(--muted) 60%, transparent);
+  border-radius: 4px;
+  padding: 0 3px;
+}
+
+/* The in-place raw editor (atom node views): a source card. */
+.visual-editor .vis-raw-edit {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: color-mix(in oklab, var(--muted) 45%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  min-width: 3rem;
+}
+/* Inline raw editors (inline math, inline TeX): flow with the line so
+   editing never shifts it — no block break, no big padding. */
+.visual-editor .vis-math-inline-node .vis-raw-edit,
+.visual-editor .vis-raw-inline .vis-raw-edit {
+  display: inline-block;
+  min-width: 3rem;
+  padding: 0 0.35rem;
+  line-height: 1.45em;
+  vertical-align: baseline;
+  border-radius: 4px;
+}
+/* Focused raw editor: the border turns primary — no outline rings. */
+.visual-editor .vis-raw-edit:focus {
+  border-color: color-mix(in oklab, var(--primary) 45%, transparent);
+}
+
+/* Node selection (atoms show their raw editor on selection): a quiet
+   background tint instead of a ring. */
+.visual-editor .vis-selected {
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
+/* Citation / reference / label pills. */
+.visual-editor .vis-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  padding: 0 5px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--accent) 50%, transparent);
+  color: var(--accent-foreground);
+  white-space: nowrap;
+}
+.visual-editor .vis-pill-icon {
+  font-weight: 700;
+  color: var(--muted-foreground);
+}
+
+/* Figure cards: thumbnail with a caption line. */
+.visual-editor .vis-figure-card {
+  margin: 0;
+}
+.visual-editor .vis-figure-frame {
+  display: flex;
+  justify-content: center;
+  background: color-mix(in oklab, var(--muted) 40%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  min-height: 3rem;
+}
+.visual-editor .vis-figure-img {
+  max-width: 100%;
+  max-height: 14rem;
+  object-fit: contain;
+}
+.visual-editor .vis-figure-frame .vis-figure-img:not([src]),
+.visual-editor .vis-figure-frame .vis-figure-img[src=""] {
+  visibility: hidden;
+}
+.visual-editor .vis-figure-card figcaption {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  margin-top: 0.35rem;
+  font-size: 0.85em;
+  color: var(--muted-foreground);
+}
+.visual-editor .vis-figure-caption {
+  color: var(--foreground);
+}
+
+/* Preamble: a slim summary bar; the raw remainder expands below. */
+.visual-editor .vis-preamble-card {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: color-mix(in oklab, var(--card) 60%, transparent);
+  overflow: hidden;
+}
+.visual-editor .vis-preamble-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.visual-editor .vis-preamble-bar:hover {
+  color: var(--foreground);
+}
+.visual-editor .vis-preamble-chevron {
+  margin-left: auto;
+  transition: transform 120ms ease;
+  font-size: 0.7rem;
+}
+.visual-editor .vis-preamble-chevron.open {
+  transform: rotate(90deg);
+}
+.visual-editor .vis-preamble-rest {
+  padding: 0.4rem 0.6rem;
+  border-top: 1px dashed var(--border);
+}
+
+/* Title card (the rendered \maketitle). */
+.visual-editor .vis-title-card {
+  margin: 0.5em 0 1em;
+  padding: 1rem 1.25rem 0.9rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: color-mix(in oklab, var(--card) 60%, transparent);
+}
+.visual-editor .vis-title-main {
+  margin-bottom: 0.4rem;
+}
+.visual-editor .vis-title-pills {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+/* The title reads as plain text until hovered; click edits in place. */
+.visual-editor .vis-title-pill.vis-title-edit {
+  background: transparent;
+  border-color: transparent;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--foreground);
+  padding: 0.1rem 0.4rem;
+}
+.visual-editor .vis-title-pill.vis-title-edit:hover {
+  border-color: var(--border);
+}
+.visual-editor .vis-title-input.vis-title-input-lg {
+  font-size: 1.3rem;
+  font-weight: 600;
+  width: 16rem;
+}
+.visual-editor .vis-title-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--accent) 50%, transparent);
+  color: var(--accent-foreground);
+  font-size: 0.85rem;
+  cursor: text;
+}
+.visual-editor .vis-title-pill:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.visual-editor .vis-title-pill-empty {
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+.visual-editor .vis-title-icon {
+  display: inline-flex;
+  color: var(--muted-foreground);
+}
+.visual-editor .vis-title-icon svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+.visual-editor .vis-title-input {
+  font: inherit;
+  width: 11rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--primary);
+  background: var(--card);
+  color: var(--foreground);
+  outline: none;
+}
+
+/* No focus outlines anywhere in the visual editor: neither the
+   WebKit default on the contenteditable nor on node-view buttons. */
+.visual-editor :focus,
+.visual-editor .ProseMirror-focused {
+  outline: none;
+}

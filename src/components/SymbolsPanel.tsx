@@ -41,7 +41,7 @@ export function SymbolsPanel({
                   type="button"
                   title={symbol.label ?? symbol.insert}
                   className="flex h-8 items-center justify-center rounded border border-transparent text-base hover:border-border hover:bg-accent"
-                  onClick={() => insertAtCursor(symbol.insert, symbol.cursorOffset)}
+                  onClick={() => insertAtCursor(symbol.insert, symbol.cursorOffset, { asMath: true })}
                 >
                   {symbol.glyph}
                 </button>

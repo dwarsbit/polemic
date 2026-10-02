@@ -10,7 +10,7 @@ import {
 
 const SHORTCUTS: [string, string][] = [
   ["Cmd/Ctrl + P", "Open the command palette"],
-  ["Cmd/Ctrl + Alt + 1/2/3", "Switch workspace: Editor / Sources settings / Library"],
+  ["Cmd/Ctrl + Alt + 2", "Open the Sources settings"],
   ["Cmd/Ctrl + S", "Save and compile"],
   ["Cmd/Ctrl + C", "Copy the current line (when nothing is selected)"],
   ["Cmd/Ctrl + X", "Cut the current line (when nothing is selected)"],

@@ -3,7 +3,6 @@ mod git;
 mod logparse;
 mod comments;
 mod assets;
-mod library;
 mod settings;
 mod snapshots;
 mod spell;
@@ -15,11 +14,7 @@ use std::fs;
 use std::process::Command;
 
 use tauri::Manager;
-use files::FileEntry;
-use library::{
-    get_library_root, import_library_file, list_library_files, read_library_file,
-    set_library_root, write_library_file,
-};
+use files::{read_external_file, list_bib_files, FileEntry};
 use settings::{Settings, SettingsState, SourceDef};
 use zotero::zotero_local_fetch;
 
@@ -1191,13 +1186,6 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
         true,
         Some("CmdOrCtrl+Alt+2"),
     )?;
-    let mode_library = MenuItem::with_id(
-        handle,
-        "mode_library",
-        "Go to Library",
-        true,
-        Some("CmdOrCtrl+Alt+3"),
-    )?;
 
     // The native Edit menu: its predefined items deliver Cmd+X/C/V and
     // friends to the focused webview (the custom menu replaced the
@@ -1254,7 +1242,6 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
         let view_menu = SubmenuBuilder::new(handle, "View")
             .item(&mode_editor)
             .item(&sources)
-            .item(&mode_library)
             .separator()
             .item(&toggle_sidebar)
             .item(&toggle_preview)
@@ -1296,7 +1283,6 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .separator()
             .item(&mode_editor)
             .item(&sources)
-            .item(&mode_library)
             .separator()
             .item(&search)
             .item(&issues)
@@ -1365,7 +1351,6 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             "packages" => "menu://packages",
             "mode_editor" => "menu://mode-editor",
             "sources" => "menu://sources",
-            "mode_library" => "menu://mode-library",
             "export_pdf" => "menu://export-pdf",
             "reveal_build" => "menu://reveal-build",
             "settings" => "menu://settings",
@@ -1506,12 +1491,8 @@ pub fn run() {    tauri::Builder::default()
             detect_tex,
             get_settings,
             set_projects_root,
-            get_library_root,
-            set_library_root,
-            list_library_files,
-            read_library_file,
-            write_library_file,
-            import_library_file,
+            read_external_file,
+            list_bib_files,
             zotero_local_fetch,
             create_project,
             list_templates,

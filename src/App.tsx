@@ -2,9 +2,9 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { CommandPalette } from "@/components/CommandPalette";
 import { TableDialog } from "@/components/TableDialog";
+import { DocumentSettingsDialog } from "@/components/DocumentSettingsDialog";
 import { PackagesDialog } from "@/components/PackagesDialog";
 import { EditorView } from "@/components/EditorView";
-import { BibWorkspaceView } from "@/components/BibWorkspaceView";
 import { ProjectsView } from "@/components/ProjectsView";
 import { TopBar } from "@/components/TopBar";
 import { LoadingScreen } from "@/components/LoadingScreen";
@@ -22,16 +22,11 @@ import { useProjectStore } from "@/store/project";
 import { usePreviewStore } from "@/store/preview";
 import { applySettingsSideEffects, useSettingsStore } from "@/store/settings";
 import { useDialogsStore } from "@/store/dialogs";
-import { useUiStore } from "@/store/ui";
 import { cn } from "cn";
 
 function App() {
   const hasProject = useProjectStore((s) => s.project !== null);
-  const hasLibraryTabs = useProjectStore((s) =>
-    s.openFiles.some((file) => file.startsWith("library:")),
-  );
   const openProject = useProjectStore((s) => s.openProject);
-  const mode = useUiStore((s) => s.mode);
   const [startupDone, setStartupDone] = useState(false);
   // Keep the splash up for at least 2s so it never flashes on fast startups.
   const [splashMinElapsed, setSplashMinElapsed] = useState(false);
@@ -50,6 +45,10 @@ function App() {
   const packagesDialogOpen = useDialogsStore((s) => s.packagesDialogOpen);
   const setPackagesDialogOpen = useDialogsStore(
     (s) => s.setPackagesDialogOpen,
+  );
+  const documentSettingsOpen = useDialogsStore((s) => s.documentSettingsOpen);
+  const setDocumentSettingsOpen = useDialogsStore(
+    (s) => s.setDocumentSettingsOpen,
   );
   const paletteOpen = useDialogsStore((s) => s.paletteOpen);
 
@@ -73,11 +72,11 @@ function App() {
           try {
             await openProject(settings.lastProjectPath);
           } catch {
-            // Project unavailable: start at the library.
+            // Project unavailable: start at the projects view.
           }
         }
       } catch {
-        // Settings unavailable: start at the library.
+        // Settings unavailable: start at the projects view.
       }
       if (!cancelled) setStartupDone(true);
     })();
@@ -225,18 +224,10 @@ function App() {
             },
           ],
           [
-            "menu://mode-editor",
-            () => useUiStore.getState().setMode("editor"),
-          ],
-          [
             "menu://sources",
             () => {
               useSettingsStore.getState().openSettings("bibliography");
             },
-          ],
-          [
-            "menu://mode-library",
-            () => useUiStore.getState().setMode("library"),
           ],
           [
             "menu://new-project",
@@ -295,15 +286,9 @@ function App() {
       }
       if ((event.metaKey || event.ctrlKey) && event.altKey) {
         const index = Number(event.key) - 1;
-        if (index === 0) {
-          event.preventDefault();
-          useUiStore.getState().setMode("editor");
-        } else if (index === 1) {
+        if (index === 1) {
           event.preventDefault();
           useSettingsStore.getState().openSettings("bibliography");
-        } else if (index === 2) {
-          event.preventDefault();
-          useUiStore.getState().setMode("library");
         }
       }
     };
@@ -324,19 +309,7 @@ function App() {
         >
           <TopBar />
           <div className="min-h-0 flex-1">
-            {mode === "library" ? (
-              <div className="flex h-full items-center justify-center bg-background">
-                <div className="rounded-xl border bg-card px-6 py-4 text-center text-sm text-muted-foreground shadow-sm">
-                  The global asset library is coming soon.
-                </div>
-              </div>
-            ) : hasProject ? (
-              <EditorView />
-            ) : hasLibraryTabs ? (
-              <BibWorkspaceView />
-            ) : (
-              <ProjectsView />
-            )}
+            {hasProject ? <EditorView /> : <ProjectsView />}
           </div>
         </div>
       )}
@@ -347,6 +320,10 @@ function App() {
       <PackagesDialog
         open={packagesDialogOpen}
         onOpenChange={setPackagesDialogOpen}
+      />
+      <DocumentSettingsDialog
+        open={documentSettingsOpen}
+        onOpenChange={setDocumentSettingsOpen}
       />
       {paletteOpen && <CommandPalette />}
     </QueryClientProvider>

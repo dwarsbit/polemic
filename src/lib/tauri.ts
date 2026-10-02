@@ -16,15 +16,16 @@ export interface RecentProject {
   path: string;
 }
 
-/** A reference source: a bib file/folder in the library, or a Zotero
- *  connection. Searched by "Add from Sources…" when enabled. */
+/** A reference source: a .bib file/folder anywhere on the filesystem
+ *  (referenced in place), or a Zotero connection. Searched by
+ *  "Add from Sources…" when enabled. */
 export interface SourceDef {
   id: string;
   kind: "bib" | "zotero-app" | "zotero-cloud";
   enabled: boolean;
   name: string | null;
-  /** Library-relative path of a .bib file or folder; null = the
-   *  whole library root. Bib sources only. */
+  /** Absolute path of a .bib file or a folder containing them.
+   *  Bib sources only. */
   path: string | null;
   /** Zotero cloud credentials; zotero-cloud sources only. */
   userId: string | null;
@@ -33,8 +34,6 @@ export interface SourceDef {
 
 export interface Settings {
   projectsRoot: string;
-  /** The global library root (sources and assets across projects). */
-  libraryRoot: string | null;
   /** The user's reference sources (see SourceDef). */
   sources: SourceDef[];
   recentProjects: RecentProject[];
@@ -325,31 +324,16 @@ export function writeProjectFile(
   return invoke<void>("write_project_file", { projectDir, path, content });
 }
 
-/** The global library root, created when missing. */
-export function getLibraryRoot(): Promise<{ path: string }> {
-  return invoke<{ path: string }>("get_library_root");
+/** Read an arbitrary user-chosen file (the read-only side of bib
+ *  sources, which live anywhere on the filesystem). */
+export function readExternalFile(path: string): Promise<string> {
+  return invoke<string>("read_external_file", { path });
 }
 
-export function setLibraryRoot(path: string): Promise<void> {
-  return invoke<void>("set_library_root", { path });
-}
-
-export function listLibraryFiles(): Promise<FileEntry[]> {
-  return invoke<FileEntry[]>("list_library_files");
-}
-
-export function readLibraryFile(path: string): Promise<string> {
-  return invoke<string>("read_library_file", { path });
-}
-
-export function writeLibraryFile(path: string, content: string): Promise<void> {
-  return invoke<void>("write_library_file", { path, content });
-}
-
-/** Copy a file from anywhere into the library root; returns the
- *  library-relative destination path. */
-export function importLibraryFile(source: string): Promise<string> {
-  return invoke<string>("import_library_file", { source });
+/** Every .bib file under a folder (recursively), or the file itself
+ *  when `path` points at one. */
+export function listBibFiles(path: string): Promise<string[]> {
+  return invoke<string[]>("list_bib_files", { path });
 }
 
 /**

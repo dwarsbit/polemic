@@ -3,11 +3,7 @@ import { Check, Loader2, TriangleAlert } from "lucide-react";
 import { detectTex } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
-import {
-  isLibraryPath,
-  libraryRelative,
-  useProjectStore,
-} from "@/store/project";
+import { useProjectStore } from "@/store/project";
 
 function wordCount(source: string): number {
   const stripped = source
@@ -63,11 +59,7 @@ export function StatusBar() {
     <footer className="flex h-8 shrink-0 items-center justify-between px-4 text-[11px] text-muted-foreground">
       <div className="flex min-w-0 items-center gap-3">
         <span className="truncate">
-          {activeFile === null
-            ? "No file open"
-            : isLibraryPath(activeFile)
-              ? `Library · ${libraryRelative(activeFile).split("/").pop()}`
-              : activeFile}
+          {activeFile === null ? "No file open" : activeFile}
         </span>
         {activeFile !== null && (
           <span className="shrink-0 tabular-nums">

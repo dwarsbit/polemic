@@ -1,6 +1,6 @@
 import logo from "../../assets/polemic-logo.svg";
 
-/** Splash shown until the app knows whether to show library or editor. */
+/** Splash shown until the app knows whether a project reopens. */
 export function LoadingScreen() {
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-4 bg-background text-foreground">

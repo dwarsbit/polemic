@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import {
   AlertTriangle,
   BookOpen,
+  FileCog,
   Folder,
   Images,
   ListTree,
@@ -95,7 +96,8 @@ export function LeftRail({
           </RailButton>
         );
       })}
-      {/* An action, not a panel: opens the package manager dialog. */}
+      {/* Actions, not panels: the package manager and document settings
+          dialogs. */}
       <div className="my-1 w-5 border-t" />
       <RailButton
         label="Manage packages (Cmd/Ctrl + Alt + P)"
@@ -105,6 +107,15 @@ export function LeftRail({
         }
       >
         <Package className="size-4" />
+      </RailButton>
+      <RailButton
+        label="Document settings (class, paper, title)"
+        active={false}
+        onClick={() =>
+          useDialogsStore.getState().setDocumentSettingsOpen(true)
+        }
+      >
+        <FileCog className="size-4" />
       </RailButton>
       <div className="mt-auto flex flex-col items-center gap-1.5">
         {ISSUE_TOOLS.map((tool) => {

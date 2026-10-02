@@ -492,7 +492,7 @@ export function SettingsDialog({
               label: "Sources",
               description:
                 "Where \"Add from Sources…\" searches: .bib files and Zotero connections.",
-              keywords: "zotero bibtex bib references citations library",
+              keywords: "zotero bibtex bib references citations sources",
               control: null,
             },
           ],

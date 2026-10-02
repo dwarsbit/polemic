@@ -9,32 +9,11 @@ import { isTauri } from "@/lib/tauri";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 import { useSettingsStore } from "@/store/settings";
-import { useUiStore, type AppMode } from "@/store/ui";
-import { cn } from "cn";
-
-/** The workspace modes; Library lands with the global asset view. */
-const MODES: { id: AppMode; label: string; enabled: boolean; title: string }[] = [
-  {
-    id: "editor",
-    label: "Editor",
-    enabled: true,
-    title: "Write, compile, revise (Editor workspace)",
-  },
-  {
-    id: "library",
-    label: "Library",
-    enabled: false,
-    title: "Coming soon: the global asset library",
-  },
-];
-
 /**
- * The persistent window header: the workspace switch on the left, the
- * project controls (name, rename, switch, compile) when the editor
- * workspace is active and a project is open.
+ * The persistent window header: the project controls (name, rename,
+ * switch, compile) when a project is open.
  */
 export function TopBar() {
-  const mode = useUiStore((s) => s.mode);
   const project = useProjectStore((s) => s.project);
   const status = usePreviewStore((s) => s.status);
   const compileNow = usePreviewStore((s) => s.compileNow);
@@ -46,7 +25,7 @@ export function TopBar() {
   const [name, setName] = useState("");
   const [renameError, setRenameError] = useState<string | null>(null);
 
-  const showProjectControls = mode === "editor" && project !== null;
+  const showProjectControls = project !== null;
   const panelLayout = useSettingsStore((s) => s.panelLayout);
   const previewVisible = panelLayout?.["preview-visible"] !== 0;
   const togglePreview = () =>
@@ -88,32 +67,6 @@ export function TopBar() {
       }}
     >
       <div className="flex min-w-0 items-center gap-3 pl-4">
-        <div
-          className="flex shrink-0 items-center rounded-lg bg-accent/50 p-0.5"
-          role="tablist"
-          aria-label="Workspace"
-        >
-          {MODES.map((m) => (
-            <button
-              key={m.id}
-              type="button"
-              role="tab"
-              aria-selected={mode === m.id}
-              disabled={!m.enabled}
-              title={m.title}
-              className={cn(
-                "rounded-md px-2 py-0.5 text-xs font-medium transition-colors",
-                mode === m.id
-                  ? "bg-card text-foreground shadow-sm"
-                  : "text-muted-foreground hover:text-foreground",
-                !m.enabled && "cursor-default opacity-50",
-              )}
-              onClick={() => useUiStore.getState().setMode(m.id)}
-            >
-              {m.label}
-            </button>
-          ))}
-        </div>
         {showProjectControls && (
           <div className="flex min-w-0 items-center gap-1.5">
             {renaming ? (
@@ -176,15 +129,14 @@ export function TopBar() {
       </div>
       {/* The Visual/Code switch sits in the window's center; the
           pointer-events wrapper keeps empty space clickable. */}
-      {mode === "editor" && (
-        <div className="pointer-events-none absolute inset-x-0 top-0 flex h-full items-center justify-center">
-          <div className="pointer-events-auto">
-            <EditorFaceToggle />
-          </div>
+      {/* The Visual/Code switch sits in the window's center; the
+          pointer-events wrapper keeps empty space clickable. */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 flex h-full items-center justify-center">
+        <div className="pointer-events-auto">
+          <EditorFaceToggle />
         </div>
-      )}
-      {mode === "editor" ? (
-        <div className="flex items-center gap-2 pr-4">
+      </div>
+      <div className="flex items-center gap-2 pr-4">
           {showProjectControls && (
             <Button
               variant={previewVisible ? "default" : "outline"}
@@ -216,8 +168,7 @@ export function TopBar() {
               </Button>
             </ButtonGroup>
           )}
-        </div>
-      ) : null}
+      </div>
     </header>
   );
 }

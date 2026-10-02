@@ -35,16 +35,14 @@ import { invalidateGitState } from "@/lib/query-client";
 import { showNativeContextMenu } from "@/lib/native-menu";
 import {
   createProjectEntry,
-  listLibraryFiles,
-  readLibraryFile,
   readProjectFile,
-  writeLibraryFile,
   writeProjectFile,
   type FileEntry,
 } from "@/lib/tauri";
 import { applyEdits, type ScannedFile, type SourceEdit } from "@/lib/label-index";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
+import { useUiStore } from "@/store/ui";
 import { cn } from "cn";
 
 interface BibRow {
@@ -100,7 +98,8 @@ export function BibliographyPanel() {
   const content = useEditorStore((s) => s.content);
 
   const [scanned, setScanned] = useState<ScannedFile[] | null>(null);
-  const [query, setQuery] = useState("");
+  const query = useUiStore((s) => s.bibliographySearch);
+  const setQuery = useUiStore((s) => s.setBibliographySearch);
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
   const [rename, setRename] = useState<{ key: string; draft: string } | null>(null);
   const [renameError, setRenameError] = useState<string | null>(null);
@@ -303,39 +302,6 @@ export function BibliographyPanel() {
 
   function insertCitation(key: string, command: string) {
     insertAtCursor(`\\${command}{${key}}`);
-  }
-
-  /**
-   * Copy an entry's raw text to the global Sources library (its
-   * sources.bib by default, the first .bib in the library folder
-   * otherwise; the folder's default file is created when missing).
-   */
-  async function addToSources(row: BibRow) {
-    try {
-      const bibs: string[] = [];
-      const walk = (list: FileEntry[]) => {
-        for (const entry of list) {
-          if (entry.isDir) walk(entry.children);
-          else if (entry.path.toLowerCase().endsWith(".bib")) bibs.push(entry.path);
-        }
-      };
-      walk(await listLibraryFiles());
-      const target = bibs.find((path) => path === "sources.bib") ?? bibs[0] ?? "sources.bib";
-      let base = "";
-      try {
-        base = await readLibraryFile(target);
-      } catch {
-        // The default file does not exist yet.
-      }
-      const raw = (freshContent(row.file) ?? "").slice(row.entry.from, row.entry.to);
-      const insert = (base.length > 0 && !base.endsWith("\n") ? "\n\n" : "") + raw + "\n";
-      await writeLibraryFile(target, base + insert);
-      setMessage(`Added ${row.entry.key} to Sources (${target}).`);
-      window.setTimeout(() => setMessage(null), 5000);
-    } catch (e) {
-      setMessage(String(e));
-      window.setTimeout(() => setMessage(null), 5000);
-    }
   }
 
   function startRename(key: string) {
@@ -554,11 +520,6 @@ export function BibliographyPanel() {
                       text: `Insert \\${command}{${row.entry.key}}`,
                       action: () => insertCitation(row.entry.key, command),
                     })),
-                    {
-                      id: "add-to-sources",
-                      text: "Add to Sources library",
-                      action: () => void addToSources(row),
-                    },
                   ]);
                 }}
               >

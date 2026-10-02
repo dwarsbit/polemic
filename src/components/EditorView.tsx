@@ -20,7 +20,7 @@ import { SnapshotsPanel } from "@/components/SnapshotsPanel";
 import { StatusBar } from "@/components/StatusBar";
 import { TabsBar } from "@/components/TabsBar";
 import { EditorToolbar } from "@/components/EditorToolbar";
-import { VisualModeStub } from "@/components/VisualModeStub";
+import { VisualTexEditor } from "@/components/VisualTexEditor";
 import { setPanelCommandHandler } from "@/lib/panel-commands";
 import { setCommentDialogHandler, type CommentTarget } from "@/lib/editor-comments";
 import { useCommentsStore } from "@/store/comments";
@@ -77,7 +77,6 @@ export function EditorView() {
   const activeFileIsBib = activeFile !== null && activeFile.endsWith(".bib");
   const activeFileIsTex = activeFile !== null && activeFile.endsWith(".tex");
   const texEditorMode = useUiStore((s) => s.texEditorMode);
-  const setTexEditorMode = useUiStore((s) => s.setTexEditorMode);
   const texVisual = activeFileIsTex && texEditorMode === "visual";
   const jumpTarget = useEditorStore((s) => s.jumpTarget);
 
@@ -189,6 +188,7 @@ export function EditorView() {
     setPanelCommandHandler("toggle-search", () => selectIssuesTool("search"));
     setPanelCommandHandler("toggle-issues", () => selectIssuesTool("issues"));
     setPanelCommandHandler("toggle-log", () => selectIssuesTool("log"));
+    setPanelCommandHandler("show-bibliography", () => selectNavigatorTab("bibliography"));
     return () => {
       setPanelCommandHandler("toggle-sidebar", null);
       setPanelCommandHandler("toggle-preview", null);
@@ -196,6 +196,7 @@ export function EditorView() {
       setPanelCommandHandler("toggle-search", null);
       setPanelCommandHandler("toggle-issues", null);
       setPanelCommandHandler("toggle-log", null);
+      setPanelCommandHandler("show-bibliography", null);
     };
   });
 
@@ -252,11 +253,7 @@ export function EditorView() {
                           <div className={cn("min-h-0 flex-1", texVisual && "hidden")}>
                             <LatexEditor visible={!texVisual} />
                           </div>
-                          {texVisual && (
-                            <VisualModeStub
-                              onGoToCode={() => setTexEditorMode("code")}
-                            />
-                          )}
+                          {texVisual && <VisualTexEditor />}
                         </div>
                       )}
                     </div>

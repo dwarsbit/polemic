@@ -88,3 +88,55 @@ pub fn list_tree(dir: &Path, rel_prefix: &str) -> Vec<FileEntry> {
     });
     entries
 }
+
+// ---------------------------------------------------------------------------
+// External files (bib sources)
+
+/// Read an arbitrary user-chosen file — the read-only side of bib
+/// sources, which reference .bib files anywhere on the filesystem.
+#[tauri::command]
+pub fn read_external_file(path: String) -> Result<String, String> {
+    let resolved = std::fs::canonicalize(&path)
+        .map_err(|e| format!("file not accessible: {e}"))?;
+    if !resolved.is_file() {
+        return Err("not a file".into());
+    }
+    fs::read_to_string(&resolved).map_err(|e| format!("failed to read file: {e}"))
+}
+
+/// Every .bib file under a folder (recursively), or the file itself
+/// when `path` is one. Dot-directories are skipped, like the project
+/// tree.
+#[tauri::command]
+pub fn list_bib_files(path: String) -> Result<Vec<String>, String> {
+    let resolved =
+        std::fs::canonicalize(&path).map_err(|e| format!("path not accessible: {e}"))?;
+    if resolved.is_file() {
+        return Ok(vec![resolved.to_string_lossy().to_string()]);
+    }
+    if !resolved.is_dir() {
+        return Err("not a file or folder".into());
+    }
+    let mut out = Vec::new();
+    collect_bib(&resolved, &mut out);
+    out.sort();
+    Ok(out)
+}
+
+fn collect_bib(dir: &Path, out: &mut Vec<String>) {
+    let Ok(read) = fs::read_dir(dir) else {
+        return;
+    };
+    for entry in read.filter_map(Result::ok) {
+        let name = entry.file_name().to_string_lossy().to_string();
+        if name.starts_with('.') {
+            continue;
+        }
+        let is_dir = entry.file_type().map(|t| t.is_dir()).unwrap_or(false);
+        if is_dir {
+            collect_bib(&entry.path(), out);
+        } else if name.to_lowercase().ends_with(".bib") {
+            out.push(entry.path().to_string_lossy().to_string());
+        }
+    }
+}

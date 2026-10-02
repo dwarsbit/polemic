@@ -23,6 +23,13 @@ import { editorFontStack } from "@/lib/editor-fonts";
 import { editorHighlightExtension } from "@/lib/editor-themes";
 import { formatLatex } from "@/lib/latex-format";
 import { lineWidthGutter } from "@/lib/line-width-gutter";
+import {
+  headingLines,
+  lineForAnchor,
+  lineText,
+  setFaceAnchor,
+  takeFaceAnchor,
+} from "@/lib/visual/face-anchor";
 import { mathHover, mathHoverEnabled } from "@/lib/math-hover";
 import { envPairing } from "@/lib/env-pairing";
 import { gitLineGutter, setGitLines } from "@/lib/git-gutter";
@@ -975,6 +982,15 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       view.dispatch({
         changes: { from: 0, to: view.state.doc.length, insert: content },
       });
+      // Restore the cursor's place after a Visual-face round trip.
+      const anchor = takeFaceAnchor();
+      if (anchor !== null) {
+        const line = lineForAnchor(view.state.doc.toString(), anchor);
+        if (line !== null) {
+          const target = view.state.doc.line(Math.min(line, view.state.doc.lines));
+          view.dispatch({ selection: { anchor: target.from }, scrollIntoView: true });
+        }
+      }
     }
   }, [docVersion]);
 
@@ -1024,9 +1040,22 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
   }, [jumpTarget, clearJump]);
 
   // Re-measure when shown again after being hidden behind the
-  // Visual face (the view stays mounted so undo history survives).
+  // Visual face (the view stays mounted so undo history survives);
+  // hand the visual face the cursor's place when leaving.
   useEffect(() => {
-    if (visible) viewRef.current?.requestMeasure();
+    if (visible) {
+      viewRef.current?.requestMeasure();
+      return;
+    }
+    const view = viewRef.current;
+    if (view === null) return;
+    const content = view.state.doc.toString();
+    const line = view.state.doc.lineAt(view.state.selection.main.head).number;
+    const headings = headingLines(content);
+    setFaceAnchor({
+      headingIndex: Math.max(headings.filter((l) => l <= line).length - 1, 0),
+      text: lineText(content, line),
+    });
   }, [visible]);
 
   // Show compile issues for the active file as squiggles and gutter marks.

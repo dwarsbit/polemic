@@ -14,8 +14,9 @@ pub struct RecentProject {
 }
 
 /// One reference source: where "Add from Sources…" searches. Bib
-/// sources point into the library folder; the Zotero kinds carry
-/// their connection details.
+/// sources point at a .bib file or folder anywhere on the filesystem,
+/// referenced in place; the Zotero kinds carry their connection
+/// details.
 #[derive(Serialize, Deserialize, Clone, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct SourceDef {
@@ -24,8 +25,8 @@ pub struct SourceDef {
     pub kind: String,
     pub enabled: bool,
     pub name: Option<String>,
-    /// Library-relative path of a .bib file or a folder; None means
-    /// the whole library root. Bib sources only.
+    /// Absolute path of a .bib file or of a folder with .bib files.
+    /// Bib sources only.
     pub path: Option<String>,
     /// Zotero cloud credentials; "zotero-cloud" sources only.
     pub user_id: Option<String>,
@@ -36,9 +37,8 @@ pub struct SourceDef {
 #[serde(rename_all = "camelCase", default)]
 pub struct Settings {
     pub projects_root: Option<String>,
-    /// The global library root (sources + assets shared across projects).
-    pub library_root: Option<String>,
-    /// The user's reference sources; seeded with the library itself.
+    /// The user's reference sources: .bib files/folders anywhere on
+    /// the filesystem plus Zotero connections.
     pub sources: Vec<SourceDef>,
     pub recent_projects: Vec<RecentProject>,
     pub main_files: HashMap<String, String>,
@@ -120,38 +120,11 @@ pub fn update<T>(app: &AppHandle, f: impl FnOnce(&mut Settings) -> T) -> Result<
     Ok(out)
 }
 
-fn default_library_root() -> String {
-    let home = std::env::var("HOME")
-        .or_else(|_| std::env::var("USERPROFILE"))
-        .unwrap_or_else(|_| ".".into());
-    PathBuf::from(home)
-        .join("Documents")
-        .join("Polemic Library")
-        .to_string_lossy()
-        .to_string()
-}
-
 /// The settings with a guaranteed concrete projects root.
 pub fn effective(app: &AppHandle) -> Result<Settings, String> {
     update(app, |s| {
         if s.projects_root.is_none() {
             s.projects_root = Some(default_projects_root());
-        }
-        if s.library_root.is_none() {
-            s.library_root = Some(default_library_root());
-        }
-        // A fresh install starts with the library itself as the one
-        // reference source.
-        if s.sources.is_empty() {
-            s.sources = vec![SourceDef {
-                id: "library".to_string(),
-                kind: "bib".to_string(),
-                enabled: true,
-                name: Some("Polemic Library".to_string()),
-                path: None,
-                user_id: None,
-                api_key: None,
-            }];
         }
         s.clone()
     })

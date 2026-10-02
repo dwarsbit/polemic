@@ -18,7 +18,7 @@ import { fuzzyMatch } from "@/lib/fuzzy";
 import { appendBibEntryToProject, projectBibKeys } from "@/lib/project-bib";
 import { zoteroItemToBib, zoteroCreators, type ZoteroItemData } from "@/lib/zotero-convert";
 import { zoteroLocalSearch, zoteroWebSearch } from "@/lib/zotero";
-import { bibSourceFiles, sourceName, useSourcesStore, type SourceDef } from "@/store/sources";
+import { sourceName, useSourcesStore, type SourceDef } from "@/store/sources";
 import { useSettingsStore } from "@/store/settings";
 import { cn } from "cn";
 
@@ -47,6 +47,7 @@ export function SourcesSearchDialog({
   onOpenChange: (open: boolean) => void;
 }) {
   const sources = useSourcesStore((s) => s.sources);
+  const sourceFiles = useSourcesStore((s) => s.sourceFiles);
   const bibTexts = useSourcesStore((s) => s.bibTexts);
   const error = useSourcesStore((s) => s.error);
 
@@ -119,10 +120,9 @@ export function SourcesSearchDialog({
 
   const bibHits = useMemo<BibHit[]>(() => {
     const q = query.trim();
-    const allBib = Object.keys(bibTexts);
     const out: BibHit[] = [];
     for (const source of bibSources) {
-      for (const file of bibSourceFiles(source, allBib)) {
+      for (const file of sourceFiles[source.id] ?? []) {
         for (const entry of parseBibEntries(bibTexts[file] ?? "").entries) {
           if (
             q.length === 0 ||
@@ -134,7 +134,7 @@ export function SourcesSearchDialog({
       }
     }
     return out.sort((a, b) => a.entry.key.localeCompare(b.entry.key));
-  }, [bibSources, bibTexts, query]);
+  }, [bibSources, sourceFiles, bibTexts, query]);
 
   async function addBib(hit: BibHit) {
     const raw = (bibTexts[hit.file] ?? "").slice(hit.entry.from, hit.entry.to);

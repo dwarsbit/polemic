@@ -5,7 +5,6 @@ import {
   Boxes,
   ChevronRight,
   Cloud,
-  FileText,
   FolderOpen,
   Pencil,
   Plus,
@@ -22,21 +21,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Switch } from "@/components/ui/switch";
 import { ZoteroCloudDialog } from "@/components/ZoteroCloudDialog";
-import { flattenBibPaths, parseBibEntries } from "@/lib/bib-entries";
-import {
-  getLibraryRoot,
-  importLibraryFile,
-  listLibraryFiles,
-} from "@/lib/tauri";
+import { parseBibEntries } from "@/lib/bib-entries";
 import { zoteroLocalStatus, zoteroWebValidateKey } from "@/lib/zotero";
-import {
-  bibSourceFiles,
-  sourceName,
-  useSourcesStore,
-  type SourceDef,
-} from "@/store/sources";
-import { useProjectStore } from "@/store/project";
-import { useUiStore } from "@/store/ui";
+import { sourceName, useSourcesStore, type SourceDef } from "@/store/sources";
 import { cn } from "cn";
 
 /** A Zotero connection's state: pulsing while it initializes, gray
@@ -78,7 +65,7 @@ function sourceSubtitle(
   if (source.kind === "bib") {
     const where =
       source.path === null || source.path.length === 0
-        ? "All .bib files in the library folder"
+        ? "No path set"
         : source.path.endsWith(".bib")
           ? source.path
           : `The folder ${source.path}`;
@@ -113,13 +100,14 @@ async function checkZotero(source: SourceDef): Promise<ZoteroStatus> {
 
 /**
  * The Bibliography section's source list: every reference source the
- * "Add from Sources…" search covers. Add, enable, edit, or remove;
- * bib sources open their files in the editor. Zotero rows carry a
- * live connection status: pulsing while checking, green when set
- * up, red on errors, with a refresh button per row.
+ * "Add from Sources…" search covers. Bib sources reference .bib
+ * files or folders anywhere on the filesystem, in place. Zotero rows
+ * carry a live connection status: pulsing while checking, green when
+ * set up, red on errors, with a refresh button per row.
  */
 export function SourcesSettingsCard() {
   const sources = useSourcesStore((s) => s.sources);
+  const sourceFiles = useSourcesStore((s) => s.sourceFiles);
   const bibTexts = useSourcesStore((s) => s.bibTexts);
   const error = useSourcesStore((s) => s.error);
   const loading = useSourcesStore((s) => s.loading);
@@ -127,10 +115,7 @@ export function SourcesSettingsCard() {
   const removeSource = useSourcesStore((s) => s.removeSource);
   const setSourceEnabled = useSourcesStore((s) => s.setSourceEnabled);
 
-  const [libraryRoot, setLibraryRoot] = useState<string | null>(null);
-  const [allBib, setAllBib] = useState<string[]>([]);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
-  const [message, setMessage] = useState<string | null>(null);
   const [statuses, setStatuses] = useState<Record<string, ZoteroStatus>>({});
   const [cloudDialog, setCloudDialog] = useState<{
     open: boolean;
@@ -145,16 +130,12 @@ export function SourcesSettingsCard() {
     setStatuses((prev) => ({ ...prev, [source.id]: status }));
   }, []);
 
-  // Load the source list and the library's file listing.
+  // Load the source list and probe the connections.
   useEffect(() => {
     void useSourcesStore.getState().refresh();
   }, []);
   useEffect(() => {
     if (loading) return;
-    void getLibraryRoot().then((root) => setLibraryRoot(root.path));
-    void listLibraryFiles()
-      .then((files) => setAllBib(flattenBibPaths(files)))
-      .catch(() => setAllBib([]));
     // Probe every enabled Zotero connection (also rechecks after
     // edits), deferred past the commit so no state is set during it.
     const timer = setTimeout(() => {
@@ -175,65 +156,28 @@ export function SourcesSettingsCard() {
     [sources],
   );
 
-  function flash(text: string) {
-    setMessage(text);
-    window.setTimeout(() => setMessage(null), 6000);
-  }
-
-  /** Absolute → library-relative; null when outside the library. */
-  function toLibraryRelative(absolute: string): string | null {
-    const root = libraryRoot?.replace(/\/+$/, "").toLowerCase() ?? "";
-    const path = absolute.replace(/\/+$/, "");
-    if (root.length === 0) return null;
-    if (path.toLowerCase() === root) return "";
-    if (path.toLowerCase().startsWith(`${root}/`)) {
-      return path.slice(root.length + 1);
-    }
-    return null;
-  }
-
+  /** Bib sources reference their files in place — nothing is copied. */
   async function addBibFile() {
-    const picked = await openDialog({
-      multiple: false,
-      defaultPath: libraryRoot ?? undefined,
-    });
+    const picked = await openDialog({ multiple: false });
     if (typeof picked !== "string" || picked.length === 0) return;
-    const relative = toLibraryRelative(picked);
-    if (relative !== null && relative.length > 0) {
-      await addSource({ kind: "bib", enabled: true, name: null, path: relative, userId: null, apiKey: null });
-      return;
-    }
-    if (relative === "") {
-      flash("That is the library folder itself — add it as a folder source.");
-      return;
-    }
-    // Outside the library: copy the file in, like asset imports.
-    try {
-      const copied = await importLibraryFile(picked);
-      await addSource({ kind: "bib", enabled: true, name: null, path: copied, userId: null, apiKey: null });
-      flash(`Copied the file into the library as ${copied}.`);
-    } catch (e) {
-      flash(String(e));
-    }
-  }
-
-  async function addBibFolder() {
-    const picked = await openDialog({
-      directory: true,
-      multiple: false,
-      defaultPath: libraryRoot ?? undefined,
-    });
-    if (typeof picked !== "string" || picked.length === 0) return;
-    const relative = toLibraryRelative(picked);
-    if (relative === null) {
-      flash("Folder sources must live inside the library folder.");
-      return;
-    }
     await addSource({
       kind: "bib",
       enabled: true,
       name: null,
-      path: relative.length === 0 ? null : relative,
+      path: picked,
+      userId: null,
+      apiKey: null,
+    });
+  }
+
+  async function addBibFolder() {
+    const picked = await openDialog({ directory: true, multiple: false });
+    if (typeof picked !== "string" || picked.length === 0) return;
+    await addSource({
+      kind: "bib",
+      enabled: true,
+      name: null,
+      path: picked,
       userId: null,
       apiKey: null,
     });
@@ -242,11 +186,6 @@ export function SourcesSettingsCard() {
   async function addZoteroApp() {
     if (hasZoteroApp) return;
     await addSource({ kind: "zotero-app", enabled: true, name: null, path: null, userId: null, apiKey: null });
-  }
-
-  function openBibFile(path: string) {
-    void useProjectStore.getState().openLibraryFile(path);
-    useUiStore.getState().setMode("editor");
   }
 
   function toggleExpanded(id: string) {
@@ -272,7 +211,7 @@ export function SourcesSettingsCard() {
       ) : (
         <div className="divide-y divide-border">
           {sources.map((source) => {
-            const files = bibSourceFiles(source, allBib);
+            const files = sourceFiles[source.id] ?? [];
             const entryCount =
               source.enabled && source.kind === "bib"
                 ? files.reduce(
@@ -325,17 +264,6 @@ export function SourcesSettingsCard() {
                       />
                     </Button>
                   )}
-                  {source.kind === "bib" && files.length === 1 && (
-                    <Button
-                      variant="ghost"
-                      size="icon-sm"
-                      className="shrink-0"
-                      title="Open in the editor"
-                      onClick={() => openBibFile(files[0])}
-                    >
-                      <FileText className="size-3.5" />
-                    </Button>
-                  )}
                   {source.kind === "zotero-cloud" && (
                     <Button
                       variant="ghost"
@@ -377,24 +305,12 @@ export function SourcesSettingsCard() {
                     {isExpanded && (
                       <ul className="mt-1 space-y-0.5">
                         {files.map((file) => (
-                          <li key={file} className="flex items-center gap-1.5">
-                            <button
-                              type="button"
-                              className="min-w-0 flex-1 truncate text-left text-xs hover:underline"
-                              title={file}
-                              onClick={() => openBibFile(file)}
-                            >
-                              {file}
-                            </button>
-                            <Button
-                              variant="ghost"
-                              size="icon-sm"
-                              className="size-5 shrink-0"
-                              title="Open in the editor"
-                              onClick={() => openBibFile(file)}
-                            >
-                              <FileText className="size-3" />
-                            </Button>
+                          <li
+                            key={file}
+                            className="truncate text-xs text-muted-foreground"
+                            title={file}
+                          >
+                            {file}
                           </li>
                         ))}
                       </ul>
@@ -403,16 +319,13 @@ export function SourcesSettingsCard() {
                 )}
                 {source.kind === "bib" && files.length === 0 && (
                   <p className="mt-0.5 pl-11 text-xs text-muted-foreground">
-                    No .bib files {source.path === null ? "in the library" : "here"} yet.
+                    No .bib files here (yet).
                   </p>
                 )}
               </div>
             );
           })}
         </div>
-      )}
-      {message !== null && (
-        <p className="mt-2 text-xs text-muted-foreground">{message}</p>
       )}
       <div className="mt-3 flex items-center gap-2">
         <DropdownMenu>
@@ -449,7 +362,7 @@ export function SourcesSettingsCard() {
           </DropdownMenuContent>
         </DropdownMenu>
         <p className="text-xs text-muted-foreground">
-          Files outside the library folder are copied into it.
+          Referenced in place — nothing is copied into your projects.
         </p>
       </div>
 

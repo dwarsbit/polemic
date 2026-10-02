@@ -9,7 +9,8 @@ export type PanelCommand =
   | "toggle-right"
   | "toggle-search"
   | "toggle-issues"
-  | "toggle-log";
+  | "toggle-log"
+  | "show-bibliography";
 
 const handlers = new Map<PanelCommand, () => void>();
 

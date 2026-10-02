@@ -267,7 +267,7 @@ export function missingFields(entry: {
   return required.filter((name) => !present.has(name));
 }
 
-/** Library/project-relative paths of every .bib file in a tree, depth first. */
+/** Project-relative paths of every .bib file in a tree, depth first. */
 export function flattenBibPaths(entries: FileEntry[]): string[] {
   const out: string[] = [];
   const walk = (list: FileEntry[]) => {

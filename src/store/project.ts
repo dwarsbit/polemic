@@ -14,7 +14,6 @@ import { formatDocument } from "@/lib/editor-format";
 import { invalidateGitState } from "@/lib/query-client";
 import { useEditorStore } from "@/store/editor";
 import { useSettingsStore } from "@/store/settings";
-import { useSourcesStore } from "@/store/sources";
 
 interface ProjectState {
   project: api.ProjectInfo | null;
@@ -40,8 +39,6 @@ interface ProjectState {
   closeProject: () => void;
   refreshFiles: () => Promise<void>;
   openFile: (path: string) => Promise<void>;
-  /** Open a library .bib file as a loose tab (works without a project). */
-  openLibraryFile: (path: string) => Promise<void>;
   closeFile: (path: string, opts?: { discard?: boolean }) => Promise<void>;
   reorderOpenFiles: (from: number, to: number) => void;
   renameProject: (name: string) => Promise<void>;
@@ -72,18 +69,6 @@ function firstTex(entries: api.FileEntry[]): string | null {
 
 function isInside(parentPath: string, childPath: string): boolean {
   return childPath === parentPath || childPath.startsWith(parentPath + "/");
-}
-
-/** Loose library tabs carry this prefix in the open-files list. */
-const LIBRARY_PREFIX = "library:";
-
-export function isLibraryPath(path: string | null): boolean {
-  return path !== null && path.startsWith(LIBRARY_PREFIX);
-}
-
-/** The library-relative path of a loose library tab. */
-export function libraryRelative(path: string): string {
-  return path.slice(LIBRARY_PREFIX.length);
 }
 
 function collectPaths(entries: api.FileEntry[], extension: string): string[] {
@@ -202,9 +187,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       if (paths.length === 0) return;
       let projectWrite = false;
       for (const path of paths) {
-        if (isLibraryPath(path)) {
-          await api.writeLibraryFile(libraryRelative(path), buffers[path]);
-        } else if (project) {
+        if (project) {
           await api.writeProjectFile(project.path, path, buffers[path]);
           projectWrite = true;
         }
@@ -233,13 +216,11 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       const storedOpen = (settings.openFiles[info.path] ?? []).filter((f) =>
         findFile(files, f),
       );
-      // Loose library tabs outlive the project switch.
-      const carry = get().openFiles.filter(isLibraryPath);
       set({
         project: info,
         files,
         mainFile,
-        openFiles: [...storedOpen, ...carry],
+        openFiles: storedOpen,
         labelsByFile: {},
         refsByFile: {},
         citeKeysByFile: {},
@@ -291,31 +272,20 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     closeProject: () => {
       // Dirty buffers are flushed by the caller before closing.
       void api.setProjectMenuEnabled(false);
-      const libraryTabs = get().openFiles.filter(isLibraryPath);
-      const active = get().activeFile;
-      const keepActive = isLibraryPath(active);
-      const nextBuffers: Record<string, string> = {};
-      for (const [file, content] of Object.entries(get().buffers)) {
-        if (isLibraryPath(file)) nextBuffers[file] = content;
-      }
-      if (!keepActive) useEditorStore.getState().loadContent("");
+      useEditorStore.getState().loadContent("");
       set({
         project: null,
         files: [],
         mainFile: null,
         lastSavedContent: null,
-        buffers: nextBuffers,
+        buffers: {},
         snapshots: [],
         labelsByFile: {},
         refsByFile: {},
         citeKeysByFile: {},
-        openFiles: libraryTabs,
-        activeFile: keepActive ? active : null,
+        openFiles: [],
+        activeFile: null,
       });
-      // Focus the first remaining library tab so its content loads.
-      if (!keepActive && libraryTabs.length > 0) {
-        void get().openLibraryFile(libraryRelative(libraryTabs[0]));
-      }
     },
 
     refreshFiles: async () => {
@@ -325,7 +295,6 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     },
 
     openFile: async (path) => {
-      if (isLibraryPath(path)) return get().openLibraryFile(libraryRelative(path));
       const { project, openFiles, buffers } = get();
       if (!project) return;
       // Prefer the unsaved buffer over disk so dirty state survives tab switches.
@@ -346,36 +315,14 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       void api.setOpenFiles(project.path, nextOpen);
     },
 
-    openLibraryFile: async (path) => {
-      const { openFiles, buffers } = get();
-      const key = LIBRARY_PREFIX + path;
-      // Prefer the unsaved buffer over disk so dirty state survives switches.
-      const content = buffers[key] ?? (await api.readLibraryFile(path));
-      useEditorStore.getState().loadContent(content);
-      const projectFiles = openFiles.filter((f) => !isLibraryPath(f));
-      const libraryFiles = openFiles.filter(isLibraryPath);
-      const nextLibrary = libraryFiles.includes(key)
-        ? libraryFiles
-        : [...libraryFiles, key];
-      set({
-        activeFile: key,
-        lastSavedContent: content,
-        openFiles: [...projectFiles, ...nextLibrary],
-      });
-    },
-
     closeFile: async (path) => {
       const { project, activeFile, openFiles, buffers } = get();
       if (!openFiles.includes(path)) return;
       // Never lose unsaved changes when a tab is closed.
       if (buffers[path] !== undefined) {
-        if (isLibraryPath(path)) {
-          await api.writeLibraryFile(libraryRelative(path), buffers[path]);
-        } else {
-          if (!project) return;
-          await api.writeProjectFile(project.path, path, buffers[path]);
-          void invalidateGitState();
-        }
+        if (!project) return;
+        await api.writeProjectFile(project.path, path, buffers[path]);
+        void invalidateGitState();
         const nextBuffers = { ...buffers };
         delete nextBuffers[path];
         set({ buffers: nextBuffers });
@@ -384,19 +331,14 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       const remaining = openFiles.filter((f) => f !== path);
       set({ openFiles: remaining });
       if (project) {
-        await api.setOpenFiles(
-          project.path,
-          remaining.filter((f) => !isLibraryPath(f)),
-        );
+        await api.setOpenFiles(project.path, remaining);
       }
       if (activeFile !== path) return;
       if (remaining.length > 0) {
         const next = remaining[Math.min(index, remaining.length - 1)];
-        const nextContent = isLibraryPath(next)
-          ? get().buffers[next] ?? (await api.readLibraryFile(libraryRelative(next)))
-          : project
-            ? get().buffers[next] ?? (await api.readProjectFile(project.path, next))
-            : null;
+        const nextContent = project
+          ? get().buffers[next] ?? (await api.readProjectFile(project.path, next))
+          : null;
         if (nextContent === null) {
           useEditorStore.getState().loadContent("");
           set({ activeFile: null, lastSavedContent: null });
@@ -420,10 +362,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       next.splice(to, 0, moved);
       set({ openFiles: next });
       if (project) {
-        void api.setOpenFiles(
-          project.path,
-          next.filter((f) => !isLibraryPath(f)),
-        );
+        void api.setOpenFiles(project.path, next);
       }
     },
 
@@ -543,16 +482,6 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       const current = useEditorStore.getState().content;
       const dirty = buffers[activeFile] !== undefined || current !== lastSavedContent;
       if (!dirty) return false;
-      // Library files save through the library commands; saving one
-      // also refreshes the cached source texts it may back.
-      if (isLibraryPath(activeFile)) {
-        await api.writeLibraryFile(libraryRelative(activeFile), current);
-        const nextBuffers = { ...buffers };
-        delete nextBuffers[activeFile];
-        set({ lastSavedContent: current, buffers: nextBuffers });
-        void useSourcesStore.getState().refresh();
-        return true;
-      }
       if (!project) return false;
       // Format on save: the formatter itself skips non-.tex files.
       if (useSettingsStore.getState().formatOnSave) formatDocument();

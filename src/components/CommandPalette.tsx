@@ -6,13 +6,11 @@ import {
   FileText,
   FolderOpen,
   Image,
-  Images,
   Keyboard,
   MessageSquare,
   Package,
   PanelLeft,
   PanelRight,
-  Pencil,
   Play,
   Save,
   ScrollText,
@@ -36,7 +34,6 @@ import { useDialogsStore } from "@/store/dialogs";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
-import { useUiStore } from "@/store/ui";
 import { cn } from "cn";
 
 interface Command {
@@ -73,28 +70,12 @@ export function CommandPalette() {
   const commands = useMemo<Command[]>(() => {
     const app: Command[] = [
       {
-        id: "mode-editor",
-        title: "Go to Editor",
-        icon: Pencil,
-        shortcut: "Cmd/Ctrl + Alt + 1",
-        keywords: "workspace project editor",
-        run: () => useUiStore.getState().setMode("editor"),
-      },
-      {
         id: "mode-sources",
         title: "Sources…",
         icon: BookOpen,
         shortcut: "Cmd/Ctrl + Alt + 2",
         keywords: "workspace bibliography sources zotero settings",
         run: () => useSettingsStore.getState().openSettings("bibliography"),
-      },
-      {
-        id: "mode-library",
-        title: "Go to Library",
-        icon: Images,
-        shortcut: "Cmd/Ctrl + Alt + 3",
-        keywords: "workspace assets global",
-        run: () => useUiStore.getState().setMode("library"),
       },
       {
         id: "settings",
@@ -150,7 +131,7 @@ export function CommandPalette() {
       },
       {
         id: "new-project",
-        title: "New project (back to library)",
+        title: "New project (back to the projects view)",
         icon: FolderOpen,
         run: () => {
           void store

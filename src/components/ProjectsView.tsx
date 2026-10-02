@@ -33,7 +33,6 @@ import {
 import { cn } from "@/lib/utils";
 import logo from "../../assets/polemic-logo.svg";
 import { useProjectStore } from "@/store/project";
-import { useUiStore } from "@/store/ui";
 
 type ActionDialog =
   | { kind: "none" }
@@ -73,7 +72,6 @@ export function ProjectsView() {
     setBusy(true);
     try {
       const info = await createProject(name, templateId);
-      useUiStore.getState().setMode("editor");
       await openProject(info.path);
     } catch (e) {
       setError(String(e));
@@ -85,7 +83,6 @@ export function ProjectsView() {
   async function handleOpen(path: string) {
     setError(null);
     try {
-      useUiStore.getState().setMode("editor");
       await openProject(path);
     } catch (e) {
       setError(String(e));
