@@ -13,8 +13,8 @@ function ButtonGroup({ className, ...props }: React.ComponentProps<"div">) {
       className={cn(
         "flex w-fit items-center",
         "[&>[data-slot=button]]:relative [&>[data-slot=button]]:rounded-none [&>[data-slot=button]]:-ml-px",
-        "[&>[data-slot=button]:first-child]:ml-0 [&>[data-slot=button]:first-child]:rounded-l-sm",
-        "[&>[data-slot=button]:last-child]:rounded-r-sm",
+        "[&>[data-slot=button]:first-child]:ml-0 [&>[data-slot=button]:first-child]:rounded-l-md",
+        "[&>[data-slot=button]:last-child]:rounded-r-md",
         "[&>[data-slot=button]:focus-visible]:z-10",
         className,
       )}
