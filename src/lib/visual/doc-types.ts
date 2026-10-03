@@ -129,6 +129,22 @@ export interface FigureBlockNode {
   attrs: { src: string };
 }
 
+/**
+ * A modeled environment (quote, quotation, center, abstract, and the
+ * theorem family): its body is parsed content, not a verbatim blob.
+ * Everything unmodeled stays `rawTexBlock`.
+ */
+export interface EnvBlockNode {
+  type: "envBlock";
+  attrs: {
+    /** The environment name, e.g. "quote" or "theorem". */
+    env: string;
+    /** The optional argument right after `\begin{env}[...]`, e.g. a theorem title. */
+    opt: string | null;
+  };
+  content: Block[];
+}
+
 /** An unmodelled block (verbatim env, tikzpicture, theorem, standalone commands), verbatim. */
 export interface RawBlockNode {
   type: "rawTexBlock";
@@ -153,6 +169,7 @@ export type Block =
   | ParagraphNode
   | MathBlockNode
   | FigureBlockNode
+  | EnvBlockNode
   | RawBlockNode
   | ListNode;
 

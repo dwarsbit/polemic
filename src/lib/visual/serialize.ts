@@ -10,6 +10,7 @@
 import {
   type Block,
   type DocNode,
+  type EnvBlockNode,
   type Inline,
   type ListItemNode,
   type ListNode,
@@ -126,6 +127,30 @@ export function preambleText(attrs: PreambleAttrs): string {
   return parts.join("\n").replace(/\s+$/, "\n\n");
 }
 
+/**
+ * A modeled environment: `\begin{env}[opt]`, the body indented two
+ * spaces, `\end{env}`. Children serialize at top-level style and the
+ * whole body shifts uniformly, so nested lists keep their relative
+ * indentation.
+ */
+function serializeEnvBlock(node: EnvBlockNode, indent: number): string {
+  const pad = " ".repeat(indent);
+  const opt = node.attrs.opt !== null && node.attrs.opt !== undefined ? `[${node.attrs.opt}]` : "";
+  const body = (node.content ?? [])
+    .map((b) => serializeBlock(b, 0))
+    .filter((s) => s.length > 0)
+    .join("\n\n");
+  const open = `${pad}\\begin{${node.attrs.env}}${opt}`;
+  const close = `${pad}\\end{${node.attrs.env}}`;
+  if (body.length === 0) return `${open}\n${close}`;
+  const bodyPad = pad + " ".repeat(INDENT_WIDTH);
+  const indented = body
+    .split("\n")
+    .map((line) => (line.length === 0 ? line : bodyPad + line))
+    .join("\n");
+  return `${open}\n${indented}\n${close}`;
+}
+
 export function serializeBlock(block: Block, indent = 0): string {
   switch (block.type) {
     case "preamble":
@@ -145,6 +170,8 @@ export function serializeBlock(block: Block, indent = 0): string {
     case "figureBlock":
     case "rawTexBlock":
       return block.attrs.src;
+    case "envBlock":
+      return serializeEnvBlock(block, indent);
     case "bulletList":
     case "orderedList":
       return serializeList(block, indent);

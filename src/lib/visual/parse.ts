@@ -30,6 +30,32 @@ const SECTION_LEVELS: Record<string, number> = {
 
 const LIST_ENVS = new Set(["itemize", "enumerate"]);
 
+/** Environments parsed as structured blocks: their body is parsed content. */
+const QUOTE_ENVS = new Set(["quote", "quotation", "center", "abstract"]);
+
+/**
+ * The theorem family (amsthm and common conventions). The optional
+ * argument after `\begin{env}[...]` is kept as the block's `opt`.
+ * `\newtheorem`-defined names join these (see commit that scans the
+ * preamble); without a preamble this list is the fallback.
+ */
+const THEOREM_ENVS = new Set([
+  "theorem",
+  "lemma",
+  "corollary",
+  "proposition",
+  "definition",
+  "remark",
+  "example",
+  "proof",
+  "fact",
+]);
+
+/** All environment names parsed as `envBlock` blocks. */
+function modeledEnvs(): Set<string> {
+  return new Set([...QUOTE_ENVS, ...THEOREM_ENVS]);
+}
+
 /** Environments parsed as display math (mirrors math-region.ts). */
 const MATH_ENVS = new Set([
   "equation",
@@ -218,7 +244,9 @@ function findDollar(src: string, from: number): number {
   return -1;
 }
 
-/** The literal `marker` (comment-aware), or -1. */
+/** The literal `marker` (comment-aware), or -1. The marker check must
+ *  precede the escape skip: the markers start with a backslash
+ *  (`\]`, `\)`), which the skip would otherwise consume. */
 function findLiteral(src: string, from: number, marker: string): number {
   let i = from;
   let inComment = false;
@@ -234,11 +262,11 @@ function findLiteral(src: string, from: number, marker: string): number {
       i++;
       continue;
     }
+    if (src.startsWith(marker, i)) return i;
     if (ch === "\\") {
       i += 2;
       continue;
     }
-    if (src.startsWith(marker, i)) return i;
     i++;
   }
   return -1;
@@ -564,14 +592,14 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
 // ---------------------------------------------------------------------------
 // Block parsing
 
-function parseBody(src: string): Block[] {
+function parseBody(src: string, envs: Set<string>): Block[] {
   const blocks: Block[] = [];
   const c: Cursor = { src, pos: 0 };
   while (c.pos < src.length) {
     skipBlank(c);
     if (c.pos >= src.length) break;
     const before = c.pos;
-    const produced = parseBlockAt(c);
+    const produced = parseBlockAt(c, envs);
     if (c.pos === before && produced.length === 0) {
       c.pos++; // never stall
       continue;
@@ -585,12 +613,12 @@ function skipBlank(c: Cursor) {
   while (c.pos < c.src.length && /\s/.test(c.src[c.pos])) c.pos++;
 }
 
-function parseBlockAt(c: Cursor): Block[] {
+function parseBlockAt(c: Cursor, envs: Set<string>): Block[] {
   const src = c.src;
   const i = c.pos;
 
   const begin = matchBegin(src, i);
-  if (begin !== null) return [parseEnv(c, begin.env)];
+  if (begin !== null) return [parseEnv(c, begin.env, envs)];
 
   if (src.startsWith("\\[", i)) {
     const close = findLiteral(src, i + 2, "\\]");
@@ -648,14 +676,28 @@ function parseHeading(
   };
 }
 
-function parseEnv(c: Cursor, env: string): Block {
+function parseEnv(c: Cursor, env: string, envs: Set<string>): Block {
   const start = c.pos;
   const body = envBody(c.src, start, env);
   c.pos = body.end;
   const raw = c.src.slice(start, body.end);
 
+  if (envs.has(env)) {
+    let inner = body.inner;
+    let opt: string | null = null;
+    if (THEOREM_ENVS.has(env)) {
+      const m = /^\s*\[([^\]]*)\]/.exec(inner);
+      if (m !== null) {
+        opt = m[1];
+        inner = inner.slice(m[0].length);
+      }
+    }
+    const content = parseBody(inner, envs);
+    if (content.length === 0) content.push({ type: "paragraph", content: [] });
+    return { type: "envBlock", attrs: { env, opt }, content };
+  }
   if (LIST_ENVS.has(env)) {
-    const items = parseItems(body.inner);
+    const items = parseItems(body.inner, envs);
     if (items !== null) {
       return { type: env === "itemize" ? "bulletList" : "orderedList", content: items };
     }
@@ -711,7 +753,7 @@ function itemPositions(inner: string): number[] {
   return positions;
 }
 
-function parseItems(inner: string): ListItemNode[] | null {
+function parseItems(inner: string, envs: Set<string>): ListItemNode[] | null {
   const positions = itemPositions(inner);
   if (positions.length === 0) return null;
   const items: ListItemNode[] = [];
@@ -725,7 +767,7 @@ function parseItems(inner: string): ListItemNode[] | null {
       label = lm[1];
       seg = seg.slice(lm[0].length);
     }
-    let content = parseBody(seg);
+    let content = parseBody(seg, envs);
     if (content.length === 0) content = [{ type: "paragraph", content: [] }];
     items.push({ type: "listItem", attrs: { label }, content });
   }
@@ -837,7 +879,7 @@ export function parseTex(source: string): DocNode {
     }
   }
 
-  content.push(...parseBody(body));
+  content.push(...parseBody(body, modeledEnvs()));
 
   return {
     type: "doc",

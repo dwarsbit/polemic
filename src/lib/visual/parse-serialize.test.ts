@@ -115,6 +115,7 @@ describe("parseTex", () => {
     expect(types).toContain('"bulletList"');
     expect(types).toContain('"orderedList"');
     expect(types).toContain('"figureBlock"');
+    expect(types).toContain('"envBlock"');
   });
 
   it("keeps unmodelled environments as verbatim raw blocks", () => {
@@ -125,7 +126,17 @@ describe("parseTex", () => {
     expect(
       srcs.some((s) => s.includes("keep   this   exactly")),
     ).toBe(true);
-    expect(srcs.some((s) => s.startsWith("\\begin{theorem}"))).toBe(true);
+    // The theorem environment is modeled: its title is `opt`, the body is content.
+    const theorem = doc.content.find(
+      (b) => b.type === "envBlock" && b.attrs.env === "theorem",
+    );
+    expect(theorem).toEqual({
+      type: "envBlock",
+      attrs: { env: "theorem", opt: "Euler" },
+      content: [
+        { type: "paragraph", content: [{ type: "text", text: "Body of a theorem we do not model yet." }] },
+      ],
+    });
   });
 
   it("parses comments as comment marks", () => {
@@ -289,6 +300,94 @@ describe("serializeTex", () => {
   });
 });
 
+describe("modeled environments (envBlock)", () => {
+  it("parses the quote family with parsed content", () => {
+    const doc = parseTex(
+      "\\begin{quote}\nQuoted words.\n\n\\begin{itemize}\n  \\item Point\n\\end{itemize}\n\\end{quote}\n",
+    );
+    const quote = doc.content[0];
+    expect(quote).toEqual({
+      type: "envBlock",
+      attrs: { env: "quote", opt: null },
+      content: [
+        { type: "paragraph", content: [{ type: "text", text: "Quoted words." }] },
+        {
+          type: "bulletList",
+          content: [
+            {
+              type: "listItem",
+              attrs: {},
+              content: [{ type: "paragraph", content: [{ type: "text", text: "Point" }] }],
+            },
+          ],
+        },
+      ],
+    });
+  });
+
+  it("parses abstract, center, and quotation by env name", () => {
+    for (const env of ["abstract", "center", "quotation"]) {
+      const doc = parseTex(`\\begin{${env}}\nText.\n\\end{${env}}\n`);
+      expect(doc.content[0]).toMatchObject({
+        type: "envBlock",
+        attrs: { env, opt: null },
+      });
+    }
+  });
+
+  it("keeps a theorem's optional title as opt, quotes' brackets stay content", () => {
+    const thm = parseTex("\\begin{proof}[of Lemma 1]\nDone.\n\\end{proof}\n");
+    expect(thm.content[0]).toMatchObject({
+      type: "envBlock",
+      attrs: { env: "proof", opt: "of Lemma 1" },
+    });
+    // A quote never carries [opt]: the bracket would be content, not a title.
+    const q = parseTex("\\begin{quote}\n[Starting bracket]\n\\end{quote}\n");
+    expect(q.content[0]).toMatchObject({ attrs: { env: "quote", opt: null } });
+  });
+
+  it("keeps display math inside a modeled environment", () => {
+    const { once, doc } = roundTrip(
+      "\\begin{quote}\nSee:\n\n\\[\n  x = y\n\\]\n\\end{quote}\n",
+    );
+    expect(JSON.stringify(doc)).toContain('"mathBlock"');
+    expect(once).toContain("\\[");
+    expect(once).toContain("x = y");
+  });
+
+  it("serializes the house style: two-space body indent, nested lists deeper", () => {
+    const { once, twice } = roundTrip(
+      "\\begin{quote}\nQuoted words.\n\\begin{itemize}\n\\item Point\n\\end{itemize}\n\\end{quote}\n",
+    );
+    expect(once).toBe(
+      "\\begin{quote}\n  Quoted words.\n\n  \\begin{itemize}\n    \\item Point\n  \\end{itemize}\n\\end{quote}\n",
+    );
+    expect(once).toBe(twice);
+  });
+
+  it("parses bracketed display math and inline paren math", () => {
+    const { once, doc } = roundTrip("a\\[x\\]b\nm \\(y\\) n\n");
+    expect(JSON.stringify(doc)).toContain('"mathBlock"');
+    expect(JSON.stringify(doc)).toContain('"mathInline"');
+    // Display math becomes its own block; inline paren math stays inline.
+    expect(once).toContain("\\[x\\]");
+    expect(once).toContain("m \\(y\\) n");
+  });
+
+  it("round-trips an opt title and an empty environment", () => {
+    const { once } = roundTrip(
+      "\\begin{theorem}[Euler]\nBody.\n\\end{theorem}\n\\begin{center}\n\\end{center}\n",
+    );
+    expect(once).toContain("\\begin{theorem}[Euler]");
+    expect(once).toContain("\\begin{center}\n\\end{center}");
+  });
+
+  it("leaves unknown environments raw byte-for-byte", () => {
+    const { once } = roundTrip("\\begin{myenv}[x]\n  keep  this\n\\end{myenv}\n");
+    expect(once).toBe("\\begin{myenv}[x]\n  keep  this\n\\end{myenv}\n");
+  });
+});
+
 describe("stability on assorted inputs", () => {
   const cases: string[] = [
     "% only a comment\n",
@@ -302,6 +401,11 @@ describe("stability on assorted inputs", () => {
     "\\begin{itemize}\n\\end{itemize}\n",
     "\\item outside a list\n",
     "escaped \\{ braces \\}\n",
+    "\\begin{quote}\na quote\n\\end{quote}\n",
+    "\\begin{theorem}[T]\nx\n\\end{theorem}\n",
+    "\\begin{quote}\n\\begin{quote}\nnested\n\\end{quote}\n\\end{quote}\n",
+    "\\begin{abstract}\n\\noindent\nAn abstract.\n\\end{abstract}\n",
+    "\\begin{quote}\n\n\n\nspaced\n\n\n\\end{quote}\n",
   ];
 
   it.each(cases)("is idempotent for %#", (tex) => {
