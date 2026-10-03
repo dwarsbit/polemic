@@ -36,10 +36,9 @@ const QUOTE_ENVS = new Set(["quote", "quotation", "center", "abstract"]);
 /**
  * The theorem family (amsthm and common conventions). The optional
  * argument after `\begin{env}[...]` is kept as the block's `opt`.
- * `\newtheorem`-defined names join these (see commit that scans the
- * preamble); without a preamble this list is the fallback.
+ * `\newtheorem`-defined names join these via `newtheoremEnvs`.
  */
-const THEOREM_ENVS = new Set([
+export const THEOREM_ENVS = new Set([
   "theorem",
   "lemma",
   "corollary",
@@ -52,8 +51,40 @@ const THEOREM_ENVS = new Set([
 ]);
 
 /** All environment names parsed as `envBlock` blocks. */
-function modeledEnvs(): Set<string> {
-  return new Set([...QUOTE_ENVS, ...THEOREM_ENVS]);
+function modeledEnvs(extra?: Set<string>): Set<string> {
+  return new Set([...QUOTE_ENVS, ...THEOREM_ENVS, ...(extra ?? [])]);
+}
+
+/** Environment names declared by `\newtheorem*?{env}` in a preamble. */
+function newtheoremEnvs(preamble: string): Set<string> {
+  const names = new Set<string>();
+  let i = 0;
+  let inComment = false;
+  while (i < preamble.length) {
+    const ch = preamble[i];
+    if (inComment) {
+      if (ch === "\n") inComment = false;
+      i++;
+      continue;
+    }
+    if (ch === "%") {
+      inComment = true;
+      i++;
+      continue;
+    }
+    if (ch === "\\") {
+      const m = /^\\newtheorem\*?\s*\{([^}]*)\}/.exec(preamble.slice(i, i + 80));
+      if (m !== null) {
+        names.add(m[1]);
+        i += m[0].length;
+        continue;
+      }
+      i += 2;
+      continue;
+    }
+    i++;
+  }
+  return names;
 }
 
 /** Environments parsed as display math (mirrors math-region.ts). */
@@ -592,14 +623,20 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
 // ---------------------------------------------------------------------------
 // Block parsing
 
-function parseBody(src: string, envs: Set<string>): Block[] {
+/** Which environments parse as modeled blocks, and which are theorem-like. */
+interface EnvCtx {
+  modeled: Set<string>;
+  theorems: Set<string>;
+}
+
+function parseBody(src: string, ctx: EnvCtx): Block[] {
   const blocks: Block[] = [];
   const c: Cursor = { src, pos: 0 };
   while (c.pos < src.length) {
     skipBlank(c);
     if (c.pos >= src.length) break;
     const before = c.pos;
-    const produced = parseBlockAt(c, envs);
+    const produced = parseBlockAt(c, ctx);
     if (c.pos === before && produced.length === 0) {
       c.pos++; // never stall
       continue;
@@ -613,12 +650,12 @@ function skipBlank(c: Cursor) {
   while (c.pos < c.src.length && /\s/.test(c.src[c.pos])) c.pos++;
 }
 
-function parseBlockAt(c: Cursor, envs: Set<string>): Block[] {
+function parseBlockAt(c: Cursor, ctx: EnvCtx): Block[] {
   const src = c.src;
   const i = c.pos;
 
   const begin = matchBegin(src, i);
-  if (begin !== null) return [parseEnv(c, begin.env, envs)];
+  if (begin !== null) return [parseEnv(c, begin.env, ctx)];
 
   if (src.startsWith("\\[", i)) {
     const close = findLiteral(src, i + 2, "\\]");
@@ -676,28 +713,28 @@ function parseHeading(
   };
 }
 
-function parseEnv(c: Cursor, env: string, envs: Set<string>): Block {
+function parseEnv(c: Cursor, env: string, ctx: EnvCtx): Block {
   const start = c.pos;
   const body = envBody(c.src, start, env);
   c.pos = body.end;
   const raw = c.src.slice(start, body.end);
 
-  if (envs.has(env)) {
+  if (ctx.modeled.has(env)) {
     let inner = body.inner;
     let opt: string | null = null;
-    if (THEOREM_ENVS.has(env)) {
+    if (ctx.theorems.has(env)) {
       const m = /^\s*\[([^\]]*)\]/.exec(inner);
       if (m !== null) {
         opt = m[1];
         inner = inner.slice(m[0].length);
       }
     }
-    const content = parseBody(inner, envs);
+    const content = parseBody(inner, ctx);
     if (content.length === 0) content.push({ type: "paragraph", content: [] });
     return { type: "envBlock", attrs: { env, opt }, content };
   }
   if (LIST_ENVS.has(env)) {
-    const items = parseItems(body.inner, envs);
+    const items = parseItems(body.inner, ctx);
     if (items !== null) {
       return { type: env === "itemize" ? "bulletList" : "orderedList", content: items };
     }
@@ -753,7 +790,7 @@ function itemPositions(inner: string): number[] {
   return positions;
 }
 
-function parseItems(inner: string, envs: Set<string>): ListItemNode[] | null {
+function parseItems(inner: string, ctx: EnvCtx): ListItemNode[] | null {
   const positions = itemPositions(inner);
   if (positions.length === 0) return null;
   const items: ListItemNode[] = [];
@@ -767,7 +804,7 @@ function parseItems(inner: string, envs: Set<string>): ListItemNode[] | null {
       label = lm[1];
       seg = seg.slice(lm[0].length);
     }
-    let content = parseBody(seg, envs);
+    let content = parseBody(seg, ctx);
     if (content.length === 0) content = [{ type: "paragraph", content: [] }];
     items.push({ type: "listItem", attrs: { label }, content });
   }
@@ -868,6 +905,9 @@ export function parseTex(source: string): DocNode {
   let body = source;
   let postamble = "";
 
+  // A preamble can declare more theorem environments (\newtheorem).
+  let envs: EnvCtx | null = null;
+
   if (beginIdx !== -1) {
     const afterBegin = beginIdx + "\\begin{document}".length;
     const preamble = source.slice(0, beginIdx);
@@ -877,9 +917,11 @@ export function parseTex(source: string): DocNode {
     if (preamble.trim().length > 0) {
       content.push({ type: "preamble", attrs: splitPreamble(preamble) });
     }
+    const theorems = new Set([...THEOREM_ENVS, ...newtheoremEnvs(preamble)]);
+    envs = { modeled: new Set([...QUOTE_ENVS, ...theorems]), theorems };
   }
 
-  content.push(...parseBody(body, modeledEnvs()));
+  content.push(...parseBody(body, envs ?? { modeled: modeledEnvs(), theorems: THEOREM_ENVS }));
 
   return {
     type: "doc",

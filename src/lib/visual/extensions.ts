@@ -22,8 +22,9 @@ import { Heading } from "@tiptap/extension-heading";
 import { ListItem } from "@tiptap/extension-list-item";
 import { NodeSelection, TextSelection, type Transaction } from "@tiptap/pm/state";
 import type { Node as PMNode } from "@tiptap/pm/model";
-import type { NodeView } from "@tiptap/pm/view";
+import type { NodeView, ViewMutationRecord } from "@tiptap/pm/view";
 import type { PreambleAttrs } from "./doc-types";
+import { THEOREM_ENVS } from "./parse";
 import { assetKind } from "@/lib/assets";
 import { showNativeContextMenu, type NativeMenuEntry } from "@/lib/native-menu";
 import { runPanelCommand } from "@/lib/panel-commands";
@@ -295,35 +296,156 @@ class FigureView extends EditableRawView {
 }
 
 // ---------------------------------------------------------------------------
-// Modeled environments (quote family; theorem chrome joins later)
+// Modeled environments (quote family; theorems join with a name line)
 
-/** The chrome class of an environment block. */
-function envBlockClass(node: PMNode): string {
-  return `vis-env vis-env-${node.attrs.env}`;
+/** The `\newtheorem` declarations in the preamble's raw source: env → display name. */
+function newtheoremNames(editor: Editor): Map<string, string> {
+  const names = new Map<string, string>();
+  const preamble = findPreamble(editor);
+  if (preamble === null) return names;
+  const re = /\\newtheorem\*?\s*\{([^}]*)\}(?:\s*\[[^\]]*\])?\s*\{([^}]*)\}/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(preamble.attrs.src)) !== null) {
+    names.set(m[1], m[2]);
+  }
+  return names;
 }
 
-/** A modeled environment: styled chrome around real content. */
+/** Is an environment theorem-like: amsthm standard or `\newtheorem`-declared? */
+function isTheoremEnv(editor: Editor, env: string): boolean {
+  return THEOREM_ENVS.has(env) || newtheoremNames(editor).has(env);
+}
+
+/** The display name of a theorem environment ("Theorem", "Lemma", ...). */
+function theoremDisplayName(editor: Editor, env: string): string {
+  const declared = newtheoremNames(editor).get(env);
+  if (declared !== undefined && declared.length > 0) return declared;
+  return env.charAt(0).toUpperCase() + env.slice(1);
+}
+
+/** The chrome class of an environment block. */
+function envBlockClass(editor: Editor, node: PMNode): string {
+  const theorem = isTheoremEnv(editor, node.attrs.env) ? " vis-theorem" : "";
+  return `vis-env vis-env-${node.attrs.env}${theorem}`;
+}
+
+/** A modeled environment: styled chrome around real content; theorem
+ *  envs get a name line whose title (the `[...]` after `\begin{env}`)
+ *  edits in place. */
 class EnvBlockView implements NodeView {
   dom: HTMLElement;
   contentDOM: HTMLElement;
+  private editor: Editor;
   private node: PMNode;
+  private getPos: () => number | undefined;
+  private editingOpt = false;
 
-  constructor(node: PMNode) {
+  constructor(editor: Editor, node: PMNode, getPos: () => number | undefined) {
+    this.editor = editor;
     this.node = node;
+    this.getPos = getPos;
     this.dom = document.createElement("div");
-    this.dom.className = envBlockClass(node);
+    this.dom.className = envBlockClass(editor, node);
     this.contentDOM = document.createElement("div");
     this.contentDOM.className = "vis-env-content";
-    this.dom.append(this.contentDOM);
+    this.dom.append(this.header(), this.contentDOM);
   }
 
   update(node: PMNode): boolean {
     if (node.type !== this.node.type) return false;
-    if (node.attrs.env !== this.node.attrs.env) {
-      this.dom.className = envBlockClass(node);
-    }
+    const envChanged = node.attrs.env !== this.node.attrs.env;
+    const optChanged = node.attrs.opt !== this.node.attrs.opt;
+    const theoremChanged =
+      isTheoremEnv(this.editor, this.node.attrs.env) !== isTheoremEnv(this.editor, node.attrs.env);
     this.node = node;
+    this.dom.className = envBlockClass(this.editor, node);
+    if ((envChanged || optChanged || theoremChanged) && !this.editingOpt) {
+      this.dom.replaceChildren(this.header(), this.contentDOM);
+    }
     return true;
+  }
+
+  stopEvent(event: Event): boolean {
+    // Keys typed into the title input are the input's business.
+    const target = event.target as HTMLElement | null;
+    return target !== null && target.tagName === "INPUT" && this.dom.contains(target);
+  }
+
+  ignoreMutation(mutation: ViewMutationRecord): boolean {
+    // Content mutations are ProseMirror's; chrome mutations are ours.
+    return !this.contentDOM.contains(mutation.target) && mutation.type !== "selection";
+  }
+
+  /** The theorem name line, or an empty span for non-theorem envs. */
+  private header(): HTMLElement {
+    const head = document.createElement("div");
+    if (!isTheoremEnv(this.editor, this.node.attrs.env)) {
+      head.hidden = true;
+      return head;
+    }
+    head.className = "vis-env-theorem-name";
+    const name = document.createElement("span");
+    name.textContent = theoremDisplayName(this.editor, this.node.attrs.env);
+    head.append(name, this.optPill());
+    const dot = document.createElement("span");
+    dot.textContent = ".";
+    head.append(dot);
+    return head;
+  }
+
+  /** The editable theorem title: the env's `[opt]`, or a "+" to add one. */
+  private optPill(): HTMLElement {
+    const value = this.node.attrs.opt;
+    const pill = document.createElement("button");
+    pill.type = "button";
+    const empty = value === null || value === undefined || value.length === 0;
+    pill.className = `vis-env-theorem-opt${empty ? " vis-env-theorem-add" : ""}`;
+    pill.textContent = empty ? "+" : `(${value})`;
+    pill.title = empty
+      ? "Add a title (the [..] after \\begin{env})"
+      : "Title — click to edit (the [..] after \\begin{env})";
+    pill.addEventListener("click", () => {
+      if (this.editingOpt) return;
+      this.editingOpt = true;
+      const input = document.createElement("input");
+      input.type = "text";
+      input.className = "vis-env-theorem-input";
+      input.value = value ?? "";
+      pill.replaceChildren(input);
+      queueMicrotask(() => input.focus());
+      const commit = () => {
+        if (!this.editingOpt) return;
+        this.editingOpt = false;
+        const pos = this.getPos();
+        if (pos === undefined) {
+          this.dom.replaceChildren(this.header(), this.contentDOM);
+          return;
+        }
+        const next = input.value.trim().length > 0 ? input.value : null;
+        if (next === this.node.attrs.opt) {
+          this.dom.replaceChildren(this.header(), this.contentDOM);
+          return;
+        }
+        this.editor.view.dispatch(
+          this.editor.view.state.tr.setNodeMarkup(pos, undefined, {
+            ...this.node.attrs,
+            opt: next,
+          }),
+        );
+      };
+      input.addEventListener("blur", commit);
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          commit();
+        }
+        if (event.key === "Escape") {
+          input.value = value ?? "";
+          commit();
+        }
+      });
+    });
+    return pill;
   }
 }
 
@@ -955,7 +1077,8 @@ const EnvBlock = Node.create({
     return ["vis-env-block", mergeAttributes(HTMLAttributes), 0];
   },
   addNodeView() {
-    return ({ node }: NodeViewRendererProps) => new EnvBlockView(node);
+    return ({ editor, node, getPos }: NodeViewRendererProps) =>
+      new EnvBlockView(editor, node, getPos);
   },
   // Typing "> " in a paragraph that holds nothing else opens a quote.
   addInputRules() {

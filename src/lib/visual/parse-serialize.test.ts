@@ -386,6 +386,24 @@ describe("modeled environments (envBlock)", () => {
     const { once } = roundTrip("\\begin{myenv}[x]\n  keep  this\n\\end{myenv}\n");
     expect(once).toBe("\\begin{myenv}[x]\n  keep  this\n\\end{myenv}\n");
   });
+
+  it("models theorem environments declared by \\newtheorem in the preamble", () => {
+    const tex =
+      "\\newtheorem{lemma}{Lemma}\n\\begin{document}\n\\begin{lemma}[First]\nStatement.\n\\end{lemma}\n\\end{document}\n";
+    const { once, doc } = roundTrip(tex);
+    const lemma = doc.content.find((b) => b.type === "envBlock");
+    expect(lemma).toMatchObject({ attrs: { env: "lemma", opt: "First" } });
+    expect(once).toContain("\\begin{lemma}[First]");
+    expect(once).toContain("\\newtheorem{lemma}{Lemma}");
+  });
+
+  it("ignores commented-out \\newtheorem declarations", () => {
+    const tex =
+      "% \\newtheorem{ghost}{Ghost}\n\\begin{document}\n\\begin{ghost}\nx\n\\end{ghost}\n\\end{document}\n";
+    const { once, doc } = roundTrip(tex);
+    expect(doc.content.some((b) => b.type === "envBlock")).toBe(false);
+    expect(once).toContain("\\begin{ghost}");
+  });
 });
 
 describe("stability on assorted inputs", () => {

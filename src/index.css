@@ -501,6 +501,42 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   font-weight: 600;
   margin-bottom: 0.25em;
 }
+.visual-editor .vis-env.vis-theorem {
+  border-left: 2px solid color-mix(in oklab, var(--primary) 35%, transparent);
+  padding-left: 1rem;
+}
+.visual-editor .vis-env-theorem-name {
+  font-weight: 600;
+  margin: 0.2em 0 0.1em;
+}
+.visual-editor .vis-env-theorem-opt {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  font-weight: 400;
+  color: var(--muted-foreground);
+  margin-left: 0.35em;
+  border-radius: 4px;
+  padding: 0 3px;
+}
+.visual-editor .vis-env-theorem-opt:hover {
+  background: color-mix(in oklab, var(--muted) 60%, transparent);
+}
+.visual-editor .vis-env-theorem-add {
+  color: color-mix(in oklab, var(--muted-foreground) 70%, transparent);
+}
+.visual-editor .vis-env-theorem-input {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--muted-foreground);
+  border-radius: 4px;
+  padding: 0 3px;
+  margin-left: 0.35em;
+  width: 12em;
+}
+.visual-editor .vis-env-proof > .vis-env-content::after {
+  content: "\2205";
+  float: right;
+}
 
 /* The in-place raw editor (atom node views): a source card. */
 .visual-editor .vis-raw-edit {
