@@ -38,6 +38,7 @@ import {
 } from "@/lib/visual/extensions";
 import {
   posForAnchor,
+  anchorForLine,
   setFaceAnchor,
   takeFaceAnchor,
   type FaceAnchor,
@@ -330,6 +331,23 @@ export function VisualTexEditor() {
     const tex = useEditorStore.getState().content;
     editor.commands.setContent(docFromTex(tex), { emitUpdate: false });
   }, [docVersion, editor]);
+
+  // Panel jumps (labels, search, issues, outline) land in this face
+  // when it is the active one; the source line maps onto the document
+  // through the face anchor, approximately.
+  const jumpTarget = useEditorStore((s) => s.jumpTarget);
+  useEffect(() => {
+    if (editor === null || editor.isDestroyed) return;
+    const line = useEditorStore.getState().jumpTarget;
+    if (line === null) return;
+    const { content, clearJump } = useEditorStore.getState();
+    const anchor = anchorForLine(content, line);
+    const pos = posForAnchor(editor.state.doc, anchor);
+    if (pos !== null) {
+      editor.chain().focus().setTextSelection(pos).scrollIntoView().run();
+    }
+    clearJump();
+  }, [jumpTarget, editor]);
 
   // Serve panel/dialog inserts: LaTeX fragments parse into nodes
   // (figures, pills, lists), math symbols become inline math.

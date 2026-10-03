@@ -24,7 +24,6 @@ import { VisualTexEditor } from "@/components/VisualTexEditor";
 import { setPanelCommandHandler } from "@/lib/panel-commands";
 import { setCommentDialogHandler, type CommentTarget } from "@/lib/editor-comments";
 import { useCommentsStore } from "@/store/comments";
-import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 import { useUiStore } from "@/store/ui";
@@ -78,14 +77,6 @@ export function EditorView() {
   const activeFileIsTex = activeFile !== null && activeFile.endsWith(".tex");
   const texEditorMode = useUiStore((s) => s.texEditorMode);
   const texVisual = activeFileIsTex && texEditorMode === "visual";
-  const jumpTarget = useEditorStore((s) => s.jumpTarget);
-
-  // A jump request (labels, bibliography) needs the source text.
-  useEffect(() => {
-    if (jumpTarget !== null && activeFileIsTex) {
-      useUiStore.getState().setTexEditorMode("code");
-    }
-  }, [jumpTarget, activeFileIsTex]);
 
   const rightTabs = [
     {

@@ -1028,7 +1028,8 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
 
   useEffect(() => {
     const view = viewRef.current;
-    if (!view || jumpTarget === null) return;
+    // Hidden behind the Visual face, the visual editor consumes the jump.
+    if (!visible || !view || jumpTarget === null) return;
     const clamped = Math.min(jumpTarget, view.state.doc.lines);
     const pos = view.state.doc.line(clamped).from;
     view.dispatch({
@@ -1037,7 +1038,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     });
     view.focus();
     clearJump();
-  }, [jumpTarget, clearJump]);
+  }, [visible, jumpTarget, clearJump]);
 
   // Re-measure when shown again after being hidden behind the
   // Visual face (the view stays mounted so undo history survives);

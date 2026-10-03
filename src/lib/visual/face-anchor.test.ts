@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  anchorForLine,
   headingLines,
   lineForAnchor,
   lineText,
@@ -84,6 +85,56 @@ describe("anchors across the faces", () => {
     expect(pos).not.toBeNull();
     const parent = editor.state.doc.resolve(pos!).parent;
     expect(parent.textContent).toContain("More alpha");
+
+    editor.destroy();
+  });
+
+  it("anchors a source line for the visual face to consume a jump", async () => {
+    // DOC layout: line 3 = first heading, line 4-5 first section's
+    // paragraphs, line 7 = second heading, line 8 its paragraph.
+    expect(anchorForLine(DOC, 3)).toEqual({ headingIndex: 0, text: "" });
+    expect(anchorForLine(DOC, 5)).toEqual({ headingIndex: 0, text: "More alpha." });
+    expect(anchorForLine(DOC, 8)).toEqual({ headingIndex: 1, text: "Beta text here." });
+    // Before the first heading: headingIndex -1, from the doc top.
+    expect(anchorForLine(DOC, 1)).toEqual({ headingIndex: -1, text: "\\documentclass{article}" });
+  });
+
+  it("resolves a jump-line anchor to a doc position", async () => {
+    const { Editor } = await import("@tiptap/core");
+    const { StarterKit } = await import("@tiptap/starter-kit");
+    const { parseTex } = await import("./parse");
+    const { visualTexExtensions } = await import("./extensions");
+    const editor = new Editor({
+      extensions: [
+        StarterKit.configure({
+          document: false,
+          heading: false,
+          listItem: false,
+          hardBreak: false,
+          blockquote: false,
+          codeBlock: false,
+          horizontalRule: false,
+          link: false,
+          strike: false,
+        }),
+        ...visualTexExtensions,
+      ],
+      content: parseTex(DOC) as never,
+    });
+
+    // A jump to the "Beta text here." line lands inside that paragraph.
+    const pos = posForAnchor(editor.state.doc, anchorForLine(DOC, 8));
+    expect(pos).not.toBeNull();
+    expect(editor.state.doc.resolve(pos!).parent.textContent).toContain("Beta text here");
+
+    // A jump to the second heading line lands right after the heading.
+    const headingPos = posForAnchor(editor.state.doc, anchorForLine(DOC, 7));
+    expect(headingPos).not.toBeNull();
+    const after = editor.state.doc.resolve(headingPos!);
+    expect(after.parent.type.name).not.toBe("heading");
+
+    // A jump before any heading lands at the doc start.
+    expect(posForAnchor(editor.state.doc, anchorForLine(DOC, 1))).toBe(1);
 
     editor.destroy();
   });

@@ -98,4 +98,41 @@ describe("VisualTexEditor render", () => {
 
     root.unmount();
   });
+
+  it("consumes panel jumps in the visual face, at paragraph granularity", async () => {
+    const tex = [
+      "\\documentclass{article}",
+      "\\begin{document}",
+      "\\section{Alpha}",
+      "Alpha text here.",
+      "\\end{document}",
+      "",
+    ].join("\n");
+    useEditorStore.getState().loadContent(tex);
+    const host = document.createElement("div");
+    document.body.append(host);
+    const root: Root = createRoot(host);
+    await act(async () => {
+      root.render(<VisualTexEditor />);
+    });
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 50));
+    });
+
+    // A jump to the paragraph's line lands inside it.
+    await act(async () => {
+      useEditorStore.getState().jumpTo(4);
+    });
+    expect(useEditorStore.getState().jumpTarget).toBeNull();
+    const editor = host.querySelector(".visual-editor .tiptap");
+    expect(editor).not.toBeNull();
+
+    // A jump to the heading's line lands right after it.
+    await act(async () => {
+      useEditorStore.getState().jumpTo(3);
+    });
+    expect(useEditorStore.getState().jumpTarget).toBeNull();
+
+    root.unmount();
+  });
 });
