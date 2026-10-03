@@ -757,10 +757,11 @@ function commandKeys(src: string): string {
   return m[2].split(",").map((k) => k.trim()).join(", ");
 }
 
-/** The pill preview: an @-icon chip with the command's keys. */
-function pillPreview(className: string, src: string): HTMLElement {
+/** The pill preview: an @-icon chip with the command's keys. The pill
+ *  chrome lives on the wrapper (EditableRawView's dom), so the
+ *  content span carries no pill classes of its own. */
+function pillPreview(src: string): HTMLElement {
   const dom = document.createElement("span");
-  dom.className = `vis-pill ${className}`;
   const icon = document.createElement("span");
   icon.className = "vis-pill-icon";
   icon.textContent = "@";
@@ -768,6 +769,135 @@ function pillPreview(className: string, src: string): HTMLElement {
   text.textContent = commandKeys(src);
   dom.replaceChildren(icon, text);
   return dom;
+}
+
+// --- Hygiene statuses, from the project's cross-file indexes ---
+
+/** A pill's hygiene status: a class and a tooltip. */
+interface PillStatus {
+  cls: string;
+  title: string;
+}
+
+/** The keys inside a pill command's braces, split on commas. */
+function pillKeys(src: string): string[] {
+  const m = /^\\[a-zA-Z]+\*?\s*(?:\[[^\]]*\])?\s*\{([^}]*)\}/.exec(src);
+  if (m === null) return [];
+  return m[1]
+    .split(",")
+    .map((key) => key.trim())
+    .filter((key) => key.length > 0);
+}
+
+/** Does the current document carry a pill of `type` naming `key`? */
+function docDefines(editor: Editor, type: string, key: string): boolean {
+  let found = false;
+  editor.state.doc.descendants((node) => {
+    if (node.type.name === type && pillKeys(node.attrs.src).includes(key)) {
+      found = true;
+      return false;
+    }
+    return true;
+  });
+  return found;
+}
+
+/** Cited keys that no .bib file defines (only when a bibliography exists). */
+function citeStatus(_editor: Editor, src: string): PillStatus | null {
+  const defined = Object.values(useProjectStore.getState().citeKeysByFile).flat();
+  if (defined.length === 0) return null;
+  const known = new Set(defined);
+  const missing = pillKeys(src).filter((key) => !known.has(key));
+  if (missing.length === 0) return null;
+  return {
+    cls: "vis-pill-warn",
+    title: `No BibTeX entry with key ${missing.map((key) => `"${key}"`).join(", ")}`,
+  };
+}
+
+/** A reference to a label no file defines. */
+function refStatus(editor: Editor, src: string): PillStatus | null {
+  const name = pillKeys(src)[0];
+  if (name === undefined) return null;
+  const known = new Set(Object.values(useProjectStore.getState().labelsByFile).flat());
+  if (known.has(name) || docDefines(editor, "label", name)) return null;
+  return { cls: "vis-pill-warn", title: `Undefined label "${name}"` };
+}
+
+/** A label no file references. */
+function labelStatus(editor: Editor, src: string): PillStatus | null {
+  const name = pillKeys(src)[0];
+  if (name === undefined) return null;
+  const known = new Set(Object.values(useProjectStore.getState().refsByFile).flat());
+  if (known.has(name) || docDefines(editor, "ref", name)) return null;
+  return { cls: "vis-pill-unused", title: `Label "${name}" is not referenced` };
+}
+
+/** A pill that recomputes its hygiene status when the project's
+ *  cross-file indexes change (saves and file reads elsewhere). The
+ *  status classes and tooltip land on the wrapper, the pill itself. */
+class PillView extends EditableRawView {
+  private statusFn: (editor: Editor, src: string) => PillStatus | null;
+  private unsubscribe: () => void;
+
+  constructor(
+    editor: Editor,
+    node: PMNode,
+    getPos: () => number | undefined,
+    className: string,
+    contextMenu: ((src: string) => NativeMenuEntry[] | null) | undefined,
+    status: (editor: Editor, src: string) => PillStatus | null,
+  ) {
+    super(editor, node, getPos, {
+      className: `vis-pill ${className}`,
+      editText: (src) => src,
+      buildSrc: (_old, text) => text,
+      editOnSelect: true,
+      preview: (src) => pillPreview(src),
+      contextMenu,
+    });
+    this.statusFn = status;
+    this.applyStatus();
+    this.unsubscribe = useProjectStore.subscribe(() => {
+      this.applyStatus();
+      this.refresh();
+    });
+  }
+
+  update(node: PMNode): boolean {
+    const ok = super.update(node);
+    if (ok) this.applyStatus();
+    return ok;
+  }
+
+  destroy() {
+    this.unsubscribe();
+  }
+
+  private applyStatus(): void {
+    const status = this.statusFn(this.editor, this.node.attrs.src);
+    this.dom.classList.toggle("vis-pill-warn", status?.cls === "vis-pill-warn");
+    this.dom.classList.toggle("vis-pill-unused", status?.cls === "vis-pill-unused");
+    if (status !== null) {
+      this.dom.title = status.title;
+    } else {
+      this.dom.removeAttribute("title");
+    }
+  }
+}
+
+/**
+ * The cite/ref/label pill: keys as a chip, the full command editable
+ * in place on selection (the math pattern), a context menu for
+ * navigation, and a hygiene status badge.
+ */
+function pillNodeView(
+  className: string,
+  contextMenu: ((src: string) => NativeMenuEntry[] | null) | undefined,
+  status: (editor: Editor, src: string) => PillStatus | null,
+): (props: NodeViewRendererProps) => NodeView {
+  return ({ editor, node, getPos }: NodeViewRendererProps) =>
+    new PillView(editor, node, getPos, className, contextMenu, status);
 }
 
 /** Project .tex paths, depth first. */
@@ -854,26 +984,6 @@ function refMenu(src: string): NativeMenuEntry[] | null {
       action: () => void jumpToLabel(commandKeys(src)),
     },
   ];
-}
-
-/**
- * The cite/ref/label pill: keys as a chip, the full command editable
- * in place on selection (the math pattern), and a context menu for
- * navigation.
- */
-function pillNodeView(
-  className: string,
-  contextMenu: ((src: string) => NativeMenuEntry[] | null) | undefined,
-): (props: NodeViewRendererProps) => NodeView {
-  return ({ editor, node, getPos }: NodeViewRendererProps) =>
-    new EditableRawView(editor, node, getPos, {
-      className: `vis-pill ${className}`,
-      editText: (src) => src,
-      buildSrc: (_old, text) => text,
-      editOnSelect: true,
-      preview: (src) => pillPreview(className, src),
-      contextMenu,
-    });
 }
 
 // ---------------------------------------------------------------------------
@@ -1338,7 +1448,7 @@ const Cite = Node.create({
     return ["vis-cite", mergeAttributes(HTMLAttributes)];
   },
   addNodeView() {
-    return pillNodeView("vis-cite", citeMenu);
+    return pillNodeView("vis-cite", citeMenu, citeStatus);
   },
   // Typing \cite{...} — the bibtex, natbib, and biblatex families —
   // turns into a cite pill on the closing brace.
@@ -1367,7 +1477,7 @@ const Ref = Node.create({
     return ["vis-ref", mergeAttributes(HTMLAttributes)];
   },
   addNodeView() {
-    return pillNodeView("vis-ref", refMenu);
+    return pillNodeView("vis-ref", refMenu, refStatus);
   },
   // Typing \ref{...} (and the reference family) turns into a pill.
   addInputRules() {
@@ -1398,7 +1508,7 @@ const Label = Node.create({
     return ["vis-label", mergeAttributes(HTMLAttributes)];
   },
   addNodeView() {
-    return pillNodeView("vis-label", undefined);
+    return pillNodeView("vis-label", undefined, labelStatus);
   },
   // Typing \label{...} turns into a pill.
   addInputRules() {

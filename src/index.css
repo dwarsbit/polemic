@@ -623,6 +623,16 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   font-weight: 700;
   color: var(--muted-foreground);
 }
+/* Pill hygiene: undefined keys and labels warn, unused labels fade. */
+.visual-editor .vis-pill.vis-pill-warn {
+  border-color: color-mix(in oklab, var(--destructive) 45%, transparent);
+}
+.visual-editor .vis-pill.vis-pill-warn .vis-pill-icon {
+  color: var(--destructive);
+}
+.visual-editor .vis-pill.vis-pill-unused {
+  opacity: 0.7;
+}
 
 /* Figure cards: thumbnail with a caption line. */
 .visual-editor .vis-figure-card {
