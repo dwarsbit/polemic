@@ -41,18 +41,22 @@ Known quirk to keep in mind: a converted pill/math node is
 node-selected, and typing with a node selection replaces the node —
 tests must move the cursor first (same as the math tests).
 
-### Next (Phase 2, from the plan above)
+### Next (Phase 3, from the plan above)
 
-4. Jumps stay in Visual (labels/bibliography currently force Code).
-5. Cite pill hygiene badges (undefined keys), reusing the
-   bibliography key index.
-6. Lint markers on pills (shares 5's mechanism).
+Phase 2 landed (2026-10-03):
+- `ce021fc` — jumps stay in Visual: `anchorForLine` maps a source
+  line to a face anchor (`-1` headingIndex for lines before the first
+  heading), `posForAnchor` resolves it; the hidden CodeMirror view
+  skips jump consumption while Visual is active.
+- `b61374e` — pill hygiene badges: cite pills warn on keys no .bib
+  defines, ref pills on undefined labels, label pills fade when
+  unused; statuses recompute when the project's cross-file indexes
+  change. Fixed the pre-existing nested pill chrome on the way.
 
-Then Phase 3 (footnotes, item labels, theorem stretch already done),
-Phase 4 (cursor across external reloads, debounced serialization,
-fontSize/spellcheck). The full plan stays in the "Plan — Visual
-editor v2" section above; the Phase 1 detailed section is now
-history. Also pending: fix `comment-anchor.test.ts`.
+Phase 3 remains: footnotes as inline pills, editable list item
+labels, any theorem-env styling polish. Then Phase 4: cursor across
+external reloads, debounced serialization, fontSize/spellcheck.
+Also pending: fix `comment-anchor.test.ts`.
 
 ### Done
 
