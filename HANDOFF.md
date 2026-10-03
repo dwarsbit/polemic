@@ -194,6 +194,14 @@ One generic node instead of per-env types.
   subsection, `###`→subsubsection, `####`→paragraph, `#####`→
   subparagraph (article-doc mapping, Overleaf-style). Six `#`:
   none. Rules create the heading with the pair, caret after.
+- **Heading level chip** (decided 2026-10-03, Notion-style): each
+  heading shows a small mono chip — `[section]`, starred variants as
+  `[section*]` — on hover and while the caret is in the heading.
+  Placement: a **reserved left gutter** (constant strip left of the
+  content column) so heading text never shifts. **Clickable**: the
+  chip opens the same level menu as the toolbar dropdown
+  (Part…Subparagraph, Body text) at the chip. Visual vocabulary:
+  the raw-source/pill chip styles.
 - **Toolbar dropdown** (`VisualTexEditor.tsx`): current level
   shown; options Part, Chapter, Section, Subsection,
   Subsubsection, Paragraph, Subparagraph, Body text. Selecting

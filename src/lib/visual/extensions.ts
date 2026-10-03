@@ -20,7 +20,7 @@ import { Document } from "@tiptap/extension-document";
 import { HardBreak } from "@tiptap/extension-hard-break";
 import { Heading } from "@tiptap/extension-heading";
 import { ListItem } from "@tiptap/extension-list-item";
-import { NodeSelection, type Transaction } from "@tiptap/pm/state";
+import { NodeSelection, TextSelection, type Transaction } from "@tiptap/pm/state";
 import type { Node as PMNode } from "@tiptap/pm/model";
 import type { NodeView } from "@tiptap/pm/view";
 import type { PreambleAttrs } from "./doc-types";
@@ -291,6 +291,39 @@ class FigureView extends EditableRawView {
     } catch {
       // Missing file: the path badge already says everything.
     }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Modeled environments (quote family; theorem chrome joins later)
+
+/** The chrome class of an environment block. */
+function envBlockClass(node: PMNode): string {
+  return `vis-env vis-env-${node.attrs.env}`;
+}
+
+/** A modeled environment: styled chrome around real content. */
+class EnvBlockView implements NodeView {
+  dom: HTMLElement;
+  contentDOM: HTMLElement;
+  private node: PMNode;
+
+  constructor(node: PMNode) {
+    this.node = node;
+    this.dom = document.createElement("div");
+    this.dom.className = envBlockClass(node);
+    this.contentDOM = document.createElement("div");
+    this.contentDOM.className = "vis-env-content";
+    this.dom.append(this.contentDOM);
+  }
+
+  update(node: PMNode): boolean {
+    if (node.type !== this.node.type) return false;
+    if (node.attrs.env !== this.node.attrs.env) {
+      this.dom.className = envBlockClass(node);
+    }
+    this.node = node;
+    return true;
   }
 }
 
@@ -905,6 +938,52 @@ const FigureBlock = Node.create({
   },
 });
 
+const EnvBlock = Node.create({
+  name: "envBlock",
+  group: "block",
+  content: "block+",
+  addAttributes() {
+    return {
+      env: { default: "quote" },
+      opt: { default: null },
+    };
+  },
+  parseHTML() {
+    return [{ tag: "vis-env-block" }];
+  },
+  renderHTML({ HTMLAttributes }) {
+    return ["vis-env-block", mergeAttributes(HTMLAttributes), 0];
+  },
+  addNodeView() {
+    return ({ node }: NodeViewRendererProps) => new EnvBlockView(node);
+  },
+  // Typing "> " in a paragraph that holds nothing else opens a quote.
+  addInputRules() {
+    return [
+      new InputRule({
+        find: /^>\s$/,
+        handler: ({ state, range }) => {
+          const $from = state.doc.resolve(range.from);
+          if ($from.parent.type.name !== "paragraph") return null;
+          const $after = state.doc.resolve(range.to);
+          const trailing = $after.parent.textBetween(
+            $after.parentOffset,
+            $after.parent.content.size,
+          );
+          if (trailing.length > 0) return null;
+          const env = state.schema.nodes.envBlock.create(
+            { env: "quote", opt: null },
+            [state.schema.nodes.paragraph.create()],
+          );
+          const tr = state.tr;
+          tr.replaceWith($from.before(), $from.after(), env);
+          tr.setSelection(TextSelection.near(tr.doc.resolve($from.before() + 2)));
+        },
+      }),
+    ];
+  },
+});
+
 const RawTexBlock = Node.create({
   name: "rawTexBlock",
   group: "block",
@@ -1020,6 +1099,7 @@ export const visualTexExtensions = [
   MathInline,
   MathBlock,
   FigureBlock,
+  EnvBlock,
   RawTexBlock,
   RawTexInline,
   Cite,

@@ -11,6 +11,7 @@ import {
   Pi,
   Redo2,
   Sigma,
+  TextQuote,
   Type,
   Underline,
   Undo2,
@@ -84,6 +85,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
       underline: editor.isActive("underline"),
       bullet: editor.isActive("bulletList"),
       ordered: editor.isActive("orderedList"),
+      quote: editor.isActive("envBlock", { env: "quote" }),
       canUndo: editor.can().undo(),
       canRedo: editor.can().redo(),
     }),
@@ -168,6 +170,20 @@ function VisualToolbar({ editor }: { editor: Editor }) {
           onClick={toggle(() => editor.chain().toggleOrderedList().run())}
         >
           <ListOrdered className="size-4" />
+        </Button>
+        <Button
+          variant={active?.quote ? "secondary" : "ghost"}
+          size="icon-sm"
+          title="Quote — \begin{quote} (or type > at a line start)"
+          onClick={toggle(() => {
+            if (editor.isActive("envBlock", { env: "quote" })) {
+              editor.chain().focus().lift("envBlock").run();
+            } else {
+              editor.chain().focus().wrapIn("envBlock", { env: "quote", opt: null }).run();
+            }
+          })}
+        >
+          <TextQuote className="size-4" />
         </Button>
       </ButtonGroup>
       <Separator orientation="vertical" className="h-5" />

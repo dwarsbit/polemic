@@ -472,6 +472,36 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   padding: 0 3px;
 }
 
+/* Modeled environments: quote family, center, abstract; theorem chrome
+   joins them. Content is real blocks; the chrome only frames it. */
+.visual-editor .vis-env {
+  margin: 0.6em 0;
+}
+.visual-editor .vis-env-quote,
+.visual-editor .vis-env-quotation {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+}
+.visual-editor .vis-env-quote > .vis-env-content > p,
+.visual-editor .vis-env-quotation > .vis-env-content > p {
+  margin: 0.4em 0;
+}
+.visual-editor .vis-env-quote {
+  color: color-mix(in oklab, var(--foreground) 85%, var(--muted-foreground));
+}
+.visual-editor .vis-env-center > .vis-env-content {
+  text-align: center;
+}
+.visual-editor .vis-env-abstract {
+  margin: 1em 2.5rem;
+}
+.visual-editor .vis-env-abstract::before {
+  content: "Abstract";
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25em;
+}
+
 /* The in-place raw editor (atom node views): a source card. */
 .visual-editor .vis-raw-edit {
   font-family: var(--font-mono);
