@@ -9,10 +9,12 @@
  */
 
 import {
+  Extension,
   InputRule,
   Mark,
   Node,
   mergeAttributes,
+  textblockTypeInputRule,
   type Editor,
   type NodeViewRendererProps,
 } from "@tiptap/core";
@@ -20,9 +22,9 @@ import { Document } from "@tiptap/extension-document";
 import { HardBreak } from "@tiptap/extension-hard-break";
 import { Heading } from "@tiptap/extension-heading";
 import { ListItem } from "@tiptap/extension-list-item";
-import { NodeSelection, TextSelection, type Transaction } from "@tiptap/pm/state";
+import { NodeSelection, TextSelection, Plugin, type Transaction } from "@tiptap/pm/state";
 import type { Node as PMNode } from "@tiptap/pm/model";
-import type { NodeView, ViewMutationRecord } from "@tiptap/pm/view";
+import { Decoration, DecorationSet, type NodeView, type ViewMutationRecord } from "@tiptap/pm/view";
 import type { PreambleAttrs } from "./doc-types";
 import { THEOREM_ENVS } from "./parse";
 import { assetKind } from "@/lib/assets";
@@ -868,6 +870,118 @@ const TexDocument = Document.extend({
   },
 });
 
+// ---------------------------------------------------------------------------
+// Headings: kind pairs, markdown rules, and the level chip
+
+/** A sectioning kind: the command, its display level, and its menu label. */
+export interface HeadingKind {
+  cmd: string;
+  level: number;
+  label: string;
+}
+
+/** All sectioning commands in document order. */
+export const HEADING_KINDS: HeadingKind[] = [
+  { cmd: "part", level: 1, label: "Part" },
+  { cmd: "chapter", level: 2, label: "Chapter" },
+  { cmd: "section", level: 3, label: "Section" },
+  { cmd: "subsection", level: 4, label: "Subsection" },
+  { cmd: "subsubsection", level: 5, label: "Subsubsection" },
+  { cmd: "paragraph", level: 6, label: "Paragraph" },
+  { cmd: "subparagraph", level: 6, label: "Subparagraph" },
+];
+
+/** Apply a sectioning kind at the cursor; null means body text. */
+export function setHeadingKind(editor: Editor, kind: HeadingKind | null): void {
+  if (kind === null) {
+    if (editor.isActive("heading")) editor.chain().focus().setParagraph().run();
+    return;
+  }
+  const attrs = { cmd: kind.cmd, level: kind.level };
+  if (editor.isActive("heading")) {
+    editor.chain().focus().updateAttributes("heading", attrs).run();
+  } else {
+    editor.chain().focus().setNode("heading", attrs).run();
+  }
+}
+
+/** A heading with its level chip: `[section]` in the reserved left
+ *  gutter, visible on hover and while the caret is in the heading;
+ *  clicking it opens the level menu. */
+class HeadingView implements NodeView {
+  dom: HTMLElement;
+  contentDOM: HTMLElement;
+  private editor: Editor;
+  private node: PMNode;
+  private chip: HTMLButtonElement;
+
+  constructor(editor: Editor, node: PMNode) {
+    this.editor = editor;
+    this.node = node;
+    this.dom = document.createElement(`h${node.attrs.level}`);
+    this.dom.className = "vis-heading";
+    this.chip = this.makeChip();
+    this.dom.append(this.chip);
+    this.contentDOM = document.createElement("span");
+    this.dom.append(this.contentDOM);
+  }
+
+  update(node: PMNode): boolean {
+    if (node.type !== this.node.type) return false;
+    if (node.attrs.level !== this.node.attrs.level) return false; // recreate as h{level}
+    if (node.attrs.cmd !== this.node.attrs.cmd) {
+      this.node = node;
+      this.chip.textContent = `[${node.attrs.cmd}]`;
+      return true;
+    }
+    this.node = node;
+    return true;
+  }
+
+  stopEvent(event: Event): boolean {
+    const target = event.target as HTMLElement | null;
+    return target !== null && target.closest(".vis-heading-chip") === this.chip;
+  }
+
+  private makeChip(): HTMLButtonElement {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "vis-heading-chip";
+    chip.textContent = `[${this.node.attrs.cmd}]`;
+    chip.title = "Sectioning level — click to change";
+    chip.addEventListener("mousedown", (event) => event.preventDefault());
+    chip.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const current = this.node.attrs.cmd;
+      const items: NativeMenuEntry[] = [
+        ...HEADING_KINDS.map((kind) => ({
+          id: kind.cmd,
+          text: `${kind.label}${kind.cmd === current ? " — current" : ""}`,
+          action: () => setHeadingKind(this.editor, kind),
+        })),
+        "separator" as const,
+        {
+          id: "body-text",
+          text: "Body text",
+          action: () => setHeadingKind(this.editor, null),
+        },
+      ];
+      void showNativeContextMenu(items);
+    });
+    return chip;
+  }
+}
+
+/** The `#`-shortcut pairs: article-document mapping, section first. */
+const MARKDOWN_HEADINGS: { hashes: number; kind: HeadingKind }[] = [
+  { hashes: 1, kind: HEADING_KINDS[2]! }, // # → section
+  { hashes: 2, kind: HEADING_KINDS[3]! }, // ## → subsection
+  { hashes: 3, kind: HEADING_KINDS[4]! }, // ### → subsubsection
+  { hashes: 4, kind: HEADING_KINDS[5]! }, // #### → paragraph
+  { hashes: 5, kind: HEADING_KINDS[6]! }, // ##### → subparagraph
+];
+
 const TexHeading = Heading.extend({
   addAttributes() {
     return {
@@ -875,6 +989,43 @@ const TexHeading = Heading.extend({
       cmd: { default: "section" },
       opt: { default: null },
     };
+  },
+  addNodeView() {
+    return ({ editor, node }: NodeViewRendererProps) => new HeadingView(editor, node);
+  },
+  // Replace the built-in `#` rules: they create level-1..6 headings
+  // with a mismatched cmd. Ours write consistent cmd/level pairs.
+  addInputRules() {
+    return MARKDOWN_HEADINGS.map(({ hashes, kind }) =>
+      textblockTypeInputRule({
+        find: new RegExp(`^#{${hashes}}\\s$`),
+        type: this.type,
+        getAttributes: () => ({ cmd: kind.cmd, level: kind.level }),
+      }),
+    );
+  },
+});
+
+/** Marks the heading that holds the caret, so its chip stays visible. */
+const HeadingCaret = Extension.create({
+  name: "headingCaret",
+  addProseMirrorPlugins() {
+    return [
+      new Plugin({
+        props: {
+          decorations(state) {
+            const { $from } = state.selection;
+            if ($from.parent.type.name !== "heading") return DecorationSet.empty;
+            const start = $from.before();
+            return DecorationSet.create(state.doc, [
+              Decoration.node(start, start + $from.parent.nodeSize, {
+                class: "vis-has-caret",
+              }),
+            ]);
+          },
+        },
+      }),
+    ];
   },
 });
 
@@ -1214,6 +1365,7 @@ const Label = Node.create({
 export const visualTexExtensions = [
   TexDocument,
   TexHeading,
+  HeadingCaret,
   TexListItem,
   TexHardBreak,
   CommentMark,

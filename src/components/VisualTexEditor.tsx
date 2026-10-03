@@ -5,6 +5,7 @@ import type { Editor, JSONContent } from "@tiptap/core";
 import { NodeSelection } from "@tiptap/pm/state";
 import {
   Bold,
+  ChevronDown,
   Italic,
   List,
   ListOrdered,
@@ -18,9 +19,23 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { setInsertHandler } from "@/lib/editor-insert";
-import { insertMaketitle, visualTexExtensions } from "@/lib/visual/extensions";
+import {
+  HEADING_KINDS,
+  insertMaketitle,
+  setHeadingKind,
+  visualTexExtensions,
+} from "@/lib/visual/extensions";
 import {
   posForAnchor,
   setFaceAnchor,
@@ -79,6 +94,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
   const active = useEditorState({
     editor,
     selector: ({ editor }) => ({
+      headingCmd: (editor.getAttributes("heading").cmd as string | undefined) ?? null,
       bold: editor.isActive("bold"),
       italic: editor.isActive("italic"),
       code: editor.isActive("code"),
@@ -96,8 +112,37 @@ function VisualToolbar({ editor }: { editor: Editor }) {
     editor.commands.focus();
   };
 
+  const headingLabel =
+    HEADING_KINDS.find((k) => k.cmd === active?.headingCmd)?.label ?? "Body text";
+
   return (
     <div className="flex h-9 shrink-0 items-center gap-2 border-b px-2">
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" size="sm" className="h-7 gap-1 px-2 text-xs">
+            {headingLabel}
+            <ChevronDown className="size-3.5" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start">
+          <DropdownMenuRadioGroup value={active?.headingCmd ?? ""}>
+            {HEADING_KINDS.map((kind) => (
+              <DropdownMenuRadioItem
+                key={kind.cmd}
+                value={kind.cmd}
+                onSelect={() => setHeadingKind(editor, kind)}
+              >
+                {kind.label}
+              </DropdownMenuRadioItem>
+            ))}
+          </DropdownMenuRadioGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem onSelect={() => setHeadingKind(editor, null)}>
+            Body text
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+      <Separator orientation="vertical" className="h-5" />
       <ButtonGroup>
         <Button
           variant="ghost"
