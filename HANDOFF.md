@@ -56,6 +56,16 @@ Phase 2 landed (2026-10-03):
 Phase 3 remains: footnotes as inline pills, editable list item
 labels, any theorem-env styling polish. Then Phase 4: cursor across
 external reloads, debounced serialization, fontSize/spellcheck.
+Design amendments (user feedback, 2026-10-03):
+- The heading gutter holds a settings cog, not a text label
+  ("Section" did not fit; the node type is one setting among
+  several). The cog's tooltip names the kind; the menu is the
+  level list as before. Gutter shrunk to 3rem.
+- The preamble card carries a title metadata settings row
+  (Title/Author/Date pills, the same machinery as the title card),
+  editable with or without \maketitle; packages stay hidden behind
+  the summary bar.
+
 Also pending: fix `comment-anchor.test.ts`.
 
 ### Done

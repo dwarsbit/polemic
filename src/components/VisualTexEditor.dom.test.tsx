@@ -135,4 +135,41 @@ describe("VisualTexEditor render", () => {
 
     root.unmount();
   });
+
+  it("edits title metadata from the preamble settings row", async () => {
+    useEditorStore.getState().loadContent(TEX_NO_MAKETITLE);
+    const host = document.createElement("div");
+    document.body.append(host);
+    const root: Root = createRoot(host);
+    await act(async () => {
+      root.render(<VisualTexEditor />);
+    });
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 50));
+    });
+
+    // The preamble card carries the metadata pills with their values.
+    const meta = host.querySelector(".vis-preamble-meta");
+    expect(meta).not.toBeNull();
+    expect(meta!.textContent).toContain("Demo");
+    expect(meta!.textContent).toContain("J.~Smith");
+
+    // Clicking a pill turns it into an input; committing updates the TeX.
+    const author = [...meta!.querySelectorAll("button")].find((b) =>
+      b.textContent?.includes("J.~Smith"),
+    );
+    expect(author).toBeDefined();
+    await act(async () => {
+      author!.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+    const input = meta!.querySelector("input") as HTMLInputElement | null;
+    expect(input).not.toBeNull();
+    input!.value = "A.~Newauthor";
+    await act(async () => {
+      input!.dispatchEvent(new Event("blur"));
+    });
+    expect(useEditorStore.getState().content).toContain("\\author{A.~Newauthor}");
+
+    root.unmount();
+  });
 });

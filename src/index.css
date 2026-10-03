@@ -430,26 +430,33 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   margin: 0;
 }
 
-/* Headings: the level chip lives in a reserved left gutter, so the
+/* Headings: a settings cog lives in a reserved left gutter, so the
    text never shifts when it appears. */
 .visual-editor {
-  padding-left: 5.5rem;
+  padding-left: 3rem;
 }
 .visual-editor .vis-heading {
   position: relative;
 }
 .visual-editor .vis-heading-chip {
   position: absolute;
-  left: -4.25rem;
-  top: 0.25em;
-  width: 3.75rem;
-  text-align: right;
-  font-family: var(--font-mono);
-  font-size: 0.68em;
-  font-weight: 400;
+  left: -2.4rem;
+  top: 0.3em;
+  width: 1.75rem;
+  height: 1.5em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--muted-foreground);
   opacity: 0;
   transition: opacity 120ms ease;
+}
+.visual-editor .vis-heading-chip-icon {
+  display: inline-flex;
+}
+.visual-editor .vis-heading-chip-icon svg {
+  width: 14px;
+  height: 14px;
 }
 .visual-editor .vis-heading-chip:hover {
   color: var(--foreground);
@@ -686,6 +693,14 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   background: transparent;
   text-align: left;
   cursor: pointer;
+}
+/* The title metadata settings row under the preamble bar. */
+.visual-editor .vis-preamble-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.35rem 0.6rem 0.45rem;
+  border-top: 1px solid color-mix(in oklab, var(--border) 60%, transparent);
 }
 .visual-editor .vis-preamble-bar:hover {
   color: var(--foreground);

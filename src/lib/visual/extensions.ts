@@ -501,10 +501,6 @@ class PreambleView extends EditableRawView {
     if (this.node.attrs.packagesSrc !== null) {
       parts.push(`${packageCount(this.node.attrs.packagesSrc)} packages`);
     }
-    const meta = [this.node.attrs.titleSrc, this.node.attrs.authorSrc, this.node.attrs.dateSrc]
-      .filter((v) => v !== null)
-      .length;
-    if (meta > 0) parts.push(`title metadata · ${meta}`);
     const restLines = rest.split("\n").filter((line) => line.trim().length > 0).length;
     if (restLines > 0) parts.push(`${restLines} lines`);
     bar.textContent = `Preamble${parts.length > 0 ? ` — ${parts.join(" · ")}` : ""}`;
@@ -517,6 +513,25 @@ class PreambleView extends EditableRawView {
       this.refresh();
     });
     card.append(bar);
+    // Title metadata settings: the same pills the title card renders,
+    // available wherever the preamble is — with or without \maketitle.
+    const meta = document.createElement("div");
+    meta.className = "vis-preamble-meta";
+    const refresh = () => this.refresh();
+    meta.append(
+      metaPill(this.editor, "titleSrc", "Title", null, this.node.attrs.titleSrc, true, refresh),
+      metaPill(
+        this.editor,
+        "authorSrc",
+        "Author",
+        USER_ICON,
+        this.node.attrs.authorSrc,
+        true,
+        refresh,
+      ),
+      metaPill(this.editor, "dateSrc", "Date", CALENDAR_ICON, this.node.attrs.dateSrc, true, refresh),
+    );
+    card.append(meta);
     if (this.expanded) {
       const pre = document.createElement("pre");
       pre.className = "vis-raw-src vis-preamble-rest";
@@ -532,12 +547,15 @@ class PreambleView extends EditableRawView {
 // Title card: the rendered form of \maketitle with meta pills
 
 /** Small inline SVG icon (lucide-style stroke icons). */
-function svgIcon(paths: string): HTMLElement {
+function svgIcon(paths: string, className = "vis-title-icon"): HTMLElement {
   const wrap = document.createElement("span");
-  wrap.className = "vis-title-icon";
+  wrap.className = className;
   wrap.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
   return wrap;
 }
+
+const COG_ICON =
+  '<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73 2 2 0 0 0-.73 2.73l.08.15a2 2 0 0 1 0 2l-.25.43a2 2 0 0 1-1.73 1H2a2 2 0 0 0-2 2v.44a2 2 0 0 0 2 2h.18a2 2 0 0 1 1.73 1l.25.43a2 2 0 0 1 0 2l-.08.15a2 2 0 0 0 .73 2.73 2 2 0 0 0 2.73-.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V22a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73 2 2 0 0 0 .73-2.73l-.08-.15a2 2 0 0 1 0-2l.25-.43a2 2 0 0 1 1.73-1H22a2 2 0 0 0 2-2v-.44a2 2 0 0 0-2-2h-.18a2 2 0 0 1-1.73-1l-.25-.43a2 2 0 0 1 0-2l.08-.15a2 2 0 0 0-.73-2.73 2 2 0 0 0-2.73.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>';
 
 const USER_ICON =
   '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>';
@@ -1019,6 +1037,15 @@ export const HEADING_KINDS: HeadingKind[] = [
   { cmd: "subparagraph", level: 6, label: "Subparagraph" },
 ];
 
+/** The friendly name of a sectioning command, starred included. */
+function headingLabel(cmd: string): string {
+  const star = cmd.endsWith("*");
+  const base = cmd.replace(/\*$/, "");
+  const kind = HEADING_KINDS.find((k) => k.cmd === base);
+  const name = kind?.label ?? base.charAt(0).toUpperCase() + base.slice(1);
+  return `${name}${star ? "*" : ""}`;
+}
+
 /** Apply a sectioning kind at the cursor; null means body text. */
 export function setHeadingKind(editor: Editor, kind: HeadingKind | null): void {
   if (kind === null) {
@@ -1059,7 +1086,7 @@ class HeadingView implements NodeView {
     if (node.attrs.level !== this.node.attrs.level) return false; // recreate as h{level}
     if (node.attrs.cmd !== this.node.attrs.cmd) {
       this.node = node;
-      this.chip.textContent = `[${node.attrs.cmd}]`;
+      this.chip.title = `${headingLabel(node.attrs.cmd)} — click for settings`;
       return true;
     }
     this.node = node;
@@ -1075,8 +1102,9 @@ class HeadingView implements NodeView {
     const chip = document.createElement("button");
     chip.type = "button";
     chip.className = "vis-heading-chip";
-    chip.textContent = `[${this.node.attrs.cmd}]`;
-    chip.title = "Sectioning level — click to change";
+    const label = headingLabel(this.node.attrs.cmd);
+    chip.title = `${label} — click for settings`;
+    chip.append(svgIcon(COG_ICON, "vis-heading-chip-icon"));
     chip.addEventListener("mousedown", (event) => event.preventDefault());
     chip.addEventListener("click", (event) => {
       event.preventDefault();
