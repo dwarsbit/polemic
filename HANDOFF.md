@@ -131,6 +131,108 @@ and this file updated.
 - Manual: toggle Visual/Code after each change; confirm no diff in
   the Code face for untouched documents (idempotence).
 
+## Phase 1 plan (detailed, 2026-10-03)
+
+Scope decisions (asked and answered): theorems **fully modeled**
+in Phase 1 (not just styled chrome); **citation blocks skipped**
+(thebibliography / csquotes stay raw, revisit later); quote family =
+**quote, quotation, center, abstract**; headings via toolbar dropdown
+**plus markdown shortcuts** (`#`-style). No new promote/demote keys —
+the dropdown converts levels.
+
+### 1. Environment blocks (`envBlock`) — quote family + theorems
+
+One generic node instead of per-env types.
+
+- **Model** (`doc-types.ts`): `EnvBlockNode { type: "envBlock",
+  attrs: { env: string, opt?: string }, content: Block[] }`.
+  `opt` is the optional argument right after `\begin{env}[...]`
+  (amsthm note/theorem title).
+- **Parse** (`parse.ts`): new `MODELED_ENVS`. Static quote family:
+  `quote`, `quotation`, `center`, `abstract`. Theorem envs: static
+  fallbacks (`theorem`, `lemma`, `corollary`, `proposition`,
+  `definition`, `remark`, `example`, `proof`, `fact`) **plus** env
+  names harvested from `\newtheorem{env}…` in the raw preamble `src`
+  (scan at `parseTex` time, pass down to `parseEnv`; fragment parsing
+  via `insert.ts` has no preamble — fallback list only). Body parses
+  recursively with `parseBody` (lists/math/pills inside work); strip a
+  leading `[opt]` into `opt`. Everything else stays `rawTexBlock` —
+  the byte-for-byte raw promise is untouched for unknown envs.
+- **Serialize** (`serialize.ts`): `\begin{env}[opt]` + 2-space
+  indented body + `\end{env}` (house style, same as lists). Known
+  trade-off, accepted: newly modeled envs reformat on first
+  Visual→Code round-trip; parse∘serialize is idempotent.
+- **Views** (`extensions.ts` + `index.css`): `envBlock` is a
+  container node (content `block+`). CSS per env:
+  `vis-env-quote` (left rule, indented), `vis-env-quotation`
+  (same, tighter leading), `vis-env-center` (centered text),
+  `vis-env-abstract` ("Abstract" label, indented),
+  `vis-env-theorem` (accent left bar, bold name line — display
+  name from `\newtheorem{env}{Name}` when present, else the env
+  name capitalized; `proof` gets the QED-square styling). Theorem
+  `opt` (title) edits in place via the meta-pill input pattern,
+  committing a `setNodeMarkup` attr change.
+- **Creation**: toolbar BlockQuote button inserts `quote`; typing
+  `> ` in an empty paragraph becomes a quote (own input rule;
+  StarterKit's blockquote is disabled). Others (abstract, center,
+  theorems) arrive by parsing existing source — dropdown can grow
+  later.
+- **Tests**: parse/serialize per env; nesting (quote containing a
+  list; theorem with `\label` and a formula); `opt` round-trip;
+  idempotence; unknown env still byte-for-byte raw; DOM test for the
+  `> ` rule and theorem title editing.
+
+### 2. Heading controls
+
+- **Consistency fix first**: heading nodes carry `cmd` + `level`;
+  every creation path must write a consistent pair. Canonical pairs
+  from `SECTION_LEVELS` (part..subparagraph = 1..6; `paragraph`/
+  `subparagraph` share 6, `cmd` disambiguates). Tiptap's built-in
+  `#` input rules are replaced — they create level-1 headings with
+  the default `cmd:"section"`, a live mismatch today.
+- **Markdown rules** (`extensions.ts`): `#`→section, `##`→
+  subsection, `###`→subsubsection, `####`→paragraph, `#####`→
+  subparagraph (article-doc mapping, Overleaf-style). Six `#`:
+  none. Rules create the heading with the pair, caret after.
+- **Toolbar dropdown** (`VisualTexEditor.tsx`): current level
+  shown; options Part, Chapter, Section, Subsection,
+  Subsubsection, Paragraph, Subparagraph, Body text. Selecting
+  converts the block at the cursor (heading↔heading via
+  `setNodeMarkup` with the new pair; heading→paragraph via
+  `setParagraph`; paragraph→heading inserts an empty heading).
+  This is the promote/demote path — no extra keyboard shortcut.
+- **Display** (`index.css`): with `#` now mapping to section
+  (level 3, h3 at 1.15rem), the visual hierarchy skews small.
+  Adjust `.visual-editor h1..h6` sizes so a section reads as the
+  document's top level in article-class files (h3 gets ~h2 size;
+  part/chapter keep the larger steps).
+- **Tests**: DOM tests for `#`/`##` rules; dropdown conversion
+  heading→heading→paragraph round-trips through serialize.
+
+### 3. Pill input rules
+
+- Typing `\cite{…}`, `\ref{…}`, `\label{…}` (incl. optional
+  `[...]` before the braces, and the natbib/biblatex family —
+  reuse `isCiteCmd`/`REF_CMDS` from `parse.ts`, exported from a
+  shared module rather than re-listed) converts into the pill
+  node on the closing `}`, selects it (math pattern), so the raw
+  editor opens immediately. Single InputRule matching the pill
+  command families; `$…$` and `$$` rules stay as they are.
+- **Tests**: DOM tests per family; lone `\cite` without braces
+  stays text.
+
+### 4. Landing order (one commit each, tests with each)
+
+1. `envBlock` parse/serialize + round-trip tests (no UI).
+2. `envBlock` node views + CSS + `> `/toolbar quote creation.
+3. Theorem envs: `\newtheorem` scan + name line + `opt` editing.
+4. Heading pairs + markdown rules + toolbar dropdown + CSS sizes.
+5. Pill input rules.
+6. ROADMAP: add a "Visual editor" row; update this file.
+
+Out of scope (explicit): citation blocks, tables, footnotes,
+item labels, panel parity (Phase 2).
+
 ## History
 
 - 2026-10-02: Visual editor v1 landed (`322e03e`), see above.
