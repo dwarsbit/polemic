@@ -4,7 +4,8 @@ Working notes for ongoing work. Update this file when a session ends or a
 phase finishes, so work can continue on another machine. Newest entries at
 the top under "Current status"; older phases move down to "History".
 Keep it short: what is done, what is in progress, what is next, how to
-verify.
+verify. Commit each phase with a useful message and push to
+`origin/main`.
 
 ## Current status — Visual editor (Tiptap rich text face)
 
