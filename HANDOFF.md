@@ -7,11 +7,52 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
-## Current status — Visual editor (Tiptap rich text face)
+## Current status — Visual editor v2, Phase 1 landed (2026-10-03)
 
-Last landed: commit `322e03e` "Visual editor: Tiptap rich text face for
-.tex files" (2026-10-02 17:04, on `main`, pushed). Working tree was clean
-afterwards.
+Phase 1 is done, one commit per step, all pushed to `origin/main`.
+Baseline for the suite: 367/368 green; the single failure is
+pre-existing in `comment-anchor.test.ts` (`resolveAnchor` far-away
+fallback), still unfixed.
+
+### Landed (Phase 1)
+
+1. `4eefcd9` — `envBlock` parse/serialize: quote/quotation/center/
+   abstract + amsthm theorem family (opt kept for theorems); unknown
+   envs stay byte-for-byte raw. Fixed a pre-existing parser bug found
+   on the way: `findLiteral` consumed `\]`/`\)` markers via the
+   escape skip, so bracketed display math degraded and paren math
+   swallowed the file.
+2. `bcb74fb` — `envBlock` views + CSS chrome, TextQuote toolbar
+   button (wrap/lift), `> ` input rule opening a quote.
+3. `382c7a2` — theorem modeling: `\newtheorem` harvest (comment
+   aware, starred), name line with editable title chip (Enter
+   commits, Escape reverts, empty clears), QED chrome for proof.
+4. `15753ad` — heading controls: `#`…`#####` rules writing
+   consistent cmd/level pairs (fixing Tiptap's built-in mismatched
+   rules), toolbar level dropdown (Part…Subparagraph + Body text),
+   Notion-style level chip (`[section]`, `[section*]`) in a reserved
+   left gutter, visible on hover/caret, clickable (native menu);
+   heading display sizes rebalanced.
+5. `fa81cc4` — pill input rules: typed `\cite`/`\ref`/`\label`
+   families convert on the closing brace, node selected so its raw
+   editor opens.
+
+Known quirk to keep in mind: a converted pill/math node is
+node-selected, and typing with a node selection replaces the node —
+tests must move the cursor first (same as the math tests).
+
+### Next (Phase 2, from the plan above)
+
+4. Jumps stay in Visual (labels/bibliography currently force Code).
+5. Cite pill hygiene badges (undefined keys), reusing the
+   bibliography key index.
+6. Lint markers on pills (shares 5's mechanism).
+
+Then Phase 3 (footnotes, item labels, theorem stretch already done),
+Phase 4 (cursor across external reloads, debounced serialization,
+fontSize/spellcheck). The full plan stays in the "Plan — Visual
+editor v2" section above; the Phase 1 detailed section is now
+history. Also pending: fix `comment-anchor.test.ts`.
 
 ### Done
 
