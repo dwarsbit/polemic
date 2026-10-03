@@ -26,7 +26,7 @@ import { NodeSelection, TextSelection, Plugin, type Transaction } from "@tiptap/
 import type { Node as PMNode } from "@tiptap/pm/model";
 import { Decoration, DecorationSet, type NodeView, type ViewMutationRecord } from "@tiptap/pm/view";
 import type { PreambleAttrs } from "./doc-types";
-import { THEOREM_ENVS } from "./parse";
+import { REF_CMDS, THEOREM_ENVS } from "./parse";
 import { assetKind } from "@/lib/assets";
 import { showNativeContextMenu, type NativeMenuEntry } from "@/lib/native-menu";
 import { runPanelCommand } from "@/lib/panel-commands";
@@ -732,6 +732,24 @@ class TitleCardView implements NodeView {
 // ---------------------------------------------------------------------------
 // Pill views (cite / ref / label)
 
+/** An input rule turning a typed `\cmd{keys}` into a pill node, selected
+ *  so its raw editor opens right away. The matched text becomes the
+ *  node's verbatim src, spacing and optional argument included. */
+function pillInputRule(find: RegExp, typeName: string) {
+  return new InputRule({
+    find,
+    handler: ({ state, range }) => {
+      const src = state.doc.textBetween(range.from, range.to);
+      const node = state.schema.nodes[typeName]?.create({ src });
+      if (node === undefined || node === null) return null;
+      const tr = state.tr;
+      tr.delete(range.from, range.to);
+      tr.replaceWith(range.from, range.from, node);
+      selectNodeAt(tr, range.from, typeName);
+    },
+  });
+}
+
 /** The keys argument of a command like \cite[p.3]{a,b}. */
 function commandKeys(src: string): string {
   const m = /^\\([a-zA-Z]+)\*?\s*(?:\[[^\]]*\])?\s*\{([^}]*)\}/.exec(src);
@@ -1322,6 +1340,16 @@ const Cite = Node.create({
   addNodeView() {
     return pillNodeView("vis-cite", citeMenu);
   },
+  // Typing \cite{...} — the bibtex, natbib, and biblatex families —
+  // turns into a cite pill on the closing brace.
+  addInputRules() {
+    return [
+      pillInputRule(
+        /\\(?:cite[a-zA-Z]*|[a-zA-Z]+cite)\*?\s*(?:\[[^\]\n]*\])?\s*\{([^{}\n]*)\}$/,
+        this.name,
+      ),
+    ];
+  },
 });
 
 const Ref = Node.create({
@@ -1341,6 +1369,18 @@ const Ref = Node.create({
   addNodeView() {
     return pillNodeView("vis-ref", refMenu);
   },
+  // Typing \ref{...} (and the reference family) turns into a pill.
+  addInputRules() {
+    const cmds = [...REF_CMDS].join("|");
+    return [
+      pillInputRule(
+        new RegExp(
+          String.raw`\\(?:${cmds})\*?\s*(?:\[[^\]\n]*\])?\s*\{([^{}\n]*)\}$`,
+        ),
+        this.name,
+      ),
+    ];
+  },
 });
 
 const Label = Node.create({
@@ -1359,6 +1399,10 @@ const Label = Node.create({
   },
   addNodeView() {
     return pillNodeView("vis-label", undefined);
+  },
+  // Typing \label{...} turns into a pill.
+  addInputRules() {
+    return [pillInputRule(/\\label\*?\s*\{([^{}\n]*)\}$/, this.name)];
   },
 });
 

@@ -145,7 +145,7 @@ const FORMAT_MARKS: Record<string, MarkType> = {
   uline: "underline",
 };
 
-const REF_CMDS = new Set([
+export const REF_CMDS = new Set([
   "ref",
   "eqref",
   "pageref",
