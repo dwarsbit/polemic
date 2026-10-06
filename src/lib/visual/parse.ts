@@ -609,6 +609,14 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
       continue;
     }
 
+    if (cmd === "footnote") {
+      const token = readCommandToken(c.src, i);
+      flush();
+      nodes.push({ type: "footnote", attrs: { src: token.text } });
+      c.pos = token.end;
+      continue;
+    }
+
     // Unknown command: raw with its attached arguments
     const token = readCommandToken(c.src, i);
     flush();

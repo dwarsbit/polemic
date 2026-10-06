@@ -641,6 +641,34 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   opacity: 0.7;
 }
 
+/* Footnote chip: a superscript carrying the note, clipped with an
+   ellipsis so long notes never blow up the line. */
+.visual-editor .vis-footnote {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72em;
+  line-height: 1.2;
+  vertical-align: super;
+  max-width: 18em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 3px;
+  border-radius: 4px;
+  border: 1px dashed color-mix(in oklab, var(--border) 80%, transparent);
+  color: var(--muted-foreground);
+  cursor: default;
+}
+/* The footnote's raw editor flows inline, like inline math's. */
+.visual-editor .vis-footnote .vis-raw-edit {
+  display: inline-block;
+  min-width: 3rem;
+  padding: 0 0.35rem;
+  line-height: 1.45em;
+  vertical-align: baseline;
+  border-radius: 4px;
+}
+
 /* Figure cards: thumbnail with a caption line. */
 .visual-editor .vis-figure-card {
   margin: 0;

@@ -20,6 +20,20 @@ Suite all green (377/377); `pnpm tsc` clean.
 
 Next: Phase 3 item 1 — footnotes as inline pills.
 
+Phase 3 item 1 landed (footnotes as inline pills):
+- `footnote` inline atom with verbatim `src` (parse/serialize/
+  idempotence tests in `parse-serialize.test.ts`); nested braces
+  kept, `\footnotemark`/`\footnotetext` stay raw.
+- Superscript chip preview carrying the note text (dashed border,
+  ellipsis-clipped, full note in the hover title); raw editor opens
+  on node selection — the math pattern — and commits as one undo
+  step; typed `\footnote{…}` converts on the closing brace
+  (closing-brace rule matches brace-free bodies only; nested
+  content still arrives via paste/parse).
+- DOM tests: `footnote.dom.test.ts`.
+
+Next: Phase 3 item 2 — list item labels.
+
 ## Visual editor v2, Phase 1–2 landed (2026-10-03)
 
 Phase 1 is done, one commit per step, all pushed to `origin/main`.
@@ -78,9 +92,9 @@ Phase 3 — more modeled content:
    the fixture never exercised the fallback (1-line shift, well
    inside the window) and expected a line the target never sat on.
    Rebuilt to push the anchor 40 lines out of the window.
-1. Footnotes — `\footnote{…}` becomes an inline pill node;
-   parse/serialize round-trips it verbatim; in-place raw editor
-   via the math-node pattern; input rule on the closing brace,
+1. Done (2026-10-06): footnotes — `\footnote{…}` becomes an inline
+   pill node; parse/serialize round-trips it verbatim; in-place raw
+   editor via the math-node pattern; input rule on the closing brace,
    mirroring the cite/ref/label family.
 2. List item labels — `\item[label]` already round-trips; show the
    label on the first item line, edit in place (meta-pill input

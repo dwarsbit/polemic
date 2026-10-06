@@ -52,7 +52,13 @@ export interface LabelNode {
   attrs: { src: string };
 }
 
-/** An unmodelled inline construct (`\footnote{...}`, `\LaTeX`, ...), verbatim. */
+/** A `\footnote{...}`, verbatim: a superscript chip with an in-place editor. */
+export interface FootnoteNode {
+  type: "footnote";
+  attrs: { src: string };
+}
+
+/** An unmodelled inline construct (`\LaTeX`, ...), verbatim. */
 export interface RawInlineNode {
   type: "rawTexInline";
   attrs: { src: string };
@@ -65,6 +71,7 @@ export type Inline =
   | CiteNode
   | RefNode
   | LabelNode
+  | FootnoteNode
   | RawInlineNode;
 
 /**

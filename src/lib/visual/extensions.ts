@@ -1544,6 +1544,54 @@ const Label = Node.create({
   },
 });
 
+/** The note body of a `\footnote{...}` source, nested braces kept. */
+function footnoteText(src: string): string {
+  const m = /^\\footnote\*?\s*\{([\s\S]*)\}$/.exec(src);
+  return m === null ? src : m[1]!;
+}
+
+/** The footnote preview: a superscript chip carrying the note, the
+ *  hover title showing it in full. */
+function footnotePreview(src: string): HTMLElement {
+  const sup = document.createElement("sup");
+  sup.className = "vis-footnote-note";
+  const text = footnoteText(src);
+  sup.textContent = text;
+  sup.title = text;
+  return sup;
+}
+
+const Footnote = Node.create({
+  name: "footnote",
+  inline: true,
+  group: "inline",
+  atom: true,
+  addAttributes() {
+    return { src: { default: "" } };
+  },
+  parseHTML() {
+    return [{ tag: "vis-footnote" }];
+  },
+  renderHTML({ HTMLAttributes }) {
+    return ["vis-footnote", mergeAttributes(HTMLAttributes)];
+  },
+  addNodeView() {
+    return ({ editor, node, getPos }: NodeViewRendererProps) =>
+      new EditableRawView(editor, node, getPos, {
+        className: "vis-footnote",
+        editText: (src) => src,
+        buildSrc: (_old, text) => text,
+        editOnSelect: true,
+        preview: footnotePreview,
+      });
+  },
+  // Typing \footnote{...} turns into the chip on the closing brace,
+  // node-selected so its raw editor opens right away.
+  addInputRules() {
+    return [pillInputRule(/\\footnote\*?\s*\{([^{}\n]*)\}$/, this.name)];
+  },
+});
+
 export const visualTexExtensions = [
   TexDocument,
   TexHeading,
@@ -1562,4 +1610,5 @@ export const visualTexExtensions = [
   Cite,
   Ref,
   Label,
+  Footnote,
 ];

@@ -112,6 +112,7 @@ describe("parseTex", () => {
     expect(types).toContain('"cite"');
     expect(types).toContain('"ref"');
     expect(types).toContain('"label"');
+    expect(types).toContain('"footnote"');
     expect(types).toContain('"bulletList"');
     expect(types).toContain('"orderedList"');
     expect(types).toContain('"figureBlock"');
@@ -406,6 +407,36 @@ describe("modeled environments (envBlock)", () => {
   });
 });
 
+describe("footnotes", () => {
+  it("parses \\footnote{...} as a verbatim footnote node", () => {
+    const doc = parseTex("A claim\\footnote{See \\emph{this}.} here.\n");
+    const para = doc.content[0];
+    expect(para?.type).toBe("paragraph");
+    const fn =
+      para?.type === "paragraph" ? para.content.find((n) => n.type === "footnote") : null;
+    expect(fn).toEqual({
+      type: "footnote",
+      attrs: { src: "\\footnote{See \\emph{this}.}" },
+    });
+  });
+
+  it("round-trips footnotes verbatim and idempotently", () => {
+    const { once, twice } = roundTrip(
+      "Text\\footnote{a note with $x$ and \\textbf{bold}}.\n",
+    );
+    expect(once).toBe(twice);
+    expect(once).toContain("\\footnote{a note with $x$ and \\textbf{bold}}");
+  });
+
+  it("keeps footnote-sibling commands raw", () => {
+    const { once, doc } = roundTrip("a\\footnotemark b\\footnotetext{gone} c\n");
+    expect(JSON.stringify(doc)).not.toContain('"footnote"');
+    expect(JSON.stringify(doc)).toContain("rawTexInline");
+    expect(once).toContain("\\footnotemark");
+    expect(once).toContain("\\footnotetext{gone}");
+  });
+});
+
 describe("stability on assorted inputs", () => {
   const cases: string[] = [
     "% only a comment\n",
@@ -424,6 +455,7 @@ describe("stability on assorted inputs", () => {
     "\\begin{quote}\n\\begin{quote}\nnested\n\\end{quote}\n\\end{quote}\n",
     "\\begin{abstract}\n\\noindent\nAn abstract.\n\\end{abstract}\n",
     "\\begin{quote}\n\n\n\nspaced\n\n\n\\end{quote}\n",
+    "a\\footnote{note} b\n",
   ];
 
   it.each(cases)("is idempotent for %#", (tex) => {

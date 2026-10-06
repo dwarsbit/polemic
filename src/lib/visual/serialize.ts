@@ -68,6 +68,7 @@ function serializeInline(nodes: Inline[] | undefined): string {
       case "cite":
       case "ref":
       case "label":
+      case "footnote":
       case "rawTexInline":
         out += node.attrs.src;
         break;
