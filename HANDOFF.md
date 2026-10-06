@@ -118,9 +118,25 @@ Phase 4 item 5 landed (debounced serialization):
   pattern). Tests: registry unit test; component test drives the
   debounce and the flush.
 
-Next: Phase 4 item 6 — editor settings: respect the `fontSize`
-setting in `.visual-editor` (Code already does); native spellcheck
-on prose text nodes, excluded on raw/pill/math nodes.
+Phase 4 item 6 landed (editor settings), closing Phase 4 and the v2
+plan:
+
+- The reading column's base font size follows the `fontSize`
+  setting via `--editor-font-size` (the Code face's var); heading
+  sizes are em ratios of the base (converted from rem, same
+  rendering at the default), so the hierarchy scales with the
+  setting.
+- Native spellcheck on prose: the column carries
+  `spellCheck`/`lang` from the settings (live, no editor
+  recreation); atom node views (pills, math, footnotes, raw,
+  figures, preamble) and the in-place editors/inputs opt out via
+  `spellcheck="false"`. The Code face keeps its own popover
+  dictionary system; this is the lighter native path for Visual.
+- Test: VisualTexEditor.dom.test.tsx ("respects the font size and
+  spellcheck settings").
+
+Next: per the roadmap's suggested order, multi-file navigation and
+project-wide replace, before the PDF library build-out.
 
 ## Visual editor v2, Phase 1–2 landed (2026-10-03)
 
@@ -202,11 +218,11 @@ Phase 4 — polish and performance (all three):
    `serializeTex` per keystroke today); keep `anchorRef` immediate;
    the Code-face resync already tolerates a lagging store. Saves and
    buffer flushes flush first.
-6. Editor settings — respect the `fontSize` setting in
-   `.visual-editor` (Code already does); native spellcheck on
-   prose text nodes, excluded on raw/pill/math nodes.
+6. Done (2026-10-06): editor settings — respect the `fontSize`
+   setting in `.visual-editor` (Code already does); native
+   spellcheck on prose text nodes, excluded on raw/pill/math nodes.
 
-After Phase 4 the v2 plan is complete; per the roadmap's suggested
+All of Phase 4 is done; the v2 plan is complete. Per the roadmap's suggested
 order, work resumes on multi-file navigation and project-wide
 replace, before the PDF library build-out.
 

@@ -80,6 +80,9 @@ class EditableRawView implements NodeView {
     this.spec = spec;
     this.dom = document.createElement(node.isInline ? "span" : "div");
     this.dom.className = spec.className;
+    // LaTeX, not prose: native spellcheck skips the atom entirely
+    // (its raw editor opts out on its own).
+    this.dom.setAttribute("spellcheck", "false");
     this.render();
     this.dom.addEventListener("dblclick", () => this.startEditing());
     if (spec.contextMenu !== undefined) {
@@ -150,7 +153,7 @@ class EditableRawView implements NodeView {
     const editable = document.createElement("div");
     editable.contentEditable = "true";
     editable.className = "vis-raw-edit";
-    editable.spellcheck = false;
+    editable.setAttribute("spellcheck", "false");
     editable.textContent = this.spec.editText(this.node.attrs.src);
     editable.addEventListener("blur", () => this.stopEditing());
     this.dom.replaceChildren(editable);
@@ -412,6 +415,7 @@ class EnvBlockView implements NodeView {
       const input = document.createElement("input");
       input.type = "text";
       input.className = "vis-env-theorem-input";
+      input.setAttribute("spellcheck", "false");
       input.value = value ?? "";
       pill.replaceChildren(input);
       queueMicrotask(() => input.focus());
@@ -1383,6 +1387,7 @@ class ListItemView implements NodeView {
       const input = document.createElement("input");
       input.type = "text";
       input.className = "vis-item-input";
+      input.setAttribute("spellcheck", "false");
       input.value = value ?? "";
       chip.replaceChildren(input);
       queueMicrotask(() => input.focus());

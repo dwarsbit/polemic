@@ -66,6 +66,7 @@ import { serializeTex } from "@/lib/visual/serialize";
 import type { DocNode } from "@/lib/visual/doc-types";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
+import { useSettingsStore } from "@/store/settings";
 
 /** The cursor's place in the document, for face switches. */
 function anchorFromDoc(editor: NonNullable<ReturnType<typeof useEditor>>): FaceAnchor {
@@ -675,6 +676,10 @@ export function VisualTexEditor() {
     },
   });
 
+  const fontSize = useSettingsStore((s) => s.fontSize);
+  const spellcheckEnabled = useSettingsStore((s) => s.spellcheckEnabled);
+  const spellcheckLanguage = useSettingsStore((s) => s.spellcheckLanguage);
+
   if (editor === null) return null;
 
   return (
@@ -700,7 +705,15 @@ export function VisualTexEditor() {
         </p>
       )}
       <div className="min-h-0 flex-1 overflow-y-auto">
-        <div className="visual-editor mx-auto max-w-3xl px-8 py-6">
+        {/* The settings' font size drives the reading column (like the
+            Code face); native spellcheck covers prose — atom node views
+            (pills, math, raw) opt out in their own DOM. */}
+        <div
+          className="visual-editor mx-auto max-w-3xl px-8 py-6"
+          style={{ "--editor-font-size": `${fontSize}px` } as React.CSSProperties}
+          spellCheck={spellcheckEnabled}
+          lang={spellcheckLanguage.length > 0 ? spellcheckLanguage : undefined}
+        >
           <EditorContent editor={editor} />
         </div>
       </div>

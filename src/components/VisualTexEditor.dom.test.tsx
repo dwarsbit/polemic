@@ -6,6 +6,7 @@ import type { Editor } from "@tiptap/core";
 import { VisualTexEditor } from "@/components/VisualTexEditor";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
+import { useSettingsStore } from "@/store/settings";
 import { flushPendingSerialize } from "@/lib/visual/pending-serialize";
 
 const TEX = `\\documentclass{article}
@@ -241,6 +242,40 @@ describe("VisualTexEditor render", () => {
     expect(useEditorStore.getState().content).toContain("and more");
 
     useProjectStore.setState({ activeFile: null });
+    root.unmount();
+  });
+
+  it("respects the font size and spellcheck settings", async () => {
+    useEditorStore.getState().loadContent(TEX);
+    const host = document.createElement("div");
+    document.body.append(host);
+    const root: Root = createRoot(host);
+    await act(async () => {
+      root.render(<VisualTexEditor />);
+    });
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 50));
+    });
+
+    const column = host.querySelector(".visual-editor") as HTMLElement;
+    // The default 14px, live from the settings store.
+    expect(column.style.getPropertyValue("--editor-font-size")).toBe("14px");
+    expect(column.getAttribute("spellcheck")).toBe("true");
+    expect(column.getAttribute("lang")).toBe("en");
+
+    // Changing the setting re-renders the column with it.
+    await act(async () => {
+      useSettingsStore.setState({ fontSize: 18, spellcheckEnabled: false });
+    });
+    expect(column.style.getPropertyValue("--editor-font-size")).toBe("18px");
+    expect(column.getAttribute("spellcheck")).toBe("false");
+
+    // Atom node views opt out: LaTeX is not prose.
+    const pill = host.querySelector(".vis-pill") as HTMLElement;
+    expect(pill).not.toBeNull();
+    expect(pill.getAttribute("spellcheck")).toBe("false");
+
+    useSettingsStore.setState({ fontSize: 14, spellcheckEnabled: true });
     root.unmount();
   });
 
