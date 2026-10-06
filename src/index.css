@@ -669,6 +669,53 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   border-radius: 4px;
 }
 
+/* List item labels: the `\item[label]` chip floats beside the first
+   content line and reads as the marker (LaTeX replaces the bullet
+   with it); unlabeled items get a "+" in the left gutter on hover. */
+.visual-editor li.vis-item {
+  position: relative;
+}
+.visual-editor li.vis-item.has-label {
+  list-style: none;
+}
+.visual-editor .vis-item-label {
+  float: left;
+  margin: 0 0.35em 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  line-height: 1.5em;
+  padding: 0 5px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--accent) 50%, transparent);
+  color: var(--accent-foreground);
+  white-space: nowrap;
+}
+/* The add chip sits in a reserved gutter: hidden but occupying space
+   would indent every item, so it only shows on hover, absolute. */
+.visual-editor .vis-item-label-add {
+  position: absolute;
+  left: -1.6em;
+  top: 0.2em;
+  float: none;
+  padding: 0 2px;
+  visibility: hidden;
+}
+.visual-editor li.vis-item:hover > .vis-item-label-add,
+.visual-editor li.vis-item.vis-has-caret > .vis-item-label-add {
+  visibility: visible;
+}
+.visual-editor .vis-item-input {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 0 4px;
+  border: 1px solid color-mix(in oklab, var(--primary) 45%, transparent);
+  border-radius: 4px;
+  background: var(--background);
+  color: var(--foreground);
+  width: 8em;
+}
+
 /* Figure cards: thumbnail with a caption line. */
 .visual-editor .vis-figure-card {
   margin: 0;

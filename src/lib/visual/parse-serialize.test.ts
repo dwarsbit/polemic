@@ -456,6 +456,7 @@ describe("stability on assorted inputs", () => {
     "\\begin{abstract}\n\\noindent\nAn abstract.\n\\end{abstract}\n",
     "\\begin{quote}\n\n\n\nspaced\n\n\n\\end{quote}\n",
     "a\\footnote{note} b\n",
+    "\\begin{itemize}\n  \\item[a] labeled\n\\end{itemize}\n",
   ];
 
   it.each(cases)("is idempotent for %#", (tex) => {

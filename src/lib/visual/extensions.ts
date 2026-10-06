@@ -1185,12 +1185,119 @@ const HeadingCaret = Extension.create({
   },
 });
 
+/**
+ * A list item's `\item[label]`: a chip that reads as the item's
+ * marker (LaTeX replaces the bullet with it), edited in place with
+ * the meta-pill input pattern. Items without a label carry a "+" in
+ * the left gutter, revealed on hover.
+ */
+class ListItemView implements NodeView {
+  dom: HTMLElement;
+  contentDOM: HTMLElement;
+  private editor: Editor;
+  private node: PMNode;
+  private getPos: () => number | undefined;
+  private editing = false;
+
+  constructor(editor: Editor, node: PMNode, getPos: () => number | undefined) {
+    this.editor = editor;
+    this.node = node;
+    this.getPos = getPos;
+    this.dom = document.createElement("li");
+    this.contentDOM = document.createElement("div");
+    this.contentDOM.className = "vis-item-content";
+    this.applyClass();
+    this.dom.replaceChildren(this.makeChip(), this.contentDOM);
+  }
+
+  update(node: PMNode): boolean {
+    if (node.type !== this.node.type) return false;
+    const labelChanged = node.attrs.label !== this.node.attrs.label;
+    this.node = node;
+    if (labelChanged && !this.editing) {
+      this.applyClass();
+      this.dom.replaceChildren(this.makeChip(), this.contentDOM);
+    }
+    return true;
+  }
+
+  /** The label replaces the bullet marker when one exists. */
+  private applyClass(): void {
+    const value = this.node.attrs.label;
+    const has = value !== null && value !== undefined && value.length > 0;
+    this.dom.className = `vis-item${has ? " has-label" : ""}`;
+  }
+
+  stopEvent(event: Event): boolean {
+    // Keys typed into the label input are the input's business.
+    const target = event.target as HTMLElement | null;
+    return target !== null && target.tagName === "INPUT" && this.dom.contains(target);
+  }
+
+  ignoreMutation(mutation: ViewMutationRecord): boolean {
+    // Content mutations are ProseMirror's; chip mutations are ours.
+    return !this.contentDOM.contains(mutation.target) && mutation.type !== "selection";
+  }
+
+  /** The label chip: the current `[label]`, or a "+" to add one. */
+  private makeChip(): HTMLElement {
+    const value = this.node.attrs.label;
+    const empty = value === null || value === undefined || value.length === 0;
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = `vis-item-label${empty ? " vis-item-label-add" : ""}`;
+    chip.textContent = empty ? "+" : `(${value})`;
+    chip.title = empty
+      ? "Add a label (the [..] after \\item)"
+      : "Label — click to edit (the [..] after \\item)";
+    chip.addEventListener("click", () => {
+      if (this.editing) return;
+      this.editing = true;
+      const input = document.createElement("input");
+      input.type = "text";
+      input.className = "vis-item-input";
+      input.value = value ?? "";
+      chip.replaceChildren(input);
+      queueMicrotask(() => input.focus());
+      const commit = () => {
+        if (!this.editing) return;
+        this.editing = false;
+        const pos = this.getPos();
+        if (pos === undefined) return;
+        const next = input.value.trim().length > 0 ? input.value : null;
+        this.editor.view.dispatch(
+          this.editor.view.state.tr.setNodeMarkup(pos, undefined, {
+            ...this.node.attrs,
+            label: next,
+          }),
+        );
+      };
+      input.addEventListener("blur", commit);
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          commit();
+        }
+        if (event.key === "Escape") {
+          input.value = value ?? "";
+          commit();
+        }
+      });
+    });
+    return chip;
+  }
+}
+
 const TexListItem = ListItem.extend({
   addAttributes() {
     return {
       ...this.parent?.(),
       label: { default: null },
     };
+  },
+  addNodeView() {
+    return ({ editor, node, getPos }: NodeViewRendererProps) =>
+      new ListItemView(editor, node, getPos);
   },
 });
 

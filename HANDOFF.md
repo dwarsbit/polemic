@@ -34,6 +34,21 @@ Phase 3 item 1 landed (footnotes as inline pills):
 
 Next: Phase 3 item 2 — list item labels.
 
+Phase 3 item 2 landed (list item labels):
+- `ListItemView` node view on `listItem`: `\item[label]` shows as a
+  chip floated beside the first content line, reading as the marker
+  (`list-style: none` on labeled items — LaTeX replaces the bullet
+  with the label); unlabeled items carry a "+" chip in a reserved
+  left gutter, revealed on hover.
+- Both chips edit via the meta-pill input pattern: Enter/blur
+  commits a `setNodeMarkup` label change (one undo step), Escape
+  reverts, an empty commit removes the label.
+- DOM tests: `item-label.dom.test.ts`; stability case for
+  `\item[a]` in `parse-serialize.test.ts`.
+
+Next: Phase 3 item 3 — theorem-env light polish (CSS pass on the
+name line and QED chrome).
+
 ## Visual editor v2, Phase 1–2 landed (2026-10-03)
 
 Phase 1 is done, one commit per step, all pushed to `origin/main`.
@@ -96,10 +111,10 @@ Phase 3 — more modeled content:
    pill node; parse/serialize round-trips it verbatim; in-place raw
    editor via the math-node pattern; input rule on the closing brace,
    mirroring the cite/ref/label family.
-2. List item labels — `\item[label]` already round-trips; show the
-   label on the first item line, edit in place (meta-pill input
-   pattern, one-step attr change), add/remove a label from
-   Visual.
+2. Done (2026-10-06): list item labels — `\item[label]` already
+   round-trips; show the label on the first item line, edit in place
+   (meta-pill input pattern, one-step attr change), add/remove a
+   label from Visual.
 3. Theorem-env light polish — CSS pass on the name line and QED
    chrome only; theorems are fully modeled since Phase 1, so no
    modeling work.
