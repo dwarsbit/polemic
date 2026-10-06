@@ -64,6 +64,9 @@ export function TopBar() {
         // interactive controls.
         if (event.button !== 0 || !isTauri()) return;
         if ((event.target as HTMLElement).closest("button, input")) return;
+        void import("@tauri-apps/api/window")
+          .then(({ getCurrentWindow }) => getCurrentWindow().startDragging())
+          .catch(() => undefined);
       }}
     >
       <div className="flex min-w-0 items-center gap-3 pl-4">
