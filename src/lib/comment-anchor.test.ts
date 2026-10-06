@@ -14,8 +14,9 @@ describe("resolveAnchor", () => {
   });
 
   it("falls back to a whole-document search when far away", () => {
-    const edited = ["new", ...doc.split("\n")];
-    expect(resolveAnchor(edited.join("\n"), { text: "target line", line: 4 })).toBe(7);
+    const filler = Array.from({ length: 40 }, (_, i) => `filler ${i + 1}`);
+    const edited = [...doc.split("\n").slice(0, 3), ...filler, "target line", "d", "e"];
+    expect(resolveAnchor(edited.join("\n"), { text: "target line", line: 4 })).toBe(44);
   });
 
   it("orphans when the text is gone", () => {
