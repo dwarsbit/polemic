@@ -155,6 +155,49 @@ describe("parseTex", () => {
       { type: "paragraph", content: [{ type: "text", text: "Just a paragraph." }] },
     ]);
   });
+
+  it("recovers a preamble from a file without \\begin{document}", () => {
+    const tex = [
+      "\\documentclass{article}",
+      "\\usepackage{amsmath}",
+      "% a comment between the packages and the body",
+      "\\usepackage{graphicx}",
+      "",
+      "\\maketitle",
+      "",
+      "\\section{Hi}",
+      "",
+      "Body text.",
+      "",
+    ].join("\n");
+    const doc = parseTex(tex);
+    expect(doc.attrs?.wrapped).toBe(false);
+    expect(doc.content?.[0]?.type).toBe("preamble");
+    expect(doc.content?.[1]?.type).toBe("titleBlock");
+
+    // The recovered preamble round-trips without gaining framing.
+    const { once, twice } = roundTrip(tex);
+    expect(once).toContain("\\documentclass{article}");
+    expect(once).toContain("\\usepackage{graphicx}");
+    expect(once).toContain("\\section{Hi}");
+    expect(once).not.toContain("\\begin{document}");
+    expect(once).toBe(twice);
+  });
+
+  it("treats a file of only preamble commands as preamble-only", () => {
+    const tex = "\\documentclass{article}\n\\usepackage{amsmath}\n";
+    const doc = parseTex(tex);
+    expect(doc.content).toEqual([
+      { type: "preamble", attrs: expect.objectContaining({ documentclassSrc: "\\documentclass{article}" }) },
+    ]);
+  });
+
+  it("keeps a body-first file without \\begin{document} preamble-free", () => {
+    const doc = parseTex("\\section{Hi}\nBody text.\n");
+    expect(doc.attrs?.wrapped).toBe(false);
+    expect(doc.content?.some((b) => b.type === "preamble")).toBe(false);
+    expect(doc.content?.[0]?.type).toBe("heading");
+  });
 });
 
 describe("preamble decomposition", () => {

@@ -114,6 +114,8 @@ function splitFirstLine(text: string): string[] {
  * Reassemble the preamble text from its decomposed attrs: document
  * class first, then packages, then the raw remainder, then the title
  * metadata — a canonical order, stable across parse/serialize cycles.
+ * Always ends with a blank line, so the body (or the
+ * `\begin{document}`) never glues onto the last preamble command.
  */
 export function preambleText(attrs: PreambleAttrs): string {
   const parts: string[] = [];
@@ -125,7 +127,7 @@ export function preambleText(attrs: PreambleAttrs): string {
   if (attrs.authorSrc !== null) parts.push(attrs.authorSrc);
   if (attrs.dateSrc !== null) parts.push(attrs.dateSrc);
   if (parts.length === 0) return "";
-  return parts.join("\n").replace(/\s+$/, "\n\n");
+  return `${parts.join("\n").replace(/\s+$/, "")}\n\n`;
 }
 
 /**

@@ -19,9 +19,9 @@ const toggleButtonVariants = cva(
     variants: {
       variant: {
         outline:
-          "border-border bg-background shadow-xs hover:bg-muted hover:text-foreground data-[state=on]:border-primary/20 data-[state=on]:bg-primary/10 data-[state=on]:text-foreground dark:bg-transparent dark:data-[state=on]:bg-primary/15",
+          "border-border bg-background shadow-xs hover:text-foreground data-[state=on]:border-primary/20 data-[state=on]:bg-primary/10 data-[state=on]:text-foreground dark:bg-transparent dark:data-[state=on]:bg-primary/15",
         ghost:
-          "hover:bg-muted hover:text-foreground data-[state=on]:bg-muted data-[state=on]:text-foreground dark:hover:bg-muted/50",
+          "hover:text-foreground data-[state=on]:bg-muted data-[state=on]:text-foreground",
       },
       size: {
         default: "h-8 px-3",

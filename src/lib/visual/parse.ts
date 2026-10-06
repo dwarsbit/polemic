@@ -920,12 +920,41 @@ export function splitPreamble(preamble: string): PreambleAttrs {
 // ---------------------------------------------------------------------------
 // Entry point
 
+/** Commands that start the body, for recovering a preamble from a
+ *  malformed file without a `\begin{document}`. */
+const BODY_MARKER =
+  /^\\(maketitle|tableofcontents|printbibliography|part|chapter|section|subsection|subsubsection|paragraph|subparagraph|begin|item|input|include|label|ref|eqref|cite|cref|footnote|newpage|clearpage|pagebreak|linebreak)(?![a-zA-Z])/;
+
+/**
+ * Where the body starts in a file without a `\begin{document}`: before
+ * the first line that is body content — plain text or a body command.
+ * Blank lines and comments count as preamble lines. Returns -1 when
+ * the whole file is preamble commands (no body at all).
+ */
+function recoveredPreambleEnd(source: string): number {
+  let offset = 0;
+  for (const line of source.split("\n")) {
+    const trimmed = line.trim();
+    const isPreamble =
+      trimmed.length === 0 ||
+      trimmed.startsWith("%") ||
+      (trimmed.startsWith("\\") && !BODY_MARKER.test(trimmed));
+    if (!isPreamble) return offset;
+    offset += line.length + 1;
+  }
+  return -1;
+}
+
 /**
  * Parse a `.tex` file into the visual editor's document. The preamble
  * (everything before `\begin{document}`) becomes a `preamble` node
  * with the well-known commands split out, and text after
  * `\end{document}` is kept in the `postamble` doc attribute; both
  * round-trip verbatim.
+ *
+ * A malformed file without a `\begin{document}` still gets its
+ * preamble recovered: the leading run of preamble commands becomes
+ * the preamble node, so the card shows and the metadata is editable.
  */
 export function parseTex(source: string): DocNode {
   const beginIdx = source.indexOf("\\begin{document}");
@@ -947,6 +976,18 @@ export function parseTex(source: string): DocNode {
     }
     const theorems = new Set([...THEOREM_ENVS, ...newtheoremEnvs(preamble)]);
     envs = { modeled: new Set([...QUOTE_ENVS, ...theorems]), theorems };
+  } else {
+    const end = recoveredPreambleEnd(source);
+    // -1 means the whole file is preamble commands: no body at all.
+    if (end > 0 || end === -1) {
+      const preamble = end === -1 ? source : source.slice(0, end);
+      if (preamble.trim().length > 0) {
+        content.push({ type: "preamble", attrs: splitPreamble(preamble) });
+        body = end === -1 ? "" : source.slice(end);
+        const theorems = new Set([...THEOREM_ENVS, ...newtheoremEnvs(preamble)]);
+        envs = { modeled: new Set([...QUOTE_ENVS, ...theorems]), theorems };
+      }
+    }
   }
 
   content.push(...parseBody(body, envs ?? { modeled: modeledEnvs(), theorems: THEOREM_ENVS }));

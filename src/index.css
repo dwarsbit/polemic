@@ -47,6 +47,8 @@
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
+  --color-mauve-700: var(--mauve-700);
+  --color-mauve-900: var(--mauve-900);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -68,6 +70,10 @@
   --popover-foreground: oklch(0.145 0.008 326);
   --primary: oklch(0.212 0.019 322.12);
   --primary-foreground: oklch(0.985 0 0);
+  /* The primary button's mauve: a fill two steps lighter than --primary,
+     with a 900 hairline border. */
+  --mauve-700: oklch(0.33 0.024 322.12);
+  --mauve-900: oklch(0.16 0.026 322.12);
   --secondary: oklch(0.96 0.003 325.6);
   --secondary-foreground: oklch(0.212 0.019 322.12);
   --muted: oklch(0.96 0.003 325.6);
@@ -805,13 +811,26 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   text-align: left;
   cursor: pointer;
 }
-/* The title metadata settings row under the preamble bar. */
+/* The title metadata settings under the preamble bar: the title on
+   its own centered line, author and date beneath it. */
 .visual-editor .vis-preamble-meta {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 0.4rem;
   padding: 0.35rem 0.6rem 0.45rem;
   border-top: 1px solid color-mix(in oklab, var(--border) 60%, transparent);
+}
+.visual-editor .vis-preamble-meta-title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.visual-editor .vis-preamble-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
 }
 .visual-editor .vis-preamble-bar:hover {
   color: var(--foreground);
@@ -829,26 +848,25 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   border-top: 1px dashed var(--border);
 }
 
-/* Title card (the rendered \maketitle). */
+/* Title block (the \maketitle marker): a slim bar that carries no
+   values — Title, Author, and Date show once, in the preamble card. */
 .visual-editor .vis-title-card {
   margin: 0.5em 0 1em;
-  padding: 1rem 1.25rem 0.9rem;
-  text-align: center;
+}
+.visual-editor .vis-title-bar {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   background: color-mix(in oklab, var(--card) 60%, transparent);
 }
-.visual-editor .vis-title-main {
-  margin-bottom: 0.4rem;
+.visual-editor .vis-title-bar:hover {
+  color: var(--foreground);
 }
-.visual-editor .vis-title-pills {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-/* The title reads as plain text until hovered; click edits in place. */
-.visual-editor .vis-title-pill.vis-title-edit {
+/* The title reads as plain text — no border, not even on hover; the
+   text cursor is the only edit affordance. Click edits in place. */
+.vis-title-pill.vis-title-edit {
   background: transparent;
   border-color: transparent;
   font-size: 1.4rem;
@@ -856,15 +874,14 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   color: var(--foreground);
   padding: 0.1rem 0.4rem;
 }
-.visual-editor .vis-title-pill.vis-title-edit:hover {
-  border-color: var(--border);
+/* In-place editing: the pill's text span turns editable in its own
+   box — no replacement element, so nothing shifts on focus. A
+   cleared span keeps a caret slot instead of collapsing. */
+.vis-title-pill [contenteditable="true"] {
+  min-width: 1ch;
+  outline: none;
 }
-.visual-editor .vis-title-input.vis-title-input-lg {
-  font-size: 1.3rem;
-  font-weight: 600;
-  width: 16rem;
-}
-.visual-editor .vis-title-pill {
+.vis-title-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -873,36 +890,30 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   border: 1px solid var(--border);
   background: color-mix(in oklab, var(--accent) 50%, transparent);
   color: var(--accent-foreground);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   cursor: text;
 }
-.visual-editor .vis-title-pill:disabled {
+/* Pills that open a picker point at the affordance instead. */
+.vis-title-pill.vis-title-picker {
+  cursor: pointer;
+}
+.vis-title-pill:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
-.visual-editor .vis-title-pill-empty {
+.vis-title-pill-empty {
   color: var(--muted-foreground);
   font-style: italic;
 }
-.visual-editor .vis-title-icon {
+.vis-title-icon {
   display: inline-flex;
   color: var(--muted-foreground);
 }
-.visual-editor .vis-title-icon svg {
-  width: 0.9rem;
-  height: 0.9rem;
+.vis-title-icon svg,
+svg.vis-title-icon {
+  width: 0.875rem;
+  height: 0.875rem;
 }
-.visual-editor .vis-title-input {
-  font: inherit;
-  width: 11rem;
-  padding: 0.1rem 0.5rem;
-  border-radius: 999px;
-  border: 1px solid var(--primary);
-  background: var(--card);
-  color: var(--foreground);
-  outline: none;
-}
-
 /* No focus outlines anywhere in the visual editor: neither the
    WebKit default on the contenteditable nor on node-view buttons. */
 .visual-editor :focus,

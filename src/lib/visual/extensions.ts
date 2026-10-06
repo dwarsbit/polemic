@@ -84,7 +84,14 @@ class EditableRawView implements NodeView {
     // (its raw editor opts out on its own).
     this.dom.setAttribute("spellcheck", "false");
     this.render();
-    this.dom.addEventListener("dblclick", () => this.startEditing());
+    this.dom.addEventListener("dblclick", (event) => {
+      // Double-clicks inside an in-place input (e.g. a meta pill's)
+      // are the input's business — word selection, not raw editing.
+      if ((event.target as HTMLElement | null)?.tagName === "INPUT") {
+        return;
+      }
+      this.startEditing();
+    });
     if (spec.contextMenu !== undefined) {
       this.dom.addEventListener("contextmenu", (event) => {
         const items = spec.contextMenu?.(this.node.attrs.src);
@@ -115,11 +122,27 @@ class EditableRawView implements NodeView {
   }
 
   stopEvent(event: Event): boolean {
-    if (!this.editing) return false;
-    if (event instanceof KeyboardEvent && event.key === "Escape") {
+    // Escape cancels the raw editor first — its editable is covered
+    // by the in-place guard below, but it must keep its shortcut.
+    if (
+      this.editing &&
+      event instanceof KeyboardEvent &&
+      event.key === "Escape"
+    ) {
       this.stopEditing();
       return true;
     }
+    // The in-place editors of meta pills (the preamble card's
+    // Title/Author/Date) manage their own events; letting them
+    // through makes ProseMirror act on the node selection and eat
+    // the whole node.
+    const target = event.target as HTMLElement | null;
+    if (target !== null && this.dom.contains(target)) {
+      if (target.tagName === "INPUT" || target.isContentEditable) {
+        return true;
+      }
+    }
+    if (!this.editing) return false;
     return this.dom.contains(event.target as globalThis.Node);
   }
 
@@ -481,6 +504,20 @@ export function commandContent(src: string | null): string | null {
 class PreambleView extends EditableRawView {
   private expanded = false;
 
+  stopEvent(event: Event): boolean {
+    // The card's own buttons (the summary bar, the metadata pills)
+    // handle their clicks: letting a mousedown through node-selects
+    // the preamble atom, and the next stray keypress would delete
+    // the whole node.
+    if (
+      event.type === "mousedown" &&
+      (event.target as HTMLElement | null)?.closest("button") !== null
+    ) {
+      return true;
+    }
+    return super.stopEvent(event);
+  }
+
   constructor(editor: Editor, node: PMNode, getPos: () => number | undefined) {
     super(editor, node, getPos, {
       className: "vis-preamble",
@@ -519,11 +556,21 @@ class PreambleView extends EditableRawView {
     card.append(bar);
     // Title metadata settings: the same pills the title card renders,
     // available wherever the preamble is — with or without \maketitle.
+    // The title sits centered on its own line, author and date below.
     const meta = document.createElement("div");
     meta.className = "vis-preamble-meta";
+    // Double-clicks among the pills (their padding included) select
+    // text in the inputs; they must not open the raw source editor.
+    meta.addEventListener("dblclick", (event) => event.stopPropagation());
     const refresh = () => this.refresh();
-    meta.append(
+    const titleRow = document.createElement("div");
+    titleRow.className = "vis-preamble-meta-title";
+    titleRow.append(
       metaPill(this.editor, "titleSrc", "Title", null, this.node.attrs.titleSrc, true, refresh),
+    );
+    const pillsRow = document.createElement("div");
+    pillsRow.className = "vis-preamble-meta-row";
+    pillsRow.append(
       metaPill(
         this.editor,
         "authorSrc",
@@ -535,6 +582,7 @@ class PreambleView extends EditableRawView {
       ),
       metaPill(this.editor, "dateSrc", "Date", CALENDAR_ICON, this.node.attrs.dateSrc, true, refresh),
     );
+    meta.append(titleRow, pillsRow);
     card.append(meta);
     if (this.expanded) {
       const pre = document.createElement("pre");
@@ -548,7 +596,8 @@ class PreambleView extends EditableRawView {
 }
 
 // ---------------------------------------------------------------------------
-// Title card: the rendered form of \maketitle with meta pills
+// Title block: a slim \maketitle marker (the values are shown in the
+// preamble card, never repeated here)
 
 /** Small inline SVG icon (lucide-style stroke icons). */
 function svgIcon(paths: string, className = "vis-title-icon"): HTMLElement {
@@ -763,26 +812,61 @@ function metaPill(
   pill.addEventListener("click", () => {
     if (!enabled || pill.dataset.editing === "true") return;
     pill.dataset.editing = "true";
-    const input = document.createElement("input");
-    input.type = "text";
-    input.className = `vis-title-input${isTitle ? " vis-title-input-lg" : ""}`;
-    input.value = value ?? "";
-    input.placeholder = label;
-    pill.replaceChildren(input);
-    input.focus();
+    // A node selection on the preamble (e.g. from clicking the card's
+    // padding) must not outlive this edit: the next stray keypress
+    // would delete the whole node. Park the caret in the text after
+    // the preamble instead.
+    const preamble = findPreamble(editor);
+    const selection = editor.state.selection;
+    if (
+      preamble !== null &&
+      selection instanceof NodeSelection &&
+      selection.from === preamble.pos
+    ) {
+      const $after = editor.state.doc.resolve(
+        Math.min(selection.from + 1, editor.state.doc.content.size),
+      );
+      editor.view.dispatch(
+        editor.view.state.tr.setSelection(TextSelection.near($after)),
+      );
+    }
+    // The text span itself becomes editable: the exact same element
+    // in the exact same box, so focusing cannot shift anything — the
+    // inline-edit feel, with no input metrics to fight.
+    text.contentEditable = "true";
+    text.spellcheck = false;
+    if (value === null) text.textContent = "";
+    text.focus();
+    // The caret lands after the text, like clicking into any prose.
+    const range = document.createRange();
+    range.selectNodeContents(text);
+    range.collapse(false);
+    const domSelection = window.getSelection();
+    domSelection?.removeAllRanges();
+    domSelection?.addRange(range);
     const commit = () => {
-      const next = input.value;
+      const next = text.textContent ?? "";
+      text.contentEditable = "false";
       setPreambleMeta(editor, key, next);
       // The attr transaction may not touch this node, so refresh here.
       onCommit();
     };
-    input.addEventListener("blur", commit);
-    input.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") input.blur();
-      if (event.key === "Escape") {
-        input.value = value ?? "";
-        input.blur();
+    text.addEventListener("blur", commit);
+    text.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        text.blur();
       }
+      if (event.key === "Escape") {
+        text.textContent = value ?? "";
+        text.blur();
+      }
+    });
+    // Paste stays plain text, never markup.
+    text.addEventListener("paste", (event) => {
+      event.preventDefault();
+      const paste = event.clipboardData?.getData("text/plain") ?? "";
+      document.execCommand("insertText", false, paste);
     });
   });
   return pill;
@@ -790,11 +874,9 @@ function metaPill(
 
 class TitleCardView implements NodeView {
   dom: HTMLElement;
-  private editor: Editor;
   private node: PMNode;
 
-  constructor(editor: Editor, node: PMNode) {
-    this.editor = editor;
+  constructor(node: PMNode) {
     this.node = node;
     this.dom = document.createElement("div");
     this.dom.className = "vis-title-card";
@@ -808,62 +890,22 @@ class TitleCardView implements NodeView {
     return true;
   }
 
-  stopEvent(event: Event): boolean {
-    // Keys typed into a pill's input are the input's business.
-    const target = event.target as HTMLElement | null;
-    return target !== null && target.tagName === "INPUT" && this.dom.contains(target);
-  }
-
   ignoreMutation(): boolean {
     return true;
   }
 
   destroy() {}
 
+  // The \maketitle marker: a slim bar that says the title renders
+  // here, without repeating the values — Title, Author, and Date
+  // are shown once, in the preamble card's metadata pills above.
   private render() {
-    const preamble = findPreamble(this.editor);
-    const attrs = preamble?.attrs ?? null;
-    const card = document.createElement("div");
-    card.className = "vis-title-card-inner";
-    const row = document.createElement("div");
-    row.className = "vis-title-pills vis-title-main";
-    const refresh = () => this.render();
-    row.append(
-      metaPill(
-        this.editor,
-        "titleSrc",
-        "Title",
-        null,
-        attrs?.titleSrc ?? null,
-        attrs !== null,
-        refresh,
-      ),
-    );
-    card.append(row);
-    const meta = document.createElement("div");
-    meta.className = "vis-title-pills";
-    meta.append(
-      metaPill(
-        this.editor,
-        "authorSrc",
-        "Author",
-        USER_ICON,
-        attrs?.authorSrc ?? null,
-        attrs !== null,
-        refresh,
-      ),
-      metaPill(
-        this.editor,
-        "dateSrc",
-        "Date",
-        CALENDAR_ICON,
-        attrs?.dateSrc ?? null,
-        attrs !== null,
-        refresh,
-      ),
-    );
-    card.append(meta);
-    this.dom.replaceChildren(card);
+    this.dom.title =
+      "\\maketitle renders the title here — select and press Backspace to remove it. Edit Title, Author, and Date in the preamble card.";
+    const bar = document.createElement("div");
+    bar.className = "vis-title-bar";
+    bar.textContent = "Title — rendered by \\maketitle";
+    this.dom.replaceChildren(bar);
   }
 }
 
@@ -1507,7 +1549,7 @@ const TitleBlock = Node.create({
     return ["vis-title-block", mergeAttributes(HTMLAttributes)];
   },
   addNodeView() {
-    return ({ editor, node }: NodeViewRendererProps) => new TitleCardView(editor, node);
+    return ({ node }: NodeViewRendererProps) => new TitleCardView(node);
   },
 });
 

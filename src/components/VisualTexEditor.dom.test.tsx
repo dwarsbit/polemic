@@ -61,12 +61,17 @@ describe("VisualTexEditor render", () => {
     // The preamble summary bar hides the extracted commands.
     expect(host.querySelector(".vis-preamble-card")).not.toBeNull();
     expect(html).not.toContain("documentclass");
-    // The title card renders \\maketitle with meta pills.
+    // The title block is a slim \\maketitle marker; the values show
+    // once, in the preamble card's metadata pills.
     const card = host.querySelector(".vis-title-card");
     expect(card).not.toBeNull();
-    expect(card!.textContent).toContain("Demo");
-    expect(card!.textContent).toContain("J.~Smith");
-    expect(card!.textContent).toContain("2026-10-02");
+    expect(card!.textContent).not.toContain("Demo");
+    expect(card!.textContent).not.toContain("J.~Smith");
+    expect(card!.textContent).toContain("maketitle");
+    const preamble = host.querySelector(".vis-preamble-card");
+    expect(preamble!.textContent).toContain("Demo");
+    expect(preamble!.textContent).toContain("J.~Smith");
+    expect(preamble!.textContent).toContain("2026-10-02");
     // No hint when \\maketitle is present.
     expect(html).not.toContain("Insert \\maketitle");
 
@@ -124,6 +129,51 @@ describe("VisualTexEditor render", () => {
       b.textContent?.includes("Insert"),
     );
     expect(insert).toBeDefined();
+
+    root.unmount();
+  });
+
+  it("editing a preamble metadata pill leaves the preamble alone", async () => {
+    useEditorStore.getState().loadContent(TEX);
+    const host = document.createElement("div");
+    document.body.append(host);
+    const root: Root = createRoot(host);
+    await act(async () => {
+      root.render(<VisualTexEditor />);
+    });
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 50));
+    });
+
+    // Open the title pill's in-place editor inside the preamble card:
+    // the text span itself turns editable.
+    const pill = [...host.querySelectorAll("button")].find(
+      (b) =>
+        b.closest(".vis-preamble-card") !== null &&
+        b.textContent?.includes("Demo"),
+    );
+    expect(pill).toBeDefined();
+    await act(async () => {
+      pill?.dispatchEvent(new MouseEvent("mousedown", { bubbles: true }));
+      pill?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+    const editable = host.querySelector<HTMLElement>(
+      ".vis-preamble-card [contenteditable='true']",
+    );
+    expect(editable).not.toBeNull();
+
+    // Keys typed into the editable span are its own business: they
+    // must not reach the editor and act on the node selection.
+    await act(async () => {
+      editable?.dispatchEvent(
+        new KeyboardEvent("keydown", { key: "Backspace", bubbles: true }),
+      );
+      editable?.dispatchEvent(
+        new KeyboardEvent("keydown", { key: "Enter", bubbles: true }),
+      );
+    });
+    expect(host.querySelector(".vis-preamble-card")).not.toBeNull();
+    expect(useEditorStore.getState().content).toBe(TEX);
 
     root.unmount();
   });
@@ -334,7 +384,8 @@ describe("VisualTexEditor render", () => {
     expect(meta!.textContent).toContain("Demo");
     expect(meta!.textContent).toContain("J.~Smith");
 
-    // Clicking a pill turns it into an input; committing updates the TeX.
+    // Clicking a pill turns its text span editable; committing
+    // updates the TeX.
     const author = [...meta!.querySelectorAll("button")].find((b) =>
       b.textContent?.includes("J.~Smith"),
     );
@@ -342,11 +393,13 @@ describe("VisualTexEditor render", () => {
     await act(async () => {
       author!.dispatchEvent(new MouseEvent("click", { bubbles: true }));
     });
-    const input = meta!.querySelector("input") as HTMLInputElement | null;
-    expect(input).not.toBeNull();
-    input!.value = "A.~Newauthor";
+    const editable = meta!.querySelector<HTMLElement>(
+      "[contenteditable='true']",
+    );
+    expect(editable).not.toBeNull();
+    editable!.textContent = "A.~Newauthor";
     await act(async () => {
-      input!.dispatchEvent(new Event("blur"));
+      editable!.dispatchEvent(new Event("blur"));
     });
     await act(async () => {
       flushPendingSerialize();

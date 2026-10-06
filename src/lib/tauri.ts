@@ -61,6 +61,10 @@ export interface Settings {
   autoIncludeNewFiles: boolean | null;
   /** "git" or "snapshots"; null means auto (git when installed). */
   versionControl: string | null;
+  /** The .tex editor's face: "visual" or "code"; null = code. */
+  texEditorMode: string | null;
+  /** The .bib editor's face: "visual" or "code"; null = visual. */
+  bibEditorMode: string | null;
 }
 
 export interface ProjectInfo {
@@ -200,6 +204,8 @@ export interface EditorPreferences {
   caretCustomColor?: string;
   reopenLastProject?: boolean;
   autoIncludeNewFiles?: boolean;
+  texEditorMode?: string;
+  bibEditorMode?: string;
   /** The user's reference sources (see SourceDef). */
   sources?: SourceDef[];
 }

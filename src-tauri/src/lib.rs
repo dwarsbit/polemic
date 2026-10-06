@@ -234,6 +234,8 @@ fn update_preferences(
     caret_custom_color: Option<String>,
     reopen_last_project: Option<bool>,
     auto_include_new_files: Option<bool>,
+    tex_editor_mode: Option<String>,
+    bib_editor_mode: Option<String>,
     sources: Option<Vec<SourceDef>>,
 ) -> Result<Settings, String> {
     settings::update(&app, |s| {
@@ -281,6 +283,12 @@ fn update_preferences(
         }
         if auto_include_new_files.is_some() {
             s.auto_include_new_files = auto_include_new_files;
+        }
+        if tex_editor_mode.is_some() {
+            s.tex_editor_mode = tex_editor_mode;
+        }
+        if bib_editor_mode.is_some() {
+            s.bib_editor_mode = bib_editor_mode;
         }
         if sources.is_some() {
             s.sources = sources.unwrap();
@@ -1186,6 +1194,20 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
         true,
         Some("CmdOrCtrl+Alt+2"),
     )?;
+    // The Develop menu: tools that only exist in dev builds. The whole
+    // submenu is compiled out in release, so the menu item never ships.
+    #[cfg(debug_assertions)]
+    let component_gallery = MenuItem::with_id(
+        handle,
+        "component_gallery",
+        "Component Gallery",
+        true,
+        Option::<&str>::None,
+    )?;
+    #[cfg(debug_assertions)]
+    let develop_menu = SubmenuBuilder::new(handle, "Develop")
+        .item(&component_gallery)
+        .build()?;
 
     // The native Edit menu: its predefined items deliver Cmd+X/C/V and
     // friends to the focused webview (the custom menu replaced the
@@ -1258,9 +1280,11 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .separator()
             .item(&packages)
             .build()?;
-        MenuBuilder::new(handle)
-            .items(&[&app_menu, &file_menu, &insert_menu, &edit_menu, &view_menu])
-            .build()?
+        let menu_builder = MenuBuilder::new(handle)
+            .items(&[&app_menu, &file_menu, &insert_menu, &edit_menu, &view_menu]);
+        #[cfg(debug_assertions)]
+        let menu_builder = menu_builder.item(&develop_menu);
+        menu_builder.build()?
     };
 
     #[cfg(not(target_os = "macos"))]
@@ -1305,9 +1329,11 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             .separator()
             .select_all()
             .build()?;
-        MenuBuilder::new(handle)
-            .items(&[&file_menu, &edit_menu])
-            .build()?
+        let menu_builder = MenuBuilder::new(handle)
+            .items(&[&file_menu, &edit_menu]);
+        #[cfg(debug_assertions)]
+        let menu_builder = menu_builder.item(&develop_menu);
+        menu_builder.build()?
     };
 
     #[cfg(target_os = "macos")]
@@ -1351,6 +1377,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
             "packages" => "menu://packages",
             "mode_editor" => "menu://mode-editor",
             "sources" => "menu://sources",
+            "component_gallery" => "menu://component-gallery",
             "export_pdf" => "menu://export-pdf",
             "reveal_build" => "menu://reveal-build",
             "settings" => "menu://settings",

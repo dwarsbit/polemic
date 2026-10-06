@@ -68,6 +68,10 @@ pub struct Settings {
     pub auto_include_new_files: Option<bool>,
     /// "git" or "snapshots"; None means auto (git when installed).
     pub version_control: Option<String>,
+    /// Editor face for .tex files: "visual" or "code".
+    pub tex_editor_mode: Option<String>,
+    /// Editor face for .bib files: "visual" or "code".
+    pub bib_editor_mode: Option<String>,
     pub user_words: Vec<String>,
 }
 

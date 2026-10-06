@@ -1,6 +1,7 @@
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { CommandPalette } from "@/components/CommandPalette";
+import { ComponentGallery } from "@/components/ComponentGallery";
 import { TableDialog } from "@/components/TableDialog";
 import { DocumentSettingsDialog } from "@/components/DocumentSettingsDialog";
 import { PackagesDialog } from "@/components/PackagesDialog";
@@ -17,6 +18,7 @@ import { insertTikzSnippet } from "@/lib/tikz-snippets";
 import { runPanelCommand } from "@/lib/panel-commands";
 import { queryClient, refetchGitState } from "@/lib/query-client";
 import { getSettings, gitAvailable, isTauri, revealBuildFolder } from "@/lib/tauri";
+import { useUiStore, type EditorFace } from "@/store/ui";
 import { isMac } from "@/lib/platform";
 import { useProjectStore } from "@/store/project";
 import { usePreviewStore } from "@/store/preview";
@@ -51,6 +53,7 @@ function App() {
     (s) => s.setDocumentSettingsOpen,
   );
   const paletteOpen = useDialogsStore((s) => s.paletteOpen);
+  const galleryOpen = useDialogsStore((s) => s.galleryOpen);
 
   // Load preferences, apply theme/auto-compile, and reopen the last project.
   // The loading screen stays up until the startup decision is final.
@@ -62,6 +65,12 @@ function App() {
         if (cancelled) return;
         useSettingsStore.getState().hydrate(settings);
         applySettingsSideEffects(settings);
+        // The Visual/Code face per file kind, from the last session.
+        const face = (value: string | null, fallback: EditorFace): EditorFace =>
+          value === "visual" || value === "code" ? value : fallback;
+        useUiStore
+          .getState()
+          .hydrateEditorModes(face(settings.texEditorMode, "code"), face(settings.bibEditorMode, "visual"));
         // Known before the loading screen lifts so the right column does
         // not flash the wrong version-control panel.
         useSettingsStore
@@ -262,6 +271,13 @@ function App() {
               useDialogsStore.getState().setAboutOpen(true);
             },
           ],
+          // Dev builds only: the Develop menu never ships in release.
+          [
+            "menu://component-gallery",
+            () => {
+              useDialogsStore.getState().setGalleryOpen(true);
+            },
+          ],
         ];
         const unsubscribers = await Promise.all(
           handlers.map(([event, handler]) => listen(event, handler)),
@@ -308,8 +324,17 @@ function App() {
           )}
         >
           <TopBar />
-          <div className="min-h-0 flex-1">
+          <div className="relative min-h-0 flex-1">
             {hasProject ? <EditorView /> : <ProjectsView />}
+            {/* Dev builds only: the import.meta.env.DEV guard lets the
+                bundler drop the gallery from release builds entirely. */}
+            {import.meta.env.DEV && galleryOpen && (
+              <ComponentGallery
+                onClose={() =>
+                  useDialogsStore.getState().setGalleryOpen(false)
+                }
+              />
+            )}
           </div>
         </div>
       )}
