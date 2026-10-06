@@ -135,6 +135,17 @@ plan:
 - Test: VisualTexEditor.dom.test.tsx ("respects the font size and
   spellcheck settings").
 
+Insert-menu fix (user report, 2026-10-06): the menu items did
+nothing — `toggle` is a curried helper (`(fn) => handler`), and the
+items called `onSelect={() => toggle(fn)}`, creating the handler and
+discarding it instead of passing it. TypeScript can't flag this (a
+value-returning function is assignable to a void signature).
+All items now pass `onSelect={toggle(fn)}` like the toolbar
+buttons. Regression test: `insert-menu.dom.test.tsx` drives the
+real radix dropdown (open trigger via pointerdown, click the item
+out-of-band — radix's select path runs through ReactDOM.flushSync,
+which does not work inside an act batch).
+
 Next: per the roadmap's suggested order, multi-file navigation and
 project-wide replace, before the PDF library build-out.
 

@@ -230,7 +230,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
           {INSERT_QUOTE_ENVS.map((entry) => (
             <DropdownMenuItem
               key={entry.env}
-              onSelect={() => toggle(() => insertEnvMenuEntry(editor, entry.env))}
+              onSelect={toggle(() => insertEnvMenuEntry(editor, entry.env))}
             >
               {entry.label}
             </DropdownMenuItem>
@@ -240,28 +240,26 @@ function VisualToolbar({ editor }: { editor: Editor }) {
           {(theoremEnvs ?? []).map((entry) => (
             <DropdownMenuItem
               key={entry.env}
-              onSelect={() =>
-                toggle(() => {
-                  ensurePackage(editor, "amsthm");
-                  insertEnvMenuEntry(editor, entry.env);
-                })
-              }
+              onSelect={toggle(() => {
+                ensurePackage(editor, "amsthm");
+                insertEnvMenuEntry(editor, entry.env);
+              })}
             >
               {entry.label}
             </DropdownMenuItem>
           ))}
           <DropdownMenuSeparator />
           <DropdownMenuLabel>Inline &amp; floats</DropdownMenuLabel>
-          <DropdownMenuItem onSelect={() => toggle(insertFootnote)}>
+          <DropdownMenuItem onSelect={toggle(insertFootnote)}>
             Footnote — \footnote
           </DropdownMenuItem>
-          <DropdownMenuItem onSelect={() => toggle(insertDisplayMath)}>
+          <DropdownMenuItem onSelect={toggle(insertDisplayMath)}>
             Display math — \[…\]
           </DropdownMenuItem>
-          <DropdownMenuItem onSelect={() => toggle(() => insertAtCursor(FIGURE_SCAFFOLD))}>
+          <DropdownMenuItem onSelect={toggle(() => insertAtCursor(FIGURE_SCAFFOLD))}>
             Figure
           </DropdownMenuItem>
-          <DropdownMenuItem onSelect={() => toggle(() => insertAtCursor(TABLE_SCAFFOLD))}>
+          <DropdownMenuItem onSelect={toggle(() => insertAtCursor(TABLE_SCAFFOLD))}>
             Table
           </DropdownMenuItem>
           <DropdownMenuSeparator />
