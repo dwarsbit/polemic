@@ -60,6 +60,7 @@ import {
   type FaceAnchor,
 } from "@/lib/visual/face-anchor";
 import { fragmentToContent, looksLikeLatex } from "@/lib/visual/insert";
+import { setPendingSerializeFlush } from "@/lib/visual/pending-serialize";
 import { parseTex } from "@/lib/visual/parse";
 import { serializeTex } from "@/lib/visual/serialize";
 import type { DocNode } from "@/lib/visual/doc-types";
@@ -519,14 +520,41 @@ export function VisualTexEditor() {
     },
     onUpdate: ({ editor }) => {
       anchorRef.current = anchorFromDoc(editor);
+    },
+  });
+
+  // Serializing the document to TeX is whole-document work; the store
+  // copy lags at most the delay behind the editor. The anchor stays
+  // immediate (onUpdate above), and this effect's cleanup flushes on
+  // unmount — before the leaving-face resync reads the store. Saves
+  // and buffer flushes call the flush through the registry first.
+  useEffect(() => {
+    if (editor === null) return;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    const flush = () => {
+      if (timer !== null) {
+        clearTimeout(timer);
+        timer = null;
+      }
       const tex = serializeTex(editor.getJSON() as unknown as DocNode);
       useEditorStore.getState().setContent(tex);
       const { activeFile, lastSavedContent } = useProjectStore.getState();
       if (activeFile !== null && tex !== lastSavedContent) {
         useProjectStore.getState().markDirty(activeFile, tex);
       }
-    },
-  });
+    };
+    const previous = setPendingSerializeFlush(flush);
+    const schedule = () => {
+      if (timer !== null) clearTimeout(timer);
+      timer = setTimeout(flush, 300);
+    };
+    editor.on("update", schedule);
+    return () => {
+      editor.off("update", schedule);
+      flush();
+      setPendingSerializeFlush(previous);
+    };
+  }, [editor]);
 
   // External reloads (file open, tab switch) reparse into the editor.
   // setContent emits an update by default in v3 — that would mark the

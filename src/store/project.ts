@@ -11,6 +11,7 @@ import {
 import { extractLabels } from "@/lib/outline";
 import { extractRefPositions } from "@/lib/label-refs";
 import { formatDocument } from "@/lib/editor-format";
+import { flushPendingSerialize } from "@/lib/visual/pending-serialize";
 import { invalidateGitState } from "@/lib/query-client";
 import { useEditorStore } from "@/store/editor";
 import { useSettingsStore } from "@/store/settings";
@@ -182,6 +183,9 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         },
       }),
     flushBuffers: async () => {
+      // The visual face serializes on a debounce; pending edits land
+      // in the store (and this buffer list) before anything writes.
+      flushPendingSerialize();
       const { project, buffers, activeFile } = get();
       const paths = Object.keys(buffers);
       if (paths.length === 0) return;
@@ -477,6 +481,9 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     },
 
     saveActiveFile: async () => {
+      // The visual face serializes on a debounce; pending edits land
+      // in the store before the dirty check reads it.
+      flushPendingSerialize();
       const { project, activeFile, lastSavedContent, buffers } = get();
       if (!activeFile) return false;
       const current = useEditorStore.getState().content;

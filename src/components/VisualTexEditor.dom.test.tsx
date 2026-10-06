@@ -6,6 +6,7 @@ import type { Editor } from "@tiptap/core";
 import { VisualTexEditor } from "@/components/VisualTexEditor";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
+import { flushPendingSerialize } from "@/lib/visual/pending-serialize";
 
 const TEX = `\\documentclass{article}
 \\usepackage{amsmath}
@@ -91,9 +92,14 @@ describe("VisualTexEditor render", () => {
     );
     expect(banner).toBeDefined();
 
-    // Inserting it adds the title block and clears the hint.
+    // Inserting it adds the title block and clears the hint. The store
+    // copy debounces behind the editor; the flush is what a save or
+    // face toggle would do.
     await act(async () => {
       banner?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+    await act(async () => {
+      flushPendingSerialize();
     });
     expect(useEditorStore.getState().content).toContain("\\maketitle");
     expect(host.querySelector(".vis-title-card")).not.toBeNull();
@@ -185,6 +191,59 @@ describe("VisualTexEditor render", () => {
     root.unmount();
   });
 
+  it("debounces serialization into the store; the flush serializes now", async () => {
+    const tex = "\\documentclass{article}\n\\begin{document}\nBody.\n\\end{document}\n";
+    useEditorStore.getState().loadContent(tex);
+    useProjectStore.setState({ activeFile: "main.tex" });
+    const host = document.createElement("div");
+    document.body.append(host);
+    const root: Root = createRoot(host);
+    await act(async () => {
+      root.render(<VisualTexEditor />);
+    });
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 50));
+    });
+
+    const el = host.querySelector(".tiptap") as HTMLElement & { editor: Editor };
+    const editor = el.editor as Editor;
+    let bodyPos = -1;
+    editor.state.doc.descendants((node, pos) => {
+      if (bodyPos === -1 && node.type.name === "paragraph" && node.textContent.includes("Body.")) {
+        bodyPos = pos;
+        return false;
+      }
+      return true;
+    });
+    await act(async () => {
+      editor.commands.setTextSelection(bodyPos + 1);
+      editor.commands.insertContent(" More");
+    });
+
+    // The store lags behind the editor: serialization debounces.
+    expect(useEditorStore.getState().content).not.toContain("More");
+
+    // The flush (what saves, buffer flushes, and the face toggle
+    // call) serializes immediately.
+    await act(async () => {
+      flushPendingSerialize();
+    });
+    expect(useEditorStore.getState().content).toContain("More");
+
+    // An unflushed edit waits out the debounce, then lands.
+    await act(async () => {
+      editor.commands.insertContent(" and more");
+    });
+    expect(useEditorStore.getState().content).not.toContain("and more");
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 400));
+    });
+    expect(useEditorStore.getState().content).toContain("and more");
+
+    useProjectStore.setState({ activeFile: null });
+    root.unmount();
+  });
+
   it("consumes panel jumps in the visual face, at paragraph granularity", async () => {
     const tex = [
       "\\documentclass{article}",
@@ -253,6 +312,9 @@ describe("VisualTexEditor render", () => {
     input!.value = "A.~Newauthor";
     await act(async () => {
       input!.dispatchEvent(new Event("blur"));
+    });
+    await act(async () => {
+      flushPendingSerialize();
     });
     expect(useEditorStore.getState().content).toContain("\\author{A.~Newauthor}");
 

@@ -105,9 +105,22 @@ Phase 4 item 4 landed (cursor across external reloads):
   across a same-file reload"), which reaches the editor through
   Tiptap's `element.editor`.
 
-Next: Phase 4 item 5 — debounced serialization (debounce the
-`setContent`/`markDirty` side of `onUpdate`, keep `anchorRef`
-immediate; the Code-face resync already tolerates a lagging store).
+Phase 4 item 5 landed (debounced serialization):
+- `onUpdate` keeps only the anchor immediate; a 300ms trailing
+  debounce serializes the whole document to the store
+  (`setContent` + `markDirty`). Consumers that must not read a
+  lagging store call `flushPendingSerialize()` first:
+  `saveActiveFile`, `flushBuffers` (project store), and this
+  effect's own cleanup — the editor's JSON stays readable after
+  Tiptap's destroy (unmount preserves the final state), so the
+  flush lands before the leaving-face resync reads the store.
+- Registry in `visual/pending-serialize.ts` (editor-insert
+  pattern). Tests: registry unit test; component test drives the
+  debounce and the flush.
+
+Next: Phase 4 item 6 — editor settings: respect the `fontSize`
+setting in `.visual-editor` (Code already does); native spellcheck
+on prose text nodes, excluded on raw/pill/math nodes.
 
 ## Visual editor v2, Phase 1–2 landed (2026-10-03)
 
@@ -184,10 +197,11 @@ Phase 4 — polish and performance (all three):
 4. Done (2026-10-06): cursor across external reloads — re-anchor in
    the `docVersion` effect when the file identity didn't change;
    today only the face toggle preserves place.
-5. Debounced serialization — debounce the `setContent`/`markDirty`
-   side of `onUpdate` (whole-doc `serializeTex` per keystroke
-   today); keep `anchorRef` immediate; the Code-face resync already
-   tolerates a lagging store.
+5. Done (2026-10-06): debounced serialization — debounce the
+   `setContent`/`markDirty` side of `onUpdate` (whole-doc
+   `serializeTex` per keystroke today); keep `anchorRef` immediate;
+   the Code-face resync already tolerates a lagging store. Saves and
+   buffer flushes flush first.
 6. Editor settings — respect the `fontSize` setting in
    `.visual-editor` (Code already does); native spellcheck on
    prose text nodes, excluded on raw/pill/math nodes.
