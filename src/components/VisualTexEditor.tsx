@@ -10,9 +10,9 @@ import {
   List,
   ListOrdered,
   Pi,
+  Plus,
   Redo2,
   Sigma,
-  TextQuote,
   Type,
   Underline,
   Undo2,
@@ -23,16 +23,32 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { setInsertHandler } from "@/lib/editor-insert";
+import { Switch } from "@/components/ui/switch";
+import { insertAtCursor, setInsertHandler } from "@/lib/editor-insert";
 import {
   HEADING_KINDS,
+  INSERT_QUOTE_ENVS,
+  addNewtheorem,
+  ensurePackage,
+  insertEnvBlock,
   insertMaketitle,
+  insertTheoremEnvEntries,
   setHeadingKind,
   visualTexExtensions,
 } from "@/lib/visual/extensions";
@@ -91,6 +107,35 @@ function selectInserted(editor: Editor, type: string) {
     .run();
 }
 
+/** Float scaffolds the Insert menu offers; they go through the panel
+ *  insert path, so they parse into figure/table blocks. */
+const FIGURE_SCAFFOLD = [
+  "\\begin{figure}",
+  "  \\centering",
+  "  \\includegraphics[width=0.6\\textwidth]{}",
+  "  \\caption{}",
+  "\\end{figure}",
+].join("\n");
+const TABLE_SCAFFOLD = [
+  "\\begin{table}",
+  "  \\centering",
+  "  \\begin{tabular}{ll}",
+  "    a & b \\\\",
+  "  \\end{tabular}",
+  "  \\caption{}",
+  "\\end{table}",
+].join("\n");
+
+/** A menu entry for an environment: inside that env it lifts (the old
+ *  quote button's toggle), otherwise it inserts context-dependently. */
+function insertEnvMenuEntry(editor: Editor, env: string) {
+  if (editor.isActive("envBlock", { env })) {
+    editor.chain().focus().lift("envBlock").run();
+    return;
+  }
+  insertEnvBlock(editor, env);
+}
+
 function VisualToolbar({ editor }: { editor: Editor }) {
   const active = useEditorState({
     editor,
@@ -102,11 +147,23 @@ function VisualToolbar({ editor }: { editor: Editor }) {
       underline: editor.isActive("underline"),
       bullet: editor.isActive("bulletList"),
       ordered: editor.isActive("orderedList"),
-      quote: editor.isActive("envBlock", { env: "quote" }),
       canUndo: editor.can().undo(),
       canRedo: editor.can().redo(),
     }),
   });
+
+  // The theorem section covers \newtheorem-declared envs live.
+  const theoremEnvs = useEditorState({
+    editor,
+    selector: ({ editor }) => insertTheoremEnvEntries(editor),
+  });
+
+  // The New theorem environment dialog.
+  const [theoremOpen, setTheoremOpen] = useState(false);
+  const [theoremEnv, setTheoremEnv] = useState("");
+  const [theoremName, setTheoremName] = useState("");
+  const [theoremInstance, setTheoremInstance] = useState(true);
+  const [theoremError, setTheoremError] = useState<string | null>(null);
 
   const toggle = (fn: () => void) => () => {
     fn();
@@ -116,8 +173,170 @@ function VisualToolbar({ editor }: { editor: Editor }) {
   const headingLabel =
     HEADING_KINDS.find((k) => k.cmd === active?.headingCmd)?.label ?? "Body text";
 
+  const insertFootnote = () => {
+    editor
+      .chain()
+      .focus()
+      .insertContent({ type: "footnote", attrs: { src: "\\footnote{}" } })
+      .run();
+    selectInserted(editor, "footnote");
+  };
+
+  const insertDisplayMath = () => {
+    editor
+      .chain()
+      .focus()
+      .insertContent({ type: "mathBlock", attrs: { src: "\\[\\]" } })
+      .run();
+    selectInserted(editor, "mathBlock");
+  };
+
+  function commitNewtheorem() {
+    const env = theoremEnv.trim();
+    if (!/^[a-zA-Z]+$/.test(env)) {
+      setTheoremError("The environment name may only use letters.");
+      return;
+    }
+    if ((theoremEnvs ?? []).some((entry) => entry.env === env)) {
+      setTheoremError(`"${env}" is already declared.`);
+      return;
+    }
+    if (!addNewtheorem(editor, env, theoremName)) {
+      setTheoremError("This file has no preamble to hold the declaration.");
+      return;
+    }
+    if (theoremInstance) insertEnvBlock(editor, env);
+    setTheoremOpen(false);
+    setTheoremEnv("");
+    setTheoremName("");
+    setTheoremError(null);
+    editor.commands.focus();
+  }
+
   return (
     <div className="flex h-9 shrink-0 items-center gap-2 border-b px-2">
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" size="sm" className="h-7 gap-1 px-2 text-xs">
+            <Plus className="size-3.5" />
+            Insert
+            <ChevronDown className="size-3.5" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" className="max-h-[28rem] overflow-y-auto">
+          <DropdownMenuLabel>Environments</DropdownMenuLabel>
+          {INSERT_QUOTE_ENVS.map((entry) => (
+            <DropdownMenuItem
+              key={entry.env}
+              onSelect={() => toggle(() => insertEnvMenuEntry(editor, entry.env))}
+            >
+              {entry.label}
+            </DropdownMenuItem>
+          ))}
+          <DropdownMenuSeparator />
+          <DropdownMenuLabel>Theorem environments</DropdownMenuLabel>
+          {(theoremEnvs ?? []).map((entry) => (
+            <DropdownMenuItem
+              key={entry.env}
+              onSelect={() =>
+                toggle(() => {
+                  ensurePackage(editor, "amsthm");
+                  insertEnvMenuEntry(editor, entry.env);
+                })
+              }
+            >
+              {entry.label}
+            </DropdownMenuItem>
+          ))}
+          <DropdownMenuSeparator />
+          <DropdownMenuLabel>Inline &amp; floats</DropdownMenuLabel>
+          <DropdownMenuItem onSelect={() => toggle(insertFootnote)}>
+            Footnote — \footnote
+          </DropdownMenuItem>
+          <DropdownMenuItem onSelect={() => toggle(insertDisplayMath)}>
+            Display math — \[…\]
+          </DropdownMenuItem>
+          <DropdownMenuItem onSelect={() => toggle(() => insertAtCursor(FIGURE_SCAFFOLD))}>
+            Figure
+          </DropdownMenuItem>
+          <DropdownMenuItem onSelect={() => toggle(() => insertAtCursor(TABLE_SCAFFOLD))}>
+            Table
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem onSelect={() => setTheoremOpen(true)}>
+            New theorem environment…
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+      <Dialog open={theoremOpen} onOpenChange={setTheoremOpen}>
+        <DialogContent className="sm:max-w-sm">
+          <DialogHeader>
+            <DialogTitle>New theorem environment</DialogTitle>
+            <DialogDescription>
+              Declares \newtheorem in the preamble; amsthm loads when missing.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-3">
+            <div className="grid gap-1.5">
+              <label htmlFor="theorem-env" className="text-xs text-muted-foreground">
+                Environment name
+              </label>
+              <Input
+                id="theorem-env"
+                autoFocus
+                value={theoremEnv}
+                placeholder="exercise"
+                onChange={(e) => {
+                  setTheoremEnv(e.target.value);
+                  setTheoremError(null);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") commitNewtheorem();
+                }}
+              />
+            </div>
+            <div className="grid gap-1.5">
+              <label htmlFor="theorem-name" className="text-xs text-muted-foreground">
+                Display name
+              </label>
+              <Input
+                id="theorem-name"
+                value={theoremName}
+                placeholder="Exercise (default: capitalized name)"
+                onChange={(e) => {
+                  setTheoremName(e.target.value);
+                  setTheoremError(null);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") commitNewtheorem();
+                }}
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <Switch
+                id="theorem-instance"
+                checked={theoremInstance}
+                onCheckedChange={setTheoremInstance}
+              />
+              <label htmlFor="theorem-instance" className="text-xs text-muted-foreground">
+                Insert an instance right away
+              </label>
+            </div>
+            {theoremError !== null && (
+              <p className="text-xs text-destructive">{theoremError}</p>
+            )}
+          </div>
+          <DialogFooter>
+            <Button variant="outline" size="sm" onClick={() => setTheoremOpen(false)}>
+              Cancel
+            </Button>
+            <Button size="sm" onClick={commitNewtheorem}>
+              Add
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+      <Separator orientation="vertical" className="h-5" />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="sm" className="h-7 gap-1 px-2 text-xs">
@@ -216,20 +435,6 @@ function VisualToolbar({ editor }: { editor: Editor }) {
           onClick={toggle(() => editor.chain().toggleOrderedList().run())}
         >
           <ListOrdered className="size-4" />
-        </Button>
-        <Button
-          variant={active?.quote ? "secondary" : "ghost"}
-          size="icon-sm"
-          title="Quote — \begin{quote} (or type > at a line start)"
-          onClick={toggle(() => {
-            if (editor.isActive("envBlock", { env: "quote" })) {
-              editor.chain().focus().lift("envBlock").run();
-            } else {
-              editor.chain().focus().wrapIn("envBlock", { env: "quote", opt: null }).run();
-            }
-          })}
-        >
-          <TextQuote className="size-4" />
         </Button>
       </ButtonGroup>
       <Separator orientation="vertical" className="h-5" />

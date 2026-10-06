@@ -608,6 +608,122 @@ export function insertMaketitle(editor: Editor): boolean {
   return true;
 }
 
+// ---------------------------------------------------------------------------
+// The Insert menu: environments, packages, \newtheorem declarations
+
+/** The quote family the Insert menu offers. */
+export const INSERT_QUOTE_ENVS: { env: string; label: string }[] = [
+  { env: "quote", label: "Quote" },
+  { env: "quotation", label: "Quotation" },
+  { env: "center", label: "Center" },
+  { env: "abstract", label: "Abstract" },
+];
+
+/** The theorem family the Insert menu offers: the standard names plus
+ *  whatever `\\newtheorem` declared in this document's preamble. */
+export function insertTheoremEnvEntries(
+  editor: Editor,
+): { env: string; label: string; declared: boolean }[] {
+  const standard = [...THEOREM_ENVS].map((env) => ({
+    env,
+    label: env.charAt(0).toUpperCase() + env.slice(1),
+    declared: false,
+  }));
+  const declared = [...newtheoremNames(editor)]
+    .filter(([env]) => !THEOREM_ENVS.has(env))
+    .map(([env, name]) => ({ env, label: name.length > 0 ? name : env, declared: true }));
+  return [...standard, ...declared];
+}
+
+/**
+ * Insert an environment at the caret, context-dependent: an empty
+ * paragraph is replaced by it, any other block is wrapped — the quote
+ * button's semantics. A doc-level selection (a fresh mount
+ * node-selects the preamble atom) appends at the document's end
+ * instead of wrapping the preamble.
+ */
+export function insertEnvBlock(editor: Editor, env: string): void {
+  const { $from } = editor.state.selection;
+  if ($from.parent.type.name === "paragraph" && $from.parent.content.size === 0) {
+    const block = editor.state.schema.nodes.envBlock.create(
+      { env, opt: null },
+      [editor.state.schema.nodes.paragraph.create()],
+    );
+    const tr = editor.view.state.tr;
+    tr.replaceWith($from.before(), $from.after(), block);
+    tr.setSelection(TextSelection.near(tr.doc.resolve($from.before() + 2)));
+    editor.view.dispatch(tr.scrollIntoView());
+    return;
+  }
+  if ($from.parent.type.name === "doc") {
+    const block = editor.state.schema.nodes.envBlock.create(
+      { env, opt: null },
+      [editor.state.schema.nodes.paragraph.create()],
+    );
+    const tr = editor.view.state.tr;
+    const at = tr.doc.content.size;
+    tr.insert(at, block);
+    tr.setSelection(TextSelection.near(tr.doc.resolve(at + 2)));
+    editor.view.dispatch(tr.scrollIntoView());
+    return;
+  }
+  editor.chain().focus().wrapIn("envBlock", { env, opt: null }).run();
+}
+
+/** Is a package loaded, judging by the preamble's `\\usepackage` block? */
+function hasPackage(packagesSrc: string | null, pkg: string): boolean {
+  if (packagesSrc === null) return false;
+  const re = new RegExp(String.raw`\\usepackage(?:\[[^\]]*\])?\{[^}]*\b${pkg}\b`);
+  return re.test(packagesSrc);
+}
+
+/**
+ * Load `\\usepackage{pkg}` when it is not there yet. One undo step;
+ * false when there is no preamble or it is already loaded.
+ */
+export function ensurePackage(editor: Editor, pkg: string): boolean {
+  const preamble = findPreamble(editor);
+  if (preamble === null || hasPackage(preamble.attrs.packagesSrc, pkg)) return false;
+  const line = `\\usepackage{${pkg}}`;
+  const next =
+    preamble.attrs.packagesSrc === null ? line : `${preamble.attrs.packagesSrc}\n${line}`;
+  editor.view.dispatch(
+    editor.view.state.tr.setNodeMarkup(preamble.pos, undefined, {
+      ...preamble.attrs,
+      packagesSrc: next,
+    }),
+  );
+  return true;
+}
+
+/**
+ * Declare a theorem environment: `\\newtheorem{env}{Name}` joins the
+ * preamble's raw source, with amsthm loaded first — one undo step.
+ * `name` may be empty (the capitalized env name is used). Returns
+ * false when the env name is not plain letters or the file has no
+ * preamble to hold the declaration.
+ */
+export function addNewtheorem(editor: Editor, env: string, name: string): boolean {
+  if (!/^[a-zA-Z]+$/.test(env)) return false;
+  const preamble = findPreamble(editor);
+  if (preamble === null) return false;
+  const display =
+    name.trim().length > 0 ? name.trim() : env.charAt(0).toUpperCase() + env.slice(1);
+  const attrs = { ...preamble.attrs };
+  if (!hasPackage(attrs.packagesSrc, "amsthm")) {
+    attrs.packagesSrc =
+      attrs.packagesSrc === null
+        ? "\\usepackage{amsthm}"
+        : `${attrs.packagesSrc}\n\\usepackage{amsthm}`;
+  }
+  const rest = attrs.src.replace(/\s+$/, "");
+  attrs.src = `${rest.length > 0 ? rest + "\n" : ""}\\newtheorem{${env}}{${display}}`;
+  editor.view.dispatch(
+    editor.view.state.tr.setNodeMarkup(preamble.pos, undefined, attrs),
+  );
+  return true;
+}
+
 /** One metadata pill (author or date): a value chip that edits in place. */
 const META_CMDS: Record<"titleSrc" | "authorSrc" | "dateSrc", string> = {
   titleSrc: "title",

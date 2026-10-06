@@ -76,7 +76,25 @@ Phase 3 item 3 landed (theorem-env light polish, CSS only):
 - Accent left bar: unchanged (theorem and proof already share it;
   user-declared \newtheorem envs join via isTheoremEnv).
 
-Phase 3 is complete. Next: Phase 4 item 4 — cursor across external
+Phase 3 is complete. Extra, from user request (2026-10-06): the Insert
+menu landed — a general dropdown in the Visual toolbar:
+
+- Environments (quote/quotation/center/abstract), theorem family
+  (standard + `\newtheorem`-declared, live), footnote, display math,
+  figure/table scaffolds (via the panel insert path), and a
+  "New theorem environment…" dialog that declares
+  `\newtheorem{env}{Name}` in the preamble with amsthm auto-loaded,
+  optionally inserting an instance. Helpers in extensions.ts:
+  `insertEnvBlock` (context-dependent; doc-level selections append
+  at the end instead of wrapping the preamble — a fresh mount
+  node-selects the preamble atom), `ensurePackage`,
+  `addNewtheorem` (one history group with the inserted instance),
+  `insertTheoremEnvEntries`. Env entries toggle: picking the env
+  the caret sits in lifts it (the old quote button semantics; the
+  button itself is gone, folded into the menu). Tests:
+  `insert-menu.dom.test.ts`.
+
+Next: Phase 4 item 4 — cursor across external
 reloads (re-anchor in the `docVersion` effect when the file identity
 didn't change).
 

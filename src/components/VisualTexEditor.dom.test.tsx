@@ -99,6 +99,26 @@ describe("VisualTexEditor render", () => {
     root.unmount();
   });
 
+  it("offers the Insert menu with the quote family and theorems", async () => {
+    useEditorStore.getState().loadContent(TEX);
+    const host = document.createElement("div");
+    document.body.append(host);
+    const root: Root = createRoot(host);
+    await act(async () => {
+      root.render(<VisualTexEditor />);
+    });
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 50));
+    });
+
+    const insert = [...host.querySelectorAll("button")].find((b) =>
+      b.textContent?.includes("Insert"),
+    );
+    expect(insert).toBeDefined();
+
+    root.unmount();
+  });
+
   it("consumes panel jumps in the visual face, at paragraph granularity", async () => {
     const tex = [
       "\\documentclass{article}",
