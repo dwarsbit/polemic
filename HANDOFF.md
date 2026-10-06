@@ -64,8 +64,21 @@ Follow-up fixes (user feedback, 2026-10-06):
   into nodes, so it was unaffected. Known same-class gap: the
   wrap-in-figure scaffold still lands inline.
 
-Next: Phase 3 item 3 — theorem-env light polish (CSS pass on the
-name line and QED chrome).
+Phase 3 item 3 landed (theorem-env light polish, CSS only):
+- Name line tightened: no stray top margin, the first paragraph of
+  the statement joins it closely, and the trailing dot gets a hair
+  of space after the title pill.
+- QED chrome: the proof marker is now the real tombstone (U+220E,
+  \qedsymbol — the old chrome showed an empty-set glyph) and rides
+  the last line when the proof ends in a paragraph; a
+  list/equation ending drops it to the next line, matching LaTeX
+  without \qedhere.
+- Accent left bar: unchanged (theorem and proof already share it;
+  user-declared \newtheorem envs join via isTheoremEnv).
+
+Phase 3 is complete. Next: Phase 4 item 4 — cursor across external
+reloads (re-anchor in the `docVersion` effect when the file identity
+didn't change).
 
 ## Visual editor v2, Phase 1–2 landed (2026-10-03)
 
@@ -133,9 +146,9 @@ Phase 3 — more modeled content:
    round-trips; show the label on the first item line, edit in place
    (meta-pill input pattern, one-step attr change), add/remove a
    label from Visual.
-3. Theorem-env light polish — CSS pass on the name line and QED
-   chrome only; theorems are fully modeled since Phase 1, so no
-   modeling work.
+3. Done (2026-10-06): theorem-env light polish — CSS pass on the
+   name line and QED chrome only; theorems are fully modeled since
+   Phase 1, so no modeling work.
 
 Phase 4 — polish and performance (all three):
 

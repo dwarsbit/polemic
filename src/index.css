@@ -545,7 +545,16 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
 }
 .visual-editor .vis-env-theorem-name {
   font-weight: 600;
-  margin: 0.2em 0 0.1em;
+  margin: 0 0 0.15em;
+}
+.visual-editor .vis-env-theorem-name > :last-child {
+  /* The trailing dot after the title pill. */
+  margin-left: 0.15em;
+}
+/* The statement reads as one unit: the first paragraph joins the
+   name line without its own top margin. */
+.visual-editor .vis-env.vis-theorem > .vis-env-content > p:first-child {
+  margin-top: 0.1em;
 }
 .visual-editor .vis-env-theorem-opt {
   font-family: var(--font-mono);
@@ -571,9 +580,20 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   margin-left: 0.35em;
   width: 12em;
 }
-.visual-editor .vis-env-proof > .vis-env-content::after {
-  content: "\2205";
+/* The QED tombstone (\qedsymbol, end-of-proof), on the last line of
+   the proof when it ends in a paragraph — LaTeX's own behavior; a
+   non-paragraph ending (a list, an equation) drops it to the line
+   after, exactly like LaTeX without \qedhere. */
+.visual-editor .vis-env-proof > .vis-env-content > p:last-child::after {
+  content: "\220E";
   float: right;
+  margin-left: 0.4em;
+}
+.visual-editor .vis-env-proof > .vis-env-content:not(:has(> p:last-child))::after {
+  content: "\220E";
+  display: block;
+  text-align: right;
+  margin-top: 0.2em;
 }
 
 /* The in-place raw editor (atom node views): a source card. */
