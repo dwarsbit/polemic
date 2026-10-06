@@ -2,8 +2,10 @@
 import { describe, expect, it } from "vitest";
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
+import type { Editor } from "@tiptap/core";
 import { VisualTexEditor } from "@/components/VisualTexEditor";
 import { useEditorStore } from "@/store/editor";
+import { useProjectStore } from "@/store/project";
 
 const TEX = `\\documentclass{article}
 \\usepackage{amsmath}
@@ -115,6 +117,70 @@ describe("VisualTexEditor render", () => {
       b.textContent?.includes("Insert"),
     );
     expect(insert).toBeDefined();
+
+    root.unmount();
+  });
+
+  it("keeps the cursor's place across a same-file reload", async () => {
+    const tex = [
+      "\\documentclass{article}",
+      "\\begin{document}",
+      "\\section{Alpha}",
+      "",
+      "Alpha text here.",
+      "",
+      "\\section{Beta}",
+      "",
+      "Beta text here.",
+      "\\end{document}",
+      "",
+    ].join("\n");
+    useEditorStore.getState().loadContent(tex);
+    useProjectStore.setState({ activeFile: "main.tex" });
+    const host = document.createElement("div");
+    document.body.append(host);
+    const root: Root = createRoot(host);
+    await act(async () => {
+      root.render(<VisualTexEditor />);
+    });
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 50));
+    });
+
+    // Tiptap exposes the editor on its DOM element.
+    const el = host.querySelector(".tiptap") as HTMLElement & { editor: Editor };
+    expect(el.editor).toBeDefined();
+    const editor = el.editor as Editor;
+    // The caret goes into the Beta paragraph, deep in the document.
+    let betaPos = -1;
+    editor.state.doc.descendants((node, pos) => {
+      if (betaPos === -1 && node.type.name === "paragraph" && node.textContent.includes("Beta text here.")) {
+        betaPos = pos;
+        return false;
+      }
+      return true;
+    });
+    expect(betaPos).toBeGreaterThanOrEqual(0);
+    await act(async () => {
+      editor.commands.setTextSelection(betaPos + 1);
+    });
+    expect(editor.state.selection.$from.parent.textContent).toContain("Beta text here.");
+
+    // An external edit reloads the SAME file; content changes at the
+    // end (an external sync edit), the caret's section survives.
+    const changed = tex.replace("Alpha text here.", "Alpha text edited.");
+    await act(async () => {
+      useEditorStore.getState().loadContent(changed);
+    });
+    expect(editor.state.selection.$from.parent.textContent).toContain("Beta text here.");
+
+    // A tab switch to ANOTHER file starts fresh: no re-anchor.
+    useProjectStore.setState({ activeFile: "other.tex" });
+    await act(async () => {
+      useEditorStore.getState().loadContent("\\documentclass{article}\n\\begin{document}\nOther file.\n\\end{document}\n");
+    });
+    expect(editor.state.selection.$from.parent.textContent).not.toContain("Beta text here.");
+    useProjectStore.setState({ activeFile: null });
 
     root.unmount();
   });

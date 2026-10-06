@@ -94,9 +94,20 @@ menu landed — a general dropdown in the Visual toolbar:
   button itself is gone, folded into the menu). Tests:
   `insert-menu.dom.test.ts`.
 
-Next: Phase 4 item 4 — cursor across external
-reloads (re-anchor in the `docVersion` effect when the file identity
-didn't change).
+Phase 4 item 4 landed (cursor across external reloads):
+- The `docVersion` effect re-anchors on same-file reloads
+  (external sync edits, snapshot restores): the caret's face anchor
+  re-resolves in the reparsed document. A different file (tab
+  switch) resets to the top. The file identity comes from
+  `activeFile` tracked in a ref; the mount case still defers to
+  the face-anchor entry effect.
+- Test: VisualTexEditor.dom.test.tsx ("keeps the cursor's place
+  across a same-file reload"), which reaches the editor through
+  Tiptap's `element.editor`.
+
+Next: Phase 4 item 5 — debounced serialization (debounce the
+`setContent`/`markDirty` side of `onUpdate`, keep `anchorRef`
+immediate; the Code-face resync already tolerates a lagging store).
 
 ## Visual editor v2, Phase 1–2 landed (2026-10-03)
 
@@ -170,8 +181,8 @@ Phase 3 — more modeled content:
 
 Phase 4 — polish and performance (all three):
 
-4. Cursor across external reloads — re-anchor in the `docVersion`
-   effect (`setContent`) when the file identity didn't change;
+4. Done (2026-10-06): cursor across external reloads — re-anchor in
+   the `docVersion` effect when the file identity didn't change;
    today only the face toggle preserves place.
 5. Debounced serialization — debounce the `setContent`/`markDirty`
    side of `onUpdate` (whole-doc `serializeTex` per keystroke

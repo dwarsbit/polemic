@@ -531,10 +531,22 @@ export function VisualTexEditor() {
   // External reloads (file open, tab switch) reparse into the editor.
   // setContent emits an update by default in v3 — that would mark the
   // file dirty just for looking at it, so the resync stays silent.
+  // A reload of the same file keeps the cursor's place (the anchor
+  // re-resolves in the reparsed document); a different file starts
+  // at the top.
+  const lastFileRef = useRef<string | null>(null);
   useEffect(() => {
     if (editor === null || editor.isDestroyed) return;
-    const tex = useEditorStore.getState().content;
-    editor.commands.setContent(docFromTex(tex), { emitUpdate: false });
+    const store = useEditorStore.getState();
+    const activeFile = useProjectStore.getState().activeFile;
+    const sameFile = activeFile !== null && activeFile === lastFileRef.current;
+    const anchor = sameFile ? anchorRef.current : null;
+    editor.commands.setContent(docFromTex(store.content), { emitUpdate: false });
+    lastFileRef.current = activeFile;
+    if (anchor !== null) {
+      const pos = posForAnchor(editor.state.doc, anchor);
+      if (pos !== null) editor.commands.setTextSelection(pos);
+    }
   }, [docVersion, editor]);
 
   // Panel jumps (labels, search, issues, outline) land in this face
