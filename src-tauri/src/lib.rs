@@ -3,6 +3,7 @@ mod git;
 mod logparse;
 mod comments;
 mod assets;
+mod ai;
 mod settings;
 mod snapshots;
 mod spell;
@@ -293,6 +294,24 @@ fn update_preferences(
         if sources.is_some() {
             s.sources = sources.unwrap();
         }
+        s.clone()
+    })
+}
+
+/// Configure the AI quickfix provider; replaces the whole block.
+#[tauri::command]
+fn update_ai_settings(
+    app: tauri::AppHandle,
+    base_url: Option<String>,
+    api_key: Option<String>,
+    model: Option<String>,
+) -> Result<Settings, String> {
+    settings::update(&app, |s| {
+        s.ai = Some(settings::AiSettings {
+            base_url,
+            api_key,
+            model,
+        });
         s.clone()
     })
 }
@@ -1575,7 +1594,9 @@ pub fn run() {    tauri::Builder::default()
             reveal_build_folder,
             show_context_menu,
             list_comments,
-            save_comments
+            save_comments,
+            ai::ai_chat,
+            update_ai_settings
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

@@ -9,6 +9,7 @@ import { collectAssetPaths } from "./assets";
 import { extractCiteKeys } from "./bibtex";
 import { applyEditsInView, queueEditsForView } from "./editor-edits";
 import { detectFixRule, planFix, type FixContext } from "./latex-fixes";
+import type { SourceEdit } from "./label-index";
 import type { CompileIssue } from "./tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
@@ -30,6 +31,21 @@ export type FixOutcome =
 function bibKeysFromSources(): string[] {
   const texts = useSourcesStore.getState().bibTexts;
   return Object.values(texts).flatMap((text) => extractCiteKeys(text));
+}
+
+/** Land fix edits in the editor: apply directly when the code face
+ *  is live; otherwise switch (or queue) for the editor to flush. */
+export function applyFixEdits(edits: SourceEdit[]): void {
+  if (useUiStore.getState().texEditorMode !== "code") {
+    // The visual face hands the store copy to the code editor on
+    // switch; the flush lands the edits after the swap.
+    useUiStore.getState().setTexEditorMode("code");
+    queueEditsForView(edits);
+  } else if (!applyEditsInView(edits, "input.fixLatex")) {
+    // No live view yet (a different editor was mounted); the
+    // LatexEditor flushes the queue when it takes over.
+    queueEditsForView(edits);
+  }
 }
 
 /** Fix the issue: open its file, plan the rule's fix against the
@@ -54,16 +70,7 @@ export async function fixIssue(issue: CompileIssue): Promise<FixOutcome> {
       await usePreviewStore.getState().compileNow();
       return "recompiled";
     }
-    if (useUiStore.getState().texEditorMode !== "code") {
-      // The visual face hands the store copy to the code editor on
-      // switch; the flush lands the edits after the swap.
-      useUiStore.getState().setTexEditorMode("code");
-      queueEditsForView(fix.edits);
-    } else if (!applyEditsInView(fix.edits, "input.fixLatex")) {
-      // No live view yet (a different editor was mounted); the
-      // LatexEditor flushes the queue when it takes over.
-      queueEditsForView(fix.edits);
-    }
+    applyFixEdits(fix.edits);
     if (issue.line !== null) useEditorStore.getState().jumpTo(issue.line);
     return "fixed";
   } catch (e) {

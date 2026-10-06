@@ -3,7 +3,9 @@ import {
   setPanelLayout,
   setSpellcheckLanguage as persistSpellcheckLanguage,
   setVersionControl as persistVersionControl,
+  updateAiSettings,
   updatePreferences,
+  type AiSettings,
   type Settings,
 } from "@/lib/tauri";
 import { applyTheme, type ThemePreference } from "@/lib/theme";
@@ -35,6 +37,8 @@ interface SettingsState {
   settingsSection: string | null;
   projectsRoot: string | null;
   panelLayout: Record<string, number> | null;
+  /** The AI quickfix provider; null until configured. */
+  ai: AiSettings | null;
   hydrate: (settings: Settings) => void;
   setTheme: (theme: ThemePreference) => Promise<void>;
   setFontSize: (fontSize: number) => Promise<void>;
@@ -60,6 +64,8 @@ interface SettingsState {
   clearSettingsSection: () => void;
   setProjectsRoot: (root: string | null) => void;
   persistPanelLayout: (layout: Record<string, number>) => void;
+  /** Save the AI quickfix provider settings. */
+  setAi: (ai: AiSettings) => Promise<void>;
 }
 
 const DEFAULT_THEME: ThemePreference = "system";
@@ -92,6 +98,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   settingsSection: null,
   projectsRoot: null,
   panelLayout: null,
+  ai: null,
   hydrate: (settings) =>
     set({
       loaded: true,
@@ -123,6 +130,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
           : null,
       projectsRoot: settings.projectsRoot,
       panelLayout: settings.panelLayout,
+      ai: settings.ai,
     }),
   setTheme: async (theme) => {
     set({ theme });
@@ -206,6 +214,10 @@ export const useSettingsStore = create<SettingsState>((set) => ({
     };
     set({ panelLayout: merged });
     void setPanelLayout(merged);
+  },
+  setAi: async (ai) => {
+    set({ ai });
+    await updateAiSettings(ai.baseUrl, ai.apiKey, ai.model);
   },
 }));
 

@@ -2,6 +2,7 @@ import {
   AlertTriangle,
   ChevronDown,
   Loader2,
+  Sparkles,
   Wrench,
 } from "lucide-react";
 import { useState } from "react";
@@ -9,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import type { CompileIssue } from "@/lib/tauri";
 import { fixIssue } from "@/lib/fix-issue";
 import { detectFixRule } from "@/lib/latex-fixes";
+import { useDialogsStore } from "@/store/dialogs";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
@@ -57,12 +59,27 @@ export function IssuesPanel({
     setFixNote(null);
     const outcome = await fixIssue(issue);
     if (outcome === "declined") {
-      setFixNote("No automatic fix for this one — it needs a manual look.");
+      setFixNote("No automatic fix for this one — try Fix with AI.");
     } else if (outcome === "no-file") {
       setFixNote("This issue does not point at an openable file.");
     } else if (outcome === "error") {
       setFixNote("The fix could not be applied.");
     }
+  }
+
+  /** The AI fallback: open the issue's file and hand the issue to
+   *  the fix dialog, which previews the proposed change. */
+  async function onAiFix(issue: CompileIssue) {
+    setFixNote(null);
+    const { activeFile, mainFile, openFile } = useProjectStore.getState();
+    const file = issue.file ?? mainFile;
+    try {
+      if (file !== null && file !== activeFile) await openFile(file);
+    } catch (e) {
+      usePreviewStore.setState({ error: String(e) });
+      return;
+    }
+    useDialogsStore.getState().setAiFixIssue(issue);
   }
 
   return (
@@ -135,6 +152,19 @@ export function IssuesPanel({
                         Fix
                       </Button>
                     )}
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-4 shrink-0 gap-1 px-1 text-[11px] text-muted-foreground"
+                      title="Ask the configured AI provider for a fix, with a preview"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        void onAiFix(issue);
+                      }}
+                    >
+                      <Sparkles className="size-2.5" />
+                      AI
+                    </Button>
                     {issue.file && (
                       <span className="shrink-0 text-muted-foreground">
                         {issue.file}

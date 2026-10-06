@@ -65,6 +65,37 @@ export interface Settings {
   texEditorMode: string | null;
   /** The .bib editor's face: "visual" or "code"; null = visual. */
   bibEditorMode: string | null;
+  /** The AI quickfix provider; null until configured. */
+  ai: AiSettings | null;
+}
+
+/** An OpenAI-compatible chat-completions endpoint for the AI
+ *  quickfix, configured in settings. */
+export interface AiSettings {
+  baseUrl: string | null;
+  apiKey: string | null;
+  model: string | null;
+}
+
+/** Save the AI quickfix provider; replaces the whole block. */
+export function updateAiSettings(
+  baseUrl: string | null,
+  apiKey: string | null,
+  model: string | null,
+): Promise<Settings> {
+  return invoke<Settings>("update_ai_settings", { baseUrl, apiKey, model });
+}
+
+/** One chat completion against the configured provider; returns the
+ *  assistant message's content. */
+export function aiChat(args: {
+  baseUrl: string;
+  apiKey: string;
+  model: string;
+  system: string;
+  user: string;
+}): Promise<string> {
+  return invoke<string>("ai_chat", { args });
 }
 
 export interface ProjectInfo {

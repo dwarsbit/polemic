@@ -7,8 +7,10 @@ import {
   Palette,
   PencilLine,
   Search,
+  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AiSettingsSection } from "@/components/AiSettingsSection";
 import { SourcesSettingsCard } from "@/components/SourcesSettings";
 import { TexStatusSection } from "@/components/TexStatus";
 import {
@@ -497,6 +499,27 @@ export function SettingsDialog({
             },
           ],
           content: <SourcesSettingsCard />,
+        },
+      ],
+    },
+    {
+      id: "ai",
+      group: "ASSISTANT",
+      label: "AI",
+      icon: Sparkles,
+      cards: [
+        {
+          rows: [
+            {
+              id: "ai-provider",
+              label: "AI quickfix provider",
+              description:
+                "An OpenAI-compatible endpoint the \"Fix with AI\" action uses for errors the built-in rules cannot fix.",
+              keywords: "ai fix error llm openai mistral api key model",
+              control: null,
+            },
+          ],
+          content: <AiSettingsSection />,
         },
       ],
     },

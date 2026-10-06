@@ -34,6 +34,16 @@ pub struct SourceDef {
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, Default)]
+#[serde(rename_all = "camelCase")]
+pub struct AiSettings {
+    /// Base URL of an OpenAI-compatible chat-completions API,
+    /// e.g. https://api.mistral.ai/v1.
+    pub base_url: Option<String>,
+    pub api_key: Option<String>,
+    pub model: Option<String>,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, Default)]
 #[serde(rename_all = "camelCase", default)]
 pub struct Settings {
     pub projects_root: Option<String>,
@@ -72,6 +82,8 @@ pub struct Settings {
     pub tex_editor_mode: Option<String>,
     /// Editor face for .bib files: "visual" or "code".
     pub bib_editor_mode: Option<String>,
+    /// The AI quickfix provider, configured in settings.
+    pub ai: Option<AiSettings>,
     pub user_words: Vec<String>,
 }
 
