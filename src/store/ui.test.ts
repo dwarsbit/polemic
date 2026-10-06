@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { useUiStore, type EditorFace } from "./ui";
 
-const updatePreferences = vi.fn(() => Promise.resolve({}));
+const updatePreferences = vi.fn((prefs: unknown) => Promise.resolve(prefs));
 
 vi.mock("@/lib/tauri", () => ({
   updatePreferences: (prefs: unknown) => updatePreferences(prefs),
