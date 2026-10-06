@@ -46,6 +46,24 @@ Phase 3 item 2 landed (list item labels):
 - DOM tests: `item-label.dom.test.ts`; stability case for
   `\item[a]` in `parse-serialize.test.ts`.
 
+Follow-up fixes (user feedback, 2026-10-06):
+- The "+" add chip was unclickable in the app: ProseMirror claimed
+  the mousedown. The chip now follows the heading-cog pattern
+  (mousedown preventDefault + stopEvent covering the chip), and an
+  unchanged commit rebuilds the chip instead of leaving a stale
+  input behind; while editing, the chip stays visible even when the
+  mouse leaves the item (`vis-item-editing`).
+- List markers were invisible: Tailwind preflight strips
+  list-style app-wide and nothing restored it (predates the label
+  work). `.visual-editor` now renders disc / circle / decimal.
+- Code-face inserts (toolbar lists, dialogs, panels) landed
+  multi-line snippets mid-line; `freshLineInsert` in
+  `editor-insert.ts` frames block snippets with newlines when the
+  cursor is not at a line boundary (tests:
+  `editor-insert.test.ts`). The Visual face already parsed fragments
+  into nodes, so it was unaffected. Known same-class gap: the
+  wrap-in-figure scaffold still lands inline.
+
 Next: Phase 3 item 3 — theorem-env light polish (CSS pass on the
 name line and QED chrome).
 

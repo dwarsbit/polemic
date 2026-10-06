@@ -23,3 +23,17 @@ export function setInsertHandler(h: InsertHandler | null): InsertHandler | null 
 export function insertAtCursor(text: string, cursorOffset?: number, opts?: InsertOptions) {
   handler?.(text, cursorOffset, opts);
 }
+
+/**
+ * A multi-line snippet (a list, an environment) reads as a block: it
+ * lands on fresh lines instead of mid-line. `before` is the line text
+ * preceding the cursor, `after` the line text following the selection
+ * end; single-line snippets pass through untouched.
+ */
+export function freshLineInsert(text: string, before: string, after: string): string {
+  if (!text.includes("\n")) return text;
+  let out = text;
+  if (before.trim().length > 0) out = "\n" + out;
+  if (after.trim().length > 0) out += "\n";
+  return out;
+}

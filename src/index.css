@@ -669,6 +669,18 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   border-radius: 4px;
 }
 
+/* List markers: Tailwind preflight strips them app-wide; the editor
+   renders real discs, circles, and numbers. */
+.visual-editor ul {
+  list-style-type: disc;
+}
+.visual-editor ul ul {
+  list-style-type: circle;
+}
+.visual-editor ol {
+  list-style-type: decimal;
+}
+
 /* List item labels: the `\item[label]` chip floats beside the first
    content line and reads as the marker (LaTeX replaces the bullet
    with it); unlabeled items get a "+" in the left gutter on hover. */
@@ -691,19 +703,20 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   color: var(--accent-foreground);
   white-space: nowrap;
 }
-/* The add chip sits in a reserved gutter: hidden but occupying space
-   would indent every item, so it only shows on hover, absolute. */
+/* The add chip sits in the left gutter, clear of the marker. It is
+   absolutely positioned, so toggling it never shifts the text, and
+   it stays put while its input is open. */
 .visual-editor .vis-item-label-add {
   position: absolute;
-  left: -1.6em;
+  left: -2.6em;
   top: 0.2em;
   float: none;
   padding: 0 2px;
-  visibility: hidden;
+  display: none;
 }
 .visual-editor li.vis-item:hover > .vis-item-label-add,
-.visual-editor li.vis-item.vis-has-caret > .vis-item-label-add {
-  visibility: visible;
+.visual-editor .vis-item-label-add.vis-item-editing {
+  display: inline-block;
 }
 .visual-editor .vis-item-input {
   font-family: var(--font-mono);

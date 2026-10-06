@@ -124,4 +124,32 @@ describe("list item labels", () => {
     expect(out).not.toContain("[Changed]");
     editor.destroy();
   });
+
+  it("drops the stale input when an unchanged commit happens", async () => {
+    const editor = makeEditor(TEX);
+    const chip = editor.view.dom.querySelector(
+      ".vis-item-label:not(.vis-item-label-add)",
+    ) as HTMLElement | null;
+    chip!.click();
+    await Promise.resolve(); // let the focus microtask run
+    const input = editor.view.dom.querySelector(".vis-item-input") as HTMLInputElement | null;
+    input!.value = "Note"; // unchanged
+    input!.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true }));
+    // The chip is back as a button; no input is left behind.
+    expect(editor.view.dom.querySelector(".vis-item-input")).toBeNull();
+    expect(
+      editor.view.dom.querySelector(".vis-item-label:not(.vis-item-label-add)")?.textContent,
+    ).toBe("(Note)");
+    editor.destroy();
+  });
+
+  it("keeps the add chip in place while its input is open", async () => {
+    const editor = makeEditor(TEX);
+    const add = editor.view.dom.querySelector(".vis-item-label-add") as HTMLElement | null;
+    add!.click();
+    await Promise.resolve(); // let the focus microtask run
+    expect(editor.view.dom.querySelector(".vis-item-input")).not.toBeNull();
+    expect(add!.classList.contains("vis-item-editing")).toBe(true);
+    editor.destroy();
+  });
 });

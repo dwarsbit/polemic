@@ -1198,6 +1198,7 @@ class ListItemView implements NodeView {
   private node: PMNode;
   private getPos: () => number | undefined;
   private editing = false;
+  private chip: HTMLElement | null = null;
 
   constructor(editor: Editor, node: PMNode, getPos: () => number | undefined) {
     this.editor = editor;
@@ -1207,7 +1208,7 @@ class ListItemView implements NodeView {
     this.contentDOM = document.createElement("div");
     this.contentDOM.className = "vis-item-content";
     this.applyClass();
-    this.dom.replaceChildren(this.makeChip(), this.contentDOM);
+    this.rebuildChip();
   }
 
   update(node: PMNode): boolean {
@@ -1216,7 +1217,7 @@ class ListItemView implements NodeView {
     this.node = node;
     if (labelChanged && !this.editing) {
       this.applyClass();
-      this.dom.replaceChildren(this.makeChip(), this.contentDOM);
+      this.rebuildChip();
     }
     return true;
   }
@@ -1229,14 +1230,22 @@ class ListItemView implements NodeView {
   }
 
   stopEvent(event: Event): boolean {
-    // Keys typed into the label input are the input's business.
+    // The chip and its input are ours; everything else is content.
     const target = event.target as HTMLElement | null;
-    return target !== null && target.tagName === "INPUT" && this.dom.contains(target);
+    if (target === null) return false;
+    if (target.tagName === "INPUT" && this.dom.contains(target)) return true;
+    return this.chip !== null && target.closest(".vis-item-label") === this.chip;
   }
 
   ignoreMutation(mutation: ViewMutationRecord): boolean {
     // Content mutations are ProseMirror's; chip mutations are ours.
     return !this.contentDOM.contains(mutation.target) && mutation.type !== "selection";
+  }
+
+  /** The label chip replaces itself and stays referenced for stopEvent. */
+  private rebuildChip(): void {
+    this.chip = this.makeChip();
+    this.dom.replaceChildren(this.chip, this.contentDOM);
   }
 
   /** The label chip: the current `[label]`, or a "+" to add one. */
@@ -1250,9 +1259,11 @@ class ListItemView implements NodeView {
     chip.title = empty
       ? "Add a label (the [..] after \\item)"
       : "Label — click to edit (the [..] after \\item)";
+    chip.addEventListener("mousedown", (event) => event.preventDefault());
     chip.addEventListener("click", () => {
       if (this.editing) return;
       this.editing = true;
+      chip.classList.add("vis-item-editing");
       const input = document.createElement("input");
       input.type = "text";
       input.className = "vis-item-input";
@@ -1262,9 +1273,12 @@ class ListItemView implements NodeView {
       const commit = () => {
         if (!this.editing) return;
         this.editing = false;
-        const pos = this.getPos();
-        if (pos === undefined) return;
         const next = input.value.trim().length > 0 ? input.value : null;
+        const pos = this.getPos();
+        if (pos === undefined || next === this.node.attrs.label) {
+          this.rebuildChip(); // no change: drop the stale input
+          return;
+        }
         this.editor.view.dispatch(
           this.editor.view.state.tr.setNodeMarkup(pos, undefined, {
             ...this.node.attrs,

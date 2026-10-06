@@ -37,7 +37,7 @@ import { lineStatus } from "@/lib/git-line-status";
 import { lineOps } from "@/lib/line-ops";
 import { tabIndent } from "@/lib/tab-indent";
 import { mathPairing } from "@/lib/math-pairing";
-import { setInsertHandler } from "@/lib/editor-insert";
+import { freshLineInsert, setInsertHandler } from "@/lib/editor-insert";
 import {
   ensurePackages,
   figureScaffold,
@@ -736,12 +736,18 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       });
       return true;
     });
-    // Serve the math symbols panel: insert text at the cursor.
+    // Serve the toolbar, dialogs, and panels: insert text at the
+    // cursor. Multi-line snippets are blocks: fresh lines, never
+    // landed mid-line.
     setInsertHandler((text, cursorOffset) => {
       const range = view.state.selection.main;
-      const anchor = range.from + (cursorOffset ?? text.length);
+      const doc = view.state.doc;
+      const before = doc.sliceString(doc.lineAt(range.from).from, range.from);
+      const after = doc.sliceString(range.to, doc.lineAt(range.to).to);
+      const insert = freshLineInsert(text, before, after);
+      const anchor = range.from + insert.length - text.length + (cursorOffset ?? text.length);
       view.dispatch({
-        changes: { from: range.from, to: range.to, insert: text },
+        changes: { from: range.from, to: range.to, insert },
         selection: { anchor },
         scrollIntoView: true,
         userEvent: "input.paste",
