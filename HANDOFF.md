@@ -7,7 +7,20 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
-## Current status — Visual editor v2, Phase 1 landed (2026-10-03)
+## Current status — Visual editor v2, Phase 3 starting (2026-10-06)
+
+Phase 2 landed (see the next section); the Phase 3–4 plan is scoped
+in its own section below. Step 0 of Phase 3 is done: the
+`comment-anchor.test.ts` failure was a broken test, not a broken
+implementation — the fixture shifted the anchor by one line (inside
+the 30-line window, so the fallback never ran) and expected line 7,
+where the target text sat on line 5. Rebuilt the fixture to push
+the anchor 40 lines out of the window and assert its true line.
+Suite all green (377/377); `pnpm tsc` clean.
+
+Next: Phase 3 item 1 — footnotes as inline pills.
+
+## Visual editor v2, Phase 1–2 landed (2026-10-03)
 
 Phase 1 is done, one commit per step, all pushed to `origin/main`.
 Baseline for the suite: 367/368 green; the single failure is
@@ -61,8 +74,10 @@ phases: all green once step 0 lands.
 
 Phase 3 — more modeled content:
 
-0. Fix `comment-anchor.test.ts` (`resolveAnchor` far-away
-   fallback) — own commit, restores 368/368.
+0. Done (2026-10-06): the failing test was broken, not the code —
+   the fixture never exercised the fallback (1-line shift, well
+   inside the window) and expected a line the target never sat on.
+   Rebuilt to push the anchor 40 lines out of the window.
 1. Footnotes — `\footnote{…}` becomes an inline pill node;
    parse/serialize round-trips it verbatim; in-place raw editor
    via the math-node pattern; input rule on the closing brace,
@@ -101,8 +116,6 @@ Design amendments (user feedback, 2026-10-03):
   (Title/Author/Date pills, the same machinery as the title card),
   editable with or without \maketitle; packages stay hidden behind
   the summary bar.
-
-Also pending: fix `comment-anchor.test.ts`.
 
 ### Done
 
