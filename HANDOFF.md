@@ -53,9 +53,45 @@ Phase 2 landed (2026-10-03):
   unused; statuses recompute when the project's cross-file indexes
   change. Fixed the pre-existing nested pill chrome on the way.
 
-Phase 3 remains: footnotes as inline pills, editable list item
-labels, any theorem-env styling polish. Then Phase 4: cursor across
-external reloads, debounced serialization, fontSize/spellcheck.
+### Phase 3–4 plan (detailed, scoped 2026-10-06)
+
+The comment-anchor fix lands first as its own commit; then one
+commit per item, tests with each. Suite baseline for the visual
+phases: all green once step 0 lands.
+
+Phase 3 — more modeled content:
+
+0. Fix `comment-anchor.test.ts` (`resolveAnchor` far-away
+   fallback) — own commit, restores 368/368.
+1. Footnotes — `\footnote{…}` becomes an inline pill node;
+   parse/serialize round-trips it verbatim; in-place raw editor
+   via the math-node pattern; input rule on the closing brace,
+   mirroring the cite/ref/label family.
+2. List item labels — `\item[label]` already round-trips; show the
+   label on the first item line, edit in place (meta-pill input
+   pattern, one-step attr change), add/remove a label from
+   Visual.
+3. Theorem-env light polish — CSS pass on the name line and QED
+   chrome only; theorems are fully modeled since Phase 1, so no
+   modeling work.
+
+Phase 4 — polish and performance (all three):
+
+4. Cursor across external reloads — re-anchor in the `docVersion`
+   effect (`setContent`) when the file identity didn't change;
+   today only the face toggle preserves place.
+5. Debounced serialization — debounce the `setContent`/`markDirty`
+   side of `onUpdate` (whole-doc `serializeTex` per keystroke
+   today); keep `anchorRef` immediate; the Code-face resync already
+   tolerates a lagging store.
+6. Editor settings — respect the `fontSize` setting in
+   `.visual-editor` (Code already does); native spellcheck on
+   prose text nodes, excluded on raw/pill/math nodes.
+
+After Phase 4 the v2 plan is complete; per the roadmap's suggested
+order, work resumes on multi-file navigation and project-wide
+replace, before the PDF library build-out.
+
 Design amendments (user feedback, 2026-10-03):
 - The heading gutter holds a settings cog, not a text label
   ("Section" did not fit; the node type is one setting among
