@@ -60,7 +60,7 @@ import {
 import { GraphicsOptionsCard } from "@/components/GraphicsOptionsCard";
 import { cogHoverField, setCogHover, setCogOpenHandler } from "@/lib/graphics-cog";
 import { setRemoveUsepackageHandler } from "@/lib/editor-preamble";
-import { setApplyEditsHandler } from "@/lib/editor-edits";
+import { flushQueuedEditsForView, setApplyEditsHandler } from "@/lib/editor-edits";
 import { planUsepackageRemoval } from "@/lib/packages";
 import {
   assetDropText,
@@ -876,16 +876,19 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     });
     // Serve the label manager: apply a rename plan's edits for the
     // active document in one undoable transaction.
-    setApplyEditsHandler((edits) => {
+    setApplyEditsHandler((edits, userEvent) => {
       if (edits.length === 0) return false;
       const length = view.state.doc.length;
       if (edits.some((edit) => edit.from > edit.to || edit.to > length)) return false;
       view.dispatch({
         changes: [...edits].sort((a, b) => a.from - b.from),
-        userEvent: "input.renameLabel",
+        userEvent: userEvent ?? "input.renameLabel",
       });
       return true;
     });
+    // A "Fix this" click may have queued edits while another face or
+    // file was active; apply them now that the view is live.
+    flushQueuedEditsForView();
     // Serve the inline image-options cog: open the card for the
     // command the cog is attached to.
     setCogOpenHandler(() => {
@@ -998,6 +1001,8 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
         }
       }
     }
+    // Fixes planned against the freshly loaded content land here.
+    flushQueuedEditsForView();
   }, [docVersion]);
 
   // Git change bars: the HEAD version comes through react-query (so

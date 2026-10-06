@@ -9,13 +9,13 @@ import { useProjectStore } from "@/store/project";
 import { MATH_SYMBOL_CATEGORIES } from "@/lib/math-symbols";
 import type { FileEntry } from "@/lib/tauri";
 
-interface CommandSpec {
+export interface CommandSpec {
   label: string;
   template: string;
   detail: string;
 }
 
-const COMMANDS: CommandSpec[] = [
+export const COMMANDS: CommandSpec[] = [
   { label: "\\section", template: "\\section{${title}}", detail: "Section heading" },
   {
     label: "\\subsection",

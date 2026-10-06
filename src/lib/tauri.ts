@@ -122,6 +122,10 @@ export interface CompileIssue {
   file: string | null;
   line: number | null;
   message: string;
+  /** The error's context block from the log: the `l.N …` line showing
+   *  the source up to the point of the error, plus its wrapped
+   *  continuation lines. Empty for warnings. */
+  detail: string[];
 }
 
 export interface CompileOutcome {

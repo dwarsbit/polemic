@@ -2,9 +2,13 @@ import {
   AlertTriangle,
   ChevronDown,
   Loader2,
+  Wrench,
 } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { CompileIssue } from "@/lib/tauri";
+import { fixIssue } from "@/lib/fix-issue";
+import { detectFixRule } from "@/lib/latex-fixes";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
@@ -44,9 +48,22 @@ export function IssuesPanel({
   const issues = usePreviewStore((s) => s.issues);
   const status = usePreviewStore((s) => s.status);
   const log = usePreviewStore((s) => s.log);
+  const [fixNote, setFixNote] = useState<string | null>(null);
 
   const errors = issues.filter((i) => i.severity === "error").length;
   const warnings = issues.length - errors;
+
+  async function onFix(issue: CompileIssue) {
+    setFixNote(null);
+    const outcome = await fixIssue(issue);
+    if (outcome === "declined") {
+      setFixNote("No automatic fix for this one — it needs a manual look.");
+    } else if (outcome === "no-file") {
+      setFixNote("This issue does not point at an openable file.");
+    } else if (outcome === "error") {
+      setFixNote("The fix could not be applied.");
+    }
+  }
 
   return (
     <div className="flex h-full flex-col overflow-hidden rounded-xl border bg-card shadow-sm">
@@ -89,20 +106,42 @@ export function IssuesPanel({
             <ul className="space-y-0.5">
               {issues.map((issue, index) => (
                 <li key={index}>
-                  <button
-                    type="button"
-                    className="flex w-full items-start gap-1.5 rounded px-1 py-0.5 text-left text-xs hover:bg-accent"
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    className="flex w-full cursor-pointer items-start gap-1.5 rounded px-1 py-0.5 text-left text-xs hover:bg-accent"
                     onClick={() => void jumpToIssue(issue)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        void jumpToIssue(issue);
+                      }
+                    }}
                   >
                     {issueIcon(issue)}
                     <span className="min-w-0 flex-1 truncate">{issue.message}</span>
+                    {detectFixRule(issue) !== null && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-4 shrink-0 gap-1 px-1 text-[11px] text-muted-foreground"
+                        title="Apply the automatic fix"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          void onFix(issue);
+                        }}
+                      >
+                        <Wrench className="size-2.5" />
+                        Fix
+                      </Button>
+                    )}
                     {issue.file && (
                       <span className="shrink-0 text-muted-foreground">
                         {issue.file}
                         {issue.line !== null ? `:${issue.line}` : ""}
                       </span>
                     )}
-                  </button>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -111,6 +150,9 @@ export function IssuesPanel({
           <p className="text-xs text-muted-foreground">Nothing compiled yet.</p>
         ) : (
           <pre className="font-mono text-xs whitespace-pre-wrap">{log}</pre>
+        )}
+        {fixNote !== null && (
+          <p className="mt-1 text-xs text-amber-600">{fixNote}</p>
         )}
       </div>
     </div>
