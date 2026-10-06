@@ -37,3 +37,21 @@ export function freshLineInsert(text: string, before: string, after: string): st
   if (after.trim().length > 0) out += "\n";
   return out;
 }
+
+/** Float scaffolds shared by the Insert menus of both faces. */
+export const FIGURE_SCAFFOLD = [
+  "\\begin{figure}",
+  "  \\centering",
+  "  \\includegraphics[width=0.6\\textwidth]{}",
+  "  \\caption{}",
+  "\\end{figure}",
+].join("\n");
+export const TABLE_SCAFFOLD = [
+  "\\begin{table}",
+  "  \\centering",
+  "  \\begin{tabular}{ll}",
+  "    a & b \\\\",
+  "  \\end{tabular}",
+  "  \\caption{}",
+  "\\end{table}",
+].join("\n");

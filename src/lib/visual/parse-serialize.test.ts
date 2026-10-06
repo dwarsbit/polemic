@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseTex } from "./parse";
+import { newtheoremDeclarations, parseTex } from "./parse";
 import { serializeTex } from "./serialize";
 
 /** parse → serialize once and twice; the second pass must be stable. */
@@ -434,6 +434,27 @@ describe("footnotes", () => {
     expect(JSON.stringify(doc)).toContain("rawTexInline");
     expect(once).toContain("\\footnotemark");
     expect(once).toContain("\\footnotetext{gone}");
+  });
+});
+
+describe("newtheoremDeclarations", () => {
+  it("harvests env and display names, ignoring comments", () => {
+    const preamble = [
+      "\\newtheorem{theorem}{Theorem}",
+      "% \\newtheorem{ghost}{Ghost}",
+      "\\newtheorem*{remark}[section]{Remark}",
+      "\\newtheorem{lemma}{Lemma}[lem]",
+      "",
+    ].join("\n");
+    expect(newtheoremDeclarations(preamble)).toEqual([
+      { env: "theorem", name: "Theorem" },
+      { env: "remark", name: "Remark" },
+      { env: "lemma", name: "Lemma" },
+    ]);
+  });
+
+  it("is empty without declarations", () => {
+    expect(newtheoremDeclarations("\\documentclass{article}\n")).toEqual([]);
   });
 });
 

@@ -146,6 +146,24 @@ real radix dropdown (open trigger via pointerdown, click the item
 out-of-band — radix's select path runs through ReactDOM.flushSync,
 which does not work inside an act batch).
 
+Insert menu in the Code face (2026-10-06, user request):
+- `EditorToolbar` gains the same Insert dropdown as Visual:
+  environments (quote/quotation/center/abstract skeletons with the
+  caret on the body line), theorem family (standard + `\newtheorem`
+  declared, harvested live from the content via the exported
+  `newtheoremDeclarations` in parse.ts; amsthm loads first via
+  `ensurePackages`), footnote, display math, and the shared float
+  scaffolds (moved to `editor-insert.ts` so both faces use them).
+- The "New theorem environment…" dialog is now a shared component
+  (`NewTheoremDialog.tsx`) — validation inside, face-specific
+  commit callbacks. Visual commits through the preamble node
+  (`addNewtheorem`); Code declares before `\begin{document}` via
+  `applyEditsInView` (re-reading the doc after the package insert
+  shifts positions), optionally inserting an instance at the
+  cursor. Tests: `EditorToolbar.dom.test.tsx` (menu items, dialog
+  validation, the full menu→dialog→commit pipeline),
+  `newtheoremDeclarations` cases in `parse-serialize.test.ts`.
+
 Next: per the roadmap's suggested order, multi-file navigation and
 project-wide replace, before the PDF library build-out.
 

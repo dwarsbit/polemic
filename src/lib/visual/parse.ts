@@ -55,6 +55,26 @@ function modeledEnvs(extra?: Set<string>): Set<string> {
   return new Set([...QUOTE_ENVS, ...THEOREM_ENVS, ...(extra ?? [])]);
 }
 
+/**
+ * The `\newtheorem` declarations in a preamble, comment-aware:
+ * environment name and its display name (`\newtheorem{env}{Name}`).
+ */
+export function newtheoremDeclarations(preamble: string): { env: string; name: string }[] {
+  const declarations: { env: string; name: string }[] = [];
+  const re = /\\newtheorem\*?\s*\{([^}]*)\}(?:\s*\[[^\]]*\])?\s*\{([^}]*)\}/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(preamble)) !== null) {
+    if (!inCommentAt(preamble, m.index)) declarations.push({ env: m[1]!, name: m[2]! });
+  }
+  return declarations;
+}
+
+/** Is the position inside a `%` comment line? */
+function inCommentAt(src: string, pos: number): boolean {
+  const lineStart = src.lastIndexOf("\n", pos - 1) + 1;
+  return src.slice(lineStart, pos).includes("%");
+}
+
 /** Environment names declared by `\newtheorem*?{env}` in a preamble. */
 function newtheoremEnvs(preamble: string): Set<string> {
   const names = new Set<string>();
