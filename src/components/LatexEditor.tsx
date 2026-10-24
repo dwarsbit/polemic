@@ -17,6 +17,8 @@ import {
 } from "@/lib/editor-comments";
 import { showNativeContextMenu } from "@/lib/native-menu";
 import { labelLine, refAt } from "@/lib/label-refs";
+import { includeAt } from "@/lib/doc-structure";
+import { openIncludeTarget } from "@/lib/include-nav";
 import { refLabelLint } from "@/lib/ref-label-lint";
 import { setFormatDocumentHandler, formatDocument } from "@/lib/editor-format";
 import { editorFontStack } from "@/lib/editor-fonts";
@@ -467,8 +469,8 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
               },
             },
           ]),
-          // Cmd/Ctrl+click in the source: jump to a \ref's \label, or
-          // scroll the preview (SyncTeX forward) when not on a ref.
+          // Cmd/Ctrl+click in the source: open an \input file, jump to
+          // a \ref's \label, or scroll the preview (SyncTeX forward).
           EditorView.domEventHandlers({
             mousedown(event, view) {
               if (!(event.metaKey || event.ctrlKey)) {
@@ -489,8 +491,16 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
                 return true;
               }
 
-              // A ref under the cursor wins: jump to its label.
               const source = view.state.doc.toString();
+
+              // An \input/\include under the cursor opens its file.
+              const include = includeAt(source, pos);
+              if (include !== null) {
+                void openIncludeTarget(include.spec);
+                return true;
+              }
+
+              // A ref under the cursor wins: jump to its label.
               const ref = refAt(source, pos);
               if (ref !== null) {
                 void (async () => {

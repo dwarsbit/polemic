@@ -1,24 +1,19 @@
 import { useEffect, useState } from "react";
-import { buildDocumentOrder } from "@/lib/doc-structure";
-import { readProjectFile, type FileEntry } from "@/lib/tauri";
+import { buildDocumentOrder, texPathsOf } from "@/lib/doc-structure";
+import { readProjectFile } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 
-function collectTexPaths(entries: FileEntry[]): string[] {
-  const paths: string[] = [];
-  for (const entry of entries) {
-    if (entry.isDir) {
-      paths.push(...collectTexPaths(entry.children));
-    } else if (entry.path.endsWith(".tex")) {
-      paths.push(entry.path);
-    }
-  }
-  return paths;
+export interface DocumentStructure {
+  /** Files in document order, main file first. */
+  order: string[];
+  /** Each included file's including file. */
+  parents: ReadonlyMap<string, string>;
 }
 
-/** The last computed order per project, so reopening the files panel
- * does not flash the tree in its unsorted order first. */
-const orderCache = new Map<string, string[]>();
+/** The last computed structure per project, so reopening the files
+ * panel does not flash the tree in its unsorted order first. */
+const structureCache = new Map<string, DocumentStructure>();
 
 /**
  * The project's files in document order (include walk from the main
@@ -27,14 +22,19 @@ const orderCache = new Map<string, string[]>();
  * Returns null until resolved (or when there is no main file).
  */
 export function useDocumentOrder(): string[] | null {
+  return useDocumentStructure()?.order ?? null;
+}
+
+/** The document order plus the include parents (see useDocumentOrder). */
+export function useDocumentStructure(): DocumentStructure | null {
   const project = useProjectStore((s) => s.project);
   const mainFile = useProjectStore((s) => s.mainFile);
   const activeFile = useProjectStore((s) => s.activeFile);
   const files = useProjectStore((s) => s.files);
   const buffers = useProjectStore((s) => s.buffers);
   const content = useEditorStore((s) => s.content);
-  const [order, setOrder] = useState<string[] | null>(() =>
-    project ? (orderCache.get(project.path) ?? null) : null,
+  const [structure, setStructure] = useState<DocumentStructure | null>(() =>
+    project ? (structureCache.get(project.path) ?? null) : null,
   );
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export function useDocumentOrder(): string[] | null {
     const timer = setTimeout(() => {
       void (async () => {
         if (!project || !mainFile) {
-          setOrder(null);
+          setStructure(null);
           return;
         }
         const readText = async (path: string): Promise<string | null> => {
@@ -55,14 +55,17 @@ export function useDocumentOrder(): string[] | null {
             return null;
           }
         };
-        const next = await buildDocumentOrder(
+        const parents = new Map<string, string>();
+        const order = await buildDocumentOrder(
           mainFile,
           readText,
-          collectTexPaths(files),
+          texPathsOf(files),
+          parents,
         );
         if (!cancelled) {
-          orderCache.set(project.path, next);
-          setOrder(next);
+          const next = { order, parents };
+          structureCache.set(project.path, next);
+          setStructure(next);
         }
       })();
     }, 250);
@@ -72,5 +75,5 @@ export function useDocumentOrder(): string[] | null {
     };
   }, [project, mainFile, activeFile, files, buffers, content]);
 
-  return order;
+  return structure;
 }
