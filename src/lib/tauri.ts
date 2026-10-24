@@ -8,6 +8,8 @@ export interface ToolInfo {
 
 export interface TexStatus {
   pdflatex: ToolInfo;
+  xelatex: ToolInfo;
+  lualatex: ToolInfo;
   latexmk: ToolInfo;
 }
 
@@ -163,6 +165,24 @@ export interface CompileOutcome {
   success: boolean;
   issues: CompileIssue[];
   log: string;
+  /** The engine latexmk drove, e.g. "xelatex". */
+  engine: TexEngine;
+}
+
+export type TexEngine = "pdflatex" | "xelatex" | "lualatex";
+
+/** Per-project settings in `.polemic/project.json`. */
+export interface ProjectConfig {
+  /** null or "auto": magic comment, then a preamble guess. */
+  engine: TexEngine | "auto" | null;
+}
+
+export function getProjectConfig(projectDir: string): Promise<ProjectConfig> {
+  return invoke<ProjectConfig>("get_project_config", { projectDir });
+}
+
+export function saveProjectConfig(projectDir: string, config: ProjectConfig): Promise<void> {
+  return invoke<void>("save_project_config", { projectDir, config });
 }
 
 export interface SynctexForward {
@@ -217,6 +237,11 @@ export function createProject(name: string, templateId: string): Promise<Project
 
 export function openProject(path: string): Promise<ProjectInfo> {
   return invoke<ProjectInfo>("open_project", { path });
+}
+
+/** Pick a project folder in a native dialog; null when cancelled. */
+export function openProjectDialog(): Promise<ProjectInfo | null> {
+  return invoke<ProjectInfo | null>("open_project_dialog");
 }
 
 export function removeRecentProject(path: string): Promise<Settings> {

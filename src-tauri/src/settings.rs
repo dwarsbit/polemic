@@ -115,18 +115,27 @@ pub fn load(app: &AppHandle) -> Settings {
         Ok(path) => path,
         Err(_) => return Settings::default(),
     };
-    fs::read_to_string(&path)
+    let mut settings: Settings = fs::read_to_string(&path)
         .ok()
         .and_then(|text| serde_json::from_str(&text).ok())
-        .unwrap_or_default()
+        .unwrap_or_default();
+    let plaintext = crate::secrets::has_plaintext(&settings);
+    crate::secrets::inject(&mut settings, &crate::secrets::VAULT.load());
+    // Keys from before the credential store: move them out of the file.
+    if plaintext {
+        let _ = save(app, &settings);
+    }
+    settings
 }
 
 pub fn save(app: &AppHandle, settings: &Settings) -> Result<(), String> {
     let path = settings_path(app)?;
-    let json = serde_json::to_string_pretty(settings).map_err(|e| e.to_string())?;
+    let disk = crate::secrets::VAULT.persist(settings);
+    let json = serde_json::to_string_pretty(&disk).map_err(|e| e.to_string())?;
     crate::files::write_atomic(&path, json.as_bytes())
         .map_err(|e| format!("failed to write settings: {e}"))?;
-    // The file holds API keys: keep it readable by the user only.
+    // The file may hold API keys (no credential store): keep it
+    // readable by the user only.
     #[cfg(unix)]
     {
         use std::os::unix::fs::PermissionsExt;

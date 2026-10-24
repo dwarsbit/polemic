@@ -1,5 +1,11 @@
 import { create } from "zustand";
-import { compileProject, getPdf, setPreviewZoom, type CompileIssue } from "@/lib/tauri";
+import {
+  compileProject,
+  getPdf,
+  setPreviewZoom,
+  type CompileIssue,
+  type TexEngine,
+} from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
 
 export type PreviewStatus = "idle" | "compiling" | "ok" | "error";
@@ -24,6 +30,8 @@ interface PreviewState {
   error: string | null;
   issues: CompileIssue[];
   log: string | null;
+  /** The engine of the last finished compile. */
+  engine: TexEngine | null;
   /** A transient message about a preview action (sync, open), shown
    *  over the PDF without replacing the compile state. */
   notice: string | null;
@@ -55,6 +63,7 @@ export const usePreviewStore = create<PreviewState>((set) => ({
   error: null,
   issues: [],
   log: null,
+  engine: null,
   notice: null,
   setNotice: (notice) => set({ notice }),
   scrollTarget: null,
@@ -76,6 +85,7 @@ export const usePreviewStore = create<PreviewState>((set) => ({
       error: null,
       issues: [],
       log: null,
+      engine: null,
       notice: null,
       scrollTarget: null,
     });
@@ -113,6 +123,7 @@ async function runCompile(
   try {
     const outcome = await compileProject(project.path, mainFile);
     if (generation !== compileGeneration) return;
+    set({ engine: outcome.engine });
     if (outcome.success) {
       try {
         const pdfBytes = await getPdf(project.path, mainFile);
