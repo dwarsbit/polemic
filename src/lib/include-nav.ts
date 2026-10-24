@@ -11,7 +11,9 @@ export async function openIncludeTarget(spec: string): Promise<boolean> {
   const { files, activeFile, openFile } = useProjectStore.getState();
   const target = resolveIncludePath(spec, texPathsOf(files));
   if (target === null) {
-    usePreviewStore.getState().setNotice(`No file in the project matches \\input{${spec}}.`);
+    usePreviewStore
+      .getState()
+      .setNotice(`No file in the project matches \\input{${spec}}.`);
     return false;
   }
   if (target !== activeFile) await openFile(target);
