@@ -57,7 +57,9 @@ export function TexStatusSection() {
       <p className="mb-1.5 text-xs text-muted-foreground">
         Polemic compiles on your machine using your own TeX installation. It needs{" "}
         <span className="font-mono">pdflatex</span> and{" "}
-        <span className="font-mono">latexmk</span> on your PATH;{" "}
+        <span className="font-mono">latexmk</span> on your PATH (
+        <span className="font-mono">xelatex</span> or{" "}
+        <span className="font-mono">lualatex</span> for projects set to those engines);{" "}
         <span className="font-mono">synctex</span> enables click navigation.
       </p>
       <div className="my-2">
@@ -73,6 +75,16 @@ export function TexStatusSection() {
               label="pdflatex"
               found={tex.pdflatex.found}
               hint={tex.pdflatex.version ?? undefined}
+            />
+            <StatusRow
+              label="xelatex"
+              found={tex.xelatex.found}
+              hint={tex.xelatex.version ?? "optional, for fontspec documents"}
+            />
+            <StatusRow
+              label="lualatex"
+              found={tex.lualatex.found}
+              hint={tex.lualatex.version ?? "optional"}
             />
             <StatusRow
               label="latexmk"

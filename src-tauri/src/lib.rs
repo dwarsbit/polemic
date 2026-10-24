@@ -1,6 +1,9 @@
 mod files;
 mod git;
+mod guard;
 mod logparse;
+mod profile;
+mod secrets;
 mod comments;
 mod assets;
 mod ai;
@@ -30,6 +33,8 @@ pub struct ProjectInfo {
 #[serde(rename_all = "camelCase")]
 pub struct TexStatus {
     pub pdflatex: ToolInfo,
+    pub xelatex: ToolInfo,
+    pub lualatex: ToolInfo,
     pub latexmk: ToolInfo,
 }
 
@@ -47,6 +52,8 @@ pub struct CompileOutcome {
     pub success: bool,
     pub issues: Vec<logparse::CompileIssue>,
     pub log: String,
+    /// The engine latexmk drove, e.g. "xelatex".
+    pub engine: String,
 }
 
 #[derive(Serialize)]
@@ -129,7 +136,7 @@ fn pdf_output_path(main_tex: &str) -> std::path::PathBuf {
 /// Validate the main/input file handed to latexmk and synctex: a
 /// project-relative .tex path that cannot be read as an option.
 fn validate_tex_arg(project_dir: &str, tex: &str) -> Result<(), String> {
-    files::resolve_in_project(project_dir, tex)?;
+    project_file(project_dir, tex)?;
     if tex.starts_with('-') {
         return Err(format!("unsupported file name: {tex}"));
     }
@@ -244,15 +251,15 @@ fn output_with_timeout(
 /// The compile command for a project. -norc: an rc file inside the
 /// project is Perl that came with the project and must never run; the
 /// user's own rc files are passed back explicitly.
-fn latexmk_command(dir: &std::path::Path, main_tex: &str) -> Command {
+fn latexmk_command(dir: &std::path::Path, main_tex: &str, engine: profile::Engine) -> Command {
     let mut command = Command::new("latexmk");
     command.arg("-norc");
     for rc in trusted_latexmk_rc_files() {
         command.arg("-r").arg(rc);
     }
     command
+        .arg(engine.latexmk_flag())
         .args([
-            "-pdf",
             "-interaction=nonstopmode",
             "-file-line-error",
             "-synctex=1",
@@ -266,9 +273,44 @@ fn latexmk_command(dir: &std::path::Path, main_tex: &str) -> Command {
 /// Longest a single compile may run before it is killed.
 const COMPILE_TIMEOUT: std::time::Duration = std::time::Duration::from_secs(10 * 60);
 
+/// The canonical folder of an open project; any other folder is refused.
 fn canonical_project(project_dir: &str) -> Result<std::path::PathBuf, String> {
-    fs::canonicalize(project_dir)
-        .map_err(|e| format!("project directory not accessible: {e}"))
+    let dir = fs::canonicalize(project_dir)
+        .map_err(|e| format!("project directory not accessible: {e}"))?;
+    if !guard::is_allowed(&dir) {
+        return Err("not an open project".into());
+    }
+    Ok(dir)
+}
+
+/// A project-relative path inside an open project.
+fn project_file(project_dir: &str, rel_path: &str) -> Result<std::path::PathBuf, String> {
+    canonical_project(project_dir)?;
+    files::resolve_in_project(project_dir, rel_path)
+}
+
+/// A project the user knows: open this session, or on the recent list
+/// (which only ever gains folders through open/create).
+fn known_project(app: &tauri::AppHandle, path: &str) -> Result<std::path::PathBuf, String> {
+    let dir = fs::canonicalize(path)
+        .map_err(|e| format!("project directory not accessible: {e}"))?;
+    if guard::is_allowed(&dir) {
+        return Ok(dir);
+    }
+    let state = app.state::<SettingsState>();
+    let settings = state.0.lock().map_err(|e| e.to_string())?;
+    let known = settings
+        .recent_projects
+        .iter()
+        .map(|r| r.path.as_str())
+        .chain(settings.last_project_path.as_deref())
+        .any(|path| fs::canonicalize(path).is_ok_and(|p| p == dir));
+    drop(settings);
+    if known {
+        Ok(dir)
+    } else {
+        Err("unknown project folder; open it with Open Folder… first".into())
+    }
 }
 
 // --- TeX detection ---------------------------------------------------------
@@ -277,6 +319,8 @@ fn canonical_project(project_dir: &str) -> Result<std::path::PathBuf, String> {
 fn detect_tex() -> TexStatus {
     TexStatus {
         pdflatex: probe("pdflatex"),
+        xelatex: probe("xelatex"),
+        lualatex: probe("lualatex"),
         latexmk: probe("latexmk"),
     }
 }
@@ -326,6 +370,7 @@ fn create_project(
         fs::write(&target, content)
             .map_err(|e| format!("failed to write template file {path}: {e}"))?;
     }
+    guard::allow(&dir);
     let info = project_info(&dir);
     settings::update(&app, |s| {
         settings::upsert_recent(s, &info.name, &info.path);
@@ -340,11 +385,35 @@ fn list_templates() -> Vec<templates::TemplateInfo> {
 
 #[tauri::command]
 fn open_project(app: tauri::AppHandle, path: String) -> Result<ProjectInfo, String> {
+    let dir = known_project(&app, &path)?;
+    admit_project(&app, &dir)
+}
+
+/// Open a folder the user picks in a native dialog; None when cancelled.
+/// The dialog runs here, not in the webview, so the path is the user's
+/// choice rather than whatever a script passes in.
+#[tauri::command]
+async fn open_project_dialog(app: tauri::AppHandle) -> Result<Option<ProjectInfo>, String> {
+    use tauri_plugin_dialog::DialogExt;
+    let picked = app
+        .dialog()
+        .file()
+        .set_title("Open project folder")
+        .blocking_pick_folder();
+    let Some(picked) = picked else {
+        return Ok(None);
+    };
+    let path = picked.into_path().map_err(|e| e.to_string())?;
     let dir = fs::canonicalize(&path).map_err(|e| format!("cannot open project folder: {e}"))?;
+    admit_project(&app, &dir).map(Some)
+}
+
+fn admit_project(app: &tauri::AppHandle, dir: &std::path::Path) -> Result<ProjectInfo, String> {
     if !dir.is_dir() {
         return Err("project path is not a directory".into());
     }
-    let info = project_info(&dir);
+    guard::allow(dir);
+    let info = project_info(dir);
     settings::update(&app, |s| {
         settings::upsert_recent(s, &info.name, &info.path);
         s.last_project_path = Some(info.path.clone());
@@ -651,7 +720,7 @@ fn rename_project(
     new_name: String,
 ) -> Result<ProjectInfo, String> {
     validate_project_name(&new_name)?;
-    let dir = canonical_project(&path)?;
+    let dir = known_project(&app, &path)?;
     let parent = dir
         .parent()
         .ok_or("project has no parent folder")?
@@ -661,6 +730,10 @@ fn rename_project(
         return Err(format!("\"{}\" already exists", new_name.trim()));
     }
     fs::rename(&dir, &new_dir).map_err(|e| format!("failed to rename project: {e}"))?;
+    if guard::is_allowed(&dir) {
+        guard::forget(&dir);
+        guard::allow(&new_dir);
+    }
     let old_path = dir.to_string_lossy().to_string();
     let new_path = new_dir.to_string_lossy().to_string();
     settings::update(&app, |s| {
@@ -691,8 +764,9 @@ fn rename_project(
 /// Move a project folder to the OS trash.
 #[tauri::command]
 fn delete_project(app: tauri::AppHandle, path: String) -> Result<Settings, String> {
-    let dir = canonical_project(&path)?;
+    let dir = known_project(&app, &path)?;
     trash::delete(&dir).map_err(|e| format!("failed to move project to trash: {e}"))?;
+    guard::forget(&dir);
     let old_path = dir.to_string_lossy().to_string();
     settings::update(&app, |s| {
         s.recent_projects.retain(|r| r.path != old_path);
@@ -716,13 +790,13 @@ fn list_files(project_dir: String) -> Result<Vec<FileEntry>, String> {
 
 #[tauri::command]
 fn read_project_file(project_dir: String, path: String) -> Result<String, String> {
-    let target = files::resolve_in_project(&project_dir, &path)?;
+    let target = project_file(&project_dir, &path)?;
     fs::read_to_string(&target).map_err(|e| format!("failed to read {path}: {e}"))
 }
 
 #[tauri::command]
 fn write_project_file(project_dir: String, path: String, content: String) -> Result<(), String> {
-    let target = files::resolve_in_project(&project_dir, &path)?;
+    let target = project_file(&project_dir, &path)?;
     if let Some(parent) = target.parent() {
         fs::create_dir_all(parent).map_err(|e| format!("failed to create folder: {e}"))?;
     }
@@ -731,7 +805,7 @@ fn write_project_file(project_dir: String, path: String, content: String) -> Res
 
 #[tauri::command]
 fn create_project_entry(project_dir: String, path: String, is_dir: bool) -> Result<(), String> {
-    let target = files::resolve_in_project(&project_dir, &path)?;
+    let target = project_file(&project_dir, &path)?;
     if target.exists() {
         return Err(format!("{path} already exists"));
     }
@@ -747,8 +821,8 @@ fn create_project_entry(project_dir: String, path: String, is_dir: bool) -> Resu
 
 #[tauri::command]
 fn rename_entry(project_dir: String, path: String, new_path: String) -> Result<(), String> {
-    let from = files::resolve_in_project(&project_dir, &path)?;
-    let to = files::resolve_in_project(&project_dir, &new_path)?;
+    let from = project_file(&project_dir, &path)?;
+    let to = project_file(&project_dir, &new_path)?;
     if to.exists() {
         return Err(format!("{new_path} already exists"));
     }
@@ -759,14 +833,14 @@ fn rename_entry(project_dir: String, path: String, new_path: String) -> Result<(
 /// deleting a whole project).
 #[tauri::command]
 fn delete_entry(project_dir: String, path: String) -> Result<(), String> {
-    let target = files::resolve_in_project(&project_dir, &path)?;
+    let target = project_file(&project_dir, &path)?;
     trash::delete(&target).map_err(|e| format!("failed to move {path} to trash: {e}"))
 }
 
 /// Read any project file as raw bytes (binary-safe), for asset previews.
 #[tauri::command]
 fn read_asset(project_dir: String, path: String) -> Result<tauri::ipc::Response, String> {
-    let target = files::resolve_in_project(&project_dir, &path)?;
+    let target = project_file(&project_dir, &path)?;
     let bytes = fs::read(&target).map_err(|e| format!("failed to read {path}: {e}"))?;
     Ok(tauri::ipc::Response::new(bytes))
 }
@@ -858,7 +932,10 @@ async fn compile_project(
     tauri::async_runtime::spawn_blocking(move || {
         let dir = canonical_project(&project_dir)?;
         validate_tex_arg(&project_dir, &main_tex)?;
-        let output = output_with_timeout(latexmk_command(&dir, &main_tex), COMPILE_TIMEOUT).map_err(|e| match e {
+        let main_source = fs::read_to_string(project_file(&project_dir, &main_tex)?)
+            .unwrap_or_default();
+        let engine = profile::resolve(&profile::load(&dir), &main_source);
+        let output = output_with_timeout(latexmk_command(&dir, &main_tex, engine), COMPILE_TIMEOUT).map_err(|e| match e {
             RunError::Spawn(e) => format!("failed to run latexmk: {e}\n\nIs a TeX distribution (TeX Live, MacTeX, or MiKTeX) installed and on your PATH?"),
             RunError::TimedOut => format!(
                 "the compile was stopped after {} minutes. The document may loop forever; check recent macro changes.",
@@ -875,10 +952,23 @@ async fn compile_project(
             success,
             issues,
             log,
+            engine: engine.name().into(),
         })
     })
     .await
     .map_err(|e| e.to_string())?
+}
+
+#[tauri::command]
+fn get_project_config(project_dir: String) -> Result<profile::ProjectConfig, String> {
+    let dir = canonical_project(&project_dir)?;
+    Ok(profile::load(&dir))
+}
+
+#[tauri::command]
+fn save_project_config(project_dir: String, config: profile::ProjectConfig) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    profile::save(&dir, &config)
 }
 
 /// Read the freshly compiled PDF as raw bytes.
@@ -1687,6 +1777,7 @@ pub fn run() {    tauri::Builder::default()
             create_project,
             list_templates,
             open_project,
+            open_project_dialog,
             remove_recent_project,
             update_preferences,
             check_words,
@@ -1740,7 +1831,9 @@ pub fn run() {    tauri::Builder::default()
             list_comments,
             save_comments,
             ai::ai_chat,
-            update_ai_settings
+            update_ai_settings,
+            get_project_config,
+            save_project_config
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
@@ -1752,7 +1845,10 @@ mod tests {
 
     #[test]
     fn rejects_tex_args_that_read_as_options() {
-        let dir = std::env::temp_dir().to_string_lossy().to_string();
+        let tmp = fs::canonicalize(std::env::temp_dir()).unwrap();
+        let dir = tmp.to_string_lossy().to_string();
+        assert!(validate_tex_arg(&dir, "chapters/intro.tex").is_err(), "not an open project");
+        guard::allow(&tmp);
         assert!(validate_tex_arg(&dir, "-pdflatex=evil.tex").is_err());
         assert!(validate_tex_arg(&dir, "../main.tex").is_err());
         assert!(validate_tex_arg(&dir, "chapters/intro.tex").is_ok());
@@ -1777,7 +1873,7 @@ mod tests {
         fs::write(dir.join("latexmkrc"), rc).unwrap();
         fs::write(dir.join(".latexmkrc"), rc).unwrap();
         let output =
-            output_with_timeout(latexmk_command(&dir, "main.tex"), COMPILE_TIMEOUT).ok().unwrap();
+            output_with_timeout(latexmk_command(&dir, "main.tex", profile::Engine::Pdflatex), COMPILE_TIMEOUT).ok().unwrap();
         assert!(!dir.join("PWNED").exists(), "the project's latexmkrc ran");
         if Command::new("pdflatex").arg("--version").output().is_ok() {
             assert!(output.status.success());

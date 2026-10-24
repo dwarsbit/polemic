@@ -16,6 +16,8 @@ function wordCount(source: string): number {
 function CompileStatus() {
   const status = usePreviewStore((s) => s.status);
   const issues = usePreviewStore((s) => s.issues);
+  const engine = usePreviewStore((s) => s.engine);
+  const via = engine !== null && engine !== "pdflatex" ? ` · ${engine}` : "";
   const errors = issues.filter((i) => i.severity === "error").length;
 
   switch (status) {
@@ -30,7 +32,7 @@ function CompileStatus() {
       return (
         <span className="flex items-center gap-1">
           <Check className="size-3 text-green-600" />
-          Compiled
+          Compiled{via}
         </span>
       );
     case "error":
@@ -38,6 +40,7 @@ function CompileStatus() {
         <span className="flex items-center gap-1 text-destructive">
           <TriangleAlert className="size-3" />
           {errors > 0 ? `${errors} error${errors === 1 ? "" : "s"}` : "Compile failed"}
+          {via}
         </span>
       );
     default:

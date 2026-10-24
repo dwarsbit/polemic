@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { open as openDialog } from "@tauri-apps/plugin-dialog";
 import {
   ArrowUpRight,
   FolderOpen,
@@ -25,6 +24,7 @@ import {
   deleteProject,
   getSettings,
   listTemplates,
+  openProjectDialog,
   renameProject,
   setPinnedProject,
   type Settings,
@@ -91,8 +91,13 @@ export function ProjectsView() {
 
   async function handleOpenFolder() {
     setError(null);
-    const dir = await openDialog({ directory: true, multiple: false });
-    if (typeof dir === "string" && dir) await handleOpen(dir);
+    try {
+      // The dialog runs Rust-side: only a folder the user picked is admitted.
+      const info = await openProjectDialog();
+      if (info !== null) await handleOpen(info.path);
+    } catch (e) {
+      setError(String(e));
+    }
   }
 
   const projects = settings

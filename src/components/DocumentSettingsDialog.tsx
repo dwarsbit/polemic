@@ -38,6 +38,15 @@ const CLASS_PRESETS = [
 
 const CUSTOM = "__custom__";
 
+type EngineChoice = api.TexEngine | "auto";
+
+const ENGINES: { value: EngineChoice; label: string }[] = [
+  { value: "auto", label: "Automatic" },
+  { value: "pdflatex", label: "pdfLaTeX" },
+  { value: "xelatex", label: "XeLaTeX" },
+  { value: "lualatex", label: "LuaLaTeX" },
+];
+
 type Draft = Omit<DocumentSettings, "packageCount"> & { packageCount: number };
 
 /**
@@ -58,6 +67,28 @@ export function DocumentSettingsDialog({
   const activeFile = useProjectStore((s) => s.activeFile);
   const [draft, setDraft] = useState<Draft | null>(null);
   const [available, setAvailable] = useState(false);
+  // The compile engine is a project setting (.polemic/project.json),
+  // saved alongside but independent of the main file's preamble.
+  const [engine, setEngine] = useState<EngineChoice>("auto");
+  const [savedEngine, setSavedEngine] = useState<EngineChoice>("auto");
+  const projectPath = useProjectStore((s) => s.project?.path ?? null);
+
+  useEffect(() => {
+    if (!open || projectPath === null) return;
+    let cancelled = false;
+    api
+      .getProjectConfig(projectPath)
+      .then((config) => {
+        if (cancelled) return;
+        const value = config.engine ?? "auto";
+        setEngine(value);
+        setSavedEngine(value);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [open, projectPath]);
 
   // Load the main file's settings whenever the dialog opens.
   useEffect(() => {
@@ -103,9 +134,20 @@ export function DocumentSettingsDialog({
   };
 
   async function save() {
-    if (draft === null) return;
     const { project, buffers, activeFile: activeNow } = useProjectStore.getState();
-    if (project === null || mainFile === null) return;
+    if (project === null) return;
+    if (engine !== savedEngine) {
+      try {
+        await api.saveProjectConfig(project.path, { engine });
+        setSavedEngine(engine);
+      } catch {
+        return;
+      }
+    }
+    if (draft === null || mainFile === null) {
+      onOpenChange(false);
+      return;
+    }
     let content: string;
     if (activeNow === mainFile) {
       content = useEditorStore.getState().content;
@@ -144,6 +186,27 @@ export function DocumentSettingsDialog({
             Document settings
           </DialogTitle>
         </DialogHeader>
+        <label className="flex flex-col gap-1 text-xs">
+          TeX engine
+          <Select value={engine} onValueChange={(value) => setEngine(value as EngineChoice)}>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {ENGINES.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {engine === "auto" && (
+            <span className="text-muted-foreground">
+              Reads a <span className="font-mono">% !TEX program</span> line, else uses
+              XeLaTeX when the preamble loads fontspec, else pdfLaTeX.
+            </span>
+          )}
+        </label>
         {draft === null || !available ? (
           <p className="text-sm text-muted-foreground">
             {mainFile === null
@@ -289,7 +352,11 @@ export function DocumentSettingsDialog({
           <Button variant="outline" size="sm" onClick={() => onOpenChange(false)}>
             Cancel
           </Button>
-          <Button size="sm" disabled={draft === null || !available} onClick={() => void save()}>
+          <Button
+            size="sm"
+            disabled={projectPath === null || ((draft === null || !available) && engine === savedEngine)}
+            onClick={() => void save()}
+          >
             Save
           </Button>
         </DialogFooter>
