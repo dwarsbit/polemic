@@ -74,6 +74,46 @@ jobs:
             echo "$name=${!name}" >> "$GITHUB_ENV"
           done
 
+      # Signs the Windows builds with Azure Artifact Signing (formerly Trusted
+      # Signing) once the AZURE_* secrets exist; without them the builds stay
+      # unsigned. The sign command is added to tauri.conf.json here rather
+      # than committed, so local Windows builds don't need Azure access.
+      - name: Configure Windows signing
+        if: runner.os == 'Windows'
+        shell: bash
+        env:
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_ARTIFACT_SIGNING_ENDPOINT: ${{ secrets.AZURE_ARTIFACT_SIGNING_ENDPOINT }}
+          AZURE_ARTIFACT_SIGNING_ACCOUNT: ${{ secrets.AZURE_ARTIFACT_SIGNING_ACCOUNT }}
+          AZURE_ARTIFACT_SIGNING_CERTIFICATE_PROFILE: ${{ secrets.AZURE_ARTIFACT_SIGNING_CERTIFICATE_PROFILE }}
+        run: |
+          if [ -z "$AZURE_CLIENT_ID" ]; then
+            echo "::warning::AZURE_CLIENT_ID not set; Windows build will be unsigned"
+            exit 0
+          fi
+          for name in AZURE_CLIENT_ID AZURE_CLIENT_SECRET AZURE_TENANT_ID AZURE_ARTIFACT_SIGNING_ENDPOINT AZURE_ARTIFACT_SIGNING_ACCOUNT AZURE_ARTIFACT_SIGNING_CERTIFICATE_PROFILE; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name secret is missing"
+              exit 1
+            fi
+            echo "$name=${!name}" >> "$GITHUB_ENV"
+          done
+          signtool="$(ls "/c/Program Files (x86)/Windows Kits/10/bin/"10.*/x64/signtool.exe | sort -V | tail -n 1)"
+          echo "SIGNTOOL_PATH=$(cygpath -w "$signtool")" >> "$GITHUB_ENV"
+          cargo install artifact-signing-cli --version 0.11.0 --locked
+          node -e '
+            const fs = require("fs");
+            const path = "src-tauri/tauri.conf.json";
+            const conf = JSON.parse(fs.readFileSync(path, "utf8"));
+            conf.bundle.windows = {
+              ...conf.bundle.windows,
+              signCommand: `artifact-signing-cli -e ${process.argv[1]} -d Polemic %1`,
+            };
+            fs.writeFileSync(path, JSON.stringify(conf, null, 2) + "\n");
+          ' "$AZURE_ARTIFACT_SIGNING_ENDPOINT"
+
       - name: Install Linux build dependencies
         if: runner.os == 'Linux'
         run: |

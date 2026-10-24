@@ -46,17 +46,8 @@ Push a `vX.Y.Z` tag. CI runs the test suite, then builds for macOS
 (Apple Silicon and Intel), Linux, and Windows with that version and
 attaches the installers to a draft GitHub release.
 
-macOS builds are signed and notarized when these repository secrets
-are set (otherwise they stay unsigned):
-
-| Secret                       | Value                                                                          |
-| ---------------------------- | ------------------------------------------------------------------------------ |
-| `APPLE_CERTIFICATE`          | `base64 -i cert.p12 \| tr -d '\n'` of the Developer ID Application certificate |
-| `APPLE_CERTIFICATE_PASSWORD` | Password of the `.p12` export                                                  |
-| `APPLE_SIGNING_IDENTITY`     | e.g. `Developer ID Application: Name (TEAMID)`                                 |
-| `APPLE_ID`                   | Apple ID email                                                                 |
-| `APPLE_PASSWORD`             | App-specific password for that Apple ID                                        |
-| `APPLE_TEAM_ID`              | Apple Developer team ID                                                        |
+macOS and Windows builds are signed once the signing secrets are set;
+see [docs/signing.md](./docs/signing.md) for the setup.
 
 ## License
 
