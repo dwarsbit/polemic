@@ -217,11 +217,17 @@ fn output_with_timeout(
             break status;
         }
         if start.elapsed() > timeout {
-            let pid = child.id().to_string();
+            // Signal the group directly: the `kill` binary is no option,
+            // procps-ng misreads a negative group id (`kill -KILL -1234`
+            // signals group -1, i.e. every process of the user).
             #[cfg(unix)]
-            let _ = Command::new("kill").args(["-KILL", &format!("-{pid}")]).status();
+            unsafe {
+                libc::killpg(child.id() as libc::pid_t, libc::SIGKILL);
+            }
             #[cfg(windows)]
-            let _ = Command::new("taskkill").args(["/T", "/F", "/PID", &pid]).status();
+            let _ = Command::new("taskkill")
+                .args(["/T", "/F", "/PID", &child.id().to_string()])
+                .status();
             let _ = child.kill();
             let _ = child.wait();
             return Err(RunError::TimedOut);
@@ -1783,12 +1789,27 @@ mod tests {
     #[cfg(unix)]
     #[test]
     fn kills_commands_that_run_too_long() {
+        // The shell's child stands in for the TeX run latexmk starts: the
+        // timeout must take down the whole tree, and only that tree.
+        let pid_file = std::env::temp_dir().join(format!("polemic-timeout-{}", std::process::id()));
         let mut slow = Command::new("sh");
-        slow.args(["-c", "sleep 30"]);
+        slow.arg("-c")
+            .arg(format!("sleep 30 & echo $! > {}; wait", pid_file.display()));
         let start = std::time::Instant::now();
-        let result = output_with_timeout(slow, std::time::Duration::from_millis(200));
+        let result = output_with_timeout(slow, std::time::Duration::from_millis(300));
         assert!(matches!(result, Err(RunError::TimedOut)));
         assert!(start.elapsed() < std::time::Duration::from_secs(5));
+        let grandchild: libc::pid_t = fs::read_to_string(&pid_file).unwrap().trim().parse().unwrap();
+        let _ = fs::remove_file(&pid_file);
+        std::thread::sleep(std::time::Duration::from_millis(100));
+        // Gone, or a zombie waiting to be reaped (no init in containers).
+        let state = fs::read_to_string(format!("/proc/{grandchild}/stat")).unwrap_or_default();
+        let alive = unsafe { libc::kill(grandchild, 0) } == 0
+            && !state.split_whitespace().nth(2).is_some_and(|s| s == "Z");
+        if alive {
+            unsafe { libc::kill(grandchild, libc::SIGKILL) };
+        }
+        assert!(!alive, "the TeX process outlived the timeout");
 
         let mut quick = Command::new("sh");
         quick.args(["-c", "echo out; echo err >&2"]);
