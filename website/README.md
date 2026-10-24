@@ -19,7 +19,15 @@ SITE_URL=https://example.org pnpm build   # static output in out/
 pnpm start                                # serve out/ locally
 ```
 
-`SITE_URL` is the site's public address, used for Open Graph image URLs.
+- `SITE_URL`: the site's origin, used for Open Graph image URLs.
+- `NEXT_PUBLIC_BASE_PATH`: set when the site is served from a subpath, such as
+  `/polemic` on GitHub Pages.
+
+## Deploy
+
+`.github/workflows/website.yml` builds the site on pull requests that touch
+`website/`, and deploys it to GitHub Pages on pushes to `main`. Enable it once in the
+repository settings: Pages → Build and deployment → Source: GitHub Actions.
 
 ## Layout
 

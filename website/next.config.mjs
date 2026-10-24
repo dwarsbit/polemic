@@ -6,6 +6,9 @@ const withMDX = createMDX();
 const config = {
   output: "export",
   reactStrictMode: true,
+  // Every page exports as folder/index.html, which any static host serves.
+  trailingSlash: true,
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || undefined,
   // A static export has no image optimization server.
   images: { unoptimized: true },
 };
