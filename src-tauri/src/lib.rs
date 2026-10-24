@@ -1882,6 +1882,28 @@ mod tests {
         let _ = fs::remove_dir_all(&dir);
     }
 
+    /// Needs latexmk and xelatex on PATH; skipped otherwise.
+    #[test]
+    fn compiles_with_the_resolved_engine() {
+        let have = |tool: &str| Command::new(tool).arg("--version").output().is_ok();
+        if !have("latexmk") || !have("xelatex") {
+            return;
+        }
+        let dir = std::env::temp_dir().join(format!("polemic-engine-{}", std::process::id()));
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(&dir).unwrap();
+        // \XeTeXversion exists only under xetex: pdflatex would fail.
+        let source = "% !TEX program = xelatex\n\\documentclass{article}\\begin{document}\\the\\XeTeXversion\\end{document}\n";
+        fs::write(dir.join("main.tex"), source).unwrap();
+        let engine = profile::resolve(&profile::load(&dir), source);
+        assert_eq!(engine, profile::Engine::Xelatex);
+        let output =
+            output_with_timeout(latexmk_command(&dir, "main.tex", engine), COMPILE_TIMEOUT).ok().unwrap();
+        assert!(output.status.success(), "{}", String::from_utf8_lossy(&output.stdout));
+        assert!(dir.join("build/main.pdf").is_file());
+        let _ = fs::remove_dir_all(&dir);
+    }
+
     #[cfg(unix)]
     #[test]
     fn kills_commands_that_run_too_long() {
