@@ -1,0 +1,93 @@
+---
+title: Installation
+description: Install a TeX distribution and build Polemic from source.
+---
+
+Polemic compiles with the TeX distribution already on your machine, so you need one
+installed first. Polemic itself is a [Tauri](https://tauri.app) app, built with
+Node.js and Rust.
+
+## Requirements
+
+- **A TeX distribution on your `PATH`**, including `latexmk`: TeX Live, MacTeX or MiKTeX.
+- **Node.js 20+** and **pnpm**.
+- **Rust** (stable) with `cargo`.
+- **git** (optional): needed for the git panel. Snapshots work without it.
+
+## Install a TeX distribution
+
+<Tabs items={["macOS", "Windows", "Linux"]}>
+  <Tab value="macOS">
+    Install [MacTeX](https://www.tug.org/mactex/), or with Homebrew:
+
+    ```bash
+    brew install --cask mactex-no-gui
+    ```
+
+  </Tab>
+  <Tab value="Windows">
+    Install [MiKTeX](https://miktex.org/download) or
+    [TeX Live](https://www.tug.org/texlive/windows.html). With MiKTeX, also install the
+    `latexmk` package and a Perl runtime, which `latexmk` needs.
+  </Tab>
+  <Tab value="Linux">
+    Use your distribution's TeX Live packages, for example on Debian or Ubuntu:
+
+    ```bash
+    sudo apt install texlive-latex-extra texlive-bibtex-extra latexmk
+    ```
+
+  </Tab>
+</Tabs>
+
+Check that `latexmk` is on your `PATH`:
+
+```bash
+latexmk --version
+```
+
+## Build Polemic
+
+<Steps>
+<Step>
+
+### Clone the repository
+
+```bash
+git clone https://github.com/dwarsbit/polemic.git
+cd polemic
+```
+
+</Step>
+<Step>
+
+### Install dependencies
+
+```bash
+pnpm install
+```
+
+</Step>
+<Step>
+
+### Run or build
+
+Start a development build:
+
+```bash
+pnpm tauri dev
+```
+
+Or build an installable app for your platform:
+
+```bash
+pnpm tauri build
+```
+
+</Step>
+</Steps>
+
+<Callout title="Prebuilt downloads">
+  While Polemic is pre-alpha, building from source is the way to install it. Releases
+  will appear on the [GitHub releases page](https://github.com/dwarsbit/polemic/releases).
+</Callout>

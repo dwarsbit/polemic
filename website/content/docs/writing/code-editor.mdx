@@ -1,0 +1,48 @@
+---
+title: Code editor
+description: The source face of the editor, with LaTeX-aware completion and tooling.
+---
+
+The code editor is where you write LaTeX directly. It understands your project, not
+just the file in front of you.
+
+## Completion
+
+Press <kbd>Cmd/Ctrl</kbd> + <kbd>Space</kbd> to autocomplete commands, environments,
+labels and citation keys. Inside `\input{}`, `\include{}` and `\includegraphics{}`,
+completion offers the paths of files in your project.
+
+## Writing helpers
+
+- **Environment pairing.** Typing `\begin{...}` adds the matching `\end{...}`.
+- **Math preview.** Hover over math to see it rendered.
+- **Formatting.** <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd> formats the document;
+  you can also turn on format on save in the settings.
+- **Spellcheck** for prose, with a language setting.
+- **Inline markers** for git changes, overlong lines and comments in the gutter.
+
+## Insert menu
+
+The toolbar's **Insert** menu adds structure without typing boilerplate:
+
+- Environments: `quote`, `quotation`, `center` and `abstract`.
+- The theorem family, including environments you declared with `\newtheorem`.
+- **New theorem environment…** declares `\newtheorem{env}{Name}` in the preamble and
+  loads `amsthm` when needed.
+- Footnotes, display math, and figure and table scaffolds.
+
+Separate tools insert tables (<kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>),
+TikZ pictures (<kbd>Cmd/Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd>) and wrap an image in a
+figure (<kbd>Cmd/Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>G</kbd>).
+
+## Packages
+
+<kbd>Cmd/Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd> opens the package manager: browse CTAN
+packages with descriptions, add or remove `\usepackage` lines, and see which packages
+are installed locally.
+
+## Labels
+
+The **Labels** tab lists every label in the project, grouped by prefix, with reference
+counts. Unused labels and undefined references stand out. Press <kbd>F2</kbd> on a
+label to rename it across every file in one step.

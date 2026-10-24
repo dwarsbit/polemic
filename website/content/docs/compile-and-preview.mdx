@@ -1,0 +1,52 @@
+---
+title: Compile and preview
+description: How Polemic compiles your project and keeps the PDF in sync with the source.
+---
+
+## Compiling
+
+<kbd>Cmd/Ctrl</kbd> + <kbd>S</kbd> saves and compiles. Polemic runs `latexmk` from your
+own TeX distribution:
+
+```bash
+latexmk -norc -pdf -interaction=nonstopmode -file-line-error -synctex=1 -outdir=build main.tex
+```
+
+- Output goes to `build/` inside the project.
+- One compile runs at a time. Saving during a compile queues one follow-up run.
+- A compile that runs longer than 10 minutes is stopped, including any child processes.
+- Your own `~/.latexmkrc` and the system-wide latexmk config still apply. A
+  `latexmkrc` inside the project does not; see [Security](/docs/security).
+
+<Callout title="Engines">
+  Compilation currently uses pdfLaTeX. XeLaTeX and LuaLaTeX profiles are on the
+  roadmap.
+</Callout>
+
+## The PDF preview
+
+The preview shows the compiled PDF next to the editor and updates after every compile.
+If a compile fails, the last good PDF stays visible with an "out of date" banner, so
+you keep your place while you fix the error.
+
+### SyncTeX
+
+- <kbd>Cmd/Ctrl</kbd> + click in the editor jumps to that spot in the PDF.
+- <kbd>Cmd/Ctrl</kbd> + click in the PDF jumps to the source line.
+
+This also works from files you pull in with `\input`.
+
+## Issues and quick fixes
+
+Errors and warnings from the log appear in the **Issues** tab; the raw output is in the
+**Compile Log** tab. For common errors, **Fix this** applies a fix in one click, for
+example:
+
+- a misspelled command (`\textbff` → `\textbf`);
+- `_` or `^` outside math mode;
+- a missing package for an environment;
+- a mismatched `\end{...}`;
+- a wrong include path, label or citation key.
+
+For anything the rules cannot fix, the optional [AI quickfix](/docs/ai-quickfix) can
+propose a change.

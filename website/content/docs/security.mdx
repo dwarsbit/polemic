@@ -1,0 +1,32 @@
+---
+title: Security
+description: What Polemic does to keep projects from other people safe to open.
+---
+
+LaTeX projects can carry more than text. Polemic is built so you can open and compile
+a folder you received from someone else.
+
+## Compiling untrusted projects
+
+- `latexmk` runs with `-norc`, so a `latexmkrc` inside the project never runs. Your own
+  `~/.latexmkrc` and the system-wide config are passed back explicitly and still apply.
+- A compile is stopped after 10 minutes, including its child processes.
+
+## Git
+
+Git runs with every command-running setting from the project's `.git/config` blanked
+(fsmonitor, filters, textconv, gpg programs and similar) and with git hooks switched
+off. A repository you cloned cannot run code through Polemic.
+
+## Files
+
+- Paths are resolved inside the project. Symlinks that lead outside it are refused.
+- Snapshots skip symlinks.
+- Deleted files go to the trash, not straight to oblivion.
+- Settings, comments and asset tags are written atomically; the settings file is
+  readable only by your user.
+
+## The app
+
+The app window runs with a Content Security Policy. The AI quickfix only talks to
+`https` endpoints, or `http` on `localhost`.
