@@ -4,7 +4,7 @@ import "./global.css";
 
 export const metadata: Metadata = {
   // Absolute base for Open Graph image URLs; set SITE_URL when building for production.
-  metadataBase: new URL(process.env.SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(process.env.SITE_URL || "http://localhost:3000"),
   title: {
     default: "Polemic — the local-first LaTeX editor",
     template: "%s · Polemic",
