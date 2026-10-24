@@ -138,7 +138,6 @@ const graphicsHover = spanHighlightField("cm-graphics-hover");
 // The subtle background while hovering a path argument.
 const graphicsPath = spanHighlightField("cm-graphics-path");
 
-
 export function LatexEditor({ visible = true }: { visible?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<EditorView | null>(null);
@@ -419,7 +418,8 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
           EditorView.theme({
             "&": { height: "100%" },
             ".cm-scroller": {
-              fontFamily: "var(--editor-font-family, ui-monospace, SFMono-Regular, Menlo, monospace)",
+              fontFamily:
+                "var(--editor-font-family, ui-monospace, SFMono-Regular, Menlo, monospace)",
               fontSize: "var(--editor-font-size, 14px)",
             },
           }),
@@ -483,10 +483,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
 
               // An \includegraphics under the cursor opens its
               // options card (the image itself, not the page spot).
-              const graphics = findGraphicsSpanAt(
-                view.state.doc.toString(),
-                pos,
-              );
+              const graphics = findGraphicsSpanAt(view.state.doc.toString(), pos);
               if (graphics !== null) {
                 showGraphicsAssist(graphics);
                 return true;
@@ -522,18 +519,23 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
 
               const line = view.state.doc.lineAt(pos);
               void (async () => {
-                const { project, activeFile } = useProjectStore.getState();
-                if (!project || !activeFile) return;
+                const { project, activeFile, mainFile } = useProjectStore.getState();
+                if (!project || !activeFile || !mainFile) return;
                 try {
+                  // The PDF is named after the main file; the line is in
+                  // the active one (possibly an \input chapter).
                   const target = await synctexForward(
                     project.path,
+                    mainFile,
                     activeFile,
                     line.number,
                     pos - line.from + 1,
                   );
                   usePreviewStore.getState().requestScroll(target);
                 } catch (e) {
-                  usePreviewStore.setState({ status: "error", error: String(e) });
+                  usePreviewStore
+                    .getState()
+                    .setNotice(`Could not find this line in the PDF: ${e}`);
                 }
               })();
               return true;
@@ -556,8 +558,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
               // sits right after the command, inside the editor, so
               // it is always reachable. The path gets a subtle
               // background while it is hovered.
-              const cogWant =
-                hit !== null ? { from: hit.from, to: hit.to } : null;
+              const cogWant = hit !== null ? { from: hit.from, to: hit.to } : null;
               const pathWant =
                 hit !== null &&
                 pos !== null &&
@@ -570,21 +571,16 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
                 view.dispatch({ effects: setCogHover.of(cogWant) });
               }
               if ((pathWant === null) !== (pathHoverRef.current === null)) {
-                pathHoverRef.current =
-                  pathWant === null ? null : pathWant.from;
+                pathHoverRef.current = pathWant === null ? null : pathWant.from;
                 view.dispatch({ effects: graphicsPath.setEffect.of(pathWant) });
               }
               // Underline hint while the modifier is held.
-              const want =
-                mod && hit !== null
-                  ? { from: hit.from, to: hit.to }
-                  : null;
+              const want = mod && hit !== null ? { from: hit.from, to: hit.to } : null;
               if (
                 (want === null) !== (hoverHighlightRef.current === null) ||
                 (want !== null && hoverHighlightRef.current !== want.from)
               ) {
-                hoverHighlightRef.current =
-                  want === null ? null : want.from;
+                hoverHighlightRef.current = want === null ? null : want.from;
                 view.dispatch({ effects: graphicsHover.setEffect.of(want) });
               }
               // The file-path hover preview: after the pointer rests
@@ -595,10 +591,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
                 pos >= hit.pathRange.from &&
                 pos <= hit.pathRange.to
               ) {
-                const resolved = resolveAssetRef(
-                  hit.path,
-                  imageAssetsRef.current,
-                );
+                const resolved = resolveAssetRef(hit.path, imageAssetsRef.current);
                 if (resolved !== null) {
                   schedulePathPreview(resolved, event.clientX, event.clientY);
                 } else {
@@ -658,8 +651,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
                   {
                     id: "insert-table",
                     text: "Insert Table…",
-                    action: () =>
-                      useDialogsStore.getState().setTableDialogOpen(true),
+                    action: () => useDialogsStore.getState().setTableDialogOpen(true),
                   },
                   {
                     id: "wrap-figure",
@@ -745,7 +737,8 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       const before = doc.sliceString(doc.lineAt(range.from).from, range.from);
       const after = doc.sliceString(range.to, doc.lineAt(range.to).to);
       const insert = freshLineInsert(text, before, after);
-      const anchor = range.from + insert.length - text.length + (cursorOffset ?? text.length);
+      const anchor =
+        range.from + insert.length - text.length + (cursorOffset ?? text.length);
       view.dispatch({
         changes: { from: range.from, to: range.to, insert },
         selection: { anchor },
@@ -812,8 +805,9 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     // Serve asset drops (pointer drags and OS drag-in): insert a
     // figure/input at the drop position, on its own line.
     const insertDropped = (x: number, y: number, paths: string[]) => {
-      const siblings = collectAssetPaths(useProjectStore.getState().files)
-        .filter(isInsertableGraphics);
+      const siblings = collectAssetPaths(useProjectStore.getState().files).filter(
+        isInsertableGraphics,
+      );
       const drops = paths.map((path) => assetDropText(path, siblings));
       ensurePackages([...new Set(drops.flatMap((drop) => drop.packages))]);
       const pos = view.posAtCoords({ x, y });
@@ -925,8 +919,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
               const x = position.x / scale;
               const y = position.y / scale;
               const target = document.elementFromPoint(x, y);
-              const over =
-                target !== null && target.closest(".cm-editor") !== null;
+              const over = target !== null && target.closest(".cm-editor") !== null;
               showIndicator(over ? x : null, y);
               return;
             }

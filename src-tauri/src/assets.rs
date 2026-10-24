@@ -25,5 +25,5 @@ pub fn save(
             .map_err(|e| format!("failed to create .polemic folder: {e}"))?;
     }
     let json = serde_json::to_string_pretty(tags).map_err(|e| e.to_string())?;
-    fs::write(&file, json).map_err(|e| format!("failed to write asset tags: {e}"))
+    crate::files::write_atomic(&file, json.as_bytes()).map_err(|e| format!("failed to write asset tags: {e}"))
 }

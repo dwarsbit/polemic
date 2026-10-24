@@ -208,7 +208,7 @@ export function FilesPanel() {
           {dialogKind === "delete" ? (
             <p className="text-sm">
               Delete <span className="font-medium">{(target as FileEntry)?.path}</span>?
-              This cannot be undone. Consider taking a snapshot first.
+              It moves to the system trash, where you can restore it.
             </p>
           ) : (
             <Input

@@ -8,6 +8,7 @@ import {
   FileText,
   Loader2,
   ZoomIn,
+  X,
   ZoomOut,
 } from "lucide-react";
 import { openPdf, synctexBackward } from "@/lib/tauri";
@@ -35,7 +36,7 @@ function onCanvasClick(event: MouseEvent) {
       await useProjectStore.getState().openFile(hit.file);
       useEditorStore.getState().jumpTo(hit.line);
     } catch (e) {
-      usePreviewStore.setState({ status: "error", error: String(e) });
+      usePreviewStore.getState().setNotice(`Could not jump to the source: ${e}`);
     }
   })();
 }
@@ -44,6 +45,7 @@ export function PreviewPane() {
   const status = usePreviewStore((s) => s.status);
   const pdfBytes = usePreviewStore((s) => s.pdfBytes);
   const error = usePreviewStore((s) => s.error);
+  const notice = usePreviewStore((s) => s.notice);
   const scrollTarget = usePreviewStore((s) => s.scrollTarget);
   const scrollVersion = usePreviewStore((s) => s.scrollVersion);
   const zoom = usePreviewStore((s) => s.zoom);
@@ -164,7 +166,7 @@ export function PreviewPane() {
     try {
       await openPdf(project.path, mainFile);
     } catch (e) {
-      usePreviewStore.setState({ status: "error", error: String(e) });
+      usePreviewStore.getState().setNotice(String(e));
     }
   }
 
@@ -220,7 +222,33 @@ export function PreviewPane() {
         className="relative flex-1 overflow-auto bg-muted/40"
         onScroll={updateCurrentPage}
       >
-        {status === "error" && error ? (
+        {notice !== null && (
+          <div className="sticky top-0 z-10 flex items-start gap-2 border-b bg-card px-3 py-2 text-xs">
+            <AlertTriangle className="mt-0.5 size-3.5 shrink-0 text-destructive" />
+            <span className="flex-1 whitespace-pre-wrap">{notice}</span>
+            <button
+              type="button"
+              className="rounded p-0.5 hover:bg-accent"
+              title="Dismiss"
+              onClick={() => usePreviewStore.getState().setNotice(null)}
+            >
+              <X className="size-3.5" />
+            </button>
+          </div>
+        )}
+        {pdfBytes && status === "error" && (
+          // The last good PDF stays visible; say that it is out of date.
+          <div className="sticky top-0 z-10 flex items-start gap-2 border-b bg-card px-3 py-2 text-xs">
+            <AlertTriangle className="mt-0.5 size-3.5 shrink-0 text-destructive" />
+            <span className="max-h-24 flex-1 overflow-auto whitespace-pre-wrap">
+              {error ??
+                "Compilation failed. Showing the last successful build; see the issues panel below the editor."}
+            </span>
+          </div>
+        )}
+        {pdfBytes ? (
+          <div ref={containerRef} className="mx-auto w-full" />
+        ) : status === "error" && error ? (
           <div className="flex h-full flex-col items-center gap-2 p-6">
             <AlertTriangle className="size-8 text-destructive" />
             <p className="text-sm font-medium">Compilation problem</p>
@@ -234,8 +262,6 @@ export function PreviewPane() {
               Compilation failed. See the issues panel below the editor.
             </p>
           </div>
-        ) : pdfBytes ? (
-          <div ref={containerRef} className="mx-auto w-full" />
         ) : (
           <div className="flex h-full items-center justify-center">
             <div className="flex max-w-64 flex-col items-center gap-2 text-muted-foreground">

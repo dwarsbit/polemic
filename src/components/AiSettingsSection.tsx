@@ -15,17 +15,22 @@ export function AiSettingsSection() {
   const [apiKey, setApiKey] = useState(
     () => useSettingsStore.getState().ai?.apiKey ?? "",
   );
-  const [model, setModel] = useState(
-    () => useSettingsStore.getState().ai?.model ?? "",
-  );
+  const [model, setModel] = useState(() => useSettingsStore.getState().ai?.model ?? "");
   const [saved, setSaved] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function onSave() {
-    await setAi({
-      baseUrl: baseUrl.trim() || null,
-      apiKey: apiKey.trim() || null,
-      model: model.trim() || null,
-    });
+    setError(null);
+    try {
+      await setAi({
+        baseUrl: baseUrl.trim() || null,
+        apiKey: apiKey.trim() || null,
+        model: model.trim() || null,
+      });
+    } catch (e) {
+      setError(String(e));
+      return;
+    }
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   }
@@ -73,13 +78,12 @@ export function AiSettingsSection() {
         <Button size="sm" onClick={() => void onSave()}>
           Save
         </Button>
-        {saved && (
-          <span className="text-xs text-muted-foreground">Saved.</span>
-        )}
+        {saved && <span className="text-xs text-muted-foreground">Saved.</span>}
+        {error !== null && <span className="text-xs text-destructive">{error}</span>}
       </div>
       <p className="text-xs text-muted-foreground">
-        The key is stored in the app settings on this machine and sent
-        only to the base URL above, by the app's Rust process.
+        The key is stored in the app settings on this machine and sent only to the base
+        URL above, by the app's Rust process.
       </p>
     </div>
   );

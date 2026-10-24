@@ -6,9 +6,19 @@ Think of it as a lightweight, desktop Overleaf alternative.
 
 ## Status
 
-Pre-alpha. The application shell, LaTeX editor, document outline, and TeX
-distribution detection are in place. Compilation, project management, and the
-PDF preview pane are upcoming.
+Pre-alpha. Working today: projects and templates, a code editor and a
+visual editor for `.tex` and `.bib` files, compilation with `latexmk`,
+a live PDF preview with SyncTeX navigation, snapshots and git, comments,
+references (BibTeX and Zotero), and an optional AI quickfix for compile
+errors. See [ROADMAP.md](./ROADMAP.md) for what comes next.
+
+## Security notes
+
+Opening a project folder you received from someone else is safe to
+compile: Polemic runs `latexmk` with `-norc`, so a `latexmkrc` inside
+the project never runs (your own `~/.latexmkrc` still applies), and git
+runs with every command-running setting from the project's `.git/config`
+blanked and git hooks switched off.
 
 ## Requirements
 

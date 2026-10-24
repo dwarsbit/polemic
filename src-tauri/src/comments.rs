@@ -39,6 +39,6 @@ pub fn save(project_dir: &std::path::Path, comments: &[Comment]) -> Result<(), S
     let dir = project_dir.join(".polemic");
     fs::create_dir_all(&dir).map_err(|e| format!("failed to create .polemic: {e}"))?;
     let json = serde_json::to_string_pretty(comments).map_err(|e| e.to_string())?;
-    fs::write(comments_file(project_dir), json)
+    crate::files::write_atomic(&comments_file(project_dir), json.as_bytes())
         .map_err(|e| format!("failed to write comments: {e}"))
 }

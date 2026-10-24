@@ -18,13 +18,35 @@ fn now_millis() -> u64 {
         .unwrap_or(0)
 }
 
-fn copy_dir_recursive(src: &Path, dst: &Path) -> Result<(), String> {
+/// Top-level entries that are never part of a snapshot: generated
+/// output, the snapshots themselves, and the git repository (restoring
+/// a snapshot must not rewind the project's history).
+const EXCLUDED: [&str; 3] = ["build", ".snapshots", ".git"];
+
+/// Snapshot ids are plain folder names under .snapshots/.
+fn validate_id(id: &str) -> Result<(), String> {
+    if id.is_empty() || id.contains('/') || id.contains('\\') || id.contains("..") {
+        return Err("invalid snapshot id".into());
+    }
+    Ok(())
+}
+
+/// Copy a folder tree. Symlinks are skipped: following them would copy
+/// whatever they point at (possibly outside the project) into the copy.
+fn copy_dir_recursive(src: &Path, dst: &Path, skip_top_level: &[&str]) -> Result<(), String> {
     fs::create_dir_all(dst).map_err(|e| format!("failed to create {}: {e}", dst.display()))?;
     for entry in fs::read_dir(src).map_err(|e| e.to_string())? {
         let entry = entry.map_err(|e| e.to_string())?;
+        let name = entry.file_name().to_string_lossy().to_string();
+        if skip_top_level.contains(&name.as_str()) {
+            continue;
+        }
+        let file_type = entry.file_type().map_err(|e| e.to_string())?;
         let target = dst.join(entry.file_name());
-        if entry.file_type().map_err(|e| e.to_string())?.is_dir() {
-            copy_dir_recursive(&entry.path(), &target)?;
+        if file_type.is_symlink() {
+            continue;
+        } else if file_type.is_dir() {
+            copy_dir_recursive(&entry.path(), &target, &[])?;
         } else {
             fs::copy(entry.path(), &target).map_err(|e| e.to_string())?;
         }
@@ -32,26 +54,18 @@ fn copy_dir_recursive(src: &Path, dst: &Path) -> Result<(), String> {
     Ok(())
 }
 
-/// Copy the project (excluding build/ and .snapshots/) into .snapshots/snap-<millis>/.
+/// Copy the project (excluding build/, .snapshots/ and .git/) into
+/// .snapshots/snap-<millis>/.
 pub fn create(dir: &Path) -> Result<SnapshotInfo, String> {
-    let millis = now_millis();
+    let mut millis = now_millis();
+    // Two snapshots in the same millisecond (a restore's safety snapshot
+    // right after a manual one) must not share a folder.
+    while dir.join(".snapshots").join(format!("snap-{millis}")).exists() {
+        millis += 1;
+    }
     let id = format!("snap-{millis}");
     let snapshot = dir.join(".snapshots").join(&id);
-    fs::create_dir_all(&snapshot)
-        .map_err(|e| format!("failed to create snapshot dir: {e}"))?;
-    for entry in fs::read_dir(dir).map_err(|e| e.to_string())? {
-        let entry = entry.map_err(|e| e.to_string())?;
-        let name = entry.file_name().to_string_lossy().to_string();
-        if name == "build" || name == ".snapshots" {
-            continue;
-        }
-        let target = snapshot.join(&name);
-        if entry.file_type().map_err(|e| e.to_string())?.is_dir() {
-            copy_dir_recursive(&entry.path(), &target)?;
-        } else {
-            fs::copy(entry.path(), &target).map_err(|e| e.to_string())?;
-        }
-    }
+    copy_dir_recursive(dir, &snapshot, &EXCLUDED)?;
     Ok(SnapshotInfo {
         id,
         created_at_millis: millis,
@@ -81,9 +95,7 @@ pub fn list(dir: &Path) -> Vec<SnapshotInfo> {
 
 /// Restore a snapshot. A safety snapshot of the current state is taken first.
 pub fn restore(dir: &Path, id: &str) -> Result<(), String> {
-    if id.is_empty() || id.contains('/') || id.contains('\\') || id.contains("..") {
-        return Err("invalid snapshot id".into());
-    }
+    validate_id(id)?;
     let snapshot = dir.join(".snapshots").join(id);
     if !snapshot.is_dir() {
         return Err(format!("snapshot {id} does not exist"));
@@ -92,11 +104,11 @@ pub fn restore(dir: &Path, id: &str) -> Result<(), String> {
     for entry in fs::read_dir(dir).map_err(|e| e.to_string())? {
         let entry = entry.map_err(|e| e.to_string())?;
         let name = entry.file_name().to_string_lossy().to_string();
-        if name == "build" || name == ".snapshots" {
+        if EXCLUDED.contains(&name.as_str()) {
             continue;
         }
         let path = entry.path();
-        if path.is_dir() {
+        if entry.file_type().map(|t| t.is_dir()).unwrap_or(false) {
             fs::remove_dir_all(&path)
                 .map_err(|e| format!("failed to remove {}: {e}", path.display()))?;
         } else {
@@ -104,7 +116,8 @@ pub fn restore(dir: &Path, id: &str) -> Result<(), String> {
                 .map_err(|e| format!("failed to remove {}: {e}", path.display()))?;
         }
     }
-    copy_dir_recursive(&snapshot, dir)
+    // Older snapshots may still carry a .git copy; never restore it.
+    copy_dir_recursive(&snapshot, dir, &EXCLUDED)
 }
 
 // --- snapshot diff ----------------------------------------------------------
@@ -127,7 +140,7 @@ fn collect_files(dir: &Path, skip_top_level: &[&str], out: &mut BTreeMap<String,
         let name = entry.file_name().to_string_lossy().to_string();
         let Ok(file_type) = entry.file_type() else { continue };
         if file_type.is_dir() {
-            // Only the project root has build/ and .snapshots/ excluded,
+            // Only the project root has EXCLUDED entries skipped,
             // mirroring what `create` copies into a snapshot.
             if skip_top_level.is_empty() || !skip_top_level.contains(&name.as_str()) {
                 collect_files(&entry.path(), &[], out);
@@ -158,18 +171,16 @@ fn line_counts(old: &str, new: &str) -> (usize, usize) {
 
 /// Compare a snapshot against the current project and list every changed file.
 pub fn list_changes(dir: &Path, id: &str) -> Result<Vec<SnapshotChange>, String> {
-    if id.is_empty() || id.contains('/') || id.contains('\\') || id.contains("..") {
-        return Err("invalid snapshot id".into());
-    }
+    validate_id(id)?;
     let snapshot = dir.join(".snapshots").join(id);
     if !snapshot.is_dir() {
         return Err(format!("snapshot {id} does not exist"));
     }
 
     let mut old_files = BTreeMap::new();
-    collect_files(&snapshot, &[], &mut old_files);
+    collect_files(&snapshot, &EXCLUDED, &mut old_files);
     let mut new_files = BTreeMap::new();
-    collect_files(dir, &["build", ".snapshots"], &mut new_files);
+    collect_files(dir, &EXCLUDED, &mut new_files);
 
     let mut changes = Vec::new();
     for (path, old_path) in &old_files {
@@ -254,6 +265,7 @@ fn safe_snapshot_rel_path(path: &str) -> Result<&str, String> {
 
 /// Read one file from a snapshot.
 pub fn read_file(dir: &Path, id: &str, path: &str) -> Result<String, String> {
+    validate_id(id)?;
     let path = safe_snapshot_rel_path(path)?;
     let snapshot = dir.join(".snapshots").join(id);
     let file = snapshot.join(path);
@@ -263,13 +275,14 @@ pub fn read_file(dir: &Path, id: &str, path: &str) -> Result<String, String> {
 /// Make the snapshot's version of one file win in the project.
 /// Files that the snapshot does not have are deleted instead.
 pub fn restore_file(dir: &Path, id: &str, path: &str) -> Result<(), String> {
+    validate_id(id)?;
     let path = safe_snapshot_rel_path(path)?;
     let snapshot = dir.join(".snapshots").join(id);
     if !snapshot.is_dir() {
         return Err(format!("snapshot {id} does not exist"));
     }
     let source = snapshot.join(path);
-    let target = dir.join(path);
+    let target = crate::files::resolve_in_project(&dir.to_string_lossy(), path)?;
     if source.is_file() {
         if let Some(parent) = target.parent() {
             fs::create_dir_all(parent)
@@ -333,5 +346,33 @@ mod tests {
         assert!(!dir.join("new.tex").exists());
 
         fs::remove_dir_all(&dir).unwrap();
+    }
+
+    #[test]
+    fn restore_leaves_git_alone() {
+        let dir = std::env::temp_dir().join(format!("polemic-snapgit-{}", now_millis()));
+        write(&dir, "main.tex", "v1\n");
+        write(&dir, ".git/HEAD", "old\n");
+        let info = create(&dir).unwrap();
+        assert!(!dir.join(".snapshots").join(&info.id).join(".git").exists());
+
+        write(&dir, "main.tex", "v2\n");
+        write(&dir, ".git/HEAD", "new\n");
+        // A legacy snapshot that still carries a .git copy.
+        write(&dir, &format!(".snapshots/{}/.git/HEAD", info.id), "old\n");
+        restore(&dir, &info.id).unwrap();
+
+        assert_eq!(fs::read_to_string(dir.join("main.tex")).unwrap(), "v1\n");
+        assert_eq!(fs::read_to_string(dir.join(".git/HEAD")).unwrap(), "new\n");
+        fs::remove_dir_all(&dir).unwrap();
+    }
+
+    #[test]
+    fn rejects_snapshot_ids_that_escape() {
+        let dir = std::env::temp_dir();
+        assert!(read_file(&dir, "../..", "etc/passwd").is_err());
+        assert!(restore_file(&dir, "../x", "a.tex").is_err());
+        assert!(list_changes(&dir, "..").is_err());
+        assert!(restore(&dir, "a/b").is_err());
     }
 }

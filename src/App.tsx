@@ -1,3 +1,4 @@
+import { ask } from "@tauri-apps/plugin-dialog";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { AiFixDialog } from "@/components/AiFixDialog";
@@ -46,13 +47,9 @@ function App() {
   const tableDialogOpen = useDialogsStore((s) => s.tableDialogOpen);
   const setTableDialogOpen = useDialogsStore((s) => s.setTableDialogOpen);
   const packagesDialogOpen = useDialogsStore((s) => s.packagesDialogOpen);
-  const setPackagesDialogOpen = useDialogsStore(
-    (s) => s.setPackagesDialogOpen,
-  );
+  const setPackagesDialogOpen = useDialogsStore((s) => s.setPackagesDialogOpen);
   const documentSettingsOpen = useDialogsStore((s) => s.documentSettingsOpen);
-  const setDocumentSettingsOpen = useDialogsStore(
-    (s) => s.setDocumentSettingsOpen,
-  );
+  const setDocumentSettingsOpen = useDialogsStore((s) => s.setDocumentSettingsOpen);
   const paletteOpen = useDialogsStore((s) => s.paletteOpen);
   const galleryOpen = useDialogsStore((s) => s.galleryOpen);
 
@@ -71,7 +68,10 @@ function App() {
           value === "visual" || value === "code" ? value : fallback;
         useUiStore
           .getState()
-          .hydrateEditorModes(face(settings.texEditorMode, "code"), face(settings.bibEditorMode, "visual"));
+          .hydrateEditorModes(
+            face(settings.texEditorMode, "code"),
+            face(settings.bibEditorMode, "visual"),
+          );
         // Known before the loading screen lifts so the right column does
         // not flash the wrong version-control panel.
         useSettingsStore
@@ -141,7 +141,21 @@ function App() {
         const { getCurrentWindow } = await import("@tauri-apps/api/window");
         unlisten = await getCurrentWindow().onCloseRequested(async (event) => {
           event.preventDefault();
-          await useProjectStore.getState().flushBuffers();
+          try {
+            await useProjectStore.getState().flushBuffers();
+          } catch (e) {
+            // Never trap the user in the window, never drop edits silently.
+            const quit = await ask(
+              `Some changes could not be saved:\n\n${e}\n\nClose anyway and lose them?`,
+              {
+                title: "Unsaved changes",
+                kind: "warning",
+                okLabel: "Close without saving",
+                cancelLabel: "Keep open",
+              },
+            ).catch(() => false);
+            if (!quit) return;
+          }
           await getCurrentWindow().destroy();
         });
       } catch {
@@ -151,16 +165,21 @@ function App() {
     return () => unlisten?.();
   }, []);
 
-  // Refetch git state when the desktop window regains focus, picking up
-  // changes made outside the app (git CLI, other editors). The webview
-  // does not emit the browser focus events react-query listens to, and
-  // in the browser refetchOnWindowFocus already covers this. Losing
-  // focus saves the active file (the only auto-save; a timed one would
-  // fight the format-on-save reformatting).
+  // Refetch git state and reload the file tree and the active file when
+  // the desktop window regains focus, picking up changes made outside
+  // the app (git CLI, other editors). The webview does not emit the
+  // browser focus events react-query listens to, and in the browser
+  // refetchOnWindowFocus already covers git. Losing focus saves the
+  // active file (the only auto-save; a timed one would fight the
+  // format-on-save reformatting). That save is a background one: no
+  // formatting, no overwriting outside changes.
   useEffect(() => {
     const saveOnBlur = () => {
       void (async () => {
-        const saved = await useProjectStore.getState().saveActiveFile();
+        const saved = await useProjectStore
+          .getState()
+          .saveActiveFile({ background: true })
+          .catch(() => false);
         if (saved && usePreviewStore.getState().autoCompile) {
           void usePreviewStore.getState().compileNow();
         }
@@ -171,8 +190,10 @@ function App() {
       try {
         const { getCurrentWindow } = await import("@tauri-apps/api/window");
         unlisten = await getCurrentWindow().onFocusChanged(({ payload: focused }) => {
-          if (focused) void refetchGitState();
-          else saveOnBlur();
+          if (focused) {
+            void refetchGitState();
+            void useProjectStore.getState().syncFromDisk();
+          } else saveOnBlur();
         });
       } catch {
         // Not running inside the desktop app: fall back to blur.
@@ -331,9 +352,7 @@ function App() {
                 bundler drop the gallery from release builds entirely. */}
             {import.meta.env.DEV && galleryOpen && (
               <ComponentGallery
-                onClose={() =>
-                  useDialogsStore.getState().setGalleryOpen(false)
-                }
+                onClose={() => useDialogsStore.getState().setGalleryOpen(false)}
               />
             )}
           </div>
@@ -343,10 +362,7 @@ function App() {
       <ShortcutsDialog open={shortcutsOpen} onOpenChange={setShortcutsOpen} />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
       <TableDialog open={tableDialogOpen} onOpenChange={setTableDialogOpen} />
-      <PackagesDialog
-        open={packagesDialogOpen}
-        onOpenChange={setPackagesDialogOpen}
-      />
+      <PackagesDialog open={packagesDialogOpen} onOpenChange={setPackagesDialogOpen} />
       <DocumentSettingsDialog
         open={documentSettingsOpen}
         onOpenChange={setDocumentSettingsOpen}

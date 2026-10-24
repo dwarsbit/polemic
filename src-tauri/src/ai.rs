@@ -15,9 +15,30 @@ pub struct AiChatArgs {
     pub user: String,
 }
 
+/// The API key travels in a header: only HTTPS may carry it, except to
+/// a model served on this machine (Ollama, LM Studio, llama.cpp).
+pub fn check_base_url(base_url: &str) -> Result<(), String> {
+    let lower = base_url.trim().to_ascii_lowercase();
+    if lower.starts_with("https://") {
+        return Ok(());
+    }
+    if let Some(rest) = lower.strip_prefix("http://") {
+        let host = rest.split(['/', '?', '#']).next().unwrap_or("");
+        let host = match host.strip_prefix('[') {
+            Some(v6) => v6.split(']').next().unwrap_or(""),
+            None => host.split(':').next().unwrap_or(""),
+        };
+        if matches!(host, "localhost" | "127.0.0.1" | "::1") {
+            return Ok(());
+        }
+    }
+    Err("the AI base URL must start with https:// (plain http is only allowed for localhost)".into())
+}
+
 /// One chat completion; returns the assistant message's content.
 #[tauri::command]
 pub async fn ai_chat(args: AiChatArgs) -> Result<String, String> {
+    check_base_url(&args.base_url)?;
     let url = format!(
         "{}/chat/completions",
         args.base_url.trim_end_matches('/')
@@ -72,5 +93,16 @@ mod tests {
             args.base_url.trim_end_matches('/')
         );
         assert_eq!(url, "https://api.mistral.ai/v1/chat/completions");
+    }
+
+    #[test]
+    fn requires_https_except_on_localhost() {
+        assert!(check_base_url("https://api.mistral.ai/v1").is_ok());
+        assert!(check_base_url("http://localhost:11434/v1").is_ok());
+        assert!(check_base_url("http://127.0.0.1/v1").is_ok());
+        assert!(check_base_url("http://[::1]:8080/v1").is_ok());
+        assert!(check_base_url("http://api.example.com/v1").is_err());
+        assert!(check_base_url("http://localhost.evil.com/v1").is_err());
+        assert!(check_base_url("ftp://x").is_err());
     }
 }
