@@ -14,6 +14,21 @@ function stripComment(line: string): string {
   return result;
 }
 
+interface TreeEntry {
+  path: string;
+  isDir: boolean;
+  children: TreeEntry[];
+}
+
+/** Project-relative paths of every .tex file in a file tree. */
+export function texPathsOf(entries: readonly TreeEntry[], out: string[] = []): string[] {
+  for (const entry of entries) {
+    if (entry.isDir) texPathsOf(entry.children, out);
+    else if (entry.path.endsWith(".tex")) out.push(entry.path);
+  }
+  return out;
+}
+
 /** All \input{...} and \include{...} targets in a file, in order. */
 export function extractIncludes(text: string): string[] {
   const specs: string[] = [];
@@ -50,24 +65,84 @@ export async function buildDocumentOrder(
   mainFile: string,
   readText: (path: string) => Promise<string | null>,
   files: string[],
+  /** Filled with each included file's including file, when given. */
+  parents?: Map<string, string>,
 ): Promise<string[]> {
   const order: string[] = [];
   const visited = new Set<string>();
 
-  async function visit(path: string) {
+  async function visit(path: string, parent: string | null) {
     if (visited.has(path)) return;
     visited.add(path);
     order.push(path);
+    if (parent !== null) parents?.set(path, parent);
     const text = await readText(path);
     if (text === null) return;
     for (const spec of extractIncludes(text)) {
       const resolved = resolveIncludePath(spec, files);
-      if (resolved) await visit(resolved);
+      if (resolved) await visit(resolved, path);
     }
   }
 
-  await visit(mainFile);
+  await visit(mainFile, null);
   return order;
+}
+
+/**
+ * The include chain from the main file down to `file` (both ends
+ * included), or null when the document never includes the file.
+ */
+export function includeChain(
+  file: string,
+  mainFile: string,
+  parents: ReadonlyMap<string, string>,
+): string[] | null {
+  const chain = [file];
+  let at = file;
+  while (at !== mainFile) {
+    const parent = parents.get(at);
+    if (parent === undefined || chain.includes(parent)) return null;
+    chain.unshift(parent);
+    at = parent;
+  }
+  return chain;
+}
+
+/** The 1-based line of `text` that includes `child`, or null. */
+export function includeLineOf(text: string, child: string, files: string[]): number | null {
+  const lines = text.split("\n");
+  for (const [index, line] of lines.entries()) {
+    if (extractIncludes(line).some((spec) => resolveIncludePath(spec, files) === child)) {
+      return index + 1;
+    }
+  }
+  return null;
+}
+
+export interface IncludeSpan {
+  /** The argument as written, e.g. "chapters/intro". */
+  spec: string;
+  /** The whole command, `\input` through the closing brace. */
+  from: number;
+  to: number;
+}
+
+/**
+ * The \input/\include/\subfile command around pos, if any. Commands
+ * inside a comment do not count.
+ */
+export function includeAt(source: string, pos: number): IncludeSpan | null {
+  const lineStart = source.lastIndexOf("\n", pos - 1) + 1;
+  const lineEndAt = source.indexOf("\n", pos);
+  const lineEnd = lineEndAt === -1 ? source.length : lineEndAt;
+  const code = stripComment(source.slice(lineStart, lineEnd));
+  for (const match of code.matchAll(/\\(?:input|include|subfile)\s*\{([^}]*)\}/g)) {
+    const from = lineStart + match.index;
+    const to = from + match[0].length;
+    const spec = match[1].trim();
+    if (spec && from <= pos && pos <= to) return { spec, from, to };
+  }
+  return null;
 }
 
 /** The include spec for a project-relative path (idiomatic: no .tex). */

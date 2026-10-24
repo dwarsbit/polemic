@@ -3,6 +3,7 @@ import { Camera, GitBranch, History, Info, MessageSquare } from "lucide-react";
 import { Group, Panel, Separator, usePanelRef } from "react-resizable-panels";
 import { CommentDialog } from "@/components/CommentDialog";
 import { CommentsPanel } from "@/components/CommentsPanel";
+import { IncludeBreadcrumbs } from "@/components/IncludeBreadcrumbs";
 import { IssuesPanel } from "@/components/IssuesPanel";
 import type { IssuesTool } from "@/components/IssuesPanel";
 import { LatexEditor } from "@/components/LatexEditor";
@@ -233,6 +234,7 @@ export function EditorView() {
                 <Panel id="editor" defaultSize="42%" minSize="25%">
                   <div className="flex h-full flex-col overflow-hidden rounded-xl border bg-card shadow-sm">
                     <TabsBar />
+                    <IncludeBreadcrumbs />
                     {!activeFileIsBib && !texVisual && <EditorToolbar />}
                     <div className="min-h-0 flex-1">
                       {activeFileIsBib ? (

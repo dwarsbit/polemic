@@ -2,6 +2,9 @@ import { describe, expect, it } from "vitest";
 import {
   buildDocumentOrder,
   extractIncludes,
+  includeAt,
+  includeChain,
+  includeLineOf,
   includeSpec,
   insertInclude,
   removeInclude,
@@ -224,5 +227,51 @@ describe("replaceIncludeSpecPrefix", () => {
   it("leaves specs outside the directory untouched", () => {
     const content = "see chapters/intro for details\n\\input{intro}\n";
     expect(replaceIncludeSpecPrefix(content, "chapters", "new")).toBe(content);
+  });
+});
+
+describe("includeChain", () => {
+  it("walks the include parents up to the main file", async () => {
+    const texts: Record<string, string> = {
+      "main.tex": "\\input{part}",
+      "part.tex": "\\include{chapters/one}",
+      "chapters/one.tex": "text",
+      "loose.tex": "",
+    };
+    const files = Object.keys(texts);
+    const parents = new Map<string, string>();
+    await buildDocumentOrder("main.tex", async (p) => texts[p] ?? null, files, parents);
+    expect(includeChain("chapters/one.tex", "main.tex", parents)).toEqual([
+      "main.tex",
+      "part.tex",
+      "chapters/one.tex",
+    ]);
+    expect(includeChain("main.tex", "main.tex", parents)).toEqual(["main.tex"]);
+    expect(includeChain("loose.tex", "main.tex", parents)).toBeNull();
+  });
+});
+
+describe("includeAt", () => {
+  const source = "intro\n\\input{chapters/intro} and \\include{b}\n% \\input{gone}\n";
+  it("finds the command around the position", () => {
+    const at = source.indexOf("chapters");
+    expect(includeAt(source, at)).toEqual({
+      spec: "chapters/intro",
+      from: source.indexOf("\\input"),
+      to: source.indexOf("}") + 1,
+    });
+    expect(includeAt(source, source.indexOf("{b}"))?.spec).toBe("b");
+  });
+  it("ignores plain text and comments", () => {
+    expect(includeAt(source, 2)).toBeNull();
+    expect(includeAt(source, source.indexOf("gone"))).toBeNull();
+  });
+});
+
+describe("includeLineOf", () => {
+  it("finds the line including the child", () => {
+    const text = "a\n% \\input{one}\n\\input{one}\n";
+    expect(includeLineOf(text, "one.tex", ["one.tex"])).toBe(3);
+    expect(includeLineOf(text, "two.tex", ["one.tex", "two.tex"])).toBeNull();
   });
 });
