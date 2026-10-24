@@ -1,0 +1,33 @@
+---
+title: AI quickfix
+description: Optional help for compile errors the built-in rules cannot fix.
+---
+
+The AI quickfix is off until you configure it. When an issue has no built-in fix,
+Polemic can ask a language model for one and shows the change as a diff. Nothing is
+applied until you accept it.
+
+## Setup
+
+Open **Settings → AI** and enter:
+
+- **Base URL** of an OpenAI-compatible API, for example `https://api.mistral.ai/v1`.
+- **Model** name.
+- **API key**, if the provider needs one.
+
+Polemic calls `<base URL>/chat/completions`.
+
+## Local models
+
+You can run a model on your own machine with Ollama, LM Studio or llama.cpp and point
+the base URL at it, for example `http://localhost:11434/v1`. Then nothing leaves your
+computer.
+
+<Callout type="warn" title="HTTPS only">
+  Remote base URLs must use `https`. Plain `http` is accepted only for `localhost`.
+</Callout>
+
+<Callout title="Where the key is stored">
+  The API key is stored in Polemic's settings file, readable only by your user. Moving
+  it to the OS keychain is planned.
+</Callout>

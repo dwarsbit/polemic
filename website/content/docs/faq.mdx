@@ -1,0 +1,33 @@
+---
+title: FAQ
+description: Common questions about Polemic.
+---
+
+## Do I need an account?
+
+No. Polemic is a desktop app. Your projects are folders on your disk.
+
+## Does Polemic work offline?
+
+Yes. Compiling, previewing, snapshots and git all run locally. Only the features you
+turn on talk to the network: the CTAN package list, Zotero web, and the AI quickfix
+with a remote provider.
+
+## Can I use my existing LaTeX projects?
+
+Yes. Open the folder. Polemic adds a `build/` folder for output and a `.polemic/`
+folder for comments and asset tags; add both to your `.gitignore` if you like.
+
+## Can I collaborate in real time, like Overleaf?
+
+Not in real time. Polemic is local-first: share the project through git, or any folder
+sync you already use, and leave review notes with [comments](/docs/comments).
+
+## Which TeX engines are supported?
+
+pdfLaTeX through `latexmk` today. XeLaTeX and LuaLaTeX profiles are on the
+[roadmap](https://github.com/dwarsbit/polemic/blob/main/ROADMAP.md).
+
+## Is it free?
+
+Yes. Polemic is open source under the MIT license.

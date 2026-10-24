@@ -1,0 +1,21 @@
+{
+  "title": "Documentation",
+  "pages": [
+    "---Getting started---",
+    "index",
+    "installation",
+    "first-project",
+    "---Writing---",
+    "writing",
+    "compile-and-preview",
+    "bibliography",
+    "assets",
+    "---Reviewing---",
+    "comments",
+    "snapshots-and-git",
+    "ai-quickfix",
+    "---Reference---",
+    "security",
+    "faq"
+  ]
+}

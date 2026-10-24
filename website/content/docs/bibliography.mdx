@@ -1,0 +1,42 @@
+---
+title: Bibliography
+description: BibTeX files, Zotero, and keeping citations in order.
+---
+
+## The Bibliography tab
+
+The **Bibliography** tab collects the entries of every `.bib` file in your project,
+grouped by type and searchable. Click an entry to jump to it in its file. Each entry
+shows how often it is cited; unused entries are marked, and keys you cite but never
+define get their own section.
+
+Citation commands insert in the right form for the packages you load: the plain
+`\cite` family, natbib or biblatex.
+
+## Editing entries
+
+Open an entry to edit it in a form: key, type and fields. Polemic warns about missing
+required fields for the entry type and blocks duplicate keys. Changes are written in
+place, so the rest of your `.bib` file keeps its formatting.
+
+Press <kbd>F2</kbd> on a key to rename it. Polemic updates the `.bib` entry and every
+`\cite` in every `.tex` file.
+
+## Sources
+
+Sources are the places your references come from, shared across all your projects.
+Configure them in **Settings → Bibliography** (<kbd>Cmd/Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>2</kbd>):
+
+- **`.bib` files or folders** anywhere on your disk. They are read in place and never
+  copied or changed.
+- **Zotero desktop**, through its local API. No API key is needed; Zotero must be
+  running.
+- **Zotero web**, with an API key. You can add several, each with its own label.
+
+Use **Add from Sources…** in the Bibliography tab to search all enabled sources at
+once. A reference you pick is copied into the project's bibliography, with a generated
+key (surname and year) that does not clash with existing ones.
+
+<Callout type="warn" title="Better BibTeX keys">
+  Citation keys from the Better BibTeX plugin for Zotero are not read yet.
+</Callout>

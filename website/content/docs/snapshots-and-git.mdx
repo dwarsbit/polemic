@@ -1,0 +1,32 @@
+---
+title: Snapshots and git
+description: Two ways to keep the history of your project.
+---
+
+Pick a version control mode in **Settings → General → Version control**. The first tab
+in the right rail follows your choice.
+
+<Tabs items={["Snapshots", "Git"]}>
+  <Tab value="Snapshots">
+    Snapshots are full copies of your project, saved under `.snapshots/` in the project
+    folder. They need no setup and no git.
+
+    - Take a snapshot before a big change.
+    - Compare a snapshot with the current state in a diff view.
+    - Restore a snapshot. Unsaved edits are saved first, so nothing is lost.
+
+    Snapshots leave out `build/`, `.snapshots/` and `.git/`, so restoring one never
+    rewinds your git history.
+
+  </Tab>
+  <Tab value="Git">
+    The git panel covers the everyday loop without a terminal:
+
+    - Initialize a repository for a project.
+    - See changed files, stage and unstage them, and view diffs.
+    - Commit with a message, and browse past commits in the **History** tab.
+
+    The editor gutter marks added and modified lines.
+
+  </Tab>
+</Tabs>

@@ -1,0 +1,44 @@
+---
+title: Your first project
+description: Create a project from a template, write, and compile.
+---
+
+A Polemic project is a folder on your disk with your `.tex` and `.bib` files in it.
+There is nothing to import or export: open the same folder in any other editor and it
+just works.
+
+## Create a project
+
+From the projects screen, create a new project and pick a template:
+
+| Template         | What you get                                                   |
+| ---------------- | -------------------------------------------------------------- |
+| **No template**  | An empty project folder.                                       |
+| **Article**      | A clean article with sections, math, and a bibliography.       |
+| **Report**       | A structured report with a title page, abstract, and chapters. |
+| **Presentation** | A Beamer slide deck with a title slide and section frames.     |
+| **Thesis**       | A thesis with chapters in separate files and a title page.     |
+
+You can also open an existing folder with LaTeX files in it.
+
+## Write and compile
+
+Edit your main `.tex` file and press <kbd>Cmd/Ctrl</kbd> + <kbd>S</kbd>. That saves the
+file and compiles the project; the PDF preview updates next to the editor.
+
+<Callout title="Where does the output go?">
+  Polemic runs `latexmk` with `-outdir=build`, so the PDF and the auxiliary files land
+  in a `build/` folder inside your project. Your source folder stays clean.
+</Callout>
+
+## Find your way around
+
+- **Left rail:** files, outline, symbols, assets, labels and bibliography, plus the
+  issues list, the compile log and project search.
+- **Right rail:** snapshots or git (depending on your version control setting),
+  comments, and the properties of the current selection.
+- **Preview:** the compiled PDF, next to the editor.
+- **Command palette:** <kbd>Cmd/Ctrl</kbd> + <kbd>P</kbd> reaches every command.
+
+Next, learn the [code editor](/docs/writing/code-editor) or try the
+[visual editor](/docs/writing/visual-editor).
