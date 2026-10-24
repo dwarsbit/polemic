@@ -8,9 +8,9 @@ lands; "—" means not started).
 
 | Feature | What it does | Notes | Status |
 |---|---|---|---|
-| Multi-file navigation | Click `\input`/`\include` to open the target; breadcrumbs for the current file | Outline already spans files via `useDocumentOrder` | — |
+| Multi-file navigation | Click `\input`/`\include` to open the target; breadcrumbs for the current file | Outline already spans files via `useDocumentOrder` | Done (v1): Cmd/Ctrl+click on `\input`/`\include`/`\subfile` opens the file (Code face); an include-chain breadcrumb under the tabs, ancestors open at the including line. Visual-face click-through remains |
 | Structure editing in the outline | Drag or move-up/down sections, promoting/demoting levels | Builds directly on the outline tree | — |
-| Project-wide search & replace | Grep across all `.tex` files, with math-delimiter awareness | The natural next tab for the bottom dock | Partly done: search shipped as a dock tool (`SearchPanel`, math/text scope filter); replace pending |
+| Project-wide search & replace | Grep across all `.tex` files, with math-delimiter awareness | The natural next tab for the bottom dock | Done: search and replace in the dock tool (`SearchPanel`); replace honors the math/text scope, per line or all at once (active file as one undo step, other files written to disk after a confirm) |
 | Path completion | Autocomplete file paths inside `\input{}`/`\includegraphics{}` | Completion infra exists (`completion.ts`) | Done: core five commands, extension-less inserts |
 | Package manager | Browse CTAN packages with descriptions, insert/remove `\usepackage`, check what is installed locally | CTAN JSON API + `kpsewhich`/`tlmgr` for local detection | Done: dialog (Cmd/Ctrl + Alt + P) with async background loading, per-project package list, install-state detection, docs link |
 | Environment pairing | Typing `\begin{...}` auto-closes with a matching `\end{...}` | Transaction filter on the editor | Done |
@@ -18,7 +18,7 @@ lands; "—" means not started).
 | Label manager | Project-wide label index: reference counts, unused/undefined badges, jump to definition, rename refactoring across files | `label-refs.ts` + cross-file scan | Done: left-rail Labels tab with prefix groups, search, click-to-jump, F2/pencil inline rename (one undo step in the active file), undefined-references section |
 | Figure/table/listing browser | A "document map" of floats with jump-to-source and caption status | Pairs well with the properties column | — |
 | Table & TikZ assistants | Generate table skeletons, wrap figures, basic TikZ snippets | Stretch — high polish cost | Done (v1): table dialog, wrap-in-figure, five TikZ snippets, editor toolbar; cell-grid editing would be the next step |
-| Compile profiles | XeLaTeX/LuaLaTeX engines, `draft`/`final` flags, per-project latexmk config | Currently pdflatex-only | — |
+| Compile profiles | XeLaTeX/LuaLaTeX engines, `draft`/`final` flags, per-project latexmk config | Engine whitelist only; no free-form latexmk args (untrusted projects) | Done (v1): engine per project in `.polemic/project.json` (Document settings); Automatic reads `% !TEX program`, else XeLaTeX for fontspec/unicode-math. Draft stays the class option in Document settings |
 | Accurate word counts | `texcount`-style section-aware counts per file/chapter | Status bar count is a rough heuristic today | — |
 | Paper wizards | New-project templates for ACM/IEEE/thesis with class files | Template system exists | — |
 

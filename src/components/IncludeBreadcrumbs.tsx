@@ -9,7 +9,11 @@ async function openAncestor(file: string, child: string) {
   await useProjectStore.getState().openFile(file);
   const { files, activeFile } = useProjectStore.getState();
   if (activeFile !== file) return;
-  const line = includeLineOf(useEditorStore.getState().content, child, texPathsOf(files));
+  const line = includeLineOf(
+    useEditorStore.getState().content,
+    child,
+    texPathsOf(files),
+  );
   if (line !== null) useEditorStore.getState().jumpTo(line);
 }
 

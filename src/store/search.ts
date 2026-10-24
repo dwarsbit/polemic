@@ -1,14 +1,20 @@
 import { create } from "zustand";
+import type { SearchScope } from "@/lib/project-search";
 
-export type SearchScope = "all" | "math" | "text";
+export type { SearchScope };
 
 interface SearchState {
   query: string;
   caseSensitive: boolean;
   scope: SearchScope;
+  /** The replace row is open. */
+  replaceOpen: boolean;
+  replacement: string;
   setQuery: (query: string) => void;
   toggleCase: () => void;
   setScope: (scope: SearchScope) => void;
+  toggleReplace: () => void;
+  setReplacement: (replacement: string) => void;
 }
 
 /** Project-search settings, kept in the store so the query survives
@@ -20,4 +26,8 @@ export const useSearchStore = create<SearchState>((set) => ({
   setQuery: (query) => set({ query }),
   toggleCase: () => set((s) => ({ caseSensitive: !s.caseSensitive })),
   setScope: (scope) => set({ scope }),
+  replaceOpen: false,
+  replacement: "",
+  toggleReplace: () => set((s) => ({ replaceOpen: !s.replaceOpen })),
+  setReplacement: (replacement) => set({ replacement }),
 }));

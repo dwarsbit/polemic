@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { CaseSensitive, ChevronDown, Search as SearchIcon } from "lucide-react";
+import { ask } from "@tauri-apps/plugin-dialog";
+import { CaseSensitive, ChevronDown, Replace, Search as SearchIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { findMathRegion } from "@/lib/math-region";
-import { readProjectFile, type FileEntry } from "@/lib/tauri";
+import { applyEditsInView } from "@/lib/editor-edits";
+import { applyEdits } from "@/lib/label-index";
+import { replaceEdits, searchText } from "@/lib/project-search";
+import { invalidateGitState } from "@/lib/query-client";
+import { readProjectFile, writeProjectFile, type FileEntry } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import { useSearchStore, type SearchScope } from "@/store/search";
@@ -17,6 +21,10 @@ interface Hit {
   text: string;
   /** Match ranges within `text`. */
   matches: [number, number][];
+}
+
+function pluralize(count: number, word: string): string {
+  return `${count} ${word}${count === 1 ? "" : "es"}`;
 }
 
 /** Project-relative paths of all .tex files in the tree, depth first. */
@@ -34,10 +42,13 @@ function flattenTexPaths(entries: FileEntry[], out: string[] = []): string[] {
 const SCOPES: SearchScope[] = ["all", "math", "text"];
 
 /**
- * Project-wide search, docked in the bottom tool area. Literal search
- * across all .tex files; the active file and open buffers are searched
- * from memory, other files from disk (cached until the tree changes).
- * The scope filter classifies each match via the math-region detector.
+ * Project-wide search and replace, docked in the bottom tool area.
+ * Literal search across all .tex files; the active file and open
+ * buffers are searched from memory, other files from disk (cached
+ * until the tree changes). The scope filter classifies each match via
+ * the math-region detector, and replace honors it. Replacing edits the
+ * active file as one undo step, dirty buffers in memory, and writes
+ * the other files to disk.
  */
 export function SearchPanel({ onToggle }: { onToggle: () => void }) {
   const project = useProjectStore((s) => s.project);
@@ -51,8 +62,15 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
   const toggleCase = useSearchStore((s) => s.toggleCase);
   const scope = useSearchStore((s) => s.scope);
   const setScope = useSearchStore((s) => s.setScope);
+  const replaceOpen = useSearchStore((s) => s.replaceOpen);
+  const toggleReplace = useSearchStore((s) => s.toggleReplace);
+  const replacement = useSearchStore((s) => s.replacement);
+  const setReplacement = useSearchStore((s) => s.setReplacement);
 
   const [hits, setHits] = useState<Hit[] | null>(null);
+  // Bumped after a replace wrote files on disk, to search them again.
+  const [diskTick, setDiskTick] = useState(0);
+  const [message, setMessage] = useState<string | null>(null);
 
   // Disk reads are cached per file tree; content of the active file and
   // open buffers always comes from memory.
@@ -95,28 +113,8 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
           }
           if (text === null) continue;
 
-          const needle = caseSensitive ? trimmed : trimmed.toLowerCase();
-          // Line start offsets, to classify matches against math regions.
-          let lineStart = 0;
-          for (const [index, line] of text.split("\n").entries()) {
-            const hay = caseSensitive ? line : line.toLowerCase();
-            const matches: [number, number][] = [];
-            let at = hay.indexOf(needle);
-            while (at !== -1) {
-              if (scope === "all") {
-                matches.push([at, at + needle.length]);
-              } else {
-                const inMath = findMathRegion(text, lineStart + at) !== null;
-                if ((scope === "math") === inMath) {
-                  matches.push([at, at + needle.length]);
-                }
-              }
-              at = hay.indexOf(needle, at + needle.length);
-            }
-            if (matches.length > 0) {
-              found.push({ file: path, line: index + 1, text: line, matches });
-            }
-            lineStart += line.length + 1;
+          for (const hit of searchText(text, trimmed, { caseSensitive, scope })) {
+            found.push({ file: path, line: hit.line, text: hit.text, matches: hit.matches });
           }
         }
         if (!cancelled) setHits(found);
@@ -126,7 +124,64 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
       cancelled = true;
       clearTimeout(timer);
     };
-  }, [project, files, activeFile, buffers, content, query, caseSensitive, scope]);
+  }, [project, files, activeFile, buffers, content, query, caseSensitive, scope, diskTick]);
+
+  /** The freshest text of a file: live editor, buffer, then disk. */
+  async function currentText(path: string): Promise<string | null> {
+    const store = useProjectStore.getState();
+    if (path === store.activeFile) return useEditorStore.getState().content;
+    if (store.buffers[path] !== undefined) return store.buffers[path];
+    if (!store.project) return null;
+    return readProjectFile(store.project.path, path).catch(() => null);
+  }
+
+  /** Replace in every hit's file, or in one line when given. */
+  async function replace(target?: { file: string; line: number }) {
+    const trimmed = query.trim();
+    if (trimmed.length === 0 || hits === null || hits.length === 0) return;
+    const targetFiles = target ? [target.file] : [...new Set(hits.map((hit) => hit.file))];
+    if (target === undefined) {
+      const total = hits.reduce((sum, hit) => sum + hit.matches.length, 0);
+      const ok = await ask(
+        `Replace ${pluralize(total, "match")} in ${targetFiles.length} ` +
+          `file${targetFiles.length === 1 ? "" : "s"} with “${replacement}”? ` +
+          "Files that are not open are saved right away.",
+        { title: "Replace all", kind: "warning" },
+      );
+      if (!ok) return;
+    }
+    const options = { caseSensitive, scope };
+    let replaced = 0;
+    let wroteDisk = false;
+    for (const path of targetFiles) {
+      const text = await currentText(path);
+      if (text === null) continue;
+      const edits = replaceEdits(text, trimmed, replacement, options, target?.line);
+      if (edits.length === 0) continue;
+      const store = useProjectStore.getState();
+      if (path === store.activeFile) {
+        if (!applyEditsInView(edits, "input.replace")) continue;
+      } else {
+        const next = applyEdits(text, edits);
+        if (store.buffers[path] !== undefined) {
+          store.markDirty(path, next);
+        } else if (store.project) {
+          await writeProjectFile(store.project.path, path, next);
+          diskCache.current.texts.set(path, next);
+          wroteDisk = true;
+        }
+      }
+      replaced += edits.length;
+    }
+    if (wroteDisk) {
+      void invalidateGitState();
+      setDiskTick((tick) => tick + 1);
+    }
+    if (target === undefined) {
+      setMessage(`Replaced ${pluralize(replaced, "match")}.`);
+      window.setTimeout(() => setMessage(null), 4000);
+    }
+  }
 
   function goTo(file: string, line: number) {
     if (file === activeFile) {
@@ -168,6 +223,16 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
         <Button
           variant="ghost"
           size="icon"
+          className={cn("size-6 shrink-0", !replaceOpen && "text-muted-foreground")}
+          title="Replace"
+          aria-pressed={replaceOpen}
+          onClick={toggleReplace}
+        >
+          <Replace className="size-3.5" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
           className={cn("size-6 shrink-0", !caseSensitive && "text-muted-foreground")}
           title="Match case"
           onClick={toggleCase}
@@ -202,6 +267,33 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
           <ChevronDown className="size-3.5" />
         </Button>
       </div>
+      {replaceOpen && (
+        <div className="flex h-9 shrink-0 items-center gap-1.5 border-b px-2">
+          <Replace className="size-3.5 shrink-0 text-muted-foreground" />
+          <Input
+            className="h-7 min-w-0 flex-1 rounded-md border-none bg-transparent px-1 text-xs shadow-none focus-visible:ring-0"
+            placeholder="Replace with"
+            value={replacement}
+            onChange={(e) => setReplacement(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) void replace();
+            }}
+          />
+          {message !== null && (
+            <span className="shrink-0 text-xs text-muted-foreground">{message}</span>
+          )}
+          <Button
+            variant="outline"
+            size="sm"
+            className="h-6 shrink-0 px-2 text-xs"
+            disabled={shownHits === null || shownHits.length === 0}
+            title="Replace every match (Cmd/Ctrl+Enter)"
+            onClick={() => void replace()}
+          >
+            Replace all
+          </Button>
+        </div>
+      )}
       <div className="flex-1 overflow-y-auto px-2 pb-2">
         {shownHits === null ? (
           <p className="px-1 py-1 text-xs text-muted-foreground">
@@ -222,18 +314,30 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
                     {hit.file}
                   </button>
                 )}
-                <button
-                  type="button"
-                  className="flex w-full items-start gap-2 rounded px-1 py-0.5 text-left text-xs hover:bg-accent"
-                  onClick={() => goTo(hit.file, hit.line)}
-                >
-                  <span className="w-8 shrink-0 pt-0.5 text-right tabular-nums text-muted-foreground">
-                    {hit.line}
-                  </span>
-                  <span className="min-w-0 flex-1 truncate whitespace-pre">
-                    <Highlighted hit={hit} />
-                  </span>
-                </button>
+                <div className="group relative">
+                  <button
+                    type="button"
+                    className="flex w-full items-start gap-2 rounded px-1 py-0.5 text-left text-xs hover:bg-accent"
+                    onClick={() => goTo(hit.file, hit.line)}
+                  >
+                    <span className="w-8 shrink-0 pt-0.5 text-right tabular-nums text-muted-foreground">
+                      {hit.line}
+                    </span>
+                    <span className="min-w-0 flex-1 truncate whitespace-pre">
+                      <Highlighted hit={hit} replacement={replaceOpen ? replacement : null} />
+                    </span>
+                  </button>
+                  {replaceOpen && (
+                    <button
+                      type="button"
+                      className="absolute right-1 top-0.5 hidden rounded border bg-card px-1.5 text-[10px] text-muted-foreground hover:text-foreground group-hover:block"
+                      title="Replace the matches on this line"
+                      onClick={() => void replace({ file: hit.file, line: hit.line })}
+                    >
+                      Replace
+                    </button>
+                  )}
+                </div>
               </li>
             ))}
           </ul>
@@ -243,8 +347,15 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
   );
 }
 
-/** The line with every match highlighted. */
-function Highlighted({ hit }: { hit: Hit }): ReactNode {
+/** The line with every match highlighted; with a replacement, the
+ *  match shows struck through next to its replacement. */
+function Highlighted({
+  hit,
+  replacement,
+}: {
+  hit: Hit;
+  replacement: string | null;
+}): ReactNode {
   const parts: ReactNode[] = [];
   let pos = 0;
   hit.matches.forEach(([from, to], index) => {
@@ -252,11 +363,24 @@ function Highlighted({ hit }: { hit: Hit }): ReactNode {
     parts.push(
       <mark
         key={index}
-        className="rounded-sm bg-amber-200/80 text-foreground dark:bg-amber-400/30"
+        className={cn(
+          "rounded-sm bg-amber-200/80 text-foreground dark:bg-amber-400/30",
+          replacement !== null && "line-through",
+        )}
       >
         {hit.text.slice(from, to)}
       </mark>,
     );
+    if (replacement !== null) {
+      parts.push(
+        <ins
+          key={`r${index}`}
+          className="rounded-sm bg-green-200/70 text-foreground no-underline dark:bg-green-500/25"
+        >
+          {replacement}
+        </ins>,
+      );
+    }
     pos = to;
   });
   parts.push(hit.text.slice(pos));
