@@ -48,6 +48,32 @@ jobs:
             fs.writeFileSync(path, JSON.stringify(conf, null, 2) + "\n");
           ' "$version"
 
+      # Signs and notarizes the macOS builds once the APPLE_* secrets exist;
+      # without them the builds stay unsigned. Exported only when set, since
+      # an empty APPLE_CERTIFICATE makes the Tauri bundler fail.
+      - name: Configure macOS signing
+        if: runner.os == 'macOS'
+        shell: bash
+        env:
+          APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+          APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          if [ -z "$APPLE_CERTIFICATE" ]; then
+            echo "::warning::APPLE_CERTIFICATE not set; macOS build will be unsigned"
+            exit 0
+          fi
+          for name in APPLE_CERTIFICATE APPLE_CERTIFICATE_PASSWORD APPLE_SIGNING_IDENTITY APPLE_ID APPLE_PASSWORD APPLE_TEAM_ID; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name secret is missing"
+              exit 1
+            fi
+            echo "$name=${!name}" >> "$GITHUB_ENV"
+          done
+
       - name: Install Linux build dependencies
         if: runner.os == 'Linux'
         run: |
