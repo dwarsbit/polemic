@@ -28,6 +28,17 @@ fn parse_response(raw: &[u8]) -> Result<(u16, String), String> {
 /// No Origin header is sent, so Zotero answers instead of dropping
 /// the connection as it does for webview fetches.
 pub fn local_get(path: &str, query: &str) -> Result<String, String> {
+    // Both go into the raw request line: allow only URL-safe characters,
+    // so neither can smuggle extra headers or requests.
+    let path_ok = path
+        .chars()
+        .all(|c| c.is_ascii_alphanumeric() || matches!(c, '/' | '_' | '-'));
+    let query_ok = query
+        .chars()
+        .all(|c| c.is_ascii_graphic() && !matches!(c, '#'));
+    if !path_ok || !query_ok {
+        return Err("invalid Zotero request".into());
+    }
     let mut stream = TcpStream::connect(HOST)
         .map_err(|e| format!("Zotero is not reachable: {e}"))?;
     stream
@@ -71,6 +82,13 @@ mod tests {
         let raw = b"HTTP/1.0 404 Not Found\r\n\r\n[]";
         let (status, _) = parse_response(raw).unwrap();
         assert_eq!(status, 404);
+    }
+
+    #[test]
+    fn rejects_request_smuggling() {
+        assert!(local_get("users/0/items HTTP/1.1\r\nX: y", "").is_err());
+        assert!(local_get("users/0/items", "q=a\r\nX: y").is_err());
+        assert!(local_get("users/0/items", "q=a b").is_err());
     }
 
     #[test]

@@ -259,8 +259,7 @@ export function setVersionControl(value: "git" | "snapshots"): Promise<Settings>
 
 /** A native context menu entry, shown by the show_context_menu command. */
 export type ContextMenuSpec =
-  | { kind: "item"; id: string; text: string }
-  | { kind: "separator" };
+  { kind: "item"; id: string; text: string } | { kind: "separator" };
 
 /** Pop up the OS-native context menu at the cursor (blocks until dismissed). */
 export function showContextMenu(items: ContextMenuSpec[]): Promise<void> {
@@ -390,7 +389,8 @@ export function createProjectEntry(
   projectDir: string,
   path: string,
   isDir: boolean,
-): Promise<void> {  return invoke<void>("create_project_entry", { projectDir, path, isDir });
+): Promise<void> {
+  return invoke<void>("create_project_entry", { projectDir, path, isDir });
 }
 
 export function renameEntry(
@@ -436,10 +436,7 @@ export async function readAsset(projectDir: string, path: string): Promise<Uint8
 }
 
 /** Copy files into the project's assets/ folder; returns the relative paths. */
-export function importAssets(
-  projectDir: string,
-  sources: string[],
-): Promise<string[]> {
+export function importAssets(projectDir: string, sources: string[]): Promise<string[]> {
   return invoke<string[]>("import_assets", { projectDir, sources });
 }
 
@@ -450,10 +447,7 @@ export function listAssetMeta(projectDir: string): Promise<AssetTags> {
   return invoke<AssetTags>("list_asset_meta", { projectDir });
 }
 
-export function saveAssetMeta(
-  projectDir: string,
-  tags: AssetTags,
-): Promise<void> {
+export function saveAssetMeta(projectDir: string, tags: AssetTags): Promise<void> {
   return invoke<void>("save_asset_meta", { projectDir, tags });
 }
 
@@ -470,10 +464,17 @@ export function texPackageInfo(names: string[]): Promise<TexPackageInfo[]> {
 export function synctexForward(
   projectDir: string,
   mainTex: string,
+  input: string,
   line: number,
   col: number,
 ): Promise<SynctexForward> {
-  return invoke<SynctexForward>("synctex_forward", { projectDir, mainTex, line, col });
+  return invoke<SynctexForward>("synctex_forward", {
+    projectDir,
+    mainTex,
+    input,
+    line,
+    col,
+  });
 }
 
 export function synctexBackward(

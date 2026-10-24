@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { ask } from "@tauri-apps/plugin-dialog";
 import * as api from "@/lib/tauri";
 import { extractCiteKeys } from "@/lib/bibtex";
 import {
@@ -14,6 +15,7 @@ import { formatDocument } from "@/lib/editor-format";
 import { flushPendingSerialize } from "@/lib/visual/pending-serialize";
 import { invalidateGitState } from "@/lib/query-client";
 import { useEditorStore } from "@/store/editor";
+import { usePreviewStore } from "@/store/preview";
 import { useSettingsStore } from "@/store/settings";
 
 interface ProjectState {
@@ -47,7 +49,13 @@ interface ProjectState {
   renameEntry: (path: string, newPath: string) => Promise<void>;
   deleteEntry: (path: string) => Promise<void>;
   setMainFile: (path: string) => Promise<void>;
-  saveActiveFile: () => Promise<boolean>;
+  /** Save the active file. A background save (window blur) neither
+   *  formats nor overwrites a version changed outside the app; an
+   *  interactive one asks first. */
+  saveActiveFile: (opts?: { background?: boolean }) => Promise<boolean>;
+  /** Pick up outside changes (git, other editors): refresh the file
+   *  tree and reload the active file when it has no unsaved edits. */
+  syncFromDisk: () => Promise<void>;
   refreshSnapshots: () => Promise<void>;
   takeSnapshot: () => Promise<void>;
   restoreSnapshot: (id: string) => Promise<void>;
@@ -70,6 +78,35 @@ function firstTex(entries: api.FileEntry[]): string | null {
 
 function isInside(parentPath: string, childPath: string): boolean {
   return childPath === parentPath || childPath.startsWith(parentPath + "/");
+}
+
+/** Drop a buffer only if it still holds what was written: an edit that
+ *  landed while the write was in flight stays dirty. */
+function withoutWritten(
+  buffers: Record<string, string>,
+  written: Record<string, string>,
+): Record<string, string> {
+  const next = { ...buffers };
+  for (const [path, content] of Object.entries(written)) {
+    if (next[path] === content) delete next[path];
+  }
+  return next;
+}
+
+/** Ask before a save replaces a version someone else wrote. */
+async function confirmOverwrite(path: string): Promise<boolean> {
+  const message = `${path} was changed outside Polemic since it was opened. Overwrite those changes with your version?`;
+  try {
+    return await ask(message, {
+      title: "File changed on disk",
+      kind: "warning",
+      okLabel: "Overwrite",
+      cancelLabel: "Cancel",
+    });
+  } catch {
+    // Browser dev: no native dialog.
+    return window.confirm(message);
+  }
 }
 
 function collectPaths(entries: api.FileEntry[], extension: string): string[] {
@@ -188,20 +225,22 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       flushPendingSerialize();
       const { project, buffers, activeFile } = get();
       const paths = Object.keys(buffers);
-      if (paths.length === 0) return;
-      let projectWrite = false;
+      if (paths.length === 0 || !project) return;
+      const written: Record<string, string> = {};
       for (const path of paths) {
-        if (project) {
-          await api.writeProjectFile(project.path, path, buffers[path]);
-          projectWrite = true;
-        }
+        await api.writeProjectFile(project.path, path, buffers[path]);
+        written[path] = buffers[path];
       }
-      if (projectWrite) void invalidateGitState();
-      const next = { ...buffers };
-      for (const path of paths) delete next[path];
-      const patch: Partial<ProjectState> = { buffers: next };
-      if (activeFile !== null && paths.includes(activeFile)) {
-        patch.lastSavedContent = useEditorStore.getState().content;
+      void invalidateGitState();
+      const patch: Partial<ProjectState> = {
+        buffers: withoutWritten(get().buffers, written),
+      };
+      if (
+        activeFile !== null &&
+        get().activeFile === activeFile &&
+        activeFile in written
+      ) {
+        patch.lastSavedContent = written[activeFile];
       }
       set(patch);
     },
@@ -301,13 +340,16 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     openFile: async (path) => {
       const { project, openFiles, buffers } = get();
       if (!project) return;
-      // Prefer the unsaved buffer over disk so dirty state survives tab switches.
-      const content = buffers[path] ?? (await api.readProjectFile(project.path, path));
+      // Prefer the unsaved buffer over disk so dirty state survives tab
+      // switches; lastSavedContent is always the disk text (the save's
+      // outside-change check compares against it).
+      const onDisk = await api.readProjectFile(project.path, path);
+      const content = buffers[path] ?? onDisk;
       useEditorStore.getState().loadContent(content);
       const nextOpen = openFiles.includes(path) ? openFiles : [...openFiles, path];
       set({
         activeFile: path,
-        lastSavedContent: content,
+        lastSavedContent: onDisk,
         openFiles: nextOpen,
         labelsByFile: { ...get().labelsByFile, [path]: extractLabels(content) },
         refsByFile: {
@@ -340,16 +382,14 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       if (activeFile !== path) return;
       if (remaining.length > 0) {
         const next = remaining[Math.min(index, remaining.length - 1)];
-        const nextContent = project
-          ? get().buffers[next] ?? (await api.readProjectFile(project.path, next))
-          : null;
-        if (nextContent === null) {
+        const onDisk = project ? await api.readProjectFile(project.path, next) : null;
+        if (onDisk === null) {
           useEditorStore.getState().loadContent("");
           set({ activeFile: null, lastSavedContent: null });
           return;
         }
-        useEditorStore.getState().loadContent(nextContent);
-        set({ activeFile: next, lastSavedContent: nextContent });
+        useEditorStore.getState().loadContent(get().buffers[next] ?? onDisk);
+        set({ activeFile: next, lastSavedContent: onDisk });
       } else {
         useEditorStore.getState().loadContent("");
         set({ activeFile: null, lastSavedContent: null });
@@ -480,7 +520,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       set({ mainFile: path });
     },
 
-    saveActiveFile: async () => {
+    saveActiveFile: async (opts) => {
       // The visual face serializes on a debounce; pending edits land
       // in the store before the dirty check reads it.
       flushPendingSerialize();
@@ -490,16 +530,32 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       const dirty = buffers[activeFile] !== undefined || current !== lastSavedContent;
       if (!dirty) return false;
       if (!project) return false;
-      // Format on save: the formatter itself skips non-.tex files.
-      if (useSettingsStore.getState().formatOnSave) formatDocument();
+      // Changed on disk since it was loaded or saved (git checkout,
+      // another editor): never overwrite that silently.
+      if (lastSavedContent !== null) {
+        const onDisk = await api
+          .readProjectFile(project.path, activeFile)
+          .catch(() => null);
+        if (onDisk !== null && onDisk !== lastSavedContent) {
+          if (opts?.background) return false;
+          if (!(await confirmOverwrite(activeFile))) return false;
+        }
+        // The user may have switched tabs meanwhile; the editor now
+        // holds another file.
+        if (get().activeFile !== activeFile || get().project !== project) return false;
+      }
+      // Format on save: the formatter itself skips non-.tex files. Not
+      // on a background save, which would rewrite text behind the
+      // user's back.
+      if (useSettingsStore.getState().formatOnSave && !opts?.background)
+        formatDocument();
       const content = useEditorStore.getState().content;
       await api.writeProjectFile(project.path, activeFile, content);
       void invalidateGitState();
-      const nextBuffers = { ...buffers };
-      delete nextBuffers[activeFile];
       set({
-        lastSavedContent: content,
-        buffers: nextBuffers,
+        lastSavedContent:
+          get().activeFile === activeFile ? content : get().lastSavedContent,
+        buffers: withoutWritten(get().buffers, { [activeFile]: content }),
         labelsByFile: { ...get().labelsByFile, [activeFile]: extractLabels(content) },
         refsByFile: {
           ...get().refsByFile,
@@ -511,6 +567,34 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         },
       });
       return true;
+    },
+
+    syncFromDisk: async () => {
+      const { project, activeFile, lastSavedContent } = get();
+      if (!project) return;
+      await get()
+        .refreshFiles()
+        .catch(() => undefined);
+      if (!activeFile || lastSavedContent === null) return;
+      const onDisk = await api
+        .readProjectFile(project.path, activeFile)
+        .catch(() => null);
+      if (onDisk === null || onDisk === lastSavedContent) return;
+      const state = get();
+      if (
+        state.activeFile !== activeFile ||
+        state.lastSavedContent !== lastSavedContent
+      )
+        return;
+      flushPendingSerialize();
+      const dirty =
+        get().buffers[activeFile] !== undefined ||
+        useEditorStore.getState().content !== lastSavedContent;
+      // Unsaved edits win for now; the next save asks before overwriting.
+      if (dirty) return;
+      useEditorStore.getState().loadContent(onDisk);
+      set({ lastSavedContent: onDisk });
+      get().refreshDocMeta(activeFile, onDisk);
     },
 
     refreshSnapshots: async () => {
@@ -529,6 +613,9 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     restoreSnapshot: async (id) => {
       const { project, mainFile, activeFile } = get();
       if (!project) return;
+      // Unsaved edits go to disk first, so the safety snapshot taken by
+      // the restore holds them and they can be brought back.
+      await get().flushBuffers();
       await api.restoreSnapshot(project.path, id);
       void invalidateGitState();
       // Restored files replace unsaved buffers entirely.
@@ -544,4 +631,11 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       }
     },
   };
+});
+
+// The preview belongs to one project: reset it when that changes.
+useProjectStore.subscribe((state, prev) => {
+  if (state.project?.path !== prev.project?.path) {
+    usePreviewStore.getState().resetForProject();
+  }
 });

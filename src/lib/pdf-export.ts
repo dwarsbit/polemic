@@ -16,6 +16,6 @@ export async function exportPdfAs(): Promise<void> {
       await exportPdf(project.path, mainFile, dest);
     }
   } catch (e) {
-    usePreviewStore.setState({ status: "error", error: String(e) });
+    usePreviewStore.getState().setNotice(String(e));
   }
 }

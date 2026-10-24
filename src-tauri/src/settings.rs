@@ -124,7 +124,15 @@ pub fn load(app: &AppHandle) -> Settings {
 pub fn save(app: &AppHandle, settings: &Settings) -> Result<(), String> {
     let path = settings_path(app)?;
     let json = serde_json::to_string_pretty(settings).map_err(|e| e.to_string())?;
-    fs::write(path, json).map_err(|e| format!("failed to write settings: {e}"))
+    crate::files::write_atomic(&path, json.as_bytes())
+        .map_err(|e| format!("failed to write settings: {e}"))?;
+    // The file holds API keys: keep it readable by the user only.
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::PermissionsExt;
+        let _ = fs::set_permissions(&path, fs::Permissions::from_mode(0o600));
+    }
+    Ok(())
 }
 
 /// Mutate the managed settings and persist them.

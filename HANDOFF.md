@@ -7,6 +7,39 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
+## Security and robustness pass (2026-10-24)
+
+Branch `fix/security-audit`. Fixes from an audit:
+- Untrusted projects: `latexmk -norc` (user/system rc files passed back
+  with `-r`), git runs with repo-local command keys blanked
+  (fsmonitor, filters, textconv, gpg programs, …) and hooks off
+  (`git_command` in git.rs). Both have end-to-end tests that fail
+  without the fix.
+- CSP set in tauri.conf.json (no CSP before). Checked against the
+  production build in Chromium: no violations. Not yet checked in the
+  real WebKit/WebView2 window — smoke-test `pnpm tauri build`.
+- Paths: `resolve_in_project` rejects symlinks leading out of the
+  project; snapshot ids validated everywhere; snapshots skip symlinks
+  and `.git` (restore no longer rewinds git history); main file names
+  starting with `-` rejected.
+- Compile: 10-minute timeout that kills the process tree; one run at a
+  time (a request while compiling queues one follow-up); the preview
+  resets when the project changes; a failed compile keeps the last PDF
+  visible with an "out of date" banner.
+- Saves: an interactive save asks before overwriting a file changed on
+  disk; the blur auto-save never overwrites and no longer formats;
+  regaining focus reloads clean files and the tree; snapshot restore
+  flushes unsaved edits first; the window close no longer hangs on a
+  failed write.
+- Settings/comments/asset tags written atomically, settings.json 0600;
+  AI base URL must be https (http only for localhost); Zotero local
+  requests validated; file deletes go to the trash.
+- SyncTeX forward search now works from `\input` files (input passed
+  separately from the main file).
+
+Open: API keys still live in settings.json (move to the OS keychain);
+backend commands still accept any project_dir (the CSP is the guard).
+
 ## Current status — Visual editor v2, Phase 3 starting (2026-10-06)
 
 Phase 2 landed (see the next section); the Phase 3–4 plan is scoped

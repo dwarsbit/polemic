@@ -10,8 +10,13 @@ export interface ScrollTarget {
   y: number;
 }
 
-// Guards against overlapping compiles: only the newest run may apply its result.
+// Bumped when the project changes: a run that started for another
+// project must not apply its result.
 let compileGeneration = 0;
+// latexmk runs one at a time (they share the build folder); a request
+// during a run queues a single follow-up run.
+let inFlight: Promise<void> | null = null;
+let queued: Promise<void> | null = null;
 
 interface PreviewState {
   status: PreviewStatus;
@@ -19,6 +24,10 @@ interface PreviewState {
   error: string | null;
   issues: CompileIssue[];
   log: string | null;
+  /** A transient message about a preview action (sync, open), shown
+   *  over the PDF without replacing the compile state. */
+  notice: string | null;
+  setNotice: (notice: string | null) => void;
   scrollTarget: ScrollTarget | null;
   scrollVersion: number;
   zoom: number;
@@ -30,6 +39,9 @@ interface PreviewState {
   setAutoCompile: (value: boolean) => void;
   requestScroll: (target: ScrollTarget) => void;
   compileNow: () => Promise<void>;
+  /** A different project (or none) is open: drop the old PDF and
+   *  results, and discard any run still going for the previous one. */
+  resetForProject: () => void;
 }
 
 function adjustZoom(set: (partial: { zoom: number }) => void, zoom: number) {
@@ -43,6 +55,8 @@ export const usePreviewStore = create<PreviewState>((set) => ({
   error: null,
   issues: [],
   log: null,
+  notice: null,
+  setNotice: (notice) => set({ notice }),
   scrollTarget: null,
   scrollVersion: 0,
   zoom: 1,
@@ -54,50 +68,80 @@ export const usePreviewStore = create<PreviewState>((set) => ({
   setAutoCompile: (value) => set({ autoCompile: value }),
   requestScroll: (target) =>
     set((state) => ({ scrollTarget: target, scrollVersion: state.scrollVersion + 1 })),
-  compileNow: async () => {
-    const { project, mainFile } = useProjectStore.getState();
-    if (!project || !mainFile) {
-      set({
-        status: "error",
-        error: "No project with a main .tex file is open.",
-        issues: [],
-        log: null,
+  resetForProject: () => {
+    compileGeneration++;
+    set({
+      status: "idle",
+      pdfBytes: null,
+      error: null,
+      issues: [],
+      log: null,
+      notice: null,
+      scrollTarget: null,
+    });
+  },
+  compileNow: (): Promise<void> => {
+    if (inFlight !== null) {
+      queued ??= inFlight.then((): Promise<void> => {
+        queued = null;
+        return usePreviewStore.getState().compileNow();
       });
-      return;
+      return queued;
     }
-    const generation = ++compileGeneration;
-    set({ status: "compiling" });
-    try {
-      const outcome = await compileProject(project.path, mainFile);
-      if (generation !== compileGeneration) return;
-      if (outcome.success) {
-        try {
-          const pdfBytes = await getPdf(project.path, mainFile);
-          if (generation !== compileGeneration) return;
-          set({
-            status: "ok",
-            pdfBytes,
-            issues: outcome.issues,
-            log: outcome.log,
-            error: null,
-          });
-        } catch (e) {
-          set({
-            status: "error",
-            error: String(e),
-            issues: outcome.issues,
-            log: outcome.log,
-          });
-        }
-      } else {
-        // Compile failed: keep the last PDF, surface issues in the panel.
-        set({ status: "error", error: null, issues: outcome.issues, log: outcome.log });
-      }
-    } catch (e) {
-      // Infrastructure failure (e.g. latexmk missing).
-      if (generation === compileGeneration) {
-        set({ status: "error", error: String(e), issues: [], log: null });
-      }
-    }
+    inFlight = runCompile(set).finally(() => {
+      inFlight = null;
+    });
+    return inFlight;
   },
 }));
+
+async function runCompile(
+  set: (partial: Partial<PreviewState>) => void,
+): Promise<void> {
+  const { project, mainFile } = useProjectStore.getState();
+  if (!project || !mainFile) {
+    set({
+      status: "error",
+      error: "No project with a main .tex file is open.",
+      issues: [],
+      log: null,
+    });
+    return;
+  }
+  const generation = compileGeneration;
+  set({ status: "compiling", notice: null });
+  try {
+    const outcome = await compileProject(project.path, mainFile);
+    if (generation !== compileGeneration) return;
+    if (outcome.success) {
+      try {
+        const pdfBytes = await getPdf(project.path, mainFile);
+        if (generation !== compileGeneration) return;
+        set({
+          status: "ok",
+          pdfBytes,
+          issues: outcome.issues,
+          log: outcome.log,
+          error: null,
+        });
+      } catch (e) {
+        if (generation !== compileGeneration) return;
+        set({
+          status: "error",
+          error: String(e),
+          issues: outcome.issues,
+          log: outcome.log,
+        });
+      }
+    } else {
+      // Compile failed: keep the last PDF, surface issues in the panel.
+      if (generation !== compileGeneration) return;
+      set({ status: "error", error: null, issues: outcome.issues, log: outcome.log });
+    }
+  } catch (e) {
+    // Infrastructure failure (e.g. latexmk missing).
+    if (generation === compileGeneration) {
+      set({ status: "error", error: String(e), issues: [], log: null });
+    }
+  }
+}

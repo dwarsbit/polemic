@@ -36,10 +36,88 @@ pub struct GitCommitInfo {
     pub timestamp_millis: u64,
 }
 
-fn run_git(dir: &Path, args: &[&str]) -> Result<String, String> {
-    let output = Command::new("git")
-        .args(args)
+/// Config keys whose value is a command git runs. A project folder can
+/// come from anyone (a shared zip carrying its .git), so repository-local
+/// values for these must never execute.
+fn runs_command(key: &str) -> bool {
+    let key = key.to_ascii_lowercase();
+    let ends = |suffixes: &[&str]| suffixes.iter().any(|s| key.ends_with(s));
+    matches!(
+        key.as_str(),
+        "core.fsmonitor"
+            | "core.hookspath"
+            | "core.sshcommand"
+            | "core.editor"
+            | "core.pager"
+            | "core.askpass"
+            | "diff.external"
+            | "sequence.editor"
+            | "credential.helper"
+    ) || (key.starts_with("filter.") && ends(&[".clean", ".smudge", ".process"]))
+        || (key.starts_with("diff.") && ends(&[".textconv", ".command"]))
+        || (key.starts_with("merge.") && key.ends_with(".driver"))
+        || (key.starts_with("gpg.") && key.ends_with("program"))
+}
+
+/// `-c` overrides that blank every command-running key the repository
+/// config sets, so only the user's own (global) config can run programs.
+/// Hooks are off as well: .git/hooks travels with a copied project.
+fn safety_overrides(local_keys: &str) -> Vec<String> {
+    let no_hooks = std::env::temp_dir().join("polemic-no-git-hooks");
+    let mut out = vec![
+        "core.fsmonitor=false".to_string(),
+        format!("core.hooksPath={}", no_hooks.display()),
+    ];
+    let mut signing = false;
+    for key in local_keys.lines().map(str::trim) {
+        let lower = key.to_ascii_lowercase();
+        if !runs_command(&lower) || lower == "core.fsmonitor" || lower == "core.hookspath" {
+            continue;
+        }
+        out.push(format!("{key}="));
+        // Subsection names are case-sensitive: take the driver from `key`.
+        if let Some(driver) = lower
+            .starts_with("filter.")
+            .then(|| &key["filter.".len()..])
+            .and_then(|rest| rest.rsplit_once('.'))
+            .map(|(name, _)| name)
+        {
+            out.push(format!("filter.{driver}.required=false"));
+        }
+        signing |= lower.starts_with("gpg.");
+    }
+    if signing {
+        out.push("commit.gpgSign=false".into());
+        out.push("log.showSignature=false".into());
+    }
+    out.sort();
+    out.dedup();
+    out
+}
+
+/// A git command for `dir` with the repository's command-running config
+/// neutralized (see `safety_overrides`).
+fn git_command(dir: &Path) -> Command {
+    // Reading the config list executes nothing.
+    let local_keys = Command::new("git")
+        .args(["config", "--local", "--includes", "--name-only", "--list"])
         .current_dir(dir)
+        .output()
+        .ok()
+        .filter(|o| o.status.success())
+        .map(|o| String::from_utf8_lossy(&o.stdout).into_owned())
+        .unwrap_or_default();
+    let mut command = Command::new("git");
+    for value in safety_overrides(&local_keys) {
+        command.arg("-c").arg(value);
+    }
+    command.current_dir(dir);
+    command
+}
+
+fn run_git(dir: &Path, args: &[&str]) -> Result<String, String> {
+    let output = git_command(dir)
+        .args(args)
         .output()
         .map_err(|e| format!("failed to run git: {e}"))?;
     if output.status.success() {
@@ -63,9 +141,8 @@ pub fn available() -> bool {
 }
 
 pub fn is_repo(dir: &Path) -> bool {
-    Command::new("git")
+    git_command(dir)
         .args(["rev-parse", "--is-inside-work-tree"])
-        .current_dir(dir)
         .output()
         .map(|o| o.status.success() && String::from_utf8_lossy(&o.stdout).trim() == "true")
         .unwrap_or(false)
@@ -251,6 +328,59 @@ pub fn show_head(dir: &Path, path: &str) -> Result<Option<String>, String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn blanks_command_keys_from_the_repository_config() {
+        let keys = "core.bare\ncore.fsmonitor\nfilter.lfs.process\nfilter.Evil.clean\ndiff.pdf.textconv\ngpg.ssh.program\nuser.name\n";
+        let overrides = safety_overrides(keys);
+        for expected in [
+            "core.fsmonitor=false",
+            "filter.lfs.process=",
+            "filter.lfs.required=false",
+            "filter.Evil.clean=",
+            "filter.Evil.required=false",
+            "diff.pdf.textconv=",
+            "gpg.ssh.program=",
+            "commit.gpgSign=false",
+        ] {
+            assert!(overrides.iter().any(|o| o == expected), "missing {expected}: {overrides:?}");
+        }
+        assert!(overrides.iter().any(|o| o.starts_with("core.hooksPath=")));
+        assert!(!overrides.iter().any(|o| o.starts_with("user.name") || o.starts_with("core.bare")));
+    }
+
+    /// End to end: a repository whose config runs commands on `git status`.
+    #[cfg(unix)]
+    #[test]
+    fn repository_config_cannot_run_commands() {
+        if !available() {
+            return;
+        }
+        let dir = std::env::temp_dir().join(format!("polemic-git-evil-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(&dir).unwrap();
+        let git = |args: &[&str]| {
+            Command::new("git").args(args).current_dir(&dir).output().unwrap();
+        };
+        git(&["init", "-q"]);
+        std::fs::write(dir.join(".gitattributes"), "*.tex filter=evil\n").unwrap();
+        std::fs::write(dir.join("main.tex"), "x\n").unwrap();
+        let marker = dir.join("PWNED");
+        let cmd = format!("touch {}; cat", marker.display());
+        git(&["config", "core.fsmonitor", &cmd]);
+        git(&["config", "filter.evil.clean", &cmd]);
+        std::fs::create_dir_all(dir.join(".git/hooks")).unwrap();
+        let hook = dir.join(".git/hooks/pre-commit");
+        std::fs::write(&hook, format!("#!/bin/sh\n{cmd}\n")).unwrap();
+        use std::os::unix::fs::PermissionsExt;
+        std::fs::set_permissions(&hook, std::fs::Permissions::from_mode(0o755)).unwrap();
+
+        let _ = status(&dir);
+        let _ = stage(&dir, &["main.tex".into()]);
+        let _ = run_git(&dir, &["-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "m"]);
+        assert!(!marker.exists(), "repository config ran a command");
+        let _ = std::fs::remove_dir_all(&dir);
+    }
 
     #[test]
     fn parses_branch_and_entries() {

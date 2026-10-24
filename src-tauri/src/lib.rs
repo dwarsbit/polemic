@@ -126,6 +126,140 @@ fn pdf_output_path(main_tex: &str) -> std::path::PathBuf {
     std::path::PathBuf::from(format!("{stem}.pdf"))
 }
 
+/// Validate the main/input file handed to latexmk and synctex: a
+/// project-relative .tex path that cannot be read as an option.
+fn validate_tex_arg(project_dir: &str, tex: &str) -> Result<(), String> {
+    files::resolve_in_project(project_dir, tex)?;
+    if tex.starts_with('-') {
+        return Err(format!("unsupported file name: {tex}"));
+    }
+    Ok(())
+}
+
+/// The latexmk rc files the user installed (system-wide, then personal),
+/// in latexmk's own lookup order. latexmk runs with -norc so an rc file
+/// inside a project — Perl code that came with the project — never runs;
+/// these trusted ones are passed back explicitly with -r.
+fn trusted_latexmk_rc_files() -> Vec<std::path::PathBuf> {
+    use std::path::PathBuf;
+    let mut out = Vec::new();
+    let system: Vec<PathBuf> = match std::env::var_os("LATEXMKRCSYS") {
+        Some(path) => vec![PathBuf::from(path)],
+        None if cfg!(windows) => vec![PathBuf::from(r"C:\latexmk\LatexMk")],
+        None => [
+            "/opt/local/share/latexmk/LatexMk",
+            "/usr/local/share/latexmk/LatexMk",
+            "/usr/local/lib/latexmk/LatexMk",
+        ]
+        .iter()
+        .map(PathBuf::from)
+        .collect(),
+    };
+    if let Some(first) = system.into_iter().find(|p| p.is_file()) {
+        out.push(first);
+    }
+    let home = std::env::var_os("HOME")
+        .or_else(|| std::env::var_os("USERPROFILE"))
+        .map(PathBuf::from);
+    let xdg = std::env::var_os("XDG_CONFIG_HOME")
+        .map(PathBuf::from)
+        .or_else(|| home.as_ref().map(|h| h.join(".config")));
+    let user = [
+        xdg.map(|d| d.join("latexmk").join("latexmkrc")),
+        home.map(|h| h.join(".latexmkrc")),
+    ];
+    if let Some(first) = user.into_iter().flatten().find(|p| p.is_file()) {
+        out.push(first);
+    }
+    out
+}
+
+enum RunError {
+    /// The program could not be started (not installed, not on PATH).
+    Spawn(String),
+    TimedOut,
+}
+
+/// Run a command to completion, killing it (and the TeX processes it
+/// spawned) when it outlives `timeout`.
+fn output_with_timeout(
+    mut command: Command,
+    timeout: std::time::Duration,
+) -> Result<std::process::Output, RunError> {
+    use std::io::Read;
+    use std::process::Stdio;
+    #[cfg(unix)]
+    {
+        // Own process group, so a timeout kills the whole tree.
+        use std::os::unix::process::CommandExt;
+        command.process_group(0);
+    }
+    let mut child = command
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn()
+        .map_err(|e| RunError::Spawn(e.to_string()))?;
+    // Drain the pipes on threads so a chatty child never blocks on a full pipe.
+    let drain = |pipe: Option<Box<dyn Read + Send>>| {
+        std::thread::spawn(move || {
+            let mut buf = Vec::new();
+            if let Some(mut pipe) = pipe {
+                let _ = pipe.read_to_end(&mut buf);
+            }
+            buf
+        })
+    };
+    let stdout = drain(child.stdout.take().map(|p| Box::new(p) as Box<dyn Read + Send>));
+    let stderr = drain(child.stderr.take().map(|p| Box::new(p) as Box<dyn Read + Send>));
+    let start = std::time::Instant::now();
+    let status = loop {
+        if let Some(status) = child.try_wait().map_err(|e| RunError::Spawn(e.to_string()))? {
+            break status;
+        }
+        if start.elapsed() > timeout {
+            let pid = child.id().to_string();
+            #[cfg(unix)]
+            let _ = Command::new("kill").args(["-KILL", &format!("-{pid}")]).status();
+            #[cfg(windows)]
+            let _ = Command::new("taskkill").args(["/T", "/F", "/PID", &pid]).status();
+            let _ = child.kill();
+            let _ = child.wait();
+            return Err(RunError::TimedOut);
+        }
+        std::thread::sleep(std::time::Duration::from_millis(50));
+    };
+    Ok(std::process::Output {
+        status,
+        stdout: stdout.join().unwrap_or_default(),
+        stderr: stderr.join().unwrap_or_default(),
+    })
+}
+
+/// The compile command for a project. -norc: an rc file inside the
+/// project is Perl that came with the project and must never run; the
+/// user's own rc files are passed back explicitly.
+fn latexmk_command(dir: &std::path::Path, main_tex: &str) -> Command {
+    let mut command = Command::new("latexmk");
+    command.arg("-norc");
+    for rc in trusted_latexmk_rc_files() {
+        command.arg("-r").arg(rc);
+    }
+    command
+        .args([
+            "-pdf",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "-synctex=1",
+            "-outdir=build",
+        ])
+        .arg(main_tex)
+        .current_dir(dir);
+    command
+}
+
+/// Longest a single compile may run before it is killed.
+const COMPILE_TIMEOUT: std::time::Duration = std::time::Duration::from_secs(10 * 60);
+
 fn canonical_project(project_dir: &str) -> Result<std::path::PathBuf, String> {
     fs::canonicalize(project_dir)
         .map_err(|e| format!("project directory not accessible: {e}"))
@@ -174,6 +308,9 @@ fn create_project(
         return Err(format!("a project named \"{name}\" already exists"));
     }
     fs::create_dir_all(&dir).map_err(|e| format!("failed to create project: {e}"))?;
+    // Store the canonical path, like open_project does, so both routes
+    // key the recent list and per-project settings the same way.
+    let dir = fs::canonicalize(&dir).map_err(|e| format!("failed to create project: {e}"))?;
     for (path, content) in template.files {
         let target = dir.join(path);
         if let Some(parent) = target.parent() {
@@ -306,6 +443,9 @@ fn update_ai_settings(
     api_key: Option<String>,
     model: Option<String>,
 ) -> Result<Settings, String> {
+    if let Some(url) = base_url.as_deref().filter(|u| !u.trim().is_empty()) {
+        ai::check_base_url(url)?;
+    }
     settings::update(&app, |s| {
         s.ai = Some(settings::AiSettings {
             base_url,
@@ -609,14 +749,12 @@ fn rename_entry(project_dir: String, path: String, new_path: String) -> Result<(
     fs::rename(&from, &to).map_err(|e| format!("failed to rename: {e}"))
 }
 
+/// Move a project file or folder to the OS trash (recoverable, like
+/// deleting a whole project).
 #[tauri::command]
 fn delete_entry(project_dir: String, path: String) -> Result<(), String> {
     let target = files::resolve_in_project(&project_dir, &path)?;
-    if target.is_dir() {
-        fs::remove_dir_all(&target).map_err(|e| format!("failed to delete folder: {e}"))
-    } else {
-        fs::remove_file(&target).map_err(|e| format!("failed to delete file: {e}"))
-    }
+    trash::delete(&target).map_err(|e| format!("failed to move {path} to trash: {e}"))
 }
 
 /// Read any project file as raw bytes (binary-safe), for asset previews.
@@ -713,20 +851,14 @@ async fn compile_project(
 ) -> Result<CompileOutcome, String> {
     tauri::async_runtime::spawn_blocking(move || {
         let dir = canonical_project(&project_dir)?;
-        let output = Command::new("latexmk")
-            .args([
-                "-pdf",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-synctex=1",
-                "-outdir=build",
-            ])
-            .arg(&main_tex)
-            .current_dir(&dir)
-            .output()
-            .map_err(|e| {
-                format!("failed to run latexmk: {e}\n\nIs a TeX distribution (TeX Live, MacTeX, or MiKTeX) installed and on your PATH?")
-            })?;
+        validate_tex_arg(&project_dir, &main_tex)?;
+        let output = output_with_timeout(latexmk_command(&dir, &main_tex), COMPILE_TIMEOUT).map_err(|e| match e {
+            RunError::Spawn(e) => format!("failed to run latexmk: {e}\n\nIs a TeX distribution (TeX Live, MacTeX, or MiKTeX) installed and on your PATH?"),
+            RunError::TimedOut => format!(
+                "the compile was stopped after {} minutes. The document may loop forever; check recent macro changes.",
+                COMPILE_TIMEOUT.as_secs() / 60
+            ),
+        })?;
         let success = output.status.success();
         let mut log = String::from_utf8_lossy(&output.stdout).to_string();
         log.push_str(&String::from_utf8_lossy(&output.stderr));
@@ -788,14 +920,20 @@ fn open_pdf(app: tauri::AppHandle, project_dir: String, main_tex: String) -> Res
 fn synctex_forward(
     project_dir: String,
     main_tex: String,
+    input: Option<String>,
     line: u32,
     col: u32,
 ) -> Result<SynctexForward, String> {
     let dir = canonical_project(&project_dir)?;
+    // The PDF is named after the main file; the line lives in `input`
+    // (the edited file, e.g. an \input chapter), defaulting to main.
+    let input = input.unwrap_or_else(|| main_tex.clone());
+    validate_tex_arg(&project_dir, &main_tex)?;
+    validate_tex_arg(&project_dir, &input)?;
     let output = Command::new("synctex")
         .arg("view")
         .arg("-i")
-        .arg(format!("{line}:{col}:{main_tex}"))
+        .arg(format!("{line}:{col}:{input}"))
         .arg("-o")
         .arg(format!("build/{}", pdf_output_path(&main_tex).display()))
         .current_dir(&dir)
@@ -1600,4 +1738,62 @@ pub fn run() {    tauri::Builder::default()
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn rejects_tex_args_that_read_as_options() {
+        let dir = std::env::temp_dir().to_string_lossy().to_string();
+        assert!(validate_tex_arg(&dir, "-pdflatex=evil.tex").is_err());
+        assert!(validate_tex_arg(&dir, "../main.tex").is_err());
+        assert!(validate_tex_arg(&dir, "chapters/intro.tex").is_ok());
+    }
+
+    /// Needs latexmk on PATH; skipped otherwise.
+    #[cfg(unix)]
+    #[test]
+    fn project_latexmkrc_never_runs() {
+        if Command::new("latexmk").arg("--version").output().is_err() {
+            return;
+        }
+        let dir = std::env::temp_dir().join(format!("polemic-latexmkrc-{}", std::process::id()));
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(&dir).unwrap();
+        fs::write(
+            dir.join("main.tex"),
+            "\\documentclass{article}\\begin{document}Hi\\end{document}\n",
+        )
+        .unwrap();
+        let rc = "system(\"touch PWNED\");\n";
+        fs::write(dir.join("latexmkrc"), rc).unwrap();
+        fs::write(dir.join(".latexmkrc"), rc).unwrap();
+        let output =
+            output_with_timeout(latexmk_command(&dir, "main.tex"), COMPILE_TIMEOUT).ok().unwrap();
+        assert!(!dir.join("PWNED").exists(), "the project's latexmkrc ran");
+        if Command::new("pdflatex").arg("--version").output().is_ok() {
+            assert!(output.status.success());
+            assert!(dir.join("build/main.pdf").is_file());
+        }
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn kills_commands_that_run_too_long() {
+        let mut slow = Command::new("sh");
+        slow.args(["-c", "sleep 30"]);
+        let start = std::time::Instant::now();
+        let result = output_with_timeout(slow, std::time::Duration::from_millis(200));
+        assert!(matches!(result, Err(RunError::TimedOut)));
+        assert!(start.elapsed() < std::time::Duration::from_secs(5));
+
+        let mut quick = Command::new("sh");
+        quick.args(["-c", "echo out; echo err >&2"]);
+        let output = output_with_timeout(quick, std::time::Duration::from_secs(5)).ok().unwrap();
+        assert_eq!(String::from_utf8_lossy(&output.stdout), "out\n");
+        assert_eq!(String::from_utf8_lossy(&output.stderr), "err\n");
+    }
 }

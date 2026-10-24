@@ -1,12 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as pdfjs from "pdfjs-dist";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
-import {
-  Plus,
-  Search,
-  X,
-} from "lucide-react";
-import { open as openFileDialog } from "@tauri-apps/plugin-dialog";
+import { Plus, Search, X } from "lucide-react";
+import { ask, open as openFileDialog } from "@tauri-apps/plugin-dialog";
 import { AssetThumb } from "@/components/AssetThumb";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
@@ -34,12 +30,7 @@ import { insertAtCursor } from "@/lib/editor-insert";
 import { startAssetDrag, wasDragged } from "@/lib/editor-drag";
 import { fuzzyMatch } from "@/lib/fuzzy";
 import { showNativeContextMenu } from "@/lib/native-menu";
-import {
-  importAssets,
-  readAsset,
-  readProjectFile,
-  type FileEntry,
-} from "@/lib/tauri";
+import { importAssets, readAsset, readProjectFile, type FileEntry } from "@/lib/tauri";
 import { useAssetsStore } from "@/store/assets";
 
 pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
@@ -146,8 +137,7 @@ export function AssetsPanel() {
             text = cached === "" ? null : cached;
           }
           if (text === null) continue;
-          const refs =
-            text.match(/\\includegraphics(?:\[[^\]]*\])?\{([^}]*)\}/g) ?? [];
+          const refs = text.match(/\\includegraphics(?:\[[^\]]*\])?\{([^}]*)\}/g) ?? [];
           for (const ref of refs) {
             const arg = ref.match(/\{([^}]*)\}/);
             if (!arg) continue;
@@ -186,9 +176,7 @@ export function AssetsPanel() {
       }
       if (q.length > 0) {
         const name = path.split("/").pop() ?? path;
-        const folder = path.includes("/")
-          ? path.slice(0, path.lastIndexOf("/"))
-          : "";
+        const folder = path.includes("/") ? path.slice(0, path.lastIndexOf("/")) : "";
         const assetTags = (tags[path] ?? []).join(" ");
         if (fuzzyMatch(q, `${name} ${folder} ${assetTags}`) === null) {
           return false;
@@ -226,8 +214,7 @@ export function AssetsPanel() {
 
   // --- inspector ------------------------------------------------------------
 
-  const selectedEntry =
-    selected !== null ? (fileByPath.get(selected) ?? null) : null;
+  const selectedEntry = selected !== null ? (fileByPath.get(selected) ?? null) : null;
   const selectedTags = selected !== null ? (tags[selected] ?? []) : [];
   const usageCount = selected !== null ? (usage.get(selected) ?? 0) : 0;
 
@@ -301,9 +288,7 @@ export function AssetsPanel() {
                 )}
                 onClick={() =>
                   setTagFilter((prev) =>
-                    prev.includes(tag)
-                      ? prev.filter((t) => t !== tag)
-                      : [...prev, tag],
+                    prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
                   )
                 }
               >
@@ -316,8 +301,8 @@ export function AssetsPanel() {
       <div className="flex-1 overflow-y-auto px-2 pb-2">
         {paths.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
-            No assets yet. Import image, PDF, or data files with the + button —
-            they are copied into the project's assets/ folder.
+            No assets yet. Import image, PDF, or data files with the + button — they are
+            copied into the project's assets/ folder.
           </p>
         ) : filtered.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
@@ -354,10 +339,15 @@ export function AssetsPanel() {
                         id: "delete",
                         text: "Delete",
                         action: () => {
-                          void useProjectStore
-                            .getState()
-                            .deleteEntry(path)
-                            .catch(setImportError);
+                          void (async () => {
+                            const confirmed = await ask(`Move ${path} to the trash?`, {
+                              title: "Delete asset",
+                              kind: "warning",
+                              okLabel: "Delete",
+                            }).catch(() => false);
+                            if (!confirmed) return;
+                            await useProjectStore.getState().deleteEntry(path);
+                          })().catch(setImportError);
                         },
                       },
                     ]);
@@ -366,9 +356,7 @@ export function AssetsPanel() {
                   <div className="flex aspect-video items-center justify-center overflow-hidden rounded-md bg-muted">
                     <AssetThumb path={path} kind={kind} />
                   </div>
-                  <span className="truncate text-[11px]">
-                    {path.split("/").pop()}
-                  </span>
+                  <span className="truncate text-[11px]">{path.split("/").pop()}</span>
                 </button>
               );
             })}

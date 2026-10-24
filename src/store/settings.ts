@@ -216,8 +216,9 @@ export const useSettingsStore = create<SettingsState>((set) => ({
     void setPanelLayout(merged);
   },
   setAi: async (ai) => {
-    set({ ai });
+    // Persist first: the backend rejects unsafe base URLs.
     await updateAiSettings(ai.baseUrl, ai.apiKey, ai.model);
+    set({ ai });
   },
 }));
 
