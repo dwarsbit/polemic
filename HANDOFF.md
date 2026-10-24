@@ -7,6 +7,39 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
+## v1 batch: items 1–6 (2026-10-24)
+
+Branch `feat/v1-batch`, on top of the security pass.
+- Multi-file navigation: Cmd/Ctrl+click on `\input`/`\include`/
+  `\subfile` opens the file (Code face; `include-nav.ts`). The
+  `IncludeBreadcrumbs` row under the tabs shows main › … › file;
+  ancestors open at the including line. `useDocumentStructure` adds
+  include parents to the document order.
+- Replace in the search dock (`lib/project-search.ts`): scope-aware,
+  per line or all (confirm; active file as one undo step, buffers in
+  memory, other files written to disk). DOM test:
+  `SearchPanel.dom.test.tsx`.
+- Compile engines (`profile.rs`): pdfLaTeX/XeLaTeX/LuaLaTeX per
+  project in `.polemic/project.json`, picked in Document settings.
+  Automatic = `% !TEX program` magic comment, else XeLaTeX for
+  fontspec/unicode-math, else pdfLaTeX. Whitelist only.
+- API keys in the OS credential store (`secrets.rs`, keyring 3): one
+  JSON credential; settings.json keeps none; plaintext keys migrate
+  on start. No store (e.g. Linux without a Secret Service): keys stay
+  in the 0600 file. Linux builds need `libdbus-1-dev` (added to CI).
+- Path guard (`guard.rs`): project commands accept only projects
+  opened/created this session. `open_project` takes recent projects
+  only; other folders come through `open_project_dialog` (native
+  dialog Rust-side). Rename/delete: known projects only.
+- Smoke test in a real WebKitGTK window (xvfb, production build with
+  CSP): project reopened through the guard, XeLaTeX compile, PDF.js
+  render, KaTeX in Visual, breadcrumbs; zero CSP violations, zero JS
+  errors. macOS WKWebView and Windows WebView2 still unchecked.
+
+Open: `read_external_file`/`list_bib_files` (external .bib sources)
+still read any path the webview names; Visual-face click-through on
+includes; keychain prompts on unsigned macOS dev builds.
+
 ## Security and robustness pass (2026-10-24)
 
 Branch `fix/security-audit`. Fixes from an audit:
@@ -37,8 +70,7 @@ Branch `fix/security-audit`. Fixes from an audit:
 - SyncTeX forward search now works from `\input` files (input passed
   separately from the main file).
 
-Open: API keys still live in settings.json (move to the OS keychain);
-backend commands still accept any project_dir (the CSP is the guard).
+Open items from this pass were handled in the v1 batch above.
 
 ## Current status — Visual editor v2, Phase 3 starting (2026-10-06)
 
