@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { ask } from "@tauri-apps/plugin-dialog";
 import * as api from "@/lib/tauri";
 import { extractCiteKeys } from "@/lib/bibtex";
+import { extractGraphicsPaths } from "@/lib/graphics-refs";
 import {
   includeSpec,
   insertInclude,
@@ -33,6 +34,8 @@ interface ProjectState {
   allLabels: () => string[];
   allRefs: () => string[];
   citeKeysByFile: Record<string, string[]>;
+  /** \graphicspath folders declared per .tex file. */
+  graphicsPathsByFile: Record<string, string[]>;
   allCiteKeys: () => string[];
   markDirty: (path: string, content: string) => void;
   /** Refresh a file's label/ref/cite-key metadata from its content. */
@@ -198,6 +201,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       return [...seen];
     },
     citeKeysByFile: {},
+    graphicsPathsByFile: {},
     allCiteKeys: () => {
       const seen = new Set<string>();
       for (const keys of Object.values(useProjectStore.getState().citeKeysByFile)) {
@@ -217,6 +221,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         citeKeysByFile: {
           ...get().citeKeysByFile,
           [path]: extractCiteKeys(content),
+        },
+        graphicsPathsByFile: {
+          ...get().graphicsPathsByFile,
+          [path]: extractGraphicsPaths(content),
         },
       }),
     flushBuffers: async () => {
@@ -267,6 +275,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         labelsByFile: {},
         refsByFile: {},
         citeKeysByFile: {},
+        graphicsPathsByFile: {},
       });
       void api.setProjectMenuEnabled(true);
       const target =
@@ -284,11 +293,13 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       void (async () => {
         const labelsByFile: Record<string, string[]> = {};
         const refsByFile: Record<string, string[]> = {};
+        const graphicsPathsByFile: Record<string, string[]> = {};
         for (const texPath of collectPaths(files, ".tex")) {
           try {
             const content = await api.readProjectFile(info.path, texPath);
             labelsByFile[texPath] = extractLabels(content);
             refsByFile[texPath] = extractRefPositions(content).map((ref) => ref.name);
+            graphicsPathsByFile[texPath] = extractGraphicsPaths(content);
           } catch {
             // unreadable file: skip its labels
           }
@@ -308,6 +319,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           labelsByFile: { ...labelsByFile, ...state.labelsByFile },
           refsByFile: { ...refsByFile, ...state.refsByFile },
           citeKeysByFile: { ...citeKeysByFile, ...state.citeKeysByFile },
+          graphicsPathsByFile: { ...graphicsPathsByFile, ...state.graphicsPathsByFile },
         }));
       })();
     },
@@ -326,6 +338,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         labelsByFile: {},
         refsByFile: {},
         citeKeysByFile: {},
+        graphicsPathsByFile: {},
         openFiles: [],
         activeFile: null,
       });
@@ -357,6 +370,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           [path]: extractRefPositions(content).map((ref) => ref.name),
         },
         citeKeysByFile: { ...get().citeKeysByFile, [path]: extractCiteKeys(content) },
+        graphicsPathsByFile: {
+          ...get().graphicsPathsByFile,
+          [path]: extractGraphicsPaths(content),
+        },
       });
       void api.setOpenFiles(project.path, nextOpen);
     },
@@ -564,6 +581,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         citeKeysByFile: {
           ...get().citeKeysByFile,
           [activeFile]: extractCiteKeys(content),
+        },
+        graphicsPathsByFile: {
+          ...get().graphicsPathsByFile,
+          [activeFile]: extractGraphicsPaths(content),
         },
       });
       return true;

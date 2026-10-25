@@ -1,6 +1,13 @@
 import { linter, type Diagnostic } from "@codemirror/lint";
 import type { EditorView } from "@codemirror/view";
+import { collectAssetPaths } from "@/lib/assets";
 import { extractCitePositions } from "@/lib/cite-refs";
+import {
+  extractGraphicsPaths,
+  extractGraphicsRefs,
+  isCheckableRef,
+  resolveGraphicsRef,
+} from "@/lib/graphics-refs";
 import {
   extractLabelPositions,
   extractRefPositions,
@@ -9,12 +16,13 @@ import { useProjectStore } from "@/store/project";
 
 /**
  * Cross-reference hints: refs to labels that no file defines, labels
- * no file references, and citations of keys no .bib file defines.
+ * no file references, citations of keys no .bib file defines, and
+ * \includegraphics paths no project file matches.
  * The active document is scanned live, so hints settle as you type
  * (the linter itself debounces).
  */
 export const refLabelLint = linter((view: EditorView) => {
-  const { activeFile, labelsByFile, refsByFile, citeKeysByFile } =
+  const { activeFile, labelsByFile, refsByFile, citeKeysByFile, graphicsPathsByFile, files } =
     useProjectStore.getState();
   if (activeFile === null) return [];
 
@@ -69,6 +77,30 @@ export const refLabelLint = linter((view: EditorView) => {
           to: cite.to,
           severity: "warning",
           message: `No BibTeX entry with key "${cite.key}"`,
+          actions: [],
+        });
+      }
+    }
+  }
+  // Graphics that no project file matches (e.g. renamed or moved);
+  // \graphicspath folders from every file count.
+  const graphicsRefs = extractGraphicsRefs(source);
+  if (graphicsRefs.length > 0 && files.length > 0) {
+    const projectFiles = new Set(collectAssetPaths(files));
+    const graphicsPaths = [
+      ...Object.entries(graphicsPathsByFile)
+        .filter(([file]) => file !== activeFile)
+        .flatMap(([, dirs]) => dirs),
+      ...extractGraphicsPaths(source),
+    ];
+    for (const ref of graphicsRefs) {
+      if (!isCheckableRef(ref.path)) continue;
+      if (resolveGraphicsRef(ref.path, projectFiles, graphicsPaths) === null) {
+        diagnostics.push({
+          from: ref.from,
+          to: ref.to,
+          severity: "warning",
+          message: `No project file matches "${ref.path}"`,
           actions: [],
         });
       }
