@@ -24,7 +24,8 @@ export function commandForLevel(level: number): string {
   return SECTION_COMMANDS[level - LEVEL_OFFSET];
 }
 
-const SECTION_RE = /^\\(part|chapter|(?:sub){0,2}section)\*?\s*(?:\[[^\]]*\]\s*)?\{(.*)\}/;
+const SECTION_RE =
+  /^\\(part|chapter|(?:sub){0,2}section)\*?\s*(?:\[[^\]]*\]\s*)?\{(.*)\}/;
 
 export function parseOutline(source: string): OutlineEntry[] {
   const entries: OutlineEntry[] = [];

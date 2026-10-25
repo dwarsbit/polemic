@@ -30,7 +30,13 @@ function anchorLabel(target: CommentTarget): string {
 }
 
 /** The form; remounts per open (the dialog unmounts it when closed). */
-function CommentForm({ target, onClose }: { target: CommentTarget; onClose: () => void }) {
+function CommentForm({
+  target,
+  onClose,
+}: {
+  target: CommentTarget;
+  onClose: () => void;
+}) {
   const comments = useCommentsStore((s) => s.comments);
   const add = useCommentsStore((s) => s.add);
   const update = useCommentsStore((s) => s.update);
@@ -52,7 +58,12 @@ function CommentForm({ target, onClose }: { target: CommentTarget; onClose: () =
       if (target.kind === "edit") {
         await update(target.id, { category, text: text.trim(), resolved });
       } else {
-        await add({ file: target.file, category, text: text.trim(), anchor: target.anchor });
+        await add({
+          file: target.file,
+          category,
+          text: text.trim(),
+          anchor: target.anchor,
+        });
       }
       onClose();
     } catch (e) {
@@ -78,10 +89,7 @@ function CommentForm({ target, onClose }: { target: CommentTarget; onClose: () =
                 : "flex items-center gap-1.5 rounded-full border px-2 py-1 text-xs text-muted-foreground hover:bg-muted/50"
             }
           >
-            <span
-              className="size-2 rounded-full"
-              style={{ background: entry.color }}
-            />
+            <span className="size-2 rounded-full" style={{ background: entry.color }} />
             {entry.label}
           </button>
         ))}

@@ -178,7 +178,9 @@ export function AssetsPanel() {
           }
         }
         if (!cancelled) {
-          setMissing([...missingByRef.values()].sort((a, b) => a.path.localeCompare(b.path)));
+          setMissing(
+            [...missingByRef.values()].sort((a, b) => a.path.localeCompare(b.path)),
+          );
         }
         if (!cancelled) setUsage(counts);
       })();
@@ -413,7 +415,10 @@ export function AssetsPanel() {
                 onClick={() => setMissingOpen((open) => !open)}
               >
                 <ChevronRight
-                  className={cn("size-3 transition-transform", missingOpen && "rotate-90")}
+                  className={cn(
+                    "size-3 transition-transform",
+                    missingOpen && "rotate-90",
+                  )}
                 />
               </button>
               <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-amber-600 dark:text-amber-400">
@@ -425,7 +430,10 @@ export function AssetsPanel() {
             </div>
             {missingOpen &&
               missing.map((ref) => (
-                <div key={ref.path} className="flex items-center rounded pl-6 hover:bg-accent">
+                <div
+                  key={ref.path}
+                  className="flex items-center rounded pl-6 hover:bg-accent"
+                >
                   <button
                     type="button"
                     className="min-w-0 flex-1 truncate py-1 text-left text-sm"

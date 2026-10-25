@@ -24,10 +24,10 @@ const source = [
   "  volume = {27},",
   "}",
   "@book{lamport94, author = {Lamport, Leslie}, title = {{LaTeX: A Document Preparation System}}, publisher = {Addison-Wesley}, year = {1994}}",
-  "@inproceedings{doe99, author = \"Doe, Jane\" # {, Jr.}, title = {A {Nested} Paper}, booktitle = {Proc. of X}, year = 1999}",
+  '@inproceedings{doe99, author = "Doe, Jane" # {, Jr.}, title = {A {Nested} Paper}, booktitle = {Proc. of X}, year = 1999}',
   "@comment{not an entry @article{fake, title = {x}}}",
   "@string{acm = {Association for Computing Machinery}}",
-  "@preamble{\"stuff\"}",
+  '@preamble{"stuff"}',
   "@misc{nothing}",
   "@techreport{tr1,author={A},title={B},institution={C},year={2001}}",
 ].join("\n");
@@ -98,9 +98,7 @@ describe("missingFields", () => {
     expect(missingFields(entries[3])).toEqual([]); // misc: nothing required
     const tr = entries[4];
     expect(missingFields({ type: tr.type, fields: tr.fields })).toEqual([]);
-    expect(missingFields({ type: "article", fields: tr.fields })).toEqual([
-      "journal",
-    ]);
+    expect(missingFields({ type: "article", fields: tr.fields })).toEqual(["journal"]);
   });
 });
 
@@ -166,7 +164,9 @@ describe("planEntryEdits", () => {
     const next = applyEdits(bib, edits);
     expect(next).toContain("journal = {Computing Journal}");
     expect(next).toContain("title = {Literate Programming}");
-    expect(next).toContain("@book{lamport94, author = {Lamport, Leslie}, title = {L}, year = {1994}}");
+    expect(next).toContain(
+      "@book{lamport94, author = {Lamport, Leslie}, title = {L}, year = {1994}}",
+    );
   });
 
   it("renames the key and type, removes and adds fields", () => {
@@ -197,7 +197,9 @@ describe("planEntryEdits", () => {
   });
 
   it("returns null for a missing entry", () => {
-    expect(planEntryEdits(bib, "absent", { key: "x", type: "misc", fields: [] })).toBeNull();
+    expect(
+      planEntryEdits(bib, "absent", { key: "x", type: "misc", fields: [] }),
+    ).toBeNull();
   });
 });
 
@@ -212,9 +214,7 @@ describe("suggestKey", () => {
   });
 
   it("falls back to the type when no author", () => {
-    expect(suggestKey("misc", [{ name: "year", value: "2001" }], [])).toBe(
-      "misc2001",
-    );
+    expect(suggestKey("misc", [{ name: "year", value: "2001" }], [])).toBe("misc2001");
   });
 });
 

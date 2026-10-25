@@ -53,7 +53,9 @@ describe("pill hygiene badges", () => {
   it("warns on cited keys missing from the bibliography", () => {
     useProjectStore.setState({ citeKeysByFile: { "main.bib": ["knuth1984"] } });
     const editor = makeEditor(TEX);
-    const bad = [...editor.view.dom.querySelectorAll(".vis-pill.vis-cite.vis-pill-warn")] as HTMLElement[];
+    const bad = [
+      ...editor.view.dom.querySelectorAll(".vis-pill.vis-cite.vis-pill-warn"),
+    ] as HTMLElement[];
     expect(bad.length).toBe(1);
     expect(bad[0]!.textContent).toContain("ghost");
     expect(bad[0]!.title).toContain("ghost");
@@ -65,7 +67,9 @@ describe("pill hygiene badges", () => {
 
   it("leaves cite pills alone when no bibliography exists", () => {
     const editor = makeEditor(TEX);
-    expect(editor.view.dom.querySelectorAll(".vis-pill.vis-cite.vis-pill-warn").length).toBe(0);
+    expect(
+      editor.view.dom.querySelectorAll(".vis-pill.vis-cite.vis-pill-warn").length,
+    ).toBe(0);
     editor.destroy();
   });
 
@@ -81,21 +85,28 @@ describe("pill hygiene badges", () => {
   });
 
   it("resolves refs against labels defined in this document", () => {
-    const tex = "\\begin{document}\n\\ref{eq:x} later defined: \\label{eq:x}.\n\\end{document}\n";
+    const tex =
+      "\\begin{document}\n\\ref{eq:x} later defined: \\label{eq:x}.\n\\end{document}\n";
     const editor = makeEditor(tex);
-    expect(editor.view.dom.querySelectorAll(".vis-pill.vis-ref.vis-pill-warn").length).toBe(0);
+    expect(
+      editor.view.dom.querySelectorAll(".vis-pill.vis-ref.vis-pill-warn").length,
+    ).toBe(0);
     editor.destroy();
   });
 
   it("fades unused labels and recovers when a reference appears", () => {
     useProjectStore.setState({ labelsByFile: { "main.tex": ["eq:known"] } });
     const editor = makeEditor(TEX);
-    const unused = editor.view.dom.querySelector(".vis-pill.vis-label.vis-pill-unused") as HTMLElement | null;
+    const unused = editor.view.dom.querySelector(
+      ".vis-pill.vis-label.vis-pill-unused",
+    ) as HTMLElement | null;
     expect(unused).not.toBeNull();
     expect(unused!.title).toContain("fig:unused");
     // A save elsewhere updates the cross-file index; the badge clears.
     useProjectStore.setState({ refsByFile: { "other.tex": ["fig:unused"] } });
-    expect(editor.view.dom.querySelector(".vis-pill.vis-label.vis-pill-unused")).toBeNull();
+    expect(
+      editor.view.dom.querySelector(".vis-pill.vis-label.vis-pill-unused"),
+    ).toBeNull();
     editor.destroy();
   });
 });

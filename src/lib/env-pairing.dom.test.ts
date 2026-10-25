@@ -49,9 +49,7 @@ describe("envPairing", () => {
     const doc = view.state.doc.toString();
     // Type a character at the end of the begin name.
     type(view, doc.indexOf("figure") + "figure".length, "s");
-    expect(view.state.doc.toString()).toBe(
-      "\\begin{figures}x\\end{figures}",
-    );
+    expect(view.state.doc.toString()).toBe("\\begin{figures}x\\end{figures}");
     view.destroy();
   });
 
@@ -65,9 +63,7 @@ describe("envPairing", () => {
       selection: { anchor: endName + 5 },
       userEvent: "delete.backward",
     });
-    expect(view.state.doc.toString()).toBe(
-      "\\begin{figur}x\\end{figur}",
-    );
+    expect(view.state.doc.toString()).toBe("\\begin{figur}x\\end{figur}");
     view.destroy();
   });
 });

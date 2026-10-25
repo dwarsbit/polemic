@@ -58,7 +58,9 @@ describe("applyDocumentSettings", () => {
   it("rebuilds the documentclass line and metadata, keeping the rest", () => {
     const next = applyDocumentSettings(MAIN, base);
     expect(next).not.toBeNull();
-    expect(next).toContain("\\documentclass[11pt, a4paper, twocolumn, draft, twoside]{article}");
+    expect(next).toContain(
+      "\\documentclass[11pt, a4paper, twocolumn, draft, twoside]{article}",
+    );
     expect(next).toContain("\\usepackage{amsmath}");
     expect(next).toContain("% custom setup");
     expect(next).toContain("\\newcommand{\\foo}{bar}");

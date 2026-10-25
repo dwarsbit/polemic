@@ -104,18 +104,14 @@ export function LeftRail({
       <RailButton
         label="Manage packages (Cmd/Ctrl + Alt + P)"
         active={false}
-        onClick={() =>
-          useDialogsStore.getState().setPackagesDialogOpen(true)
-        }
+        onClick={() => useDialogsStore.getState().setPackagesDialogOpen(true)}
       >
         <Package className="size-4" />
       </RailButton>
       <RailButton
         label="Document settings (class, paper, title)"
         active={false}
-        onClick={() =>
-          useDialogsStore.getState().setDocumentSettingsOpen(true)
-        }
+        onClick={() => useDialogsStore.getState().setDocumentSettingsOpen(true)}
       >
         <FileCog className="size-4" />
       </RailButton>

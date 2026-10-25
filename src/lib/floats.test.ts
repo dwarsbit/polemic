@@ -23,7 +23,14 @@ describe("parseFloats", () => {
         label: "fig:plot",
         graphic: "figs/plot",
       },
-      { kind: "table", env: "table*", line: 7, caption: null, label: null, graphic: null },
+      {
+        kind: "table",
+        env: "table*",
+        line: 7,
+        caption: null,
+        label: null,
+        graphic: null,
+      },
     ]);
   });
 
@@ -43,11 +50,17 @@ describe("parseFloats", () => {
     ]);
     // The float's own caption wins over a subfigure's.
     expect(floats[0].caption).toBe("Both");
-    expect(parseFloats("\\begin{figure}\\begin{subfigure}{1cm}\\caption{Only}\\end{subfigure}\\end{figure}")[0].caption).toBe("Only");
+    expect(
+      parseFloats(
+        "\\begin{figure}\\begin{subfigure}{1cm}\\caption{Only}\\end{subfigure}\\end{figure}",
+      )[0].caption,
+    ).toBe("Only");
   });
 
   it("treats empty captions and labels as missing", () => {
-    const [float] = parseFloats("\\begin{wrapfigure}{r}{3cm}\\caption{ }\\label{}\\end{wrapfigure}");
+    const [float] = parseFloats(
+      "\\begin{wrapfigure}{r}{3cm}\\caption{ }\\label{}\\end{wrapfigure}",
+    );
     expect(float.caption).toBeNull();
     expect(float.label).toBeNull();
   });

@@ -2,8 +2,7 @@ import { isTauri, showContextMenu } from "@/lib/tauri";
 
 /** A native context menu entry; "separator" inserts a divider. */
 export type NativeMenuEntry =
-  | { id: string; text: string; action: () => void }
-  | "separator";
+  { id: string; text: string; action: () => void } | "separator";
 
 /** Actions of the last shown menu, keyed by item id. */
 let pendingActions = new Map<string, () => void>();
@@ -33,9 +32,7 @@ async function ensureListener(): Promise<void> {
  * No-op outside the desktop app (where the in-tree hover buttons remain
  * the UI).
  */
-export async function showNativeContextMenu(
-  items: NativeMenuEntry[],
-): Promise<void> {
+export async function showNativeContextMenu(items: NativeMenuEntry[]): Promise<void> {
   if (!isTauri()) return;
   await ensureListener();
   pendingActions = new Map(

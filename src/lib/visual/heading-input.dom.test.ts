@@ -128,7 +128,9 @@ describe("heading level chip", () => {
     const editor = makeEditor();
     type(editor, "# ");
     type(editor, "Intro");
-    const chip = editor.view.dom.querySelector(".vis-heading-chip") as HTMLButtonElement | null;
+    const chip = editor.view.dom.querySelector(
+      ".vis-heading-chip",
+    ) as HTMLButtonElement | null;
     expect(chip?.querySelector("svg")).not.toBeNull();
     expect(chip?.title).toBe("Section — click for settings");
     const heading = editor.view.dom.querySelector("h3.vis-heading");
@@ -142,7 +144,9 @@ describe("heading level chip", () => {
     type(editor, "# ");
     type(editor, "Intro");
     setHeadingKind(editor, HEADING_KINDS[3]!);
-    const chip = editor.view.dom.querySelector(".vis-heading-chip") as HTMLButtonElement | null;
+    const chip = editor.view.dom.querySelector(
+      ".vis-heading-chip",
+    ) as HTMLButtonElement | null;
     expect(chip?.title).toBe("Subsection — click for settings");
     editor.destroy();
   });

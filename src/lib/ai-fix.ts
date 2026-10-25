@@ -40,23 +40,25 @@ const SYSTEM_PROMPT = [
   "You fix single LaTeX compile errors for a desktop editor.",
   "Reply with ONLY a JSON object of the shape",
   '{"explanation": string, "replacements": [{"find": string, "replace": string}]}',
-  "- \"find\" must be copied verbatim from the file, as short as possible while still unambiguous.",
+  '- "find" must be copied verbatim from the file, as short as possible while still unambiguous.',
   "- Keep the fix minimal: never reformat or touch unrelated lines. At most 3 replacements.",
   "- If the file needs no edit (a recompile or external change is the fix), return an empty replacements array and explain.",
-  "- \"explanation\" is one or two sentences for the user, no markdown.",
+  '- "explanation" is one or two sentences for the user, no markdown.',
 ].join("\n");
 
 export function buildUserPrompt(issue: CompileIssue, doc: string): string {
   const { text, firstLine } = promptWindow(doc, issue.line);
   const errorLine =
-    issue.line !== null && issue.line >= firstLine && issue.line < firstLine + text.split("\n").length
+    issue.line !== null &&
+    issue.line >= firstLine &&
+    issue.line < firstLine + text.split("\n").length
       ? text.split("\n")[issue.line - firstLine]
       : null;
   const parts = [
     `File: ${issue.file ?? "(the compiled file)"}${issue.line !== null ? `, error at line ${issue.line}` : ""}`,
     "Error from the LaTeX log:",
     `  ${issue.message}`,
-    ...(issue.detail.map((d) => `  ${d}`)),
+    ...issue.detail.map((d) => `  ${d}`),
     "",
     `Excerpt (starts at line ${firstLine}${errorLine !== null ? "; the error line reads exactly:" : ""})`,
     ...(errorLine !== null ? [errorLine] : []),
@@ -73,8 +75,12 @@ interface Replacement {
 }
 
 /** The model's JSON, unwrapped from optional markdown fences. */
-function parseModelJson(content: string): { explanation: string; replacements: Replacement[] } | null {
-  const stripped = content.replace(/^\s*```(?:json)?\s*/i, "").replace(/\s*```\s*$/, "");
+function parseModelJson(
+  content: string,
+): { explanation: string; replacements: Replacement[] } | null {
+  const stripped = content
+    .replace(/^\s*```(?:json)?\s*/i, "")
+    .replace(/\s*```\s*$/, "");
   const start = stripped.indexOf("{");
   const end = stripped.lastIndexOf("}");
   if (start === -1 || end === -1) return null;
@@ -116,7 +122,9 @@ function locate(
   let bestDist = Infinity;
   let at = doc.indexOf(find);
   while (at !== -1) {
-    const overlaps = covered.some((range) => at < range.to && at + find.length > range.from);
+    const overlaps = covered.some(
+      (range) => at < range.to && at + find.length > range.from,
+    );
     if (!overlaps && Math.abs(at - anchor) < bestDist) {
       best = at;
       bestDist = Math.abs(at - anchor);
@@ -158,7 +166,10 @@ export function parseAiFixResponse(
   }
   const fixed = [...edits]
     .sort((a, b) => b.from - a.from)
-    .reduce((out, edit) => out.slice(0, edit.from) + edit.insert + out.slice(edit.to), doc);
+    .reduce(
+      (out, edit) => out.slice(0, edit.from) + edit.insert + out.slice(edit.to),
+      doc,
+    );
   return { fix: { explanation: parsed.explanation, edits, fixed } };
 }
 

@@ -8,7 +8,9 @@ export type CommentTarget =
 
 let dialogHandler: ((target: CommentTarget) => void) | null = null;
 /** Set by the editor view, which hosts the dialog. */
-export function setCommentDialogHandler(handler: ((target: CommentTarget) => void) | null) {
+export function setCommentDialogHandler(
+  handler: ((target: CommentTarget) => void) | null,
+) {
   dialogHandler = handler;
 }
 export function openCommentDialog(target: CommentTarget) {

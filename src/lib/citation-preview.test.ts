@@ -72,7 +72,9 @@ describe("renderBibliography", () => {
       year: "1984",
     });
     const out = renderBibliography(book, "numeric");
-    expect(flat(out)).toBe("Donald E. Knuth. The TeXbook. Reading: Addison-Wesley, 1984.");
+    expect(flat(out)).toBe(
+      "Donald E. Knuth. The TeXbook. Reading: Addison-Wesley, 1984.",
+    );
     expect(out.find((s) => s.italic)?.text).toBe("The TeXbook");
   });
 
@@ -83,7 +85,9 @@ describe("renderBibliography", () => {
       institution: "Inst",
       year: "2000",
     });
-    expect(flat(renderBibliography(report, "numeric"))).toContain("Barnes and Noble. Report.");
+    expect(flat(renderBibliography(report, "numeric"))).toContain(
+      "Barnes and Noble. Report.",
+    );
   });
 
   it("renders an arXiv preprint", () => {
@@ -109,8 +113,11 @@ describe("detectBiblatexStyle", () => {
   });
 
   it("defaults to numeric and ignores commented lines", () => {
-    expect(detectBiblatexStyle(["%\\usepackage[style=alphabetic]{biblatex}\n\\usepackage{biblatex}"]))
-      .toEqual({ name: "numeric", known: true, style: "numeric" });
+    expect(
+      detectBiblatexStyle([
+        "%\\usepackage[style=alphabetic]{biblatex}\n\\usepackage{biblatex}",
+      ]),
+    ).toEqual({ name: "numeric", known: true, style: "numeric" });
   });
 
   it("maps unknown styles to their family", () => {

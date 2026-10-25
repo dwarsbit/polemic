@@ -1,11 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import {
-  ChevronRight,
-  Pencil,
-  Plus,
-  Search,
-  Trash2,
-} from "lucide-react";
+import { ChevronRight, Pencil, Plus, Search, Trash2 } from "lucide-react";
 import { BibEditor } from "@/components/BibEditor";
 import { EntryEditorDialog } from "@/components/EntryEditorDialog";
 import { Badge } from "@/components/ui/badge";
@@ -83,10 +77,7 @@ export function BibFileEditor() {
   }, [jumpTarget, setMode]);
 
   const parsed = useMemo(() => parseBibEntries(content), [content]);
-  const allKeys = useMemo(
-    () => parsed.entries.map((entry) => entry.key),
-    [parsed],
-  );
+  const allKeys = useMemo(() => parsed.entries.map((entry) => entry.key), [parsed]);
 
   const duplicateKeys = useMemo(() => {
     const seen = new Set<string>();
@@ -119,9 +110,7 @@ export function BibFileEditor() {
       return [...filtered].sort((a, b) => a.key.localeCompare(b.key));
     }
     if (sortMode === "title") {
-      return [...filtered].sort((a, b) =>
-        entryTitle(a).localeCompare(entryTitle(b)),
-      );
+      return [...filtered].sort((a, b) => entryTitle(a).localeCompare(entryTitle(b)));
     }
     return filtered;
   }, [parsed, query, typeFilter, sortMode]);
@@ -136,10 +125,13 @@ export function BibFileEditor() {
     }
     return [...map.entries()]
       .sort((a, b) => typeLabel(a[0]).localeCompare(typeLabel(b[0])))
-      .map(([type, typeEntries]) => [
-        type,
-        [...typeEntries].sort((a, b) => a.key.localeCompare(b.key)),
-      ] as [string, BibEntry[]]);
+      .map(
+        ([type, typeEntries]) =>
+          [type, [...typeEntries].sort((a, b) => a.key.localeCompare(b.key))] as [
+            string,
+            BibEntry[],
+          ],
+      );
   }, [rows, sortMode]);
 
   const dirty = activeFile !== null && content !== lastSavedContent;
@@ -170,7 +162,15 @@ export function BibFileEditor() {
   function appendEntry(draft: EntryDraft) {
     const text = useEditorStore.getState().content;
     const sep = text.length > 0 && !text.endsWith("\n") ? "\n\n" : "";
-    if (!apply([{ from: text.length, to: text.length, insert: sep + formatEntry(draft.type, draft.key, draft.fields) }])) {
+    if (
+      !apply([
+        {
+          from: text.length,
+          to: text.length,
+          insert: sep + formatEntry(draft.type, draft.key, draft.fields),
+        },
+      ])
+    ) {
       return;
     }
     flash(`Added ${draft.key}.`);
@@ -204,7 +204,7 @@ export function BibFileEditor() {
 
   const dialogEntry =
     dialog !== null && dialog.kind === "edit"
-      ? parsed.entries.find((entry) => entry.key === dialog.key) ?? null
+      ? (parsed.entries.find((entry) => entry.key === dialog.key) ?? null)
       : null;
 
   /** One entry row: citation key, title, byline, and its state. */
@@ -311,7 +311,9 @@ export function BibFileEditor() {
             className="shrink-0 text-[11px] tabular-nums text-muted-foreground"
             title="The state of this file's references"
           >
-            {parsed.entries.length === 1 ? "1 entry" : `${parsed.entries.length} entries`}
+            {parsed.entries.length === 1
+              ? "1 entry"
+              : `${parsed.entries.length} entries`}
             {incompleteCount > 0 && (
               <>
                 {" · "}
@@ -362,10 +364,7 @@ export function BibFileEditor() {
                 }}
               />
             </div>
-            <Select
-              value={typeFilter}
-              onValueChange={(value) => setTypeFilter(value)}
-            >
+            <Select value={typeFilter} onValueChange={(value) => setTypeFilter(value)}>
               <SelectTrigger className="h-7 w-36 shrink-0 text-xs" title="Entry type">
                 <SelectValue />
               </SelectTrigger>
@@ -399,9 +398,7 @@ export function BibFileEditor() {
           <div className="min-h-0 flex-1 overflow-y-auto px-3 pt-2 pb-3">
             {parsed.entries.length === 0 ? (
               <div className="px-2 py-8 text-center">
-                <p className="text-sm text-muted-foreground">
-                  No references yet.
-                </p>
+                <p className="text-sm text-muted-foreground">No references yet.</p>
                 <p className="mt-1 text-xs text-muted-foreground">
                   Add the first one with the New entry button.
                 </p>

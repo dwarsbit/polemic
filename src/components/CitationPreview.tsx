@@ -66,7 +66,11 @@ export function CitationPreview({
           <span className="text-muted-foreground">Nothing to show yet.</span>
         ) : (
           bibliography.map((segment, i) =>
-            segment.italic ? <em key={i}>{segment.text}</em> : <span key={i}>{segment.text}</span>,
+            segment.italic ? (
+              <em key={i}>{segment.text}</em>
+            ) : (
+              <span key={i}>{segment.text}</span>
+            ),
           )
         )}
       </p>

@@ -68,13 +68,17 @@ export function extractRefPositions(source: string): NamePos[] {
 
 /** The ref command whose argument contains pos, if any. */
 export function refAt(source: string, pos: number): NamePos | null {
-  return extractRefPositions(source).find((ref) => ref.from <= pos && pos <= ref.to) ?? null;
+  return (
+    extractRefPositions(source).find((ref) => ref.from <= pos && pos <= ref.to) ?? null
+  );
 }
 
 /** The label command whose argument contains pos, if any. */
 export function labelAt(source: string, pos: number): NamePos | null {
   return (
-    extractLabelPositions(source).find((label) => label.from <= pos && pos <= label.to) ?? null
+    extractLabelPositions(source).find(
+      (label) => label.from <= pos && pos <= label.to,
+    ) ?? null
   );
 }
 

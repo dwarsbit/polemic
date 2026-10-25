@@ -33,10 +33,7 @@ class FakeStream {
   eat(match: string | RegExp): string | undefined {
     const ch = this.peek();
     if (ch.length === 0) return undefined;
-    const ok =
-      typeof match === "string"
-        ? match.includes(ch)
-        : match.test(ch);
+    const ok = typeof match === "string" ? match.includes(ch) : match.test(ch);
     if (!ok) return undefined;
     this.pos++;
     return ch;

@@ -156,7 +156,8 @@ export function FloatsPanel() {
           aria-pressed={issuesOnly}
           className={cn(
             "h-7 shrink-0 rounded-md border px-2 text-[11px] tabular-nums transition-colors hover:bg-accent",
-            issuesOnly && "border-amber-500/60 bg-amber-500/10 text-amber-700 dark:text-amber-400",
+            issuesOnly &&
+              "border-amber-500/60 bg-amber-500/10 text-amber-700 dark:text-amber-400",
           )}
           onClick={() => setIssuesOnly((on) => !on)}
         >
@@ -169,7 +170,9 @@ export function FloatsPanel() {
             {activeFile ? "No figures or tables in this document." : "No file open."}
           </p>
         ) : visible.length === 0 ? (
-          <p className="px-2 text-xs text-muted-foreground">No floats match your filters.</p>
+          <p className="px-2 text-xs text-muted-foreground">
+            No floats match your filters.
+          </p>
         ) : (
           GROUPS.map(({ kind, label }) => {
             const rows = visible.filter((float) => float.kind === kind);
@@ -185,7 +188,10 @@ export function FloatsPanel() {
                     onClick={() => toggle(kind)}
                   >
                     <ChevronRight
-                      className={cn("size-3 transition-transform", !isCollapsed && "rotate-90")}
+                      className={cn(
+                        "size-3 transition-transform",
+                        !isCollapsed && "rotate-90",
+                      )}
                     />
                   </button>
                   <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-muted-foreground">
@@ -200,7 +206,11 @@ export function FloatsPanel() {
                     const image =
                       float.graphic === null
                         ? null
-                        : resolveGraphicsRef(float.graphic, projectFiles, graphicsPaths);
+                        : resolveGraphicsRef(
+                            float.graphic,
+                            projectFiles,
+                            graphicsPaths,
+                          );
                     return (
                       <button
                         key={`${float.file}:${float.line}`}
@@ -211,7 +221,9 @@ export function FloatsPanel() {
                       >
                         {kind === "figure" && (
                           <span className="flex h-8 w-11 shrink-0 items-center justify-center overflow-hidden rounded bg-muted">
-                            {image !== null && <AssetThumb path={image} kind={assetKind(image)} />}
+                            {image !== null && (
+                              <AssetThumb path={image} kind={assetKind(image)} />
+                            )}
                           </span>
                         )}
                         <span className="min-w-0 flex-1">
@@ -229,9 +241,13 @@ export function FloatsPanel() {
                           </span>
                           <span className="flex min-w-0 items-center gap-1.5 text-[10px] whitespace-nowrap text-muted-foreground">
                             {float.label !== null ? (
-                              <span className="min-w-0 truncate font-mono">{float.label}</span>
+                              <span className="min-w-0 truncate font-mono">
+                                {float.label}
+                              </span>
                             ) : (
-                              <span className="shrink-0 text-amber-600 dark:text-amber-400">No label</span>
+                              <span className="shrink-0 text-amber-600 dark:text-amber-400">
+                                No label
+                              </span>
                             )}
                             <span className="ml-auto min-w-0 truncate">
                               {float.file}:{float.line}

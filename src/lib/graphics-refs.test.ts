@@ -11,7 +11,9 @@ describe("extractGraphicsRefs", () => {
     const src = "a \\includegraphics[width=1cm]{figs/a}\n\\includegraphics*{ b.png }";
     const refs = extractGraphicsRefs(src);
     expect(refs.map((r) => r.path)).toEqual(["figs/a", "b.png"]);
-    expect(src.slice(refs[0].from, refs[0].to)).toBe("\\includegraphics[width=1cm]{figs/a}");
+    expect(src.slice(refs[0].from, refs[0].to)).toBe(
+      "\\includegraphics[width=1cm]{figs/a}",
+    );
   });
 
   it("skips commented-out commands but not escaped percent signs", () => {
@@ -22,7 +24,10 @@ describe("extractGraphicsRefs", () => {
 
 describe("extractGraphicsPaths", () => {
   it("reads every folder of \\graphicspath", () => {
-    expect(extractGraphicsPaths("\\graphicspath{{figs/}{./img}}")).toEqual(["figs/", "./img"]);
+    expect(extractGraphicsPaths("\\graphicspath{{figs/}{./img}}")).toEqual([
+      "figs/",
+      "./img",
+    ]);
     expect(extractGraphicsPaths("% \\graphicspath{{figs/}}")).toEqual([]);
   });
 });
@@ -39,7 +44,9 @@ describe("resolveGraphicsRef", () => {
   it("searches \\graphicspath folders", () => {
     expect(resolveGraphicsRef("plot", files)).toBeNull();
     expect(resolveGraphicsRef("plot", files, ["figs/"])).toBe("figs/plot.pdf");
-    expect(resolveGraphicsRef("photo", files, ["figs", "./img/"])).toBe("img/photo.jpg");
+    expect(resolveGraphicsRef("photo", files, ["figs", "./img/"])).toBe(
+      "img/photo.jpg",
+    );
   });
 
   it("reports renamed or moved files as missing", () => {

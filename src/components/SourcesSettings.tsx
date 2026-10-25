@@ -159,7 +159,14 @@ export function SourcesSettingsCard() {
 
   async function addZoteroApp() {
     if (hasZoteroApp) return;
-    await addSource({ kind: "zotero-app", enabled: true, name: null, path: null, userId: null, apiKey: null });
+    await addSource({
+      kind: "zotero-app",
+      enabled: true,
+      name: null,
+      path: null,
+      userId: null,
+      apiKey: null,
+    });
   }
 
   function toggleExpanded(id: string) {
@@ -175,8 +182,8 @@ export function SourcesSettingsCard() {
     <div>
       <p className="mb-1.5 font-medium">Sources</p>
       <p className="mb-2 text-xs text-muted-foreground">
-        Where "Add from Sources…" searches. Entries are copied into each
-        project's bibliography as you cite them.
+        Where "Add from Sources…" searches. Entries are copied into each project's
+        bibliography as you cite them.
       </p>
       {error !== null ? (
         <p className="py-2 text-xs text-destructive" title={error}>
@@ -200,7 +207,7 @@ export function SourcesSettingsCard() {
               source.kind === "zotero-app" || source.kind === "zotero-cloud";
             // A disabled source is gray, whatever its last check said.
             const status: ZoteroStatus = source.enabled
-              ? statuses[source.id] ?? "checking"
+              ? (statuses[source.id] ?? "checking")
               : "off";
             return (
               <div key={source.id} className="py-2.5">
@@ -272,7 +279,10 @@ export function SourcesSettingsCard() {
                       onClick={() => toggleExpanded(source.id)}
                     >
                       <ChevronRight
-                        className={cn("size-3 transition-transform", isExpanded && "rotate-90")}
+                        className={cn(
+                          "size-3 transition-transform",
+                          isExpanded && "rotate-90",
+                        )}
                       />
                       {files.length} files
                     </button>

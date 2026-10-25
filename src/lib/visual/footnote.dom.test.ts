@@ -91,7 +91,11 @@ describe("footnote views", () => {
     const editor = makeEditor("Text\\footnote{the note} more.\n");
     const at = findNode(editor, "footnote");
     expect(at).not.toBeNull();
-    editor.view.dispatch(editor.view.state.tr.setSelection(NodeSelection.create(editor.state.doc, at!.pos)));
+    editor.view.dispatch(
+      editor.view.state.tr.setSelection(
+        NodeSelection.create(editor.state.doc, at!.pos),
+      ),
+    );
     const raw = editor.view.dom.querySelector(".vis-footnote .vis-raw-edit");
     expect(raw?.textContent).toBe("\\footnote{the note}");
     // Edit and commit: the src attr changes, one undo step.
@@ -124,7 +128,9 @@ describe("footnote input rule", () => {
     const at = findNode(editor, "footnote");
     expect(at).not.toBeNull();
     editor.view.dispatch(
-      editor.view.state.tr.setSelection(TextSelection.create(editor.state.doc, at!.pos + at!.size)),
+      editor.view.state.tr.setSelection(
+        TextSelection.create(editor.state.doc, at!.pos + at!.size),
+      ),
     );
     type(editor, " after");
     const found = JSON.stringify(editor.getJSON());

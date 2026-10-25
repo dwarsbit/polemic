@@ -39,7 +39,8 @@ function makeEditor(tex: string): Editor {
   });
 }
 
-const SIMPLE = "\\documentclass{article}\n\\begin{document}\nParagraph one.\n\\end{document}\n";
+const SIMPLE =
+  "\\documentclass{article}\n\\begin{document}\nParagraph one.\n\\end{document}\n";
 
 /** A preamble-declared theorem env, parsed from source. */
 const DECLARED =
@@ -48,10 +49,8 @@ const DECLARED =
 /** The caret position at the end of the last text block's text
  *  (doc.content.size arithmetic lands in doc-level gap positions). */
 function endOfText(editor: Editor): number {
-  return TextSelection.near(
-    editor.state.doc.resolve(editor.state.doc.content.size),
-    -1,
-  ).from;
+  return TextSelection.near(editor.state.doc.resolve(editor.state.doc.content.size), -1)
+    .from;
 }
 
 describe("insertEnvBlock", () => {
@@ -78,7 +77,9 @@ describe("insertEnvBlock", () => {
     expect(editor.state.selection.toJSON().type).toBe("node");
     insertEnvBlock(editor, "theorem");
     const out = serializeTex(editor.getJSON() as never);
-    expect(out.indexOf("\\documentclass")).toBeLessThan(out.indexOf("\\begin{document}"));
+    expect(out.indexOf("\\documentclass")).toBeLessThan(
+      out.indexOf("\\begin{document}"),
+    );
     expect(out).toContain("\\begin{theorem}\n\\end{theorem}");
     expect(out).not.toContain("theorem}\n  \\documentclass");
     editor.destroy();
@@ -119,7 +120,6 @@ describe("ensurePackage", () => {
 });
 
 describe("addNewtheorem", () => {
-
   it("declares the env with amsthm, and the env parses as a theorem block", () => {
     const editor = makeEditor(SIMPLE);
     expect(addNewtheorem(editor, "exercise", "Exercise")).toBe(true);
@@ -167,7 +167,9 @@ describe("addNewtheorem", () => {
     // The history groups the adjacent dispatches: a single undo
     // removes the instance, the declaration, and the package.
     editor.commands.undo();
-    expect(serializeTex(editor.getJSON() as never)).toBe(serializeTex(parseTex(SIMPLE)));
+    expect(serializeTex(editor.getJSON() as never)).toBe(
+      serializeTex(parseTex(SIMPLE)),
+    );
     editor.destroy();
   });
 });
@@ -178,15 +180,23 @@ describe("insertTheoremEnvEntries", () => {
     const entries = insertTheoremEnvEntries(editor);
     expect(entries.some((e) => e.env === "theorem" && !e.declared)).toBe(true);
     const exercise = entries.find((e) => e.env === "exercise");
-    expect(exercise).toMatchObject({ env: "exercise", label: "Exercise", declared: true });
+    expect(exercise).toMatchObject({
+      env: "exercise",
+      label: "Exercise",
+      declared: true,
+    });
     editor.destroy();
   });
 
   it("reflects declarations made in this editing session", () => {
     const editor = makeEditor(SIMPLE);
-    expect(insertTheoremEnvEntries(editor).some((e) => e.env === "exercise")).toBe(false);
+    expect(insertTheoremEnvEntries(editor).some((e) => e.env === "exercise")).toBe(
+      false,
+    );
     addNewtheorem(editor, "exercise", "Exercise");
-    expect(insertTheoremEnvEntries(editor).some((e) => e.env === "exercise")).toBe(true);
+    expect(insertTheoremEnvEntries(editor).some((e) => e.env === "exercise")).toBe(
+      true,
+    );
     editor.destroy();
   });
 });

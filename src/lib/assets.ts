@@ -31,8 +31,7 @@ export function assetInsert(
   const lower = path.toLowerCase();
   if (isInsertableGraphics(path)) {
     const labels = pathCompletionLabels(siblings);
-    const label =
-      [...labels.entries()].find(([, p]) => p === path)?.[0] ?? path;
+    const label = [...labels.entries()].find(([, p]) => p === path)?.[0] ?? path;
     return { text: `\\includegraphics{${label}}`, packages: ["graphicx"] };
   }
   if (lower.endsWith(".bib")) {
@@ -109,10 +108,7 @@ export function refMatchesAsset(ref: string, assetPath: string): boolean {
  * the exact path, or the extension-less stem match (LaTeX resolves
  * the extension itself). Null when no candidate matches.
  */
-export function resolveAssetRef(
-  ref: string,
-  candidates: string[],
-): string | null {
+export function resolveAssetRef(ref: string, candidates: string[]): string | null {
   const trimmed = ref.trim();
   if (trimmed.length === 0) return null;
   if (candidates.includes(trimmed)) return trimmed;

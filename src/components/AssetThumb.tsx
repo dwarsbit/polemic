@@ -11,8 +11,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
 const THUMB_WIDTH = 240;
 
 function KindIcon({ kind }: { kind: AssetKind }) {
-  if (kind === "raster")
-    return <ImageIcon className="size-6 text-muted-foreground" />;
+  if (kind === "raster") return <ImageIcon className="size-6 text-muted-foreground" />;
   if (kind === "pdf") return <FileIcon className="size-6 text-muted-foreground" />;
   return <Film className="size-6 text-muted-foreground" />;
 }
@@ -79,7 +78,5 @@ export function AssetThumb({
     fit === "shrink"
       ? "max-h-[200px] max-w-[280px] rounded-lg object-contain"
       : "h-full w-full object-contain";
-  return (
-    <img src={src} alt="" draggable={false} className={mediaClass} />
-  );
+  return <img src={src} alt="" draggable={false} className={mediaClass} />;
 }

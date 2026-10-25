@@ -59,7 +59,9 @@ function modeledEnvs(extra?: Set<string>): Set<string> {
  * The `\newtheorem` declarations in a preamble, comment-aware:
  * environment name and its display name (`\newtheorem{env}{Name}`).
  */
-export function newtheoremDeclarations(preamble: string): { env: string; name: string }[] {
+export function newtheoremDeclarations(
+  preamble: string,
+): { env: string; name: string }[] {
   const declarations: { env: string; name: string }[] = [];
   const re = /\\newtheorem\*?\s*\{([^}]*)\}(?:\s*\[[^\]]*\])?\s*\{([^}]*)\}/g;
   let m: RegExpExecArray | null;
@@ -252,7 +254,8 @@ function envBody(
       }
       if (src.startsWith(endToken, i)) {
         depth--;
-        if (depth === 0) return { inner: src.slice(afterOpen, i), end: i + endToken.length };
+        if (depth === 0)
+          return { inner: src.slice(afterOpen, i), end: i + endToken.length };
         i += endToken.length;
         continue;
       }
@@ -324,7 +327,10 @@ function findLiteral(src: string, from: number, marker: string): number {
 }
 
 /** The balanced `{...}` group opening at `pos`, or null when unbalanced. */
-function readBalancedGroup(src: string, pos: number): { inner: string; end: number } | null {
+function readBalancedGroup(
+  src: string,
+  pos: number,
+): { inner: string; end: number } | null {
   let depth = 0;
   let i = pos;
   while (i < src.length) {
@@ -400,11 +406,15 @@ function findBracketEnd(src: string, pos: number): number {
 }
 
 /** A sectioning command at `i`, with optional `[short]` and the `{` of its title. */
-function matchSection(src: string, i: number): { cmd: string; opt?: string; brace: number } | null {
+function matchSection(
+  src: string,
+  i: number,
+): { cmd: string; opt?: string; brace: number } | null {
   if (src[i] !== "\\") return null;
-  const m = /^\\(part|chapter|section|subsection|subsubsection|paragraph|subparagraph)(\*)?(?:\s*\[([^\]]*)\])?\s*\{/.exec(
-    src.slice(i, i + 200),
-  );
+  const m =
+    /^\\(part|chapter|section|subsection|subsubsection|paragraph|subparagraph)(\*)?(?:\s*\[([^\]]*)\])?\s*\{/.exec(
+      src.slice(i, i + 200),
+    );
   if (m === null) return null;
   return {
     cmd: m[1] + (m[2] ?? ""),
@@ -607,10 +617,7 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
 
     if (FORMAT_MARKS[cmd] !== undefined) {
       const afterCmd = i + 1 + cmd.length;
-      const g =
-        c.src[afterCmd] === "{"
-          ? readBalancedGroup(c.src, afterCmd)
-          : null;
+      const g = c.src[afterCmd] === "{" ? readBalancedGroup(c.src, afterCmd) : null;
       if (g !== null) {
         const mark: Mark = { type: FORMAT_MARKS[cmd], attrs: { cmd } };
         flush();
@@ -1019,7 +1026,9 @@ export function parseTex(source: string): DocNode {
     }
   }
 
-  content.push(...parseBody(body, envs ?? { modeled: modeledEnvs(), theorems: THEOREM_ENVS }));
+  content.push(
+    ...parseBody(body, envs ?? { modeled: modeledEnvs(), theorems: THEOREM_ENVS }),
+  );
 
   return {
     type: "doc",

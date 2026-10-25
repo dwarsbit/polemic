@@ -59,9 +59,7 @@ export function AiFixDialog() {
   if (issue === null) return null;
 
   const rows =
-    state.kind === "fix"
-      ? collapseContext(lineDiff(state.doc, state.fix.fixed))
-      : [];
+    state.kind === "fix" ? collapseContext(lineDiff(state.doc, state.fix.fixed)) : [];
 
   function onApply() {
     if (state.kind !== "fix") return;

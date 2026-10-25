@@ -122,7 +122,9 @@ function citeNames(people: Person[]): string {
 /** biblatex default maxbibnames=3: four or more authors shorten. */
 function bibNames(people: Person[], invertFirst: boolean): string {
   const shown = people.length > 3 ? people.slice(0, 1) : people;
-  const names = shown.map((p, i) => (i === 0 && invertFirst ? familyGiven(p) : givenFamily(p)));
+  const names = shown.map((p, i) =>
+    i === 0 && invertFirst ? familyGiven(p) : givenFamily(p),
+  );
   if (people.length > 3) return `${names[0]} et al.`;
   return joinList(names);
 }
@@ -131,16 +133,27 @@ function shortTitle(entry: PreviewEntry): string {
   return text(entry, "shorttitle", "title") ?? entry.key;
 }
 
-const ARTICLE_LIKE = new Set(["article", "inproceedings", "conference", "incollection", "inbook"]);
+const ARTICLE_LIKE = new Set([
+  "article",
+  "inproceedings",
+  "conference",
+  "incollection",
+  "inbook",
+]);
 
 /** alphabetic labels: Vas+17, KL84, Knu84. */
 function alphaLabel(entry: PreviewEntry): string {
   const people = credited(entry);
   const yy = (year(entry) ?? "").slice(2);
-  if (people.length === 0) return `${(text(entry, "title") ?? entry.key).slice(0, 3)}${yy}`;
+  if (people.length === 0)
+    return `${(text(entry, "title") ?? entry.key).slice(0, 3)}${yy}`;
   if (people.length === 1) return `${people[0].family.slice(0, 3)}${yy}`;
-  if (people.length <= 4) return `${people.map((p) => p.family[0] ?? "").join("")}${yy}`;
-  return `${people.slice(0, 3).map((p) => p.family[0] ?? "").join("")}+${yy}`;
+  if (people.length <= 4)
+    return `${people.map((p) => p.family[0] ?? "").join("")}${yy}`;
+  return `${people
+    .slice(0, 3)
+    .map((p) => p.family[0] ?? "")
+    .join("")}+${yy}`;
 }
 
 /** The in-text citation: \cite for numeric/alphabetic, \parencite
@@ -173,7 +186,10 @@ export function renderCitations(
       const body = [lead, shown].filter(Boolean).join(", ");
       return [
         { command: "\\parencite", output: `(${body})` },
-        { command: "\\textcite", output: lead.length > 0 ? `${lead} (${shown})` : shown },
+        {
+          command: "\\textcite",
+          output: lead.length > 0 ? `${lead} (${shown})` : shown,
+        },
       ];
     }
   }
@@ -190,12 +206,17 @@ function sentences(chunks: (Segment[] | null)[]): Segment[] {
   present.forEach((chunk, i) => {
     out.push(...chunk);
     const last = out[out.length - 1];
-    out.push(plain(i === present.length - 1 ? (last.text.endsWith(".") ? "" : ".") : ". "));
+    out.push(
+      plain(i === present.length - 1 ? (last.text.endsWith(".") ? "" : ".") : ". "),
+    );
   });
   return out.filter((s) => s.text.length > 0);
 }
 
-function opt(value: string | undefined, wrap: (v: string) => Segment[]): Segment[] | null {
+function opt(
+  value: string | undefined,
+  wrap: (v: string) => Segment[],
+): Segment[] | null {
   return value === undefined ? null : wrap(value);
 }
 
@@ -253,7 +274,11 @@ export function renderBibliography(entry: PreviewEntry, style: CiteStyle): Segme
               plain("In: "),
               { text: journal, italic: true },
               plain(
-                [vol.length > 0 ? ` ${vol}` : "", yearPart, pages ? `, ${pages}` : ""].join(""),
+                [
+                  vol.length > 0 ? ` ${vol}` : "",
+                  yearPart,
+                  pages ? `, ${pages}` : "",
+                ].join(""),
               ),
             ];
       return sentences([...head, quoted, inChunk, ...link]);
@@ -271,9 +296,13 @@ export function renderBibliography(entry: PreviewEntry, style: CiteStyle): Segme
           ? [plain(`Ed. by ${joinList(editors.map(givenFamily))}`)]
           : null;
       const inChunk: Segment[] | null =
-        booktitle === undefined ? null : [plain("In: "), { text: booktitle, italic: true }];
+        booktitle === undefined
+          ? null
+          : [plain("In: "), { text: booktitle, italic: true }];
       const imprint = [
-        place !== undefined && publisher !== undefined ? `${place}: ${publisher}` : (publisher ?? place),
+        place !== undefined && publisher !== undefined
+          ? `${place}: ${publisher}`
+          : (publisher ?? place),
         yearInline,
       ]
         .filter(Boolean)
@@ -283,7 +312,11 @@ export function renderBibliography(entry: PreviewEntry, style: CiteStyle): Segme
         quoted,
         inChunk,
         edBy,
-        imprint.length > 0 ? [plain(imprint + (pages ? `, ${pages}` : ""))] : pages ? [plain(pages)] : null,
+        imprint.length > 0
+          ? [plain(imprint + (pages ? `, ${pages}` : ""))]
+          : pages
+            ? [plain(pages)]
+            : null,
         ...link,
       ]);
     }
@@ -321,7 +354,9 @@ export function renderBibliography(entry: PreviewEntry, style: CiteStyle): Segme
       const publisher = text(entry, "publisher");
       const place = text(entry, "location", "address");
       const imprint = [
-        place !== undefined && publisher !== undefined ? `${place}: ${publisher}` : (publisher ?? place),
+        place !== undefined && publisher !== undefined
+          ? `${place}: ${publisher}`
+          : (publisher ?? place),
         yearInline,
       ]
         .filter(Boolean)
@@ -370,8 +405,9 @@ export function detectBiblatexStyle(
       if (!packages.includes("biblatex")) continue;
       const options = match[1] ?? "";
       const chosen =
-        /(?:^|[,\s])(?:citestyle|style)\s*=\s*([\w-]+)/.exec(options)?.[1]?.toLowerCase() ??
-        "numeric";
+        /(?:^|[,\s])(?:citestyle|style)\s*=\s*([\w-]+)/
+          .exec(options)?.[1]
+          ?.toLowerCase() ?? "numeric";
       const base = chosen.split("-")[0];
       const exact = CITE_STYLES.find((s) => s.id === chosen);
       if (exact !== undefined) return { name: chosen, known: true, style: exact.id };

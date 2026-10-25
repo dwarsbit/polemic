@@ -89,7 +89,9 @@ describe("planLabelRename", () => {
     expect(renamed).toContain("\\label{fig:overview}");
 
     const renamedChapter = applyEdits(chapter.content, plan.get("chapter1.tex")!);
-    expect(renamedChapter).toBe("\\label{sec:opening}\\label{intro}\\label{fig:overview}");
+    expect(renamedChapter).toBe(
+      "\\label{sec:opening}\\label{intro}\\label{fig:overview}",
+    );
   });
 
   it("leaves files that do not mention the label out of the plan", () => {
@@ -99,7 +101,10 @@ describe("planLabelRename", () => {
   });
 
   it("only replaces whole names, not substrings", () => {
-    const file: ScannedFile = { file: "a.tex", content: "\\label{fig:a}\\label{fig:ab}" };
+    const file: ScannedFile = {
+      file: "a.tex",
+      content: "\\label{fig:a}\\label{fig:ab}",
+    };
     const plan = planLabelRename([file], "fig:a", "fig:x");
     const renamed = applyEdits(file.content, plan.get("a.tex")!);
     expect(renamed).toBe("\\label{fig:x}\\label{fig:ab}");

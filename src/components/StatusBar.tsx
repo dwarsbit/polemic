@@ -6,7 +6,6 @@ import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 
-
 function CompileStatus() {
   const status = usePreviewStore((s) => s.status);
   const issues = usePreviewStore((s) => s.issues);

@@ -172,14 +172,7 @@ function mathCommandOptions(): Completion[] {
 }
 
 /** Extensions \includegraphics accepts (and our path completion offers). */
-export const IMAGE_EXTENSIONS = [
-  ".pdf",
-  ".png",
-  ".jpg",
-  ".jpeg",
-  ".eps",
-  ".gif",
-];
+export const IMAGE_EXTENSIONS = [".pdf", ".png", ".jpg", ".jpeg", ".eps", ".gif"];
 
 /** Commands whose first braced argument is a project file path. */
 const PATH_COMMANDS: Record<string, { extensions: string[]; kind: string }> = {
@@ -208,9 +201,7 @@ function flattenFilePaths(entries: FileEntry[], out: string[] = []): string[] {
  * extension when two files share a stem, so the reference stays
  * unambiguous (e.g. plot.pdf next to plot.png).
  */
-export function pathCompletionLabels(
-  paths: string[],
-): Map<string, string> {
+export function pathCompletionLabels(paths: string[]): Map<string, string> {
   const stems = paths.map((path) => path.replace(/\.[^./]+$/, ""));
   const ambiguous = new Set(
     stems.filter((stem, index) => stems.indexOf(stem) !== index),
@@ -249,9 +240,7 @@ export function latexCompletionSource(
   }
 
   // Citation keys inside the \cite family (\citep, \textcite, …)
-  const citeContext = context.matchBefore(
-    /\\[A-Za-z]*cite\*?(?:\[[^\]]*\])*\{[^}]*/,
-  );
+  const citeContext = context.matchBefore(/\\[A-Za-z]*cite\*?(?:\[[^\]]*\])*\{[^}]*/);
   if (citeContext && citeContext.to === context.pos) {
     const citeKeys = useProjectStore.getState().allCiteKeys();
     if (citeKeys.length === 0) return null;
@@ -274,8 +263,7 @@ export function latexCompletionSource(
     /\\(includegraphics|include|input|bibliography|addbibresource)(?:\[[^\]]*\])?\{[^}]*/,
   );
   if (pathContext && pathContext.to === context.pos) {
-    const spec =
-      PATH_COMMANDS[pathContext.text.match(/^\\(\w+)/)?.[1] ?? ""];
+    const spec = PATH_COMMANDS[pathContext.text.match(/^\\(\w+)/)?.[1] ?? ""];
     if (spec) {
       const { files, activeFile } = useProjectStore.getState();
       const candidates = flattenFilePaths(files).filter(

@@ -31,7 +31,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { NewTheoremDialog } from "@/components/NewTheoremDialog";
-import { FIGURE_SCAFFOLD, TABLE_SCAFFOLD, insertAtCursor, setInsertHandler } from "@/lib/editor-insert";
+import {
+  FIGURE_SCAFFOLD,
+  TABLE_SCAFFOLD,
+  insertAtCursor,
+  setInsertHandler,
+} from "@/lib/editor-insert";
 import {
   HEADING_KINDS,
   INSERT_QUOTE_ENVS,
@@ -541,7 +546,8 @@ export function VisualTexEditor() {
       if (editor === null) return 0;
       let count = 0;
       editor.state.doc.descendants((node) => {
-        if (node.type.name === "rawTexBlock" || node.type.name === "rawTexInline") count++;
+        if (node.type.name === "rawTexBlock" || node.type.name === "rawTexInline")
+          count++;
         return true;
       });
       return count;
@@ -582,8 +588,8 @@ export function VisualTexEditor() {
       <VisualToolbar editor={editor} />
       {(rawCount ?? 0) > 0 && (
         <p className="shrink-0 border-b bg-accent/40 px-3 py-1 text-xs text-muted-foreground">
-          Some constructs are shown as raw LaTeX — edit them in place
-          with a double-click, or switch to Code.
+          Some constructs are shown as raw LaTeX — edit them in place with a
+          double-click, or switch to Code.
         </p>
       )}
       {missingMaketitle === true && (

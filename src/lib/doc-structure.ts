@@ -21,7 +21,10 @@ interface TreeEntry {
 }
 
 /** Project-relative paths of every .tex file in a file tree. */
-export function texPathsOf(entries: readonly TreeEntry[], out: string[] = []): string[] {
+export function texPathsOf(
+  entries: readonly TreeEntry[],
+  out: string[] = [],
+): string[] {
   for (const entry of entries) {
     if (entry.isDir) texPathsOf(entry.children, out);
     else if (entry.path.endsWith(".tex")) out.push(entry.path);
@@ -109,10 +112,16 @@ export function includeChain(
 }
 
 /** The 1-based line of `text` that includes `child`, or null. */
-export function includeLineOf(text: string, child: string, files: string[]): number | null {
+export function includeLineOf(
+  text: string,
+  child: string,
+  files: string[],
+): number | null {
   const lines = text.split("\n");
   for (const [index, line] of lines.entries()) {
-    if (extractIncludes(line).some((spec) => resolveIncludePath(spec, files) === child)) {
+    if (
+      extractIncludes(line).some((spec) => resolveIncludePath(spec, files) === child)
+    ) {
       return index + 1;
     }
   }

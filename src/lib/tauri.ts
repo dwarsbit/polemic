@@ -183,7 +183,10 @@ export function getProjectConfig(projectDir: string): Promise<ProjectConfig> {
   return invoke<ProjectConfig>("get_project_config", { projectDir });
 }
 
-export function saveProjectConfig(projectDir: string, config: ProjectConfig): Promise<void> {
+export function saveProjectConfig(
+  projectDir: string,
+  config: ProjectConfig,
+): Promise<void> {
   return invoke<void>("save_project_config", { projectDir, config });
 }
 

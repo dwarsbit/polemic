@@ -37,7 +37,8 @@ class CommentMarker extends GutterMarker {
 
   override eq(other: CommentMarker): boolean {
     return (
-      other.comment.id === this.comment.id && other.comment.resolved === this.comment.resolved
+      other.comment.id === this.comment.id &&
+      other.comment.resolved === this.comment.resolved
     );
   }
 }
@@ -65,10 +66,14 @@ export function anchoredComments(doc: Text, file: string): AnchoredComment[] {
 }
 
 const field = StateField.define<AnchoredComment[]>({
-  create: (state) => anchoredComments(state.doc, useProjectStore.getState().activeFile ?? ""),
+  create: (state) =>
+    anchoredComments(state.doc, useProjectStore.getState().activeFile ?? ""),
   update(value, tr) {
     if (tr.docChanged || tr.effects.some((effect) => effect.is(refreshComments))) {
-      return anchoredComments(tr.state.doc, useProjectStore.getState().activeFile ?? "");
+      return anchoredComments(
+        tr.state.doc,
+        useProjectStore.getState().activeFile ?? "",
+      );
     }
     return value;
   },
@@ -87,7 +92,9 @@ export const commentGutter = [
       if (comments.length === 0) return RangeSet.empty;
       return RangeSet.of(
         comments.map((comment) => {
-          const line = view.state.doc.line(Math.min(comment.line, view.state.doc.lines));
+          const line = view.state.doc.line(
+            Math.min(comment.line, view.state.doc.lines),
+          );
           return new CommentMarker(comment).range(line.from);
         }),
       );

@@ -96,7 +96,10 @@ describe("anchors across the faces", () => {
     expect(anchorForLine(DOC, 5)).toEqual({ headingIndex: 0, text: "More alpha." });
     expect(anchorForLine(DOC, 8)).toEqual({ headingIndex: 1, text: "Beta text here." });
     // Before the first heading: headingIndex -1, from the doc top.
-    expect(anchorForLine(DOC, 1)).toEqual({ headingIndex: -1, text: "\\documentclass{article}" });
+    expect(anchorForLine(DOC, 1)).toEqual({
+      headingIndex: -1,
+      text: "\\documentclass{article}",
+    });
   });
 
   it("resolves a jump-line anchor to a doc position", async () => {
@@ -125,7 +128,9 @@ describe("anchors across the faces", () => {
     // A jump to the "Beta text here." line lands inside that paragraph.
     const pos = posForAnchor(editor.state.doc, anchorForLine(DOC, 8));
     expect(pos).not.toBeNull();
-    expect(editor.state.doc.resolve(pos!).parent.textContent).toContain("Beta text here");
+    expect(editor.state.doc.resolve(pos!).parent.textContent).toContain(
+      "Beta text here",
+    );
 
     // A jump to the second heading line lands right after the heading.
     const headingPos = posForAnchor(editor.state.doc, anchorForLine(DOC, 7));

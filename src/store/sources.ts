@@ -97,7 +97,13 @@ export const useSourcesStore = create<SourcesState>((set, get) => ({
           }
         }
       }
-      set({ sources: settings.sources, sourceFiles, bibTexts, error: null, loading: false });
+      set({
+        sources: settings.sources,
+        sourceFiles,
+        bibTexts,
+        error: null,
+        loading: false,
+      });
     } catch (e) {
       set({ error: String(e), loading: false });
     }

@@ -1,10 +1,4 @@
-import {
-  AlertTriangle,
-  ChevronDown,
-  Loader2,
-  Sparkles,
-  Wrench,
-} from "lucide-react";
+import { AlertTriangle, ChevronDown, Loader2, Sparkles, Wrench } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { CompileIssue } from "@/lib/tauri";
@@ -181,9 +175,7 @@ export function IssuesPanel({
         ) : (
           <pre className="font-mono text-xs whitespace-pre-wrap">{log}</pre>
         )}
-        {fixNote !== null && (
-          <p className="mt-1 text-xs text-amber-600">{fixNote}</p>
-        )}
+        {fixNote !== null && <p className="mt-1 text-xs text-amber-600">{fixNote}</p>}
       </div>
     </div>
   );

@@ -180,7 +180,9 @@ export function EditorView() {
     setPanelCommandHandler("toggle-search", () => selectIssuesTool("search"));
     setPanelCommandHandler("toggle-issues", () => selectIssuesTool("issues"));
     setPanelCommandHandler("toggle-log", () => selectIssuesTool("log"));
-    setPanelCommandHandler("show-bibliography", () => selectNavigatorTab("bibliography"));
+    setPanelCommandHandler("show-bibliography", () =>
+      selectNavigatorTab("bibliography"),
+    );
     return () => {
       setPanelCommandHandler("toggle-sidebar", null);
       setPanelCommandHandler("toggle-preview", null);

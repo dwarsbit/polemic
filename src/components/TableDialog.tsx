@@ -122,7 +122,12 @@ export function TableDialog({
         </DialogHeader>
         <div className="space-y-3">
           <div className="flex items-center gap-8">
-            <Counter label="Columns" value={columns} onChange={changeColumns} max={MAX_COLUMNS} />
+            <Counter
+              label="Columns"
+              value={columns}
+              onChange={changeColumns}
+              max={MAX_COLUMNS}
+            />
             <Counter label="Rows" value={rows} onChange={setRows} max={MAX_ROWS} />
           </div>
           <div className="flex items-center gap-2">

@@ -64,10 +64,7 @@ export interface SourceEdit {
  * multi-package command is rewritten without it. Null when the
  * document does not load the package.
  */
-export function planUsepackageRemoval(
-  doc: string,
-  name: string,
-): SourceEdit | null {
+export function planUsepackageRemoval(doc: string, name: string): SourceEdit | null {
   for (const command of parseUsepackage(doc)) {
     if (!command.names.includes(name)) continue;
     const remaining = command.names.filter((n) => n !== name);

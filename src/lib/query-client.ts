@@ -17,12 +17,7 @@ export function invalidateGitState(): Promise<void> {
  * the file tree, change bars, and history.
  */
 export function refetchGitState(): Promise<void> {
-  return invalidateGitQueries([
-    "git-status",
-    "git-ignored",
-    "git-head",
-    "git-log",
-  ]);
+  return invalidateGitQueries(["git-status", "git-ignored", "git-head", "git-log"]);
 }
 
 function invalidateGitQueries(keys: string[]): Promise<void> {

@@ -158,9 +158,7 @@ export function SettingsDialog({
   const supsubBraces = useSettingsStore((s) => s.supsubBraces);
   const setSupsubBraces = useSettingsStore((s) => s.setSupsubBraces);
   const convertDoubleDollar = useSettingsStore((s) => s.convertDoubleDollar);
-  const setConvertDoubleDollar = useSettingsStore(
-    (s) => s.setConvertDoubleDollar,
-  );
+  const setConvertDoubleDollar = useSettingsStore((s) => s.setConvertDoubleDollar);
   const formatOnSave = useSettingsStore((s) => s.formatOnSave);
   const mathPreviewEngine = useSettingsStore((s) => s.mathPreviewEngine);
   const caretStyle = useSettingsStore((s) => s.caretStyle);
@@ -168,23 +166,15 @@ export function SettingsDialog({
   const caretColor = useSettingsStore((s) => s.caretColor);
   const setCaretColor = useSettingsStore((s) => s.setCaretColor);
   const caretCustomColor = useSettingsStore((s) => s.caretCustomColor);
-  const setCaretCustomColor = useSettingsStore(
-    (s) => s.setCaretCustomColor,
-  );
+  const setCaretCustomColor = useSettingsStore((s) => s.setCaretCustomColor);
   const setFormatOnSave = useSettingsStore((s) => s.setFormatOnSave);
-  const setMathPreviewEngine = useSettingsStore(
-    (s) => s.setMathPreviewEngine,
-  );
+  const setMathPreviewEngine = useSettingsStore((s) => s.setMathPreviewEngine);
   const reopenLastProject = useSettingsStore((s) => s.reopenLastProject);
-  const setReopenLastProject = useSettingsStore(
-    (s) => s.setReopenLastProject,
-  );
+  const setReopenLastProject = useSettingsStore((s) => s.setReopenLastProject);
   const autoIncludeNewFiles = useSettingsStore((s) => s.autoIncludeNewFiles);
   const onlineLookup = useSettingsStore((s) => s.onlineLookup);
   const setOnlineLookup = useSettingsStore((s) => s.setOnlineLookup);
-  const setAutoIncludeNewFiles = useSettingsStore(
-    (s) => s.setAutoIncludeNewFiles,
-  );
+  const setAutoIncludeNewFiles = useSettingsStore((s) => s.setAutoIncludeNewFiles);
   const versionControl = useSettingsStore((s) => resolveVersionControl(s));
   const setVersionControl = useSettingsStore((s) => s.setVersionControl);
   const gitAvailable = useSettingsStore((s) => s.gitAvailable);
@@ -290,9 +280,7 @@ export function SettingsDialog({
                     size="sm"
                     disabled={!gitAvailable}
                     title={
-                      gitAvailable
-                        ? "Use git"
-                        : "git is not installed on this system"
+                      gitAvailable ? "Use git" : "git is not installed on this system"
                     }
                   >
                     Git
@@ -310,11 +298,7 @@ export function SettingsDialog({
                 "New projects are created here. Existing projects stay where they are.",
               keywords: "directory location storage disk",
               control: (
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => void pickRoot()}
-                >
+                <Button variant="outline" size="sm" onClick={() => void pickRoot()}>
                   <FolderOpen />
                   Choose folder
                 </Button>
@@ -345,8 +329,7 @@ export function SettingsDialog({
             {
               id: "spellcheck",
               label: "Spellcheck",
-              description:
-                "Right-click a marked word to add it to your dictionary.",
+              description: "Right-click a marked word to add it to your dictionary.",
               keywords: "dictionary words typo underline",
               control: (
                 <Switch
@@ -375,11 +358,7 @@ export function SettingsDialog({
                   <SelectTrigger
                     className="w-36"
                     disabled={downloading !== null}
-                    title={
-                      downloading !== null
-                        ? "Downloading wordlist…"
-                        : undefined
-                    }
+                    title={downloading !== null ? "Downloading wordlist…" : undefined}
                   >
                     <SelectValue />
                   </SelectTrigger>
@@ -444,8 +423,7 @@ export function SettingsDialog({
             {
               id: "supsub",
               label: "Auto-braces for ^ and _",
-              description:
-                "Typing ^ or _ inserts braces with the cursor inside (^{}).",
+              description: "Typing ^ or _ inserts braces with the cursor inside (^{}).",
               keywords: "superscript subscript exponent",
               control: (
                 <Switch
@@ -495,7 +473,7 @@ export function SettingsDialog({
               id: "sources",
               label: "Sources",
               description:
-                "Where \"Add from Sources…\" searches: .bib files and Zotero connections.",
+                'Where "Add from Sources…" searches: .bib files and Zotero connections.',
               keywords: "zotero bibtex bib references citations sources",
               control: null,
             },
@@ -509,8 +487,9 @@ export function SettingsDialog({
               id: "online-lookup",
               label: "Online DOI/arXiv lookup",
               description:
-                "Lets \"Import by DOI or arXiv ID\" contact doi.org to fetch a BibTeX entry. Only the identifier you paste is sent. Off by default.",
-              keywords: "doi arxiv import online lookup network bibtex crossref datacite",
+                'Lets "Import by DOI or arXiv ID" contact doi.org to fetch a BibTeX entry. Only the identifier you paste is sent. Off by default.',
+              keywords:
+                "doi arxiv import online lookup network bibtex crossref datacite",
               control: (
                 <Switch
                   checked={onlineLookup}
@@ -534,7 +513,7 @@ export function SettingsDialog({
               id: "ai-provider",
               label: "AI quickfix provider",
               description:
-                "An OpenAI-compatible endpoint the \"Fix with AI\" action uses for errors the built-in rules cannot fix.",
+                'An OpenAI-compatible endpoint the "Fix with AI" action uses for errors the built-in rules cannot fix.',
               keywords: "ai fix error llm openai mistral api key model",
               control: null,
             },
@@ -575,8 +554,7 @@ export function SettingsDialog({
             {
               id: "cursor-style",
               label: "Cursor style",
-              description:
-                "A 2px line, or a translucent block over the character.",
+              description: "A 2px line, or a translucent block over the character.",
               keywords: "caret text cursor block line",
               control: (
                 <ToggleButtonGroup
@@ -627,9 +605,7 @@ export function SettingsDialog({
                       title="Custom cursor color"
                       className="h-7 w-8 cursor-pointer rounded-md border bg-transparent p-0.5"
                       value={caretCustomColor}
-                      onChange={(e) =>
-                        void setCaretCustomColor(e.target.value)
-                      }
+                      onChange={(e) => void setCaretCustomColor(e.target.value)}
                     />
                   )}
                 </div>
@@ -693,8 +669,7 @@ export function SettingsDialog({
             {
               id: "syntax-theme",
               label: "Syntax theme",
-              description:
-                "Each theme follows the app's light or dark mode.",
+              description: "Each theme follows the app's light or dark mode.",
               keywords: "highlighting colors code",
               control: (
                 <Select
@@ -743,9 +718,7 @@ export function SettingsDialog({
                   trimmed,
                   `${s.label} ${row.label} ${row.description ?? ""} ${row.keywords ?? ""}`,
                 );
-                return match
-                  ? { section: s, card, row, score: match.score }
-                  : null;
+                return match ? { section: s, card, row, score: match.score } : null;
               }),
             ),
           )

@@ -76,10 +76,7 @@ export function missingPackages(doc: string, packages: string[]): string[] {
  * Insert missing `\usepackage{...}` lines after the `\documentclass`
  * line. Returns the new document (the input when nothing is missing).
  */
-export function insertPackages(
-  doc: string,
-  packages: string[],
-): string {
+export function insertPackages(doc: string, packages: string[]): string {
   const missing = missingPackages(doc, packages);
   if (missing.length === 0) return doc;
   const classMatch = /\\documentclass[^\n]*\n/.exec(doc);

@@ -65,7 +65,11 @@ describe("tabIndent keymap (DOM)", () => {
     const container = document.createElement("div");
     document.body.appendChild(container);
     const view = new EditorView({
-      state: EditorState.create({ doc, selection: { anchor }, extensions: [basicSetup, tabIndent] }),
+      state: EditorState.create({
+        doc,
+        selection: { anchor },
+        extensions: [basicSetup, tabIndent],
+      }),
       parent: container,
     });
     return view;

@@ -21,10 +21,7 @@ export function setApplyEditsHandler(h: ApplyEditsHandler | null) {
  * (one undo step). Returns true when the document changed. No-op
  * when the editor is not mounted or an edit falls outside the doc.
  */
-export function applyEditsInView(
-  edits: SourceEdit[],
-  userEvent?: string,
-): boolean {
+export function applyEditsInView(edits: SourceEdit[], userEvent?: string): boolean {
   return handler?.(edits, userEvent) ?? false;
 }
 

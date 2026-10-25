@@ -199,9 +199,7 @@ function keyToBody(source: string, keyTo: number, closeAt: number): number {
 function parseFields(source: string, at: number, closeAt: number): BibField[] {
   const fields: BibField[] = [];
   while (at < closeAt) {
-    const nameMatch = /^\s*([A-Za-z][\w.+-]*)\s*=\s*/.exec(
-      source.slice(at, closeAt),
-    );
+    const nameMatch = /^\s*([A-Za-z][\w.+-]*)\s*=\s*/.exec(source.slice(at, closeAt));
     if (nameMatch === null) break;
     const nameFrom = at + (nameMatch[0].length - nameMatch[0].trimStart().length);
     at += nameMatch[0].length;

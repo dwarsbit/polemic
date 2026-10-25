@@ -3,7 +3,11 @@ import { newtheoremDeclarations, parseTex } from "./parse";
 import { serializeTex } from "./serialize";
 
 /** parse → serialize once and twice; the second pass must be stable. */
-function roundTrip(tex: string): { once: string; twice: string; doc: ReturnType<typeof parseTex> } {
+function roundTrip(tex: string): {
+  once: string;
+  twice: string;
+  doc: ReturnType<typeof parseTex>;
+} {
   const doc = parseTex(tex);
   const once = serializeTex(doc);
   const twice = serializeTex(parseTex(once));
@@ -105,8 +109,12 @@ describe("parseTex", () => {
   it("models headings, marks, math, pills, and lists", () => {
     const doc = parseTex(ARTICLE);
     const types = JSON.stringify(doc);
-    expect(doc.content.some((b) => b.type === "heading" && b.attrs.cmd === "section")).toBe(true);
-    expect(doc.content.some((b) => b.type === "heading" && b.attrs.cmd === "section*")).toBe(true);
+    expect(
+      doc.content.some((b) => b.type === "heading" && b.attrs.cmd === "section"),
+    ).toBe(true);
+    expect(
+      doc.content.some((b) => b.type === "heading" && b.attrs.cmd === "section*"),
+    ).toBe(true);
     expect(types).toContain('"mathInline"');
     expect(types).toContain('"mathBlock"');
     expect(types).toContain('"cite"');
@@ -124,9 +132,7 @@ describe("parseTex", () => {
     const raw = doc.content.filter((b) => b.type === "rawTexBlock");
     const srcs = raw.map((b) => (b.type === "rawTexBlock" ? b.attrs.src : ""));
     expect(srcs.some((s) => s.startsWith("\\begin{tikzpicture}"))).toBe(true);
-    expect(
-      srcs.some((s) => s.includes("keep   this   exactly")),
-    ).toBe(true);
+    expect(srcs.some((s) => s.includes("keep   this   exactly"))).toBe(true);
     // The theorem environment is modeled: its title is `opt`, the body is content.
     const theorem = doc.content.find(
       (b) => b.type === "envBlock" && b.attrs.env === "theorem",
@@ -135,7 +141,10 @@ describe("parseTex", () => {
       type: "envBlock",
       attrs: { env: "theorem", opt: "Euler" },
       content: [
-        { type: "paragraph", content: [{ type: "text", text: "Body of a theorem we do not model yet." }] },
+        {
+          type: "paragraph",
+          content: [{ type: "text", text: "Body of a theorem we do not model yet." }],
+        },
       ],
     });
   });
@@ -188,7 +197,12 @@ describe("parseTex", () => {
     const tex = "\\documentclass{article}\n\\usepackage{amsmath}\n";
     const doc = parseTex(tex);
     expect(doc.content).toEqual([
-      { type: "preamble", attrs: expect.objectContaining({ documentclassSrc: "\\documentclass{article}" }) },
+      {
+        type: "preamble",
+        attrs: expect.objectContaining({
+          documentclassSrc: "\\documentclass{article}",
+        }),
+      },
     ]);
   });
 
@@ -222,7 +236,9 @@ describe("heading tails", () => {
   });
 
   it("does not pull an \\input after the heading into the title", () => {
-    const { once } = roundTrip("\\section{Intro}\n\\label{a}\nText.\n\\input{chapters/method}\n");
+    const { once } = roundTrip(
+      "\\section{Intro}\n\\label{a}\nText.\n\\input{chapters/method}\n",
+    );
     expect(once).toContain("\\section{Intro}\\label{a}\n");
     expect(once).not.toContain("\\section{Intro \\label");
   });
@@ -281,7 +297,9 @@ Body text.
   });
 
   it("does not extract commented-out commands", () => {
-    const doc = parseTex("\\documentclass{article}\n% \\author{Ghost}\n\\begin{document}\nx\n\\end{document}\n");
+    const doc = parseTex(
+      "\\documentclass{article}\n% \\author{Ghost}\n\\begin{document}\nx\n\\end{document}\n",
+    );
     const pre = doc.content[0];
     if (pre?.type !== "preamble") throw new Error("no preamble");
     expect(pre.attrs.authorSrc).toBeNull();
@@ -329,7 +347,9 @@ describe("serializeTex", () => {
   it("preserves raw fallback blocks byte-for-byte", () => {
     const { once } = roundTrip(ARTICLE);
     expect(once).toContain("\\begin{verbatim}\nkeep   this   exactly\n\\end{verbatim}");
-    expect(once).toContain("\\begin{tikzpicture}\n  \\draw (0,0) -- (1,1);\n\\end{tikzpicture}");
+    expect(once).toContain(
+      "\\begin{tikzpicture}\n  \\draw (0,0) -- (1,1);\n\\end{tikzpicture}",
+    );
   });
 
   it("escapes special characters in text", () => {
@@ -395,7 +415,9 @@ describe("modeled environments (envBlock)", () => {
             {
               type: "listItem",
               attrs: {},
-              content: [{ type: "paragraph", content: [{ type: "text", text: "Point" }] }],
+              content: [
+                { type: "paragraph", content: [{ type: "text", text: "Point" }] },
+              ],
             },
           ],
         },
@@ -490,7 +512,9 @@ describe("footnotes", () => {
     const para = doc.content[0];
     expect(para?.type).toBe("paragraph");
     const fn =
-      para?.type === "paragraph" ? para.content.find((n) => n.type === "footnote") : null;
+      para?.type === "paragraph"
+        ? para.content.find((n) => n.type === "footnote")
+        : null;
     expect(fn).toEqual({
       type: "footnote",
       attrs: { src: "\\footnote{See \\emph{this}.}" },

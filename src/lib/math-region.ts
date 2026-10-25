@@ -46,7 +46,7 @@ const MATH_ENVIRONMENTS = new Set([
 /**
  * Position of the closing delimiter at or after `from`, skipping
  * comments and escape sequences; -1 when not found.
- */function findCloser(
+ */ function findCloser(
   text: string,
   from: number,
   isCloser: (text: string, at: number) => boolean,

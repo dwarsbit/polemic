@@ -43,11 +43,15 @@ const TEX = [
 describe("list item labels", () => {
   it("shows a labeled item's chip as its marker", () => {
     const editor = makeEditor(TEX);
-    const chip = editor.view.dom.querySelector(".vis-item-label:not(.vis-item-label-add)");
+    const chip = editor.view.dom.querySelector(
+      ".vis-item-label:not(.vis-item-label-add)",
+    );
     expect(chip?.textContent).toBe("(Note)");
     // The label replaces the bullet marker.
     expect(editor.view.dom.querySelector("li.has-label")).not.toBeNull();
-    expect(serializeTex(editor.getJSON() as never)).toContain("\\item[Note] First point");
+    expect(serializeTex(editor.getJSON() as never)).toContain(
+      "\\item[Note] First point",
+    );
     editor.destroy();
   });
 
@@ -66,7 +70,9 @@ describe("list item labels", () => {
     expect(chip).not.toBeNull();
     chip!.click();
     await Promise.resolve(); // let the focus microtask run
-    const input = editor.view.dom.querySelector(".vis-item-input") as HTMLInputElement | null;
+    const input = editor.view.dom.querySelector(
+      ".vis-item-input",
+    ) as HTMLInputElement | null;
     expect(input).not.toBeNull();
     expect(input!.value).toBe("Note");
     input!.value = "Hint";
@@ -76,16 +82,22 @@ describe("list item labels", () => {
     expect(out).toContain("Second point");
     // One undo step.
     editor.commands.undo();
-    expect(serializeTex(editor.getJSON() as never)).toContain("\\item[Note] First point");
+    expect(serializeTex(editor.getJSON() as never)).toContain(
+      "\\item[Note] First point",
+    );
     editor.destroy();
   });
 
   it("adds a label through the add chip", async () => {
     const editor = makeEditor(TEX);
-    const add = editor.view.dom.querySelector(".vis-item-label-add") as HTMLElement | null;
+    const add = editor.view.dom.querySelector(
+      ".vis-item-label-add",
+    ) as HTMLElement | null;
     add!.click();
     await Promise.resolve(); // let the focus microtask run
-    const input = editor.view.dom.querySelector(".vis-item-input") as HTMLInputElement | null;
+    const input = editor.view.dom.querySelector(
+      ".vis-item-input",
+    ) as HTMLInputElement | null;
     input!.value = "fresh";
     input!.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true }));
     const out = serializeTex(editor.getJSON() as never);
@@ -100,7 +112,9 @@ describe("list item labels", () => {
     ) as HTMLElement | null;
     chip!.click();
     await Promise.resolve(); // let the focus microtask run
-    const input = editor.view.dom.querySelector(".vis-item-input") as HTMLInputElement | null;
+    const input = editor.view.dom.querySelector(
+      ".vis-item-input",
+    ) as HTMLInputElement | null;
     input!.value = "";
     input!.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true }));
     const out = serializeTex(editor.getJSON() as never);
@@ -116,9 +130,13 @@ describe("list item labels", () => {
     ) as HTMLElement | null;
     chip!.click();
     await Promise.resolve(); // let the focus microtask run
-    const input = editor.view.dom.querySelector(".vis-item-input") as HTMLInputElement | null;
+    const input = editor.view.dom.querySelector(
+      ".vis-item-input",
+    ) as HTMLInputElement | null;
     input!.value = "Changed";
-    input!.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+    input!.dispatchEvent(
+      new KeyboardEvent("keydown", { key: "Escape", bubbles: true }),
+    );
     const out = serializeTex(editor.getJSON() as never);
     expect(out).toContain("\\item[Note] First point");
     expect(out).not.toContain("[Changed]");
@@ -132,20 +150,25 @@ describe("list item labels", () => {
     ) as HTMLElement | null;
     chip!.click();
     await Promise.resolve(); // let the focus microtask run
-    const input = editor.view.dom.querySelector(".vis-item-input") as HTMLInputElement | null;
+    const input = editor.view.dom.querySelector(
+      ".vis-item-input",
+    ) as HTMLInputElement | null;
     input!.value = "Note"; // unchanged
     input!.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true }));
     // The chip is back as a button; no input is left behind.
     expect(editor.view.dom.querySelector(".vis-item-input")).toBeNull();
     expect(
-      editor.view.dom.querySelector(".vis-item-label:not(.vis-item-label-add)")?.textContent,
+      editor.view.dom.querySelector(".vis-item-label:not(.vis-item-label-add)")
+        ?.textContent,
     ).toBe("(Note)");
     editor.destroy();
   });
 
   it("keeps the add chip in place while its input is open", async () => {
     const editor = makeEditor(TEX);
-    const add = editor.view.dom.querySelector(".vis-item-label-add") as HTMLElement | null;
+    const add = editor.view.dom.querySelector(
+      ".vis-item-label-add",
+    ) as HTMLElement | null;
     add!.click();
     await Promise.resolve(); // let the focus microtask run
     expect(editor.view.dom.querySelector(".vis-item-input")).not.toBeNull();

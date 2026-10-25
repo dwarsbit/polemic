@@ -83,7 +83,10 @@ const COMMAND_VOCABULARY: string[] = (() => {
 
 /** Offsets of a 1-based line: { from: line start, to: line end (no
  *  newline) }, or null when the line is outside the document. */
-function lineRange(doc: string, line: number | null): { from: number; to: number } | null {
+function lineRange(
+  doc: string,
+  line: number | null,
+): { from: number; to: number } | null {
   if (line === null || line < 1) return null;
   let offset = 0;
   for (let i = 1; i < line; i++) {
@@ -118,7 +121,10 @@ function closestWord(word: string, vocabulary: string[]): string | null {
   let bestDist = 3;
   for (const candidate of vocabulary) {
     const dist = editDistance(word, candidate);
-    if (dist < bestDist || (dist === bestDist && best !== null && candidate.length < best.length)) {
+    if (
+      dist < bestDist ||
+      (dist === bestDist && best !== null && candidate.length < best.length)
+    ) {
       best = candidate;
       bestDist = dist;
     }
@@ -129,7 +135,10 @@ function closestWord(word: string, vocabulary: string[]): string | null {
   return best;
 }
 
-function fixUndefinedControlSequence(issue: CompileIssue, ctx: FixContext): TexFix | null {
+function fixUndefinedControlSequence(
+  issue: CompileIssue,
+  ctx: FixContext,
+): TexFix | null {
   const source = contextSource(issue);
   const cmd = source === null ? null : lastCommand(source);
   if (cmd === null || cmd === "begin" || cmd === "end") return null;
@@ -206,7 +215,7 @@ const ENV_PACKAGES: Record<string, string> = {
   split: "amsmath",
   cases: "amsmath",
   aligned: "amsmath",
-  "gathered": "amsmath",
+  gathered: "amsmath",
   "equation*": "amsmath",
   bmatrix: "amsmath",
   pmatrix: "amsmath",
@@ -292,9 +301,7 @@ function fixMissingFile(issue: CompileIssue, ctx: FixContext): TexFix | null {
   if (open === -1 || close === -1 || close < at) return null;
   return {
     title: `Point the include at ${best}`,
-    edits: [
-      { from: line.from + open + 1, to: line.from + close, insert: best },
-    ],
+    edits: [{ from: line.from + open + 1, to: line.from + close, insert: best }],
   };
 }
 
@@ -314,7 +321,11 @@ function fixUndefinedReference(issue: CompileIssue, ctx: FixContext): TexFix | n
   if (suggestion === null) return null;
   const edits: SourceEdit[] = extractRefPositions(ctx.doc)
     .filter((ref) => ref.name === name)
-    .map((ref) => ({ from: ref.to - 1 - name.length, to: ref.to - 1, insert: suggestion }));
+    .map((ref) => ({
+      from: ref.to - 1 - name.length,
+      to: ref.to - 1,
+      insert: suggestion,
+    }));
   if (edits.length === 0) return null;
   return { title: `The label is ${suggestion} — fix the reference`, edits };
 }

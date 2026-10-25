@@ -59,12 +59,20 @@ describe("detectCiteCommands", () => {
       "citep",
       "citet",
     ]);
-    expect(
-      detectCiteCommands(["\\usepackage[backend=biber]{biblatex}"]),
-    ).toEqual(["cite", "parencite", "textcite", "autocite"]);
-    expect(
-      detectCiteCommands(["\\usepackage{natbib,biblatex}"]),
-    ).toEqual(["cite", "citep", "citet", "parencite", "textcite", "autocite"]);
+    expect(detectCiteCommands(["\\usepackage[backend=biber]{biblatex}"])).toEqual([
+      "cite",
+      "parencite",
+      "textcite",
+      "autocite",
+    ]);
+    expect(detectCiteCommands(["\\usepackage{natbib,biblatex}"])).toEqual([
+      "cite",
+      "citep",
+      "citet",
+      "parencite",
+      "textcite",
+      "autocite",
+    ]);
   });
 });
 

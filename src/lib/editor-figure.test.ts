@@ -64,7 +64,8 @@ describe("insertPackages", () => {
   });
 
   it("keeps already-loaded packages, including multi-argument lists", () => {
-    const doc = "\\documentclass{article}\n\\usepackage{booktabs,tabularx}\n\\usepackage{tikz}";
+    const doc =
+      "\\documentclass{article}\n\\usepackage{booktabs,tabularx}\n\\usepackage{tikz}";
     expect(insertPackages(doc, ["tikz", "booktabs"])).toBe(doc);
   });
 

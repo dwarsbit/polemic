@@ -31,7 +31,8 @@ export function takeFaceAnchor(): FaceAnchor | null {
 
 /** Sectioning command lines, 1-based line numbers, in order. */
 export function headingLines(content: string): number[] {
-  const re = /^\s*\\(?:part|chapter|section|subsection|subsubsection|paragraph|subparagraph)\*?\s*[{[]/;
+  const re =
+    /^\s*\\(?:part|chapter|section|subsection|subsubsection|paragraph|subparagraph)\*?\s*[{[]/;
   const lines: number[] = [];
   const split = content.split("\n");
   for (let i = 0; i < split.length; i++) {

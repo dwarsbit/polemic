@@ -18,7 +18,9 @@ import type { DocNode } from "./doc-types";
 function makeEditor(tex: string): Editor {
   const parsed = parseTex(tex) as DocNode & { content: unknown[] };
   const content =
-    parsed.content.length > 0 ? parsed : { ...parsed, content: [{ type: "paragraph" }] };
+    parsed.content.length > 0
+      ? parsed
+      : { ...parsed, content: [{ type: "paragraph" }] };
   return new Editor({
     extensions: [
       StarterKit.configure({
@@ -92,7 +94,13 @@ describe("editor round-trip", () => {
       return true;
     });
     expect(paras.length).toBeGreaterThan(0);
-    expect(editor.chain().focus().insertContentAt(paras[0]!.pos + 1, "Note: ").run()).toBe(true);
+    expect(
+      editor
+        .chain()
+        .focus()
+        .insertContentAt(paras[0]!.pos + 1, "Note: ")
+        .run(),
+    ).toBe(true);
     const out = serializeTex(editor.getJSON() as unknown as DocNode);
     expect(out).toContain("Note: We measured");
     editor.destroy();
@@ -102,7 +110,11 @@ describe("editor round-trip", () => {
     const editor = makeEditor(ARTICLE);
     const raws: { pos: number; node: PMNode }[] = [];
     editor.state.doc.descendants((node: PMNode, pos: number, parent: PMNode | null) => {
-      if (node.type.name === "rawTexBlock" && parent !== null && parent.type.name === "doc") {
+      if (
+        node.type.name === "rawTexBlock" &&
+        parent !== null &&
+        parent.type.name === "doc"
+      ) {
         raws.push({ pos, node });
       }
       return true;

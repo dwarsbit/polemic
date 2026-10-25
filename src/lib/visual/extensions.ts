@@ -22,9 +22,19 @@ import { Document } from "@tiptap/extension-document";
 import { HardBreak } from "@tiptap/extension-hard-break";
 import { Heading } from "@tiptap/extension-heading";
 import { ListItem } from "@tiptap/extension-list-item";
-import { NodeSelection, TextSelection, Plugin, type Transaction } from "@tiptap/pm/state";
+import {
+  NodeSelection,
+  TextSelection,
+  Plugin,
+  type Transaction,
+} from "@tiptap/pm/state";
 import type { Node as PMNode } from "@tiptap/pm/model";
-import { Decoration, DecorationSet, type NodeView, type ViewMutationRecord } from "@tiptap/pm/view";
+import {
+  Decoration,
+  DecorationSet,
+  type NodeView,
+  type ViewMutationRecord,
+} from "@tiptap/pm/view";
 import type { PreambleAttrs } from "./doc-types";
 import { REF_CMDS, THEOREM_ENVS } from "./parse";
 import { assetKind } from "@/lib/assets";
@@ -124,11 +134,7 @@ class EditableRawView implements NodeView {
   stopEvent(event: Event): boolean {
     // Escape cancels the raw editor first — its editable is covered
     // by the in-place guard below, but it must keep its shortcut.
-    if (
-      this.editing &&
-      event instanceof KeyboardEvent &&
-      event.key === "Escape"
-    ) {
+    if (this.editing && event instanceof KeyboardEvent && event.key === "Escape") {
       this.stopEditing();
       return true;
     }
@@ -162,7 +168,9 @@ class EditableRawView implements NodeView {
 
   private render() {
     const src = this.node.attrs.src;
-    this.dom.replaceChildren(this.spec.preview !== undefined ? this.spec.preview(src) : this.preview(src));
+    this.dom.replaceChildren(
+      this.spec.preview !== undefined ? this.spec.preview(src) : this.preview(src),
+    );
   }
 
   /** Re-render the preview (subclass state changes, e.g. collapsing). */
@@ -384,7 +392,8 @@ class EnvBlockView implements NodeView {
     const envChanged = node.attrs.env !== this.node.attrs.env;
     const optChanged = node.attrs.opt !== this.node.attrs.opt;
     const theoremChanged =
-      isTheoremEnv(this.editor, this.node.attrs.env) !== isTheoremEnv(this.editor, node.attrs.env);
+      isTheoremEnv(this.editor, this.node.attrs.env) !==
+      isTheoremEnv(this.editor, node.attrs.env);
     this.node = node;
     this.dom.className = envBlockClass(this.editor, node);
     if ((envChanged || optChanged || theoremChanged) && !this.editingOpt) {
@@ -566,7 +575,15 @@ class PreambleView extends EditableRawView {
     const titleRow = document.createElement("div");
     titleRow.className = "vis-preamble-meta-title";
     titleRow.append(
-      metaPill(this.editor, "titleSrc", "Title", null, this.node.attrs.titleSrc, true, refresh),
+      metaPill(
+        this.editor,
+        "titleSrc",
+        "Title",
+        null,
+        this.node.attrs.titleSrc,
+        true,
+        refresh,
+      ),
     );
     const pillsRow = document.createElement("div");
     pillsRow.className = "vis-preamble-meta-row";
@@ -580,15 +597,22 @@ class PreambleView extends EditableRawView {
         true,
         refresh,
       ),
-      metaPill(this.editor, "dateSrc", "Date", CALENDAR_ICON, this.node.attrs.dateSrc, true, refresh),
+      metaPill(
+        this.editor,
+        "dateSrc",
+        "Date",
+        CALENDAR_ICON,
+        this.node.attrs.dateSrc,
+        true,
+        refresh,
+      ),
     );
     meta.append(titleRow, pillsRow);
     card.append(meta);
     if (this.expanded) {
       const pre = document.createElement("pre");
       pre.className = "vis-raw-src vis-preamble-rest";
-      pre.textContent =
-        rest.trim().length > 0 ? rest : "(no other preamble content)";
+      pre.textContent = rest.trim().length > 0 ? rest : "(no other preamble content)";
       card.append(pre);
     }
     return card;
@@ -639,7 +663,8 @@ export function setPreambleMeta(
 ): boolean {
   const preamble = findPreamble(editor);
   if (preamble === null) return false;
-  const cmdName = key === "titleSrc" ? "title" : key === "authorSrc" ? "author" : "date";
+  const cmdName =
+    key === "titleSrc" ? "title" : key === "authorSrc" ? "author" : "date";
   const next = value.trim().length > 0 ? `\\${cmdName}{${value}}` : null;
   if (next === preamble.attrs[key]) return true;
   editor.view.dispatch(
@@ -684,7 +709,11 @@ export function insertTheoremEnvEntries(
   }));
   const declared = [...newtheoremNames(editor)]
     .filter(([env]) => !THEOREM_ENVS.has(env))
-    .map(([env, name]) => ({ env, label: name.length > 0 ? name : env, declared: true }));
+    .map(([env, name]) => ({
+      env,
+      label: name.length > 0 ? name : env,
+      declared: true,
+    }));
   return [...standard, ...declared];
 }
 
@@ -698,10 +727,9 @@ export function insertTheoremEnvEntries(
 export function insertEnvBlock(editor: Editor, env: string): void {
   const { $from } = editor.state.selection;
   if ($from.parent.type.name === "paragraph" && $from.parent.content.size === 0) {
-    const block = editor.state.schema.nodes.envBlock.create(
-      { env, opt: null },
-      [editor.state.schema.nodes.paragraph.create()],
-    );
+    const block = editor.state.schema.nodes.envBlock.create({ env, opt: null }, [
+      editor.state.schema.nodes.paragraph.create(),
+    ]);
     const tr = editor.view.state.tr;
     tr.replaceWith($from.before(), $from.after(), block);
     tr.setSelection(TextSelection.near(tr.doc.resolve($from.before() + 2)));
@@ -709,10 +737,9 @@ export function insertEnvBlock(editor: Editor, env: string): void {
     return;
   }
   if ($from.parent.type.name === "doc") {
-    const block = editor.state.schema.nodes.envBlock.create(
-      { env, opt: null },
-      [editor.state.schema.nodes.paragraph.create()],
-    );
+    const block = editor.state.schema.nodes.envBlock.create({ env, opt: null }, [
+      editor.state.schema.nodes.paragraph.create(),
+    ]);
     const tr = editor.view.state.tr;
     const at = tr.doc.content.size;
     tr.insert(at, block);
@@ -739,7 +766,9 @@ export function ensurePackage(editor: Editor, pkg: string): boolean {
   if (preamble === null || hasPackage(preamble.attrs.packagesSrc, pkg)) return false;
   const line = `\\usepackage{${pkg}}`;
   const next =
-    preamble.attrs.packagesSrc === null ? line : `${preamble.attrs.packagesSrc}\n${line}`;
+    preamble.attrs.packagesSrc === null
+      ? line
+      : `${preamble.attrs.packagesSrc}\n${line}`;
   editor.view.dispatch(
     editor.view.state.tr.setNodeMarkup(preamble.pos, undefined, {
       ...preamble.attrs,
@@ -934,7 +963,10 @@ function pillInputRule(find: RegExp, typeName: string) {
 function commandKeys(src: string): string {
   const m = /^\\([a-zA-Z]+)\*?\s*(?:\[[^\]]*\])?\s*\{([^}]*)\}/.exec(src);
   if (m === null) return src;
-  return m[2].split(",").map((k) => k.trim()).join(", ");
+  return m[2]
+    .split(",")
+    .map((k) => k.trim())
+    .join(", ");
 }
 
 /** The pill preview: an @-icon chip with the command's keys. The pill
@@ -1119,7 +1151,10 @@ async function jumpToLabel(name: string): Promise<void> {
   };
 
   const { project, files, buffers, activeFile } = useProjectStore.getState();
-  const activeContent = activeFile !== null ? (buffers[activeFile] ?? useEditorStore.getState().content) : null;
+  const activeContent =
+    activeFile !== null
+      ? (buffers[activeFile] ?? useEditorStore.getState().content)
+      : null;
   if (activeContent !== null) {
     const line = lineOfLabel(activeContent);
     if (line !== null && activeFile !== null) {
@@ -1130,7 +1165,8 @@ async function jumpToLabel(name: string): Promise<void> {
   if (project === null) return;
   for (const path of texFilePaths(files)) {
     if (path === activeFile) continue;
-    const content = buffers[path] ?? (await readProjectFile(project.path, path).catch(() => null));
+    const content =
+      buffers[path] ?? (await readProjectFile(project.path, path).catch(() => null));
     if (content === null) continue;
     const line = lineOfLabel(content);
     if (line !== null) {
@@ -1685,10 +1721,9 @@ const EnvBlock = Node.create({
             $after.parent.content.size,
           );
           if (trailing.length > 0) return null;
-          const env = state.schema.nodes.envBlock.create(
-            { env: "quote", opt: null },
-            [state.schema.nodes.paragraph.create()],
-          );
+          const env = state.schema.nodes.envBlock.create({ env: "quote", opt: null }, [
+            state.schema.nodes.paragraph.create(),
+          ]);
           const tr = state.tr;
           tr.replaceWith($from.before(), $from.after(), env);
           tr.setSelection(TextSelection.near(tr.doc.resolve($from.before() + 2)));
@@ -1796,9 +1831,7 @@ const Ref = Node.create({
     const cmds = [...REF_CMDS].join("|");
     return [
       pillInputRule(
-        new RegExp(
-          String.raw`\\(?:${cmds})\*?\s*(?:\[[^\]\n]*\])?\s*\{([^{}\n]*)\}$`,
-        ),
+        new RegExp(String.raw`\\(?:${cmds})\*?\s*(?:\[[^\]\n]*\])?\s*\{([^{}\n]*)\}$`),
         this.name,
       ),
     ];

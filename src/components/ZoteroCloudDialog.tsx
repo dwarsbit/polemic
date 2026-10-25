@@ -48,9 +48,7 @@ export function ZoteroCloudDialog({
       return;
     }
     setUserId(result.userID);
-    setInfo(
-      `Key valid${result.username.length > 0 ? ` for ${result.username}` : ""}.`,
-    );
+    setInfo(`Key valid${result.username.length > 0 ? ` for ${result.username}` : ""}.`);
   }
 
   async function save() {
@@ -80,14 +78,12 @@ export function ZoteroCloudDialog({
         </DialogHeader>
         <div className="space-y-3">
           <p className="text-xs text-muted-foreground">
-            A Zotero cloud source searches your library at zotero.org. Create
-            a key at zotero.org/settings/keys with library read access, then
-            paste it below — the user ID is filled in automatically.
+            A Zotero cloud source searches your library at zotero.org. Create a key at
+            zotero.org/settings/keys with library read access, then paste it below — the
+            user ID is filled in automatically.
           </p>
           <div>
-            <label className="mb-1 block text-xs text-muted-foreground">
-              Label
-            </label>
+            <label className="mb-1 block text-xs text-muted-foreground">Label</label>
             <Input
               className="h-7 rounded-md text-xs"
               placeholder="e.g. Work library"
@@ -96,9 +92,7 @@ export function ZoteroCloudDialog({
             />
           </div>
           <div>
-            <label className="mb-1 block text-xs text-muted-foreground">
-              API key
-            </label>
+            <label className="mb-1 block text-xs text-muted-foreground">API key</label>
             <div className="flex gap-1.5">
               <Input
                 className="h-7 min-w-0 flex-1 rounded-md font-mono text-xs"
@@ -118,9 +112,7 @@ export function ZoteroCloudDialog({
             </div>
           </div>
           <div>
-            <label className="mb-1 block text-xs text-muted-foreground">
-              User ID
-            </label>
+            <label className="mb-1 block text-xs text-muted-foreground">User ID</label>
             <Input
               className="h-7 rounded-md text-xs"
               placeholder="Your Zotero user ID"
@@ -129,9 +121,7 @@ export function ZoteroCloudDialog({
             />
           </div>
           {error !== null && <p className="text-xs text-destructive">{error}</p>}
-          {info !== null && (
-            <p className="text-xs text-muted-foreground">{info}</p>
-          )}
+          {info !== null && <p className="text-xs text-muted-foreground">{info}</p>}
         </div>
         <DialogFooter>
           <Button variant="ghost" size="sm" onClick={() => onOpenChange(false)}>

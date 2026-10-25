@@ -4,7 +4,11 @@ export interface InsertOptions {
   asMath?: boolean;
 }
 
-type InsertHandler = (text: string, cursorOffset?: number, opts?: InsertOptions) => void;
+type InsertHandler = (
+  text: string,
+  cursorOffset?: number,
+  opts?: InsertOptions,
+) => void;
 
 let handler: InsertHandler | null = null;
 
@@ -20,7 +24,11 @@ export function setInsertHandler(h: InsertHandler | null): InsertHandler | null 
 }
 
 /** Insert text at the editor cursor, optionally placing the caret inside. */
-export function insertAtCursor(text: string, cursorOffset?: number, opts?: InsertOptions) {
+export function insertAtCursor(
+  text: string,
+  cursorOffset?: number,
+  opts?: InsertOptions,
+) {
   handler?.(text, cursorOffset, opts);
 }
 
