@@ -239,8 +239,9 @@ export function AssetsPanel() {
     const sources = Array.isArray(picked) ? picked : [picked];
     if (sources.length === 0) return;
     try {
-      await importAssets(project.path, sources);
+      const { notes } = await importAssets(project.path, sources);
       await useProjectStore.getState().refreshFiles();
+      if (notes.length > 0) setImportError(notes.join(" "));
     } catch (e) {
       setImportError(String(e));
     }

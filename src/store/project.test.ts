@@ -28,6 +28,15 @@ vi.mock("@/lib/tauri", () => ({
         children: [],
       })),
     ),
+  renameEntry: (_dir: string, from: string, to: string) => {
+    for (const [path, content] of [...disk]) {
+      if (path === from || path.startsWith(`${from}/`)) {
+        disk.delete(path);
+        disk.set(to + path.slice(from.length), content);
+      }
+    }
+    return Promise.resolve();
+  },
   setOpenFiles: () => Promise.resolve(),
   updatePreferences: () => Promise.resolve(),
   restoreSnapshot: () => Promise.resolve(),
@@ -146,5 +155,23 @@ describe("the preview follows the project", () => {
     useProjectStore.setState({ project: { name: "q", path: "/q" } });
     expect(usePreviewStore.getState().pdfBytes).toBeNull();
     expect(usePreviewStore.getState().status).toBe("idle");
+  });
+});
+
+describe("renaming assets", () => {
+  it("rewrites graphics and bibliography references in every .tex file", async () => {
+    await openMain("\\graphicspath{{figs/}}\n\\includegraphics{plot}\n\\input{chapter}");
+    disk.set("chapter.tex", "\\includegraphics{figs/plot.pdf}\n\\bibliography{refs}");
+    disk.set("figs/plot.pdf", "%PDF");
+    disk.set("refs.bib", "");
+    await useProjectStore.getState().refreshFiles();
+    useProjectStore.getState().refreshDocMeta("main.tex", useEditorStore.getState().content);
+
+    await useProjectStore.getState().renameEntry("figs/plot.pdf", "figs/results.pdf");
+    expect(useEditorStore.getState().content).toContain("\\includegraphics{results}");
+    expect(disk.get("chapter.tex")).toContain("\\includegraphics{figs/results.pdf}");
+
+    await useProjectStore.getState().renameEntry("refs.bib", "bib/refs.bib");
+    expect(disk.get("chapter.tex")).toContain("\\bibliography{bib/refs}");
   });
 });
