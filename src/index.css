@@ -68,6 +68,8 @@
   --card-foreground: oklch(0.145 0.008 326);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0.008 326);
+  /* Text selection: Tailwind blue-200. */
+  --selection: oklch(0.882 0.059 254.128);
   --primary: oklch(0.212 0.019 322.12);
   --primary-foreground: oklch(0.985 0 0);
   /* The primary button's mauve: a fill two steps lighter than --primary,
@@ -121,6 +123,8 @@ html.mac.dark body {
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.212 0.019 322.12);
   --popover-foreground: oklch(0.985 0 0);
+  /* Text selection: Tailwind blue-800. */
+  --selection: oklch(0.424 0.199 265.638);
   --primary: oklch(0.922 0.005 325.62);
   --primary-foreground: oklch(0.212 0.019 322.12);
   --secondary: oklch(0.263 0.024 320.12);
@@ -157,6 +161,9 @@ html.mac.dark body {
   }
   html {
     @apply font-sans;
+  }
+  ::selection {
+    background-color: var(--selection);
   }
 }
 
