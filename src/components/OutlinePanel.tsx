@@ -104,7 +104,10 @@ export function OutlinePanel() {
   const jumpTo = useEditorStore((s) => s.jumpTo);
   const order = useDocumentOrder();
   const [docOutline, setDocOutline] = useState<FileOutline[] | null>(null);
-  const [dragging, setDragging] = useState<{ file: string; entry: OutlineEntry } | null>(null);
+  const [dragging, setDragging] = useState<{
+    file: string;
+    entry: OutlineEntry;
+  } | null>(null);
   const [dropTarget, setDropTarget] = useState<DropTarget | null>(null);
   // Bumped after a structure edit to files other than the active one,
   // which the content-driven refresh would not notice.
@@ -172,14 +175,18 @@ export function OutlinePanel() {
     if (entry === undefined) return;
     refocus.current = null;
     listRef.current
-      ?.querySelector<HTMLElement>(`[data-outline-key="${CSS.escape(`${target.file}:${entry.line}`)}"]`)
+      ?.querySelector<HTMLElement>(
+        `[data-outline-key="${CSS.escape(`${target.file}:${entry.line}`)}"]`,
+      )
       ?.focus();
   }, [docOutline]);
 
   // The shallowest level the document uses: promotion stops there, so
   // an article never grows a \chapter.
   const minLevel = useMemo(() => {
-    const levels = (docOutline ?? []).flatMap((group) => group.entries.map((e) => e.level));
+    const levels = (docOutline ?? []).flatMap((group) =>
+      group.entries.map((e) => e.level),
+    );
     return levels.length > 0 ? Math.min(...levels) : 0;
   }, [docOutline]);
 
@@ -189,7 +196,9 @@ export function OutlinePanel() {
   const structureOptions = useMemo<StructureOptions>(() => {
     const texPaths = texPathsOf(files);
     const sectioned = new Set(
-      (docOutline ?? []).filter((group) => group.entries.length > 0).map((group) => group.file),
+      (docOutline ?? [])
+        .filter((group) => group.entries.length > 0)
+        .map((group) => group.file),
     );
     return {
       isStructuralInclude: (spec) => {
@@ -208,10 +217,18 @@ export function OutlinePanel() {
 
   function structureActions(file: string, entry: OutlineEntry) {
     return {
-      up: () => runStructureEdit(file, entry, (src, i) => planMove(src, i, -1, structureOptions)),
-      down: () => runStructureEdit(file, entry, (src, i) => planMove(src, i, 1, structureOptions)),
+      up: () =>
+        runStructureEdit(file, entry, (src, i) =>
+          planMove(src, i, -1, structureOptions),
+        ),
+      down: () =>
+        runStructureEdit(file, entry, (src, i) =>
+          planMove(src, i, 1, structureOptions),
+        ),
       promote: () =>
-        runStructureEdit(file, entry, (src, i) => planLevelChange(src, i, -1, minLevel)),
+        runStructureEdit(file, entry, (src, i) =>
+          planLevelChange(src, i, -1, minLevel),
+        ),
       demote: () =>
         runStructureEdit(file, entry, (src, i) => planLevelChange(src, i, 1, minLevel)),
     };
@@ -249,7 +266,9 @@ export function OutlinePanel() {
         <div
           className={cn(
             "relative flex items-center rounded hover:bg-accent",
-            dragging?.file === file && dragging.entry.line === node.entry.line && "opacity-50",
+            dragging?.file === file &&
+              dragging.entry.line === node.entry.line &&
+              "opacity-50",
           )}
           style={{ paddingLeft: 8 + depth * 12 }}
           draggable
@@ -267,7 +286,8 @@ export function OutlinePanel() {
             if (dragging === null || dragging.file !== file) return;
             event.preventDefault();
             const rect = event.currentTarget.getBoundingClientRect();
-            const position = event.clientY < rect.top + rect.height / 2 ? "before" : "after";
+            const position =
+              event.clientY < rect.top + rect.height / 2 ? "before" : "after";
             if (dropTarget?.key !== key || dropTarget.position !== position) {
               setDropTarget({ key, position });
             }
@@ -374,8 +394,7 @@ export function OutlinePanel() {
                     {group.file}
                   </button>
                 </div>
-                {!isCollapsed &&
-                  roots.map((root) => renderNode(root, group.file, 1))}
+                {!isCollapsed && roots.map((root) => renderNode(root, group.file, 1))}
               </div>
             );
           })

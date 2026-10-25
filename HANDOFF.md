@@ -7,6 +7,26 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
+## Outline structure editing, word counts (2026-10-25)
+
+Same branch, after the batch below.
+- Outline editing (`lib/outline-edit.ts`, `OutlinePanel.tsx`): a
+  section's block runs to the next heading at its level or higher,
+  stopping at `\end{document}`/`\appendix`/the bibliography and at
+  `\input`/`\include` of files that have sections. Drag (same file),
+  Alt+↑/↓ and the context menu move; Alt+←/→ promote/demote, never
+  above the shallowest level in use. Edits find the entry again by
+  line+title in the fresh text. `parseOutline` now returns `command`
+  and knows `\part`/`\chapter` (levels -2/-1).
+- Word counts (`lib/word-count.ts`): texcount-like categories, body
+  only; Properties panel shows file and document counts with a
+  per-section list; the status bar uses the same counter.
+- Checked in Chromium with a stubbed backend (moves, demote, drag,
+  counts).
+
+Open: cross-file section moves; Ctrl+Z after a panel edit needs the
+editor focused.
+
 ## Bib guard, missing graphics, floats navigator (2026-10-25)
 
 Branch `feat/bib-guard-figures-graphics`, on top of the v1 batch.
