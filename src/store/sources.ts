@@ -2,6 +2,7 @@ import { create } from "zustand";
 import {
   getSettings,
   listBibFiles,
+  pickBibSource,
   readExternalFile,
   updatePreferences,
   type SourceDef,
@@ -47,6 +48,8 @@ interface SourcesState {
   loading: boolean;
   refresh: () => Promise<void>;
   addSource: (draft: SourceDraft) => Promise<void>;
+  /** Pick a .bib file or folder in a native dialog and add it. */
+  addBibSource: (folder: boolean) => Promise<void>;
   updateSource: (id: string, patch: Partial<SourceDraft>) => Promise<void>;
   removeSource: (id: string) => Promise<void>;
   setSourceEnabled: (id: string, on: boolean) => Promise<void>;
@@ -109,6 +112,17 @@ export const useSourcesStore = create<SourcesState>((set, get) => ({
       { ...draft, id: crypto.randomUUID() },
     ]);
     set({ sources, error: null });
+    await get().refresh();
+  },
+  addBibSource: async (folder) => {
+    try {
+      const settings = await pickBibSource(folder);
+      if (settings === null) return;
+      set({ sources: settings.sources, error: null });
+    } catch (e) {
+      set({ error: String(e) });
+      return;
+    }
     await get().refresh();
   },
   updateSource: async (id, patch) => {

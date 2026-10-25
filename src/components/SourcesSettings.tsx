@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { open as openDialog } from "@tauri-apps/plugin-dialog";
 import {
   BookOpen,
   Boxes,
@@ -112,6 +111,8 @@ export function SourcesSettingsCard() {
   const error = useSourcesStore((s) => s.error);
   const loading = useSourcesStore((s) => s.loading);
   const addSource = useSourcesStore((s) => s.addSource);
+  /** Bib sources reference their files in place — nothing is copied. */
+  const addBibSource = useSourcesStore((s) => s.addBibSource);
   const removeSource = useSourcesStore((s) => s.removeSource);
   const setSourceEnabled = useSourcesStore((s) => s.setSourceEnabled);
 
@@ -155,33 +156,6 @@ export function SourcesSettingsCard() {
     () => sources.some((source) => source.kind === "zotero-app"),
     [sources],
   );
-
-  /** Bib sources reference their files in place — nothing is copied. */
-  async function addBibFile() {
-    const picked = await openDialog({ multiple: false });
-    if (typeof picked !== "string" || picked.length === 0) return;
-    await addSource({
-      kind: "bib",
-      enabled: true,
-      name: null,
-      path: picked,
-      userId: null,
-      apiKey: null,
-    });
-  }
-
-  async function addBibFolder() {
-    const picked = await openDialog({ directory: true, multiple: false });
-    if (typeof picked !== "string" || picked.length === 0) return;
-    await addSource({
-      kind: "bib",
-      enabled: true,
-      name: null,
-      path: picked,
-      userId: null,
-      apiKey: null,
-    });
-  }
 
   async function addZoteroApp() {
     if (hasZoteroApp) return;
@@ -336,11 +310,11 @@ export function SourcesSettingsCard() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start">
-            <DropdownMenuItem onClick={() => void addBibFile()}>
+            <DropdownMenuItem onClick={() => void addBibSource(false)}>
               <BookOpen />
               BibTeX file…
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => void addBibFolder()}>
+            <DropdownMenuItem onClick={() => void addBibSource(true)}>
               <FolderOpen />
               BibTeX folder…
             </DropdownMenuItem>

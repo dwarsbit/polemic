@@ -389,16 +389,23 @@ export function writeProjectFile(
   return invoke<void>("write_project_file", { projectDir, path, content });
 }
 
-/** Read an arbitrary user-chosen file (the read-only side of bib
- *  sources, which live anywhere on the filesystem). */
+/** Read one .bib file of a configured bib source (bib sources live
+ *  anywhere on the filesystem; other paths are refused). */
 export function readExternalFile(path: string): Promise<string> {
   return invoke<string>("read_external_file", { path });
 }
 
-/** Every .bib file under a folder (recursively), or the file itself
- *  when `path` points at one. */
+/** Every .bib file under a configured bib source folder
+ *  (recursively), or the file itself when the source is one. */
 export function listBibFiles(path: string): Promise<string[]> {
   return invoke<string[]>("list_bib_files", { path });
+}
+
+/** Add a bib source through a native picker (a .bib file, or a folder
+ *  of them); null when cancelled. The only way a bib path enters the
+ *  settings. */
+export function pickBibSource(folder: boolean): Promise<Settings | null> {
+  return invoke<Settings | null>("pick_bib_source", { folder });
 }
 
 /**
