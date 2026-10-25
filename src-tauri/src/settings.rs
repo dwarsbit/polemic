@@ -82,6 +82,8 @@ pub struct Settings {
     pub tex_editor_mode: Option<String>,
     /// Editor face for .bib files: "visual" or "code".
     pub bib_editor_mode: Option<String>,
+    /// Opt-in: DOI/arXiv import may contact doi.org. Off unless true.
+    pub online_lookup: Option<bool>,
     /// The AI quickfix provider, configured in settings.
     pub ai: Option<AiSettings>,
     pub user_words: Vec<String>,

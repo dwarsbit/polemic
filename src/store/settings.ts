@@ -28,6 +28,8 @@ interface SettingsState {
   caretCustomColor: string;
   reopenLastProject: boolean;
   autoIncludeNewFiles: boolean;
+  /** Opt-in: DOI/arXiv import may contact doi.org. */
+  onlineLookup: boolean;
   /** Explicit version-control choice; null means auto. */
   versionControl: "git" | "snapshots" | null;
   /** Whether the git binary is on PATH (part of startup gating). */
@@ -55,6 +57,7 @@ interface SettingsState {
   setCaretCustomColor: (color: string) => Promise<void>;
   setReopenLastProject: (enabled: boolean) => Promise<void>;
   setAutoIncludeNewFiles: (enabled: boolean) => Promise<void>;
+  setOnlineLookup: (enabled: boolean) => Promise<void>;
   setVersionControl: (value: "git" | "snapshots") => Promise<void>;
   setGitAvailable: (available: boolean) => void;
   setSettingsDialogOpen: (open: boolean) => void;
@@ -92,6 +95,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   caretCustomColor: DEFAULT_CARET_CUSTOM_COLOR,
   reopenLastProject: true,
   autoIncludeNewFiles: true,
+  onlineLookup: false,
   versionControl: null,
   gitAvailable: false,
   settingsDialogOpen: false,
@@ -124,6 +128,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
         settings.caretCustomColor ?? DEFAULT_CARET_CUSTOM_COLOR,
       reopenLastProject: settings.reopenLastProject ?? true,
       autoIncludeNewFiles: settings.autoIncludeNewFiles ?? true,
+      onlineLookup: settings.onlineLookup ?? false,
       versionControl:
         settings.versionControl === "git" || settings.versionControl === "snapshots"
           ? settings.versionControl
@@ -188,6 +193,10 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   setAutoIncludeNewFiles: async (enabled) => {
     set({ autoIncludeNewFiles: enabled });
     await updatePreferences({ autoIncludeNewFiles: enabled });
+  },
+  setOnlineLookup: async (enabled) => {
+    set({ onlineLookup: enabled });
+    await updatePreferences({ onlineLookup: enabled });
   },
   setVersionControl: async (value) => {
     set({ versionControl: value });

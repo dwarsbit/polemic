@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Plus, X } from "lucide-react";
+import { CitationPreview } from "@/components/CitationPreview";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -24,6 +25,7 @@ import {
   typeLabel,
   type EntryDraft,
 } from "@/lib/bib-entries";
+import type { CiteStyle } from "@/lib/citation-preview";
 import { cn } from "cn";
 
 const TYPES = [
@@ -60,6 +62,8 @@ export function EntryEditorDialog({
   bibFiles,
   allowFile,
   autoKey,
+  previewStyle = "numeric",
+  previewNote,
   onSave,
 }: {
   open: boolean;
@@ -75,6 +79,10 @@ export function EntryEditorDialog({
   allowFile: boolean;
   /** Suggest a key from author/year until the user edits the key. */
   autoKey: boolean;
+  /** The biblatex style the citation preview starts on (default numeric). */
+  previewStyle?: CiteStyle;
+  /** Shown under the preview, e.g. when the project's style is approximated. */
+  previewNote?: string;
   /** Called with the draft and the chosen .bib file. */
   onSave: (draft: EntryDraft, file: string) => void;
 }) {
@@ -247,6 +255,11 @@ export function EntryEditorDialog({
               warning only, saving works.
             </p>
           )}
+          <CitationPreview
+            entry={{ type: draft.type, key: effectiveKey, fields: draft.fields }}
+            defaultStyle={previewStyle}
+            note={previewNote}
+          />
         </div>
         <DialogFooter>
           <Button variant="ghost" size="sm" onClick={close}>
