@@ -1,17 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { Check, Loader2, TriangleAlert } from "lucide-react";
 import { detectTex } from "@/lib/tauri";
+import { countWords, totalWords } from "@/lib/word-count";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 
-function wordCount(source: string): number {
-  const stripped = source
-    .replace(/%[^\n]*/g, " ")
-    .replace(/\\[a-zA-Z]+(\[[^\]]*\])?(\{[^}]*\})?/g, " ")
-    .replace(/[{}]/g, " ");
-  return stripped.split(/\s+/).filter((w) => w.length > 0).length;
-}
 
 function CompileStatus() {
   const status = usePreviewStore((s) => s.status);
@@ -66,7 +60,7 @@ export function StatusBar() {
         </span>
         {activeFile !== null && (
           <span className="shrink-0 tabular-nums">
-            {wordCount(content).toLocaleString()} words
+            {totalWords(countWords(content)).toLocaleString()} words
           </span>
         )}
       </div>

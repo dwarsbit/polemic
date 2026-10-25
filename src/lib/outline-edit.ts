@@ -1,5 +1,10 @@
 import type { SourceEdit } from "@/lib/label-index";
-import { commandForLevel, MAX_LEVEL, parseOutline, type OutlineEntry } from "@/lib/outline";
+import {
+  commandForLevel,
+  MAX_LEVEL,
+  parseOutline,
+  type OutlineEntry,
+} from "@/lib/outline";
 
 /**
  * Structure edits for the outline: move a section (with everything
@@ -90,7 +95,11 @@ function moveLines(source: string, block: Block, to: number): SourceEdit[] {
 }
 
 /** The nearest sibling (same level, same parent) before or after. */
-function siblingIndex(entries: OutlineEntry[], index: number, dir: -1 | 1): number | null {
+function siblingIndex(
+  entries: OutlineEntry[],
+  index: number,
+  dir: -1 | 1,
+): number | null {
   const level = entries[index].level;
   for (let i = index + dir; i >= 0 && i < entries.length; i += dir) {
     if (entries[i].level < level) return null;
@@ -130,7 +139,11 @@ export function planMoveTo(
   const targetBlock = blockOf(source, entries, target, options);
   // Dropping into its own subtree is meaningless.
   if (targetBlock.start >= block.start && targetBlock.start < block.end) return [];
-  return moveLines(source, block, position === "before" ? targetBlock.start : targetBlock.end);
+  return moveLines(
+    source,
+    block,
+    position === "before" ? targetBlock.start : targetBlock.end,
+  );
 }
 
 /** Whether moving up/down is possible. */
@@ -153,7 +166,9 @@ export function planLevelChange(
   const entry = entries[index];
   const block = blockOf(source, entries, index);
   const subtree = entries.filter(
-    (e, i) => i === index || (e.line - 1 > block.start && e.line - 1 < block.end && e.level > entry.level),
+    (e, i) =>
+      i === index ||
+      (e.line - 1 > block.start && e.line - 1 < block.end && e.level > entry.level),
   );
   if (subtree.some((e) => e.level + delta < minLevel || e.level + delta > MAX_LEVEL)) {
     return [];
@@ -162,6 +177,10 @@ export function planLevelChange(
   return subtree.map((e) => {
     const lineStart = offsets[e.line - 1];
     const col = source.indexOf(`\\${e.command}`, lineStart) + 1;
-    return { from: col, to: col + e.command.length, insert: commandForLevel(e.level + delta) };
+    return {
+      from: col,
+      to: col + e.command.length,
+      insert: commandForLevel(e.level + delta),
+    };
   });
 }

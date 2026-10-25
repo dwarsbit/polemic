@@ -9,7 +9,7 @@ lands; "—" means not started).
 | Feature | What it does | Notes | Status |
 |---|---|---|---|
 | Multi-file navigation | Click `\input`/`\include` to open the target; breadcrumbs for the current file | Outline already spans files via `useDocumentOrder` | Done (v1): Cmd/Ctrl+click on `\input`/`\include`/`\subfile` opens the file (Code face); an include-chain breadcrumb under the tabs, ancestors open at the including line. Visual-face click-through remains |
-| Structure editing in the outline | Drag or move-up/down sections, promoting/demoting levels | Builds directly on the outline tree | — |
+| Structure editing in the outline | Drag or move-up/down sections, promoting/demoting levels | Builds directly on the outline tree | Done (v1): drag within a file, Alt+↑/↓ or context menu to swap with a sibling, Alt+←/→ to promote/demote a subtree; blocks stop at the document tail and at includes of sectioned files; promotion stops at the document's shallowest level; outline lists `\part`/`\chapter` too. Cross-file moves remain |
 | Project-wide search & replace | Grep across all `.tex` files, with math-delimiter awareness | The natural next tab for the bottom dock | Done: search and replace in the dock tool (`SearchPanel`); replace honors the math/text scope, per line or all at once (active file as one undo step, other files written to disk after a confirm) |
 | Path completion | Autocomplete file paths inside `\input{}`/`\includegraphics{}` | Completion infra exists (`completion.ts`) | Done: core five commands, extension-less inserts |
 | Package manager | Browse CTAN packages with descriptions, insert/remove `\usepackage`, check what is installed locally | CTAN JSON API + `kpsewhich`/`tlmgr` for local detection | Done: dialog (Cmd/Ctrl + Alt + P) with async background loading, per-project package list, install-state detection, docs link |
@@ -19,7 +19,7 @@ lands; "—" means not started).
 | Figure/table/listing browser | A "document map" of floats with jump-to-source and caption status | Pairs well with the properties column | Done (v1): left-rail Figures & Tables tab — figures, tables, listings, algorithms across included files in document order, numbered per kind, figure thumbnails, No caption / No label badges with an issues filter, search, click-to-jump |
 | Table & TikZ assistants | Generate table skeletons, wrap figures, basic TikZ snippets | Stretch — high polish cost | Done (v1): table dialog, wrap-in-figure, five TikZ snippets, editor toolbar; cell-grid editing would be the next step |
 | Compile profiles | XeLaTeX/LuaLaTeX engines, `draft`/`final` flags, per-project latexmk config | Engine whitelist only; no free-form latexmk args (untrusted projects) | Done (v1): engine per project in `.polemic/project.json` (Document settings); Automatic reads `% !TEX program`, else XeLaTeX for fontspec/unicode-math. Draft stays the class option in Document settings |
-| Accurate word counts | `texcount`-style section-aware counts per file/chapter | Status bar count is a rough heuristic today | — |
+| Accurate word counts | `texcount`-style section-aware counts per file/chapter | | Done (v1): `lib/word-count.ts` counts the body only — text, headings, captions/footnotes, inline/display math; Properties shows the file breakdown plus document totals and per-section counts (subsections included, click to jump); the status bar uses the same counter |
 | Paper wizards | New-project templates for ACM/IEEE/thesis with class files | Template system exists | — |
 
 ## 2. Research — Reading and collecting

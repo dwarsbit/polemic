@@ -16,7 +16,8 @@ const doc = [
   "\\end{document}",
 ].join("\n");
 
-const run = (source: string, edits: ReturnType<typeof planMove>) => applyEdits(source, edits);
+const run = (source: string, edits: ReturnType<typeof planMove>) =>
+  applyEdits(source, edits);
 
 describe("planMove", () => {
   it("swaps a section, with its subsections, and its sibling", () => {
@@ -61,9 +62,17 @@ describe("planMove", () => {
 describe("planMoveTo", () => {
   it("drops a section before or after another one", () => {
     const before = run(doc, planMoveTo(doc, 3, 0, "before"));
-    expect(before.split("\n").slice(2, 5)).toEqual(["\\section{C}", "c text", "\\section{A}"]);
+    expect(before.split("\n").slice(2, 5)).toEqual([
+      "\\section{C}",
+      "c text",
+      "\\section{A}",
+    ]);
     const after = run(doc, planMoveTo(doc, 0, 2, "after"));
-    expect(after.split("\n").slice(2, 5)).toEqual(["\\section{B}", "b text", "\\section{A}"]);
+    expect(after.split("\n").slice(2, 5)).toEqual([
+      "\\section{B}",
+      "b text",
+      "\\section{A}",
+    ]);
   });
 
   it("refuses to drop a section into its own subtree", () => {
@@ -85,13 +94,18 @@ describe("planLevelChange", () => {
     // \subsubsection is the deepest level.
     const deep = "\\subsection{S}\n\\subsubsection{T}";
     expect(planLevelChange(deep, 0, 1, 0)).toEqual([]);
-    expect(run(deep, planLevelChange(deep, 1, -1, 0))).toBe("\\subsection{S}\n\\subsection{T}");
+    expect(run(deep, planLevelChange(deep, 1, -1, 0))).toBe(
+      "\\subsection{S}\n\\subsection{T}",
+    );
   });
 });
 
 describe("structural includes", () => {
-  const src = "\\section{A}\na\n\\input{table}\n\\section{B}\nb\n\\input{chapters/c}\n\\end{document}";
-  const options = { isStructuralInclude: (spec: string) => spec.startsWith("chapters/") };
+  const src =
+    "\\section{A}\na\n\\input{table}\n\\section{B}\nb\n\\input{chapters/c}\n\\end{document}";
+  const options = {
+    isStructuralInclude: (spec: string) => spec.startsWith("chapters/"),
+  };
 
   it("moves content includes with the section and leaves section includes", () => {
     const moved = run(src, planMoveTo(src, 1, 0, "before", options));
