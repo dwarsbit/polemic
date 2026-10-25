@@ -56,7 +56,13 @@ export function ImportByIdDialog({
       if (next === null) setError("The registry's answer contained no entry.");
       else setDraft(next);
     } catch (e) {
-      setError(typeof e === "string" ? e : e instanceof Error ? e.message : "The lookup failed.");
+      setError(
+        typeof e === "string"
+          ? e
+          : e instanceof Error
+            ? e.message
+            : "The lookup failed.",
+      );
     } finally {
       setBusy(false);
     }
@@ -80,15 +86,15 @@ export function ImportByIdDialog({
         <DialogHeader>
           <DialogTitle>Import by DOI or arXiv ID</DialogTitle>
           <DialogDescription className="text-xs">
-            Paste a DOI (10.1145/…), an arXiv ID (1706.03762), or a doi.org /
-            arxiv.org link.
+            Paste a DOI (10.1145/…), an arXiv ID (1706.03762), or a doi.org / arxiv.org
+            link.
           </DialogDescription>
         </DialogHeader>
         {!onlineLookup ? (
           <div className="space-y-2">
             <p className="text-xs text-muted-foreground">
-              Online lookup is off. Turning it on lets Polemic contact doi.org
-              to fetch the entry; only the identifier you paste is sent.
+              Online lookup is off. Turning it on lets Polemic contact doi.org to fetch
+              the entry; only the identifier you paste is sent.
             </p>
             <Button size="sm" onClick={() => void setOnlineLookup(true)}>
               Enable online lookup
@@ -131,10 +137,13 @@ export function ImportByIdDialog({
                 <div className="rounded-md border p-2 text-xs">
                   <div className="flex items-baseline justify-between gap-2">
                     <span className="font-mono">{draft.key}</span>
-                    <span className="text-[10px] text-muted-foreground">{draft.type}</span>
+                    <span className="text-[10px] text-muted-foreground">
+                      {draft.type}
+                    </span>
                   </div>
                   <p className="mt-0.5 text-muted-foreground">
-                    {draft.fields.find((f) => f.name === "title")?.value ?? "(untitled)"}
+                    {draft.fields.find((f) => f.name === "title")?.value ??
+                      "(untitled)"}
                   </p>
                 </div>
                 <CitationPreview

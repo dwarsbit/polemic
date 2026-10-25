@@ -40,10 +40,7 @@ describe("promptWindow", () => {
 
 describe("buildUserPrompt", () => {
   it("includes the message, context, and the error line", () => {
-    const prompt = buildUserPrompt(
-      issue({ line: 4, detail: ["l.4 ...x_1"] }),
-      DOC,
-    );
+    const prompt = buildUserPrompt(issue({ line: 4, detail: ["l.4 ...x_1"] }), DOC);
     expect(prompt).toContain("Missing $ inserted.");
     expect(prompt).toContain("l.4 ...x_1");
     expect(prompt).toContain("The value x_1 is nice.");
@@ -69,7 +66,8 @@ describe("parseAiFixResponse", () => {
   });
 
   it("unwraps markdown fences and caps the replacements", () => {
-    const content = "```json\n" +
+    const content =
+      "```json\n" +
       JSON.stringify({
         explanation: "Many changes.",
         replacements: [

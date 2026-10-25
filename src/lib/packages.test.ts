@@ -1,9 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {
-  loadedPackages,
-  parseUsepackage,
-  planUsepackageRemoval,
-} from "./packages";
+import { loadedPackages, parseUsepackage, planUsepackageRemoval } from "./packages";
 
 const doc = [
   "\\documentclass{article}",
@@ -46,8 +42,7 @@ describe("planUsepackageRemoval", () => {
   it("rewrites a multi-package line, keeping options", () => {
     const plan = planUsepackageRemoval(doc, "mathtools");
     expect(plan).not.toBeNull();
-    const edited =
-      doc.slice(0, plan!.from) + plan!.insert + doc.slice(plan!.to);
+    const edited = doc.slice(0, plan!.from) + plan!.insert + doc.slice(plan!.to);
     expect(edited).toContain("\\usepackage[final]{amsmath}");
     expect(edited).not.toContain("mathtools");
   });

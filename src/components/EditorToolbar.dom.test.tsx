@@ -56,7 +56,9 @@ async function pickInsertItem(host: HTMLElement, itemText: string) {
   );
   if (item === undefined) throw new Error(`item ${itemText} not found`);
   // Radix's select runs through ReactDOM.flushSync: out of act's band.
-  item.dispatchEvent(new PointerEvent("click", { button: 0, bubbles: true, pointerId: 1 }));
+  item.dispatchEvent(
+    new PointerEvent("click", { button: 0, bubbles: true, pointerId: 1 }),
+  );
   await act(async () => {});
 }
 
@@ -118,7 +120,12 @@ describe("NewTheoremDialog", () => {
     const root: Root = createRoot(host);
     await act(async () => {
       root.render(
-        <NewTheoremDialog open onOpenChange={() => {}} existingEnvs={existingEnvs} onCommit={onCommit} />,
+        <NewTheoremDialog
+          open
+          onOpenChange={() => {}}
+          existingEnvs={existingEnvs}
+          onCommit={onCommit}
+        />,
       );
     });
     await act(async () => {
@@ -137,13 +144,18 @@ describe("NewTheoremDialog", () => {
     const add = [...dialog.querySelectorAll("button")].find((b) =>
       b.textContent?.includes("Add"),
     )!;
-    add.dispatchEvent(new PointerEvent("click", { button: 0, bubbles: true, pointerId: 1 }));
+    add.dispatchEvent(
+      new PointerEvent("click", { button: 0, bubbles: true, pointerId: 1 }),
+    );
     await act(async () => {});
   }
 
   /** React's value tracking ignores plain .value assignment. */
   function setNativeValue(input: HTMLInputElement, value: string) {
-    const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")!.set!;
+    const setter = Object.getOwnPropertyDescriptor(
+      HTMLInputElement.prototype,
+      "value",
+    )!.set!;
     setter.call(input, value);
     input.dispatchEvent(new Event("input", { bubbles: true }));
   }
@@ -171,14 +183,18 @@ describe("NewTheoremDialog", () => {
     await fillAndAdd("not a name", "X");
     await fillAndAdd("exercise", "X");
     expect(calls).toEqual([]);
-    expect(document.querySelector('[role="dialog"]')?.textContent).toContain("already declared");
+    expect(document.querySelector('[role="dialog"]')?.textContent).toContain(
+      "already declared",
+    );
     root.unmount();
   });
 
   it("shows the face's failure when the commit returns one", async () => {
     const { root } = await mountDialog(() => "No preamble to hold it.");
     await fillAndAdd("ghost", "");
-    expect(document.querySelector('[role="dialog"]')?.textContent).toContain("No preamble to hold it.");
+    expect(document.querySelector('[role="dialog"]')?.textContent).toContain(
+      "No preamble to hold it.",
+    );
     root.unmount();
   });
 
@@ -191,9 +207,7 @@ describe("NewTheoremDialog", () => {
       return true;
     });
     setEnsurePackagesHandler((pkgs) => packages.push(pkgs));
-    const { host, root } = await mount(
-      <EditorToolbar />,
-    );
+    const { host, root } = await mount(<EditorToolbar />);
     // The dialog sits inside the toolbar; open it via the menu.
     await pickInsertItem(host, "New theorem environment");
     const dialog = document.querySelector("[role='dialog']") as HTMLElement | null;
@@ -205,7 +219,9 @@ describe("NewTheoremDialog", () => {
     const add = [...dialog!.querySelectorAll("button")].find((b) =>
       b.textContent?.includes("Add"),
     )!;
-    add.dispatchEvent(new PointerEvent("click", { button: 0, bubbles: true, pointerId: 1 }));
+    add.dispatchEvent(
+      new PointerEvent("click", { button: 0, bubbles: true, pointerId: 1 }),
+    );
     await act(async () => {});
     expect(packages).toEqual([["amsthm"]]);
     expect(edits[0]?.insert).toBe("\\newtheorem{conjecture}{Conjecture}\n");

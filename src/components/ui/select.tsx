@@ -90,10 +90,4 @@ function SelectItem({
 const Select = SelectPrimitive.Root;
 const SelectValue = SelectPrimitive.Value;
 
-export {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-};
+export { Select, SelectContent, SelectItem, SelectTrigger, SelectValue };

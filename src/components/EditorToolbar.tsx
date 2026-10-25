@@ -1,5 +1,15 @@
 import { useMemo, useState } from "react";
-import { Bold, ChevronDown, Image, Italic, List, ListOrdered, Plus, TableProperties, Underline } from "lucide-react";
+import {
+  Bold,
+  ChevronDown,
+  Image,
+  Italic,
+  List,
+  ListOrdered,
+  Plus,
+  TableProperties,
+  Underline,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import {
@@ -13,11 +23,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { NewTheoremDialog } from "@/components/NewTheoremDialog";
 import { wrapFigure } from "@/lib/editor-figure";
-import {
-  FIGURE_SCAFFOLD,
-  TABLE_SCAFFOLD,
-  insertAtCursor,
-} from "@/lib/editor-insert";
+import { FIGURE_SCAFFOLD, TABLE_SCAFFOLD, insertAtCursor } from "@/lib/editor-insert";
 import { applyEditsInView } from "@/lib/editor-edits";
 import { ensurePackages } from "@/lib/editor-figure";
 import { applyTextWrapper } from "@/lib/editor-wrappers";
@@ -59,7 +65,8 @@ export function EditorToolbar() {
     display: string,
     insertInstance: boolean,
   ): string | null {
-    const name = display.length > 0 ? display : env.charAt(0).toUpperCase() + env.slice(1);
+    const name =
+      display.length > 0 ? display : env.charAt(0).toUpperCase() + env.slice(1);
     const contentNow = useEditorStore.getState().content;
     const beginAt = contentNow.indexOf("\\begin{document}");
     if (beginAt === -1) {
@@ -108,9 +115,7 @@ export function EditorToolbar() {
             return (
               <DropdownMenuItem
                 key={env}
-                onSelect={() =>
-                  insertAtCursor(skeleton.text, skeleton.cursorOffset)
-                }
+                onSelect={() => insertAtCursor(skeleton.text, skeleton.cursorOffset)}
               >
                 {env.charAt(0).toUpperCase() + env.slice(1)}
               </DropdownMenuItem>
@@ -143,12 +148,16 @@ export function EditorToolbar() {
             Display math — \[…\]
           </DropdownMenuItem>
           <DropdownMenuItem
-            onSelect={() => insertAtCursor(FIGURE_SCAFFOLD, FIGURE_SCAFFOLD.indexOf("{}") + 1)}
+            onSelect={() =>
+              insertAtCursor(FIGURE_SCAFFOLD, FIGURE_SCAFFOLD.indexOf("{}") + 1)
+            }
           >
             Figure
           </DropdownMenuItem>
           <DropdownMenuItem
-            onSelect={() => insertAtCursor(TABLE_SCAFFOLD, TABLE_SCAFFOLD.indexOf("a & b"))}
+            onSelect={() =>
+              insertAtCursor(TABLE_SCAFFOLD, TABLE_SCAFFOLD.indexOf("a & b"))
+            }
           >
             Table
           </DropdownMenuItem>
@@ -161,10 +170,7 @@ export function EditorToolbar() {
       <NewTheoremDialog
         open={theoremOpen}
         onOpenChange={setTheoremOpen}
-        existingEnvs={[
-          ...THEOREM_ENVS,
-          ...declared.map((d) => d.env),
-        ]}
+        existingEnvs={[...THEOREM_ENVS, ...declared.map((d) => d.env)]}
         onCommit={commitNewtheorem}
       />
       <Separator orientation="vertical" className="h-5" />

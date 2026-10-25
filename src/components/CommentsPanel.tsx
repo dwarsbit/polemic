@@ -20,7 +20,9 @@ export function CommentsPanel() {
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
 
   /** The anchored line for a comment, or null when orphaned. */
-  function lineOf(comment: { anchor: { text: string; line: number } | null }): number | null {
+  function lineOf(comment: {
+    anchor: { text: string; line: number } | null;
+  }): number | null {
     if (comment.anchor === null) return null;
     if (comment.anchor.text === "") return null;
     return resolveAnchor(useEditorStore.getState().content, comment.anchor);
@@ -187,7 +189,9 @@ export function CommentsPanel() {
                         size="icon-xs"
                         className="opacity-0 group-hover:opacity-100"
                         title="Edit comment"
-                        onClick={() => openCommentDialog({ kind: "edit", id: comment.id })}
+                        onClick={() =>
+                          openCommentDialog({ kind: "edit", id: comment.id })
+                        }
                       >
                         <Pencil className="size-3" />
                       </Button>

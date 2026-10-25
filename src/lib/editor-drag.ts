@@ -66,7 +66,9 @@ export function startAssetDrag(
 
   const onMove = (event: PointerEvent) => {
     if (!active) {
-      if (Math.hypot(event.clientX - startX, event.clientY - startY) < DRAG_THRESHOLD_PX) {
+      if (
+        Math.hypot(event.clientX - startX, event.clientY - startY) < DRAG_THRESHOLD_PX
+      ) {
         return;
       }
       active = true;

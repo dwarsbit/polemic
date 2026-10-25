@@ -43,7 +43,10 @@ function parseOptions(documentclassSrc: string | null): string[] {
   if (documentclassSrc === null) return [];
   const m = /\\documentclass\[([^\]]*)\]/.exec(documentclassSrc);
   if (m === null) return [];
-  return m[1].split(",").map((opt) => opt.trim()).filter((opt) => opt.length > 0);
+  return m[1]
+    .split(",")
+    .map((opt) => opt.trim())
+    .filter((opt) => opt.length > 0);
 }
 
 function classNameOf(documentclassSrc: string | null): string {
@@ -106,8 +109,7 @@ export function applyDocumentSettings(
     if (trimmed.length > 0) options.push(trimmed);
   }
 
-  attrs.documentclassSrc =
-    `\\documentclass${options.length > 0 ? `[${options.join(", ")}]` : ""}{${next.className}}`;
+  attrs.documentclassSrc = `\\documentclass${options.length > 0 ? `[${options.join(", ")}]` : ""}{${next.className}}`;
   attrs.titleSrc = next.title.trim().length > 0 ? `\\title{${next.title}}` : null;
   attrs.authorSrc = next.author.trim().length > 0 ? `\\author{${next.author}}` : null;
   attrs.dateSrc = next.date.trim().length > 0 ? `\\date{${next.date}}` : null;

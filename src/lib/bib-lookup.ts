@@ -5,11 +5,15 @@
  * the Rust-side lookup_bibtex command.
  */
 
-import { displayValue, parseBibEntries, suggestKey, type EntryDraft } from "./bib-entries";
+import {
+  displayValue,
+  parseBibEntries,
+  suggestKey,
+  type EntryDraft,
+} from "./bib-entries";
 
 export type LookupId =
-  | { kind: "doi"; doi: string }
-  | { kind: "arxiv"; id: string; doi: string };
+  { kind: "doi"; doi: string } | { kind: "arxiv"; id: string; doi: string };
 
 /** arXiv preprints are registered with DataCite under this prefix. */
 const ARXIV_DOI_PREFIX = "10.48550/arXiv.";
@@ -39,7 +43,8 @@ export function parseLookupId(input: string): LookupId | null {
       text = urlMatch[1];
     }
   }
-  const arxivUrl = /^https?:\/\/(?:www\.)?arxiv\.org\/(?:abs|pdf)\/(.+?)(?:\.pdf)?$/i.exec(text);
+  const arxivUrl =
+    /^https?:\/\/(?:www\.)?arxiv\.org\/(?:abs|pdf)\/(.+?)(?:\.pdf)?$/i.exec(text);
   if (arxivUrl !== null) text = arxivUrl[1];
 
   text = text.replace(/^doi:\s*/i, "").replace(/^arxiv:\s*/i, "");

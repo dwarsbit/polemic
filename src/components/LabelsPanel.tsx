@@ -176,7 +176,12 @@ export function LabelsPanel() {
       if (q.length > 0 && fuzzyMatch(q, ref.name) === null) continue;
       const entry = byName.get(ref.name);
       if (entry === undefined) {
-        byName.set(ref.name, { name: ref.name, file: ref.file, line: ref.line, count: 1 });
+        byName.set(ref.name, {
+          name: ref.name,
+          file: ref.file,
+          line: ref.line,
+          count: 1,
+        });
       } else {
         entry.count += 1;
       }
@@ -275,7 +280,9 @@ export function LabelsPanel() {
   function renderRow(row: LabelRowData) {
     const isRenaming = rename?.name === row.name;
     const group = labelGroup(row.name);
-    const locations = `${row.def.file}:${row.def.line}` + (row.defCount > 1 ? ` (+${row.defCount - 1} more)` : "");
+    const locations =
+      `${row.def.file}:${row.def.line}` +
+      (row.defCount > 1 ? ` (+${row.defCount - 1} more)` : "");
     return (
       <div
         key={row.name}
@@ -455,7 +462,10 @@ export function LabelsPanel() {
             </div>
             {!collapsed.has("undefined") &&
               undefinedRefs.map((ref) => (
-                <div key={ref.name} className="flex items-center rounded pl-6 hover:bg-accent">
+                <div
+                  key={ref.name}
+                  className="flex items-center rounded pl-6 hover:bg-accent"
+                >
                   <button
                     type="button"
                     className="min-w-0 flex-1 truncate py-1 text-left text-sm"

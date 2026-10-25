@@ -93,10 +93,7 @@ export function zoteroYear(date: string | undefined): string {
  * types fall back to @misc. The key is generated (surname+year, made
  * unique against `taken` — usually the project's existing keys).
  */
-export function zoteroItemToBib(
-  item: ZoteroItemData,
-  taken: string[],
-): ZoteroBibEntry {
+export function zoteroItemToBib(item: ZoteroItemData, taken: string[]): ZoteroBibEntry {
   const creators = item.creators ?? [];
   const authors = zoteroCreators(
     creators.filter((creator) => creator.creatorType === "author"),

@@ -85,7 +85,9 @@ describe("findMathRegion", () => {
   });
 
   it("handles non-math environments as no math", () => {
-    expect(findMathRegion("\\begin{itemize}\\item $x$\\end{itemize}", 22)?.source).toBe("x");
+    expect(findMathRegion("\\begin{itemize}\\item $x$\\end{itemize}", 22)?.source).toBe(
+      "x",
+    );
   });
 });
 

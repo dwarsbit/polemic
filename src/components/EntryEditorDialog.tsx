@@ -136,9 +136,7 @@ export function EntryEditorDialog({
               />
             </div>
             <div className="w-36">
-              <label className="mb-1 block text-xs text-muted-foreground">
-                Type
-              </label>
+              <label className="mb-1 block text-xs text-muted-foreground">Type</label>
               <Select
                 value={draft.type}
                 onValueChange={(type) => setDraft({ ...draft, type })}
@@ -251,8 +249,8 @@ export function EntryEditorDialog({
           )}
           {missing.length > 0 && (
             <p className="text-xs text-amber-600 dark:text-amber-400">
-              Missing for {typeLabel(draft.type)}: {missing.join(", ")} — a
-              warning only, saving works.
+              Missing for {typeLabel(draft.type)}: {missing.join(", ")} — a warning
+              only, saving works.
             </p>
           )}
           <CitationPreview

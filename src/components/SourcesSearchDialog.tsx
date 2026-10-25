@@ -16,7 +16,11 @@ import {
 } from "@/lib/bib-entries";
 import { fuzzyMatch } from "@/lib/fuzzy";
 import { appendBibEntryToProject, projectBibKeys } from "@/lib/project-bib";
-import { zoteroItemToBib, zoteroCreators, type ZoteroItemData } from "@/lib/zotero-convert";
+import {
+  zoteroItemToBib,
+  zoteroCreators,
+  type ZoteroItemData,
+} from "@/lib/zotero-convert";
 import { zoteroLocalSearch, zoteroWebSearch } from "@/lib/zotero";
 import { sourceName, useSourcesStore, type SourceDef } from "@/store/sources";
 import { useSettingsStore } from "@/store/settings";
@@ -282,9 +286,7 @@ export function SourcesSearchDialog({
             </>
           )}
         </div>
-        {message !== null && (
-          <p className="text-xs text-muted-foreground">{message}</p>
-        )}
+        {message !== null && <p className="text-xs text-muted-foreground">{message}</p>}
         <div className="flex justify-end">
           <Button variant="ghost" size="sm" onClick={() => onOpenChange(false)}>
             Done

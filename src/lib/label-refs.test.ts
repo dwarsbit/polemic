@@ -20,7 +20,8 @@ describe("label-refs", () => {
   });
 
   it("recognizes all ref command variants", () => {
-    const doc = "\\ref{x} \\eqref{x} \\pageref{x} \\autoref{x} \\vref{x} \\cref{x} \\Cref{x}";
+    const doc =
+      "\\ref{x} \\eqref{x} \\pageref{x} \\autoref{x} \\vref{x} \\cref{x} \\Cref{x}";
     expect(extractRefPositions(doc)).toHaveLength(7);
   });
 

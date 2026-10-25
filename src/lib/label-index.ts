@@ -89,9 +89,16 @@ function innerRange(pos: NamePos): { from: number; to: number } {
  * Ranges are in the file's *current* text; callers apply them
  * back-to-front (see applyEdits).
  */
-function planFileRename(content: string, oldName: string, newName: string): SourceEdit[] {
+function planFileRename(
+  content: string,
+  oldName: string,
+  newName: string,
+): SourceEdit[] {
   const edits: SourceEdit[] = [];
-  for (const pos of [...extractLabelPositions(content), ...extractRefPositions(content)]) {
+  for (const pos of [
+    ...extractLabelPositions(content),
+    ...extractRefPositions(content),
+  ]) {
     if (pos.name !== oldName) continue;
     const { from, to } = innerRange(pos);
     edits.push({ from, to, insert: newName });

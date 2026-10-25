@@ -41,5 +41,8 @@ export const COMMENT_CATEGORIES: CommentCategory[] = [
 ];
 
 export function commentCategory(id: string): CommentCategory {
-  return COMMENT_CATEGORIES.find((category) => category.id === id) ?? COMMENT_CATEGORIES[COMMENT_CATEGORIES.length - 1];
+  return (
+    COMMENT_CATEGORIES.find((category) => category.id === id) ??
+    COMMENT_CATEGORIES[COMMENT_CATEGORIES.length - 1]
+  );
 }

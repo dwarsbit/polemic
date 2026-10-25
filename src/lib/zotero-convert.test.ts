@@ -40,9 +40,7 @@ describe("zoteroItemToBib", () => {
   const article = {
     itemType: "journalArticle",
     title: "Literate Programming",
-    creators: [
-      { creatorType: "author", firstname: "Donald E.", lastname: "Knuth" },
-    ],
+    creators: [{ creatorType: "author", firstname: "Donald E.", lastname: "Knuth" }],
     date: "1984-01",
     publicationTitle: "The Computer Journal",
     volume: "27",

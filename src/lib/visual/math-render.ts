@@ -14,16 +14,40 @@ export interface MathSplit {
 /** Split a math node's src into body, environment, and delimiters. */
 export function splitMathSrc(src: string): MathSplit {
   if (src.startsWith("$$")) {
-    return { body: src.slice(2, -2), env: null, prefix: "$$", suffix: "$$", display: true };
+    return {
+      body: src.slice(2, -2),
+      env: null,
+      prefix: "$$",
+      suffix: "$$",
+      display: true,
+    };
   }
   if (src.startsWith("\\[")) {
-    return { body: src.slice(2, -2), env: null, prefix: "\\[", suffix: "\\]", display: true };
+    return {
+      body: src.slice(2, -2),
+      env: null,
+      prefix: "\\[",
+      suffix: "\\]",
+      display: true,
+    };
   }
   if (src.startsWith("\\(")) {
-    return { body: src.slice(2, -2), env: null, prefix: "\\(", suffix: "\\)", display: false };
+    return {
+      body: src.slice(2, -2),
+      env: null,
+      prefix: "\\(",
+      suffix: "\\)",
+      display: false,
+    };
   }
   if (src.startsWith("$")) {
-    return { body: src.slice(1, -1), env: null, prefix: "$", suffix: "$", display: false };
+    return {
+      body: src.slice(1, -1),
+      env: null,
+      prefix: "$",
+      suffix: "$",
+      display: false,
+    };
   }
   const m = /^\\begin\{([^}]*)\}([\s\S]*)\\end\{\1\}$/.exec(src);
   if (m !== null) {

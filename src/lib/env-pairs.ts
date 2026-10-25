@@ -66,11 +66,7 @@ export function envNameAt(doc: string, pos: number): EnvNameLocation | null {
     if (pos >= pair.beginName.from && pos <= pair.beginName.to) {
       return { range: pair.beginName, partner: pair.endName };
     }
-    if (
-      pair.endName !== null &&
-      pos >= pair.endName.from &&
-      pos <= pair.endName.to
-    ) {
+    if (pair.endName !== null && pos >= pair.endName.from && pos <= pair.endName.to) {
       return { range: pair.endName, partner: pair.beginName };
     }
   }

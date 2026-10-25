@@ -56,7 +56,9 @@ describe("theorem environment views", () => {
   });
 
   it("gives quote family blocks no name line", () => {
-    const editor = makeEditor("\\begin{document}\n\\begin{quote}\nWords.\n\\end{quote}\n\\end{document}\n");
+    const editor = makeEditor(
+      "\\begin{document}\n\\begin{quote}\nWords.\n\\end{quote}\n\\end{document}\n",
+    );
     const html = editor.view.dom.innerHTML;
     expect(html).not.toContain("vis-env-theorem-name");
     editor.destroy();
@@ -66,7 +68,9 @@ describe("theorem environment views", () => {
     const editor = makeEditor(
       "\\begin{document}\n\\begin{theorem}[Euler]\nBody.\n\\end{theorem}\n\\end{document}\n",
     );
-    const pill = editor.view.dom.querySelector(".vis-env-theorem-opt") as HTMLElement | null;
+    const pill = editor.view.dom.querySelector(
+      ".vis-env-theorem-opt",
+    ) as HTMLElement | null;
     expect(pill).not.toBeNull();
     pill!.click();
     await Promise.resolve(); // let the focus microtask run
@@ -86,7 +90,9 @@ describe("theorem environment views", () => {
     const editor = makeEditor(
       "\\begin{document}\n\\begin{theorem}[Euler]\nBody.\n\\end{theorem}\n\\end{document}\n",
     );
-    const pill = editor.view.dom.querySelector(".vis-env-theorem-opt") as HTMLElement | null;
+    const pill = editor.view.dom.querySelector(
+      ".vis-env-theorem-opt",
+    ) as HTMLElement | null;
     pill!.click();
     await Promise.resolve(); // let the focus microtask run
     const input = editor.view.dom.querySelector(

@@ -8,10 +8,7 @@ import {
   isCheckableRef,
   resolveGraphicsRef,
 } from "@/lib/graphics-refs";
-import {
-  extractLabelPositions,
-  extractRefPositions,
-} from "@/lib/label-refs";
+import { extractLabelPositions, extractRefPositions } from "@/lib/label-refs";
 import { useProjectStore } from "@/store/project";
 
 /**
@@ -22,8 +19,14 @@ import { useProjectStore } from "@/store/project";
  * (the linter itself debounces).
  */
 export const refLabelLint = linter((view: EditorView) => {
-  const { activeFile, labelsByFile, refsByFile, citeKeysByFile, graphicsPathsByFile, files } =
-    useProjectStore.getState();
+  const {
+    activeFile,
+    labelsByFile,
+    refsByFile,
+    citeKeysByFile,
+    graphicsPathsByFile,
+    files,
+  } = useProjectStore.getState();
   if (activeFile === null) return [];
 
   const source = view.state.doc.toString();
@@ -31,10 +34,7 @@ export const refLabelLint = linter((view: EditorView) => {
   const liveRefs = extractRefPositions(source).map((ref) => ref.name);
 
   // Labels defined anywhere (last read of other files, live for this one).
-  const labels = new Set([
-    ...Object.values(labelsByFile).flat(),
-    ...liveLabels,
-  ]);
+  const labels = new Set([...Object.values(labelsByFile).flat(), ...liveLabels]);
   // Refs made anywhere, live for the active file.
   const refs = new Set([
     ...Object.entries(refsByFile)

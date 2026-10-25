@@ -37,9 +37,7 @@ export function tabIndentChanges(state: EditorState): ChangeSpec {
  * Changes for one Shift-Tab press: remove one indent unit of leading
  * spaces from every affected line (a leading tab counts as one unit).
  */
-export function tabDedentChanges(
-  state: EditorState,
-): { from: number; to: number }[] {
+export function tabDedentChanges(state: EditorState): { from: number; to: number }[] {
   const changes: { from: number; to: number }[] = [];
   for (const line of selectedLines(state)) {
     const text = state.sliceDoc(line.from, line.to);

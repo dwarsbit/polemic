@@ -10,6 +10,7 @@ verify. Commit each phase with a useful message and push to
 ## Outline structure editing, word counts (2026-10-25)
 
 Same branch, after the batch below.
+
 - Outline editing (`lib/outline-edit.ts`, `OutlinePanel.tsx`): a
   section's block runs to the next heading at its level or higher,
   stopping at `\end{document}`/`\appendix`/the bibliography and at
@@ -30,6 +31,7 @@ editor focused.
 ## Bib guard, missing graphics, floats navigator (2026-10-25)
 
 Branch `feat/bib-guard-figures-graphics`, on top of the v1 batch.
+
 - Bib sources (`pick_bib_source` in lib.rs): bib paths enter the
   settings only through a native picker Rust-side; `update_preferences`
   refuses a sources list with a bib path not already stored
@@ -55,6 +57,7 @@ Open: the editor lint does not re-run when only the file tree changes
 ## v1 batch: items 1–6 (2026-10-24)
 
 Branch `feat/v1-batch`, on top of the security pass.
+
 - Multi-file navigation: Cmd/Ctrl+click on `\input`/`\include`/
   `\subfile` opens the file (Code face; `include-nav.ts`). The
   `IncludeBreadcrumbs` row under the tabs shows main › … › file;
@@ -88,6 +91,7 @@ batch.)
 ## Security and robustness pass (2026-10-24)
 
 Branch `fix/security-audit`. Fixes from an audit:
+
 - Untrusted projects: `latexmk -norc` (user/system rc files passed back
   with `-r`), git runs with repo-local command keys blanked
   (fsmonitor, filters, textconv, gpg programs, …) and hooks off
@@ -131,6 +135,7 @@ Suite all green (377/377); `pnpm tsc` clean.
 Next: Phase 3 item 1 — footnotes as inline pills.
 
 Phase 3 item 1 landed (footnotes as inline pills):
+
 - `footnote` inline atom with verbatim `src` (parse/serialize/
   idempotence tests in `parse-serialize.test.ts`); nested braces
   kept, `\footnotemark`/`\footnotetext` stay raw.
@@ -145,6 +150,7 @@ Phase 3 item 1 landed (footnotes as inline pills):
 Next: Phase 3 item 2 — list item labels.
 
 Phase 3 item 2 landed (list item labels):
+
 - `ListItemView` node view on `listItem`: `\item[label]` shows as a
   chip floated beside the first content line, reading as the marker
   (`list-style: none` on labeled items — LaTeX replaces the bullet
@@ -157,6 +163,7 @@ Phase 3 item 2 landed (list item labels):
   `\item[a]` in `parse-serialize.test.ts`.
 
 Follow-up fixes (user feedback, 2026-10-06):
+
 - The "+" add chip was unclickable in the app: ProseMirror claimed
   the mousedown. The chip now follows the heading-cog pattern
   (mousedown preventDefault + stopEvent covering the chip), and an
@@ -175,6 +182,7 @@ Follow-up fixes (user feedback, 2026-10-06):
   wrap-in-figure scaffold still lands inline.
 
 Phase 3 item 3 landed (theorem-env light polish, CSS only):
+
 - Name line tightened: no stray top margin, the first paragraph of
   the statement joins it closely, and the trailing dot gets a hair
   of space after the title pill.
@@ -205,6 +213,7 @@ menu landed — a general dropdown in the Visual toolbar:
   `insert-menu.dom.test.ts`.
 
 Phase 4 item 4 landed (cursor across external reloads):
+
 - The `docVersion` effect re-anchors on same-file reloads
   (external sync edits, snapshot restores): the caret's face anchor
   re-resolves in the reparsed document. A different file (tab
@@ -216,6 +225,7 @@ Phase 4 item 4 landed (cursor across external reloads):
   Tiptap's `element.editor`.
 
 Phase 4 item 5 landed (debounced serialization):
+
 - `onUpdate` keeps only the anchor immediate; a 300ms trailing
   debounce serializes the whole document to the store
   (`setContent` + `markDirty`). Consumers that must not read a
@@ -257,6 +267,7 @@ out-of-band — radix's select path runs through ReactDOM.flushSync,
 which does not work inside an act batch).
 
 Insert menu in the Code face (2026-10-06, user request):
+
 - `EditorToolbar` gains the same Insert dropdown as Visual:
   environments (quote/quotation/center/abstract skeletons with the
   caret on the body line), theorem family (standard + `\newtheorem`
@@ -314,6 +325,7 @@ tests must move the cursor first (same as the math tests).
 ### Next (Phase 3, from the plan above)
 
 Phase 2 landed (2026-10-03):
+
 - `ce021fc` — jumps stay in Visual: `anchorForLine` maps a source
   line to a face anchor (`-1` headingIndex for lines before the first
   heading), `posForAnchor` resolves it; the hidden CodeMirror view
@@ -366,6 +378,7 @@ order, work resumes on multi-file navigation and project-wide
 replace, before the PDF library build-out.
 
 Design amendments (user feedback, 2026-10-03):
+
 - The heading gutter holds a settings cog, not a text label
   ("Section" did not fit; the node type is one setting among
   several). The cog's tooltip names the kind; the menu is the
@@ -412,8 +425,8 @@ Baseline: 329/330 tests green; the 1 failure is pre-existing in
 to the visual editor — fix separately.
 
 The v1 architecture is sound (raw-atom fallbacks, idempotent
-serialization). The gaps are in *authoring* (you can't create structure
-from the Visual face), *parity* (panels yank you to Code), and a few
+serialization). The gaps are in _authoring_ (you can't create structure
+from the Visual face), _parity_ (panels yank you to Code), and a few
 modeled blocks. Phases, highest value first:
 
 ### Phase 1 — Authoring essentials
@@ -507,7 +520,7 @@ the dropdown converts levels.
 One generic node instead of per-env types.
 
 - **Model** (`doc-types.ts`): `EnvBlockNode { type: "envBlock",
-  attrs: { env: string, opt?: string }, content: Block[] }`.
+attrs: { env: string, opt?: string }, content: Block[] }`.
   `opt` is the optional argument right after `\begin{env}[...]`
   (amsthm note/theorem title).
 - **Parse** (`parse.ts`): new `MODELED_ENVS`. Static quote family:

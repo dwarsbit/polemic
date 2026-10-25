@@ -16,11 +16,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-  ctanPageUrl,
-  searchCtan,
-  type CtanPackage,
-} from "@/lib/ctan";
+import { ctanPageUrl, searchCtan, type CtanPackage } from "@/lib/ctan";
 import { ensurePackages } from "@/lib/editor-figure";
 import { removeUsepackage } from "@/lib/editor-preamble";
 import { loadedPackages } from "@/lib/packages";
@@ -125,8 +121,7 @@ export function PackagesDialog({
     };
   }, [open, selected]);
 
-  const selectedCaption =
-    selected !== null ? captions[selected] : undefined;
+  const selectedCaption = selected !== null ? captions[selected] : undefined;
   const detailLoading = selected !== null && infos[selected] === undefined;
 
   function add(name: string) {
@@ -175,9 +170,7 @@ export function PackagesDialog({
                           <div
                             className={cn(
                               "flex items-center gap-2 rounded-lg px-2 py-1.5",
-                              selected === name
-                                ? "bg-accent"
-                                : "hover:bg-accent/50",
+                              selected === name ? "bg-accent" : "hover:bg-accent/50",
                             )}
                           >
                             <button
@@ -232,9 +225,7 @@ export function PackagesDialog({
                         type="button"
                         className={cn(
                           "block w-full rounded-lg px-2 py-1.5 text-left",
-                          selected === pkg.id
-                            ? "bg-accent"
-                            : "hover:bg-accent/50",
+                          selected === pkg.id ? "bg-accent" : "hover:bg-accent/50",
                         )}
                         onClick={() => setSelected(pkg.id)}
                       >
@@ -265,11 +256,12 @@ export function PackagesDialog({
                 {selectedCaption && (
                   <p className="text-xs font-medium">{selectedCaption}</p>
                 )}
-                {selectedInfo?.description && selectedCaption !== selectedInfo.description && (
-                  <p className="text-xs text-muted-foreground">
-                    {selectedInfo.description}
-                  </p>
-                )}
+                {selectedInfo?.description &&
+                  selectedCaption !== selectedInfo.description && (
+                    <p className="text-xs text-muted-foreground">
+                      {selectedInfo.description}
+                    </p>
+                  )}
                 <p className="flex items-center gap-1.5 text-xs">
                   {selectedInfo === undefined ? (
                     "Checking your TeX distribution…"

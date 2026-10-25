@@ -140,37 +140,37 @@ export function TopBar() {
         </div>
       </div>
       <div className="flex items-center gap-2 pr-4">
-          {showProjectControls && (
+        {showProjectControls && (
+          <Button
+            variant={previewVisible ? "default" : "outline"}
+            size="icon-sm"
+            onClick={togglePreview}
+            title={`PDF preview: ${previewVisible ? "visible" : "hidden"}`}
+          >
+            <Eye />
+          </Button>
+        )}
+        {showProjectControls && (
+          <ButtonGroup title="Compile the project now">
             <Button
-              variant={previewVisible ? "default" : "outline"}
+              variant={autoCompile ? "default" : "outline"}
               size="icon-sm"
-              onClick={togglePreview}
-              title={`PDF preview: ${previewVisible ? "visible" : "hidden"}`}
+              onClick={toggleAutoCompile}
+              title={`Auto-compile on save: ${autoCompile ? "on" : "off"}`}
             >
-              <Eye />
+              <Zap />
             </Button>
-          )}
-          {showProjectControls && (
-            <ButtonGroup title="Compile the project now">
-              <Button
-                variant={autoCompile ? "default" : "outline"}
-                size="icon-sm"
-                onClick={toggleAutoCompile}
-                title={`Auto-compile on save: ${autoCompile ? "on" : "off"}`}
-              >
-                <Zap />
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => void compileNow()}
-                disabled={status === "compiling"}
-              >
-                {status === "compiling" ? <Loader2 className="animate-spin" /> : <Play />}
-                Compile
-              </Button>
-            </ButtonGroup>
-          )}
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => void compileNow()}
+              disabled={status === "compiling"}
+            >
+              {status === "compiling" ? <Loader2 className="animate-spin" /> : <Play />}
+              Compile
+            </Button>
+          </ButtonGroup>
+        )}
       </div>
     </header>
   );

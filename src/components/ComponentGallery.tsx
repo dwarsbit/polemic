@@ -52,11 +52,7 @@ import { ToggleButton } from "@/components/ui/toggle-button";
 import { ToggleButtonGroup } from "@/components/ui/toggle-button-group";
 import { Calendar } from "@/components/ui/calendar";
 import { DatePicker } from "@/components/ui/date-picker";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { SectionHeader } from "@/components/SectionHeader";
 
 /**
@@ -127,16 +123,9 @@ function Tile({
   className?: string;
 }) {
   return (
-    <div
-      className={cn(
-        "flex flex-col gap-3 rounded-lg border bg-card p-4",
-        className,
-      )}
-    >
+    <div className={cn("flex flex-col gap-3 rounded-lg border bg-card p-4", className)}>
       {label && (
-        <span className="text-xs font-medium text-muted-foreground">
-          {label}
-        </span>
+        <span className="text-xs font-medium text-muted-foreground">{label}</span>
       )}
       <div className="flex flex-wrap items-center gap-3">{children}</div>
     </div>
@@ -164,9 +153,7 @@ function PreambleCardDemo() {
     "",
     "\\DeclareMathOperator{\\Res}{Res}",
   ].join("\n");
-  const restLines = rest
-    .split("\n")
-    .filter((line) => line.trim().length > 0).length;
+  const restLines = rest.split("\n").filter((line) => line.trim().length > 0).length;
   const parts = ["article", "3 packages"];
   if (restLines > 0) parts.push(`${restLines} lines`);
   return (
@@ -179,9 +166,7 @@ function PreambleCardDemo() {
           onClick={() => setExpanded((open) => !open)}
         >
           Preamble{parts.length > 0 ? ` — ${parts.join(" · ")}` : ""}
-          <span className={cn("vis-preamble-chevron", expanded && "open")}>
-            ▸
-          </span>
+          <span className={cn("vis-preamble-chevron", expanded && "open")}>▸</span>
         </button>
         <div className="vis-preamble-meta">
           <div className="vis-preamble-meta-title">
@@ -292,9 +277,7 @@ function InplacePill({
       suppressContentEditableWarning
       spellCheck={false}
       className={cn(value === null && "vis-title-pill-empty")}
-      onInput={(event) =>
-        setDraft(event.currentTarget.textContent ?? "")
-      }
+      onInput={(event) => setDraft(event.currentTarget.textContent ?? "")}
       onBlur={() => {
         setValue(draft.trim().length > 0 ? draft : null);
         setEditing(false);
@@ -322,9 +305,7 @@ function InplacePill({
       {value ?? ""}
     </span>
   ) : (
-    <span
-      className={cn(value === null && "vis-title-pill-empty")}
-    >
+    <span className={cn(value === null && "vis-title-pill-empty")}>
       {value ?? `Add ${label.toLowerCase()}`}
     </span>
   );
@@ -356,12 +337,8 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
   const [formatting, setFormatting] = useState<string>("latexmk");
   const [bold, setBold] = useState(false);
   const [italic, setItalic] = useState(true);
-  const [calendarDate, setCalendarDate] = useState<Date | undefined>(
-    new Date(),
-  );
-  const [pickerDate, setPickerDate] = useState<Date | undefined>(
-    new Date(2026, 9, 4),
-  );
+  const [calendarDate, setCalendarDate] = useState<Date | undefined>(new Date());
+  const [pickerDate, setPickerDate] = useState<Date | undefined>(new Date(2026, 9, 4));
 
   // Escape closes the gallery, like a dialog.
   useEffect(() => {
@@ -383,12 +360,7 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
           <kbd className="rounded border bg-muted px-1.5 py-0.5 font-mono text-xs text-muted-foreground">
             Esc
           </kbd>
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            title="Close"
-            onClick={onClose}
-          >
+          <Button variant="ghost" size="icon-sm" title="Close" onClick={onClose}>
             <XIcon />
           </Button>
         </div>
@@ -429,8 +401,8 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
             <div>
               <p className="text-sm">
                 Body copy at the default reading size, with{" "}
-                <span className="font-medium">medium weight</span> for emphasis
-                inside a sentence.
+                <span className="font-medium">medium weight</span> for emphasis inside a
+                sentence.
               </p>
               <p className="text-xs text-muted-foreground">Body — text-sm</p>
             </div>
@@ -438,18 +410,14 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
               <p className="text-xs text-muted-foreground">
                 Panels, captions, and quiet labels
               </p>
-              <p className="text-xs text-muted-foreground">
-                Caption — text-xs muted
-              </p>
+              <p className="text-xs text-muted-foreground">Caption — text-xs muted</p>
             </div>
             <div>
               <p className="font-mono text-sm">
-                \begin{"{theorem}"} Every prime p satisfies Fermat&rsquo;s
-                little theorem. \end{"{theorem}"}
+                \begin{"{theorem}"} Every prime p satisfies Fermat&rsquo;s little
+                theorem. \end{"{theorem}"}
               </p>
-              <p className="text-xs text-muted-foreground">
-                Code — font-mono text-sm
-              </p>
+              <p className="text-xs text-muted-foreground">Code — font-mono text-sm</p>
             </div>
           </div>
         </Section>
@@ -477,8 +445,7 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
                 intro
               </Badge>
               <Badge variant="secondary" className="gap-1">
-                <CheckIcon />
-                3 resolved
+                <CheckIcon />3 resolved
               </Badge>
             </Tile>
           </div>
@@ -542,11 +509,7 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
         >
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Tile label="Standalone toggles">
-              <ToggleButton
-                variant="outline"
-                pressed={bold}
-                onPressedChange={setBold}
-              >
+              <ToggleButton variant="outline" pressed={bold} onPressedChange={setBold}>
                 <BoldIcon />
                 Bold
               </ToggleButton>
@@ -591,16 +554,10 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
                   <TabsTrigger value="visual">Visual</TabsTrigger>
                   <TabsTrigger value="code">Code</TabsTrigger>
                 </TabsList>
-                <TabsContent
-                  value="visual"
-                  className="text-xs text-muted-foreground"
-                >
+                <TabsContent value="visual" className="text-xs text-muted-foreground">
                   The rendered or managed form of the file.
                 </TabsContent>
-                <TabsContent
-                  value="code"
-                  className="text-xs text-muted-foreground"
-                >
+                <TabsContent value="code" className="text-xs text-muted-foreground">
                   The raw text of the file.
                 </TabsContent>
               </Tabs>
@@ -616,16 +573,10 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
                   <TabsTrigger value="visual">Visual</TabsTrigger>
                   <TabsTrigger value="code">Code</TabsTrigger>
                 </TabsList>
-                <TabsContent
-                  value="visual"
-                  className="text-xs text-muted-foreground"
-                >
+                <TabsContent value="visual" className="text-xs text-muted-foreground">
                   Face: {face}
                 </TabsContent>
-                <TabsContent
-                  value="code"
-                  className="text-xs text-muted-foreground"
-                >
+                <TabsContent value="code" className="text-xs text-muted-foreground">
                   Face: {face}
                 </TabsContent>
               </Tabs>
@@ -705,9 +656,7 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
               />
               <p className="w-full text-xs text-muted-foreground">
                 Picked:{" "}
-                {pickerDate === undefined
-                  ? "none"
-                  : pickerDate.toLocaleDateString()}
+                {pickerDate === undefined ? "none" : pickerDate.toLocaleDateString()}
               </p>
             </Tile>
           </div>
@@ -748,13 +697,12 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
                 <DialogHeader>
                   <DialogTitle>Sample dialog</DialogTitle>
                   <DialogDescription>
-                    The dialog shell: header, description, and footer. Escape
-                    closes it — and bubbles to the gallery too.
+                    The dialog shell: header, description, and footer. Escape closes it
+                    — and bubbles to the gallery too.
                   </DialogDescription>
                 </DialogHeader>
                 <p className="text-sm">
-                  Dialogs hold focused, one-off work that should not get its
-                  own panel.
+                  Dialogs hold focused, one-off work that should not get its own panel.
                 </p>
                 <DialogFooter>
                   <DialogClose asChild>
@@ -810,10 +758,7 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
           </div>
         </Section>
 
-        <Section
-          title="App patterns"
-          note="Composed from the primitives above"
-        >
+        <Section title="App patterns" note="Composed from the primitives above">
           <div className="flex flex-col gap-3">
             <Tile label="Inline edit pills — preamble metadata (click to edit)">
               <div className="flex w-full flex-col items-center gap-3">
@@ -899,10 +844,7 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
                     Rebuild the PDF whenever a file is saved
                   </p>
                 </div>
-                <Switch
-                  checked={autoCompile}
-                  onCheckedChange={setAutoCompile}
-                />
+                <Switch checked={autoCompile} onCheckedChange={setAutoCompile} />
               </div>
             </Tile>
           </div>

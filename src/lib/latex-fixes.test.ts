@@ -36,7 +36,9 @@ describe("detectFixRule", () => {
     expect(detectFixRule(issue({ message: "Undefined control sequence." }))).toBe(
       "undefined-control-sequence",
     );
-    expect(detectFixRule(issue({ message: "Missing $ inserted." }))).toBe("missing-math");
+    expect(detectFixRule(issue({ message: "Missing $ inserted." }))).toBe(
+      "missing-math",
+    );
     expect(
       detectFixRule(issue({ message: "LaTeX Error: Environment align undefined." })),
     ).toBe("environment-package");
@@ -97,13 +99,21 @@ describe("planFix rules", () => {
     expect(result).not.toBeNull();
     expect(result!.title).toContain("\\frac");
     expect(result!.edits).toEqual([
-      { from: DOC.indexOf("\\frrac"), to: DOC.indexOf("\\frrac") + 6, insert: "\\frac" },
+      {
+        from: DOC.indexOf("\\frrac"),
+        to: DOC.indexOf("\\frrac") + 6,
+        insert: "\\frac",
+      },
     ]);
   });
 
   it("declines an undefined command that is not a typo", () => {
     const result = planFix(
-      issue({ line: 6, message: "Undefined control sequence.", detail: ["l.6 \\qqqzz"] }),
+      issue({
+        line: 6,
+        message: "Undefined control sequence.",
+        detail: ["l.6 \\qqqzz"],
+      }),
       ctx(DOC),
     );
     expect(result).toBeNull();
@@ -140,7 +150,8 @@ describe("planFix rules", () => {
     const result = planFix(
       issue({
         line: 7,
-        message: "LaTeX Error: \\begin{itemize} on input line 5 ended by \\end{itemze}.",
+        message:
+          "LaTeX Error: \\begin{itemize} on input line 5 ended by \\end{itemze}.",
       }),
       ctx(DOC),
     );
@@ -223,7 +234,10 @@ describe("planFix rules", () => {
 });
 
 /** Apply SourceEdits (from/to/insert) like the editor does. */
-function apply(doc: string, edits: { from: number; to: number; insert: string }[]): string {
+function apply(
+  doc: string,
+  edits: { from: number; to: number; insert: string }[],
+): string {
   let out = doc;
   for (const edit of [...edits].sort((a, b) => b.from - a.from)) {
     out = out.slice(0, edit.from) + edit.insert + out.slice(edit.to);

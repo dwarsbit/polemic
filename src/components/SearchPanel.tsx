@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ask } from "@tauri-apps/plugin-dialog";
-import { CaseSensitive, ChevronDown, Replace, Search as SearchIcon } from "lucide-react";
+import {
+  CaseSensitive,
+  ChevronDown,
+  Replace,
+  Search as SearchIcon,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { applyEditsInView } from "@/lib/editor-edits";
@@ -114,7 +119,12 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
           if (text === null) continue;
 
           for (const hit of searchText(text, trimmed, { caseSensitive, scope })) {
-            found.push({ file: path, line: hit.line, text: hit.text, matches: hit.matches });
+            found.push({
+              file: path,
+              line: hit.line,
+              text: hit.text,
+              matches: hit.matches,
+            });
           }
         }
         if (!cancelled) setHits(found);
@@ -124,7 +134,17 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
       cancelled = true;
       clearTimeout(timer);
     };
-  }, [project, files, activeFile, buffers, content, query, caseSensitive, scope, diskTick]);
+  }, [
+    project,
+    files,
+    activeFile,
+    buffers,
+    content,
+    query,
+    caseSensitive,
+    scope,
+    diskTick,
+  ]);
 
   /** The freshest text of a file: live editor, buffer, then disk. */
   async function currentText(path: string): Promise<string | null> {
@@ -139,7 +159,9 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
   async function replace(target?: { file: string; line: number }) {
     const trimmed = query.trim();
     if (trimmed.length === 0 || hits === null || hits.length === 0) return;
-    const targetFiles = target ? [target.file] : [...new Set(hits.map((hit) => hit.file))];
+    const targetFiles = target
+      ? [target.file]
+      : [...new Set(hits.map((hit) => hit.file))];
     if (target === undefined) {
       const total = hits.reduce((sum, hit) => sum + hit.matches.length, 0);
       const ok = await ask(
@@ -194,8 +216,7 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
       .then(() => useEditorStore.getState().jumpTo(line));
   }
 
-  const fileCount =
-    hits === null ? 0 : new Set(hits.map((hit) => hit.file)).size;
+  const fileCount = hits === null ? 0 : new Set(hits.map((hit) => hit.file)).size;
   // An empty query shows the hint instead of stale results.
   const shownHits = query.trim().length === 0 ? null : hits;
 
@@ -244,7 +265,13 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
             <button
               key={s}
               type="button"
-              title={s === "all" ? "All matches" : s === "math" ? "Matches in math mode" : "Matches outside math"}
+              title={
+                s === "all"
+                  ? "All matches"
+                  : s === "math"
+                    ? "Matches in math mode"
+                    : "Matches outside math"
+              }
               className={cn(
                 "rounded px-1.5 py-0.5 text-[10px] capitalize transition-colors",
                 scope === s
@@ -324,7 +351,10 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
                       {hit.line}
                     </span>
                     <span className="min-w-0 flex-1 truncate whitespace-pre">
-                      <Highlighted hit={hit} replacement={replaceOpen ? replacement : null} />
+                      <Highlighted
+                        hit={hit}
+                        replacement={replaceOpen ? replacement : null}
+                      />
                     </span>
                   </button>
                   {replaceOpen && (

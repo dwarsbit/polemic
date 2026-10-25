@@ -22,7 +22,9 @@ describe("parseOutline", () => {
   });
 
   it("finds parts and chapters, and skips short titles", () => {
-    const source = ["\\part{One}", "\\chapter[Short]{Long title}", "\\section{S}"].join("\n");
+    const source = ["\\part{One}", "\\chapter[Short]{Long title}", "\\section{S}"].join(
+      "\n",
+    );
     expect(parseOutline(source).map((e) => [e.level, e.title, e.command])).toEqual([
       [-2, "One", "part"],
       [-1, "Long title", "chapter"],

@@ -7,7 +7,9 @@ describe("parseLookupId", () => {
     expect(parseLookupId("10.1145/3292500.3330701")).toEqual(expected);
     expect(parseLookupId(" doi:10.1145/3292500.3330701 ")).toEqual(expected);
     expect(parseLookupId("https://doi.org/10.1145/3292500.3330701")).toEqual(expected);
-    expect(parseLookupId("https://dx.doi.org/10.1145%2F3292500.3330701")).toEqual(expected);
+    expect(parseLookupId("https://dx.doi.org/10.1145%2F3292500.3330701")).toEqual(
+      expected,
+    );
   });
 
   it("reads arXiv IDs in every common spelling", () => {
@@ -47,7 +49,10 @@ describe("bibtexToDraft", () => {
     "author={Knuth, D. E.}, year={1984}, month=jan, pages={97–111} }";
 
   it("regenerates the key and normalizes fields", () => {
-    const draft = bibtexToDraft(crossref, ["knuth1984"], { kind: "doi", doi: "10.1093/comjnl/27.2.97" });
+    const draft = bibtexToDraft(crossref, ["knuth1984"], {
+      kind: "doi",
+      doi: "10.1093/comjnl/27.2.97",
+    });
     expect(draft?.key).toBe("knuth19842");
     expect(draft?.type).toBe("article");
     const get = (name: string) => draft?.fields.find((f) => f.name === name)?.value;
@@ -77,6 +82,8 @@ describe("bibtexToDraft", () => {
   });
 
   it("returns null for text without an entry", () => {
-    expect(bibtexToDraft("<html></html>", [], { kind: "doi", doi: "10.1/x" })).toBeNull();
+    expect(
+      bibtexToDraft("<html></html>", [], { kind: "doi", doi: "10.1/x" }),
+    ).toBeNull();
   });
 });

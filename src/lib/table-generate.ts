@@ -60,11 +60,7 @@ export function generateTable(spec: TableSpec): string {
   ];
   if (spec.header) {
     lines.push(top);
-    lines.push(
-      row(
-        Array.from({ length: columns }, (_, i) => `Header ${i + 1}`),
-      ),
-    );
+    lines.push(row(Array.from({ length: columns }, (_, i) => `Header ${i + 1}`)));
     lines.push(mid);
   } else {
     lines.push(top);

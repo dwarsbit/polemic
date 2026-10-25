@@ -149,8 +149,7 @@ describe("VisualTexEditor render", () => {
     // the text span itself turns editable.
     const pill = [...host.querySelectorAll("button")].find(
       (b) =>
-        b.closest(".vis-preamble-card") !== null &&
-        b.textContent?.includes("Demo"),
+        b.closest(".vis-preamble-card") !== null && b.textContent?.includes("Demo"),
     );
     expect(pill).toBeDefined();
     await act(async () => {
@@ -211,7 +210,11 @@ describe("VisualTexEditor render", () => {
     // The caret goes into the Beta paragraph, deep in the document.
     let betaPos = -1;
     editor.state.doc.descendants((node, pos) => {
-      if (betaPos === -1 && node.type.name === "paragraph" && node.textContent.includes("Beta text here.")) {
+      if (
+        betaPos === -1 &&
+        node.type.name === "paragraph" &&
+        node.textContent.includes("Beta text here.")
+      ) {
         betaPos = pos;
         return false;
       }
@@ -221,7 +224,9 @@ describe("VisualTexEditor render", () => {
     await act(async () => {
       editor.commands.setTextSelection(betaPos + 1);
     });
-    expect(editor.state.selection.$from.parent.textContent).toContain("Beta text here.");
+    expect(editor.state.selection.$from.parent.textContent).toContain(
+      "Beta text here.",
+    );
 
     // An external edit reloads the SAME file; content changes at the
     // end (an external sync edit), the caret's section survives.
@@ -229,14 +234,22 @@ describe("VisualTexEditor render", () => {
     await act(async () => {
       useEditorStore.getState().loadContent(changed);
     });
-    expect(editor.state.selection.$from.parent.textContent).toContain("Beta text here.");
+    expect(editor.state.selection.$from.parent.textContent).toContain(
+      "Beta text here.",
+    );
 
     // A tab switch to ANOTHER file starts fresh: no re-anchor.
     useProjectStore.setState({ activeFile: "other.tex" });
     await act(async () => {
-      useEditorStore.getState().loadContent("\\documentclass{article}\n\\begin{document}\nOther file.\n\\end{document}\n");
+      useEditorStore
+        .getState()
+        .loadContent(
+          "\\documentclass{article}\n\\begin{document}\nOther file.\n\\end{document}\n",
+        );
     });
-    expect(editor.state.selection.$from.parent.textContent).not.toContain("Beta text here.");
+    expect(editor.state.selection.$from.parent.textContent).not.toContain(
+      "Beta text here.",
+    );
     useProjectStore.setState({ activeFile: null });
 
     root.unmount();
@@ -260,7 +273,11 @@ describe("VisualTexEditor render", () => {
     const editor = el.editor as Editor;
     let bodyPos = -1;
     editor.state.doc.descendants((node, pos) => {
-      if (bodyPos === -1 && node.type.name === "paragraph" && node.textContent.includes("Body.")) {
+      if (
+        bodyPos === -1 &&
+        node.type.name === "paragraph" &&
+        node.textContent.includes("Body.")
+      ) {
         bodyPos = pos;
         return false;
       }
@@ -393,9 +410,7 @@ describe("VisualTexEditor render", () => {
     await act(async () => {
       author!.dispatchEvent(new MouseEvent("click", { bubbles: true }));
     });
-    const editable = meta!.querySelector<HTMLElement>(
-      "[contenteditable='true']",
-    );
+    const editable = meta!.querySelector<HTMLElement>("[contenteditable='true']");
     expect(editable).not.toBeNull();
     editable!.textContent = "A.~Newauthor";
     await act(async () => {

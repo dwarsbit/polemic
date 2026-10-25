@@ -100,9 +100,7 @@ export function GraphicsOptionsCard({
   const isPdf = path.toLowerCase().endsWith(".pdf");
 
   function updateTrim(index: number, value: string) {
-    const parts = [0, 1, 2, 3].map((i) =>
-      i === index ? value : trim[i] ?? "",
-    );
+    const parts = [0, 1, 2, 3].map((i) => (i === index ? value : (trim[i] ?? "")));
     onChange(setOptionValue(entries, "trim", parts.join(" ")));
   }
 
@@ -143,9 +141,7 @@ export function GraphicsOptionsCard({
       </div>
 
       <div className="flex items-center gap-1.5 pt-1">
-        <span className="w-10 shrink-0 text-[10px] text-muted-foreground">
-          Width
-        </span>
+        <span className="w-10 shrink-0 text-[10px] text-muted-foreground">Width</span>
         <OptionInput
           className="flex-1"
           value={width}
@@ -158,9 +154,7 @@ export function GraphicsOptionsCard({
         />
       </div>
       <div className="flex items-center gap-1.5">
-        <span className="w-10 shrink-0 text-[10px] text-muted-foreground">
-          Scale
-        </span>
+        <span className="w-10 shrink-0 text-[10px] text-muted-foreground">Scale</span>
         <OptionInput
           className="w-16"
           value={scale}
@@ -182,9 +176,7 @@ export function GraphicsOptionsCard({
         />
       </div>
       <div className="flex items-center gap-1.5">
-        <span className="w-10 shrink-0 text-[10px] text-muted-foreground">
-          Trim
-        </span>
+        <span className="w-10 shrink-0 text-[10px] text-muted-foreground">Trim</span>
         <div className="flex gap-1">
           {[0, 1, 2, 3].map((index) => (
             <OptionInput
@@ -197,7 +189,10 @@ export function GraphicsOptionsCard({
           ))}
         </div>
         <label className="ml-auto flex shrink-0 items-center gap-1 text-[10px] text-muted-foreground">
-          <Switch checked={clip} onCheckedChange={(v) => onChange(setOptionFlag(entries, "clip", v))} />
+          <Switch
+            checked={clip}
+            onCheckedChange={(v) => onChange(setOptionFlag(entries, "clip", v))}
+          />
           Clip
         </label>
       </div>

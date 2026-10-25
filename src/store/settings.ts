@@ -124,8 +124,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
           ? "block"
           : "line",
       caretColor: settings.caretColor === "custom" ? "custom" : "primary",
-      caretCustomColor:
-        settings.caretCustomColor ?? DEFAULT_CARET_CUSTOM_COLOR,
+      caretCustomColor: settings.caretCustomColor ?? DEFAULT_CARET_CUSTOM_COLOR,
       reopenLastProject: settings.reopenLastProject ?? true,
       autoIncludeNewFiles: settings.autoIncludeNewFiles ?? true,
       onlineLookup: settings.onlineLookup ?? false,
@@ -213,7 +212,8 @@ export const useSettingsStore = create<SettingsState>((set) => ({
         ? { settingsDialogOpen: true }
         : { settingsDialogOpen: false, settingsSection: null },
     ),
-  openSettings: (section) => set({ settingsDialogOpen: true, settingsSection: section }),
+  openSettings: (section) =>
+    set({ settingsDialogOpen: true, settingsSection: section }),
   clearSettingsSection: () => set({ settingsSection: null }),
   setProjectsRoot: (root) => set({ projectsRoot: root }),
   persistPanelLayout: (layout) => {

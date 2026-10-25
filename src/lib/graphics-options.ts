@@ -22,10 +22,7 @@ export interface GraphicsSpan {
 const COMMAND_RE = /\\includegraphics(\[[^\]]*\])?\{([^}]*)\}/g;
 
 /** The \includegraphics command containing `pos`, or null. */
-export function findGraphicsSpanAt(
-  doc: string,
-  pos: number,
-): GraphicsSpan | null {
+export function findGraphicsSpanAt(doc: string, pos: number): GraphicsSpan | null {
   COMMAND_RE.lastIndex = 0;
   let match: RegExpExecArray | null;
   while ((match = COMMAND_RE.exec(doc)) !== null) {
@@ -37,8 +34,7 @@ export function findGraphicsSpanAt(
       match[1] === undefined
         ? null
         : { from: nameEnd + 1, to: nameEnd + 1 + match[1].length - 2 };
-    const afterOptions =
-      match[1] === undefined ? nameEnd : nameEnd + match[1].length;
+    const afterOptions = match[1] === undefined ? nameEnd : nameEnd + match[1].length;
     return {
       from,
       to,
@@ -99,10 +95,7 @@ export function serializeOptionEntries(entries: OptionEntry[]): string {
 }
 
 /** The value of a keyed option, or null (missing or a bare flag). */
-export function getOptionValue(
-  entries: OptionEntry[],
-  key: string,
-): string | null {
+export function getOptionValue(entries: OptionEntry[], key: string): string | null {
   const entry = entries.find((e) => e.key === key);
   return entry === undefined ? null : entry.value;
 }

@@ -15,6 +15,12 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ["dist/**", "src-tauri/**", "node_modules/**", "components.json", "website/**"],
+    ignores: [
+      "dist/**",
+      "src-tauri/**",
+      "node_modules/**",
+      "components.json",
+      "website/**",
+    ],
   },
 );

@@ -51,8 +51,9 @@ function itemParams(query: string, collection: string | null, limit: number) {
 function toItems(payload: unknown): ZoteroItemData[] {
   if (!Array.isArray(payload)) return [];
   return payload
-    .filter((entry): entry is ZoteroResponseItem =>
-      typeof entry === "object" && entry !== null && "data" in entry,
+    .filter(
+      (entry): entry is ZoteroResponseItem =>
+        typeof entry === "object" && entry !== null && "data" in entry,
     )
     .map((entry) => entry.data);
 }
@@ -90,8 +91,9 @@ export async function zoteroLocalCollections(): Promise<ZoteroCollection[]> {
   const payload = await localJson("users/0/collections", "v=3");
   if (!Array.isArray(payload)) return [];
   return payload
-    .filter((entry): entry is ZoteroResponseItem =>
-      typeof entry === "object" && entry !== null && "data" in entry,
+    .filter(
+      (entry): entry is ZoteroResponseItem =>
+        typeof entry === "object" && entry !== null && "data" in entry,
     )
     .map((entry) => ({
       key: entry.data.key ?? "",
@@ -127,8 +129,9 @@ export async function zoteroWebCollections(
   });
   if (!Array.isArray(payload)) return [];
   return payload
-    .filter((entry): entry is ZoteroResponseItem =>
-      typeof entry === "object" && entry !== null && "data" in entry,
+    .filter(
+      (entry): entry is ZoteroResponseItem =>
+        typeof entry === "object" && entry !== null && "data" in entry,
     )
     .map((entry) => ({
       key: entry.data.key ?? "",

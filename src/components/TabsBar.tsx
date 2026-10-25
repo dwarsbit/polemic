@@ -10,9 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/editor";
-import {
-  useProjectStore,
-} from "@/store/project";
+import { useProjectStore } from "@/store/project";
 
 export function TabsBar() {
   const openFiles = useProjectStore((s) => s.openFiles);
@@ -44,8 +42,7 @@ export function TabsBar() {
     }
   }
 
-  const pendingDirty =
-    pendingClose !== null && isDirty(pendingClose);
+  const pendingDirty = pendingClose !== null && isDirty(pendingClose);
 
   return (
     <div className="flex h-9 shrink-0 items-end gap-0.5 border-b bg-muted/40 px-1 pt-1">
@@ -82,7 +79,8 @@ export function TabsBar() {
                 }
                 // Reorder when the pointer is over another tab.
                 const target = (
-                  document.elementFromPoint(event.clientX, event.clientY)
+                  document
+                    .elementFromPoint(event.clientX, event.clientY)
                     ?.closest("[data-tab]") as HTMLElement | null
                 )?.dataset.tab;
                 if (target === undefined || target === file) return;
@@ -165,7 +163,8 @@ export function TabsBar() {
               onClick={() => {
                 const file = pendingClose;
                 setPendingClose(null);
-                if (file) void useProjectStore.getState().closeFile(file, { discard: true });
+                if (file)
+                  void useProjectStore.getState().closeFile(file, { discard: true });
               }}
             >
               Discard

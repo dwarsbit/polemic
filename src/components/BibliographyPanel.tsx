@@ -139,10 +139,7 @@ export function BibliographyPanel() {
           cache.files = files;
           cache.texts.clear();
         }
-        const paths = [
-          ...flattenPaths(files, ".bib"),
-          ...flattenPaths(files, ".tex"),
-        ];
+        const paths = [...flattenPaths(files, ".bib"), ...flattenPaths(files, ".tex")];
         const found: ScannedFile[] = [];
         for (const path of paths) {
           let text: string | null;
@@ -241,10 +238,7 @@ export function BibliographyPanel() {
     return [...map.entries()];
   }, [rows]);
 
-  const allKeys = useMemo(
-    () => rows.map((row) => row.entry.key),
-    [rows],
-  );
+  const allKeys = useMemo(() => rows.map((row) => row.entry.key), [rows]);
 
   const undefinedCitations = useMemo<UndefinedCitation[]>(() => {
     const defined = new Set(allKeys);
@@ -465,7 +459,7 @@ export function BibliographyPanel() {
 
   const dialogRow =
     dialog !== null && dialog.kind === "edit"
-      ? rows.find((row) => row.entry.key === dialog.key) ?? null
+      ? (rows.find((row) => row.entry.key === dialog.key) ?? null)
       : null;
 
   function renderRow(row: BibRow) {
@@ -644,8 +638,8 @@ export function BibliographyPanel() {
         {scanned === null ? null : bibTexts.length === 0 ? (
           <div className="space-y-2.5 px-2 pt-2">
             <p className="text-xs text-muted-foreground">
-              No bibliography yet. Create a .bib file for this project, or
-              connect an external reference tool.
+              No bibliography yet. Create a .bib file for this project, or connect an
+              external reference tool.
             </p>
             <Button
               size="sm"
@@ -743,7 +737,10 @@ export function BibliographyPanel() {
             </div>
             {!collapsed.has("undefined") &&
               undefinedCitations.map((cite) => (
-                <div key={cite.key} className="flex items-center rounded pl-6 hover:bg-accent">
+                <div
+                  key={cite.key}
+                  className="flex items-center rounded pl-6 hover:bg-accent"
+                >
                   <button
                     type="button"
                     className="min-w-0 flex-1 truncate py-1 text-left text-sm font-mono text-xs"
@@ -769,16 +766,13 @@ export function BibliographyPanel() {
       </div>
 
       {dialog !== null && (
-        <EntryEditorDialog          key={`${dialog.kind}:${dialog.file}:${dialog.key}`}
+        <EntryEditorDialog
+          key={`${dialog.kind}:${dialog.file}:${dialog.key}`}
           open
           onOpenChange={(open) => {
             if (!open) setDialog(null);
           }}
-          title={
-            dialog.kind === "new"
-              ? "New BibTeX entry"
-              : `Edit ${dialog.key}`
-          }
+          title={dialog.kind === "new" ? "New BibTeX entry" : `Edit ${dialog.key}`}
           initial={dialogInitializer(dialog, dialogRow, allKeys)}
           existingKeys={allKeys}
           bibFiles={[...new Set([...bibTexts.map((file) => file.file), dialog.file])]}

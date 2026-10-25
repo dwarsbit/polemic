@@ -11,7 +11,9 @@ function regionIn(doc: string) {
 
 describe("renderableSource", () => {
   it("strips \\label from an equation body", () => {
-    const region = regionIn("\\begin{equation}\nx = y \\label{eq:a}\n\\end{equation}\n");
+    const region = regionIn(
+      "\\begin{equation}\nx = y \\label{eq:a}\n\\end{equation}\n",
+    );
     expect(renderableSource(region)).toBe("\nx = y \n");
   });
 

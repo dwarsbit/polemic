@@ -2,10 +2,7 @@ import { BookMarked, FileText, Folder, Pencil, Star, Trash2 } from "lucide-react
 import type { FileEntry } from "@/lib/tauri";
 import { isTauri } from "@/lib/tauri";
 import { startAssetDrag, wasDragged } from "@/lib/editor-drag";
-import {
-  showNativeContextMenu,
-  type NativeMenuEntry,
-} from "@/lib/native-menu";
+import { showNativeContextMenu, type NativeMenuEntry } from "@/lib/native-menu";
 import { cn } from "@/lib/utils";
 import { useProjectStore } from "@/store/project";
 
@@ -62,7 +59,11 @@ export function FileTree({
       { id: "new-file", text: "New File", action: () => onNewFile(dir) },
     ];
     if (entry.isDir) {
-      items.push({ id: "new-folder", text: "New Folder", action: () => onNewFolder(dir) });
+      items.push({
+        id: "new-folder",
+        text: "New Folder",
+        action: () => onNewFolder(dir),
+      });
     }
     items.push(
       "separator",

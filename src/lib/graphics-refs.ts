@@ -21,8 +21,10 @@ const GRAPHICSPATH_RE = /\\graphicspath\s*\{((?:\s*\{[^}]*\})*)\s*\}/g;
 
 /** Blank out % comments (keeping offsets), escape-aware. */
 function stripComments(source: string): string {
-  return source.replace(/(^|[^\\])((?:\\\\)*)%[^\n]*/g, (match, pre: string, esc: string) =>
-    pre + esc + " ".repeat(match.length - pre.length - esc.length),
+  return source.replace(
+    /(^|[^\\])((?:\\\\)*)%[^\n]*/g,
+    (match, pre: string, esc: string) =>
+      pre + esc + " ".repeat(match.length - pre.length - esc.length),
   );
 }
 

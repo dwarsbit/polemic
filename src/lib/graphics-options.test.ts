@@ -37,9 +37,7 @@ describe("findGraphicsSpanAt", () => {
     if (span === null) throw new Error("no span");
     expect(doc[span.pathRange.from - 1]).toBe("{");
     expect(doc[span.pathRange.to]).toBe("}");
-    expect(doc.slice(span.pathRange.from, span.pathRange.to)).toBe(
-      "figures/plot.pdf",
-    );
+    expect(doc.slice(span.pathRange.from, span.pathRange.to)).toBe("figures/plot.pdf");
   });
 
   it("reports no options block when absent", () => {
@@ -90,9 +88,7 @@ describe("option entries", () => {
   it("toggles flags", () => {
     const entries = parseOptionEntries("width=0.5\\textwidth");
     const on = setOptionFlag(entries, "keepaspectratio", true);
-    expect(serializeOptionEntries(on)).toBe(
-      "width=0.5\\textwidth, keepaspectratio",
-    );
+    expect(serializeOptionEntries(on)).toBe("width=0.5\\textwidth, keepaspectratio");
     const off = setOptionFlag(on, "keepaspectratio", false);
     expect(serializeOptionEntries(off)).toBe("width=0.5\\textwidth");
   });

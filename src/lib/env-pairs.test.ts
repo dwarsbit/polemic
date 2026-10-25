@@ -15,11 +15,7 @@ const doc = [
 describe("parseEnvPairs", () => {
   it("pairs begins with ends, nesting-correct for same names", () => {
     const pairs = parseEnvPairs(doc);
-    expect(pairs.map((pair) => pair.name)).toEqual([
-      "figure",
-      "tabular",
-      "figure",
-    ]);
+    expect(pairs.map((pair) => pair.name)).toEqual(["figure", "tabular", "figure"]);
     const figures = pairs.filter((pair) => pair.name === "figure");
     // The inner begin pairs with the first end, the outer with the last.
     expect(figures[0].endName!.from).toBe(doc.lastIndexOf("\\end{figure}") + 5);

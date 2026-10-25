@@ -80,7 +80,9 @@ function serializeInline(nodes: Inline[] | undefined): string {
 function serializeList(node: ListNode, indent: number): string {
   const env = node.type === "bulletList" ? "itemize" : "enumerate";
   const pad = " ".repeat(indent);
-  const items = (node.content ?? []).map((item) => serializeItem(item, indent + INDENT_WIDTH));
+  const items = (node.content ?? []).map((item) =>
+    serializeItem(item, indent + INDENT_WIDTH),
+  );
   return `${pad}\\begin{${env}}\n${items.join("\n")}\n${pad}\\end{${env}}`;
 }
 
@@ -138,7 +140,10 @@ export function preambleText(attrs: PreambleAttrs): string {
  */
 function serializeEnvBlock(node: EnvBlockNode, indent: number): string {
   const pad = " ".repeat(indent);
-  const opt = node.attrs.opt !== null && node.attrs.opt !== undefined ? `[${node.attrs.opt}]` : "";
+  const opt =
+    node.attrs.opt !== null && node.attrs.opt !== undefined
+      ? `[${node.attrs.opt}]`
+      : "";
   const body = (node.content ?? [])
     .map((b) => serializeBlock(b, 0))
     .filter((s) => s.length > 0)
@@ -169,7 +174,12 @@ export function serializeBlock(block: Block, indent = 0): string {
       for (;;) {
         const last = content[content.length - 1];
         if (last?.type === "label") labels.unshift(content.pop()!);
-        else if (last?.type === "text" && !last.marks?.length && last.text.trim() === "") content.pop();
+        else if (
+          last?.type === "text" &&
+          !last.marks?.length &&
+          last.text.trim() === ""
+        )
+          content.pop();
         else break;
       }
       const title = serializeInline(content).replace(/[ \t]+$/, "");
@@ -202,14 +212,21 @@ export function serializeTex(doc: DocNode): string {
   let preambleAttrs: PreambleAttrs | null = null;
   const bodyBlocks: Block[] = [];
   for (const block of blocks) {
-    if (block.type === "preamble" && preambleAttrs === null && bodyBlocks.length === 0) {
+    if (
+      block.type === "preamble" &&
+      preambleAttrs === null &&
+      bodyBlocks.length === 0
+    ) {
       preambleAttrs = block.attrs;
     } else {
       bodyBlocks.push(block);
     }
   }
 
-  const body = bodyBlocks.map((b) => serializeBlock(b, 0)).filter((s) => s.length > 0).join("\n\n");
+  const body = bodyBlocks
+    .map((b) => serializeBlock(b, 0))
+    .filter((s) => s.length > 0)
+    .join("\n\n");
 
   if (!wrapped) {
     const pre = preambleAttrs !== null ? preambleText(preambleAttrs) : "";

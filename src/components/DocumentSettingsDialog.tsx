@@ -27,14 +27,7 @@ import { useDialogsStore } from "@/store/dialogs";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 
-const CLASS_PRESETS = [
-  "article",
-  "report",
-  "book",
-  "scrartcl",
-  "scrreprt",
-  "beamer",
-];
+const CLASS_PRESETS = ["article", "report", "book", "scrartcl", "scrreprt", "beamer"];
 
 const CUSTOM = "__custom__";
 
@@ -173,9 +166,10 @@ export function DocumentSettingsDialog({
     onOpenChange(false);
   }
 
-  const classPreset = draft !== null && CLASS_PRESETS.includes(draft.className)
-    ? draft.className
-    : CUSTOM;
+  const classPreset =
+    draft !== null && CLASS_PRESETS.includes(draft.className)
+      ? draft.className
+      : CUSTOM;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -188,7 +182,10 @@ export function DocumentSettingsDialog({
         </DialogHeader>
         <label className="flex flex-col gap-1 text-xs">
           TeX engine
-          <Select value={engine} onValueChange={(value) => setEngine(value as EngineChoice)}>
+          <Select
+            value={engine}
+            onValueChange={(value) => setEngine(value as EngineChoice)}
+          >
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
@@ -241,7 +238,9 @@ export function DocumentSettingsDialog({
                 Font size
                 <Select
                   value={draft.fontSize === "" ? "default" : draft.fontSize}
-                  onValueChange={(value) => set("fontSize", value === "default" ? "" : value)}
+                  onValueChange={(value) =>
+                    set("fontSize", value === "default" ? "" : value)
+                  }
                 >
                   <SelectTrigger>
                     <SelectValue />
@@ -258,7 +257,9 @@ export function DocumentSettingsDialog({
                 Paper
                 <Select
                   value={draft.paper === "" ? "default" : draft.paper}
-                  onValueChange={(value) => set("paper", value === "default" ? "" : value)}
+                  onValueChange={(value) =>
+                    set("paper", value === "default" ? "" : value)
+                  }
                 >
                   <SelectTrigger>
                     <SelectValue />
@@ -354,7 +355,10 @@ export function DocumentSettingsDialog({
           </Button>
           <Button
             size="sm"
-            disabled={projectPath === null || ((draft === null || !available) && engine === savedEngine)}
+            disabled={
+              projectPath === null ||
+              ((draft === null || !available) && engine === savedEngine)
+            }
             onClick={() => void save()}
           >
             Save

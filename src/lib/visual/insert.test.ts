@@ -32,9 +32,7 @@ describe("fragmentToContent", () => {
   });
 
   it("parses list skeletons into lists", () => {
-    const content = fragmentToContent(
-      "\\begin{itemize}\n  \\item \n\\end{itemize}",
-    );
+    const content = fragmentToContent("\\begin{itemize}\n  \\item \n\\end{itemize}");
     expect(content[0]?.type).toBe("bulletList");
   });
 
@@ -42,9 +40,6 @@ describe("fragmentToContent", () => {
     const content = fragmentToContent(
       "Intro \\emph{word}.\n\n\\begin{tikzpicture}\n\\end{tikzpicture}",
     );
-    expect(content.map((block) => block.type)).toEqual([
-      "paragraph",
-      "rawTexBlock",
-    ]);
+    expect(content.map((block) => block.type)).toEqual(["paragraph", "rawTexBlock"]);
   });
 });

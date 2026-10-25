@@ -89,7 +89,9 @@ const triggerPlugin = ViewPlugin.fromClass(
       clearTimeout(this.mouseTimer);
       this.mouseTimer = setTimeout(() => {
         const pos = this.view.posAtCoords({ x: event.clientX, y: event.clientY });
-        this.view.dispatch({ effects: setPreview.of(pos === null ? null : regionAt(this.view, pos)) });
+        this.view.dispatch({
+          effects: setPreview.of(pos === null ? null : regionAt(this.view, pos)),
+        });
       }, HOVER_DELAY_MS);
     };
 

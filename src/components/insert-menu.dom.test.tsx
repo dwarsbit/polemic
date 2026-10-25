@@ -26,7 +26,9 @@ async function pickMenuItem(host: HTMLElement, triggerText: string, itemText: st
   // Radix's item select runs through ReactDOM.flushSync; inside an
   // act batch that breaks, so the click goes out-of-band. (Only the
   // click: pointerup + click would make radix select twice.)
-  item.dispatchEvent(new PointerEvent("click", { button: 0, bubbles: true, pointerId: 1 }));
+  item.dispatchEvent(
+    new PointerEvent("click", { button: 0, bubbles: true, pointerId: 1 }),
+  );
   await act(async () => {});
 }
 

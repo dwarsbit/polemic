@@ -7,13 +7,7 @@ import { OutlinePanel } from "@/components/OutlinePanel";
 import { SymbolsPanel } from "@/components/SymbolsPanel";
 
 export type LeftTab =
-  | "files"
-  | "outline"
-  | "symbols"
-  | "assets"
-  | "floats"
-  | "labels"
-  | "bibliography";
+  "files" | "outline" | "symbols" | "assets" | "floats" | "labels" | "bibliography";
 
 /** The navigator column: the panel selected by the top of the left rail. */
 export function Sidebar({ activeTab }: { activeTab: LeftTab }) {

@@ -35,8 +35,10 @@ const KIND_OF_ENV: Record<string, FloatKind> = {
 
 /** Blank out % comments (keeping offsets), escape-aware. */
 function stripComments(source: string): string {
-  return source.replace(/(^|[^\\])((?:\\\\)*)%[^\n]*/g, (match, pre: string, esc: string) =>
-    pre + esc + " ".repeat(match.length - pre.length - esc.length),
+  return source.replace(
+    /(^|[^\\])((?:\\\\)*)%[^\n]*/g,
+    (match, pre: string, esc: string) =>
+      pre + esc + " ".repeat(match.length - pre.length - esc.length),
   );
 }
 
@@ -75,7 +77,10 @@ function captionOf(body: string): string | null {
   if (m === null) return null;
   const group = bracedAt(body, m.index + m[0].length);
   if (group === null) return null;
-  const text = group.body.replace(/\\label\{[^}]*\}/g, "").replace(/\s+/g, " ").trim();
+  const text = group.body
+    .replace(/\\label\{[^}]*\}/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
   return text.length > 0 ? text : null;
 }
 
@@ -98,7 +103,8 @@ export function parseFloats(source: string): FloatInfo[] {
     // else the first one anywhere in the body.
     const outer = outerPart(body);
     const graphic =
-      /\\includegraphics\*?\s*(?:\[[^\]]*\]\s*)*\{([^}]*)\}/.exec(body)?.[1].trim() ?? null;
+      /\\includegraphics\*?\s*(?:\[[^\]]*\]\s*)*\{([^}]*)\}/.exec(body)?.[1].trim() ??
+      null;
     out.push({
       kind,
       env,
