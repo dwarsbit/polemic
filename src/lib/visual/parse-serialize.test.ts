@@ -200,6 +200,40 @@ describe("parseTex", () => {
   });
 });
 
+describe("heading tails", () => {
+  it("leaves body text on the next line out of the heading", () => {
+    const { once, twice, doc } = roundTrip("\\section{Results}\nThe main result is\n");
+    expect(doc.content?.map((b) => b.type)).toEqual(["heading", "paragraph"]);
+    expect(once).toBe("\\section{Results}\n\nThe main result is\n");
+    expect(twice).toBe(once);
+  });
+
+  it("keeps a label on the same or next line, outside the title braces", () => {
+    for (const tex of [
+      "\\section{Intro}\\label{sec:intro}\nArguments here.\n",
+      "\\section{Intro}\n\\label{sec:intro}\nArguments here.\n",
+      "\\section{Intro} \\label{sec:intro} Arguments here.\n",
+    ]) {
+      const { once, twice, doc } = roundTrip(tex);
+      expect(doc.content?.map((b) => b.type)).toEqual(["heading", "paragraph"]);
+      expect(once).toBe("\\section{Intro}\\label{sec:intro}\n\nArguments here.\n");
+      expect(twice).toBe(once);
+    }
+  });
+
+  it("does not pull an \\input after the heading into the title", () => {
+    const { once } = roundTrip("\\section{Intro}\n\\label{a}\nText.\n\\input{chapters/method}\n");
+    expect(once).toContain("\\section{Intro}\\label{a}\n");
+    expect(once).not.toContain("\\section{Intro \\label");
+  });
+
+  it("moves a label at the end of the title out of the braces", () => {
+    const { once, twice } = roundTrip("\\section{Intro \\label{sec:intro}}\n\nText.\n");
+    expect(once).toBe("\\section{Intro}\\label{sec:intro}\n\nText.\n");
+    expect(twice).toBe(once);
+  });
+});
+
 describe("preamble decomposition", () => {
   const PREAMBLED = `\\documentclass[11pt,a4paper]{article}
 \\usepackage{amsmath}
