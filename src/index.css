@@ -123,8 +123,8 @@ html.mac.dark body {
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.212 0.019 322.12);
   --popover-foreground: oklch(0.985 0 0);
-  /* Text selection: Tailwind blue-800. */
-  --selection: oklch(0.424 0.199 265.638);
+  /* Text selection: Tailwind blue-500 at 40%. */
+  --selection: oklch(0.623 0.214 259.815 / 40%);
   --primary: oklch(0.922 0.005 325.62);
   --primary-foreground: oklch(0.212 0.019 322.12);
   --secondary: oklch(0.263 0.024 320.12);
