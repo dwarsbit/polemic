@@ -173,7 +173,7 @@ export function EditorToolbar() {
         existingEnvs={[...THEOREM_ENVS, ...declared.map((d) => d.env)]}
         onCommit={commitNewtheorem}
       />
-      <Separator orientation="vertical" className="h-5" />
+      <Separator orientation="vertical" className="h-5 data-vertical:self-center" />
       <ButtonGroup>
         <Button
           variant="ghost"
@@ -208,7 +208,7 @@ export function EditorToolbar() {
           <ListOrdered className="size-4" />
         </Button>
       </ButtonGroup>
-      <Separator orientation="vertical" className="h-5" />
+      <Separator orientation="vertical" className="h-5 data-vertical:self-center" />
       <ButtonGroup>
         <Button
           variant="ghost"
