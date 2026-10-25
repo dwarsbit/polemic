@@ -212,7 +212,7 @@ export function EditorView() {
             defaultLayout={pickLayout(panelLayout, ROW_PANEL_IDS)}
             onLayoutChanged={(layout) => persistPanelLayout(layout)}
           >
-            <Panel id="columns" defaultSize="72%" minSize="25%">
+            <Panel id="columns" defaultSize="80%" minSize="25%">
               <Group
                 orientation="horizontal"
                 className="flex h-full"
@@ -297,7 +297,7 @@ export function EditorView() {
             {issuesOpen && <Separator className={HANDLE_Y} />}
             <Panel
               id="issues"
-              defaultSize="28%"
+              defaultSize="20%"
               minSize="96px"
               collapsible
               collapsedSize="0px"

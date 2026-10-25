@@ -185,7 +185,7 @@ export function GitPanel() {
               </>
             )}
 
-            <div className="mt-3 flex gap-1.5 px-2">
+            <div className="mt-3 flex flex-col gap-1.5 px-2">
               <Input
                 className="h-7 rounded-3xl text-xs"
                 placeholder="Commit message…"
@@ -203,7 +203,7 @@ export function GitPanel() {
               />
               <Button
                 size="sm"
-                className="h-7 px-2"
+                className="h-7 w-full px-2"
                 disabled={!message.trim() || !hasStaged}
                 title={hasStaged ? "Commit staged changes" : "Nothing staged"}
                 onClick={() => {

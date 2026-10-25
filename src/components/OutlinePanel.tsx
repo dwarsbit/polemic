@@ -365,7 +365,8 @@ export function OutlinePanel() {
     <div className="flex h-full flex-col">
       <SectionHeader label="OUTLINE" collapsed={false} />
       <div ref={listRef} className="flex-1 overflow-y-auto px-2 pb-2">
-        {docOutline === null || docOutline.length === 0 ? (
+        {docOutline === null && order !== null ? null : docOutline === null ||
+          docOutline.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
             {activeFile ? "No sections in this document." : "No file open."}
           </p>

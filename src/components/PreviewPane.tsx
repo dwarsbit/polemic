@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { openPdf, synctexBackward } from "@/lib/tauri";
 import { exportPdfAs } from "@/lib/pdf-export";
+import { modKey } from "@/lib/platform";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
@@ -90,16 +91,25 @@ export function PreviewPane() {
         const base = page.getViewport({ scale: 1 });
         const fitScale = Math.max(0.1, fitWidth / base.width);
         const viewport = page.getViewport({ scale: fitScale * zoom });
+        // Back the canvas at device resolution so text stays sharp on
+        // HiDPI screens; its CSS size stays the fitted viewport.
+        const dpr = window.devicePixelRatio || 1;
         const canvas = document.createElement("canvas");
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
+        canvas.width = Math.floor(viewport.width * dpr);
+        canvas.height = Math.floor(viewport.height * dpr);
+        canvas.style.width = `${Math.floor(viewport.width)}px`;
+        canvas.style.height = `${Math.floor(viewport.height)}px`;
         canvas.className = "block border-b bg-white shadow-sm";
         canvas.dataset.page = String(pageNumber);
         canvas.dataset.pdfWidth = String(base.width);
         canvas.dataset.pdfHeight = String(base.height);
         canvas.addEventListener("click", onCanvasClick);
         container.appendChild(canvas);
-        await page.render({ canvas, viewport }).promise;
+        await page.render({
+          canvas,
+          viewport,
+          transform: dpr === 1 ? undefined : [dpr, 0, 0, dpr, 0, 0],
+        }).promise;
       }
     })().catch((e) => {
       if (!cancelled) {
@@ -172,13 +182,17 @@ export function PreviewPane() {
 
   return (
     <div className="flex h-full w-full flex-col">
-      <div className="flex h-9 shrink-0 items-center justify-between border-b px-3 text-xs font-medium text-muted-foreground">
+      <div className="@container flex h-9 shrink-0 items-center gap-2 border-b px-3 text-xs font-medium text-muted-foreground">
         <span>PREVIEW</span>
-        <span className="text-[10px] text-muted-foreground">
-          {pageCount > 0 ? `page ${currentPage} / ${pageCount}` : ""}
-        </span>
-        <div className="flex items-center gap-1">
-          <span className="text-[10px]">Cmd+click: source</span>
+        {pageCount > 0 && (
+          <span className="text-[10px] whitespace-nowrap tabular-nums">
+            {currentPage} / {pageCount}
+          </span>
+        )}
+        <div className="ml-auto flex shrink-0 items-center gap-1">
+          <span className="hidden text-[10px] whitespace-nowrap @sm:inline">
+            {modKey}click: source
+          </span>
           <button
             type="button"
             className="rounded p-1 hover:bg-accent"
@@ -267,7 +281,7 @@ export function PreviewPane() {
             <div className="flex max-w-64 flex-col items-center gap-2 text-muted-foreground">
               <FileText className="size-8" />
               <p className="text-center text-sm">
-                Press Compile (or Ctrl+S) to build and preview the PDF.
+                Press Compile (or {modKey}S) to build and preview the PDF.
               </p>
             </div>
           </div>
