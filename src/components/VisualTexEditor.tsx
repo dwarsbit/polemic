@@ -238,7 +238,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
         existingEnvs={(theoremEnvs ?? []).map((entry) => entry.env)}
         onCommit={commitNewtheorem}
       />
-      <Separator orientation="vertical" className="h-5" />
+      <Separator orientation="vertical" className="h-5 data-vertical:self-center" />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="sm" className="h-7 gap-1 px-2 text-xs">
@@ -264,7 +264,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <Separator orientation="vertical" className="h-5" />
+      <Separator orientation="vertical" className="h-5 data-vertical:self-center" />
       <ButtonGroup>
         <Button
           variant="ghost"
@@ -285,7 +285,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
           <Redo2 className="size-4" />
         </Button>
       </ButtonGroup>
-      <Separator orientation="vertical" className="h-5" />
+      <Separator orientation="vertical" className="h-5 data-vertical:self-center" />
       <ButtonGroup>
         <Button
           variant={active?.bold ? "secondary" : "ghost"}
@@ -320,7 +320,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
           <Type className="size-4" />
         </Button>
       </ButtonGroup>
-      <Separator orientation="vertical" className="h-5" />
+      <Separator orientation="vertical" className="h-5 data-vertical:self-center" />
       <ButtonGroup>
         <Button
           variant={active?.bullet ? "secondary" : "ghost"}
@@ -339,7 +339,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
           <ListOrdered className="size-4" />
         </Button>
       </ButtonGroup>
-      <Separator orientation="vertical" className="h-5" />
+      <Separator orientation="vertical" className="h-5 data-vertical:self-center" />
       <ButtonGroup>
         <Button
           variant="ghost"

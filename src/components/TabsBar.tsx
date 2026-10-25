@@ -45,7 +45,9 @@ export function TabsBar() {
   const pendingDirty = pendingClose !== null && isDirty(pendingClose);
 
   return (
-    <div className="flex h-9 shrink-0 items-end gap-0.5 border-b bg-muted/40 px-1 pt-1">
+    // The bar's bottom line is a pseudo-element so the active tab, drawn
+    // above it, can cover it and open into the editor below.
+    <div className="relative flex h-9 shrink-0 items-end gap-0.5 bg-muted/40 px-1 pt-1 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-border">
       <div className="flex min-w-0 flex-1 items-end gap-0.5 overflow-x-auto">
         {openFiles.map((file) => {
           const active = file === activeFile;
@@ -105,7 +107,7 @@ export function TabsBar() {
               className={cn(
                 "group flex shrink-0 items-center gap-1.5 rounded-t-md border px-2.5 text-xs",
                 active
-                  ? "border-border border-b-transparent bg-card text-foreground"
+                  ? "relative z-10 border-border border-b-transparent bg-card text-foreground"
                   : "border-transparent text-muted-foreground hover:bg-accent/50",
                 dragging === file && "opacity-40",
               )}
