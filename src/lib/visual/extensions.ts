@@ -631,8 +631,9 @@ function svgIcon(paths: string, className = "vis-title-icon"): HTMLElement {
   return wrap;
 }
 
-const COG_ICON =
-  '<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73 2 2 0 0 0-.73 2.73l.08.15a2 2 0 0 1 0 2l-.25.43a2 2 0 0 1-1.73 1H2a2 2 0 0 0-2 2v.44a2 2 0 0 0 2 2h.18a2 2 0 0 1 1.73 1l.25.43a2 2 0 0 1 0 2l-.08.15a2 2 0 0 0 .73 2.73 2 2 0 0 0 2.73-.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V22a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73 2 2 0 0 0 .73-2.73l-.08-.15a2 2 0 0 1 0-2l.25-.43a2 2 0 0 1 1.73-1H22a2 2 0 0 0 2-2v-.44a2 2 0 0 0-2-2h-.18a2 2 0 0 1-1.73-1l-.25-.43a2 2 0 0 1 0-2l.08-.15a2 2 0 0 0-.73-2.73 2 2 0 0 0-2.73.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>';
+/** Lucide "pilcrow" for the heading chip, which opens the heading-level menu. */
+const PILCROW_ICON =
+  '<path d="M13 4v16"/><path d="M17 4v16"/><path d="M19 4H9.5a4.5 4.5 0 0 0 0 9H13"/>';
 
 const USER_ICON =
   '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>';
@@ -1284,7 +1285,7 @@ class HeadingView implements NodeView {
     if (node.attrs.level !== this.node.attrs.level) return false; // recreate as h{level}
     if (node.attrs.cmd !== this.node.attrs.cmd) {
       this.node = node;
-      this.chip.title = `${headingLabel(node.attrs.cmd)} — click for settings`;
+      this.chip.title = `${headingLabel(node.attrs.cmd)} — click to change the heading level`;
       return true;
     }
     this.node = node;
@@ -1301,8 +1302,8 @@ class HeadingView implements NodeView {
     chip.type = "button";
     chip.className = "vis-heading-chip";
     const label = headingLabel(this.node.attrs.cmd);
-    chip.title = `${label} — click for settings`;
-    chip.append(svgIcon(COG_ICON, "vis-heading-chip-icon"));
+    chip.title = `${label} — click to change the heading level`;
+    chip.append(svgIcon(PILCROW_ICON, "vis-heading-chip-icon"));
     chip.addEventListener("mousedown", (event) => event.preventDefault());
     chip.addEventListener("click", (event) => {
       event.preventDefault();
