@@ -1,10 +1,30 @@
 export interface OutlineEntry {
+  /** -2 part, -1 chapter, 0 section, 1 subsection, 2 subsubsection. */
   level: number;
   title: string;
   line: number;
+  /** The sectioning command without backslash or star, e.g. "subsection". */
+  command: string;
 }
 
-const SECTION_RE = /^(\\(?:sub){0,2}section\*?)\{(.*)\}/;
+/** Sectioning commands by level (index + LEVEL_OFFSET). */
+export const SECTION_COMMANDS = [
+  "part",
+  "chapter",
+  "section",
+  "subsection",
+  "subsubsection",
+] as const;
+const LEVEL_OFFSET = -2;
+
+export const MIN_LEVEL = LEVEL_OFFSET;
+export const MAX_LEVEL = SECTION_COMMANDS.length - 1 + LEVEL_OFFSET;
+
+export function commandForLevel(level: number): string {
+  return SECTION_COMMANDS[level - LEVEL_OFFSET];
+}
+
+const SECTION_RE = /^\\(part|chapter|(?:sub){0,2}section)\*?\s*(?:\[[^\]]*\]\s*)?\{(.*)\}/;
 
 export function parseOutline(source: string): OutlineEntry[] {
   const entries: OutlineEntry[] = [];
@@ -12,8 +32,9 @@ export function parseOutline(source: string): OutlineEntry[] {
   lines.forEach((text, index) => {
     const match = SECTION_RE.exec(text.trim());
     if (match) {
-      const level = match[1].replace("\\", "").split("sub").length - 1;
-      entries.push({ level, title: match[2], line: index + 1 });
+      const command = match[1];
+      const level = SECTION_COMMANDS.indexOf(command as never) + LEVEL_OFFSET;
+      entries.push({ level, title: match[2], line: index + 1, command });
     }
   });
   return entries;
