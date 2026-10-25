@@ -67,6 +67,8 @@ export interface Settings {
   texEditorMode: string | null;
   /** The .bib editor's face: "visual" or "code"; null = visual. */
   bibEditorMode: string | null;
+  /** Opt-in: DOI/arXiv import may contact doi.org. */
+  onlineLookup: boolean | null;
   /** The AI quickfix provider; null until configured. */
   ai: AiSettings | null;
 }
@@ -266,6 +268,7 @@ export interface EditorPreferences {
   autoIncludeNewFiles?: boolean;
   texEditorMode?: string;
   bibEditorMode?: string;
+  onlineLookup?: boolean;
   /** The user's reference sources (see SourceDef). */
   sources?: SourceDef[];
 }
@@ -415,6 +418,14 @@ export function pickBibSource(folder: boolean): Promise<Settings | null> {
  */
 export function zoteroLocalFetch(path: string, query: string): Promise<string> {
   return invoke<string>("zotero_local_fetch", { path, query });
+}
+
+/**
+ * The BibTeX record of one DOI, fetched Rust-side from doi.org.
+ * Rejects unless online lookup is enabled in settings.
+ */
+export function lookupBibtex(doi: string): Promise<string> {
+  return invoke<string>("lookup_bibtex", { doi });
 }
 
 export function createProjectEntry(

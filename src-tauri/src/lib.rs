@@ -7,6 +7,7 @@ mod secrets;
 mod comments;
 mod assets;
 mod ai;
+mod bib_lookup;
 mod settings;
 mod snapshots;
 mod spell;
@@ -20,6 +21,7 @@ use std::process::Command;
 use tauri::Manager;
 use files::{read_external_file, list_bib_files, FileEntry};
 use settings::{Settings, SettingsState, SourceDef};
+use bib_lookup::lookup_bibtex;
 use zotero::zotero_local_fetch;
 
 #[derive(Serialize, Clone)]
@@ -449,6 +451,7 @@ fn update_preferences(
     auto_include_new_files: Option<bool>,
     tex_editor_mode: Option<String>,
     bib_editor_mode: Option<String>,
+    online_lookup: Option<bool>,
     sources: Option<Vec<SourceDef>>,
 ) -> Result<Settings, String> {
     settings::update(&app, |s| {
@@ -502,6 +505,9 @@ fn update_preferences(
         }
         if bib_editor_mode.is_some() {
             s.bib_editor_mode = bib_editor_mode;
+        }
+        if online_lookup.is_some() {
+            s.online_lookup = online_lookup;
         }
         if let Some(sources) = sources {
             settings::check_bib_paths(&s.sources, &sources)?;
@@ -1814,6 +1820,7 @@ pub fn run() {    tauri::Builder::default()
             list_bib_files,
             pick_bib_source,
             zotero_local_fetch,
+            lookup_bibtex,
             create_project,
             list_templates,
             open_project,

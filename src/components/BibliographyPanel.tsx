@@ -3,12 +3,14 @@ import {
   BookOpen,
   BookPlus,
   ChevronRight,
+  DownloadCloud,
   Pencil,
   Plus,
   Search,
   X,
 } from "lucide-react";
 import { EntryEditorDialog } from "@/components/EntryEditorDialog";
+import { ImportByIdDialog } from "@/components/ImportByIdDialog";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SourcesSearchDialog } from "@/components/SourcesSearchDialog";
 import { Button } from "@/components/ui/button";
@@ -28,6 +30,7 @@ import {
   extractCitePositions,
   planCiteKeyRename,
 } from "@/lib/cite-refs";
+import { detectBiblatexStyle } from "@/lib/citation-preview";
 import { insertAtCursor } from "@/lib/editor-insert";
 import { applyEditsInView } from "@/lib/editor-edits";
 import { fuzzyMatch } from "@/lib/fuzzy";
@@ -107,6 +110,7 @@ export function BibliographyPanel() {
   const [scanTick, setScanTick] = useState(0);
   const [dialog, setDialog] = useState<DialogState | null>(null);
   const [sourcesDialogOpen, setSourcesDialogOpen] = useState(false);
+  const [importDialogOpen, setImportDialogOpen] = useState(false);
   const [createError, setCreateError] = useState<string | null>(null);
 
   // Disk reads are cached per file tree (null = unreadable); the
@@ -183,6 +187,20 @@ export function BibliographyPanel() {
     () => detectCiteCommands(texTexts.map((file) => file.content)),
     [texTexts],
   );
+
+  // The project's biblatex style drives the citation preview; without
+  // biblatex the preview still works, starting on numeric.
+  const biblatex = useMemo(
+    () => detectBiblatexStyle(texTexts.map((file) => file.content)),
+    [texTexts],
+  );
+  const previewStyle = biblatex?.style ?? "numeric";
+  const previewNote =
+    biblatex === null
+      ? "biblatex is not loaded in this project; showing its default numeric style."
+      : biblatex.known
+        ? undefined
+        : `Project style “${biblatex.name}” is approximated by ${biblatex.style}.`;
 
   const rows = useMemo<BibRow[]>(() => {
     const counts = new Map<string, number>();
@@ -587,6 +605,14 @@ export function BibliographyPanel() {
             <Button
               variant="ghost"
               size="icon-sm"
+              title="Import by DOI or arXiv ID…"
+              onClick={() => setImportDialogOpen(true)}
+            >
+              <DownloadCloud className="size-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon-sm"
               title="New entry"
               disabled={bibTexts.length === 0}
               onClick={() => {
@@ -758,6 +784,8 @@ export function BibliographyPanel() {
           bibFiles={[...new Set([...bibTexts.map((file) => file.file), dialog.file])]}
           allowFile={dialog.kind === "new"}
           autoKey={dialog.kind === "new"}
+          previewStyle={previewStyle}
+          previewNote={previewNote}
           onSave={
             dialog.kind === "new"
               ? (draft, file) => void appendEntry(draft, file)
@@ -769,6 +797,11 @@ export function BibliographyPanel() {
       <SourcesSearchDialog
         open={sourcesDialogOpen}
         onOpenChange={setSourcesDialogOpen}
+      />
+      <ImportByIdDialog
+        open={importDialogOpen}
+        onOpenChange={setImportDialogOpen}
+        defaultStyle={previewStyle}
       />
     </div>
   );

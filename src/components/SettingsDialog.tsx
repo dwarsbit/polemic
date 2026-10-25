@@ -180,6 +180,8 @@ export function SettingsDialog({
     (s) => s.setReopenLastProject,
   );
   const autoIncludeNewFiles = useSettingsStore((s) => s.autoIncludeNewFiles);
+  const onlineLookup = useSettingsStore((s) => s.onlineLookup);
+  const setOnlineLookup = useSettingsStore((s) => s.setOnlineLookup);
   const setAutoIncludeNewFiles = useSettingsStore(
     (s) => s.setAutoIncludeNewFiles,
   );
@@ -499,6 +501,24 @@ export function SettingsDialog({
             },
           ],
           content: <SourcesSettingsCard />,
+        },
+        {
+          title: "Online lookup",
+          rows: [
+            {
+              id: "online-lookup",
+              label: "Online DOI/arXiv lookup",
+              description:
+                "Lets \"Import by DOI or arXiv ID\" contact doi.org to fetch a BibTeX entry. Only the identifier you paste is sent. Off by default.",
+              keywords: "doi arxiv import online lookup network bibtex crossref datacite",
+              control: (
+                <Switch
+                  checked={onlineLookup}
+                  onCheckedChange={(v) => void setOnlineLookup(v)}
+                />
+              ),
+            },
+          ],
         },
       ],
     },
