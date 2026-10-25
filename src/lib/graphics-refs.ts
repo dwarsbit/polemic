@@ -14,6 +14,9 @@ export interface GraphicsRef {
   from: number;
   /** End of the closing brace (exclusive). */
   to: number;
+  /** The raw argument between the braces. */
+  argFrom: number;
+  argTo: number;
 }
 
 const INCLUDE_RE = /\\includegraphics\*?\s*(?:\[[^\]]*\]\s*)*\{([^}]*)\}/g;
@@ -32,7 +35,8 @@ export function extractGraphicsRefs(source: string): GraphicsRef[] {
   for (const m of stripComments(source).matchAll(INCLUDE_RE)) {
     const path = m[1].trim();
     if (path.length === 0) continue;
-    out.push({ path, from: m.index, to: m.index + m[0].length });
+    const to = m.index + m[0].length;
+    out.push({ path, from: m.index, to, argFrom: to - 1 - m[1].length, argTo: to - 1 });
   }
   return out;
 }
@@ -80,14 +84,82 @@ export function resolveGraphicsRef(
   files: ReadonlySet<string>,
   graphicsPaths: readonly string[] = [],
 ): string | null {
+  return resolveGraphicsRefIn(ref, files, graphicsPaths)?.path ?? null;
+}
+
+/** Like resolveGraphicsRef, plus the normalized \graphicspath folder
+ *  the match came through ("" for the project root). */
+export function resolveGraphicsRefIn(
+  ref: string,
+  files: ReadonlySet<string>,
+  graphicsPaths: readonly string[] = [],
+): { path: string; dir: string } | null {
   if (!isCheckableRef(ref)) return null;
   for (const dir of ["", ...graphicsPaths]) {
     const base = normalize(dir === "" ? ref : `${dir.replace(/\/?$/, "/")}${ref}`);
     if (base === null || base.length === 0) continue;
-    if (files.has(base)) return base;
+    const normalDir = normalize(dir) ?? "";
+    if (files.has(base)) return { path: base, dir: normalDir };
     for (const ext of IMAGE_EXTENSIONS) {
-      if (files.has(base + ext)) return base + ext;
+      if (files.has(base + ext)) return { path: base + ext, dir: normalDir };
     }
   }
   return null;
+}
+
+const extensionOf = (path: string) => /\.[^./]+$/.exec(path)?.[0] ?? "";
+
+/**
+ * Rewrite the \includegraphics references whose file moved: `files`
+ * is the project before the move, `remap` gives a file's new path (or
+ * null when it did not move). The new reference keeps the old style:
+ * relative to the same \graphicspath folder when the file is still
+ * inside it, and extension-less when it was and the extension stayed.
+ */
+export function rewriteGraphicsRefs(
+  source: string,
+  files: ReadonlySet<string>,
+  graphicsPaths: readonly string[],
+  remap: (path: string) => string | null,
+): string {
+  let out = source;
+  for (const ref of extractGraphicsRefs(source).reverse()) {
+    const hit = resolveGraphicsRefIn(ref.path, files, graphicsPaths);
+    if (hit === null) continue;
+    const target = remap(hit.path);
+    if (target === null || target === hit.path) continue;
+    let next =
+      hit.dir !== "" && target.startsWith(`${hit.dir}/`) ? target.slice(hit.dir.length + 1) : target;
+    const oldExt = extensionOf(hit.path);
+    if (!ref.path.endsWith(oldExt) && extensionOf(target) === oldExt) {
+      next = next.slice(0, next.length - oldExt.length);
+    }
+    out = out.slice(0, ref.argFrom) + next + out.slice(ref.argTo);
+  }
+  return out;
+}
+
+/**
+ * Rewrite \bibliography{a,b} entries (extension implied) and
+ * \addbibresource{x.bib} paths whose .bib file moved.
+ */
+export function rewriteBibRefs(source: string, remap: (path: string) => string | null): string {
+  return source
+    .replace(/(\\bibliography\s*\{)([^}]*)\}/g, (match, head: string, list: string) => {
+      let changed = false;
+      const specs = list.split(",").map((raw) => {
+        const spec = raw.trim();
+        const file = spec.endsWith(".bib") ? spec : `${spec}.bib`;
+        const target = isCheckableRef(spec) ? remap(normalize(file) ?? file) : null;
+        if (target === null || !target.endsWith(".bib")) return raw;
+        changed = true;
+        return spec.endsWith(".bib") ? target : target.slice(0, -4);
+      });
+      return changed ? `${head}${specs.join(",")}}` : match;
+    })
+    .replace(/(\\addbibresource\s*(?:\[[^\]]*\]\s*)?\{)([^}]*)\}/g, (match, head: string, raw: string) => {
+      const spec = raw.trim();
+      const target = isCheckableRef(spec) ? remap(normalize(spec) ?? spec) : null;
+      return target === null ? match : `${head}${target}}`;
+    });
 }

@@ -884,17 +884,31 @@ fn read_asset(project_dir: String, path: String) -> Result<tauri::ipc::Response,
     Ok(tauri::ipc::Response::new(bytes))
 }
 
+/// The result of an asset import: the project-relative paths to use
+/// (a converted PDF in place of its SVG), plus notes for the user.
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+struct ImportResult {
+    imported: Vec<String>,
+    notes: Vec<String>,
+}
+
 /// Copy files into the project's assets/ folder (copy-in imports).
 /// Sources already inside the project pass through untouched: their
 /// relative path is returned without copying. Other name collisions
-/// get a numeric suffix. Returns the relative paths of the results.
+/// get a numeric suffix. SVGs, which LaTeX cannot embed, are converted
+/// to a PDF next to them (rsvg-convert or Inkscape, when installed);
+/// the PDF's path is returned in place of the SVG's.
 #[tauri::command]
-fn import_assets(project_dir: String, sources: Vec<String>) -> Result<Vec<String>, String> {
+fn import_assets(project_dir: String, sources: Vec<String>) -> Result<ImportResult, String> {
     let dir = canonical_project(&project_dir)?;
     let assets = dir.join("assets");
     fs::create_dir_all(&assets)
         .map_err(|e| format!("failed to create assets folder: {e}"))?;
-    let mut imported = Vec::new();
+    let mut result = ImportResult {
+        imported: Vec::new(),
+        notes: Vec::new(),
+    };
     for source in sources {
         let from = fs::canonicalize(&source)
             .map_err(|e| format!("cannot read source file {source}: {e}"))?;
@@ -902,37 +916,100 @@ fn import_assets(project_dir: String, sources: Vec<String>) -> Result<Vec<String
             return Err(format!("not a file: {source}"));
         }
         // Already in the project: no copy, just resolve the path.
-        if from.strip_prefix(&dir).is_ok() {
-            imported.push(from.strip_prefix(&dir).unwrap().to_string_lossy().to_string());
-            continue;
-        }
-        let name = from
-            .file_name()
-            .ok_or("source has no file name")?
-            .to_string_lossy()
-            .to_string();
-        let stem = std::path::Path::new(&name)
-            .file_stem()
-            .map(|s| s.to_string_lossy().to_string())
-            .unwrap_or_else(|| name.clone());
-        let ext = std::path::Path::new(&name)
-            .extension()
-            .map(|e| format!(".{}", e.to_string_lossy()))
-            .unwrap_or_default();
-        let mut dest = assets.join(&name);
-        let mut n = 1;
-        while dest.exists() {
-            dest = assets.join(format!("{stem}-{n}{ext}"));
-            n += 1;
-        }
-        fs::copy(&from, &dest).map_err(|e| format!("failed to copy {source}: {e}"))?;
+        let dest = if from.strip_prefix(&dir).is_ok() {
+            from.clone()
+        } else {
+            let name = from
+                .file_name()
+                .ok_or("source has no file name")?
+                .to_string_lossy()
+                .to_string();
+            let dest = unique_path(&assets, &name);
+            fs::copy(&from, &dest).map_err(|e| format!("failed to copy {source}: {e}"))?;
+            dest
+        };
+        let dest = if is_svg(&dest) {
+            match convert_svg(&dest) {
+                Ok(pdf) => pdf,
+                Err(note) => {
+                    result.notes.push(note);
+                    dest
+                }
+            }
+        } else {
+            dest
+        };
         let rel = dest
             .strip_prefix(&dir)
             .map(|p| p.to_string_lossy().to_string())
-            .unwrap_or_else(|_| name.clone());
-        imported.push(rel);
+            .map_err(|_| "imported file is outside the project".to_string())?;
+        result.imported.push(rel);
     }
-    Ok(imported)
+    Ok(result)
+}
+
+/// `folder/name`, or `folder/stem-N.ext` when that exists.
+fn unique_path(folder: &std::path::Path, name: &str) -> std::path::PathBuf {
+    let path = std::path::Path::new(name);
+    let stem = path
+        .file_stem()
+        .map(|s| s.to_string_lossy().to_string())
+        .unwrap_or_else(|| name.to_string());
+    let ext = path
+        .extension()
+        .map(|e| format!(".{}", e.to_string_lossy()))
+        .unwrap_or_default();
+    let mut dest = folder.join(name);
+    let mut n = 1;
+    while dest.exists() {
+        dest = folder.join(format!("{stem}-{n}{ext}"));
+        n += 1;
+    }
+    dest
+}
+
+fn is_svg(path: &std::path::Path) -> bool {
+    path.extension()
+        .map(|e| e.to_string_lossy().eq_ignore_ascii_case("svg"))
+        .unwrap_or(false)
+}
+
+/// The commands that turn an SVG into a PDF, in order of preference.
+fn svg_converters(svg: &std::path::Path, pdf: &std::path::Path) -> Vec<Command> {
+    let mut rsvg = Command::new("rsvg-convert");
+    rsvg.arg("-f").arg("pdf").arg("-o").arg(pdf).arg(svg);
+    let mut inkscape = Command::new("inkscape");
+    inkscape
+        .arg(svg)
+        .arg("--export-type=pdf")
+        .arg(format!("--export-filename={}", pdf.display()));
+    vec![rsvg, inkscape]
+}
+
+/// Convert an SVG to the PDF next to it (`name.pdf`, kept when it
+/// already exists). Err carries a note for the user.
+fn convert_svg(svg: &std::path::Path) -> Result<std::path::PathBuf, String> {
+    let pdf = svg.with_extension("pdf");
+    if pdf.exists() {
+        return Ok(pdf);
+    }
+    let name = svg
+        .file_name()
+        .map(|n| n.to_string_lossy().to_string())
+        .unwrap_or_default();
+    for command in svg_converters(svg, &pdf) {
+        match output_with_timeout(command, std::time::Duration::from_secs(60)) {
+            Ok(output) if output.status.success() && pdf.is_file() => return Ok(pdf),
+            Ok(_) | Err(RunError::TimedOut) => {
+                let _ = fs::remove_file(&pdf);
+                return Err(format!("Could not convert {name} to PDF; it was imported as SVG."));
+            }
+            Err(RunError::Spawn(_)) => continue, // not installed: try the next one
+        }
+    }
+    Err(format!(
+        "{name} was imported as SVG, which LaTeX cannot embed. Install rsvg-convert (librsvg) or Inkscape to convert SVGs to PDF on import."
+    ))
 }
 
 #[tauri::command]
@@ -1892,6 +1969,47 @@ mod tests {
         assert!(validate_tex_arg(&dir, "-pdflatex=evil.tex").is_err());
         assert!(validate_tex_arg(&dir, "../main.tex").is_err());
         assert!(validate_tex_arg(&dir, "chapters/intro.tex").is_ok());
+    }
+
+    #[test]
+    fn unique_paths_get_a_numeric_suffix() {
+        let dir = std::env::temp_dir().join(format!("polemic-unique-{}", std::process::id()));
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(&dir).unwrap();
+        assert_eq!(unique_path(&dir, "a.png"), dir.join("a.png"));
+        fs::write(dir.join("a.png"), "").unwrap();
+        fs::write(dir.join("a-1.png"), "").unwrap();
+        assert_eq!(unique_path(&dir, "a.png"), dir.join("a-2.png"));
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    /// Needs rsvg-convert or Inkscape on PATH; skipped otherwise.
+    #[test]
+    fn svgs_convert_to_a_pdf_next_to_them() {
+        let available = ["rsvg-convert", "inkscape"]
+            .iter()
+            .any(|tool| Command::new(tool).arg("--version").output().is_ok());
+        if !available {
+            return;
+        }
+        let dir = std::env::temp_dir().join(format!("polemic-svg-{}", std::process::id()));
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(&dir).unwrap();
+        let svg = dir.join("shape.svg");
+        fs::write(
+            &svg,
+            r#"<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><rect width="10" height="10"/></svg>"#,
+        )
+        .unwrap();
+        let pdf = convert_svg(&svg).unwrap();
+        assert_eq!(pdf, dir.join("shape.pdf"));
+        assert!(fs::read(&pdf).unwrap().starts_with(b"%PDF"));
+        // A broken SVG leaves no half-written PDF behind.
+        let bad = dir.join("bad.svg");
+        fs::write(&bad, "not an svg").unwrap();
+        assert!(convert_svg(&bad).is_err());
+        assert!(!dir.join("bad.pdf").exists());
+        let _ = fs::remove_dir_all(&dir);
     }
 
     /// Needs latexmk on PATH; skipped otherwise.

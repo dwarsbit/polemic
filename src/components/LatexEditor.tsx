@@ -943,9 +943,10 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
             const { project } = useProjectStore.getState();
             if (project === null || paths.length === 0) return;
             void importAssets(project.path, paths)
-              .then((rel) => {
-                insertDropped(x, y, rel);
+              .then(({ imported, notes }) => {
+                insertDropped(x, y, imported);
                 void useProjectStore.getState().refreshFiles();
+                if (notes.length > 0) usePreviewStore.getState().setNotice(notes.join(" "));
               })
               .catch(() => undefined);
           });

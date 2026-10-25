@@ -4,6 +4,8 @@ import {
   extractGraphicsRefs,
   isCheckableRef,
   resolveGraphicsRef,
+  rewriteBibRefs,
+  rewriteGraphicsRefs,
 } from "@/lib/graphics-refs";
 
 describe("extractGraphicsRefs", () => {
@@ -52,5 +54,59 @@ describe("resolveGraphicsRef", () => {
     expect(isCheckableRef("/abs/a.png")).toBe(false);
     expect(isCheckableRef("C:/a.png")).toBe(false);
     expect(isCheckableRef("figs/a")).toBe(true);
+  });
+});
+
+describe("rewriteGraphicsRefs", () => {
+  const files = new Set(["figs/plot.pdf", "figs/old/a.png", "logo.png"]);
+  const move = (from: string, to: string) => (path: string) =>
+    path === from || path.startsWith(`${from}/`) ? to + path.slice(from.length) : null;
+
+  it("follows a renamed file, keeping the extension-less style", () => {
+    const src = "\\includegraphics[width=2cm]{figs/plot} and \\includegraphics{logo.png}";
+    expect(rewriteGraphicsRefs(src, files, [], move("figs/plot.pdf", "figs/results.pdf"))).toBe(
+      "\\includegraphics[width=2cm]{figs/results} and \\includegraphics{logo.png}",
+    );
+  });
+
+  it("keeps the extension when it changed, and follows folder moves", () => {
+    const src = "\\includegraphics{figs/plot}\n\\includegraphics{figs/old/a}";
+    expect(rewriteGraphicsRefs(src, files, [], move("figs/plot.pdf", "plot.png"))).toContain(
+      "\\includegraphics{plot.png}",
+    );
+    expect(rewriteGraphicsRefs(src, files, [], move("figs/old", "figs/new"))).toContain(
+      "\\includegraphics{figs/new/a}",
+    );
+  });
+
+  it("stays relative to the \\graphicspath folder while the file is in it", () => {
+    const src = "\\includegraphics{plot}";
+    expect(rewriteGraphicsRefs(src, files, ["figs/"], move("figs/plot.pdf", "figs/p2.pdf"))).toBe(
+      "\\includegraphics{p2}",
+    );
+    expect(rewriteGraphicsRefs(src, files, ["figs/"], move("figs/plot.pdf", "img/p2.pdf"))).toBe(
+      "\\includegraphics{img/p2}",
+    );
+  });
+
+  it("leaves comments and unrelated references alone", () => {
+    const src = "% \\includegraphics{logo}\n\\includegraphics{logo}";
+    expect(rewriteGraphicsRefs(src, files, [], move("logo.png", "brand.png"))).toBe(
+      "% \\includegraphics{logo}\n\\includegraphics{brand}",
+    );
+  });
+});
+
+describe("rewriteBibRefs", () => {
+  const move = (path: string) => (path === "refs.bib" ? "bib/refs.bib" : null);
+
+  it("rewrites \\bibliography lists and \\addbibresource paths", () => {
+    expect(rewriteBibRefs("\\bibliography{other, refs}", move)).toBe(
+      "\\bibliography{other,bib/refs}",
+    );
+    expect(rewriteBibRefs("\\addbibresource{refs.bib}", move)).toBe(
+      "\\addbibresource{bib/refs.bib}",
+    );
+    expect(rewriteBibRefs("\\bibliography{other}", move)).toBe("\\bibliography{other}");
   });
 });

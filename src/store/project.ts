@@ -2,7 +2,11 @@ import { create } from "zustand";
 import { ask } from "@tauri-apps/plugin-dialog";
 import * as api from "@/lib/tauri";
 import { extractCiteKeys } from "@/lib/bibtex";
-import { extractGraphicsPaths } from "@/lib/graphics-refs";
+import {
+  extractGraphicsPaths,
+  rewriteBibRefs,
+  rewriteGraphicsRefs,
+} from "@/lib/graphics-refs";
 import {
   includeSpec,
   insertInclude,
@@ -460,6 +464,9 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     renameEntry: async (path, newPath) => {
       const { project, buffers } = get();
       if (!project) return;
+      // Resolve graphics against the tree as it was before the move.
+      const filesBefore = new Set(collectPaths(get().files, ""));
+      const graphicsPaths = Object.values(get().graphicsPathsByFile).flat();
       await api.renameEntry(project.path, path, newPath);
       void invalidateGitState();
       const remap = (file: string | null) =>
@@ -495,6 +502,16 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           return next === content ? null : next;
         });
       }
+      // Graphics and .bib references follow the moved files too.
+      const moved = (file: string) =>
+        isInside(path, file) ? newPath + file.slice(path.length) : null;
+      await syncIncludes(collectPaths(get().files, ".tex"), (content) => {
+        const next = rewriteBibRefs(
+          rewriteGraphicsRefs(content, filesBefore, graphicsPaths, moved),
+          moved,
+        );
+        return next === content ? null : next;
+      });
     },
 
     deleteEntry: async (path) => {

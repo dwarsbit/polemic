@@ -7,6 +7,25 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
+## Asset hygiene (2026-10-25)
+
+Branch `feat/asset-hygiene`, on top of `feat/bib-guard-figures-graphics`
+(PR #5).
+- Renames (`renameEntry` in store/project.ts): after the include sync,
+  every .tex file runs through `rewriteGraphicsRefs` and
+  `rewriteBibRefs` (lib/graphics-refs.ts). Graphics resolve against
+  the tree before the move; the new reference stays relative to its
+  `\graphicspath` folder while the file is inside it and stays
+  extension-less when the extension did not change.
+- SVG import (`import_assets` in lib.rs): now returns
+  `{ imported, notes }`; an SVG gets a PDF next to it (rsvg-convert,
+  then Inkscape; 60 s timeout) and the PDF path is returned. No
+  converter: the SVG stays and a note says what to install (Assets
+  panel message, or the preview notice for editor drops).
+
+Open: `import_assets` still accepts any source path from the webview
+(same class as the old bib reads; suggested as a follow-up task).
+
 ## Outline structure editing, word counts (2026-10-25)
 
 Same branch, after the batch below.

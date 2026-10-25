@@ -468,8 +468,15 @@ export async function readAsset(projectDir: string, path: string): Promise<Uint8
 }
 
 /** Copy files into the project's assets/ folder; returns the relative paths. */
-export function importAssets(projectDir: string, sources: string[]): Promise<string[]> {
-  return invoke<string[]>("import_assets", { projectDir, sources });
+/** An asset import's outcome: the project-relative paths to use (a
+ *  converted PDF in place of its SVG) and notes for the user. */
+export interface ImportResult {
+  imported: string[];
+  notes: string[];
+}
+
+export function importAssets(projectDir: string, sources: string[]): Promise<ImportResult> {
+  return invoke<ImportResult>("import_assets", { projectDir, sources });
 }
 
 /** Asset tags per project-relative path (`.polemic/assets.json`). */
