@@ -449,7 +449,7 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   margin: 0;
 }
 
-/* Headings: a settings cog lives in a reserved left gutter, so the
+/* Headings: a level chip (¶) lives in a reserved left gutter, so the
    text never shifts when it appears. */
 .visual-editor {
   padding-left: 3rem;
@@ -460,9 +460,10 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
 .visual-editor .vis-heading-chip {
   position: absolute;
   left: -2.4rem;
-  top: 0.3em;
+  /* Exactly the heading's first line, so the icon centers on it. */
+  top: 0;
   width: 1.75rem;
-  height: 1.5em;
+  height: 1lh;
   display: inline-flex;
   align-items: center;
   justify-content: center;
