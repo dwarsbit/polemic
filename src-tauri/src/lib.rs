@@ -503,11 +503,50 @@ fn update_preferences(
         if bib_editor_mode.is_some() {
             s.bib_editor_mode = bib_editor_mode;
         }
-        if sources.is_some() {
-            s.sources = sources.unwrap();
+        if let Some(sources) = sources {
+            settings::check_bib_paths(&s.sources, &sources)?;
+            s.sources = sources;
         }
+        Ok(s.clone())
+    })?
+}
+
+/// Add a bib source through a native picker: a .bib file, or a folder
+/// searched for .bib files. The only way a bib path enters the
+/// settings, since `read_external_file` reads only under them.
+#[tauri::command]
+async fn pick_bib_source(app: tauri::AppHandle, folder: bool) -> Result<Option<Settings>, String> {
+    use tauri_plugin_dialog::DialogExt;
+    let dialog = app.dialog().file();
+    let picked = if folder {
+        dialog.set_title("Add a folder of .bib files").blocking_pick_folder()
+    } else {
+        dialog
+            .set_title("Add a .bib file")
+            .add_filter("BibTeX", &["bib"])
+            .blocking_pick_file()
+    };
+    let Some(picked) = picked else {
+        return Ok(None);
+    };
+    let path = picked.into_path().map_err(|e| e.to_string())?;
+    let path = fs::canonicalize(&path).map_err(|e| format!("cannot add source: {e}"))?;
+    if !folder && !files::is_bib(&path) {
+        return Err("pick a .bib file".into());
+    }
+    settings::update(&app, |s| {
+        s.sources.push(SourceDef {
+            id: settings::new_source_id(),
+            kind: "bib".into(),
+            enabled: true,
+            name: None,
+            path: Some(path.to_string_lossy().to_string()),
+            user_id: None,
+            api_key: None,
+        });
         s.clone()
     })
+    .map(Some)
 }
 
 /// Configure the AI quickfix provider; replaces the whole block.
@@ -1773,6 +1812,7 @@ pub fn run() {    tauri::Builder::default()
             set_projects_root,
             read_external_file,
             list_bib_files,
+            pick_bib_source,
             zotero_local_fetch,
             create_project,
             list_templates,

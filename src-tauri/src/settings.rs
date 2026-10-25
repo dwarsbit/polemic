@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::fs;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::sync::Mutex;
 
 use tauri::{AppHandle, Manager};
@@ -172,4 +172,95 @@ pub fn upsert_recent(settings: &mut Settings, name: &str, path: &str) {
             path: path.to_string(),
         });
     settings.recent_projects.truncate(20);
+}
+
+/// Bib source paths enter only through the native picker
+/// (`pick_bib_source`): a sources update from the webview may reorder,
+/// rename, toggle, or drop bib sources, but never add a path.
+pub fn check_bib_paths(old: &[SourceDef], new: &[SourceDef]) -> Result<(), String> {
+    let known: Vec<&str> = old
+        .iter()
+        .filter(|s| s.kind == "bib")
+        .filter_map(|s| s.path.as_deref())
+        .collect();
+    for source in new.iter().filter(|s| s.kind == "bib") {
+        if let Some(path) = source.path.as_deref() {
+            if !known.contains(&path) {
+                return Err("bib sources are added through the file picker".into());
+            }
+        }
+    }
+    Ok(())
+}
+
+/// Whether a canonical path is a configured bib source or lies inside
+/// a bib source folder.
+pub fn bib_source_covers(sources: &[SourceDef], path: &Path) -> bool {
+    sources
+        .iter()
+        .filter(|s| s.kind == "bib")
+        .filter_map(|s| s.path.as_deref())
+        .filter_map(|p| fs::canonicalize(p).ok())
+        .any(|root| root == path || (root.is_dir() && path.starts_with(&root)))
+}
+
+/// A fresh source id (the webview mints UUIDs for the other kinds).
+pub fn new_source_id() -> String {
+    use std::sync::atomic::{AtomicU64, Ordering};
+    static COUNTER: AtomicU64 = AtomicU64::new(0);
+    let nanos = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map(|d| d.as_nanos())
+        .unwrap_or(0);
+    format!("bib-{nanos:x}-{:x}", COUNTER.fetch_add(1, Ordering::Relaxed))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn bib(id: &str, path: &str) -> SourceDef {
+        SourceDef {
+            id: id.into(),
+            kind: "bib".into(),
+            enabled: true,
+            name: None,
+            path: Some(path.into()),
+            user_id: None,
+            api_key: None,
+        }
+    }
+
+    #[test]
+    fn sources_updates_cannot_add_bib_paths() {
+        let old = vec![bib("a", "/refs/a.bib"), bib("b", "/refs/folder")];
+        // Toggle, rename, reorder, remove: fine.
+        let mut edited = vec![bib("b", "/refs/folder")];
+        edited[0].enabled = false;
+        edited[0].name = Some("Folder".into());
+        assert!(check_bib_paths(&old, &edited).is_ok());
+        // A new path, or a changed one: refused.
+        assert!(check_bib_paths(&old, &[bib("c", "/etc")]).is_err());
+        assert!(check_bib_paths(&old, &[bib("a", "/home/me/.ssh/id_rsa")]).is_err());
+    }
+
+    #[test]
+    fn covers_only_configured_files_and_folders() {
+        let dir = std::env::temp_dir().join(format!("polemic-bibsrc-{}", std::process::id()));
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(dir.join("folder/sub")).unwrap();
+        fs::write(dir.join("one.bib"), "").unwrap();
+        fs::write(dir.join("other.bib"), "").unwrap();
+        fs::write(dir.join("folder/sub/deep.bib"), "").unwrap();
+        let base = fs::canonicalize(&dir).unwrap();
+        let sources = vec![
+            bib("a", &dir.join("one.bib").to_string_lossy()),
+            bib("b", &dir.join("folder").to_string_lossy()),
+        ];
+        assert!(bib_source_covers(&sources, &base.join("one.bib")));
+        assert!(bib_source_covers(&sources, &base.join("folder/sub/deep.bib")));
+        assert!(!bib_source_covers(&sources, &base.join("other.bib")));
+        assert!(!bib_source_covers(&sources, &base));
+        let _ = fs::remove_dir_all(&dir);
+    }
 }
