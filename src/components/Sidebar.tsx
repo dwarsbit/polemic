@@ -1,6 +1,7 @@
 import { AssetsPanel } from "@/components/AssetsPanel";
 import { BibliographyPanel } from "@/components/BibliographyPanel";
 import { FilesPanel } from "@/components/FilesPanel";
+import { FloatsPanel } from "@/components/FloatsPanel";
 import { LabelsPanel } from "@/components/LabelsPanel";
 import { OutlinePanel } from "@/components/OutlinePanel";
 import { SymbolsPanel } from "@/components/SymbolsPanel";
@@ -10,6 +11,7 @@ export type LeftTab =
   | "outline"
   | "symbols"
   | "assets"
+  | "floats"
   | "labels"
   | "bibliography";
 
@@ -23,6 +25,8 @@ export function Sidebar({ activeTab }: { activeTab: LeftTab }) {
         <OutlinePanel />
       ) : activeTab === "assets" ? (
         <AssetsPanel />
+      ) : activeTab === "floats" ? (
+        <FloatsPanel />
       ) : activeTab === "labels" ? (
         <LabelsPanel />
       ) : activeTab === "bibliography" ? (

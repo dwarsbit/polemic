@@ -4,6 +4,7 @@ import {
   BookOpen,
   FileCog,
   Folder,
+  GalleryVertical,
   Images,
   ListTree,
   Package,
@@ -23,6 +24,7 @@ const NAVIGATOR_TABS: { id: LeftTab; label: string; icon: typeof Folder }[] = [
   { id: "outline", label: "Outline", icon: ListTree },
   { id: "symbols", label: "Symbols", icon: Sigma },
   { id: "assets", label: "Assets", icon: Images },
+  { id: "floats", label: "Figures & Tables", icon: GalleryVertical },
   { id: "labels", label: "Labels", icon: Tags },
   { id: "bibliography", label: "Bibliography", icon: BookOpen },
 ];
