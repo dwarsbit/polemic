@@ -180,7 +180,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
   }
 
   return (
-    <div className="flex h-9 shrink-0 items-center gap-2 border-b px-2">
+    <div className="flex h-9 shrink-0 items-center gap-2 overflow-x-auto border-b px-2 [scrollbar-width:none] *:shrink-0">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="sm" className="h-7 gap-1 px-2 text-xs">

@@ -165,7 +165,8 @@ export function FloatsPanel() {
         </button>
       </div>
       <div className="flex-1 overflow-y-auto px-2 pb-2">
-        {floats === null || floats.length === 0 ? (
+        {floats === null && order !== null ? null : floats === null ||
+          floats.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
             {activeFile ? "No figures or tables in this document." : "No file open."}
           </p>

@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import { Check, MessageSquareOff, Pencil, Trash2 } from "lucide-react";
+import { Check, Eye, EyeOff, MessageSquareOff, Pencil, Trash2 } from "lucide-react";
+import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { resolveAnchor } from "@/lib/comment-anchor";
 import { commentCategory } from "@/lib/comment-categories";
 import { openCommentDialog } from "@/lib/editor-comments";
@@ -65,27 +65,36 @@ export function CommentsPanel() {
 
   if (comments.length === 0) {
     return (
-      <div className="flex h-full flex-col items-center justify-center gap-2 p-4 text-center">
-        <MessageSquareOff className="size-5 text-muted-foreground" />
-        <p className="text-xs text-muted-foreground">
-          No comments yet. Right-click in the editor to add one.
-        </p>
+      <div className="flex h-full flex-col">
+        <SectionHeader label="COMMENTS" collapsed={false} />
+        <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center">
+          <MessageSquareOff className="size-5 text-muted-foreground" />
+          <p className="text-xs text-muted-foreground">
+            No comments yet. Right-click in the editor to add one.
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
-    <ScrollArea className="h-full">
-      <div className="flex items-center gap-1 border-b px-2 py-1.5">
-        <Button
-          variant={hideResolved ? "default" : "outline"}
-          size="xs"
-          onClick={() => setHideResolved((value) => !value)}
-          title="Hide or show resolved comments"
-        >
-          <Check />
-          Hide resolved
-        </Button>
+    <div className="h-full overflow-y-auto">
+      <div className="sticky top-0 z-10 bg-card">
+        <SectionHeader
+          label="COMMENTS"
+          collapsed={false}
+          actions={
+            <Button
+              variant={hideResolved ? "secondary" : "ghost"}
+              size="icon-xs"
+              aria-pressed={hideResolved}
+              onClick={() => setHideResolved((value) => !value)}
+              title={hideResolved ? "Show resolved comments" : "Hide resolved comments"}
+            >
+              {hideResolved ? <EyeOff /> : <Eye />}
+            </Button>
+          }
+        />
       </div>
       <div className="flex flex-wrap gap-1 px-2 py-1.5">
         <button
@@ -143,9 +152,9 @@ export function CommentsPanel() {
                       comment.resolved && "opacity-50",
                     )}
                   >
-                    <div className="flex items-center gap-1.5 text-xs">
+                    <div className="flex items-start gap-1.5 text-xs">
                       <span
-                        className="size-2 shrink-0 rounded-full"
+                        className="mt-1 size-2 shrink-0 rounded-full"
                         style={{ background: category.color }}
                         title={category.label}
                       />
@@ -163,7 +172,7 @@ export function CommentsPanel() {
                         }
                         onClick={() => void jumpTo(file, comment.id)}
                       >
-                        <span className="block truncate text-foreground">
+                        <span className="line-clamp-3 break-words text-foreground">
                           {comment.text}
                         </span>
                       </button>
@@ -184,10 +193,23 @@ export function CommentsPanel() {
                           )}
                         />
                       </Button>
+                    </div>
+                    {/* Edit and delete sit on the meta line so the text
+                        keeps the row's full width. */}
+                    <div className="mt-0.5 flex items-center pl-3.5 text-[10px] text-muted-foreground">
+                      <span className="flex-1">
+                        {orphaned
+                          ? "anchor not found"
+                          : comment.anchor === null
+                            ? "file"
+                            : file === activeFile && line !== null
+                              ? `line ${line}`
+                              : `line ${comment.anchor.line}`}
+                      </span>
                       <Button
                         variant="ghost"
                         size="icon-xs"
-                        className="opacity-0 group-hover:opacity-100"
+                        className="size-5 opacity-0 group-focus-within:opacity-100 group-hover:opacity-100"
                         title="Edit comment"
                         onClick={() =>
                           openCommentDialog({ kind: "edit", id: comment.id })
@@ -198,22 +220,13 @@ export function CommentsPanel() {
                       <Button
                         variant="ghost"
                         size="icon-xs"
-                        className="opacity-0 group-hover:opacity-100"
+                        className="size-5 opacity-0 group-focus-within:opacity-100 group-hover:opacity-100"
                         title="Delete comment"
                         onClick={() => void remove(comment.id)}
                       >
                         <Trash2 className="size-3" />
                       </Button>
                     </div>
-                    <p className="mt-0.5 pl-3.5 text-[10px] text-muted-foreground">
-                      {orphaned
-                        ? "anchor not found"
-                        : comment.anchor === null
-                          ? "file"
-                          : file === activeFile && line !== null
-                            ? `line ${line}`
-                            : `line ${comment.anchor.line}`}
-                    </p>
                   </div>
                 );
               })}
@@ -221,6 +234,6 @@ export function CommentsPanel() {
           </div>
         ))}
       </div>
-    </ScrollArea>
+    </div>
   );
 }

@@ -115,9 +115,11 @@ function readingTime(words: number): string {
 
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between px-2 py-1 text-sm">
-      <span className="text-muted-foreground">{label}</span>
-      <span className="font-medium tabular-nums">{value}</span>
+    <div className="flex items-baseline justify-between gap-2 px-2 py-1 text-sm">
+      <span className="min-w-0 text-muted-foreground">{label}</span>
+      <span className="shrink-0 font-medium whitespace-nowrap tabular-nums">
+        {value}
+      </span>
     </div>
   );
 }
@@ -133,9 +135,9 @@ function goTo(file: string, line: number) {
 
 function SubRow({ label, value }: { label: string; value: number | string }) {
   return (
-    <div className="flex items-center justify-between py-0.5 pr-2 pl-5 text-xs">
-      <span className="text-muted-foreground">{label}</span>
-      <span className="tabular-nums text-muted-foreground">
+    <div className="flex items-baseline justify-between gap-2 py-0.5 pr-2 pl-5 text-xs">
+      <span className="min-w-0 text-muted-foreground">{label}</span>
+      <span className="shrink-0 whitespace-nowrap tabular-nums text-muted-foreground">
         {typeof value === "number" ? value.toLocaleString() : value}
       </span>
     </div>

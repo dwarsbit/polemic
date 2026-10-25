@@ -1,13 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  ArrowUpRight,
-  FolderOpen,
-  Pencil,
-  Pin,
-  PinOff,
-  Plus,
-  Trash2,
-} from "lucide-react";
+import { FolderOpen, Pencil, Pin, PinOff, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -144,6 +136,7 @@ export function ProjectsView() {
             }}
           />
           <Button
+            variant={name.trim() === "" ? "secondary" : "default"}
             onClick={() => void handleCreate()}
             disabled={busy || name.trim() === ""}
           >
@@ -206,7 +199,7 @@ export function ProjectsView() {
                 >
                   <button
                     type="button"
-                    className="flex min-w-0 flex-col text-left"
+                    className="flex min-w-0 flex-1 flex-col text-left"
                     onClick={() => void handleOpen(project.path)}
                   >
                     <span className="truncate text-sm font-medium">
@@ -217,7 +210,7 @@ export function ProjectsView() {
                       {project.path}
                     </span>
                   </button>
-                  <div className="flex shrink-0 items-center gap-1">
+                  <div className="flex shrink-0 items-center gap-1 opacity-0 transition-opacity group-focus-within:opacity-100 group-hover:opacity-100">
                     <Button
                       variant="ghost"
                       size="icon"
@@ -242,18 +235,11 @@ export function ProjectsView() {
                     <Button
                       variant="ghost"
                       size="icon"
+                      className="hover:text-destructive"
                       title="Move project to trash"
                       onClick={() => setAction({ kind: "delete", ...project })}
                     >
                       <Trash2 />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      title="Open project"
-                      onClick={() => void handleOpen(project.path)}
-                    >
-                      <ArrowUpRight />
                     </Button>
                   </div>
                 </li>
