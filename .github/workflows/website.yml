@@ -33,11 +33,22 @@ jobs:
         with:
           package_json_file: website/package.json
 
+      # No setup-node cache: it asks for the pnpm store path at the repo root,
+      # where the app's pnpm config points at another store than website/ uses.
       - uses: actions/setup-node@v5
         with:
           node-version: 22
-          cache: pnpm
-          cache-dependency-path: website/pnpm-lock.yaml
+          package-manager-cache: false
+
+      - name: Get pnpm store path
+        id: pnpm-store
+        run: echo "path=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-store.outputs.path }}
+          key: pnpm-store-${{ runner.os }}-${{ hashFiles('website/pnpm-lock.yaml') }}
+          restore-keys: pnpm-store-${{ runner.os }}-
 
       - name: Configure Pages
         id: pages
