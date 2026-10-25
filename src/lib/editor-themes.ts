@@ -1,5 +1,6 @@
 import { HighlightStyle, syntaxHighlighting } from "@codemirror/language";
 import type { Extension } from "@codemirror/state";
+import { EditorView } from "@codemirror/view";
 import { tags as t } from "@lezer/highlight";
 
 /**
@@ -208,5 +209,12 @@ export function highlightStyleFor(themeId: string, dark: boolean): HighlightStyl
 
 /** The editor extension coloring stex tokens for a theme id and app-mode. */
 export function editorHighlightExtension(themeId: string, dark: boolean): Extension {
-  return syntaxHighlighting(highlightStyleFor(themeId, dark));
+  return [syntaxHighlighting(highlightStyleFor(themeId, dark)), selectionTheme];
 }
+
+/** CodeMirror draws its own selection layer; give it the app's
+ *  selection color (focused or not) instead of the default grey. */
+const selectionTheme = EditorView.theme({
+  ".cm-selectionBackground, &.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground":
+    { background: "var(--selection)" },
+});
