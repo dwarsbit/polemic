@@ -163,8 +163,17 @@ export function serializeBlock(block: Block, indent = 0): string {
     case "heading": {
       // opt is null when the editor normalizes an absent attribute.
       const opt = block.attrs.opt ? `[${block.attrs.opt}]` : "";
-      const title = serializeInline(block.content).replace(/[ \t]+$/, "");
-      return `\\${block.attrs.cmd}${opt}{${title}}`;
+      // Trailing labels go after the closing brace, where LaTeX wants them.
+      const content = [...(block.content ?? [])];
+      const labels: Inline[] = [];
+      for (;;) {
+        const last = content[content.length - 1];
+        if (last?.type === "label") labels.unshift(content.pop()!);
+        else if (last?.type === "text" && !last.marks?.length && last.text.trim() === "") content.pop();
+        else break;
+      }
+      const title = serializeInline(content).replace(/[ \t]+$/, "");
+      return `\\${block.attrs.cmd}${opt}{${title}}${serializeInline(labels)}`;
     }
     case "paragraph":
       // Trailing spaces before a paragraph break carry no meaning.

@@ -730,15 +730,44 @@ function parseHeading(
     return { type: "rawTexBlock", attrs: { src: rest } };
   }
   const titleInline = parseInlineString(title.inner, [], { inGroup: true });
-  c.pos = title.end;
-  // Labels and comments may follow on the same line; keep them in the heading.
-  const restInline = parseInlineRun(c, []);
+  // Labels (same line or the next) and a comment ending the line stay
+  // with the heading; anything else starts the following paragraph.
+  const tailEnd = headingTailEnd(c.src, title.end);
+  const restInline = parseInlineString(c.src.slice(title.end, tailEnd), []);
+  c.pos = tailEnd;
   const level = SECTION_LEVELS[section.cmd.replace(/\*$/, "")] ?? 3;
   return {
     type: "heading",
     attrs: { level, cmd: section.cmd, opt: section.opt },
     content: [...titleInline, ...restInline],
   };
+}
+
+/** Where a heading's tail ends, from `i` just past its title: any
+ *  `\label{...}` separated by spaces or one newline, then optionally a
+ *  `%` comment closing that line (its newline included). */
+function headingTailEnd(src: string, i: number): number {
+  let end = i;
+  for (;;) {
+    let j = end;
+    let newlines = 0;
+    while (src[j] === " " || src[j] === "\t" || src[j] === "\n") {
+      if (src[j] === "\n") newlines++;
+      j++;
+    }
+    if (newlines > 1) return end;
+    if (src.startsWith("\\label{", j)) {
+      const group = readBalancedGroup(src, j + 6);
+      if (group === null) return end;
+      end = group.end;
+      continue;
+    }
+    if (src[j] === "%" && newlines === 0) {
+      const nl = src.indexOf("\n", j);
+      return nl === -1 ? src.length : nl + 1;
+    }
+    return end;
+  }
 }
 
 function parseEnv(c: Cursor, env: string, ctx: EnvCtx): Block {
