@@ -58,16 +58,15 @@ describe("VisualTexEditor render", () => {
     const html = host.innerHTML;
     expect(host.querySelector(".visual-editor")).not.toBeNull();
     expect(html).toContain("vis-math");
-    // The preamble summary bar hides the extracted commands.
+    // The preamble card shows only the title metadata, never the
+    // extracted commands.
     expect(host.querySelector(".vis-preamble-card")).not.toBeNull();
     expect(html).not.toContain("documentclass");
-    // The title block is a slim \\maketitle marker; the values show
+    // \\maketitle stays in the doc but draws nothing; the values show
     // once, in the preamble card's metadata pills.
     const card = host.querySelector(".vis-title-card");
     expect(card).not.toBeNull();
-    expect(card!.textContent).not.toContain("Demo");
-    expect(card!.textContent).not.toContain("J.~Smith");
-    expect(card!.textContent).toContain("maketitle");
+    expect(card!.textContent).toBe("");
     const preamble = host.querySelector(".vis-preamble-card");
     expect(preamble!.textContent).toContain("Demo");
     expect(preamble!.textContent).toContain("J.~Smith");
@@ -173,6 +172,49 @@ describe("VisualTexEditor render", () => {
     });
     expect(host.querySelector(".vis-preamble-card")).not.toBeNull();
     expect(useEditorStore.getState().content).toBe(TEX);
+
+    root.unmount();
+  });
+
+  it("moves straight from one metadata pill to another", async () => {
+    useEditorStore.getState().loadContent(TEX);
+    const host = document.createElement("div");
+    document.body.append(host);
+    const root: Root = createRoot(host);
+    await act(async () => {
+      root.render(<VisualTexEditor />);
+    });
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 50));
+    });
+
+    const pillWith = (text: string) =>
+      [...host.querySelectorAll<HTMLButtonElement>(".vis-preamble-card button")].find(
+        (b) => b.textContent?.includes(text),
+      );
+    await act(async () => {
+      pillWith("J.~Smith")?.click();
+    });
+    const author = host.querySelector<HTMLElement>(
+      ".vis-preamble-card [contenteditable='true']",
+    );
+    expect(author?.textContent).toBe("J.~Smith");
+
+    // Pressing the date pill blurs the author edit first; its commit
+    // re-renders the card, so the click never lands on the old pill.
+    await act(async () => {
+      pillWith("2026-10-02")?.dispatchEvent(
+        new MouseEvent("mousedown", { bubbles: true }),
+      );
+      author?.blur();
+    });
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 10));
+    });
+    const editing = host.querySelector<HTMLElement>(
+      ".vis-preamble-card [contenteditable='true']",
+    );
+    expect(editing?.textContent).toBe("2026-10-02");
 
     root.unmount();
   });

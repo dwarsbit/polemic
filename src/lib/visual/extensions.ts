@@ -488,18 +488,10 @@ class EnvBlockView implements NodeView {
 }
 
 // ---------------------------------------------------------------------------
-// Preamble view: a slim summary bar (class, packages, hidden metadata)
-
-/** The class name of a `\documentclass[…]{name}` source line. */
-export function documentclassName(documentclassSrc: string): string {
-  const m = /\\documentclass(?:\[[^\]]*\])?\{([^}]*)\}/.exec(documentclassSrc);
-  return m === null ? "" : m[1];
-}
-
-/** How many packages a `packagesSrc` block declares. */
-export function packageCount(packagesSrc: string): number {
-  return packagesSrc.split("\n").filter((line) => line.trim().length > 0).length;
-}
+// Preamble view: the title card — title, author, and date, edited in
+// place. The rest of the preamble stays out of sight (Code face,
+// Document settings, Packages); double-clicking the card's padding
+// still opens it as raw source.
 
 /** The inner `{…}` content of a single command like `\author{A}`. */
 export function commandContent(src: string | null): string | null {
@@ -511,7 +503,10 @@ export function commandContent(src: string | null): string | null {
 }
 
 class PreambleView extends EditableRawView {
-  private expanded = false;
+  /** A pill pressed while another was being edited: committing that
+   *  edit re-renders the card and swallows the click, so the new
+   *  card opens this one itself. */
+  private pendingEdit: MetaKey | null = null;
 
   stopEvent(event: Event): boolean {
     // The card's own buttons (the summary bar, the metadata pills)
@@ -535,36 +530,9 @@ class PreambleView extends EditableRawView {
     });
   }
 
-  protected preview(rest: string): HTMLElement {
+  protected preview(): HTMLElement {
     const card = document.createElement("div");
     card.className = "vis-preamble-card";
-    const bar = document.createElement("button");
-    bar.type = "button";
-    bar.className = "vis-preamble-bar";
-    bar.title = "Show or hide the remaining preamble source (double-click to edit)";
-    const parts: string[] = [];
-    const cls =
-      this.node.attrs.documentclassSrc !== null
-        ? documentclassName(this.node.attrs.documentclassSrc)
-        : null;
-    if (cls !== null && cls.length > 0) parts.push(cls);
-    if (this.node.attrs.packagesSrc !== null) {
-      parts.push(`${packageCount(this.node.attrs.packagesSrc)} packages`);
-    }
-    const restLines = rest.split("\n").filter((line) => line.trim().length > 0).length;
-    if (restLines > 0) parts.push(`${restLines} lines`);
-    bar.textContent = `Preamble${parts.length > 0 ? ` — ${parts.join(" · ")}` : ""}`;
-    const chevron = document.createElement("span");
-    chevron.className = `vis-preamble-chevron${this.expanded ? " open" : ""}`;
-    chevron.textContent = "▸";
-    bar.append(chevron);
-    bar.addEventListener("click", () => {
-      this.expanded = !this.expanded;
-      this.refresh();
-    });
-    card.append(bar);
-    // Title metadata settings: the same pills the title card renders,
-    // available wherever the preamble is — with or without \maketitle.
     // The title sits centered on its own line, author and date below.
     const meta = document.createElement("div");
     meta.className = "vis-preamble-meta";
@@ -572,56 +540,49 @@ class PreambleView extends EditableRawView {
     // text in the inputs; they must not open the raw source editor.
     meta.addEventListener("dblclick", (event) => event.stopPropagation());
     const refresh = () => this.refresh();
-    const titleRow = document.createElement("div");
-    titleRow.className = "vis-preamble-meta-title";
-    titleRow.append(
-      metaPill(
+    const pill = (
+      key: MetaKey,
+      label: string,
+      iconPaths: string | null,
+    ): HTMLElement => {
+      const element = metaPill(
         this.editor,
-        "titleSrc",
-        "Title",
-        null,
-        this.node.attrs.titleSrc,
+        key,
+        label,
+        iconPaths,
+        this.node.attrs[key],
         true,
         refresh,
-      ),
-    );
+      );
+      element.addEventListener("mousedown", () => {
+        const other = card.querySelector('[data-editing="true"]');
+        if (other !== null && other !== element) this.pendingEdit = key;
+      });
+      if (this.pendingEdit === key) {
+        this.pendingEdit = null;
+        // After the focus change that triggered this render settles.
+        setTimeout(() => element.click(), 0);
+      }
+      return element;
+    };
+    const titleRow = document.createElement("div");
+    titleRow.className = "vis-preamble-meta-title";
+    titleRow.append(pill("titleSrc", "Title", null));
     const pillsRow = document.createElement("div");
     pillsRow.className = "vis-preamble-meta-row";
     pillsRow.append(
-      metaPill(
-        this.editor,
-        "authorSrc",
-        "Author",
-        USER_ICON,
-        this.node.attrs.authorSrc,
-        true,
-        refresh,
-      ),
-      metaPill(
-        this.editor,
-        "dateSrc",
-        "Date",
-        CALENDAR_ICON,
-        this.node.attrs.dateSrc,
-        true,
-        refresh,
-      ),
+      pill("authorSrc", "Author", USER_ICON),
+      pill("dateSrc", "Date", CALENDAR_ICON),
     );
     meta.append(titleRow, pillsRow);
     card.append(meta);
-    if (this.expanded) {
-      const pre = document.createElement("pre");
-      pre.className = "vis-raw-src vis-preamble-rest";
-      pre.textContent = rest.trim().length > 0 ? rest : "(no other preamble content)";
-      card.append(pre);
-    }
     return card;
   }
 }
 
 // ---------------------------------------------------------------------------
-// Title block: a slim \maketitle marker (the values are shown in the
-// preamble card, never repeated here)
+// Title block: \maketitle has no visible marker; the preamble card is
+// the title. When it is missing, the editor shows a warning banner.
 
 /** Small inline SVG icon (lucide-style stroke icons). */
 function svgIcon(paths: string, className = "vis-title-icon"): HTMLElement {
@@ -807,8 +768,10 @@ export function addNewtheorem(editor: Editor, env: string, name: string): boolea
   return true;
 }
 
+type MetaKey = "titleSrc" | "authorSrc" | "dateSrc";
+
 /** One metadata pill (author or date): a value chip that edits in place. */
-const META_CMDS: Record<"titleSrc" | "authorSrc" | "dateSrc", string> = {
+const META_CMDS: Record<MetaKey, string> = {
   titleSrc: "title",
   authorSrc: "author",
   dateSrc: "date",
@@ -816,7 +779,7 @@ const META_CMDS: Record<"titleSrc" | "authorSrc" | "dateSrc", string> = {
 
 function metaPill(
   editor: Editor,
-  key: "titleSrc" | "authorSrc" | "dateSrc",
+  key: MetaKey,
   label: string,
   iconPaths: string | null,
   src: string | null,
@@ -902,6 +865,8 @@ function metaPill(
   return pill;
 }
 
+/** \maketitle draws nothing: Title, Author, and Date show once, in
+ *  the preamble card. The empty element keeps the node in the doc. */
 class TitleCardView implements NodeView {
   dom: HTMLElement;
   private node: PMNode;
@@ -910,13 +875,11 @@ class TitleCardView implements NodeView {
     this.node = node;
     this.dom = document.createElement("div");
     this.dom.className = "vis-title-card";
-    this.render();
   }
 
   update(node: PMNode): boolean {
     if (node.type !== this.node.type) return false;
     this.node = node;
-    this.render();
     return true;
   }
 
@@ -925,18 +888,6 @@ class TitleCardView implements NodeView {
   }
 
   destroy() {}
-
-  // The \maketitle marker: a slim bar that says the title renders
-  // here, without repeating the values — Title, Author, and Date
-  // are shown once, in the preamble card's metadata pills above.
-  private render() {
-    this.dom.title =
-      "\\maketitle renders the title here — select and press Backspace to remove it. Edit Title, Author, and Date in the preamble card.";
-    const bar = document.createElement("div");
-    bar.className = "vis-title-bar";
-    bar.textContent = "Title — rendered by \\maketitle";
-    this.dom.replaceChildren(bar);
-  }
 }
 
 // ---------------------------------------------------------------------------

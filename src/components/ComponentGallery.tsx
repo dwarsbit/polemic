@@ -141,33 +141,12 @@ function formatYMD(date: Date): string {
 /**
  * The visual editor's preamble card, as a React demo inside the
  * `.visual-editor` typography scope (the same CSS the editor's node
- * view uses): summary bar with expand chevron, the metadata pills
- * row, and the collapsed raw remainder.
+ * view uses): the title, with author and date pills below.
  */
 function PreambleCardDemo() {
-  const [expanded, setExpanded] = useState(false);
-  const rest = [
-    "% a custom command",
-    "\\newcommand{\\foo}{bar}",
-    "\\geometry{margin=1in}",
-    "",
-    "\\DeclareMathOperator{\\Res}{Res}",
-  ].join("\n");
-  const restLines = rest.split("\n").filter((line) => line.trim().length > 0).length;
-  const parts = ["article", "3 packages"];
-  if (restLines > 0) parts.push(`${restLines} lines`);
   return (
     <div className="visual-editor w-full">
       <div className="vis-preamble-card">
-        <button
-          type="button"
-          className="vis-preamble-bar"
-          title="Show or hide the remaining preamble source"
-          onClick={() => setExpanded((open) => !open)}
-        >
-          Preamble{parts.length > 0 ? ` — ${parts.join(" · ")}` : ""}
-          <span className={cn("vis-preamble-chevron", expanded && "open")}>▸</span>
-        </button>
         <div className="vis-preamble-meta">
           <div className="vis-preamble-meta-title">
             <InplacePill label="Title" initial="A polemic on style" large />
@@ -186,7 +165,6 @@ function PreambleCardDemo() {
             />
           </div>
         </div>
-        {expanded && <pre className="vis-raw-src vis-preamble-rest">{rest}</pre>}
       </div>
     </div>
   );
