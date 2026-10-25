@@ -873,34 +873,20 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   color: var(--foreground);
 }
 
-/* Preamble: a slim summary bar; the raw remainder expands below. */
+/* Preamble: the title card — title, author, and date. */
 .visual-editor .vis-preamble-card {
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   background: color-mix(in oklab, var(--card) 60%, transparent);
   overflow: hidden;
 }
-.visual-editor .vis-preamble-bar {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  width: 100%;
-  padding: 0.3rem 0.6rem;
-  font-size: 0.78rem;
-  color: var(--muted-foreground);
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-}
-/* The title metadata settings under the preamble bar: the title on
-   its own centered line, author and date beneath it. */
+/* The title on its own centered line, author and date beneath it. */
 .visual-editor .vis-preamble-meta {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.35rem 0.6rem 0.45rem;
-  border-top: 1px solid color-mix(in oklab, var(--border) 60%, transparent);
+  padding: 0.6rem 0.6rem 0.7rem;
 }
 .visual-editor .vis-preamble-meta-title {
   display: flex;
@@ -913,37 +899,11 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   justify-content: center;
   gap: 0.4rem;
 }
-.visual-editor .vis-preamble-bar:hover {
-  color: var(--foreground);
-}
-.visual-editor .vis-preamble-chevron {
-  margin-left: auto;
-  transition: transform 120ms ease;
-  font-size: 0.7rem;
-}
-.visual-editor .vis-preamble-chevron.open {
-  transform: rotate(90deg);
-}
-.visual-editor .vis-preamble-rest {
-  padding: 0.4rem 0.6rem;
-  border-top: 1px dashed var(--border);
-}
-
-/* Title block (the \maketitle marker): a slim bar that carries no
-   values — Title, Author, and Date show once, in the preamble card. */
+/* Title block (\maketitle): no visible marker; the preamble card
+   above is the title. */
 .visual-editor .vis-title-card {
-  margin: 0.5em 0 1em;
-}
-.visual-editor .vis-title-bar {
-  padding: 0.3rem 0.6rem;
-  font-size: 0.78rem;
-  color: var(--muted-foreground);
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  background: color-mix(in oklab, var(--card) 60%, transparent);
-}
-.visual-editor .vis-title-bar:hover {
-  color: var(--foreground);
+  height: 0;
+  margin: 0;
 }
 /* The title reads as plain text — no border, not even on hover; the
    text cursor is the only edit affordance. Click edits in place. */

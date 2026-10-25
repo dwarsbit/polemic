@@ -4,6 +4,7 @@ import { StarterKit } from "@tiptap/starter-kit";
 import type { Editor, JSONContent } from "@tiptap/core";
 import { NodeSelection } from "@tiptap/pm/state";
 import {
+  AlertTriangle,
   Bold,
   ChevronDown,
   Italic,
@@ -594,7 +595,8 @@ export function VisualTexEditor() {
       )}
       {missingMaketitle === true && (
         <p className="flex shrink-0 items-center gap-2 border-b bg-accent/40 px-3 py-1 text-xs text-muted-foreground">
-          Title metadata is defined but nothing renders it.
+          <AlertTriangle className="size-3.5 shrink-0 text-amber-500" />
+          No \maketitle: the title will not appear in the PDF.
           <Button
             variant="outline"
             size="sm"
