@@ -246,6 +246,69 @@ body {
   background: transparent;
 }
 
+/* CodeMirror popups (lint, autocomplete, hover info) in the app's
+   popover style, like the dropdown menus. CodeMirror's own light/dark
+   rules carry three classes (`.ͼ1.ͼ3 .cm-tooltip`); the :not() matches
+   that weight, and this file loads after them, so these win. The math
+   preview card keeps its own card style below. */
+.cm-editor .cm-tooltip:not(.math-hover-card) {
+  background: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  font-size: 12px;
+}
+
+.cm-editor .cm-tooltip .cm-tooltip-section:not(:first-child) {
+  border-top: 1px solid var(--border);
+}
+
+.cm-editor .cm-tooltip-lint {
+  padding: 0.25rem;
+}
+
+/* Severity as a slim colored bar (destructive / Tailwind amber-500 /
+   muted / sky-500), on a rounded row. */
+.cm-editor .cm-diagnostic {
+  margin-left: 0;
+  padding: 0.25rem 0.5rem;
+  border-left-width: 3px;
+  border-radius: 0.25rem;
+  line-height: 1.4;
+}
+.cm-editor .cm-diagnostic-error {
+  border-left-color: var(--destructive);
+}
+.cm-editor .cm-diagnostic-warning {
+  border-left-color: oklch(76.9% 0.188 70.08);
+}
+.cm-editor .cm-diagnostic-info {
+  border-left-color: var(--muted-foreground);
+}
+.cm-editor .cm-diagnostic-hint {
+  border-left-color: oklch(68.5% 0.169 237.323);
+}
+
+.cm-editor .cm-diagnosticAction {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 0.25rem;
+}
+
+.cm-editor .cm-tooltip.cm-tooltip-autocomplete {
+  padding: 0.25rem;
+}
+.cm-editor .cm-tooltip.cm-tooltip-autocomplete > ul > li {
+  border-radius: 0.25rem;
+}
+.cm-editor .cm-tooltip.cm-tooltip-autocomplete ul li[aria-selected] {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
 /* Git change bars in the line-numbers gutter (Tailwind emerald-500 /
    sky-500). Scoped to one gutter: gutterLineClass marks render in
    every gutter, which would duplicate the bar. */
