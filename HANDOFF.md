@@ -7,6 +7,31 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
+## Bib guard, missing graphics, floats navigator (2026-10-25)
+
+Branch `feat/bib-guard-figures-graphics`, on top of the v1 batch.
+- Bib sources (`pick_bib_source` in lib.rs): bib paths enter the
+  settings only through a native picker Rust-side; `update_preferences`
+  refuses a sources list with a bib path not already stored
+  (`settings::check_bib_paths`). `read_external_file`/`list_bib_files`
+  accept only .bib files inside a configured source
+  (`settings::bib_source_covers`). Tests in settings.rs and files.rs.
+- Missing graphics (`lib/graphics-refs.ts`): `\includegraphics`
+  resolves from the project root (latexmk's cwd), then each
+  `\graphicspath` folder, exact name then implied extensions; refs
+  with macros or absolute paths are not checked. Editor warning in
+  `ref-label-lint.ts` (`graphicsPathsByFile` in the project store);
+  Missing files section in the Assets panel, whose usage counts now
+  use the same resolver.
+- Floats navigator (`lib/floats.ts`, `FloatsPanel.tsx`): left-rail
+  Figures & Tables tab; the float's own caption/label win over a
+  subfigure's.
+- Checked in Chromium against the dev server with a stubbed backend
+  (panels render, lint fires); not yet in a real Tauri window.
+
+Open: the editor lint does not re-run when only the file tree changes
+(it settles on the next edit).
+
 ## v1 batch: items 1–6 (2026-10-24)
 
 Branch `feat/v1-batch`, on top of the security pass.
@@ -36,9 +61,9 @@ Branch `feat/v1-batch`, on top of the security pass.
   render, KaTeX in Visual, breadcrumbs; zero CSP violations, zero JS
   errors. macOS WKWebView and Windows WebView2 still unchecked.
 
-Open: `read_external_file`/`list_bib_files` (external .bib sources)
-still read any path the webview names; Visual-face click-through on
-includes; keychain prompts on unsigned macOS dev builds.
+Open: Visual-face click-through on includes; keychain prompts on
+unsigned macOS dev builds. (External .bib reads: fixed in the next
+batch.)
 
 ## Security and robustness pass (2026-10-24)
 
