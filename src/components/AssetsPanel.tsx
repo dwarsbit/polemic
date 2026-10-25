@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as pdfjs from "pdfjs-dist";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
-import { Plus, Search, X } from "lucide-react";
+import { ChevronRight, Plus, Search, X } from "lucide-react";
 import { ask, open as openFileDialog } from "@tauri-apps/plugin-dialog";
 import { AssetThumb } from "@/components/AssetThumb";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -21,7 +21,6 @@ import {
   collectAssetPaths,
   formatBytes,
   isInsertableGraphics,
-  refMatchesAsset,
   type AssetFilter,
   type AssetKind,
 } from "@/lib/assets";
@@ -29,6 +28,12 @@ import { ensurePackages } from "@/lib/editor-figure";
 import { insertAtCursor } from "@/lib/editor-insert";
 import { startAssetDrag, wasDragged } from "@/lib/editor-drag";
 import { fuzzyMatch } from "@/lib/fuzzy";
+import {
+  extractGraphicsPaths,
+  extractGraphicsRefs,
+  isCheckableRef,
+  resolveGraphicsRef,
+} from "@/lib/graphics-refs";
 import { showNativeContextMenu } from "@/lib/native-menu";
 import { importAssets, readAsset, readProjectFile, type FileEntry } from "@/lib/tauri";
 import { useAssetsStore } from "@/store/assets";
@@ -37,6 +42,15 @@ pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import { cn } from "cn";
+
+/** An \includegraphics path no project file matches. */
+interface MissingRef {
+  path: string;
+  /** Where it first occurs. */
+  file: string;
+  line: number;
+  count: number;
+}
 
 const FILTERS: { id: AssetFilter; label: string }[] = [
   { id: "all", label: "All" },
@@ -84,14 +98,18 @@ export function AssetsPanel() {
   const [tagDraft, setTagDraft] = useState("");
   const [importError, setImportError] = useState<string | null>(null);
   const [usage, setUsage] = useState<Map<string, number>>(new Map());
+  const [missing, setMissing] = useState<MissingRef[]>([]);
+  const [missingOpen, setMissingOpen] = useState(true);
 
   useEffect(() => {
     void useAssetsStore.getState().load();
   }, []);
 
-  // Used-in-document counts (debounced): scan every .tex file for
-  // \includegraphics references; the active file and buffers come
-  // from memory, others from disk (cached until the tree changes).
+  // Used-in-document counts and missing graphics (debounced): scan
+  // every .tex file for \includegraphics references, resolved like
+  // LaTeX does (\graphicspath, implied extensions); the active file
+  // and buffers come from memory, others from disk (cached until the
+  // tree changes).
   const diskCache = useRef<{ files: FileEntry[]; texts: Map<string, string> }>({
     files: [],
     texts: new Map(),
@@ -117,7 +135,7 @@ export function AssetsPanel() {
           }
         };
         walk(files);
-        const counts = new Map<string, number>();
+        const texts: [string, string][] = [];
         for (const path of texPaths) {
           let text: string | null;
           if (path === activeFile) {
@@ -136,19 +154,31 @@ export function AssetsPanel() {
             }
             text = cached === "" ? null : cached;
           }
-          if (text === null) continue;
-          const refs = text.match(/\\includegraphics(?:\[[^\]]*\])?\{([^}]*)\}/g) ?? [];
-          for (const ref of refs) {
-            const arg = ref.match(/\{([^}]*)\}/);
-            if (!arg) continue;
-            const target = arg[1].trim();
-            if (!target) continue;
-            for (const asset of paths) {
-              if (refMatchesAsset(target, asset)) {
-                counts.set(asset, (counts.get(asset) ?? 0) + 1);
-              }
+          if (text !== null) texts.push([path, text]);
+        }
+        const graphicsPaths = texts.flatMap(([, text]) => extractGraphicsPaths(text));
+        const projectFiles = new Set(paths);
+        const counts = new Map<string, number>();
+        const missingByRef = new Map<string, MissingRef>();
+        for (const [file, text] of texts) {
+          for (const ref of extractGraphicsRefs(text)) {
+            if (!isCheckableRef(ref.path)) continue;
+            const asset = resolveGraphicsRef(ref.path, projectFiles, graphicsPaths);
+            if (asset !== null) {
+              counts.set(asset, (counts.get(asset) ?? 0) + 1);
+              continue;
+            }
+            const entry = missingByRef.get(ref.path);
+            if (entry === undefined) {
+              const line = text.slice(0, ref.from).split("\n").length;
+              missingByRef.set(ref.path, { path: ref.path, file, line, count: 1 });
+            } else {
+              entry.count += 1;
             }
           }
+        }
+        if (!cancelled) {
+          setMissing([...missingByRef.values()].sort((a, b) => a.path.localeCompare(b.path)));
         }
         if (!cancelled) setUsage(counts);
       })();
@@ -158,6 +188,17 @@ export function AssetsPanel() {
       clearTimeout(timer);
     };
   }, [project, files, paths, activeFile, buffers, content]);
+
+  function goTo(file: string, line: number) {
+    if (file === activeFile) {
+      useEditorStore.getState().jumpTo(line);
+      return;
+    }
+    void useProjectStore
+      .getState()
+      .openFile(file)
+      .then(() => useEditorStore.getState().jumpTo(line));
+  }
 
   const allTags = useMemo(
     () => [...new Set(Object.values(tags).flat())].sort(),
@@ -360,6 +401,47 @@ export function AssetsPanel() {
                 </button>
               );
             })}
+          </div>
+        )}
+        {missing.length > 0 && (
+          <div className="mt-2 border-t pt-1">
+            <div className="flex items-center rounded hover:bg-accent">
+              <button
+                type="button"
+                title={missingOpen ? "Collapse" : "Expand"}
+                className="flex size-5 shrink-0 items-center justify-center"
+                onClick={() => setMissingOpen((open) => !open)}
+              >
+                <ChevronRight
+                  className={cn("size-3 transition-transform", missingOpen && "rotate-90")}
+                />
+              </button>
+              <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-amber-600 dark:text-amber-400">
+                Missing files
+              </span>
+              <span className="mr-1 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+                {missing.length}
+              </span>
+            </div>
+            {missingOpen &&
+              missing.map((ref) => (
+                <div key={ref.path} className="flex items-center rounded pl-6 hover:bg-accent">
+                  <button
+                    type="button"
+                    className="min-w-0 flex-1 truncate py-1 text-left text-sm"
+                    title={`${ref.count} reference${ref.count === 1 ? "" : "s"} to a file not in the project`}
+                    onClick={() => goTo(ref.file, ref.line)}
+                  >
+                    {ref.path}
+                  </button>
+                  <span className="mr-1.5 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+                    {ref.count}×
+                  </span>
+                  <span className="max-w-24 shrink-0 truncate text-[10px] text-muted-foreground">
+                    {ref.file}:{ref.line}
+                  </span>
+                </div>
+              ))}
           </div>
         )}
         {importError && (
