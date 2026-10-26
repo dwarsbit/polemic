@@ -51,8 +51,9 @@ Branch `feat/bib-guard-figures-graphics`, on top of the v1 batch.
 - Checked in Chromium against the dev server with a stubbed backend
   (panels render, lint fires); not yet in a real Tauri window.
 
-Open: the editor lint does not re-run when only the file tree changes
-(it settles on the next edit).
+Fixed since: the editor lint re-runs when the file tree changes
+(`refreshRefLabelLint` effect, dispatched from `LatexEditor` on
+`files`), so a missing-graphics warning clears once the image exists.
 
 ## v1 batch: items 1–6 (2026-10-24)
 

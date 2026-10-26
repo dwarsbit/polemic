@@ -18,11 +18,10 @@ loop better. Nothing here is scheduled. Finished work moves to
 
 ### Assets
 
-| Feature                   | What it does                                                                                    | Notes                                                           |
-| ------------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| Asset hygiene             | Rename/move updates references; import converts formats LaTeX can't embed (e.g. SVG → PDF)      | Reuse the `\includegraphics` resolver in `lib/graphics-refs.ts` |
-| Data → table              | CSV import assistant generating `booktabs` tables or pgfplots plots                             | Stretch; pairs with the table dialog                            |
-| Lint on file-tree changes | Re-run the missing-graphics warning when only the file tree changes (an added or renamed image) | It currently settles on the next edit                           |
+| Feature       | What it does                                                                               | Notes                                                           |
+| ------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------- |
+| Asset hygiene | Rename/move updates references; import converts formats LaTeX can't embed (e.g. SVG → PDF) | Reuse the `\includegraphics` resolver in `lib/graphics-refs.ts` |
+| Data → table  | CSV import assistant generating `booktabs` tables or pgfplots plots                        | Stretch; pairs with the table dialog                            |
 
 ### Bibliography
 
@@ -39,8 +38,7 @@ loop better. Nothing here is scheduled. Finished work moves to
 
 ## Suggested order
 
-1. **Small fixes from shipped work**: lint on file-tree changes, cross-file
-   section moves.
+1. **Small fixes from shipped work**: cross-file section moves.
 2. **Biblatex entry model and paper wizards**: they finish the
    bibliography and the new-project flow.
 3. **Asset hygiene**: renames that don't break the document.
