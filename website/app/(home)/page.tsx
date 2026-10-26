@@ -113,8 +113,8 @@ const STEPS = [
   },
   {
     title: "Build Polemic",
-    body: "Clone the repository and start the app with pnpm.",
-    code: "pnpm install && pnpm tauri dev",
+    body: "Pre-alpha, so build it from the repository. The guide below walks you through.",
+    code: "git clone https://github.com/dwarsbit/polemic.git",
   },
   {
     title: "Start writing",
@@ -159,7 +159,7 @@ export default function HomePage() {
           <h1 className="mx-auto max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
             The{" "}
             <span className="bg-gradient-to-r from-brand-from via-brand-via to-brand-to bg-clip-text text-transparent">
-              local-first
+              open source
             </span>{" "}
             LaTeX editor
           </h1>

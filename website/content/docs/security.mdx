@@ -8,25 +8,24 @@ a folder you received from someone else.
 
 ## Compiling untrusted projects
 
-- `latexmk` runs with `-norc`, so a `latexmkrc` inside the project never runs. Your own
-  `~/.latexmkrc` and the system-wide config are passed back explicitly and still apply.
-- A compile is stopped after 10 minutes, including its child processes.
+- Compile settings that came with the project never run. Only your own settings
+  apply.
+- A compile is stopped after 10 minutes, including any processes it started.
 
 ## Git
 
-Git runs with every command-running setting from the project's `.git/config` blanked
-(fsmonitor, filters, textconv, gpg programs and similar) and with git hooks switched
-off. A repository you cloned cannot run code through Polemic.
+A project's git configuration and hooks are never executed. A repository you cloned
+cannot run code through Polemic.
 
 ## Files
 
-- Paths are resolved inside the project. Symlinks that lead outside it are refused.
-- Snapshots skip symlinks.
+- Polemic reads and writes only inside the project. Anything that leads outside it
+  is refused.
+- Snapshots never follow a path out of the project.
 - Deleted files go to the trash, not straight to oblivion.
-- Settings, comments and asset tags are written atomically; the settings file is
-  readable only by your user.
+- Your settings are written safely and can be read only by your user.
 
 ## The app
 
-The app window runs with a Content Security Policy. The AI quickfix only talks to
-`https` endpoints, or `http` on `localhost`.
+The app window loads content only from Polemic itself. The AI quickfix sends your
+data only over encrypted connections, or to your own machine.

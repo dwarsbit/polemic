@@ -5,12 +5,8 @@ description: How Polemic compiles your project and keeps the PDF in sync with th
 
 ## Compiling
 
-<kbd>Cmd/Ctrl</kbd> + <kbd>S</kbd> saves and compiles. Polemic runs `latexmk` from your
-own TeX distribution:
-
-```bash
-latexmk -norc -pdf -interaction=nonstopmode -file-line-error -synctex=1 -outdir=build main.tex
-```
+<kbd>Cmd/Ctrl</kbd> + <kbd>S</kbd> saves and compiles, with `latexmk` from your own
+TeX distribution.
 
 - Output goes to `build/` inside the project.
 - One compile runs at a time. Saving during a compile queues one follow-up run.
