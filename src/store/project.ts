@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { ask } from "@tauri-apps/plugin-dialog";
 import * as api from "@/lib/tauri";
 import { extractCiteKeys } from "@/lib/bibtex";
+import { loadsBiblatex } from "@/lib/citation-preview";
 import { extractGraphicsPaths } from "@/lib/graphics-refs";
 import {
   includeSpec,
@@ -36,6 +37,8 @@ interface ProjectState {
   citeKeysByFile: Record<string, string[]>;
   /** \graphicspath folders declared per .tex file. */
   graphicsPathsByFile: Record<string, string[]>;
+  /** Whether each .tex file loads biblatex (the .bib backend). */
+  biblatexByFile: Record<string, boolean>;
   allCiteKeys: () => string[];
   markDirty: (path: string, content: string) => void;
   /** Refresh a file's label/ref/cite-key metadata from its content. */
@@ -202,6 +205,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     },
     citeKeysByFile: {},
     graphicsPathsByFile: {},
+    biblatexByFile: {},
     allCiteKeys: () => {
       const seen = new Set<string>();
       for (const keys of Object.values(useProjectStore.getState().citeKeysByFile)) {
@@ -226,6 +230,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           ...get().graphicsPathsByFile,
           [path]: extractGraphicsPaths(content),
         },
+        biblatexByFile: { ...get().biblatexByFile, [path]: loadsBiblatex(content) },
       }),
     flushBuffers: async () => {
       // The visual face serializes on a debounce; pending edits land
@@ -276,6 +281,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         refsByFile: {},
         citeKeysByFile: {},
         graphicsPathsByFile: {},
+        biblatexByFile: {},
       });
       void api.setProjectMenuEnabled(true);
       const target =
@@ -294,12 +300,14 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         const labelsByFile: Record<string, string[]> = {};
         const refsByFile: Record<string, string[]> = {};
         const graphicsPathsByFile: Record<string, string[]> = {};
+        const biblatexByFile: Record<string, boolean> = {};
         for (const texPath of collectPaths(files, ".tex")) {
           try {
             const content = await api.readProjectFile(info.path, texPath);
             labelsByFile[texPath] = extractLabels(content);
             refsByFile[texPath] = extractRefPositions(content).map((ref) => ref.name);
             graphicsPathsByFile[texPath] = extractGraphicsPaths(content);
+            biblatexByFile[texPath] = loadsBiblatex(content);
           } catch {
             // unreadable file: skip its labels
           }
@@ -320,6 +328,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           refsByFile: { ...refsByFile, ...state.refsByFile },
           citeKeysByFile: { ...citeKeysByFile, ...state.citeKeysByFile },
           graphicsPathsByFile: { ...graphicsPathsByFile, ...state.graphicsPathsByFile },
+          biblatexByFile: { ...biblatexByFile, ...state.biblatexByFile },
         }));
       })();
     },
@@ -339,6 +348,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         refsByFile: {},
         citeKeysByFile: {},
         graphicsPathsByFile: {},
+        biblatexByFile: {},
         openFiles: [],
         activeFile: null,
       });
@@ -374,6 +384,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           ...get().graphicsPathsByFile,
           [path]: extractGraphicsPaths(content),
         },
+        biblatexByFile: { ...get().biblatexByFile, [path]: loadsBiblatex(content) },
       });
       void api.setOpenFiles(project.path, nextOpen);
     },
@@ -585,6 +596,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         graphicsPathsByFile: {
           ...get().graphicsPathsByFile,
           [activeFile]: extractGraphicsPaths(content),
+        },
+        biblatexByFile: {
+          ...get().biblatexByFile,
+          [activeFile]: loadsBiblatex(content),
         },
       });
       return true;

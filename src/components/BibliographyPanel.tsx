@@ -19,9 +19,10 @@ import {
   entryTitle,
   formatEntry,
   missingFields,
+  newEntryDraft,
   parseBibEntries,
   planEntryEdits,
-  suggestKey,
+  type BibBackend,
   type BibEntry,
   type EntryDraft,
 } from "@/lib/bib-entries";
@@ -192,6 +193,8 @@ export function BibliographyPanel() {
     [texTexts],
   );
   const previewStyle = biblatex?.style ?? "numeric";
+  // Entry validation follows the backend too: biblatex types and fields.
+  const backend: BibBackend = biblatex === null ? "bibtex" : "biblatex";
   const previewNote =
     biblatex === null
       ? "biblatex is not loaded in this project; showing its default numeric style."
@@ -221,12 +224,12 @@ export function BibliographyPanel() {
           file,
           title: entryTitle(entry),
           cited: counts.get(entry.key) ?? 0,
-          incomplete: missingFields(entry).length > 0,
+          incomplete: missingFields(entry, backend).length > 0,
         });
       }
     }
     return out.sort((a, b) => a.entry.key.localeCompare(b.entry.key));
-  }, [bibTexts, texTexts, query]);
+  }, [bibTexts, texTexts, query, backend]);
 
   const groups = useMemo(() => {
     const map = new Map<string, BibRow[]>();
@@ -555,7 +558,7 @@ export function BibliographyPanel() {
               {row.incomplete && (
                 <span
                   className="mr-1 shrink-0 text-[10px] text-amber-600 dark:text-amber-400"
-                  title={`Missing fields: ${missingFields(row.entry).join(", ")}`}
+                  title={`Missing fields: ${missingFields(row.entry, backend).join(", ")}`}
                 >
                   incomplete
                 </span>
@@ -773,13 +776,14 @@ export function BibliographyPanel() {
             if (!open) setDialog(null);
           }}
           title={dialog.kind === "new" ? "New BibTeX entry" : `Edit ${dialog.key}`}
-          initial={dialogInitializer(dialog, dialogRow, allKeys)}
+          initial={dialogInitializer(dialog, dialogRow, allKeys, backend)}
           existingKeys={allKeys}
           bibFiles={[...new Set([...bibTexts.map((file) => file.file), dialog.file])]}
           allowFile={dialog.kind === "new"}
           autoKey={dialog.kind === "new"}
           previewStyle={previewStyle}
           previewNote={previewNote}
+          backend={backend}
           onSave={
             dialog.kind === "new"
               ? (draft, file) => void appendEntry(draft, file)
@@ -806,6 +810,7 @@ function dialogInitializer(
   dialog: DialogState,
   row: BibRow | null,
   allKeys: string[],
+  backend: BibBackend,
 ): EntryDraft & { file: string } {
   if (dialog.kind === "edit" && row !== null) {
     return {
@@ -818,15 +823,5 @@ function dialogInitializer(
       })),
     };
   }
-  return {
-    file: dialog.file,
-    key: suggestKey("article", [], allKeys),
-    type: "article",
-    fields: [
-      { name: "author", value: "" },
-      { name: "title", value: "" },
-      { name: "journal", value: "" },
-      { name: "year", value: "" },
-    ],
-  };
+  return { file: dialog.file, ...newEntryDraft(allKeys, backend) };
 }

@@ -387,6 +387,11 @@ export function renderBibliography(entry: PreviewEntry, style: CiteStyle): Segme
   }
 }
 
+/** Whether a .tex source loads biblatex (`\usepackage{biblatex}`). */
+export function loadsBiblatex(source: string): boolean {
+  return detectBiblatexStyle([source]) !== null;
+}
+
 /**
  * The biblatex style a project loads, from its .tex sources: the
  * `style=` / `citestyle=` option of `\usepackage[…]{biblatex}`.

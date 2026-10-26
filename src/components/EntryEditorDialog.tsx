@@ -18,30 +18,18 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  COMMON_FIELDS,
-  REQUIRED_FIELDS,
+  commonFields,
+  entryTypes,
+  isRequiredField,
+  missingFieldNames,
   missingFields,
   suggestKey,
   typeLabel,
+  type BibBackend,
   type EntryDraft,
 } from "@/lib/bib-entries";
 import type { CiteStyle } from "@/lib/citation-preview";
 import { cn } from "cn";
-
-const TYPES = [
-  "article",
-  "inproceedings",
-  "conference",
-  "incollection",
-  "book",
-  "inbook",
-  "phdthesis",
-  "mastersthesis",
-  "techreport",
-  "unpublished",
-  "proceedings",
-  "misc",
-];
 
 /** A key is anything BibTeX can parse: no commas, braces, or spaces. */
 function isValidKey(key: string): boolean {
@@ -49,8 +37,8 @@ function isValidKey(key: string): boolean {
 }
 
 /**
- * The BibTeX entry editor: key, type, and fields with per-type
- * validation. The dialog is dumb — the panel applies the draft to
+ * The .bib entry editor: key, type, and fields with per-type
+ * validation following the project's backend (BibTeX or biblatex). The dialog is dumb — the panel applies the draft to
  * the project (see planEntryEdits / formatEntry).
  */
 export function EntryEditorDialog({
@@ -64,6 +52,7 @@ export function EntryEditorDialog({
   autoKey,
   previewStyle = "numeric",
   previewNote,
+  backend = "bibtex",
   onSave,
 }: {
   open: boolean;
@@ -83,6 +72,8 @@ export function EntryEditorDialog({
   previewStyle?: CiteStyle;
   /** Shown under the preview, e.g. when the project's style is approximated. */
   previewNote?: string;
+  /** Which entry types and fields validate (the project's backend). */
+  backend?: BibBackend;
   /** Called with the draft and the chosen .bib file. */
   onSave: (draft: EntryDraft, file: string) => void;
 }) {
@@ -98,13 +89,14 @@ export function EntryEditorDialog({
     [existingKeys, effectiveKey, initial],
   );
   const keyInvalid = !isValidKey(effectiveKey);
-  const missing = missingFields({
-    type: draft.type,
-    fields: draft.fields.map((field) => ({ name: field.name })),
-  });
-  const addable = COMMON_FIELDS.filter(
-    (name) => !draft.fields.some((field) => field.name === name),
-  );
+  const missing = missingFields(draft, backend);
+  // Missing required fields first, then the usual ones.
+  const addable = [
+    ...new Set([...missingFieldNames(draft, backend), ...commonFields(backend)]),
+  ].filter((name) => !draft.fields.some((field) => field.name === name));
+  // An entry of a type outside the list keeps its type selectable.
+  const types = entryTypes(backend);
+  if (!types.includes(draft.type)) types.push(draft.type);
 
   function close() {
     onOpenChange(false);
@@ -145,7 +137,7 @@ export function EntryEditorDialog({
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {TYPES.map((type) => (
+                  {types.map((type) => (
                     <SelectItem key={type} value={type}>
                       {typeLabel(type)}
                     </SelectItem>
@@ -189,7 +181,7 @@ export function EntryEditorDialog({
                 <div key={field.name} className="flex items-center gap-2">
                   <label className="w-20 shrink-0 truncate text-xs text-muted-foreground">
                     {field.name}
-                    {(REQUIRED_FIELDS[draft.type] ?? []).includes(field.name) && (
+                    {isRequiredField(draft.type, field.name, backend) && (
                       <span className="text-destructive"> *</span>
                     )}
                   </label>
