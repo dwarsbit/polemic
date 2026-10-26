@@ -19,7 +19,7 @@ import { showNativeContextMenu } from "@/lib/native-menu";
 import { labelLine, refAt } from "@/lib/label-refs";
 import { includeAt } from "@/lib/doc-structure";
 import { openIncludeTarget } from "@/lib/include-nav";
-import { refLabelLint } from "@/lib/ref-label-lint";
+import { refLabelLint, refreshRefLabelLint } from "@/lib/ref-label-lint";
 import { setFormatDocumentHandler, formatDocument } from "@/lib/editor-format";
 import { editorFontStack } from "@/lib/editor-fonts";
 import { editorHighlightExtension } from "@/lib/editor-themes";
@@ -360,6 +360,13 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     const view = viewRef.current;
     if (view) view.dispatch({ effects: refreshComments.of(null) });
   }, [comments, activeFile]);
+
+  // Missing-graphics hints follow the file tree (an image added,
+  // renamed or removed), not only edits.
+  useEffect(() => {
+    const view = viewRef.current;
+    if (view) view.dispatch({ effects: refreshRefLabelLint.of(null) });
+  }, [files]);
 
   // Math hover previews follow the engine setting.
   useEffect(() => {

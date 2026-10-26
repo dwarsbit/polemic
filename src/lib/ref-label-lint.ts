@@ -1,4 +1,5 @@
 import { linter, type Diagnostic } from "@codemirror/lint";
+import { StateEffect } from "@codemirror/state";
 import type { EditorView } from "@codemirror/view";
 import { collectAssetPaths } from "@/lib/assets";
 import { extractCitePositions } from "@/lib/cite-refs";
@@ -11,6 +12,10 @@ import {
 import { extractLabelPositions, extractRefPositions } from "@/lib/label-refs";
 import { useProjectStore } from "@/store/project";
 
+/** Re-runs the hints without a document change, e.g. when the file
+ *  tree changes and a missing graphic may now exist. */
+export const refreshRefLabelLint = StateEffect.define<null>();
+
 /**
  * Cross-reference hints: refs to labels that no file defines, labels
  * no file references, citations of keys no .bib file defines, and
@@ -18,7 +23,7 @@ import { useProjectStore } from "@/store/project";
  * The active document is scanned live, so hints settle as you type
  * (the linter itself debounces).
  */
-export const refLabelLint = linter((view: EditorView) => {
+function refLabelDiagnostics(view: EditorView): Diagnostic[] {
   const {
     activeFile,
     labelsByFile,
@@ -107,4 +112,11 @@ export const refLabelLint = linter((view: EditorView) => {
     }
   }
   return diagnostics;
+}
+
+export const refLabelLint = linter(refLabelDiagnostics, {
+  needsRefresh: (update) =>
+    update.transactions.some((tr) =>
+      tr.effects.some((effect) => effect.is(refreshRefLabelLint)),
+    ),
 });
