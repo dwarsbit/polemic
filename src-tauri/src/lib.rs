@@ -893,7 +893,9 @@ fn read_asset(project_dir: String, path: String) -> Result<tauri::ipc::Response,
 /// Copy files into the project's assets/ folder (copy-in imports).
 /// Sources already inside the project pass through untouched: their
 /// relative path is returned without copying. Other name collisions
-/// get a numeric suffix. Returns the relative paths of the results.
+/// get a numeric suffix. An SVG, which LaTeX cannot embed, gets a PDF
+/// beside it, and the PDF is returned (the SVG stays as the source).
+/// Returns the relative paths of the results.
 #[tauri::command]
 fn import_assets(project_dir: String, sources: Vec<String>) -> Result<Vec<String>, String> {
     let dir = canonical_project(&project_dir)?;
@@ -909,7 +911,8 @@ fn import_assets(project_dir: String, sources: Vec<String>) -> Result<Vec<String
         }
         // Already in the project: no copy, just resolve the path.
         if from.strip_prefix(&dir).is_ok() {
-            imported.push(from.strip_prefix(&dir).unwrap().to_string_lossy().to_string());
+            let usable = usable_graphic(&from, false);
+            imported.push(usable.strip_prefix(&dir).unwrap().to_string_lossy().to_string());
             continue;
         }
         let name = from
@@ -932,6 +935,7 @@ fn import_assets(project_dir: String, sources: Vec<String>) -> Result<Vec<String
             n += 1;
         }
         fs::copy(&from, &dest).map_err(|e| format!("failed to copy {source}: {e}"))?;
+        let dest = usable_graphic(&dest, true);
         let rel = dest
             .strip_prefix(&dir)
             .map(|p| p.to_string_lossy().to_string())
@@ -939,6 +943,36 @@ fn import_assets(project_dir: String, sources: Vec<String>) -> Result<Vec<String
         imported.push(rel);
     }
     Ok(imported)
+}
+
+/// The file LaTeX can embed for an asset: the asset itself, or for an
+/// SVG a PDF converted beside it. A PDF already there is reused unless
+/// `fresh` asks for a new one (a fresh import never overwrites a file).
+/// When conversion fails the SVG is returned as it is.
+fn usable_graphic(path: &std::path::Path, fresh: bool) -> std::path::PathBuf {
+    if !assets::is_svg(path) {
+        return path.to_path_buf();
+    }
+    let mut pdf = path.with_extension("pdf");
+    if pdf.exists() && !fresh {
+        return pdf;
+    }
+    let stem = path
+        .file_stem()
+        .map(|s| s.to_string_lossy().to_string())
+        .unwrap_or_default();
+    let mut n = 1;
+    while pdf.exists() {
+        pdf = path.with_file_name(format!("{stem}-{n}.pdf"));
+        n += 1;
+    }
+    match assets::svg_to_pdf(path, &pdf) {
+        Ok(()) => pdf,
+        Err(e) => {
+            eprintln!("svg conversion: {e}");
+            path.to_path_buf()
+        }
+    }
 }
 
 #[tauri::command]

@@ -27,6 +27,7 @@ tauri-plugin-dialog = "2.8.0"
 trash = "5.2.9"
 tauri-plugin-window-state = "2"
 reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json"] }
+svg2pdf = "0.13.0"
 
 [target.'cfg(unix)'.dependencies]
 libc = "0.2"
