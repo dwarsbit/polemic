@@ -6,7 +6,27 @@ const ART_PROPS = {
   strokeLinecap: "round" as const,
 };
 
+/** Publisher paper templates: a title over two columns. */
+const PAPER_IDS = new Set(["acm", "ieee", "lncs", "elsevier"]);
+
 export function TemplateArt({ id }: { id: string }) {
+  if (PAPER_IDS.has(id)) {
+    return (
+      <svg viewBox="0 0 28 36" className="h-9 w-7 text-muted-foreground">
+        <rect x="1.5" y="1.5" width="25" height="33" rx="1.5" {...ART_PROPS} />
+        <line x1="8" y1="6.5" x2="20" y2="6.5" {...ART_PROPS} />
+        <line x1="5.5" y1="12" x2="12.5" y2="12" {...ART_PROPS} />
+        <line x1="5.5" y1="16" x2="12.5" y2="16" {...ART_PROPS} />
+        <line x1="5.5" y1="20" x2="12.5" y2="20" {...ART_PROPS} />
+        <line x1="5.5" y1="24" x2="12.5" y2="24" {...ART_PROPS} />
+        <line x1="5.5" y1="28" x2="10.5" y2="28" {...ART_PROPS} />
+        <line x1="15.5" y1="12" x2="22.5" y2="12" {...ART_PROPS} />
+        <line x1="15.5" y1="16" x2="22.5" y2="16" {...ART_PROPS} />
+        <line x1="15.5" y1="20" x2="22.5" y2="20" {...ART_PROPS} />
+        <line x1="15.5" y1="24" x2="20.5" y2="24" {...ART_PROPS} />
+      </svg>
+    );
+  }
   if (id === "beamer") {
     return (
       <svg viewBox="0 0 36 27" className="h-9 w-12 text-muted-foreground">

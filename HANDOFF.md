@@ -7,6 +7,23 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
+## Paper templates (2026-10-26)
+
+Same branch as below.
+
+- Four templates in `src-tauri/src/templates.rs`: `acm` (acmart
+  sigconf), `ieee` (IEEEtran conference), `lncs` (llncs), `elsevier`
+  (elsarticle). Each cites a sample entry in `references.bib`.
+- `Template.requires`: files to look up with kpsewhich and the
+  package that ships them (acmart also needs libertine, inconsolata,
+  newtx). `ProjectsView` checks them via `tex_package_info` when the
+  template is picked and names what is missing; creating still works.
+- All four compiled with `latexmk -pdf -norc` against Ubuntu's TeX
+  Live 2023 with no warnings. Note: acmart also needs `binhex.tex`
+  (texlive-plain-generic), present in any normal TeX Live install.
+- Picker checked in Chromium with a stubbed IPC; not in a real Tauri
+  window.
+
 ## Cross-file section moves (2026-10-26)
 
 Same branch as below.
