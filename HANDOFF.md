@@ -7,6 +7,25 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
+## Biblatex entry model, lint refresh (2026-10-26)
+
+Branch `claude/dreamy-hamilton-2g65p8`.
+
+- Backend per project: `BibBackend` ("bibtex" | "biblatex") in
+  `lib/bib-entries.ts`. biblatex when a .tex file loads it
+  (`loadsBiblatex`; `biblatexByFile` in the project store for the .bib
+  editor, `detectBiblatexStyle` in the Bibliography panel).
+- Required fields per backend (btxdoc / biblatex manual §2.1), with
+  alternatives ("date or year", "author or editor"). Under biblatex,
+  `journal`/`school`/`address` count as `journaltitle`/`institution`/
+  `location`. `missingFields`, `isRequiredField`, `entryTypes`,
+  `commonFields`, `newEntryDraft` take the backend (default bibtex).
+- Entry editor: type list and Add field follow the backend; missing
+  required fields are offered first; a type outside the list stays
+  selectable. `suggestKey` takes the year from `date` too.
+- The editor lint re-runs when the file tree changes (see below).
+- Unit tests only; not yet checked in a real Tauri window.
+
 ## Outline structure editing, word counts (2026-10-25)
 
 Same branch, after the batch below.

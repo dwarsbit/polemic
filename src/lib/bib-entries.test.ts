@@ -6,7 +6,10 @@ import {
   entryTitle,
   findMatching,
   formatEntry,
+  isRequiredField,
+  missingFieldNames,
   missingFields,
+  newEntryDraft,
   parseBibEntries,
   planEntryEdits,
   suggestKey,
@@ -99,6 +102,68 @@ describe("missingFields", () => {
     const tr = entries[4];
     expect(missingFields({ type: tr.type, fields: tr.fields })).toEqual([]);
     expect(missingFields({ type: "article", fields: tr.fields })).toEqual(["journal"]);
+  });
+});
+
+describe("missingFields under biblatex", () => {
+  const fields = (...names: string[]) => names.map((name) => ({ name }));
+
+  it("accepts date for year and journaltitle for journal", () => {
+    const article = {
+      type: "article",
+      fields: fields("author", "title", "journaltitle", "date"),
+    };
+    expect(missingFields(article, "biblatex")).toEqual([]);
+    // BibTeX does not read date or journaltitle.
+    expect(missingFields(article, "bibtex")).toEqual(["journal", "year"]);
+  });
+
+  it("maps BibTeX field names biber reads as its own", () => {
+    const article = {
+      type: "article",
+      fields: fields("author", "title", "journal", "year"),
+    };
+    expect(missingFields(article, "biblatex")).toEqual([]);
+    const thesis = {
+      type: "phdthesis",
+      fields: fields("author", "title", "school", "year"),
+    };
+    expect(missingFields(thesis, "biblatex")).toEqual([]);
+  });
+
+  it("validates biblatex-only types, alternatives joined with or", () => {
+    const online = { type: "online", fields: fields("title") };
+    expect(missingFields(online, "biblatex")).toEqual([
+      "author or editor",
+      "date or year",
+      "url or doi or eprint",
+    ]);
+    expect(missingFieldNames(online, "biblatex")).toEqual(["author", "date", "url"]);
+    // Unknown to BibTeX: validated loosely.
+    expect(missingFields(online, "bibtex")).toEqual([]);
+  });
+
+  it("marks aliases as required fields", () => {
+    expect(isRequiredField("article", "journal", "biblatex")).toBe(true);
+    expect(isRequiredField("article", "year", "biblatex")).toBe(true);
+    expect(isRequiredField("article", "date", "bibtex")).toBe(false);
+  });
+});
+
+describe("newEntryDraft", () => {
+  it("starts with the backend's required article fields", () => {
+    expect(newEntryDraft([], "bibtex").fields.map((f) => f.name)).toEqual([
+      "author",
+      "title",
+      "journal",
+      "year",
+    ]);
+    expect(newEntryDraft([], "biblatex").fields.map((f) => f.name)).toEqual([
+      "author",
+      "title",
+      "journaltitle",
+      "date",
+    ]);
   });
 });
 
@@ -211,6 +276,14 @@ describe("suggestKey", () => {
     ];
     expect(suggestKey("article", fields, ["other"])).toBe("knuth1984");
     expect(suggestKey("article", fields, ["knuth1984"])).toBe("knuth19842");
+  });
+
+  it("takes the year from a biblatex date", () => {
+    const fields = [
+      { name: "author", value: "Knuth, Donald E." },
+      { name: "date", value: "1984-05" },
+    ];
+    expect(suggestKey("article", fields, [])).toBe("knuth1984");
   });
 
   it("falls back to the type when no author", () => {

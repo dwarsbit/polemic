@@ -43,39 +43,190 @@ export interface ParsedBib {
   strings: Record<string, string>;
 }
 
-/** Entry types we know the required fields of; others validate loosely. */
-export const REQUIRED_FIELDS: Record<string, string[]> = {
+/**
+ * Which program reads the project's .bib files: classic BibTeX, or
+ * biblatex (with biber), which knows more entry types and fields.
+ */
+export type BibBackend = "bibtex" | "biblatex";
+
+/** A required field; a list means any one of them will do. */
+type Requirement = string | readonly string[];
+
+const AUTHOR_OR_EDITOR = ["author", "editor"];
+
+/** BibTeX's required fields per type (btxdoc); others validate loosely. */
+const BIBTEX_REQUIRED: Record<string, Requirement[]> = {
   article: ["author", "title", "journal", "year"],
+  book: [AUTHOR_OR_EDITOR, "title", "publisher", "year"],
+  booklet: ["title"],
+  inbook: [AUTHOR_OR_EDITOR, "title", ["chapter", "pages"], "publisher", "year"],
+  incollection: ["author", "title", "booktitle", "publisher", "year"],
   inproceedings: ["author", "title", "booktitle", "year"],
   conference: ["author", "title", "booktitle", "year"],
-  incollection: ["author", "title", "booktitle", "publisher", "year"],
-  book: ["title", "publisher", "year"],
-  inbook: ["title", "publisher", "year", "chapter"],
-  phdthesis: ["author", "title", "school", "year"],
+  manual: ["title"],
   mastersthesis: ["author", "title", "school", "year"],
+  phdthesis: ["author", "title", "school", "year"],
+  proceedings: ["title", "year"],
   techreport: ["author", "title", "institution", "year"],
   unpublished: ["author", "title", "note"],
-  proceedings: ["title", "year"],
 };
 
+const DATE = ["date", "year"];
+
+/** biblatex's required fields per type (manual §2.1), aliases included. */
+const BIBLATEX_REQUIRED: Record<string, Requirement[]> = {
+  article: ["author", "title", "journaltitle", DATE],
+  book: ["author", "title", DATE],
+  mvbook: ["author", "title", DATE],
+  inbook: ["author", "title", "booktitle", DATE],
+  bookinbook: ["author", "title", "booktitle", DATE],
+  suppbook: ["author", "title", "booktitle", DATE],
+  booklet: [AUTHOR_OR_EDITOR, "title", DATE],
+  collection: ["editor", "title", DATE],
+  mvcollection: ["editor", "title", DATE],
+  incollection: ["author", "title", "booktitle", DATE],
+  suppcollection: ["author", "title", "booktitle", DATE],
+  dataset: [AUTHOR_OR_EDITOR, "title", DATE],
+  manual: [AUTHOR_OR_EDITOR, "title", DATE],
+  misc: [AUTHOR_OR_EDITOR, "title", DATE],
+  software: [AUTHOR_OR_EDITOR, "title", DATE],
+  online: [AUTHOR_OR_EDITOR, "title", DATE, ["url", "doi", "eprint"]],
+  electronic: [AUTHOR_OR_EDITOR, "title", DATE, ["url", "doi", "eprint"]],
+  www: [AUTHOR_OR_EDITOR, "title", DATE, ["url", "doi", "eprint"]],
+  patent: ["author", "title", "number", DATE],
+  periodical: ["editor", "title", DATE],
+  proceedings: ["title", DATE],
+  mvproceedings: ["title", DATE],
+  inproceedings: ["author", "title", "booktitle", DATE],
+  conference: ["author", "title", "booktitle", DATE],
+  reference: ["editor", "title", DATE],
+  mvreference: ["editor", "title", DATE],
+  inreference: ["author", "title", "booktitle", DATE],
+  report: ["author", "title", "type", "institution", DATE],
+  thesis: ["author", "title", "type", "institution", DATE],
+  // Aliases with the type preset: no `type` field needed.
+  mastersthesis: ["author", "title", "institution", DATE],
+  phdthesis: ["author", "title", "institution", DATE],
+  techreport: ["author", "title", "institution", DATE],
+  unpublished: ["author", "title", DATE],
+};
+
+/** BibTeX field names biblatex reads as its own (biber's default map). */
+const BIBLATEX_FIELD_ALIASES: Record<string, string> = {
+  journal: "journaltitle",
+  school: "institution",
+  address: "location",
+};
+
+function requirements(type: string, backend: BibBackend): Requirement[] {
+  const table = backend === "biblatex" ? BIBLATEX_REQUIRED : BIBTEX_REQUIRED;
+  return table[type.toLowerCase()] ?? [];
+}
+
+/** The field a requirement asks for first (the one to offer). */
+function primaryName(requirement: Requirement): string {
+  return typeof requirement === "string" ? requirement : requirement[0];
+}
+
+/** Whether a field counts toward the type's required fields. */
+export function isRequiredField(
+  type: string,
+  name: string,
+  backend: BibBackend = "bibtex",
+): boolean {
+  const canonical =
+    backend === "biblatex" ? (BIBLATEX_FIELD_ALIASES[name] ?? name) : name;
+  return requirements(type, backend).some((requirement) =>
+    typeof requirement === "string"
+      ? requirement === canonical
+      : requirement.includes(canonical),
+  );
+}
+
+/** The entry types the editor offers. */
+export function entryTypes(backend: BibBackend = "bibtex"): string[] {
+  return backend === "biblatex"
+    ? [
+        "article",
+        "book",
+        "mvbook",
+        "inbook",
+        "booklet",
+        "collection",
+        "incollection",
+        "inproceedings",
+        "proceedings",
+        "thesis",
+        "report",
+        "online",
+        "dataset",
+        "software",
+        "manual",
+        "patent",
+        "periodical",
+        "reference",
+        "inreference",
+        "unpublished",
+        "misc",
+      ]
+    : [
+        "article",
+        "inproceedings",
+        "conference",
+        "incollection",
+        "book",
+        "inbook",
+        "phdthesis",
+        "mastersthesis",
+        "techreport",
+        "unpublished",
+        "proceedings",
+        "misc",
+      ];
+}
+
 /** Fields the entry editor offers beyond what an entry already has. */
-export const COMMON_FIELDS = [
-  "author",
-  "editor",
-  "title",
-  "journal",
-  "booktitle",
-  "publisher",
-  "year",
-  "volume",
-  "number",
-  "pages",
-  "doi",
-  "url",
-  "note",
-  "abstract",
-  "keywords",
-];
+export function commonFields(backend: BibBackend = "bibtex"): string[] {
+  return backend === "biblatex"
+    ? [
+        "author",
+        "editor",
+        "title",
+        "journaltitle",
+        "booktitle",
+        "publisher",
+        "location",
+        "institution",
+        "date",
+        "volume",
+        "number",
+        "pages",
+        "type",
+        "doi",
+        "eprint",
+        "url",
+        "note",
+        "abstract",
+        "keywords",
+      ]
+    : [
+        "author",
+        "editor",
+        "title",
+        "journal",
+        "booktitle",
+        "publisher",
+        "year",
+        "volume",
+        "number",
+        "pages",
+        "doi",
+        "url",
+        "note",
+        "abstract",
+        "keywords",
+      ];
+}
 
 /** The matching closing delimiter for the one at `from`, -1 if none. */
 export function findMatching(source: string, from: number, open: string): number {
@@ -255,14 +406,42 @@ function parseValue(
   }
 }
 
-/** Required fields missing from the entry. */
-export function missingFields(entry: {
-  type: string;
-  fields: { name: string }[];
-}): string[] {
-  const required = REQUIRED_FIELDS[entry.type] ?? [];
-  const present = new Set(entry.fields.map((field) => field.name));
-  return required.filter((name) => !present.has(name));
+/** The requirements the entry does not meet. Under biblatex, BibTeX
+ *  names it maps (journal, school, address) count for its own fields. */
+function unmet(
+  entry: { type: string; fields: { name: string }[] },
+  backend: BibBackend,
+): Requirement[] {
+  const present = new Set(
+    entry.fields.map((field) => {
+      const name = field.name.toLowerCase();
+      return backend === "biblatex" ? (BIBLATEX_FIELD_ALIASES[name] ?? name) : name;
+    }),
+  );
+  return requirements(entry.type, backend).filter((requirement) =>
+    typeof requirement === "string"
+      ? !present.has(requirement)
+      : !requirement.some((name) => present.has(name)),
+  );
+}
+
+/** Required fields missing from the entry; a group of alternatives
+ *  reads "date or year". */
+export function missingFields(
+  entry: { type: string; fields: { name: string }[] },
+  backend: BibBackend = "bibtex",
+): string[] {
+  return unmet(entry, backend).map((requirement) =>
+    typeof requirement === "string" ? requirement : requirement.join(" or "),
+  );
+}
+
+/** The fields to add for what is missing (the first of each group). */
+export function missingFieldNames(
+  entry: { type: string; fields: { name: string }[] },
+  backend: BibBackend = "bibtex",
+): string[] {
+  return unmet(entry, backend).map(primaryName);
 }
 
 /** Project-relative paths of every .bib file in a tree, depth first. */
@@ -293,6 +472,21 @@ export const TYPE_LABELS: Record<string, string> = {
   incollection: "Book chapter",
   book: "Book",
   inbook: "Book section",
+  mvbook: "Multi-volume book",
+  bookinbook: "Book in book",
+  suppbook: "Book supplement",
+  booklet: "Booklet",
+  collection: "Collection",
+  mvcollection: "Multi-volume collection",
+  suppcollection: "Collection supplement",
+  thesis: "Thesis",
+  report: "Report",
+  periodical: "Periodical",
+  mvproceedings: "Multi-volume proceedings",
+  reference: "Reference work",
+  mvreference: "Multi-volume reference work",
+  inreference: "Reference entry",
+  software: "Software",
   phdthesis: "PhD thesis",
   mastersthesis: "Master's thesis",
   techreport: "Technical report",
@@ -361,9 +555,9 @@ export function suggestKey(
     fields.find((field) => field.name === name)?.value.trim() ?? "";
   const first = get("author").split(" and ")[0];
   const surname = first.split(",")[0].trim();
+  const year = (get("year") || get("date")).match(/\d{4}/)?.[0] ?? "";
   const base =
-    (surname.length > 0 ? surname.toLowerCase().replace(/[^a-z]+/g, "") : type) +
-    get("year");
+    (surname.length > 0 ? surname.toLowerCase().replace(/[^a-z]+/g, "") : type) + year;
   let key = base;
   let n = 2;
   while (taken.includes(key)) {
@@ -378,6 +572,21 @@ export interface EntryDraft {
   key: string;
   type: string;
   fields: { name: string; value: string }[];
+}
+
+/** A new article with its required fields empty, ready to fill in. */
+export function newEntryDraft(
+  taken: string[],
+  backend: BibBackend = "bibtex",
+): EntryDraft {
+  return {
+    key: suggestKey("article", [], taken),
+    type: "article",
+    fields: requirements("article", backend).map((requirement) => ({
+      name: primaryName(requirement),
+      value: "",
+    })),
+  };
 }
 
 /**

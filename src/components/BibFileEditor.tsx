@@ -16,10 +16,11 @@ import {
   entryTitle,
   formatEntry,
   missingFields,
+  newEntryDraft,
   parseBibEntries,
   planEntryEdits,
-  suggestKey,
   typeLabel,
+  type BibBackend,
   type BibEntry,
   type EntryDraft,
 } from "@/lib/bib-entries";
@@ -62,6 +63,10 @@ export function BibFileEditor() {
   const mode = useUiStore((s) => s.bibEditorMode);
   const setMode = useUiStore((s) => s.setBibEditorMode);
   const jumpTarget = useEditorStore((s) => s.jumpTarget);
+  // Entries validate against biblatex when any .tex file loads it.
+  const backend: BibBackend = useProjectStore((s) =>
+    Object.values(s.biblatexByFile).some(Boolean) ? "biblatex" : "bibtex",
+  );
 
   const [query, setQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState("all");
@@ -90,8 +95,9 @@ export function BibFileEditor() {
   }, [parsed]);
 
   const incompleteCount = useMemo(
-    () => parsed.entries.filter((entry) => missingFields(entry).length > 0).length,
-    [parsed],
+    () =>
+      parsed.entries.filter((entry) => missingFields(entry, backend).length > 0).length,
+    [parsed, backend],
   );
 
   /** The types present in the file, by friendly label, for the filter. */
@@ -209,7 +215,7 @@ export function BibFileEditor() {
 
   /** One entry row: citation key, title, byline, and its state. */
   function renderEntry(entry: BibEntry, indented: boolean) {
-    const missing = missingFields(entry);
+    const missing = missingFields(entry, backend);
     const confirming = pendingDelete === entry.key;
     return (
       <div
@@ -477,22 +483,13 @@ export function BibFileEditor() {
                     value: field.value,
                   })),
                 }
-              : {
-                  file: "",
-                  key: suggestKey("article", [], allKeys),
-                  type: "article",
-                  fields: [
-                    { name: "author", value: "" },
-                    { name: "title", value: "" },
-                    { name: "journal", value: "" },
-                    { name: "year", value: "" },
-                  ],
-                }
+              : { file: "", ...newEntryDraft(allKeys, backend) }
           }
           existingKeys={allKeys}
           bibFiles={[activeFile ?? ""]}
           allowFile={false}
           autoKey={dialog.kind === "new"}
+          backend={backend}
           onSave={
             dialog.kind === "new"
               ? (draft) => appendEntry(draft)
