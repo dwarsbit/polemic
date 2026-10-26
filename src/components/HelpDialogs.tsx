@@ -29,7 +29,7 @@ const SHORTCUTS: [string, string][] = [
   ["Cmd/Ctrl + click (PDF)", "Jump to the source line (SyncTeX)"],
   ["Cmd/Ctrl + Space", "Autocomplete LaTeX commands, environments, labels, citations"],
   ["Right-click marked word", "Add the word to your dictionary"],
-  ["Alt + G", "Go to line (CodeMirror)"],
+  ["Alt + G", "Go to line"],
 ];
 
 export function ShortcutsDialog({
