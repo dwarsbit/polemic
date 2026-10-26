@@ -130,6 +130,15 @@ export interface TemplateInfo {
   id: string;
   name: string;
   description: string;
+  /** What the template needs from the TeX distribution (publisher
+   *  classes and their fonts); nothing is bundled. */
+  requires: TemplateRequirement[];
+}
+
+/** A file to look up (`kpsewhich`) and the package that ships it. */
+export interface TemplateRequirement {
+  file: string;
+  package: string;
 }
 
 /** Languages with ready wordlists (bundled or downloadable on demand). */

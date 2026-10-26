@@ -19,6 +19,7 @@ import {
   openProjectDialog,
   renameProject,
   setPinnedProject,
+  texPackageInfo,
   type Settings,
   type TemplateInfo,
 } from "@/lib/tauri";
@@ -40,6 +41,10 @@ export function ProjectsView() {
   const [action, setAction] = useState<ActionDialog>({ kind: "none" });
   const [templates, setTemplates] = useState<TemplateInfo[]>([]);
   const [templateId, setTemplateId] = useState("article");
+  // Packages the chosen template needs but the TeX distribution lacks.
+  const [missing, setMissing] = useState<{ id: string; packages: string[] } | null>(
+    null,
+  );
   const openProject = useProjectStore((s) => s.openProject);
 
   useEffect(() => {
@@ -50,6 +55,28 @@ export function ProjectsView() {
       .then(setTemplates)
       .catch((e) => setError(String(e)));
   }, []);
+
+  useEffect(() => {
+    const requires = templates.find((t) => t.id === templateId)?.requires ?? [];
+    if (requires.length === 0) return;
+    let cancelled = false;
+    void texPackageInfo(requires.map((r) => r.file))
+      .then((infos) => {
+        if (cancelled) return;
+        const packages = requires
+          .filter((_, i) => infos[i]?.installed === false)
+          .map((r) => r.package);
+        setMissing({ id: templateId, packages: [...new Set(packages)] });
+      })
+      .catch(() => {
+        // No TeX tools to ask: say nothing.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [templates, templateId]);
+  const missingPackages =
+    missing !== null && missing.id === templateId ? missing.packages : [];
 
   async function refresh() {
     try {
@@ -166,6 +193,16 @@ export function ProjectsView() {
                 </button>
               ))}
             </div>
+            {missingPackages.length > 0 && (
+              <p className="mt-2 text-xs text-amber-600 dark:text-amber-400">
+                Not installed in your TeX distribution: {missingPackages.join(", ")}.
+                With TeX Live, run{" "}
+                <code className="font-mono">
+                  tlmgr install {missingPackages.join(" ")}
+                </code>
+                ; MiKTeX installs them on the first compile.
+              </p>
+            )}
           </div>
         )}
         <Separator className="mt-3" />
