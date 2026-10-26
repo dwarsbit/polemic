@@ -82,8 +82,8 @@ export function AiSettingsSection() {
         {error !== null && <span className="text-xs text-destructive">{error}</span>}
       </div>
       <p className="text-xs text-muted-foreground">
-        The key is stored in the app settings on this machine and sent only to the base
-        URL above, by the app's Rust process.
+        The key is stored in the app settings on this machine and sent only to
+        the base URL above.
       </p>
     </div>
   );

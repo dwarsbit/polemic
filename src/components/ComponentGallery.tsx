@@ -613,10 +613,7 @@ export function ComponentGallery({ onClose }: { onClose: () => void }) {
           </Tile>
         </Section>
 
-        <Section
-          title="Calendar and date picker"
-          note="react-day-picker under the shadcn skin"
-        >
+        <Section title="Calendar and date picker">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Tile label="Calendar — single select">
               <Calendar

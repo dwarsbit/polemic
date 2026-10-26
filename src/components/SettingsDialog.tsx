@@ -395,7 +395,7 @@ export function SettingsDialog({
               label: "Math preview",
               description:
                 "A hover card above math blocks shows how they render. More engines can be added.",
-              keywords: "hover katex render",
+              keywords: "hover math render preview",
               control: (
                 <ToggleButtonGroup
                   type="single"
@@ -407,7 +407,7 @@ export function SettingsDialog({
                   }}
                 >
                   <ToggleButton value="katex" size="sm">
-                    KaTeX
+                    On
                   </ToggleButton>
                   <ToggleButton value="off" size="sm">
                     Off
