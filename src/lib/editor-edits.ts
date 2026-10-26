@@ -7,7 +7,17 @@
 
 import type { SourceEdit } from "./label-index";
 
-type ApplyEditsHandler = (edits: SourceEdit[], userEvent?: string) => boolean;
+export interface ApplyEditsOptions {
+  /** False keeps the change out of the editor's undo history (an edit
+   *  spanning several files undoes through its own record instead). */
+  addToHistory?: boolean;
+}
+
+type ApplyEditsHandler = (
+  edits: SourceEdit[],
+  userEvent?: string,
+  options?: ApplyEditsOptions,
+) => boolean;
 
 let handler: ApplyEditsHandler | null = null;
 
@@ -21,8 +31,12 @@ export function setApplyEditsHandler(h: ApplyEditsHandler | null) {
  * (one undo step). Returns true when the document changed. No-op
  * when the editor is not mounted or an edit falls outside the doc.
  */
-export function applyEditsInView(edits: SourceEdit[], userEvent?: string): boolean {
-  return handler?.(edits, userEvent) ?? false;
+export function applyEditsInView(
+  edits: SourceEdit[],
+  userEvent?: string,
+  options?: ApplyEditsOptions,
+): boolean {
+  return handler?.(edits, userEvent, options) ?? false;
 }
 
 /** Edits that could not be applied yet — no view was mounted. The

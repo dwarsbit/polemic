@@ -1,6 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { EditorState, Compartment, StateEffect, StateField } from "@codemirror/state";
+import {
+  EditorState,
+  Compartment,
+  Prec,
+  StateEffect,
+  StateField,
+  Transaction,
+} from "@codemirror/state";
 import { StreamLanguage } from "@codemirror/language";
 import { stex } from "@codemirror/legacy-modes/mode/stex";
 import { linter, lintGutter, setDiagnostics, type Diagnostic } from "@codemirror/lint";
@@ -20,6 +27,7 @@ import { labelLine, refAt } from "@/lib/label-refs";
 import { includeAt } from "@/lib/doc-structure";
 import { openIncludeTarget } from "@/lib/include-nav";
 import { refLabelLint, refreshRefLabelLint } from "@/lib/ref-label-lint";
+import { canUndoCrossFileMove, undoCrossFileMove } from "@/lib/outline-move";
 import { setFormatDocumentHandler, formatDocument } from "@/lib/editor-format";
 import { editorFontStack } from "@/lib/editor-fonts";
 import { editorHighlightExtension } from "@/lib/editor-themes";
@@ -432,6 +440,23 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
               fontSize: "var(--editor-font-size, 14px)",
             },
           }),
+          // Ctrl+Z right after a cross-file outline move undoes it in
+          // both files; it is not in this file's own history.
+          Prec.high(
+            keymap.of([
+              {
+                key: "Mod-z",
+                run: (view) => {
+                  const file = useProjectStore.getState().activeFile;
+                  if (file === null || !canUndoCrossFileMove(file, view.state.doc)) {
+                    return false;
+                  }
+                  void undoCrossFileMove();
+                  return true;
+                },
+              },
+            ]),
+          ),
           keymap.of([
             {
               key: "Mod-Alt-c",
@@ -887,13 +912,15 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     });
     // Serve the label manager: apply a rename plan's edits for the
     // active document in one undoable transaction.
-    setApplyEditsHandler((edits, userEvent) => {
+    setApplyEditsHandler((edits, userEvent, options) => {
       if (edits.length === 0) return false;
       const length = view.state.doc.length;
       if (edits.some((edit) => edit.from > edit.to || edit.to > length)) return false;
       view.dispatch({
         changes: [...edits].sort((a, b) => a.from - b.from),
         userEvent: userEvent ?? "input.renameLabel",
+        annotations:
+          options?.addToHistory === false ? Transaction.addToHistory.of(false) : [],
       });
       return true;
     });
