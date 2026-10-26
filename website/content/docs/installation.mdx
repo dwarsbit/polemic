@@ -4,14 +4,11 @@ description: Install a TeX distribution and build Polemic from source.
 ---
 
 Polemic compiles with the TeX distribution already on your machine, so you need one
-installed first. Polemic itself is a [Tauri](https://tauri.app) app, built with
-Node.js and Rust.
+installed first.
 
 ## Requirements
 
 - **A TeX distribution on your `PATH`**, including `latexmk`: TeX Live, MacTeX or MiKTeX.
-- **Node.js 20+** and **pnpm**.
-- **Rust** (stable) with `cargo`.
 - **git** (optional): needed for the git panel. Snapshots work without it.
 
 ## Install a TeX distribution
@@ -48,44 +45,12 @@ latexmk --version
 
 ## Build Polemic
 
-<Steps>
-<Step>
-
-### Clone the repository
+Polemic is pre-alpha, so you build it from source. Clone the repository and follow
+the build steps in its README:
 
 ```bash
 git clone https://github.com/dwarsbit/polemic.git
-cd polemic
 ```
-
-</Step>
-<Step>
-
-### Install dependencies
-
-```bash
-pnpm install
-```
-
-</Step>
-<Step>
-
-### Run or build
-
-Start a development build:
-
-```bash
-pnpm tauri dev
-```
-
-Or build an installable app for your platform:
-
-```bash
-pnpm tauri build
-```
-
-</Step>
-</Steps>
 
 <Callout title="Prebuilt downloads">
   While Polemic is pre-alpha, building from source is the way to install it. Releases
