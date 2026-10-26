@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { applyEdits } from "@/lib/label-index";
-import { canMove, planLevelChange, planMove, planMoveTo } from "@/lib/outline-edit";
+import {
+  canMove,
+  planLevelChange,
+  planMove,
+  planMoveTo,
+  planMoveToFile,
+} from "@/lib/outline-edit";
 
 const doc = [
   "\\documentclass{article}",
@@ -112,5 +118,56 @@ describe("structural includes", () => {
     expect(moved).toBe(
       "\\section{B}\nb\n\\section{A}\na\n\\input{table}\n\\input{chapters/c}\n\\end{document}",
     );
+  });
+});
+
+describe("planMoveToFile", () => {
+  const chapter = "\\section{M}\nm text\n\\section{N}\nn text\n";
+  const move = (
+    source: string,
+    index: number,
+    target: string,
+    place: Parameters<typeof planMoveToFile>[3],
+  ) => {
+    const plan = planMoveToFile(source, index, target, place);
+    if (plan === null) throw new Error("no plan");
+    return [applyEdits(source, plan.sourceEdits), applyEdits(target, plan.targetEdits)];
+  };
+
+  it("moves a section with its subsections before a target section", () => {
+    const [main, ch] = move(doc, 0, chapter, { index: 1, position: "before" });
+    expect(main).not.toContain("\\section{A}");
+    expect(main).not.toContain("A1");
+    expect(ch).toBe(
+      "\\section{M}\nm text\n\\section{A}\na text\n\\subsection{A1}\na1 text\n\\section{N}\nn text\n",
+    );
+  });
+
+  it("appends after the last section's block", () => {
+    const [, ch] = move(doc, 2, chapter, { index: 1, position: "after" });
+    expect(ch).toBe(chapter + "\\section{B}\nb text\n");
+  });
+
+  it("keeps the document tail of the target in place", () => {
+    const [main, ch] = move(chapter, 0, doc, { position: "end" });
+    expect(main).toBe("\\section{N}\nn text\n");
+    expect(ch.split("\n").slice(-3)).toEqual([
+      "\\section{M}",
+      "m text",
+      "\\end{document}",
+    ]);
+  });
+
+  it("handles files without a trailing newline", () => {
+    const [from, to] = move("\\section{X}\nx\n\\section{Y}\ny", 1, "intro", {
+      position: "end",
+    });
+    expect(from).toBe("\\section{X}\nx");
+    expect(to).toBe("intro\n\\section{Y}\ny\n");
+  });
+
+  it("appends to an empty file", () => {
+    const [, to] = move(chapter, 1, "", { position: "end" });
+    expect(to).toBe("\\section{N}\nn text\n");
   });
 });

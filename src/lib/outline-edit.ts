@@ -184,3 +184,70 @@ export function planLevelChange(
     };
   });
 }
+
+/** A section moved into another file: edits for both files. */
+export interface CrossFileMove {
+  /** Edits removing the section (with its subsections) from its file. */
+  sourceEdits: SourceEdit[];
+  /** Edits inserting it into the target file. */
+  targetEdits: SourceEdit[];
+  /** The moved text, heading through the end of its block. */
+  text: string;
+}
+
+/** Where a section lands in another file: before or after a target
+ *  section's block, or at the end (before the document tail). */
+export type CrossFilePlace =
+  { index: number; position: "before" | "after" } | { position: "end" };
+
+/**
+ * Move the section at `index` of `source` into `target`. The section
+ * keeps its level; promote or demote it afterwards to fit.
+ */
+export function planMoveToFile(
+  source: string,
+  index: number,
+  target: string,
+  place: CrossFilePlace,
+  options: StructureOptions = {},
+): CrossFileMove | null {
+  const entries = parseOutline(source);
+  if (entries[index] === undefined) return null;
+  const block = blockOf(source, entries, index, options);
+  const offsets = lineOffsets(source);
+  const at = (line: number) => (line < offsets.length ? offsets[line] : source.length);
+  let from = at(block.start);
+  const to = at(block.end);
+  let text = source.slice(from, to);
+  if (!text.endsWith("\n")) {
+    // The file's last line: take the newline before it instead.
+    text += "\n";
+    if (from > 0) from--;
+  }
+
+  let line: number;
+  if (place.position === "end") {
+    const lines = target.split("\n");
+    const tail = lines.findIndex((l) => TAIL_RE.test(l));
+    line = tail === -1 ? lines.length : tail;
+  } else {
+    const targetEntries = parseOutline(target);
+    if (targetEntries[place.index] === undefined) return null;
+    const targetBlock = blockOf(target, targetEntries, place.index, options);
+    line = place.position === "before" ? targetBlock.start : targetBlock.end;
+  }
+  const targetOffsets = lineOffsets(target);
+  let insert = text;
+  let insertAt = target.length;
+  if (line < targetOffsets.length) {
+    insertAt = targetOffsets[line];
+  } else if (target.length > 0 && !target.endsWith("\n")) {
+    // Past a last line without a newline: start a line of its own.
+    insert = "\n" + insert;
+  }
+  return {
+    sourceEdits: [{ from, to, insert: "" }],
+    targetEdits: [{ from: insertAt, to: insertAt, insert }],
+    text,
+  };
+}

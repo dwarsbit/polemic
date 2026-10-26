@@ -7,6 +7,28 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
+## Cross-file section moves (2026-10-26)
+
+Same branch as below.
+
+- Planner: `planMoveToFile` in `lib/outline-edit.ts` takes the
+  section's block (same rules as same-file moves) out of one file and
+  inserts it before/after a target section's block, or at the end of
+  the target (before its document tail). Levels are kept.
+- Applying and undo: `lib/outline-move.ts`. Both sides change at once
+  (active file in the view, else buffer, else disk, like other
+  outline edits), kept out of the editor's history; the move is
+  recorded instead. Ctrl+Z in either file (a `Prec.high` keymap in
+  `LatexEditor`) or Undo in the outline status line restores both, only
+  while both files are exactly as the move left them.
+  `applyEditsInView` takes `{ addToHistory: false }` for this.
+- Outline panel: drop on a section in another file, or on a file name
+  to append. Refused when the moved section `\input`s the target file.
+- Checked in Chromium against the dev server with a stubbed Tauri IPC
+  (drag, Ctrl+Z, file-name drop, Undo button); not in a real Tauri
+  window. Not covered: redo of a cross-file move; includes nested
+  deeper than the moved block itself (A includes B includes target).
+
 ## Biblatex entry model, lint refresh (2026-10-26)
 
 Branch `claude/dreamy-hamilton-2g65p8`.
@@ -44,8 +66,8 @@ Same branch, after the batch below.
 - Checked in Chromium with a stubbed backend (moves, demote, drag,
   counts).
 
-Open: cross-file section moves; Ctrl+Z after a panel edit needs the
-editor focused.
+Open: Ctrl+Z after a panel edit needs the editor focused. (Cross-file
+moves: done, see above.)
 
 ## Bib guard, missing graphics, floats navigator (2026-10-25)
 

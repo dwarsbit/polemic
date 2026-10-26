@@ -1,20 +1,27 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, X } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { useDocumentOrder } from "@/hooks/useDocumentOrder";
-import { applyEditsInView } from "@/lib/editor-edits";
-import { applyEdits, type SourceEdit } from "@/lib/label-index";
+import type { SourceEdit } from "@/lib/label-index";
 import { showNativeContextMenu, type NativeMenuEntry } from "@/lib/native-menu";
 import { parseOutline, type OutlineEntry } from "@/lib/outline";
-import { resolveIncludePath, texPathsOf } from "@/lib/doc-structure";
+import { extractIncludes, resolveIncludePath, texPathsOf } from "@/lib/doc-structure";
 import {
   planLevelChange,
   planMove,
   planMoveTo,
+  planMoveToFile,
+  type CrossFilePlace,
   type StructureOptions,
 } from "@/lib/outline-edit";
-import { invalidateGitState } from "@/lib/query-client";
-import { readProjectFile, writeProjectFile } from "@/lib/tauri";
+import {
+  applyCrossFileMove,
+  applyFileEdits,
+  currentText,
+  hasCrossFileMove,
+  undoCrossFileMove,
+} from "@/lib/outline-move";
+import { readProjectFile } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import { cn } from "cn";
@@ -39,14 +46,6 @@ interface DropTarget {
   position: "before" | "after";
 }
 
-/** The freshest text of a file: live editor, unsaved buffer, or disk. */
-async function currentText(projectPath: string, file: string): Promise<string | null> {
-  const { activeFile, buffers } = useProjectStore.getState();
-  if (file === activeFile) return useEditorStore.getState().content;
-  if (buffers[file] !== undefined) return buffers[file];
-  return readProjectFile(projectPath, file).catch(() => null);
-}
-
 /**
  * Apply a structure edit to the entry (found again by line and title,
  * since the outline may lag the text): in the live editor for the
@@ -66,15 +65,64 @@ async function applyStructureEdit(
   if (index === -1) return;
   const edits = plan(source, index);
   if (edits.length === 0) return;
-  const store = useProjectStore.getState();
-  if (file === store.activeFile) {
-    applyEditsInView(edits, "input.structure");
-  } else if (store.buffers[file] !== undefined) {
-    store.markDirty(file, applyEdits(source, edits));
-  } else {
-    await writeProjectFile(projectPath, file, applyEdits(source, edits));
-    void invalidateGitState();
+  await applyFileEdits(projectPath, file, source, edits);
+}
+
+/** The index of an entry in freshly parsed text (by line and title). */
+function findEntry(source: string, entry: OutlineEntry): number {
+  return parseOutline(source).findIndex(
+    (e) => e.line === entry.line && e.title === entry.title,
+  );
+}
+
+/**
+ * Move a section into another file. Returns a status message and
+ * whether the move happened, or null when nothing could be planned
+ * (the outline lagged the text).
+ */
+async function moveSectionToFile(
+  projectPath: string,
+  sourceFile: string,
+  entry: OutlineEntry,
+  targetFile: string,
+  target: { entry: OutlineEntry; position: "before" | "after" } | null,
+  options: StructureOptions,
+  texPaths: string[],
+): Promise<{ text: string; moved: boolean } | null> {
+  const source = await currentText(projectPath, sourceFile);
+  const targetText = await currentText(projectPath, targetFile);
+  if (source === null || targetText === null) return null;
+  const index = findEntry(source, entry);
+  if (index === -1) return null;
+  let place: CrossFilePlace = { position: "end" };
+  if (target !== null) {
+    const targetIndex = findEntry(targetText, target.entry);
+    if (targetIndex === -1) return null;
+    place = { index: targetIndex, position: target.position };
   }
+  const plan = planMoveToFile(source, index, targetText, place, options);
+  if (plan === null) return null;
+  // A section that includes the target file cannot move into it.
+  if (
+    extractIncludes(plan.text).some(
+      (spec) => resolveIncludePath(spec, texPaths) === targetFile,
+    )
+  ) {
+    return {
+      text: `“${entry.title}” includes ${targetFile}, so it cannot move into it.`,
+      moved: false,
+    };
+  }
+  const moved = await applyCrossFileMove(
+    projectPath,
+    sourceFile,
+    source,
+    plan.sourceEdits,
+    targetFile,
+    targetText,
+    plan.targetEdits,
+  );
+  return moved ? { text: `Moved “${entry.title}” to ${targetFile}.`, moved } : null;
 }
 
 /** Nest the flat parsed entries by their section level. */
@@ -109,6 +157,11 @@ export function OutlinePanel() {
     entry: OutlineEntry;
   } | null>(null);
   const [dropTarget, setDropTarget] = useState<DropTarget | null>(null);
+  // After a move into another file: what happened, and whether Undo applies.
+  const [moveStatus, setMoveStatus] = useState<{
+    text: string;
+    undoable: boolean;
+  } | null>(null);
   // Bumped after a structure edit to files other than the active one,
   // which the content-driven refresh would not notice.
   const [editTick, setEditTick] = useState(0);
@@ -215,6 +268,43 @@ export function OutlinePanel() {
     );
   }
 
+  function runCrossFileMove(
+    sourceFile: string,
+    entry: OutlineEntry,
+    targetFile: string,
+    target: { entry: OutlineEntry; position: "before" | "after" } | null,
+  ) {
+    if (!project) return;
+    void moveSectionToFile(
+      project.path,
+      sourceFile,
+      entry,
+      targetFile,
+      target,
+      structureOptions,
+      texPathsOf(files),
+    ).then((result) => {
+      setEditTick((tick) => tick + 1);
+      if (result !== null) setMoveStatus({ text: result.text, undoable: result.moved });
+    });
+  }
+
+  function undoMove() {
+    // Already undone (Ctrl+Z in the editor): nothing left to do.
+    if (!hasCrossFileMove()) {
+      setMoveStatus(null);
+      return;
+    }
+    void undoCrossFileMove().then((undone) => {
+      setEditTick((tick) => tick + 1);
+      setMoveStatus(
+        undone
+          ? null
+          : { text: "Cannot undo: one of the files changed since.", undoable: false },
+      );
+    });
+  }
+
   function structureActions(file: string, entry: OutlineEntry) {
     return {
       up: () =>
@@ -282,8 +372,7 @@ export function OutlinePanel() {
             setDropTarget(null);
           }}
           onDragOver={(event) => {
-            // Sections move within their file only.
-            if (dragging === null || dragging.file !== file) return;
+            if (dragging === null) return;
             event.preventDefault();
             const rect = event.currentTarget.getBoundingClientRect();
             const position =
@@ -300,8 +389,15 @@ export function OutlinePanel() {
             const source = dragging;
             setDragging(null);
             setDropTarget(null);
-            if (source === null || source.file !== file || drop === null) return;
+            if (source === null || drop === null) return;
             const target = node.entry;
+            if (source.file !== file) {
+              runCrossFileMove(source.file, source.entry, file, {
+                entry: target,
+                position: drop,
+              });
+              return;
+            }
             runStructureEdit(file, source.entry, (src, i) => {
               const t = parseOutline(src).findIndex(
                 (e) => e.line === target.line && e.title === target.title,
@@ -332,7 +428,7 @@ export function OutlinePanel() {
             type="button"
             className="min-w-0 flex-1 truncate py-1 text-left text-sm"
             data-outline-key={key}
-            title={`${node.entry.title}\nDrag to move · Alt+↑/↓ move · Alt+←/→ promote/demote`}
+            title={`${node.entry.title}\nDrag to move (also into another file) · Alt+↑/↓ move · Alt+←/→ promote/demote`}
             onClick={() => goTo(file, node.entry.line)}
             onKeyDown={(event) => {
               if (!event.altKey) return;
@@ -364,6 +460,28 @@ export function OutlinePanel() {
   return (
     <div className="flex h-full flex-col">
       <SectionHeader label="OUTLINE" collapsed={false} />
+      {moveStatus !== null && (
+        <div className="mx-2 mb-1 flex items-start gap-2 rounded-md bg-muted px-2 py-1.5 text-xs text-muted-foreground">
+          <span className="min-w-0 flex-1">{moveStatus.text}</span>
+          {moveStatus.undoable && (
+            <button
+              type="button"
+              className="shrink-0 font-medium text-foreground hover:underline"
+              onClick={undoMove}
+            >
+              Undo
+            </button>
+          )}
+          <button
+            type="button"
+            title="Dismiss"
+            className="flex size-4 shrink-0 items-center justify-center hover:text-foreground"
+            onClick={() => setMoveStatus(null)}
+          >
+            <X className="size-3" />
+          </button>
+        </div>
+      )}
       <div ref={listRef} className="flex-1 overflow-y-auto px-2 pb-2">
         {docOutline === null && order !== null ? null : docOutline === null ||
           docOutline.length === 0 ? (
@@ -377,7 +495,31 @@ export function OutlinePanel() {
             const roots = buildTree(group.entries);
             return (
               <div key={group.file} className="mb-1">
-                <div className="flex items-center rounded hover:bg-accent">
+                <div
+                  className={cn(
+                    "flex items-center rounded hover:bg-accent",
+                    dropTarget?.key === fileKey && "bg-accent ring-1 ring-primary",
+                  )}
+                  // Dropping a section on another file's name appends it there.
+                  onDragOver={(event) => {
+                    if (dragging === null || dragging.file === group.file) return;
+                    event.preventDefault();
+                    if (dropTarget?.key !== fileKey) {
+                      setDropTarget({ key: fileKey, position: "after" });
+                    }
+                  }}
+                  onDragLeave={() => {
+                    if (dropTarget?.key === fileKey) setDropTarget(null);
+                  }}
+                  onDrop={(event) => {
+                    event.preventDefault();
+                    const source = dragging;
+                    setDragging(null);
+                    setDropTarget(null);
+                    if (source === null || source.file === group.file) return;
+                    runCrossFileMove(source.file, source.entry, group.file, null);
+                  }}
+                >
                   {roots.length > 0 ? (
                     <Caret expanded={!isCollapsed} onClick={() => toggle(fileKey)} />
                   ) : (
