@@ -3,7 +3,9 @@ import { ask } from "@tauri-apps/plugin-dialog";
 import * as api from "@/lib/tauri";
 import { extractCiteKeys } from "@/lib/bibtex";
 import { loadsBiblatex } from "@/lib/citation-preview";
-import { extractGraphicsPaths } from "@/lib/graphics-refs";
+import { collectAssetPaths } from "@/lib/assets";
+import { extractGraphicsPaths, planGraphicsRename } from "@/lib/graphics-refs";
+import { applyEdits } from "@/lib/label-index";
 import {
   includeSpec,
   insertInclude,
@@ -471,6 +473,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     renameEntry: async (path, newPath) => {
       const { project, buffers } = get();
       if (!project) return;
+      // \includegraphics references resolve against the project as it
+      // was before the rename.
+      const assetsBefore = new Set(collectAssetPaths(get().files));
+      const graphicsPaths = Object.values(get().graphicsPathsByFile).flat();
       await api.renameEntry(project.path, path, newPath);
       void invalidateGitState();
       const remap = (file: string | null) =>
@@ -501,8 +507,19 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           return next === content ? null : next;
         });
       } else {
+        // Folders and assets: includes under a folder, and graphics
+        // references (and \graphicspath folders) that pointed here.
         await syncIncludes(collectPaths(get().files, ".tex"), (content) => {
-          const next = replaceIncludeSpecPrefix(content, path, newPath);
+          const included = replaceIncludeSpecPrefix(content, path, newPath);
+          const next = applyEdits(
+            included,
+            planGraphicsRename(
+              included,
+              { from: path, to: newPath },
+              assetsBefore,
+              graphicsPaths,
+            ),
+          );
           return next === content ? null : next;
         });
       }

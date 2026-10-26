@@ -3,8 +3,10 @@ import {
   extractGraphicsPaths,
   extractGraphicsRefs,
   isCheckableRef,
+  planGraphicsRename,
   resolveGraphicsRef,
 } from "@/lib/graphics-refs";
+import { applyEdits } from "@/lib/label-index";
 
 describe("extractGraphicsRefs", () => {
   it("finds paths with options, starred forms, and offsets", () => {
@@ -59,5 +61,48 @@ describe("resolveGraphicsRef", () => {
     expect(isCheckableRef("/abs/a.png")).toBe(false);
     expect(isCheckableRef("C:/a.png")).toBe(false);
     expect(isCheckableRef("figs/a")).toBe(true);
+  });
+});
+
+describe("planGraphicsRename", () => {
+  const files = new Set(["figures/plot.png", "figures/sub/map.pdf", "logo.pdf"]);
+  const run = (source: string, from: string, to: string, paths: string[] = []) =>
+    applyEdits(source, planGraphicsRename(source, { from, to }, files, paths));
+
+  it("follows a renamed file, keeping options and the implied extension", () => {
+    expect(
+      run(
+        "\\includegraphics[width=3cm]{figures/plot}",
+        "figures/plot.png",
+        "figures/result.png",
+      ),
+    ).toBe("\\includegraphics[width=3cm]{figures/result}");
+    expect(
+      run("\\includegraphics{figures/plot.png}", "figures/plot.png", "img/plot.png"),
+    ).toBe("\\includegraphics{img/plot.png}");
+  });
+
+  it("follows a renamed folder and its \\graphicspath entry", () => {
+    const source =
+      "\\graphicspath{{figures/}}\n\\includegraphics{plot}\n\\includegraphics{figures/sub/map}";
+    expect(run(source, "figures", "figs", ["figures/"])).toBe(
+      "\\graphicspath{{figs/}}\n\\includegraphics{plot}\n\\includegraphics{figs/sub/map}",
+    );
+  });
+
+  it("writes a root path when the file leaves its \\graphicspath folder", () => {
+    expect(
+      run("\\includegraphics{plot}", "figures/plot.png", "plot.png", ["figures/"]),
+    ).toBe("\\includegraphics{plot}");
+    expect(
+      run("\\includegraphics{sub/map}", "figures/sub/map.pdf", "maps/map.pdf", [
+        "figures/",
+      ]),
+    ).toBe("\\includegraphics{maps/map}");
+  });
+
+  it("leaves other references and commented ones alone", () => {
+    const source = "\\includegraphics{logo}\n% \\includegraphics{figures/plot}";
+    expect(run(source, "figures/plot.png", "x.png")).toBe(source);
   });
 });

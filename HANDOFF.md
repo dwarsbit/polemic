@@ -7,6 +7,26 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
+## Asset hygiene (2026-10-26)
+
+Same branch as below.
+
+- Renames: `planGraphicsRename` in `lib/graphics-refs.ts`. References
+  resolve against the project before the rename (same resolver as the
+  lint), then point at the new path: relative to the same
+  `\graphicspath` folder while the file is still under it, else from
+  the root; extension-less stays extension-less. Renamed folders in
+  `\graphicspath` are rewritten too. Hooked into `renameEntry` in the
+  project store (asset and folder renames, next to the include sync).
+- SVG import: `assets::svg_to_pdf` (svg2pdf 0.13, pure Rust; system
+  fonts loaded once for SVG text). `import_assets` keeps the SVG and
+  returns a PDF beside it (`usable_graphic`); a failed conversion
+  returns the SVG. Checked: a converted chart with text embeds in a
+  pdflatex document.
+- Not covered: SVGs already in the project are not converted from the
+  Assets panel (only on import or OS drag-in); the active file's undo
+  history resets after a rename sync, as with include renames.
+
 ## Paper templates (2026-10-26)
 
 Same branch as below.
