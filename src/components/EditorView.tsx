@@ -85,10 +85,10 @@ export function EditorView() {
       label: versionControl === "git" ? "Git" : "Snapshots",
       icon: versionControl === "git" ? GitBranch : Camera,
     },
-    { id: "comments" as const, label: "Comments", icon: MessageSquare },
     ...(versionControl === "git"
       ? [{ id: "history" as const, label: "History", icon: History }]
       : []),
+    { id: "comments" as const, label: "Comments", icon: MessageSquare },
     { id: "properties" as const, label: "Properties", icon: Info },
   ];
 
