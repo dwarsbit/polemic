@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Dock-icoon op het macOS-raster: tegel van 824px in een canvas van 1024px,
+       hoekradius 185,4 en de standaard neutrale schaduw van macOS-apps.
+       In de app zelf gebruiken we assets/polemic-logo.svg. -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="55%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#C026D3"/>
+    </linearGradient>
+    <filter id="tileShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="10" stdDeviation="5" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    <linearGradient id="highlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="0.4" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <rect id="tile" x="100" y="100" width="824" height="824" rx="185.4"/>
+    <clipPath id="tileClip"><use href="#tile"/></clipPath>
+  </defs>
+
+  <!-- App-icon achtergrond -->
+  <use href="#tile" fill="url(#bg)" filter="url(#tileShadow)"/>
+  <!-- Lichtrand aan de bovenkant, naar onderen vervagend -->
+  <use href="#tile" fill="none" stroke="url(#highlight)" stroke-width="8" clip-path="url(#tileClip)"/>
+
+  <!-- Backslash: elk LaTeX-commando begint hiermee -->
+  <path d="M342 295.7 L599.6 724.9" fill="none" stroke="#FFFFFF" stroke-width="82.4" stroke-linecap="round"/>
+
+  <!-- Tekstcursor, als net getypt -->
+  <rect x="678.5" y="467.4" width="44.6" height="257.5" rx="22.3" fill="#EC4899"/>
+</svg>
