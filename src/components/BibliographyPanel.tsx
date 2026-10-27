@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
-  BookOpen,
   BookPlus,
   ChevronRight,
   DownloadCloud,
@@ -641,8 +640,8 @@ export function BibliographyPanel() {
         {scanned === null ? null : bibTexts.length === 0 ? (
           <div className="space-y-2.5 px-2 pt-2">
             <p className="text-xs text-muted-foreground">
-              No bibliography yet. Create a .bib file for this project, or connect an
-              external reference tool.
+              No bibliography yet. Create a .bib file for this project to start
+              adding references.
             </p>
             <Button
               size="sm"
@@ -651,16 +650,6 @@ export function BibliographyPanel() {
             >
               <Plus className="size-3.5" />
               Create bibliography.bib
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="h-7 w-full justify-start px-2 text-xs text-muted-foreground"
-              disabled
-              title="Coming soon: Zotero and other reference managers"
-            >
-              <BookOpen className="size-3.5" />
-              Connect external reference tool
             </Button>
             {createError !== null && (
               <p className="text-xs text-destructive" title={createError}>
