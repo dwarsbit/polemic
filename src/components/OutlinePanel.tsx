@@ -1,4 +1,11 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type PointerEvent as ReactPointerEvent,
+  type ReactNode,
+} from "react";
 import { ChevronRight, X } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { useDocumentOrder } from "@/hooks/useDocumentOrder";
@@ -152,11 +159,18 @@ export function OutlinePanel() {
   const jumpTo = useEditorStore((s) => s.jumpTo);
   const order = useDocumentOrder();
   const [docOutline, setDocOutline] = useState<FileOutline[] | null>(null);
+  // The latest outline, for drag listeners that outlive a render.
+  const outlineRef = useRef(docOutline);
+  useEffect(() => {
+    outlineRef.current = docOutline;
+  }, [docOutline]);
   const [dragging, setDragging] = useState<{
     file: string;
     entry: OutlineEntry;
   } | null>(null);
   const [dropTarget, setDropTarget] = useState<DropTarget | null>(null);
+  // When a pointer drag last ended (suppresses the trailing click).
+  const dragEndedAt = useRef(0);
   // After a move into another file: what happened, and whether Undo applies.
   const [moveStatus, setMoveStatus] = useState<{
     text: string;
@@ -289,6 +303,115 @@ export function OutlinePanel() {
     });
   }
 
+  /** Drop a dragged section on a section (before/after it) or a file name. */
+  function dropSection(
+    source: { file: string; entry: OutlineEntry },
+    file: string,
+    target: { entry: OutlineEntry; position: "before" | "after" } | null,
+  ) {
+    if (source.file !== file) {
+      runCrossFileMove(source.file, source.entry, file, target);
+      return;
+    }
+    if (target === null) return;
+    runStructureEdit(file, source.entry, (src, i) => {
+      const t = parseOutline(src).findIndex(
+        (e) => e.line === target.entry.line && e.title === target.entry.title,
+      );
+      return t === -1 ? [] : planMoveTo(src, i, t, target.position, structureOptions);
+    });
+  }
+
+  /**
+   * Drag a section with the pointer: HTML5 drag does not work in the
+   * webview (see TabsBar). Rows and file names mark themselves as drop
+   * targets with data attributes.
+   */
+  function startSectionDrag(
+    event: ReactPointerEvent,
+    file: string,
+    entry: OutlineEntry,
+  ) {
+    if (event.button !== 0) return;
+    const source = { file, entry };
+    const startX = event.clientX;
+    const startY = event.clientY;
+    let active = false;
+    let current: {
+      file: string;
+      target: { entry: OutlineEntry; position: "before" | "after" } | null;
+    } | null = null;
+
+    const locate = (x: number, y: number) => {
+      const element = document
+        .elementFromPoint(x, y)
+        ?.closest<HTMLElement>("[data-outline-drop]");
+      if (!element) return null;
+      const targetFile = element.dataset.file ?? "";
+      if (element.dataset.outlineDrop === "file") {
+        if (targetFile === file) return null;
+        return { key: `file:${targetFile}`, file: targetFile, target: null };
+      }
+      const line = Number(element.dataset.line);
+      const target = outlineRef.current
+        ?.find((group) => group.file === targetFile)
+        ?.entries.find((e) => e.line === line);
+      if (target === undefined) return null;
+      if (targetFile === file && target.line === entry.line) return null;
+      const rect = element.getBoundingClientRect();
+      const position: "before" | "after" =
+        y < rect.top + rect.height / 2 ? "before" : "after";
+      return {
+        key: `${targetFile}:${line}`,
+        file: targetFile,
+        target: { entry: target, position },
+      };
+    };
+
+    const cleanup = () => {
+      document.body.style.cursor = "";
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", cancel);
+      window.removeEventListener("keydown", onKeyDown);
+      setDragging(null);
+      setDropTarget(null);
+    };
+    const cancel = () => {
+      cleanup();
+      if (active) dragEndedAt.current = Date.now();
+    };
+    const onMove = (move: PointerEvent) => {
+      if (!active) {
+        if (Math.hypot(move.clientX - startX, move.clientY - startY) < 4) return;
+        active = true;
+        document.body.style.cursor = "grabbing";
+        setDragging(source);
+      }
+      const found = locate(move.clientX, move.clientY);
+      current = found;
+      setDropTarget(
+        found === null
+          ? null
+          : { key: found.key, position: found.target?.position ?? "after" },
+      );
+    };
+    const onUp = () => {
+      const drop = current;
+      cleanup();
+      if (!active) return;
+      dragEndedAt.current = Date.now();
+      if (drop !== null) dropSection(source, drop.file, drop.target);
+    };
+    const onKeyDown = (key: KeyboardEvent) => {
+      if (key.key === "Escape") cancel();
+    };
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", cancel);
+    window.addEventListener("keydown", onKeyDown);
+  }
+
   function undoMove() {
     // Already undone (Ctrl+Z in the editor): nothing left to do.
     if (!hasCrossFileMove()) {
@@ -355,56 +478,16 @@ export function OutlinePanel() {
       <div key={key}>
         <div
           className={cn(
-            "relative flex items-center rounded hover:bg-accent",
+            "relative flex select-none items-center rounded hover:bg-accent",
             dragging?.file === file &&
               dragging.entry.line === node.entry.line &&
               "opacity-50",
           )}
           style={{ paddingLeft: 8 + depth * 12 }}
-          draggable
-          onDragStart={(event) => {
-            event.dataTransfer.effectAllowed = "move";
-            event.dataTransfer.setData("text/plain", node.entry.title);
-            setDragging({ file, entry: node.entry });
-          }}
-          onDragEnd={() => {
-            setDragging(null);
-            setDropTarget(null);
-          }}
-          onDragOver={(event) => {
-            if (dragging === null) return;
-            event.preventDefault();
-            const rect = event.currentTarget.getBoundingClientRect();
-            const position =
-              event.clientY < rect.top + rect.height / 2 ? "before" : "after";
-            if (dropTarget?.key !== key || dropTarget.position !== position) {
-              setDropTarget({ key, position });
-            }
-          }}
-          onDragLeave={() => {
-            if (dropTarget?.key === key) setDropTarget(null);
-          }}
-          onDrop={(event) => {
-            event.preventDefault();
-            const source = dragging;
-            setDragging(null);
-            setDropTarget(null);
-            if (source === null || drop === null) return;
-            const target = node.entry;
-            if (source.file !== file) {
-              runCrossFileMove(source.file, source.entry, file, {
-                entry: target,
-                position: drop,
-              });
-              return;
-            }
-            runStructureEdit(file, source.entry, (src, i) => {
-              const t = parseOutline(src).findIndex(
-                (e) => e.line === target.line && e.title === target.title,
-              );
-              return t === -1 ? [] : planMoveTo(src, i, t, drop, structureOptions);
-            });
-          }}
+          data-outline-drop="section"
+          data-file={file}
+          data-line={node.entry.line}
+          onPointerDown={(event) => startSectionDrag(event, file, node.entry)}
           onContextMenu={(event) => {
             event.preventDefault();
             showStructureMenu(file, node.entry);
@@ -429,7 +512,10 @@ export function OutlinePanel() {
             className="min-w-0 flex-1 truncate py-1 text-left text-sm"
             data-outline-key={key}
             title={`${node.entry.title}\nDrag to move (also into another file) · Alt+↑/↓ move · Alt+←/→ promote/demote`}
-            onClick={() => goTo(file, node.entry.line)}
+            onClick={() => {
+              if (Date.now() - dragEndedAt.current < 300) return;
+              goTo(file, node.entry.line);
+            }}
             onKeyDown={(event) => {
               if (!event.altKey) return;
               const actions = structureActions(file, node.entry);
@@ -501,24 +587,8 @@ export function OutlinePanel() {
                     dropTarget?.key === fileKey && "bg-accent ring-1 ring-primary",
                   )}
                   // Dropping a section on another file's name appends it there.
-                  onDragOver={(event) => {
-                    if (dragging === null || dragging.file === group.file) return;
-                    event.preventDefault();
-                    if (dropTarget?.key !== fileKey) {
-                      setDropTarget({ key: fileKey, position: "after" });
-                    }
-                  }}
-                  onDragLeave={() => {
-                    if (dropTarget?.key === fileKey) setDropTarget(null);
-                  }}
-                  onDrop={(event) => {
-                    event.preventDefault();
-                    const source = dragging;
-                    setDragging(null);
-                    setDropTarget(null);
-                    if (source === null || source.file === group.file) return;
-                    runCrossFileMove(source.file, source.entry, group.file, null);
-                  }}
+                  data-outline-drop="file"
+                  data-file={group.file}
                 >
                   {roots.length > 0 ? (
                     <Caret expanded={!isCollapsed} onClick={() => toggle(fileKey)} />

@@ -3,6 +3,7 @@ import { applyEditsInView } from "@/lib/editor-edits";
 import { applyEdits, type SourceEdit } from "@/lib/label-index";
 import { invalidateGitState } from "@/lib/query-client";
 import { readProjectFile, writeProjectFile } from "@/lib/tauri";
+import { flushPendingSerialize } from "@/lib/visual/pending-serialize";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 
@@ -21,7 +22,11 @@ export async function currentText(
   file: string,
 ): Promise<string | null> {
   const { activeFile, buffers } = useProjectStore.getState();
-  if (file === activeFile) return useEditorStore.getState().content;
+  if (file === activeFile) {
+    // The Visual face serializes on a debounce; plan against its latest text.
+    flushPendingSerialize();
+    return useEditorStore.getState().content;
+  }
   if (buffers[file] !== undefined) return buffers[file];
   return readProjectFile(projectPath, file).catch(() => null);
 }
