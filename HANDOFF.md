@@ -7,6 +7,30 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
+## CSV import: tables and plots (2026-10-27)
+
+Same branch as the table grid below.
+
+- `lib/csv.ts`: RFC 4180 parsing, delimiter detection (semicolon and tab
+  win ties, so `1,5` decimal commas don't fool it), BOM stripped, number
+  detection. `csvTable` builds a booktabs float through the table grid's
+  writer; `csvPlot` builds a pgfplots figure reading the file by column
+  index (`x index`, `y index`, `col sep`, `read comma as period`), so
+  header names never reach pgfplots options.
+- `CsvImportDialog`: pick a data file in the project or import one into
+  assets/ (pgfplots reads it at compile time); header guess, separator
+  override, preview, Table or Plot (x, y columns, lines/points/bars,
+  axis labels), caption with an automatic label.
+- Entry points: Insert menu, command palette, clicking a .csv/.tsv in
+  the Assets panel (`useDialogsStore.csvImport`).
+- Fixed on the way: `ensurePackages` replaced the whole document, which
+  moved the cursor to the start, so an insert that also added a package
+  (pgfplots, amsthm, …) landed above `\documentclass`. It now changes only
+  the inserted lines. Adding pgfplots also adds `\pgfplotsset{compat=1.16}`.
+- Checked: unit tests; in Chromium with a stubbed IPC (table and plot
+  from a semicolon file with decimal commas); the result compiles with
+  pdflatex without warnings and renders both.
+
 ## Table grid editor (2026-10-27)
 
 Branch `claude/dreamy-hamilton-2g65p8`, from main after the spelling

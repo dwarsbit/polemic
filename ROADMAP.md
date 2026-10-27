@@ -7,12 +7,6 @@ loop better. Nothing here is scheduled. Finished work moves to
 
 ## Open
 
-### Assets
-
-| Feature      | What it does                                                        | Notes                                |
-| ------------ | ------------------------------------------------------------------- | ------------------------------------ |
-| Data → table | CSV import assistant generating `booktabs` tables or pgfplots plots | Stretch; pairs with the table dialog |
-
 ### Review and collaboration
 
 | Feature                 | What it does                                                                                          | Notes                                                                                                                |
@@ -55,6 +49,7 @@ Finished items, kept for reference. The status text records what v1 covers.
 | Asset manager panel | Grid of images/PDFs in the project; drag into the editor inserts a ready `\includegraphics` with correct relative path and sensible width | Highest daily-payoff item in this category                      | Done (v1): left-rail Assets tab with thumbnail grid, copy-in import into `assets/`, smart per-type insert; linked external folders (`\graphicspath`) deliberately deferred. v2: search (name/folder/tags), file-type filter, tags (`.polemic/assets.json`), click-to-select inspector (dimensions, size, type, folder, date, tags), used-in-document detection; insert via double-click, drag still drops a figure |
 | Image details       | Dimensions, format, unused/missing detection (file renamed but still referenced)                                                          | Like `label-refs.ts` but for graphics paths                     | Partly done: dimensions, format, size, modified date, and unused detection live in the asset inspector; missing-reference detection done: `\includegraphics` paths resolve like LaTeX (project root, `\graphicspath`, implied extensions); unresolved ones warn in the editor and list under Missing files in the Assets panel                                                                                     |
 | Asset hygiene       | Rename/move updates references; import converts formats LaTeX can't embed (e.g. SVG → PDF)                                                | Reuse the `\includegraphics` resolver in `lib/graphics-refs.ts` | Done (v1): renaming or moving an image or folder in the Files panel rewrites the `\includegraphics` paths (and `\graphicspath` folders) that pointed there, keeping each reference's style; importing an SVG converts it to a vector PDF beside it in-app (svg2pdf, no Inkscape needed) and inserts the PDF                                                                                                        |
+| Data → table        | CSV import assistant generating `booktabs` tables or pgfplots plots                                                                       | Pairs with the table dialog                                     | Done (v1): Insert menu, command palette, or a CSV in the Assets panel. Comma, semicolon or tab files (detected; quotes, decimal commas). A booktabs table with the values (numbers right-aligned, text escaped), or a pgfplots figure (lines, points or bars; any numeric columns) that reads the file from the project when compiling; files from elsewhere are copied into assets/                               |
 | Figure navigator    | All floats in the document: preview, jump to source, check captioned                                                                      | Ships with the asset manager                                    | Done: the Figures & Tables tab (see the LaTeX section)                                                                                                                                                                                                                                                                                                                                                             |
 
 ### Bibliography

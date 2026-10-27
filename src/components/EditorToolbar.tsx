@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useDialogsStore } from "@/store/dialogs";
 import { insertOrEditTable } from "@/lib/editor-table";
 import {
   Bold,
@@ -160,6 +161,11 @@ export function EditorToolbar() {
             }
           >
             Table
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onSelect={() => useDialogsStore.getState().setCsvImport({ path: null })}
+          >
+            Table or plot from CSV…
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem onSelect={() => setTheoremOpen(true)}>

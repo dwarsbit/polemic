@@ -72,6 +72,12 @@ export function missingPackages(doc: string, packages: string[]): string[] {
   return packages.filter((name) => !loaded.has(name));
 }
 
+/** Setup lines a package wants right after it, when the app adds it:
+ *  pgfplots warns about its backwards-compatibility mode otherwise. */
+const PACKAGE_SETUP: Record<string, string> = {
+  pgfplots: "\\pgfplotsset{compat=1.16}\n",
+};
+
 /**
  * Insert missing `\usepackage{...}` lines after the `\documentclass`
  * line. Returns the new document (the input when nothing is missing).
@@ -80,7 +86,9 @@ export function insertPackages(doc: string, packages: string[]): string {
   const missing = missingPackages(doc, packages);
   if (missing.length === 0) return doc;
   const classMatch = /\\documentclass[^\n]*\n/.exec(doc);
-  const insert = missing.map((name) => `\\usepackage{${name}}\n`).join("");
+  const insert = missing
+    .map((name) => `\\usepackage{${name}}\n${PACKAGE_SETUP[name] ?? ""}`)
+    .join("");
   if (classMatch === null) {
     return doc + "\n" + insert.trimEnd();
   }

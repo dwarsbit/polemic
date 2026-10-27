@@ -22,6 +22,9 @@ interface DialogsState {
   aiFixIssue: CompileIssue | null;
   /** The table in the grid editor; null = closed. */
   tableGrid: TableGridRequest | null;
+  /** The CSV import assistant: the data file to start from (null:
+   *  pick one); the whole value null = closed. */
+  csvImport: { path: string | null } | null;
   setShortcutsOpen: (open: boolean) => void;
   setAboutOpen: (open: boolean) => void;
   setPaletteOpen: (open: boolean) => void;
@@ -31,6 +34,7 @@ interface DialogsState {
   setGalleryOpen: (open: boolean) => void;
   setAiFixIssue: (issue: CompileIssue | null) => void;
   setTableGrid: (request: TableGridRequest | null) => void;
+  setCsvImport: (request: { path: string | null } | null) => void;
 }
 
 export const useDialogsStore = create<DialogsState>((set) => ({
@@ -43,6 +47,7 @@ export const useDialogsStore = create<DialogsState>((set) => ({
   galleryOpen: false,
   aiFixIssue: null,
   tableGrid: null,
+  csvImport: null,
   setShortcutsOpen: (open) => set({ shortcutsOpen: open }),
   setAboutOpen: (open) => set({ aboutOpen: open }),
   setPaletteOpen: (open) => set({ paletteOpen: open }),
@@ -52,4 +57,5 @@ export const useDialogsStore = create<DialogsState>((set) => ({
   setGalleryOpen: (open) => set({ galleryOpen: open }),
   setAiFixIssue: (issue) => set({ aiFixIssue: issue }),
   setTableGrid: (request) => set({ tableGrid: request }),
+  setCsvImport: (request) => set({ csvImport: request }),
 }));

@@ -81,3 +81,15 @@ describe("missingPackages", () => {
     expect(missingPackages(doc, ["tikz", "pgfplots"])).toEqual(["pgfplots"]);
   });
 });
+
+describe("insertPackages setup lines", () => {
+  it("sets the pgfplots compatibility level with the package", () => {
+    const doc = "\\documentclass{article}\n\\begin{document}\n\\end{document}\n";
+    expect(insertPackages(doc, ["pgfplots"])).toBe(
+      "\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.16}\n\\begin{document}\n\\end{document}\n",
+    );
+    // Already loaded: the author's own setup stays as it is.
+    const loaded = "\\documentclass{article}\n\\usepackage{pgfplots}\n";
+    expect(insertPackages(loaded, ["pgfplots"])).toBe(loaded);
+  });
+});
