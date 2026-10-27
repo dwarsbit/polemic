@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { insertOrEditTable } from "@/lib/editor-table";
 import {
   Bold,
   ChevronDown,
@@ -28,7 +29,6 @@ import { applyEditsInView } from "@/lib/editor-edits";
 import { ensurePackages } from "@/lib/editor-figure";
 import { applyTextWrapper } from "@/lib/editor-wrappers";
 import { THEOREM_ENVS, newtheoremDeclarations } from "@/lib/visual/parse";
-import { useDialogsStore } from "@/store/dialogs";
 import { useEditorStore } from "@/store/editor";
 
 /** A list skeleton with the caret right after the first \item. */
@@ -178,8 +178,8 @@ export function EditorToolbar() {
         <Button
           variant="ghost"
           size="icon-sm"
-          title="Insert table (Cmd/Ctrl + Shift + T)"
-          onClick={() => useDialogsStore.getState().setTableDialogOpen(true)}
+          title="Insert a table, or edit the one at the cursor (Cmd/Ctrl + Shift + T)"
+          onClick={() => insertOrEditTable()}
         >
           <TableProperties className="size-4" />
         </Button>
