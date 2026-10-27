@@ -1,5 +1,6 @@
 import { StateEffect, StateField } from "@codemirror/state";
 import { Decoration, EditorView, type DecorationSet } from "@codemirror/view";
+import { extractProse, sourceRange } from "@/lib/prose";
 import { checkWords } from "@/lib/tauri";
 
 /** Set the misspelled-word decorations for the current document. */
@@ -25,164 +26,45 @@ interface WordRange {
   word: string;
 }
 
-/** Commands whose brace arguments are identifiers, not prose. */
-const NON_PROSE_COMMANDS = new Set([
-  "label",
-  "ref",
-  "eqref",
-  "cite",
-  "citep",
-  "citet",
-  "usepackage",
-  "documentclass",
-  "includegraphics",
-  "graphicspath",
-  "input",
-  "include",
-  "bibliography",
-  "addbibresource",
-  "bibliographystyle",
-  "url",
-  "href",
-  "hypersetup",
-  "setlength",
-  "setcounter",
-  "newcommand",
-  "renewcommand",
-  "providecommand",
-  "DeclareMathOperator",
-]);
-
 const CONTRACTION_SUFFIXES = new Set(["s", "t", "re", "ve", "ll", "d", "m"]);
 
-/** Is the brace at position `i` the argument of a non-prose command? */
-function isNonProseBrace(text: string, i: number): boolean {
-  let j = i - 1;
-  while (j >= 0 && /[A-Za-z@*]/.test(text[j])) j--;
-  const identifier = text.slice(j + 1, i);
-  if (identifier === "begin" || identifier === "end") {
-    return j >= 0 && text[j] === "\\";
-  }
-  if (j >= 0 && text[j] === "\\" && NON_PROSE_COMMANDS.has(identifier)) {
-    return true;
-  }
-  return false;
-}
+/** Letters of any script, with apostrophe-joined parts (don't, l'eau). */
+const WORD_RE = /\p{L}+(?:['’]\p{L}+)*/gu;
 
 /**
- * Extract candidate word ranges for spellchecking. Skips the preamble,
- * commands, math (inline $ and the common math environments), comments,
- * environment names, and identifier arguments of non-prose commands.
+ * Candidate word ranges for spellchecking: the words of the document's
+ * prose (see extractProse), so the preamble, commands, math, comments,
+ * environment names and identifier arguments are skipped. Acronyms (all
+ * capitals) are skipped too, and a contraction's short suffix.
  */
 export function extractWordRanges(text: string): WordRange[] {
-  const beginDoc = text.indexOf("\\begin{document}");
-  const start = beginDoc === -1 ? 0 : beginDoc + "\\begin{document}".length;
-  // LaTeX ignores everything after \end{document}; so does the spellcheck.
-  const endDoc = text.indexOf("\\end{document}", start);
-  const end = endDoc === -1 ? text.length : endDoc;
   const ranges: WordRange[] = [];
-  const braceStack: boolean[] = [];
-  let inlineMath = false;
-  let comment = false;
-
-  let i = start;
-  while (i < end) {
-    const ch = text[i];
-    if (ch === "\n") {
-      comment = false;
-      i++;
-      continue;
-    }
-    if (comment) {
-      i++;
-      continue;
-    }
-    if (ch === "%") {
-      comment = true;
-      i++;
-      continue;
-    }
-    if (ch === "$" && (i === 0 || text[i - 1] !== "\\")) {
-      inlineMath = !inlineMath;
-      i++;
-      continue;
-    }
-    if (ch === "{" && !inlineMath) {
-      braceStack.push(isNonProseBrace(text, i));
-      i++;
-      continue;
-    }
-    if (ch === "}" && !inlineMath) {
-      braceStack.pop();
-      i++;
-      continue;
-    }
-    if (!inlineMath && !braceStack.includes(true) && /[A-Za-z]/.test(ch)) {
-      const isCommandName = i > 0 && text[i - 1] === "\\";
-      if (isCommandName) {
-        // Consume the whole command name (\maketitle), not just one letter.
-        while (i < end && /[A-Za-z@]/.test(text[i])) i++;
+  for (const block of extractProse(text)) {
+    for (const match of block.text.matchAll(WORD_RE)) {
+      const at = match.index;
+      const token = match[0];
+      if (block.placeholders.some((p) => at < p.to && p.from < at + token.length)) {
         continue;
       }
-      // Consume letters, then (apostrophe + letters)* groups.
-      let j = i;
-      while (j < text.length && /[A-Za-z]/.test(text[j])) j++;
-      const segments: string[] = [text.slice(i, j)];
-      while (j < text.length && text[j] === "'" && /[A-Za-z]/.test(text[j + 1] ?? "")) {
-        j++;
-        const segStart = j;
-        while (j < text.length && /[A-Za-z]/.test(text[j])) j++;
-        segments.push(text.slice(segStart, j));
-      }
-      const token = segments.join("'");
-      if (!(token.length > 1 && token === token.toUpperCase())) {
-        ranges.push({ from: i, to: i + segments[0].length, word: segments[0] });
-        let pos = i + segments[0].length;
-        for (let k = 1; k < segments.length; k++) {
-          pos += 1;
-          if (
-            segments[k].length > 1 ||
-            !CONTRACTION_SUFFIXES.has(segments[k].toLowerCase())
-          ) {
-            ranges.push({ from: pos, to: pos + segments[k].length, word: segments[k] });
-          }
-          pos += segments[k].length;
+      if (token.length > 1 && token === token.toUpperCase()) continue;
+      let pos = at;
+      for (const [k, segment] of token.split(/['’]/).entries()) {
+        if (
+          k === 0 ||
+          segment.length > 1 ||
+          !CONTRACTION_SUFFIXES.has(segment.toLowerCase())
+        ) {
+          ranges.push({
+            ...sourceRange(block, pos, pos + segment.length),
+            word: segment,
+          });
         }
-      }
-      i = j;
-      continue;
-    }
-    // Math environment bodies are skipped wholesale until the matching \end.
-    if (ch === "\\" && text.startsWith("\\begin{", i)) {
-      const envName = /^\\begin\{([a-zA-Z*]+)\}/.exec(text.slice(i));
-      if (envName && MATH_ENVIRONMENTS.has(envName[1])) {
-        const endPattern = `\\end{${envName[1]}}`;
-        const endIdx = text.indexOf(endPattern, i);
-        i = endIdx === -1 ? text.length : endIdx;
-        continue;
+        pos += segment.length + 1;
       }
     }
-    i++;
   }
   return ranges;
 }
-
-const MATH_ENVIRONMENTS = new Set([
-  "equation",
-  "equation*",
-  "align",
-  "align*",
-  "alignat",
-  "alignat*",
-  "gather",
-  "gather*",
-  "math",
-  "displaymath",
-  "eqnarray",
-  "eqnarray*",
-  "multline",
-  "multline*",
-]);
 
 // Cache of words verified against the dictionary (lowercase -> correct).
 const knownWords = new Map<string, boolean>();
