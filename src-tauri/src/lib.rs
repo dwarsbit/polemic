@@ -6,6 +6,7 @@ mod profile;
 mod secrets;
 mod comments;
 mod assets;
+mod grammar;
 mod ai;
 mod bib_lookup;
 mod settings;
@@ -574,6 +575,70 @@ fn update_ai_settings(
         });
         s.clone()
     })
+}
+
+#[tauri::command]
+fn update_grammar_settings(
+    app: tauri::AppHandle,
+    grammar: settings::GrammarSettings,
+) -> Result<Settings, String> {
+    let mut grammar = grammar;
+    grammar.language_tool_url = grammar
+        .language_tool_url
+        .map(|u| u.trim().to_string())
+        .filter(|u| !u.is_empty());
+    if let Some(url) = grammar.language_tool_url.as_deref() {
+        ai::check_service_url(url, "the LanguageTool URL")?;
+    }
+    settings::update(&app, |s| {
+        s.grammar = grammar;
+        s.clone()
+    })
+}
+
+/// The built-in grammar checker, built on first use (and again when
+/// the English variant changes).
+struct HarperState(std::sync::Mutex<Option<(String, grammar::Harper)>>);
+
+/// Grammar issues per prose block: LanguageTool when a server is
+/// configured, else Harper for English; nothing for other languages.
+#[tauri::command]
+async fn check_grammar(
+    app: tauri::AppHandle,
+    harper: tauri::State<'_, HarperState>,
+    blocks: Vec<String>,
+) -> Result<Vec<Vec<grammar::GrammarIssue>>, String> {
+    let cfg = settings::snapshot(&app)?;
+    let language = cfg.spellcheck_language.clone().unwrap_or_else(|| "en".into());
+    if let Some(url) = cfg.grammar.language_tool_url.as_deref() {
+        let lt_language = if language == "en" {
+            cfg.grammar.english_variant.clone().unwrap_or_else(|| "en-US".into())
+        } else {
+            language
+        };
+        return grammar::check_languagetool(url, &lt_language, &blocks, &cfg.grammar.disabled_rules)
+            .await;
+    }
+    if language != "en" {
+        return Ok(vec![Vec::new(); blocks.len()]);
+    }
+    let variant = cfg.grammar.english_variant.clone().unwrap_or_else(|| "en-US".into());
+    let mut guard = harper.0.lock().map_err(|e| e.to_string())?;
+    if guard.as_ref().is_none_or(|(v, _)| *v != variant) {
+        *guard = Some((variant.clone(), grammar::Harper::new(grammar::dialect_for(&variant))));
+    }
+    let (_, checker) = guard.as_mut().expect("set above");
+    Ok(checker.check(&blocks, &cfg.grammar.disabled_rules))
+}
+
+/// Harper's rules with descriptions, for switching them off.
+#[tauri::command]
+fn grammar_rules(harper: tauri::State<'_, HarperState>) -> Result<Vec<grammar::GrammarRule>, String> {
+    let mut guard = harper.0.lock().map_err(|e| e.to_string())?;
+    if guard.is_none() {
+        *guard = Some(("en-US".into(), grammar::Harper::new(grammar::dialect_for("en-US"))));
+    }
+    Ok(guard.as_ref().expect("set above").1.rules())
 }
 
 #[tauri::command]
@@ -1853,6 +1918,7 @@ pub fn run() {    tauri::Builder::default()
                     .unwrap_or_else(|_| spell::SpellState::new(&user_words));
             app.manage(std::sync::Mutex::new(spell_state));
             app.manage(MenuState(std::sync::Mutex::new(None)));
+            app.manage(HarperState(std::sync::Mutex::new(None)));
             build_app_menu(app)?;
             Ok(())
         })
@@ -1874,6 +1940,9 @@ pub fn run() {    tauri::Builder::default()
             check_words,
             add_spellcheck_word,
             spellcheck_suggestions,
+            check_grammar,
+            grammar_rules,
+            update_grammar_settings,
             list_spellcheck_languages,
             install_spellcheck_language,
             set_spellcheck_language,
