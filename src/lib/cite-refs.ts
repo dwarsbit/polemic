@@ -6,6 +6,7 @@
  */
 
 import type { ScannedFile, SourceEdit } from "./label-index";
+import { loadedPackages } from "./packages";
 
 export interface CitePos {
   key: string;
@@ -67,6 +68,13 @@ export function extractCitePositions(source: string): CitePos[] {
     i = close;
   }
   return found;
+}
+
+/** Whether a .tex source loads natbib (`\\usepackage{natbib}`),
+ *  ignoring commented-out lines. */
+export function loadsNatbib(source: string): boolean {
+  const stripped = source.replace(/(^|[^\\])%.*$/gm, "$1");
+  return loadedPackages(stripped).some((name) => name.toLowerCase() === "natbib");
 }
 
 /**

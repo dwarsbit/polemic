@@ -3,6 +3,7 @@ import { ask } from "@tauri-apps/plugin-dialog";
 import * as api from "@/lib/tauri";
 import { extractCiteKeys } from "@/lib/bibtex";
 import { loadsBiblatex } from "@/lib/citation-preview";
+import { loadsNatbib } from "@/lib/cite-refs";
 import { collectAssetPaths } from "@/lib/assets";
 import { extractGraphicsPaths, planGraphicsRename } from "@/lib/graphics-refs";
 import { applyEdits } from "@/lib/label-index";
@@ -41,6 +42,8 @@ interface ProjectState {
   graphicsPathsByFile: Record<string, string[]>;
   /** Whether each .tex file loads biblatex (the .bib backend). */
   biblatexByFile: Record<string, boolean>;
+  /** Whether each .tex file loads natbib, for its cite commands. */
+  natbibByFile: Record<string, boolean>;
   /** Words the spellcheck accepts in this project (lowercase). */
   ignoredWords: string[];
   /** Accept a word in this project (stored in .polemic/project.json). */
@@ -212,6 +215,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     citeKeysByFile: {},
     graphicsPathsByFile: {},
     biblatexByFile: {},
+    natbibByFile: {},
     ignoredWords: [],
     ignoreWord: async (word) => {
       const project = get().project;
@@ -248,6 +252,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           [path]: extractGraphicsPaths(content),
         },
         biblatexByFile: { ...get().biblatexByFile, [path]: loadsBiblatex(content) },
+        natbibByFile: { ...get().natbibByFile, [path]: loadsNatbib(content) },
       }),
     flushBuffers: async () => {
       // The visual face serializes on a debounce; pending edits land
@@ -299,6 +304,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         citeKeysByFile: {},
         graphicsPathsByFile: {},
         biblatexByFile: {},
+        natbibByFile: {},
         ignoredWords: [],
       });
       void api
@@ -327,6 +333,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         const refsByFile: Record<string, string[]> = {};
         const graphicsPathsByFile: Record<string, string[]> = {};
         const biblatexByFile: Record<string, boolean> = {};
+        const natbibByFile: Record<string, boolean> = {};
         for (const texPath of collectPaths(files, ".tex")) {
           try {
             const content = await api.readProjectFile(info.path, texPath);
@@ -334,6 +341,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
             refsByFile[texPath] = extractRefPositions(content).map((ref) => ref.name);
             graphicsPathsByFile[texPath] = extractGraphicsPaths(content);
             biblatexByFile[texPath] = loadsBiblatex(content);
+            natbibByFile[texPath] = loadsNatbib(content);
           } catch {
             // unreadable file: skip its labels
           }
@@ -355,6 +363,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           citeKeysByFile: { ...citeKeysByFile, ...state.citeKeysByFile },
           graphicsPathsByFile: { ...graphicsPathsByFile, ...state.graphicsPathsByFile },
           biblatexByFile: { ...biblatexByFile, ...state.biblatexByFile },
+          natbibByFile: { ...natbibByFile, ...state.natbibByFile },
         }));
       })();
     },
@@ -375,6 +384,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         citeKeysByFile: {},
         graphicsPathsByFile: {},
         biblatexByFile: {},
+        natbibByFile: {},
         ignoredWords: [],
         openFiles: [],
         activeFile: null,
@@ -412,6 +422,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           [path]: extractGraphicsPaths(content),
         },
         biblatexByFile: { ...get().biblatexByFile, [path]: loadsBiblatex(content) },
+        natbibByFile: { ...get().natbibByFile, [path]: loadsNatbib(content) },
       });
       void api.setOpenFiles(project.path, nextOpen);
     },
@@ -642,6 +653,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         biblatexByFile: {
           ...get().biblatexByFile,
           [activeFile]: loadsBiblatex(content),
+        },
+        natbibByFile: {
+          ...get().natbibByFile,
+          [activeFile]: loadsNatbib(content),
         },
       });
       return true;
