@@ -285,12 +285,6 @@ export default function HomePage() {
             <Link href="/docs" className="hover:text-foreground">
               Docs
             </Link>
-            <a
-              href={`${githubUrl}/blob/main/ROADMAP.md`}
-              className="hover:text-foreground"
-            >
-              Roadmap
-            </a>
             <a href={githubUrl} className="hover:text-foreground">
               GitHub
             </a>

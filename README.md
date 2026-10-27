@@ -10,7 +10,7 @@ Pre-alpha. Working today: projects and templates, a code editor and a
 visual editor for `.tex` and `.bib` files, compilation with `latexmk`,
 a live PDF preview with SyncTeX navigation, snapshots and git, comments,
 references (BibTeX and Zotero), and an optional AI quickfix for compile
-errors. See [ROADMAP.md](./ROADMAP.md) for what comes next.
+errors.
 
 ## Security notes
 
