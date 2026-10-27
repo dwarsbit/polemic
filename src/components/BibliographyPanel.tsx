@@ -434,7 +434,7 @@ export function BibliographyPanel() {
 
   /**
    * Create bibliography.bib in the project root (the empty state's
-   * primary action) and go straight to the new-entry dialog for it.
+   * primary action).
    */
   async function createBib() {
     const store = useProjectStore.getState();
@@ -448,7 +448,6 @@ export function BibliographyPanel() {
       // empty, which the scan must still pick up.
       diskCache.current.files = [];
       setScanTick((tick) => tick + 1);
-      setDialog({ kind: "new", file: "bibliography.bib", key: "" });
     } catch (e) {
       setCreateError(String(e));
     }
