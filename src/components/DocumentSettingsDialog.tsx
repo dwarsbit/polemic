@@ -131,7 +131,9 @@ export function DocumentSettingsDialog({
     if (project === null) return;
     if (engine !== savedEngine) {
       try {
-        await api.saveProjectConfig(project.path, { engine });
+        // Merge: the config holds more than the engine (ignored words).
+        const config = await api.getProjectConfig(project.path);
+        await api.saveProjectConfig(project.path, { ...config, engine });
         setSavedEngine(engine);
       } catch {
         return;

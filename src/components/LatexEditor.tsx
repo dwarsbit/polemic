@@ -80,6 +80,7 @@ import {
   resolveAssetRef,
 } from "@/lib/assets";
 import { AssetThumb } from "@/components/AssetThumb";
+import { WritingPopover, type WritingIssue } from "@/components/WritingPopover";
 import {
   TEXT_WRAPPERS,
   applyTextWrapper,
@@ -96,7 +97,6 @@ import {
 } from "@/lib/spellcheck";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 import {
-  addSpellcheckWord,
   gitShowHead,
   isTauri,
   readProjectFile,
@@ -108,7 +108,7 @@ import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
 
 interface SpellPopover {
-  word: string;
+  issue: WritingIssue;
   x: number;
   y: number;
 }
@@ -716,7 +716,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
               }
               event.preventDefault();
               popoverRef.current?.({
-                word: hit.word,
+                issue: { kind: "spelling", word: hit.word, from: hit.from, to: hit.to },
                 x: event.clientX,
                 y: event.clientY,
               });
@@ -1165,28 +1165,29 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       onMouseDown={() => setPopover(null)}
     >
       {popover && (
-        <div
-          className="fixed z-50 rounded-md border bg-popover p-1 text-xs shadow-md"
-          style={{ left: popover.x, top: popover.y + 8 }}
-        >
-          <button
-            type="button"
-            className="block w-full rounded px-2 py-1 text-left hover:bg-accent"
-            onClick={() => {
-              const view = viewRef.current;
-              void (async () => {
-                try {
-                  await addSpellcheckWord(popover.word);
-                  if (view) await runSpellcheck(view);
-                } finally {
-                  setPopover(null);
-                }
-              })();
-            }}
-          >
-            Add “{popover.word}” to dictionary
-          </button>
-        </div>
+        <WritingPopover
+          key={`${popover.issue.from}:${popover.x}:${popover.y}`}
+          issue={popover.issue}
+          x={popover.x}
+          y={popover.y}
+          onReplace={(text) => {
+            const view = viewRef.current;
+            const { from, to } = popover.issue;
+            setPopover(null);
+            if (view && view.state.sliceDoc(from, to) === popover.issue.word) {
+              view.dispatch({
+                changes: { from, to, insert: text },
+                userEvent: "input.spell",
+              });
+              view.focus();
+            }
+          }}
+          onDone={(recheck) => {
+            const view = viewRef.current;
+            setPopover(null);
+            if (recheck && view) void runSpellcheck(view);
+          }}
+        />
       )}
       {pathPreview && (
         <div

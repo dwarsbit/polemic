@@ -41,6 +41,10 @@ interface ProjectState {
   graphicsPathsByFile: Record<string, string[]>;
   /** Whether each .tex file loads biblatex (the .bib backend). */
   biblatexByFile: Record<string, boolean>;
+  /** Words the spellcheck accepts in this project (lowercase). */
+  ignoredWords: string[];
+  /** Accept a word in this project (stored in .polemic/project.json). */
+  ignoreWord: (word: string) => Promise<void>;
   allCiteKeys: () => string[];
   markDirty: (path: string, content: string) => void;
   /** Refresh a file's label/ref/cite-key metadata from its content. */
@@ -208,6 +212,17 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     citeKeysByFile: {},
     graphicsPathsByFile: {},
     biblatexByFile: {},
+    ignoredWords: [],
+    ignoreWord: async (word) => {
+      const project = get().project;
+      if (!project) return;
+      const config = await api.getProjectConfig(project.path);
+      const words = new Set(config.ignoredWords ?? []);
+      words.add(word.toLowerCase());
+      const ignoredWords = [...words].sort();
+      await api.saveProjectConfig(project.path, { ...config, ignoredWords });
+      if (get().project?.path === project.path) set({ ignoredWords });
+    },
     allCiteKeys: () => {
       const seen = new Set<string>();
       for (const keys of Object.values(useProjectStore.getState().citeKeysByFile)) {
@@ -284,7 +299,16 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         citeKeysByFile: {},
         graphicsPathsByFile: {},
         biblatexByFile: {},
+        ignoredWords: [],
       });
+      void api
+        .getProjectConfig(info.path)
+        .then((config) => {
+          if (get().project?.path === info.path) {
+            set({ ignoredWords: config.ignoredWords ?? [] });
+          }
+        })
+        .catch(() => {});
       void api.setProjectMenuEnabled(true);
       const target =
         storedOpen.length > 0 ? storedOpen[storedOpen.length - 1] : mainFile;
@@ -351,6 +375,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         citeKeysByFile: {},
         graphicsPathsByFile: {},
         biblatexByFile: {},
+        ignoredWords: [],
         openFiles: [],
         activeFile: null,
       });

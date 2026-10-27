@@ -2,6 +2,7 @@ import { StateEffect, StateField } from "@codemirror/state";
 import { Decoration, EditorView, type DecorationSet } from "@codemirror/view";
 import { extractProse, sourceRange } from "@/lib/prose";
 import { checkWords } from "@/lib/tauri";
+import { useProjectStore } from "@/store/project";
 
 /** Set the misspelled-word decorations for the current document. */
 export const setMisspells = StateEffect.define<DecorationSet>();
@@ -90,9 +91,11 @@ export async function runSpellcheck(view: EditorView) {
       return; // spellcheck unavailable (e.g. running in a browser)
     }
   }
+  const ignored = new Set(useProjectStore.getState().ignoredWords);
   const misspelled: { from: number; to: number }[] = [];
   for (const range of ranges) {
-    if (knownWords.get(range.word.toLowerCase()) === false) {
+    const lower = range.word.toLowerCase();
+    if (knownWords.get(lower) === false && !ignored.has(lower)) {
       misspelled.push({ from: range.from, to: range.to });
     }
   }
