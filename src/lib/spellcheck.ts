@@ -1,6 +1,6 @@
 import { StateEffect, StateField } from "@codemirror/state";
 import { Decoration, EditorView, type DecorationSet } from "@codemirror/view";
-import { extractProse, sourceRange } from "@/lib/prose";
+import { extractProse, sourceRange, type ProseBlock } from "@/lib/prose";
 import { checkWords } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
 
@@ -21,7 +21,7 @@ export const misspellField = StateField.define<DecorationSet>({
 
 export const spellcheckExtension = [misspellField];
 
-interface WordRange {
+export interface WordRange {
   from: number;
   to: number;
   word: string;
@@ -33,38 +33,45 @@ const CONTRACTION_SUFFIXES = new Set(["s", "t", "re", "ve", "ll", "d", "m"]);
 const WORD_RE = /\p{L}+(?:['’]\p{L}+)*/gu;
 
 /**
- * Candidate word ranges for spellchecking: the words of the document's
- * prose (see extractProse), so the preamble, commands, math, comments,
- * environment names and identifier arguments are skipped. Acronyms (all
- * capitals) are skipped too, and a contraction's short suffix.
+ * The words of one prose block to spellcheck, in source positions (or
+ * whatever positions the block maps to: the Visual editor's blocks map
+ * to ProseMirror positions). Placeholders, acronyms (all capitals) and
+ * a contraction's short suffix are skipped.
  */
-export function extractWordRanges(text: string): WordRange[] {
+export function blockWordRanges(block: ProseBlock): WordRange[] {
   const ranges: WordRange[] = [];
-  for (const block of extractProse(text)) {
-    for (const match of block.text.matchAll(WORD_RE)) {
-      const at = match.index;
-      const token = match[0];
-      if (block.placeholders.some((p) => at < p.to && p.from < at + token.length)) {
-        continue;
+  for (const match of block.text.matchAll(WORD_RE)) {
+    const at = match.index;
+    const token = match[0];
+    if (block.placeholders.some((p) => at < p.to && p.from < at + token.length)) {
+      continue;
+    }
+    if (token.length > 1 && token === token.toUpperCase()) continue;
+    let pos = at;
+    for (const [k, segment] of token.split(/['’]/).entries()) {
+      if (
+        k === 0 ||
+        segment.length > 1 ||
+        !CONTRACTION_SUFFIXES.has(segment.toLowerCase())
+      ) {
+        ranges.push({
+          ...sourceRange(block, pos, pos + segment.length),
+          word: segment,
+        });
       }
-      if (token.length > 1 && token === token.toUpperCase()) continue;
-      let pos = at;
-      for (const [k, segment] of token.split(/['’]/).entries()) {
-        if (
-          k === 0 ||
-          segment.length > 1 ||
-          !CONTRACTION_SUFFIXES.has(segment.toLowerCase())
-        ) {
-          ranges.push({
-            ...sourceRange(block, pos, pos + segment.length),
-            word: segment,
-          });
-        }
-        pos += segment.length + 1;
-      }
+      pos += segment.length + 1;
     }
   }
   return ranges;
+}
+
+/**
+ * Candidate word ranges for spellchecking: the words of the document's
+ * prose (see extractProse), so the preamble, commands, math, comments,
+ * environment names and identifier arguments are skipped.
+ */
+export function extractWordRanges(text: string): WordRange[] {
+  return extractProse(text).flatMap(blockWordRanges);
 }
 
 // Cache of words verified against the dictionary (lowercase -> correct).
@@ -74,9 +81,12 @@ export function clearSpellcheckCache() {
   knownWords.clear();
 }
 
-/** Check the document and set the misspelled-word decorations. */
-export async function runSpellcheck(view: EditorView) {
-  const ranges = extractWordRanges(view.state.doc.toString());
+/**
+ * The misspelled ones among `ranges` (dictionary and the project's
+ * ignore list), sorted; null when the spellcheck is unavailable (e.g.
+ * running in a browser).
+ */
+export async function findMisspelled(ranges: WordRange[]): Promise<WordRange[] | null> {
   const toCheck = new Set<string>();
   for (const range of ranges) {
     const lower = range.word.toLowerCase();
@@ -88,18 +98,23 @@ export async function runSpellcheck(view: EditorView) {
       const flags = await checkWords(words);
       words.forEach((word, index) => knownWords.set(word, flags[index]));
     } catch {
-      return; // spellcheck unavailable (e.g. running in a browser)
+      return null;
     }
   }
   const ignored = new Set(useProjectStore.getState().ignoredWords);
-  const misspelled: { from: number; to: number }[] = [];
-  for (const range of ranges) {
-    const lower = range.word.toLowerCase();
-    if (knownWords.get(lower) === false && !ignored.has(lower)) {
-      misspelled.push({ from: range.from, to: range.to });
-    }
-  }
-  misspelled.sort((a, b) => a.from - b.from);
+  return ranges
+    .filter((range) => {
+      const lower = range.word.toLowerCase();
+      return knownWords.get(lower) === false && !ignored.has(lower);
+    })
+    .sort((a, b) => a.from - b.from);
+}
+
+/** Check the document and set the misspelled-word decorations. */
+export async function runSpellcheck(view: EditorView) {
+  const doc = view.state.doc;
+  const misspelled = await findMisspelled(extractWordRanges(doc.toString()));
+  if (misspelled === null || view.state.doc !== doc) return;
   const decorations = misspelled.map((range) =>
     Decoration.mark({ class: "cm-misspelled" }).range(range.from, range.to),
   );
