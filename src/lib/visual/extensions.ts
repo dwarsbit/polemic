@@ -342,11 +342,14 @@ class FigureView extends EditableRawView {
     shown.forEach((cells, r) => {
       const tr = document.createElement("tr");
       if ((table.grid.rules[r] ?? []).length > 0) tr.classList.add("vis-table-ruled");
-      for (const cell of cells) {
+      cells.forEach((cell, c) => {
         const td = document.createElement("td");
         td.textContent = cell;
+        const align = table.grid.columns[c]?.align;
+        if (align === "c") td.style.textAlign = "center";
+        else if (align === "r") td.style.textAlign = "right";
         tr.append(td);
-      }
+      });
       el.append(tr);
     });
     frame.append(el);

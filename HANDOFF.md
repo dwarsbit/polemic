@@ -7,6 +7,35 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
+## Table grid editor (2026-10-27)
+
+Branch `claude/dreamy-hamilton-2g65p8`, from main after the spelling
+and grammar PR merged.
+
+- Model: `lib/table-grid.ts`. `tableAt` finds the innermost
+  tabular/tabular*/tabularx/array around a position; `parseTable` reads
+  the column spec (columns with separators between them; `*{n}{}`
+  expanded), rows split on `\\` and `&` at brace depth 0, rules before
+  each row, row ends like `\\[2pt]`. `serializeTable` writes one row per
+  line with aligned `&`s. Edits return new grids; `\multicolumn` /
+  `\multirow` tables refuse column changes. Spreadsheet paste escapes
+  LaTeX specials.
+- Dialog: `TableGridDialog` (opened through `useDialogsStore.tableGrid`
+  with an `onSave` that receives the new environment text).
+- Code view: `lib/editor-table.ts`. Right-click "Edit Table…" inside a
+  table; the toolbar table button, Cmd/Ctrl+Shift+T and the Table menu
+  item edit the table at the cursor, else open the insert dialog.
+  Saving is one transaction (one undo step), only if the text is unchanged.
+- Visual view: `FigureView` previews the first table in a float (cells,
+  rules, alignment) with an "Edit table" button; saving rewrites the
+  block's `src` with `setNodeMarkup`.
+- Checked: unit tests (model, both entry points); in Chromium with a
+  stubbed IPC (cell edit, row insert, spreadsheet paste, save; Visual
+  edit and preview); the written table compiles with pdflatex. Not in a
+  real Tauri window (the native right-click menu is Tauri-only).
+- Not covered: merging or splitting cells; `*{n}{..}` specs are written
+  back expanded; longtable.
+
 ## Spelling and grammar (2026-10-27)
 
 Branch `claude/dreamy-hamilton-2g65p8`, restarted from main after the
