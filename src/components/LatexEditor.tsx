@@ -82,6 +82,13 @@ import {
 import { AssetThumb } from "@/components/AssetThumb";
 import { WritingPopover, type WritingIssue } from "@/components/WritingPopover";
 import {
+  grammarEnabled,
+  grammarField,
+  grammarIssueAt,
+  runGrammarCheck,
+  setGrammarIssues,
+} from "@/lib/grammar-check";
+import {
   TEXT_WRAPPERS,
   applyTextWrapper,
   setTextWrapperHandler,
@@ -96,12 +103,7 @@ import {
   spellcheckExtension,
 } from "@/lib/spellcheck";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
-import {
-  gitShowHead,
-  isTauri,
-  readProjectFile,
-  synctexForward,
-} from "@/lib/tauri";
+import { gitShowHead, isTauri, readProjectFile, synctexForward } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useCommentsStore } from "@/store/comments";
@@ -423,6 +425,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
           refLabelLint,
           lintGutter(),
           spellcheckExtension,
+          grammarField,
           mathHoverCompartment.of(
             mathHoverEnabled.of(
               useSettingsStore.getState().mathPreviewEngine === "katex",
@@ -670,7 +673,8 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
               const pos = view.posAtCoords({ x: event.clientX, y: event.clientY });
               if (pos === null) return false;
               const hit = misspelledWordAt(view, pos);
-              if (!hit) {
+              const grammarHit = hit === null ? grammarIssueAt(view, pos) : null;
+              if (!hit && !grammarHit) {
                 if (!isTauri()) return false;
                 event.preventDefault();
                 void showNativeContextMenu([
@@ -716,7 +720,15 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
               }
               event.preventDefault();
               popoverRef.current?.({
-                issue: { kind: "spelling", word: hit.word, from: hit.from, to: hit.to },
+                issue:
+                  hit !== null
+                    ? { kind: "spelling", word: hit.word, from: hit.from, to: hit.to }
+                    : {
+                        kind: "grammar",
+                        issue: grammarHit!,
+                        from: grammarHit!.from,
+                        to: grammarHit!.to,
+                      },
                 x: event.clientX,
                 y: event.clientY,
               });
@@ -1140,6 +1152,20 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     return () => clearTimeout(timer);
   }, [content, docVersion, spellcheckEnabled]);
 
+  // Debounced grammar check: longer than spelling's, since a sentence
+  // is mid-edit more often than a word, and a server may be remote.
+  const grammar = useSettingsStore((s) => s.grammar);
+  useEffect(() => {
+    const view = viewRef.current;
+    if (!view) return;
+    if (grammar.enabled === false) {
+      view.dispatch({ effects: setGrammarIssues.of(Decoration.none) });
+      return;
+    }
+    const timer = setTimeout(() => void runGrammarCheck(view), 1200);
+    return () => clearTimeout(timer);
+  }, [content, docVersion, grammar, spellcheckLanguage]);
+
   // Re-check with a fresh cache when the spellcheck language changes.
   useEffect(() => {
     const view = viewRef.current;
@@ -1172,9 +1198,12 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
           y={popover.y}
           onReplace={(text) => {
             const view = viewRef.current;
-            const { from, to } = popover.issue;
+            const { issue } = popover;
+            const { from, to } = issue;
+            const expected = issue.kind === "spelling" ? issue.word : issue.issue.text;
             setPopover(null);
-            if (view && view.state.sliceDoc(from, to) === popover.issue.word) {
+            // Only while the text is still what was flagged.
+            if (view && view.state.sliceDoc(from, to) === expected) {
               view.dispatch({
                 changes: { from, to, insert: text },
                 userEvent: "input.spell",
@@ -1185,7 +1214,10 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
           onDone={(recheck) => {
             const view = viewRef.current;
             setPopover(null);
-            if (recheck && view) void runSpellcheck(view);
+            if (recheck && view) {
+              void runSpellcheck(view);
+              if (grammarEnabled()) void runGrammarCheck(view);
+            }
           }}
         />
       )}

@@ -4,12 +4,21 @@ import {
   setSpellcheckLanguage as persistSpellcheckLanguage,
   setVersionControl as persistVersionControl,
   updateAiSettings,
+  updateGrammarSettings,
   updatePreferences,
   type AiSettings,
+  type GrammarSettings,
   type Settings,
 } from "@/lib/tauri";
 import { applyTheme, type ThemePreference } from "@/lib/theme";
 import { usePreviewStore } from "@/store/preview";
+
+const DEFAULT_GRAMMAR: GrammarSettings = {
+  enabled: null,
+  languageToolUrl: null,
+  englishVariant: null,
+  disabledRules: [],
+};
 
 interface SettingsState {
   loaded: boolean;
@@ -41,6 +50,7 @@ interface SettingsState {
   panelLayout: Record<string, number> | null;
   /** The AI quickfix provider; null until configured. */
   ai: AiSettings | null;
+  grammar: GrammarSettings;
   hydrate: (settings: Settings) => void;
   setTheme: (theme: ThemePreference) => Promise<void>;
   setFontSize: (fontSize: number) => Promise<void>;
@@ -69,6 +79,8 @@ interface SettingsState {
   persistPanelLayout: (layout: Record<string, number>) => void;
   /** Save the AI quickfix provider settings. */
   setAi: (ai: AiSettings) => Promise<void>;
+  /** Persist first: the backend rejects unsafe LanguageTool URLs. */
+  setGrammar: (grammar: GrammarSettings) => Promise<void>;
 }
 
 const DEFAULT_THEME: ThemePreference = "system";
@@ -103,6 +115,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   projectsRoot: null,
   panelLayout: null,
   ai: null,
+  grammar: DEFAULT_GRAMMAR,
   hydrate: (settings) =>
     set({
       loaded: true,
@@ -135,6 +148,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       projectsRoot: settings.projectsRoot,
       panelLayout: settings.panelLayout,
       ai: settings.ai,
+      grammar: { ...DEFAULT_GRAMMAR, ...settings.grammar },
     }),
   setTheme: async (theme) => {
     set({ theme });
@@ -228,6 +242,10 @@ export const useSettingsStore = create<SettingsState>((set) => ({
     // Persist first: the backend rejects unsafe base URLs.
     await updateAiSettings(ai.baseUrl, ai.apiKey, ai.model);
     set({ ai });
+  },
+  setGrammar: async (grammar) => {
+    const saved = await updateGrammarSettings(grammar);
+    set({ grammar: { ...DEFAULT_GRAMMAR, ...saved.grammar } });
   },
 }));
 
