@@ -43,6 +43,21 @@ pub struct AiSettings {
     pub model: Option<String>,
 }
 
+/// Grammar checking (see `grammar`).
+#[derive(Serialize, Deserialize, Clone, Debug, Default, PartialEq)]
+#[serde(rename_all = "camelCase", default)]
+pub struct GrammarSettings {
+    /// Off unless false is stored: on by default.
+    pub enabled: Option<bool>,
+    /// A LanguageTool server up to /v2 (local, or the public service:
+    /// opt-in, the text leaves the machine). None: built-in Harper.
+    pub language_tool_url: Option<String>,
+    /// English variant for Harper: "en-US" (default), "en-GB", …
+    pub english_variant: Option<String>,
+    /// Rule ids switched off (Harper's and LanguageTool's).
+    pub disabled_rules: Vec<String>,
+}
+
 #[derive(Serialize, Deserialize, Clone, Debug, Default)]
 #[serde(rename_all = "camelCase", default)]
 pub struct Settings {
@@ -86,6 +101,7 @@ pub struct Settings {
     pub online_lookup: Option<bool>,
     /// The AI quickfix provider, configured in settings.
     pub ai: Option<AiSettings>,
+    pub grammar: GrammarSettings,
     pub user_words: Vec<String>,
 }
 
@@ -153,6 +169,13 @@ pub fn update<T>(app: &AppHandle, f: impl FnOnce(&mut Settings) -> T) -> Result<
     let out = f(&mut guard);
     save(app, &guard)?;
     Ok(out)
+}
+
+/// A copy of the settings, read only (no write to disk).
+pub fn snapshot(app: &AppHandle) -> Result<Settings, String> {
+    let state = app.state::<SettingsState>();
+    let guard = state.0.lock().map_err(|e| e.to_string())?;
+    Ok(guard.clone())
 }
 
 /// The settings with a guaranteed concrete projects root.

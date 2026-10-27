@@ -18,6 +18,12 @@ pub struct AiChatArgs {
 /// The API key travels in a header: only HTTPS may carry it, except to
 /// a model served on this machine (Ollama, LM Studio, llama.cpp).
 pub fn check_base_url(base_url: &str) -> Result<(), String> {
+    check_service_url(base_url, "the AI base URL")
+}
+
+/// A service URL may use plain http only to this machine; `what` names
+/// it in the error ("the AI base URL").
+pub fn check_service_url(base_url: &str, what: &str) -> Result<(), String> {
     let lower = base_url.trim().to_ascii_lowercase();
     if lower.starts_with("https://") {
         return Ok(());
@@ -32,7 +38,9 @@ pub fn check_base_url(base_url: &str) -> Result<(), String> {
             return Ok(());
         }
     }
-    Err("the AI base URL must start with https:// (plain http is only allowed for localhost)".into())
+    Err(format!(
+        "{what} must start with https:// (plain http is only allowed for localhost)"
+    ))
 }
 
 /// One chat completion; returns the assistant message's content.

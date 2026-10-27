@@ -71,6 +71,34 @@ export interface Settings {
   onlineLookup: boolean | null;
   /** The AI quickfix provider; null until configured. */
   ai: AiSettings | null;
+  grammar: GrammarSettings;
+}
+
+/** Grammar checking: built-in Harper (English), or a LanguageTool server. */
+export interface GrammarSettings {
+  /** null means on. */
+  enabled: boolean | null;
+  /** A LanguageTool server up to /v2; null uses the built-in checker. */
+  languageToolUrl: string | null;
+  /** "en-US" (default), "en-GB", "en-AU", "en-CA", "en-IN". */
+  englishVariant: string | null;
+  /** Rule ids switched off. */
+  disabledRules: string[];
+}
+
+/** A grammar or style issue in a prose block (UTF-16 offsets). */
+export interface GrammarIssue {
+  from: number;
+  to: number;
+  message: string;
+  rule: string;
+  category: string;
+  replacements: string[];
+}
+
+export interface GrammarRule {
+  id: string;
+  description: string;
 }
 
 /** An OpenAI-compatible chat-completions endpoint for the AI
@@ -331,6 +359,20 @@ export function checkWords(words: string[]): Promise<boolean[]> {
 
 export function addSpellcheckWord(word: string): Promise<void> {
   return invoke<void>("add_spellcheck_word", { word });
+}
+
+/** Grammar issues per prose block (see lib/prose). */
+export function checkGrammar(blocks: string[]): Promise<GrammarIssue[][]> {
+  return invoke<GrammarIssue[][]>("check_grammar", { blocks });
+}
+
+/** The built-in checker's rules, for switching them off. */
+export function grammarRules(): Promise<GrammarRule[]> {
+  return invoke<GrammarRule[]>("grammar_rules");
+}
+
+export function updateGrammarSettings(grammar: GrammarSettings): Promise<Settings> {
+  return invoke<Settings>("update_grammar_settings", { grammar });
 }
 
 /** Corrections for a misspelled word, closest first. */
