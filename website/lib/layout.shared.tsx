@@ -14,7 +14,6 @@ export function baseOptions(): BaseLayoutProps {
     },
     links: [
       { text: "Docs", url: "/docs", active: "nested-url" },
-      { text: "Roadmap", url: `${githubUrl}/blob/main/ROADMAP.md`, external: true },
     ],
     githubUrl,
   };

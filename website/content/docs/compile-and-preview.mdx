@@ -15,7 +15,9 @@ TeX distribution.
   `latexmkrc` inside the project does not; see [Security](/docs/security).
 
 <Callout title="Engines">
-  Compilation currently uses pdfLaTeX. XeLaTeX and LuaLaTeX profiles are on the roadmap.
+  Pick pdfLaTeX, XeLaTeX or LuaLaTeX per project in Document settings. Automatic follows a
+  `% !TEX program` comment, else uses XeLaTeX when the document loads fontspec or
+  unicode-math, else pdfLaTeX.
 </Callout>
 
 ## The PDF preview
