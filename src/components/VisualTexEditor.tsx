@@ -64,6 +64,12 @@ import type { DocNode } from "@/lib/visual/doc-types";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import { useSettingsStore } from "@/store/settings";
+import { WritingPopover, type WritingIssue } from "@/components/WritingPopover";
+import {
+  WritingChecks,
+  runVisualChecks,
+  setVisualIssueHandler,
+} from "@/lib/visual/writing";
 
 /** The cursor's place in the document, for face switches. */
 function anchorFromDoc(editor: NonNullable<ReturnType<typeof useEditor>>): FaceAnchor {
@@ -404,6 +410,7 @@ export function VisualTexEditor() {
         strike: false,
       }),
       ...visualTexExtensions,
+      WritingChecks,
     ],
     content: docFromTex(entryContent),
     editorProps: {
@@ -581,6 +588,32 @@ export function VisualTexEditor() {
   const fontSize = useSettingsStore((s) => s.fontSize);
   const spellcheckEnabled = useSettingsStore((s) => s.spellcheckEnabled);
   const spellcheckLanguage = useSettingsStore((s) => s.spellcheckLanguage);
+  const grammar = useSettingsStore((s) => s.grammar);
+
+  // Spelling and grammar, as in the Code face: debounced after edits,
+  // and again when the settings change.
+  const [writingPopover, setWritingPopover] = useState<{
+    issue: WritingIssue;
+    x: number;
+    y: number;
+  } | null>(null);
+  useEffect(() => {
+    if (editor === null) return;
+    setVisualIssueHandler((issue, x, y) => setWritingPopover({ issue, x, y }));
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const schedule = (delay: number) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => void runVisualChecks(editor.view), delay);
+    };
+    const onUpdate = () => schedule(1000);
+    editor.on("update", onUpdate);
+    schedule(300);
+    return () => {
+      clearTimeout(timer);
+      editor.off("update", onUpdate);
+      setVisualIssueHandler(null);
+    };
+  }, [editor, spellcheckEnabled, spellcheckLanguage, grammar]);
 
   if (editor === null) return null;
 
@@ -607,18 +640,48 @@ export function VisualTexEditor() {
           </Button>
         </p>
       )}
-      <div className="min-h-0 flex-1 overflow-y-auto">
+      <div
+        className="min-h-0 flex-1 overflow-y-auto"
+        onMouseDown={() => setWritingPopover(null)}
+      >
         {/* The settings' font size drives the reading column (like the
-            Code face); native spellcheck covers prose — atom node views
-            (pills, math, raw) opt out in their own DOM. */}
+            Code face). Spelling and grammar come from the app's own
+            checks (WritingChecks), not the browser's. */}
         <div
           className="visual-editor mx-auto max-w-3xl px-8 py-6"
           style={{ "--editor-font-size": `${fontSize}px` } as React.CSSProperties}
-          spellCheck={spellcheckEnabled}
+          spellCheck={false}
           lang={spellcheckLanguage.length > 0 ? spellcheckLanguage : undefined}
         >
           <EditorContent editor={editor} />
         </div>
+        {writingPopover !== null && (
+          <WritingPopover
+            key={`${writingPopover.issue.from}:${writingPopover.x}:${writingPopover.y}`}
+            issue={writingPopover.issue}
+            x={writingPopover.x}
+            y={writingPopover.y}
+            onReplace={(text) => {
+              const { issue } = writingPopover;
+              const expected =
+                issue.kind === "spelling" ? issue.word : issue.issue.text;
+              setWritingPopover(null);
+              const { state } = editor.view;
+              // Only while the text is still what was flagged.
+              if (state.doc.textBetween(issue.from, issue.to) !== expected) return;
+              const tr =
+                text === ""
+                  ? state.tr.delete(issue.from, issue.to)
+                  : state.tr.insertText(text, issue.from, issue.to);
+              editor.view.dispatch(tr);
+              editor.commands.focus();
+            }}
+            onDone={(recheck) => {
+              setWritingPopover(null);
+              if (recheck) void runVisualChecks(editor.view);
+            }}
+          />
+        )}
       </div>
     </div>
   );

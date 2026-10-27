@@ -369,7 +369,9 @@ describe("VisualTexEditor render", () => {
     const column = host.querySelector(".visual-editor") as HTMLElement;
     // The default 14px, live from the settings store.
     expect(column.style.getPropertyValue("--editor-font-size")).toBe("14px");
-    expect(column.getAttribute("spellcheck")).toBe("true");
+    // The app's own spelling and grammar checks run instead of the
+    // browser's, which stays off.
+    expect(column.getAttribute("spellcheck")).toBe("false");
     expect(column.getAttribute("lang")).toBe("en");
 
     // Changing the setting re-renders the column with it.
