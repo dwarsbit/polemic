@@ -154,6 +154,12 @@ const graphicsPath = spanHighlightField("cm-graphics-path");
 export function LatexEditor({ visible = true }: { visible?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<EditorView | null>(null);
+  // Read by long-lived handlers that must know whether Visual is the
+  // face in front.
+  const visibleRef = useRef(visible);
+  useEffect(() => {
+    visibleRef.current = visible;
+  }, [visible]);
   const highlightCompartmentRef = useRef<Compartment | null>(null);
   const mathHoverCompartmentRef = useRef<Compartment | null>(null);
   const jumpTarget = useEditorStore((s) => s.jumpTarget);
@@ -953,6 +959,18 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     // active document in one undoable transaction.
     setApplyEditsHandler((edits, userEvent, options) => {
       if (edits.length === 0) return false;
+      // Behind the Visual face this view only resyncs on docVersion,
+      // so it can lag the store the edits were planned against.
+      const hidden = !visibleRef.current;
+      if (hidden) {
+        const content = useEditorStore.getState().content;
+        if (content !== view.state.doc.toString()) {
+          view.dispatch({
+            changes: { from: 0, to: view.state.doc.length, insert: content },
+            annotations: Transaction.addToHistory.of(false),
+          });
+        }
+      }
       const length = view.state.doc.length;
       if (edits.some((edit) => edit.from > edit.to || edit.to > length)) return false;
       view.dispatch({
@@ -961,6 +979,8 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
         annotations:
           options?.addToHistory === false ? Transaction.addToHistory.of(false) : [],
       });
+      // The Visual face reparses only on docVersion: reload it.
+      if (hidden) useEditorStore.getState().loadContent(view.state.doc.toString());
       return true;
     });
     // A "Fix this" click may have queued edits while another face or
