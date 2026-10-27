@@ -38,6 +38,8 @@ import {
 import type { PreambleAttrs } from "./doc-types";
 import { REF_CMDS, THEOREM_ENVS } from "./parse";
 import { assetKind } from "@/lib/assets";
+import { parseTable, tableAt, type TableGrid } from "@/lib/table-grid";
+import { useDialogsStore } from "@/store/dialogs";
 import { showNativeContextMenu, type NativeMenuEntry } from "@/lib/native-menu";
 import { runPanelCommand } from "@/lib/panel-commands";
 import { readAsset, readProjectFile, type FileEntry } from "@/lib/tauri";
@@ -265,6 +267,19 @@ export function captionText(src: string): string | null {
   return m === null || m[1].trim().length === 0 ? null : m[1].trim();
 }
 
+/** Rows a table block previews before "… n more rows". */
+const MAX_PREVIEW_ROWS = 12;
+
+/** The first table in a float's source the grid editor understands. */
+function tableIn(src: string): { from: number; to: number; grid: TableGrid } | null {
+  const at = src.search(/\\begin\{(tabular\*?|tabularx|array)\}/);
+  if (at === -1) return null;
+  const range = tableAt(src, at);
+  if (range === null) return null;
+  const grid = parseTable(src, range);
+  return grid === null ? null : { ...range, grid };
+}
+
 class FigureView extends EditableRawView {
   private objectUrl: string | null = null;
 
@@ -295,10 +310,12 @@ class FigureView extends EditableRawView {
       card.append(frame);
       void this.loadThumb(path, img);
     }
+    const table = tableIn(src);
+    if (path === null && table !== null) card.append(this.tablePreview(src, table));
     const meta = document.createElement("figcaption");
     const badge = document.createElement("span");
     badge.className = "vis-figure-path";
-    badge.textContent = path ?? "float";
+    badge.textContent = path ?? (table !== null ? "table" : "float");
     meta.append(badge);
     if (caption !== null) {
       const cap = document.createElement("span");
@@ -308,6 +325,64 @@ class FigureView extends EditableRawView {
     }
     card.append(meta);
     return card;
+  }
+
+  /** The table's cells as a read-only grid, with an Edit button that
+   *  opens the grid editor; its save replaces the tabular in the
+   *  node's source (one transaction, one undo step). */
+  private tablePreview(
+    src: string,
+    table: { from: number; to: number; grid: TableGrid },
+  ) {
+    const frame = document.createElement("div");
+    frame.className = "vis-table-frame";
+    const el = document.createElement("table");
+    el.className = "vis-table-preview";
+    const shown = table.grid.rows.slice(0, MAX_PREVIEW_ROWS);
+    shown.forEach((cells, r) => {
+      const tr = document.createElement("tr");
+      if ((table.grid.rules[r] ?? []).length > 0) tr.classList.add("vis-table-ruled");
+      for (const cell of cells) {
+        const td = document.createElement("td");
+        td.textContent = cell;
+        tr.append(td);
+      }
+      el.append(tr);
+    });
+    frame.append(el);
+    if (table.grid.rows.length > shown.length) {
+      const more = document.createElement("p");
+      more.className = "vis-table-more";
+      more.textContent = `… ${table.grid.rows.length - shown.length} more rows`;
+      frame.append(more);
+    }
+    const edit = document.createElement("button");
+    edit.type = "button";
+    edit.className = "vis-table-edit";
+    edit.textContent = "Edit table";
+    edit.title = "Edit the cells in a grid (double-click the block for its LaTeX)";
+    edit.addEventListener("mousedown", (event) => event.preventDefault());
+    edit.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      useDialogsStore.getState().setTableGrid({
+        grid: table.grid,
+        onSave: (latex) => {
+          const pos = this.getPos();
+          // Only while the block still holds the table that was opened.
+          if (pos === undefined || this.node.attrs.src !== src) return;
+          const next = src.slice(0, table.from) + latex + src.slice(table.to);
+          this.editor.view.dispatch(
+            this.editor.view.state.tr.setNodeMarkup(pos, undefined, {
+              ...this.node.attrs,
+              src: next,
+            }),
+          );
+        },
+      });
+    });
+    frame.append(edit);
+    return frame;
   }
 
   private async loadThumb(path: string, img: HTMLImageElement) {

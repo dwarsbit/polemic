@@ -81,6 +81,7 @@ import {
 } from "@/lib/assets";
 import { AssetThumb } from "@/components/AssetThumb";
 import { WritingPopover, type WritingIssue } from "@/components/WritingPopover";
+import { editTableAt, hasTableAt, setTableAtCursorHandler } from "@/lib/editor-table";
 import {
   grammarEnabled,
   grammarField,
@@ -694,6 +695,15 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
                     },
                   },
                   "separator",
+                  ...(hasTableAt(view, pos)
+                    ? [
+                        {
+                          id: "edit-table",
+                          text: "Edit Table…",
+                          action: () => void editTableAt(view, pos),
+                        },
+                      ]
+                    : []),
                   {
                     id: "insert-table",
                     text: "Insert Table…",
@@ -785,6 +795,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     // Serve the toolbar, dialogs, and panels: insert text at the
     // cursor. Multi-line snippets are blocks: fresh lines, never
     // landed mid-line.
+    setTableAtCursorHandler(() => editTableAt(view, view.state.selection.main.head));
     setInsertHandler((text, cursorOffset) => {
       const range = view.state.selection.main;
       const doc = view.state.doc;
@@ -1002,6 +1013,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     }
     return () => {
       setInsertHandler(null);
+      setTableAtCursorHandler(null);
       setWrapFigureHandler(null);
       setEnsurePackagesHandler(null);
       setTextWrapperHandler(null);

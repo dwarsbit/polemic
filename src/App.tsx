@@ -1,10 +1,12 @@
 import { ask } from "@tauri-apps/plugin-dialog";
+import { insertOrEditTable } from "@/lib/editor-table";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { AiFixDialog } from "@/components/AiFixDialog";
 import { CommandPalette } from "@/components/CommandPalette";
 import { ComponentGallery } from "@/components/ComponentGallery";
 import { TableDialog } from "@/components/TableDialog";
+import { TableGridDialog } from "@/components/TableGridDialog";
 import { DocumentSettingsDialog } from "@/components/DocumentSettingsDialog";
 import { PackagesDialog } from "@/components/PackagesDialog";
 import { EditorView } from "@/components/EditorView";
@@ -231,10 +233,7 @@ function App() {
           ["menu://toggle-search", () => runPanelCommand("toggle-search")],
           ["menu://toggle-issues", () => runPanelCommand("toggle-issues")],
           ["menu://toggle-log", () => runPanelCommand("toggle-log")],
-          [
-            "menu://insert-table",
-            () => useDialogsStore.getState().setTableDialogOpen(true),
-          ],
+          ["menu://insert-table", () => insertOrEditTable()],
           ["menu://wrap-figure", () => wrapFigure()],
           ["menu://insert-tikz", () => insertTikzSnippet("scaffold")],
           [
@@ -362,6 +361,7 @@ function App() {
       <ShortcutsDialog open={shortcutsOpen} onOpenChange={setShortcutsOpen} />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
       <TableDialog open={tableDialogOpen} onOpenChange={setTableDialogOpen} />
+      <TableGridDialog />
       <PackagesDialog open={packagesDialogOpen} onOpenChange={setPackagesDialogOpen} />
       <DocumentSettingsDialog
         open={documentSettingsOpen}

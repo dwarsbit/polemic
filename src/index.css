@@ -975,3 +975,42 @@ svg.vis-title-icon {
   text-decoration-skip-ink: none;
   text-decoration-color: var(--destructive);
 }
+
+/* Table floats: the cells as a read-only grid, with an Edit button. */
+.visual-editor .vis-table-frame {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  overflow-x: auto;
+}
+.visual-editor .vis-table-preview {
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 0.85em;
+}
+.visual-editor .vis-table-preview td {
+  padding: 0.15rem 0.6rem;
+  white-space: nowrap;
+}
+.visual-editor .vis-table-preview tr.vis-table-ruled td {
+  border-top: 1px solid var(--border);
+}
+.visual-editor .vis-table-more {
+  margin: 0.25rem 0 0;
+  text-align: center;
+  font-size: 0.8em;
+  color: var(--muted-foreground);
+}
+.visual-editor .vis-table-edit {
+  display: block;
+  margin: 0.4rem auto 0;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  font-size: 0.8em;
+  color: var(--muted-foreground);
+}
+.visual-editor .vis-table-edit:hover {
+  color: var(--foreground);
+  background: var(--accent);
+}
