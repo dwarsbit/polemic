@@ -834,8 +834,24 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       const doc = view.state.doc.toString();
       const next = insertPackages(doc, packages);
       if (next === doc) return;
+      // Only the changed span: replacing the whole document would send
+      // the cursor to the start, and the insert that follows with it.
+      let start = 0;
+      while (start < doc.length && doc[start] === next[start]) start++;
+      let end = 0;
+      while (
+        end < doc.length - start &&
+        end < next.length - start &&
+        doc[doc.length - 1 - end] === next[next.length - 1 - end]
+      ) {
+        end++;
+      }
       view.dispatch({
-        changes: { from: 0, to: doc.length, insert: next },
+        changes: {
+          from: start,
+          to: doc.length - end,
+          insert: next.slice(start, next.length - end),
+        },
         userEvent: "input.paste",
       });
     });

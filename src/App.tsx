@@ -7,6 +7,7 @@ import { CommandPalette } from "@/components/CommandPalette";
 import { ComponentGallery } from "@/components/ComponentGallery";
 import { TableDialog } from "@/components/TableDialog";
 import { TableGridDialog } from "@/components/TableGridDialog";
+import { CsvImportDialog } from "@/components/CsvImportDialog";
 import { DocumentSettingsDialog } from "@/components/DocumentSettingsDialog";
 import { PackagesDialog } from "@/components/PackagesDialog";
 import { EditorView } from "@/components/EditorView";
@@ -362,6 +363,7 @@ function App() {
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
       <TableDialog open={tableDialogOpen} onOpenChange={setTableDialogOpen} />
       <TableGridDialog />
+      <CsvImportDialog />
       <PackagesDialog open={packagesDialogOpen} onOpenChange={setPackagesDialogOpen} />
       <DocumentSettingsDialog
         open={documentSettingsOpen}

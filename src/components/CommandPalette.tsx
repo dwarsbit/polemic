@@ -212,6 +212,13 @@ export function CommandPalette() {
         run: () => useDialogsStore.getState().setTableDialogOpen(true),
       },
       {
+        id: "csv-import",
+        title: "Table or plot from CSV…",
+        icon: TableProperties,
+        keywords: "csv data import spreadsheet pgfplots plot chart booktabs",
+        run: () => useDialogsStore.getState().setCsvImport({ path: null }),
+      },
+      {
         id: "packages",
         title: "Manage packages…",
         icon: Package,

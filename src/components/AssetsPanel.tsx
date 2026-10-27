@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useDialogsStore } from "@/store/dialogs";
 import * as pdfjs from "pdfjs-dist";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import { ChevronRight, Plus, Search, X } from "lucide-react";
@@ -249,6 +250,11 @@ export function AssetsPanel() {
   }
 
   function insert(path: string) {
+    // Data files open the table / plot assistant instead.
+    if (/\.(csv|tsv)$/i.test(path)) {
+      useDialogsStore.getState().setCsvImport({ path });
+      return;
+    }
     const siblings = paths.filter(isInsertableGraphics);
     const { text, packages } = assetInsert(path, siblings);
     ensurePackages(packages);
