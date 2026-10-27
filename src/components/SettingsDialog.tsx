@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AiSettingsSection } from "@/components/AiSettingsSection";
+import { GrammarSettingsSection } from "@/components/GrammarSettingsSection";
 import { SourcesSettingsCard } from "@/components/SourcesSettings";
 import { TexStatusSection } from "@/components/TexStatus";
 import {
@@ -52,6 +53,14 @@ const THEME_LABELS: Record<ThemePreference, string> = {
   system: "System",
 };
 const FONT_SIZES = [12, 14, 16, 18];
+
+const ENGLISH_VARIANTS = [
+  { id: "en-US", name: "American" },
+  { id: "en-GB", name: "British" },
+  { id: "en-AU", name: "Australian" },
+  { id: "en-CA", name: "Canadian" },
+  { id: "en-IN", name: "Indian" },
+];
 
 const LANGUAGE_NAMES: Record<string, string> = {
   en: "English",
@@ -172,6 +181,8 @@ export function SettingsDialog({
   const reopenLastProject = useSettingsStore((s) => s.reopenLastProject);
   const setReopenLastProject = useSettingsStore((s) => s.setReopenLastProject);
   const autoIncludeNewFiles = useSettingsStore((s) => s.autoIncludeNewFiles);
+  const grammar = useSettingsStore((s) => s.grammar);
+  const setGrammar = useSettingsStore((s) => s.setGrammar);
   const onlineLookup = useSettingsStore((s) => s.onlineLookup);
   const setOnlineLookup = useSettingsStore((s) => s.setOnlineLookup);
   const setAutoIncludeNewFiles = useSettingsStore((s) => s.setAutoIncludeNewFiles);
@@ -329,7 +340,8 @@ export function SettingsDialog({
             {
               id: "spellcheck",
               label: "Spellcheck",
-              description: "Right-click a marked word to add it to your dictionary.",
+              description:
+                "Right-click a marked word for corrections, to add it to your dictionary, or to ignore it in this project.",
               keywords: "dictionary words typo underline",
               control: (
                 <Switch
@@ -446,6 +458,63 @@ export function SettingsDialog({
               ),
             },
           ],
+        },
+        {
+          title: "Grammar",
+          rows: [
+            {
+              id: "grammar",
+              label: "Grammar and style",
+              description:
+                "Underline grammar and style issues in blue; right-click for the fix or to turn the rule off.",
+              keywords: "grammar style languagetool harper check sentence",
+              control: (
+                <Switch
+                  checked={grammar.enabled !== false}
+                  onCheckedChange={(v) => void setGrammar({ ...grammar, enabled: v })}
+                />
+              ),
+            },
+            {
+              id: "english-variant",
+              label: "English variant",
+              description: "Spelling conventions the grammar checker expects.",
+              keywords: "british american australian canadian indian dialect",
+              control: (
+                <Select
+                  value={grammar.englishVariant ?? "en-US"}
+                  onValueChange={(v) =>
+                    void setGrammar({ ...grammar, englishVariant: v })
+                  }
+                >
+                  <SelectTrigger className="w-36">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {ENGLISH_VARIANTS.map((variant) => (
+                      <SelectItem key={variant.id} value={variant.id}>
+                        {variant.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              ),
+            },
+          ],
+        },
+        {
+          title: "Grammar checker and rules",
+          rows: [
+            {
+              id: "grammar-checker",
+              label: "Checker and rules",
+              description:
+                "Built in for English and offline; a LanguageTool server adds other languages.",
+              keywords: "languagetool server rules disable passive voice",
+              control: null,
+            },
+          ],
+          content: <GrammarSettingsSection />,
         },
       ],
     },
