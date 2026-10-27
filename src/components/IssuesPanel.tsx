@@ -1,9 +1,9 @@
 import { AlertTriangle, ChevronDown, Loader2, Sparkles, Wrench } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { CompileIssue } from "@/lib/tauri";
-import { fixIssue } from "@/lib/fix-issue";
-import { detectFixRule } from "@/lib/latex-fixes";
+import { fixIssue, planIssueFixes } from "@/lib/fix-issue";
+import type { TexFix } from "@/lib/latex-fixes";
 import { useDialogsStore } from "@/store/dialogs";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
@@ -45,6 +45,26 @@ export function IssuesPanel({
   const status = usePreviewStore((s) => s.status);
   const log = usePreviewStore((s) => s.log);
   const [fixNote, setFixNote] = useState<string | null>(null);
+  // The fix each issue would get, planned once per compile: Fix shows
+  // only where a rule actually has something to do.
+  const [planned, setPlanned] = useState<{
+    issues: CompileIssue[];
+    fixes: (TexFix | null)[];
+  } | null>(null);
+  const fixes = planned?.issues === issues ? planned.fixes : [];
+  useEffect(() => {
+    let cancelled = false;
+    void planIssueFixes(issues)
+      .then((plans) => {
+        if (!cancelled) setPlanned({ issues, fixes: plans });
+      })
+      .catch(() => {
+        // No plans: the panel simply offers no Fix buttons.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [issues]);
 
   const errors = issues.filter((i) => i.severity === "error").length;
   const warnings = issues.length - errors;
@@ -131,12 +151,12 @@ export function IssuesPanel({
                   >
                     {issueIcon(issue)}
                     <span className="min-w-0 flex-1 truncate">{issue.message}</span>
-                    {detectFixRule(issue) !== null && (
+                    {fixes[index] && (
                       <Button
                         variant="ghost"
                         size="sm"
                         className="h-4 shrink-0 gap-1 px-1 text-[11px] text-muted-foreground"
-                        title="Apply the automatic fix"
+                        title={fixes[index].title}
                         onClick={(e) => {
                           e.stopPropagation();
                           void onFix(issue);
