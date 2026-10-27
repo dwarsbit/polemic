@@ -1089,6 +1089,7 @@ async fn compile_project(
         let main_source = fs::read_to_string(project_file(&project_dir, &main_tex)?)
             .unwrap_or_default();
         let engine = profile::resolve(&profile::load(&dir), &main_source);
+        let started = std::time::SystemTime::now();
         let output = output_with_timeout(latexmk_command(&dir, &main_tex, engine), COMPILE_TIMEOUT).map_err(|e| match e {
             RunError::Spawn(e) => format!("failed to run latexmk: {e}\n\nIs a TeX distribution (TeX Live, MacTeX, or MiKTeX) installed and on your PATH?"),
             RunError::TimedOut => format!(
@@ -1099,9 +1100,21 @@ async fn compile_project(
         let success = output.status.success();
         let mut log = String::from_utf8_lossy(&output.stdout).to_string();
         log.push_str(&String::from_utf8_lossy(&output.stderr));
-        let issues = fs::read_to_string(dir.join("build").join(pdf_output_path(&main_tex).with_extension("log")))
+        let base = dir.join("build").join(pdf_output_path(&main_tex));
+        let mut issues = fs::read_to_string(base.with_extension("log"))
             .map(|text| logparse::parse_issues(&text))
             .unwrap_or_default();
+        // A .blg left over from an earlier run says nothing about this one.
+        let blg_path = base.with_extension("blg");
+        let blg = fs::metadata(&blg_path)
+            .and_then(|meta| meta.modified())
+            .is_ok_and(|modified| modified >= started)
+            .then(|| fs::read_to_string(&blg_path).ok())
+            .flatten();
+        if let Some(failure) = logparse::parse_bib_tool_failure(&log, blg.as_deref()) {
+            issues.retain(|issue| !logparse::is_rerun_bib_tool_warning(issue));
+            issues.insert(0, failure);
+        }
         Ok(CompileOutcome {
             success,
             issues,

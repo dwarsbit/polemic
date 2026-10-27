@@ -166,6 +166,11 @@ export function IssuesPanel({
                       </span>
                     )}
                   </div>
+                  {issue.hint && (
+                    <p className="pr-1 pb-0.5 pl-6 text-[11px] text-muted-foreground">
+                      {issue.hint}
+                    </p>
+                  )}
                 </li>
               ))}
             </ul>
