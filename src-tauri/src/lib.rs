@@ -611,6 +611,16 @@ fn check_words(
     Ok(state.check(&words))
 }
 
+/// Corrections for a misspelled word, closest first.
+#[tauri::command]
+fn spellcheck_suggestions(
+    state: tauri::State<'_, std::sync::Mutex<spell::SpellState>>,
+    word: String,
+) -> Result<Vec<String>, String> {
+    let state = state.lock().map_err(|e| e.to_string())?;
+    Ok(state.suggest(&word, 6))
+}
+
 #[tauri::command]
 fn add_spellcheck_word(
     app: tauri::AppHandle,
@@ -1863,6 +1873,7 @@ pub fn run() {    tauri::Builder::default()
             update_preferences,
             check_words,
             add_spellcheck_word,
+            spellcheck_suggestions,
             list_spellcheck_languages,
             install_spellcheck_language,
             set_spellcheck_language,

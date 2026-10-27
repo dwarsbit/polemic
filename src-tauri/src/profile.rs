@@ -14,6 +14,9 @@ use std::path::Path;
 pub struct ProjectConfig {
     /// "auto", "pdflatex", "xelatex", or "lualatex"; None means auto.
     pub engine: Option<String>,
+    /// Words the spellcheck accepts in this project only (names,
+    /// jargon), unlike the personal dictionary.
+    pub ignored_words: Vec<String>,
 }
 
 #[derive(Serialize, Clone, Copy, Debug, PartialEq)]
@@ -181,9 +184,9 @@ mod tests {
 
     #[test]
     fn the_project_setting_wins() {
-        let config = ProjectConfig { engine: Some("lualatex".into()) };
+        let config = ProjectConfig { engine: Some("lualatex".into()), ..Default::default() };
         assert_eq!(resolve(&config, "% !TEX program = xelatex\n"), Engine::Lualatex);
-        let auto_set = ProjectConfig { engine: Some("auto".into()) };
+        let auto_set = ProjectConfig { engine: Some("auto".into()), ..Default::default() };
         assert_eq!(resolve(&auto_set, "% !TEX program = xelatex\n"), Engine::Xelatex);
     }
 
@@ -192,9 +195,9 @@ mod tests {
         let dir = std::env::temp_dir().join(format!("polemic-profile-{}", std::process::id()));
         let _ = fs::remove_dir_all(&dir);
         fs::create_dir_all(&dir).unwrap();
-        let bad = ProjectConfig { engine: Some("-shell-escape".into()) };
+        let bad = ProjectConfig { engine: Some("-shell-escape".into()), ..Default::default() };
         assert!(save(&dir, &bad).is_err());
-        let good = ProjectConfig { engine: Some("xelatex".into()) };
+        let good = ProjectConfig { engine: Some("xelatex".into()), ..Default::default() };
         save(&dir, &good).unwrap();
         assert_eq!(load(&dir), good);
         let _ = fs::remove_dir_all(&dir);

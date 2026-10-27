@@ -186,6 +186,8 @@ export type TexEngine = "pdflatex" | "xelatex" | "lualatex";
 export interface ProjectConfig {
   /** null or "auto": magic comment, then a preamble guess. */
   engine: TexEngine | "auto" | null;
+  /** Words the spellcheck accepts in this project only. */
+  ignoredWords?: string[];
 }
 
 export function getProjectConfig(projectDir: string): Promise<ProjectConfig> {
@@ -329,6 +331,11 @@ export function checkWords(words: string[]): Promise<boolean[]> {
 
 export function addSpellcheckWord(word: string): Promise<void> {
   return invoke<void>("add_spellcheck_word", { word });
+}
+
+/** Corrections for a misspelled word, closest first. */
+export function spellcheckSuggestions(word: string): Promise<string[]> {
+  return invoke<string[]>("spellcheck_suggestions", { word });
 }
 
 export function listSpellcheckLanguages(): Promise<string[]> {
