@@ -7,6 +7,42 @@ Keep it short: what is done, what is in progress, what is next, how to
 verify. Commit each phase with a useful message and push to
 `origin/main`.
 
+## Spelling and grammar (2026-10-27)
+
+Branch `claude/dreamy-hamilton-2g65p8`, restarted from main after the
+previous PR merged.
+
+- Prose: `lib/prose.ts` turns LaTeX into blocks (paragraphs, headings,
+  captions, footnotes, items) with a source range per character. Math
+  reads as X, citations as [1], references as 1 (placeholders, skipped
+  by spelling, kept for grammar). Options and identifier arguments are
+  never prose.
+- Spelling: words match `\p{L}` (accents and other scripts whole).
+  `spell.rs` suggests corrections (OSA distance <= 2; same letters
+  reordered, then same first letter, then length). Per-project ignore
+  list in `.polemic/project.json` (`ignoredWords`); the document
+  settings dialog merges into that config.
+- Grammar: `grammar.rs`. Harper (harper-core, its SpellCheck rule off)
+  when no LanguageTool URL is set and the language is English; else
+  LanguageTool (`/check`, blocks joined by blank lines, matches split
+  back). UTF-16 offsets. Settings in `settings.grammar` with
+  `update_grammar_settings` (URL: https, or http to localhost).
+  `check_grammar` reads settings via `settings::snapshot` (no write).
+- Code view: `lib/grammar-check.ts` (cache per block text, keyed by the
+  settings that affect results; issues on placeholders dropped; a fix
+  applies only when no markup sits in the range).
+- Visual view: `lib/visual/writing.ts` reads the ProseMirror text blocks
+  directly (atoms as placeholders); the browser's spellcheck is off.
+  `WritingPopover` is shared by both views.
+- Checked: unit tests (prose, spelling, grammar cache, visual blocks,
+  Harper and LanguageTool parsing in Rust); Harper on a sample paper
+  (no false positives from placeholders); popovers, fixes, ignore and
+  rule switches in Chromium with a stubbed IPC. Not checked: a real
+  LanguageTool server (blocked from this environment) and a real Tauri
+  window.
+- Not covered: footnote text in the Visual view (atoms); old-style
+  accent commands (\"a) split words in the Code view.
+
 ## Asset hygiene (2026-10-26)
 
 Same branch as below.
