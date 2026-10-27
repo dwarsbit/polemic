@@ -1,6 +1,7 @@
 import {
   autocompletion,
   snippet,
+  startCompletion,
   type Completion,
   type CompletionContext,
   type CompletionResult,
@@ -57,6 +58,93 @@ export const COMMANDS: CommandSpec[] = [
     detail: "Include an image",
   },
 ];
+
+/** Citation commands, by the package that defines them. \\cite and
+ *  \\nocite are always available; the rest only when the project
+ *  loads natbib or biblatex. */
+const CITE_COMMANDS: {
+  name: string;
+  detail: string;
+  package: "natbib" | "biblatex" | null;
+}[] = [
+  { name: "cite", detail: "Cite a reference", package: null },
+  { name: "nocite", detail: "List in the bibliography without citing", package: null },
+  { name: "citet", detail: "Textual citation: Author (Year)", package: "natbib" },
+  {
+    name: "citep",
+    detail: "Parenthetical citation: (Author, Year)",
+    package: "natbib",
+  },
+  {
+    name: "citealt",
+    detail: "Textual citation without parentheses",
+    package: "natbib",
+  },
+  {
+    name: "citealp",
+    detail: "Parenthetical citation without parentheses",
+    package: "natbib",
+  },
+  { name: "citeauthor", detail: "Cite the author only", package: "natbib" },
+  { name: "citeyear", detail: "Cite the year only", package: "natbib" },
+  { name: "parencite", detail: "Parenthetical citation", package: "biblatex" },
+  { name: "textcite", detail: "Textual citation", package: "biblatex" },
+  {
+    name: "autocite",
+    detail: "Citation in the style's preferred form",
+    package: "biblatex",
+  },
+  { name: "footcite", detail: "Citation in a footnote", package: "biblatex" },
+  {
+    name: "smartcite",
+    detail: "Footnote citation, or parenthetical inside one",
+    package: "biblatex",
+  },
+  { name: "citeauthor", detail: "Cite the author only", package: "biblatex" },
+  { name: "citeyear", detail: "Cite the year only", package: "biblatex" },
+  { name: "citetitle", detail: "Cite the title only", package: "biblatex" },
+  {
+    name: "fullcite",
+    detail: "Full bibliography entry in the text",
+    package: "biblatex",
+  },
+];
+
+/** The cite commands the project's packages define, each inserted
+ *  with its braces and the key completion opened inside them. */
+export function citeCommandOptions(packages: {
+  natbib: boolean;
+  biblatex: boolean;
+}): Completion[] {
+  const seen = new Set<string>();
+  const out: Completion[] = [];
+  for (const cmd of CITE_COMMANDS) {
+    if (cmd.package !== null && !packages[cmd.package]) continue;
+    if (seen.has(cmd.name)) continue;
+    seen.add(cmd.name);
+    const insert = snippet(`\\${cmd.name}{\${}}`);
+    out.push({
+      label: `\\${cmd.name}`,
+      type: "function",
+      detail: cmd.detail,
+      apply: (view, completion, from, to) => {
+        insert(view, completion, from, to);
+        startCompletion(view);
+      },
+    });
+  }
+  return out;
+}
+
+/** The cite commands for the open project, from the packages its
+ *  .tex files load. */
+function projectCiteCommandOptions(): Completion[] {
+  const { natbibByFile, biblatexByFile } = useProjectStore.getState();
+  return citeCommandOptions({
+    natbib: Object.values(natbibByFile).some(Boolean),
+    biblatex: Object.values(biblatexByFile).some(Boolean),
+  });
+}
 
 const ENVIRONMENTS: { name: string; template: string }[] = [
   {
@@ -120,7 +208,12 @@ function commandOptions(): Completion[] {
     detail: cmd.detail,
     apply: snippet(cmd.template),
   }));
-  return [...envOptions, ...cmdOptions, ...mathCommandOptions()];
+  return [
+    ...envOptions,
+    ...cmdOptions,
+    ...projectCiteCommandOptions(),
+    ...mathCommandOptions(),
+  ];
 }
 
 /** Completions for math symbols from the symbols panel data. */
