@@ -961,3 +961,11 @@ svg.vis-title-icon {
 .visual-editor .ProseMirror-focused {
   outline: none;
 }
+
+/* Grammar and style hints: a blue wavy underline, next to spelling's red. */
+.cm-grammar,
+.writing-grammar {
+  text-decoration: underline wavy;
+  text-decoration-skip-ink: none;
+  text-decoration-color: var(--color-blue-500, #3b82f6);
+}
