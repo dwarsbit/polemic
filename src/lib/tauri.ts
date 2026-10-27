@@ -198,6 +198,9 @@ export interface CompileIssue {
    *  the source up to the point of the error, plus its wrapped
    *  continuation lines. Empty for warnings. */
   detail: string[];
+  /** What to do about it, when the message alone does not say (a
+   *  crashed biber, a missing .bib file). */
+  hint?: string | null;
 }
 
 export interface CompileOutcome {
