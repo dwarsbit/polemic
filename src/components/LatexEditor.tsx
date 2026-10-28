@@ -28,12 +28,7 @@ import { labelLine, refAt } from "@/lib/label-refs";
 import { includeAt } from "@/lib/doc-structure";
 import { openIncludeTarget } from "@/lib/include-nav";
 import { refLabelLint, refreshRefLabelLint } from "@/lib/ref-label-lint";
-import {
-  canRedoCrossFileMove,
-  canUndoCrossFileMove,
-  redoCrossFileMove,
-  undoCrossFileMove,
-} from "@/lib/outline-move";
+import { stepCrossFileMoveFromEditor } from "@/lib/outline-move";
 import { setFormatDocumentHandler, formatDocument } from "@/lib/editor-format";
 import { editorFontStack } from "@/lib/editor-fonts";
 import { editorHighlightExtension } from "@/lib/editor-themes";
@@ -460,31 +455,26 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
           }),
           // Ctrl+Z right after a cross-file outline move undoes it in
           // both files; it is not in this file's own history.
+          // A cross-file move steps in both files (it is not in this
+          // view's history).
           Prec.high(
-            keymap.of([
-              {
-                key: "Mod-z",
-                run: (view) => {
-                  const file = useProjectStore.getState().activeFile;
-                  if (file === null || !canUndoCrossFileMove(file, view.state.doc)) {
-                    return false;
-                  }
-                  void undoCrossFileMove();
-                  return true;
-                },
-              },
-              ...["Mod-Shift-z", "Mod-y"].map((key) => ({
+            keymap.of(
+              (
+                [
+                  ["Mod-z", "undo"],
+                  ["Mod-Shift-z", "redo"],
+                  ["Mod-y", "redo"],
+                ] as const
+              ).map(([key, direction]) => ({
                 key,
-                run: (view: EditorView) => {
-                  const file = useProjectStore.getState().activeFile;
-                  if (file === null || !canRedoCrossFileMove(file, view.state.doc)) {
-                    return false;
-                  }
-                  void redoCrossFileMove();
-                  return true;
-                },
+                run: (view: EditorView) =>
+                  stepCrossFileMoveFromEditor(
+                    useProjectStore.getState().activeFile,
+                    view.state.doc,
+                    direction,
+                  ),
               })),
-            ]),
+            ),
           ),
           keymap.of([
             {

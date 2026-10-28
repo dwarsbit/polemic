@@ -121,6 +121,28 @@ export function canRedoCrossFileMove(file: string, doc: Text): boolean {
   return fileIs(undoneMove, "before", file, doc);
 }
 
+/**
+ * Ctrl+Z / Ctrl+Shift+Z in an editor showing `file` (its text `doc`):
+ * step the recorded cross-file move when the file is exactly as that
+ * step expects, so both files change together. True when it took the
+ * key; false leaves the key to the editor's own history.
+ */
+export function stepCrossFileMoveFromEditor(
+  file: string | null,
+  doc: Text,
+  direction: "undo" | "redo",
+): boolean {
+  if (file === null) return false;
+  if (direction === "undo") {
+    if (!canUndoCrossFileMove(file, doc)) return false;
+    void undoCrossFileMove();
+  } else {
+    if (!canRedoCrossFileMove(file, doc)) return false;
+    void redoCrossFileMove();
+  }
+  return true;
+}
+
 /** The single edit turning `from` into `to` (common ends kept). */
 function diffEdit(from: string, to: string): SourceEdit {
   let start = 0;
