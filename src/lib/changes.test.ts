@@ -11,7 +11,10 @@ import {
   rejectAll,
   rejectChange,
   removeSetup,
+  optionsWithNote,
   setNote,
+  showSuggestionsInPdf,
+  suggestionsShownInPdf,
   type Change,
 } from "@/lib/changes";
 
@@ -562,5 +565,45 @@ describe("removeSetup", () => {
 
   it("does nothing without a setup", () => {
     expect(removeSetup("\\usepackage{graphicx}\nText\n")).toEqual([]);
+  });
+});
+
+describe("showSuggestionsInPdf", () => {
+  const set = (source: string, show: boolean) =>
+    applyEdits(source, showSuggestionsInPdf(source, show));
+
+  it("adds and removes the final option", () => {
+    const shown = "\\usepackage{changes}\n\\begin{document}\n";
+    expect(suggestionsShownInPdf(shown)).toBe(true);
+    const hidden = set(shown, false);
+    expect(hidden).toBe("\\usepackage[final]{changes}\n\\begin{document}\n");
+    expect(suggestionsShownInPdf(hidden)).toBe(false);
+    expect(set(hidden, true)).toBe(shown);
+  });
+
+  it("keeps other options and splits a shared package list", () => {
+    expect(set("\\usepackage[markup=underlined]{changes}\n", false)).toBe(
+      "\\usepackage[markup=underlined, final]{changes}\n",
+    );
+    expect(set("\\usepackage{xcolor,changes}\n", false)).toBe(
+      "\\usepackage{xcolor}\n\\usepackage[final]{changes}\n",
+    );
+  });
+
+  it("is null without the package", () => {
+    expect(suggestionsShownInPdf("\\usepackage{graphicx}\n")).toBeNull();
+    expect(showSuggestionsInPdf("\\usepackage{graphicx}\n", false)).toEqual([]);
+  });
+});
+
+describe("optionsWithNote", () => {
+  it("sets, changes and removes a note in an options string", () => {
+    expect(optionsWithNote("[id=LG]", "Why?")).toBe("[id=LG, comment={Why?}]");
+    expect(optionsWithNote("[id=LG, comment={Why?}]", "Because")).toBe(
+      "[id=LG, comment={Because}]",
+    );
+    expect(optionsWithNote("[id=LG, comment={Why?}]", null)).toBe("[id=LG]");
+    expect(optionsWithNote(null, "50% sure")).toBe("[comment={50\\% sure}]");
+    expect(optionsWithNote("[comment={x}]", null)).toBeNull();
   });
 });

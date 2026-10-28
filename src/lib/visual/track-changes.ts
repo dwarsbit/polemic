@@ -28,7 +28,15 @@ import {
 } from "@tiptap/pm/state";
 import { Mapping, ReplaceStep, type StepMap } from "@tiptap/pm/transform";
 import type { EditorView } from "@tiptap/pm/view";
-import { applyEdits, ensurePreamble, noteOfOptions } from "@/lib/changes";
+import {
+  applyEdits,
+  ensurePreamble,
+  noteOfOptions,
+  optionsWithNote,
+} from "@/lib/changes";
+import { noteKey } from "@/lib/suggestion-notes";
+import { useCommentsStore } from "@/store/comments";
+import { useProjectStore } from "@/store/project";
 import {
   reportSuggestMessage,
   requestSuggestSetup,
@@ -189,6 +197,31 @@ export function resolveVisualChange(
     const keep = (run.type === "insertion") === (how === "accept");
     if (keep) tr.removeMark(run.from, run.to, run.mark);
     else tr.delete(run.from, run.to);
+  }
+  tr.setMeta(SKIP, true);
+  closeHistory(tr);
+  view.dispatch(tr);
+  // The note goes with the markup; its replies are resolved.
+  const file = useProjectStore.getState().activeFile;
+  if (change.note !== null && file !== null) {
+    void useCommentsStore
+      .getState()
+      .resolveReplies(file, [noteKey(change.author, change.note)]);
+  }
+}
+
+/** Sets or removes a suggestion's note (`comment=` in its options) as
+ *  one undo step. */
+export function setVisualNote(
+  view: EditorView,
+  change: VisualChange,
+  note: string | null,
+): void {
+  const opts = optionsWithNote(change.opts, note);
+  const tr = view.state.tr;
+  for (const run of change.runs) {
+    tr.removeMark(run.from, run.to, run.mark);
+    tr.addMark(run.from, run.to, run.mark.type.create({ ...run.mark.attrs, opts }));
   }
   tr.setMeta(SKIP, true);
   closeHistory(tr);

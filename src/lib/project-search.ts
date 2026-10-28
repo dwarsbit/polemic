@@ -6,6 +6,7 @@
  */
 
 import type { SourceEdit } from "./label-index";
+import { suggestionSkipRanges } from "./changes";
 import { findMathRegion } from "./math-region";
 
 export type SearchScope = "all" | "math" | "text";
@@ -13,6 +14,9 @@ export type SearchScope = "all" | "math" | "text";
 export interface SearchOptions {
   caseSensitive: boolean;
   scope: SearchScope;
+  /** Also match text that a suggestion deletes. Matches in the
+   *  suggestions' own markup are never found. */
+  includeDeleted?: boolean;
 }
 
 export interface LineHit {
@@ -39,6 +43,12 @@ export function searchText(
   const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const pattern = new RegExp(escaped, options.caseSensitive ? "g" : "gi");
   const hits: LineHit[] = [];
+  // Track changes: the final text is searched (see SearchOptions).
+  const skip = text.includes("\\")
+    ? suggestionSkipRanges(text, options.includeDeleted)
+    : [];
+  const skipped = (from: number, to: number) =>
+    skip.some((r) => r.from < to && from < r.to);
   let lineStart = 0;
   for (const [index, line] of text.split("\n").entries()) {
     const matches: [number, number][] = [];
@@ -47,7 +57,9 @@ export function searchText(
       const inScope =
         options.scope === "all" ||
         (options.scope === "math") === (findMathRegion(text, lineStart + at) !== null);
-      if (inScope) matches.push([at, at + match[0].length]);
+      if (inScope && !skipped(lineStart + at, lineStart + at + match[0].length)) {
+        matches.push([at, at + match[0].length]);
+      }
     }
     if (matches.length > 0)
       hits.push({ line: index + 1, text: line, matches, lineStart });
