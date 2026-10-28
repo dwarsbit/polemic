@@ -14,7 +14,11 @@
  * argument, a group running across a blank line) is plain text.
  */
 
-import { parseUsepackage, type SourceEdit } from "@/lib/packages";
+import {
+  parseUsepackage,
+  planUsepackageRemoval,
+  type SourceEdit,
+} from "@/lib/packages";
 
 export type { SourceEdit };
 
@@ -795,4 +799,41 @@ export function setNote(
   return index > 0
     ? [{ from: entries[index - 1].range.to, to: entry.range.to, insert: "" }]
     : [{ from: entry.range.from, to: entries[1].range.from, insert: "" }];
+}
+
+/**
+ * The edits that remove the track changes setup: `\usepackage{changes}`
+ * (or `changes` from a package list) and every `\definechangesauthor`.
+ * A line left empty by a removal goes with it.
+ */
+export function removeSetup(source: string): SourceEdit[] {
+  const edits: SourceEdit[] = [];
+  const pkg = parseUsepackage(source).find(
+    (p) => p.names.includes("changes") && !inComment(source, p.from),
+  );
+  const ranges: SourceRange[] = parseAuthors(source).map((a) => a.range);
+  if (pkg) {
+    const plan = planUsepackageRemoval(source, "changes");
+    if (plan) {
+      if (plan.insert !== "") edits.push(plan);
+      else ranges.push({ from: plan.from, to: plan.to });
+    }
+  }
+  for (const range of ranges) {
+    let { from, to } = range;
+    const lineStart = source.lastIndexOf("\n", from - 1) + 1;
+    const nl = source.indexOf("\n", to);
+    const lineEnd = nl === -1 ? source.length : nl;
+    if (
+      source.slice(lineStart, from).trim() === "" &&
+      source.slice(to, lineEnd).trim() === ""
+    ) {
+      from = lineStart;
+      to = nl === -1 ? lineEnd : nl + 1;
+    }
+    edits.push({ from, to, insert: "" });
+  }
+  edits.sort((a, b) => a.from - b.from);
+  // A whole-line package removal may already cover an author line.
+  return edits.filter((e, i) => i === 0 || e.from >= edits[i - 1].to);
 }
