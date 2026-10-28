@@ -20,6 +20,7 @@ import {
   canRedoCrossFileMove,
   canUndoCrossFileMove,
   clearCrossFileMove,
+  onCrossFileMoveStep,
   redoCrossFileMove,
   undoCrossFileMove,
 } from "@/lib/outline-move";
@@ -133,5 +134,17 @@ describe("cross-file move", () => {
     await undoCrossFileMove();
     await moveB();
     expect(await redoCrossFileMove()).toBe(false);
+  });
+
+  it("tells listeners about each successful step", async () => {
+    const steps: string[] = [];
+    const off = onCrossFileMoveStep((direction) => steps.push(direction));
+    await moveB();
+    await undoCrossFileMove();
+    await redoCrossFileMove();
+    disk["chapter.tex"] += "more\n";
+    await undoCrossFileMove(); // refused: the other file changed
+    off();
+    expect(steps).toEqual(["undo", "redo"]);
   });
 });

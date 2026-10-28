@@ -17,6 +17,11 @@ vi.mock("@/lib/tauri", async (importOriginal) => ({
 import { OutlinePanel } from "@/components/OutlinePanel";
 import { setApplyEditsHandler, setHistoryHandler } from "@/lib/editor-edits";
 import { applyEdits, type SourceEdit } from "@/lib/label-index";
+import {
+  clearCrossFileMove,
+  recordCrossFileMove,
+  undoCrossFileMove,
+} from "@/lib/outline-move";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 
@@ -170,5 +175,38 @@ describe("OutlinePanel undo", () => {
     const event = press(field, { key: "z", ctrlKey: true });
     expect(event.defaultPrevented).toBe(false);
     expect(history).not.toHaveBeenCalled();
+  });
+});
+
+describe("OutlinePanel move status", () => {
+  it("follows an undo started outside the panel and offers Redo", async () => {
+    const before = useEditorStore.getState().content;
+    const after = "\\section{One}\nfirst\n";
+    useEditorStore.setState({ content: after });
+    disk["chapter.tex"] = "\\section{Two}\nsecond\n";
+    recordCrossFileMove("/p", [
+      { file: "main.tex", before, after },
+      { file: "chapter.tex", before: "", after: disk["chapter.tex"] },
+    ]);
+    const host = await mount();
+
+    // Ctrl+Z in an editor (either face) steps the move directly.
+    await act(async () => {
+      await undoCrossFileMove();
+    });
+    expect(useEditorStore.getState().content).toBe(before);
+    expect(host.textContent).toContain("Move undone.");
+    const redo = [...host.querySelectorAll("button")].find(
+      (b) => b.textContent === "Redo",
+    );
+    expect(redo).toBeDefined();
+
+    await act(async () => {
+      redo!.click();
+      await new Promise((r) => setTimeout(r, 0));
+    });
+    expect(useEditorStore.getState().content).toBe(after);
+    expect(host.textContent).toContain("Move redone.");
+    clearCrossFileMove();
   });
 });
