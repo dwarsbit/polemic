@@ -690,6 +690,14 @@ export interface GitStatus {
   ahead: number;
   behind: number;
   entries: GitEntry[];
+  /** The origin remote's URL; null without a remote. */
+  remote: string | null;
+  /** The branch's upstream ("origin/main"); null until the first push. */
+  upstream: string | null;
+  /** Paths left unmerged by a pull. */
+  conflicts: string[];
+  /** A merge is in progress: resolve the conflicts, stage, commit. */
+  merging: boolean;
 }
 
 export interface GitCommit {
@@ -725,6 +733,42 @@ export function gitLog(projectDir: string, limit: number): Promise<GitCommit[]> 
 
 export function gitShowHead(projectDir: string, path: string): Promise<string | null> {
   return invoke<string | null>("git_show_head", { projectDir, path });
+}
+
+/** Set the origin remote; an empty URL removes it. */
+export function gitSetRemote(projectDir: string, url: string): Promise<void> {
+  return invoke<void>("git_set_remote", { projectDir, url });
+}
+
+export function gitFetch(projectDir: string): Promise<void> {
+  return invoke<void>("git_fetch", { projectDir });
+}
+
+export type GitPullOutcome =
+  { kind: "upToDate" } | { kind: "updated" } | { kind: "conflicts"; paths: string[] };
+
+export function gitPull(projectDir: string): Promise<GitPullOutcome> {
+  return invoke<GitPullOutcome>("git_pull", { projectDir });
+}
+
+export function gitPush(projectDir: string): Promise<void> {
+  return invoke<void>("git_push", { projectDir });
+}
+
+export function gitAbortMerge(projectDir: string): Promise<void> {
+  return invoke<void>("git_abort_merge", { projectDir });
+}
+
+/** Clone a repository into the projects root as the project `name`. */
+export function gitCloneProject(url: string, name: string): Promise<ProjectInfo> {
+  return invoke<ProjectInfo>("git_clone_project", { url, name });
+}
+
+/** The project name a remote URL suggests: its last path segment. */
+export function projectNameFromRemote(url: string): string {
+  const trimmed = url.trim().replace(/\/+$/, "");
+  const last = trimmed.split(/[/:]/).pop() ?? "";
+  return last.replace(/\.git$/, "");
 }
 
 // --- Polemic account (Professional) -------------------------------------------

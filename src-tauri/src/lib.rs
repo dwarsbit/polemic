@@ -1,6 +1,6 @@
 mod account;
 mod files;
-mod git;
+pub mod git;
 mod guard;
 mod logparse;
 mod profile;
@@ -1422,6 +1422,67 @@ fn git_show_head(project_dir: String, path: String) -> Result<Option<String>, St
     git::show_head(&dir, &path)
 }
 
+#[tauri::command]
+fn git_set_remote(project_dir: String, url: String) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    git::set_remote(&dir, &url)
+}
+
+#[tauri::command]
+fn git_abort_merge(project_dir: String) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    git::abort_merge(&dir)
+}
+
+// The network operations run off the main thread: a slow remote must
+// not freeze the window.
+#[tauri::command]
+async fn git_fetch(project_dir: String) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    tauri::async_runtime::spawn_blocking(move || git::fetch(&dir))
+        .await
+        .map_err(|e| e.to_string())?
+}
+
+#[tauri::command]
+async fn git_pull(project_dir: String) -> Result<git::PullOutcome, String> {
+    let dir = canonical_project(&project_dir)?;
+    tauri::async_runtime::spawn_blocking(move || git::pull(&dir))
+        .await
+        .map_err(|e| e.to_string())?
+}
+
+#[tauri::command]
+async fn git_push(project_dir: String) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    tauri::async_runtime::spawn_blocking(move || git::push(&dir))
+        .await
+        .map_err(|e| e.to_string())?
+}
+
+/// Clone a repository into the projects root as a new project.
+#[tauri::command]
+async fn git_clone_project(
+    app: tauri::AppHandle,
+    url: String,
+    name: String,
+) -> Result<ProjectInfo, String> {
+    validate_project_name(&name)?;
+    let name = name.trim().to_string();
+    let cfg = settings::effective(&app)?;
+    let root = cfg.projects_root.expect("projects root is set by effective()");
+    let dest = std::path::Path::new(&root).join(&name);
+    if dest.exists() {
+        return Err(format!("a project named \"{name}\" already exists"));
+    }
+    let clone_dest = dest.clone();
+    tauri::async_runtime::spawn_blocking(move || git::clone(&url, &clone_dest))
+        .await
+        .map_err(|e| e.to_string())??;
+    let dir = fs::canonicalize(&dest).map_err(|e| format!("failed to open the clone: {e}"))?;
+    admit_project(&app, &dir)
+}
+
 // --- asset metadata ---------------------------------------------------------
 
 /// Asset tags, persisted in the project's .polemic/assets.json.
@@ -2088,6 +2149,12 @@ pub fn run() {    tauri::Builder::default()
             git_commit,
             git_log,
             git_show_head,
+            git_set_remote,
+            git_abort_merge,
+            git_fetch,
+            git_pull,
+            git_push,
+            git_clone_project,
             git_available,
             git_ignored,
             set_version_control,
