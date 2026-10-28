@@ -158,6 +158,9 @@ export interface Comment {
   resolved: boolean;
   /** null: a whole-file comment. */
   anchor: CommentAnchor | null;
+  /** A reply to a suggestion's note: the note's key (see
+   *  lib/suggestion-notes), so the thread follows the suggestion. */
+  suggestion?: string | null;
 }
 
 export interface TemplateInfo {

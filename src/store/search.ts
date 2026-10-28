@@ -7,12 +7,15 @@ interface SearchState {
   query: string;
   caseSensitive: boolean;
   scope: SearchScope;
+  /** Also search text that suggestions delete. */
+  includeDeleted: boolean;
   /** The replace row is open. */
   replaceOpen: boolean;
   replacement: string;
   setQuery: (query: string) => void;
   toggleCase: () => void;
   setScope: (scope: SearchScope) => void;
+  toggleIncludeDeleted: () => void;
   toggleReplace: () => void;
   setReplacement: (replacement: string) => void;
 }
@@ -26,6 +29,8 @@ export const useSearchStore = create<SearchState>((set) => ({
   setQuery: (query) => set({ query }),
   toggleCase: () => set((s) => ({ caseSensitive: !s.caseSensitive })),
   setScope: (scope) => set({ scope }),
+  includeDeleted: false,
+  toggleIncludeDeleted: () => set((s) => ({ includeDeleted: !s.includeDeleted })),
   replaceOpen: false,
   replacement: "",
   toggleReplace: () => set((s) => ({ replaceOpen: !s.replaceOpen })),

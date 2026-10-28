@@ -385,6 +385,12 @@ body {
   opacity: 0.3;
 }
 
+/* A note on a suggestion: dashed, so it reads apart from comments. */
+.cm-comment-bar.suggestion-note {
+  background: transparent;
+  border: 1.5px dashed var(--muted-foreground);
+}
+
 /* Track changes: suggested text colored by author (--change-color on
    each mark), insertions tinted, deletions struck out. */
 .cm-change-ins {
@@ -688,6 +694,31 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
 }
 
 /* Comments: faded, never mistaken for content. */
+/* Track changes in the Visual view (colors per author from the
+   editor's style element). */
+.visual-editor .vis-change {
+  --change-color: #64748b;
+}
+
+.visual-editor .vis-ins {
+  color: var(--change-color);
+  background: color-mix(in srgb, var(--change-color) 12%, transparent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--change-color) 55%, transparent);
+  text-underline-offset: 3px;
+}
+
+.visual-editor .vis-del {
+  color: var(--change-color);
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+/* The old text of a replacement sits right before the new. */
+.visual-editor .vis-del[data-pair] {
+  margin-right: 0.25em;
+}
+
 .visual-editor .vis-comment {
   color: var(--muted-foreground);
   font-style: italic;

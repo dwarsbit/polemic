@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ask } from "@tauri-apps/plugin-dialog";
 import {
   CaseSensitive,
+  Strikethrough,
   ChevronDown,
   Replace,
   Search as SearchIcon,
@@ -68,6 +69,8 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
   const toggleCase = useSearchStore((s) => s.toggleCase);
   const scope = useSearchStore((s) => s.scope);
   const setScope = useSearchStore((s) => s.setScope);
+  const includeDeleted = useSearchStore((s) => s.includeDeleted);
+  const toggleIncludeDeleted = useSearchStore((s) => s.toggleIncludeDeleted);
   const replaceOpen = useSearchStore((s) => s.replaceOpen);
   const toggleReplace = useSearchStore((s) => s.toggleReplace);
   const replacement = useSearchStore((s) => s.replacement);
@@ -119,7 +122,11 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
           }
           if (text === null) continue;
 
-          for (const hit of searchText(text, trimmed, { caseSensitive, scope })) {
+          for (const hit of searchText(text, trimmed, {
+            caseSensitive,
+            scope,
+            includeDeleted,
+          })) {
             found.push({
               file: path,
               line: hit.line,
@@ -144,6 +151,7 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
     query,
     caseSensitive,
     scope,
+    includeDeleted,
     diskTick,
   ]);
 
@@ -173,7 +181,7 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
       );
       if (!ok) return;
     }
-    const options = { caseSensitive, scope };
+    const options = { caseSensitive, scope, includeDeleted };
     let replaced = 0;
     let wroteDisk = false;
     for (const path of targetFiles) {
@@ -260,6 +268,16 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
           onClick={toggleCase}
         >
           <CaseSensitive className="size-3.5" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className={cn("size-6 shrink-0", !includeDeleted && "text-muted-foreground")}
+          title="Include text that suggestions delete"
+          aria-pressed={includeDeleted}
+          onClick={toggleIncludeDeleted}
+        >
+          <Strikethrough className="size-3.5" />
         </Button>
         <div className="flex shrink-0 items-center rounded-md border p-0.5">
           {SCOPES.map((s) => (

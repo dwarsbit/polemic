@@ -41,6 +41,10 @@ import {
   type ChangeAuthor,
   type SourceRange,
 } from "@/lib/changes";
+import { openCommentDialog } from "@/lib/editor-comments";
+import { noteKey } from "@/lib/suggestion-notes";
+import { useCommentsStore } from "@/store/comments";
+import { useProjectStore } from "@/store/project";
 import { suggestDeleteChar, suggestReplace, type SuggestResult } from "@/lib/suggest";
 
 /** CSS colors for the xcolor names authors are usually given. */
@@ -264,11 +268,20 @@ export function resolveChangeIn(
   const source = view.state.doc.toString();
   const edits = (how === "accept" ? acceptChange : rejectChange)(source, ref);
   if (edits.length === 0) return false;
+  const at = typeof ref === "number" ? ref : ref.from;
+  const target = changeAt(view.state, at);
   view.dispatch({
     changes: edits,
     userEvent: how === "accept" ? "input.acceptChange" : "input.rejectChange",
     annotations: isolateHistory.of("full"),
   });
+  // The note goes with the markup; its replies are resolved.
+  const file = useProjectStore.getState().activeFile;
+  if (target?.note != null && file !== null) {
+    void useCommentsStore
+      .getState()
+      .resolveReplies(file, [noteKey(target.author, target.note)]);
+  }
   return true;
 }
 
@@ -327,6 +340,21 @@ const changeHover = hoverTooltip(
         actions.className = "change-card-actions";
         const at = { ...change.range };
         actions.append(
+          actionButton(
+            change.note === null ? "Note" : "Edit note",
+            "A note on this suggestion, shown in the Comments panel",
+            () => {
+              const file = useProjectStore.getState().activeFile;
+              if (file === null) return;
+              openCommentDialog({
+                kind: "note",
+                file,
+                at: change.range.from,
+                note: change.note,
+                author: change.author,
+              });
+            },
+          ),
           actionButton("Accept", "Accept this suggestion", () => {
             resolveChangeIn(view, at, "accept");
             view.focus();
@@ -558,6 +586,16 @@ let listener: SuggestListener | null = null;
 /** Set by the editor host: where messages and setup requests go. */
 export function setSuggestListener(next: SuggestListener | null) {
   listener = next;
+}
+
+/** Shows a suggest-mode notice (also used by the Visual view). */
+export function reportSuggestMessage(text: string) {
+  listener?.message(text);
+}
+
+/** Sets the main file up for suggestions (a chapter got one). */
+export function requestSuggestSetup() {
+  listener?.needsSetup();
 }
 
 const SUGGESTED_EVENTS = [

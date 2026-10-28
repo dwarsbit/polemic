@@ -4,6 +4,7 @@
  * functions take source text in and return data out.
  */
 
+import { finalText } from "./changes";
 import { extractLabelPositions, extractRefPositions, type NamePos } from "./label-refs";
 
 export interface ScannedFile {
@@ -49,8 +50,12 @@ export function buildLabelIndex(files: ScannedFile[]): LabelIndex {
   const labels: LabelEntry[] = [];
   const refs: RefEntry[] = [];
   for (const { file, content } of files) {
-    labels.push(...toEntries(file, content, extractLabelPositions(content)));
-    refs.push(...toEntries(file, content, extractRefPositions(content)));
+    // Read the final text (suggested deletions left out), place by source.
+    const { text, map } = finalText(content);
+    const place = (positions: NamePos[]) =>
+      positions.map((pos) => ({ ...pos, from: map.toSource(pos.from) }));
+    labels.push(...toEntries(file, content, place(extractLabelPositions(text))));
+    refs.push(...toEntries(file, content, place(extractRefPositions(text))));
   }
   return { labels, refs };
 }

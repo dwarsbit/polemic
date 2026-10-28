@@ -3,6 +3,7 @@ import { GutterMarker, gutter, type EditorView } from "@codemirror/view";
 import { resolveAnchor } from "@/lib/comment-anchor";
 import { commentCategory } from "@/lib/comment-categories";
 import { openCommentDialog } from "@/lib/editor-comments";
+import { notesIn } from "@/lib/suggestion-notes";
 import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
 
@@ -14,6 +15,8 @@ interface AnchoredComment {
   category: string;
   resolved: boolean;
   line: number;
+  /** A suggestion's note (in the markup), not a comments.json entry. */
+  note?: { at: number; text: string; author: string | null };
 }
 
 class CommentMarker extends GutterMarker {
@@ -24,13 +27,30 @@ class CommentMarker extends GutterMarker {
   override toDOM() {
     const dom = document.createElement("div");
     dom.className = "cm-comment-bar";
-    dom.style.background = commentCategory(this.comment.category).color;
-    dom.title = commentCategory(this.comment.category).label;
+    const { note } = this.comment;
+    if (note) {
+      dom.classList.add("suggestion-note");
+      dom.title = `Suggestion note: ${note.text}`;
+    } else {
+      dom.style.background = commentCategory(this.comment.category).color;
+      dom.title = commentCategory(this.comment.category).label;
+    }
     if (this.comment.resolved) dom.classList.add("resolved");
     dom.addEventListener("mousedown", (event) => {
       event.preventDefault();
       event.stopPropagation();
-      openCommentDialog({ kind: "edit", id: this.comment.id });
+      const file = useProjectStore.getState().activeFile;
+      if (note && file !== null) {
+        openCommentDialog({
+          kind: "note",
+          file,
+          at: note.at,
+          note: note.text,
+          author: note.author,
+        });
+      } else {
+        openCommentDialog({ kind: "edit", id: this.comment.id });
+      }
     });
     return dom;
   }
@@ -38,7 +58,8 @@ class CommentMarker extends GutterMarker {
   override eq(other: CommentMarker): boolean {
     return (
       other.comment.id === this.comment.id &&
-      other.comment.resolved === this.comment.resolved
+      other.comment.resolved === this.comment.resolved &&
+      other.comment.note?.text === this.comment.note?.text
     );
   }
 }
@@ -59,6 +80,16 @@ export function anchoredComments(doc: Text, file: string): AnchoredComment[] {
       category: comment.category,
       resolved: comment.resolved,
       line,
+    });
+  }
+  // Notes on suggestions, merged with the comments.
+  for (const note of notesIn(file, doc.toString())) {
+    out.push({
+      id: `note:${note.at}`,
+      category: "note",
+      resolved: false,
+      line: note.line,
+      note: { at: note.at, text: note.note, author: note.author },
     });
   }
   out.sort((a, b) => a.line - b.line || a.id.localeCompare(b.id));

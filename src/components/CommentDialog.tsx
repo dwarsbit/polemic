@@ -12,9 +12,14 @@ import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { COMMENT_CATEGORIES } from "@/lib/comment-categories";
 import type { CommentTarget } from "@/lib/editor-comments";
+import { setNote } from "@/lib/changes";
+import { currentText, writeFileEdits } from "@/lib/project-texts";
+import { changeForNote, noteKey } from "@/lib/suggestion-notes";
+import { flushPendingSerialize } from "@/lib/visual/pending-serialize";
 import { useCommentsStore } from "@/store/comments";
 
-function anchorLabel(target: CommentTarget): string {
+function anchorLabel(target: Exclude<CommentTarget, { kind: "note" }>): string {
+  if (target.kind === "new" && target.suggestion) return "a suggestion's note";
   if (target.kind === "edit") {
     const comment = useCommentsStore
       .getState()
@@ -34,7 +39,7 @@ function CommentForm({
   target,
   onClose,
 }: {
-  target: CommentTarget;
+  target: Exclude<CommentTarget, { kind: "note" }>;
   onClose: () => void;
 }) {
   const comments = useCommentsStore((s) => s.comments);
@@ -63,6 +68,7 @@ function CommentForm({
           category,
           text: text.trim(),
           anchor: target.anchor,
+          suggestion: target.suggestion ?? null,
         });
       }
       onClose();
@@ -139,6 +145,92 @@ function CommentForm({
   );
 }
 
+/** The note text as the markup will hold it (one line, trimmed). */
+const noteText = (text: string) => text.replace(/\r?\n/g, " ").trim();
+
+/** A suggestion's note: written into the markup (`comment=`), its
+ *  replies following it in comments.json. */
+function NoteForm({
+  target,
+  onClose,
+}: {
+  target: Extract<CommentTarget, { kind: "note" }>;
+  onClose: () => void;
+}) {
+  const [text, setText] = useState(target.note ?? "");
+  const [error, setError] = useState<string | null>(null);
+
+  async function write(next: string | null) {
+    const value = next === null || noteText(next) === "" ? null : noteText(next);
+    if (target.apply) {
+      target.apply(value);
+    } else {
+      // The Visual view writes its edits back with a delay.
+      flushPendingSerialize();
+      const source = await currentText(target.file);
+      if (source === null) return;
+      const found =
+        target.note === null
+          ? null
+          : changeForNote(source, noteKey(target.author, target.note));
+      const ref = found?.range ?? target.at;
+      if (ref === null) {
+        setError("The suggestion is no longer there.");
+        return;
+      }
+      const edits = setNote(source, ref, value);
+      await writeFileEdits(target.file, source, edits, "input.suggestionNote", {
+        isolate: true,
+      });
+    }
+    // The thread follows the note; it ends when the note goes.
+    if (target.note !== null) {
+      const store = useCommentsStore.getState();
+      const from = noteKey(target.author, target.note);
+      if (value === null) await store.resolveReplies(target.file, [from]);
+      else await store.rekeyReplies(target.file, from, noteKey(target.author, value));
+    }
+    onClose();
+  }
+
+  return (
+    <>
+      <p className="text-xs text-muted-foreground">
+        Stored in the suggestion itself, so it travels with the file.
+      </p>
+      <Textarea
+        autoFocus
+        rows={3}
+        value={text}
+        placeholder="Write a note…"
+        onChange={(e) => setText(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) void write(text);
+        }}
+      />
+      {error && <p className="text-xs text-destructive">{error}</p>}
+      <DialogFooter>
+        {target.note !== null && (
+          <Button
+            variant="destructive"
+            size="icon-sm"
+            title="Delete note"
+            onClick={() => void write(null)}
+          >
+            <Trash2 />
+          </Button>
+        )}
+        <Button variant="outline" onClick={onClose}>
+          Cancel
+        </Button>
+        <Button disabled={noteText(text) === ""} onClick={() => void write(text)}>
+          Save
+        </Button>
+      </DialogFooter>
+    </>
+  );
+}
+
 export function CommentDialog({
   target,
   onClose,
@@ -151,10 +243,23 @@ export function CommentDialog({
       <DialogContent className="max-w-md">
         <DialogHeader>
           <DialogTitle>
-            {target?.kind === "edit" ? "Edit comment" : "New comment"}
+            {target?.kind === "note"
+              ? target.note === null
+                ? "Note on suggestion"
+                : "Edit suggestion note"
+              : target?.kind === "edit"
+                ? "Edit comment"
+                : target?.suggestion
+                  ? "Reply"
+                  : "New comment"}
           </DialogTitle>
         </DialogHeader>
-        {target !== null && <CommentForm target={target} onClose={onClose} />}
+        {target !== null &&
+          (target.kind === "note" ? (
+            <NoteForm target={target} onClose={onClose} />
+          ) : (
+            <CommentForm target={target} onClose={onClose} />
+          ))}
       </DialogContent>
     </Dialog>
   );

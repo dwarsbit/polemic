@@ -26,7 +26,8 @@ import {
   setSuggestMode,
   trackChanges,
 } from "@/lib/changes-view";
-import { ensurePreamble, parseAuthors } from "@/lib/changes";
+import { ensurePreamble } from "@/lib/changes";
+import { useMainFileAuthors, useSuggestAuthor } from "@/hooks/useTrackChanges";
 import { currentText, writeFileEdits } from "@/lib/project-texts";
 import {
   addCommentAtCursor,
@@ -396,60 +397,16 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
 
   // Suggestion colors and names come from the main file's preamble
   // when an \input chapter is open.
-  const mainFile = useProjectStore((s) => s.mainFile);
-  const mainBuffer = useProjectStore((s) =>
-    s.mainFile === null ? undefined : s.buffers[s.mainFile],
-  );
+  const mainAuthors = useMainFileAuthors();
   useEffect(() => {
-    if (mainFile === null || activeFile === mainFile || !projectPath) {
-      viewRef.current?.dispatch({ effects: setChangeAuthors.of([]) });
-      return;
-    }
-    let cancelled = false;
-    void (async () => {
-      const text =
-        mainBuffer ?? (await readProjectFile(projectPath, mainFile).catch(() => ""));
-      if (!cancelled) {
-        viewRef.current?.dispatch({ effects: setChangeAuthors.of(parseAuthors(text)) });
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [mainFile, activeFile, mainBuffer, projectPath]);
+    viewRef.current?.dispatch({ effects: setChangeAuthors.of(mainAuthors) });
+  }, [mainAuthors]);
 
-  // Suggest mode: the author's id comes from the main file's preamble
-  // (an existing definition with the same name, else the initials).
-  const suggesting = useSuggestStore((s) => s.enabled);
-  const authorName = useSettingsStore((s) => s.authorName);
-  const authorInitials = useSettingsStore((s) => s.authorInitials);
+  // Suggest mode follows the switch, the author and the open file.
+  const suggestAuthor = useSuggestAuthor();
   useEffect(() => {
-    const author = suggestionAuthor({ authorName, authorInitials });
-    if (
-      !suggesting ||
-      author === null ||
-      activeFile === null ||
-      !activeFile.endsWith(".tex")
-    ) {
-      viewRef.current?.dispatch({ effects: setSuggestMode.of(null) });
-      return;
-    }
-    let cancelled = false;
-    void (async () => {
-      const hasPreamble = mainFile === null || activeFile === mainFile;
-      const main = hasPreamble
-        ? useEditorStore.getState().content
-        : ((await currentText(mainFile)) ?? "");
-      if (cancelled) return;
-      const { id } = ensurePreamble(main, author);
-      viewRef.current?.dispatch({
-        effects: setSuggestMode.of({ ...author, id, hasPreamble }),
-      });
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [suggesting, authorName, authorInitials, activeFile, mainFile]);
+    viewRef.current?.dispatch({ effects: setSuggestMode.of(suggestAuthor) });
+  }, [suggestAuthor]);
   useEffect(() => {
     setSuggestListener({
       message: (text) => useSuggestStore.getState().flash(text),

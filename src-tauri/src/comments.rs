@@ -15,6 +15,10 @@ pub struct Comment {
     /// null: a whole-file comment. Otherwise the anchored text and the
     /// line number at creation time (a hint; the text is the truth).
     pub anchor: Option<CommentAnchor>,
+    /// A reply to a suggestion's note: the note's key (author and note
+    /// text), so the thread follows the suggestion. Absent otherwise.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub suggestion: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -41,4 +45,27 @@ pub fn save(project_dir: &std::path::Path, comments: &[Comment]) -> Result<(), S
     let json = serde_json::to_string_pretty(comments).map_err(|e| e.to_string())?;
     crate::files::write_atomic(&comments_file(project_dir), json.as_bytes())
         .map_err(|e| format!("failed to write comments: {e}"))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn reads_comments_without_a_suggestion_and_keeps_one() {
+        let old = r#"[{"id":"a","file":"main.tex","category":"change","text":"Hi",
+            "createdAt":1,"resolved":false,"anchor":null}]"#;
+        let comments: Vec<Comment> = serde_json::from_str(old).unwrap();
+        assert_eq!(comments[0].suggestion, None);
+        let json = serde_json::to_string(&comments).unwrap();
+        assert!(!json.contains("suggestion"));
+
+        let reply = r#"[{"id":"b","file":"main.tex","category":"change","text":"Yes",
+            "createdAt":2,"resolved":false,"anchor":null,"suggestion":"LG\u0000Why?"}]"#;
+        let comments: Vec<Comment> = serde_json::from_str(reply).unwrap();
+        assert_eq!(comments[0].suggestion.as_deref(), Some("LG\u{0}Why?"));
+        let back: Vec<Comment> =
+            serde_json::from_str(&serde_json::to_string(&comments).unwrap()).unwrap();
+        assert_eq!(back[0].suggestion, comments[0].suggestion);
+    }
 }
