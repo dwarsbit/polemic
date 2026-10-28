@@ -51,7 +51,7 @@ import type { ThemePreference } from "@/lib/theme";
 import { EDITOR_FONTS } from "@/lib/editor-fonts";
 import { SYNTAX_THEMES } from "@/lib/editor-themes";
 import { fuzzyMatch } from "@/lib/fuzzy";
-import { resolveVersionControl, useSettingsStore } from "@/store/settings";
+import { initialsOf, resolveVersionControl, useSettingsStore } from "@/store/settings";
 import { cn } from "cn";
 
 const THEMES: { id: ThemePreference; label: string; icon: typeof Sun }[] = [
@@ -255,6 +255,9 @@ export function SettingsDialog({
   const onlineLookup = useSettingsStore((s) => s.onlineLookup);
   const setOnlineLookup = useSettingsStore((s) => s.setOnlineLookup);
   const setAutoIncludeNewFiles = useSettingsStore((s) => s.setAutoIncludeNewFiles);
+  const authorName = useSettingsStore((s) => s.authorName);
+  const authorInitials = useSettingsStore((s) => s.authorInitials);
+  const setAuthor = useSettingsStore((s) => s.setAuthor);
   const versionControl = useSettingsStore((s) => resolveVersionControl(s));
   const setVersionControl = useSettingsStore((s) => s.setVersionControl);
   const gitAvailable = useSettingsStore((s) => s.gitAvailable);
@@ -309,7 +312,8 @@ export function SettingsDialog({
       id: "general",
       label: "General",
       icon: SlidersHorizontal,
-      intro: "Startup, where projects live, and how changes are tracked.",
+      intro:
+        "Startup, where projects live, your name on suggestions, and version control.",
       cards: [
         {
           title: "Projects",
@@ -359,6 +363,52 @@ export function SettingsDialog({
                 <Switch
                   checked={autoIncludeNewFiles}
                   onCheckedChange={(v) => void setAutoIncludeNewFiles(v)}
+                />
+              ),
+            },
+          ],
+        },
+        {
+          title: "Track changes",
+          rows: [
+            {
+              id: "author-name",
+              label: "Your name",
+              description: "Shown on your suggestions in Suggest mode.",
+              keywords: "author track changes suggestions review name",
+              control: (
+                <Input
+                  key={`name:${authorName}`}
+                  className="h-8 w-44 text-xs"
+                  placeholder="Name"
+                  aria-label="Your name"
+                  defaultValue={authorName}
+                  onBlur={(e) => {
+                    if (e.target.value.trim() !== authorName) {
+                      void setAuthor({ name: e.target.value });
+                    }
+                  }}
+                />
+              ),
+            },
+            {
+              id: "author-initials",
+              label: "Your initials",
+              description:
+                "The id on your suggestions in the source. Empty uses the initials of your name.",
+              keywords: "author track changes suggestions initials id",
+              control: (
+                <Input
+                  key={`initials:${authorInitials}`}
+                  className="h-8 w-20 text-xs"
+                  placeholder={initialsOf(authorName) || "LG"}
+                  aria-label="Your initials"
+                  defaultValue={authorInitials}
+                  onBlur={(e) => {
+                    if (e.target.value !== authorInitials) {
+                      void setAuthor({ initials: e.target.value });
+                    }
+                  }}
                 />
               ),
             },

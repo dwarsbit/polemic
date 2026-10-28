@@ -106,6 +106,10 @@ pub struct Settings {
     /// The Polemic server for the Professional account; None means
     /// app.polemicapp.com. The token itself is in the credential store.
     pub account_server: Option<String>,
+    /// The name on suggestions (track changes); later comments too.
+    pub author_name: Option<String>,
+    /// The author's initials, the id in `\definechangesauthor`.
+    pub author_initials: Option<String>,
 }
 
 /// Managed state holding the in-memory settings.

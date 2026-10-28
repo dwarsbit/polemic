@@ -455,8 +455,22 @@ fn update_preferences(
     bib_editor_mode: Option<String>,
     online_lookup: Option<bool>,
     sources: Option<Vec<SourceDef>>,
+    author_name: Option<String>,
+    author_initials: Option<String>,
 ) -> Result<Settings, String> {
     settings::update(&app, |s| {
+        if let Some(name) = author_name {
+            let name = name.trim().to_string();
+            s.author_name = (!name.is_empty()).then_some(name);
+        }
+        if let Some(initials) = author_initials {
+            let initials: String = initials
+                .chars()
+                .filter(|c| c.is_ascii_alphanumeric())
+                .take(8)
+                .collect();
+            s.author_initials = (!initials.is_empty()).then_some(initials);
+        }
         if theme.is_some() {
             s.theme = theme;
         }

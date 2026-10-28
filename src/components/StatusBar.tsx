@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Check, Loader2 } from "lucide-react";
+import { SuggestToggle } from "@/components/SuggestToggle";
 import { detectTex, type ToolInfo } from "@/lib/tauri";
 import { countWords, totalWords } from "@/lib/word-count";
 import { useEditorStore } from "@/store/editor";
@@ -77,6 +78,7 @@ export function StatusBar() {
             {totalWords(countWords(content)).toLocaleString()} words
           </span>
         )}
+        {activeFile?.endsWith(".tex") && <SuggestToggle compact />}
       </div>
       <div className="flex shrink-0 items-center gap-3">
         <CompileStatus />
