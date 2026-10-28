@@ -1,5 +1,5 @@
 // @vitest-environment happy-dom
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { EditorState } from "@codemirror/state";
 import { EditorView } from "@codemirror/view";
 import {
@@ -16,6 +16,8 @@ import {
   changesField,
   resolveChangeIn,
   setChangeAuthors,
+  setSuggestListener,
+  setSuggestMode,
   trackChanges,
 } from "@/lib/changes-view";
 import { parseAuthors } from "@/lib/changes";
@@ -139,5 +141,90 @@ describe("track changes in the Code view", () => {
   it("gives authors without a known color distinct fallbacks", () => {
     const styles = authorStyles([], ["A", "B"]);
     expect(styles.get("A")?.color).not.toBe(styles.get("B")?.color);
+  });
+});
+
+describe("suggest mode", () => {
+  const author = { id: "LG", name: "Leon", initials: "LG", hasPreamble: true };
+
+  function suggesting(doc: string, cursor: number): EditorView {
+    const v = mount(doc, cursor);
+    v.dispatch({ effects: setSuggestMode.of(author) });
+    return v;
+  }
+
+  function typeText(v: EditorView, text: string) {
+    for (const ch of text) {
+      const { from, to } = v.state.selection.main;
+      v.dispatch({
+        changes: { from, to, insert: ch },
+        selection: { anchor: from + 1 },
+        userEvent: "input.type",
+      });
+    }
+  }
+
+  it("types a suggestion and sets the preamble up once", () => {
+    const doc =
+      "\\documentclass{article}\n\\begin{document}\nThe model.\n\\end{document}\n";
+    const v = suggesting(doc, doc.indexOf("model"));
+    typeText(v, "new ");
+    expect(v.state.doc.toString()).toBe(
+      "\\documentclass{article}\n\\usepackage{changes}\n" +
+        "\\definechangesauthor[name={Leon}, color=orange]{LG}\n" +
+        "\\begin{document}\nThe \\added[id=LG]{new }model.\n\\end{document}\n",
+    );
+    // The caret stays inside, so the typing merged into one suggestion.
+    expect(text(v)).toContain("The new model.");
+  });
+
+  it("backspaces into one deletion and undoes per typing burst", () => {
+    const v = suggesting("The model.", "The model".length);
+    deleteCharBackward(v);
+    deleteCharBackward(v);
+    expect(v.state.doc.toString()).toBe("The mod\\deleted[id=LG]{el}.");
+    undo(v);
+    expect(v.state.doc.toString()).toBe("The model.");
+  });
+
+  it("replaces a selection with one \\replaced", () => {
+    const v = suggesting("The results suggest it.", 0);
+    const from = "The results ".length;
+    v.dispatch({ selection: { anchor: from, head: from + "suggest".length } });
+    typeText(v, "confirm");
+    expect(v.state.doc.toString()).toBe(
+      "The results \\replaced[id=LG]{confirm}{suggest} it.",
+    );
+  });
+
+  it("refuses an edit inside math with a message", async () => {
+    const message = vi.fn();
+    setSuggestListener({ message, needsSetup: () => {} });
+    const v = suggesting("Let $x+y$ be.", "Let $x".length);
+    typeText(v, "z");
+    expect(v.state.doc.toString()).toBe("Let $x+y$ be.");
+    await Promise.resolve();
+    expect(message).toHaveBeenCalledWith(expect.stringMatching(/math/));
+    setSuggestListener(null);
+  });
+
+  it("asks the host to set the main file up from a chapter", async () => {
+    const needsSetup = vi.fn();
+    setSuggestListener({ message: () => {}, needsSetup });
+    const v = mount("A chapter.", 2);
+    v.dispatch({ effects: setSuggestMode.of({ ...author, hasPreamble: false }) });
+    typeText(v, "new ");
+    expect(v.state.doc.toString()).toBe("A \\added[id=LG]{new }chapter.");
+    await Promise.resolve();
+    expect(needsSetup).toHaveBeenCalled();
+    setSuggestListener(null);
+  });
+
+  it("leaves edits alone when suggest mode is off", () => {
+    const v = mount("ab", 1);
+    v.dispatch({ effects: setSuggestMode.of(author) });
+    v.dispatch({ effects: setSuggestMode.of(null) });
+    typeText(v, "x");
+    expect(v.state.doc.toString()).toBe("axb");
   });
 });
