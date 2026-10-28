@@ -12,9 +12,9 @@ import { CopyPage } from "@/lab/pages/Copy";
 /**
  * The Design Lab: dev-only prototypes, one page per area, built from
  * the app's own shadcn components on mock data. Open with `?lab` (or
- * `?lab=shell` etc.) under `pnpm dev`. The toolbar flips the token set
- * (current mauve vs. proposed mist) and light/dark so every page can be
- * compared in place.
+ * `?lab=shell` etc.) under `pnpm dev`. The toolbar flips light and dark.
+ * The designs are merged into the app; the lab stays as the reference
+ * for the typography roles, the menu structure and the copy guide.
  */
 
 const PAGES: {
@@ -87,20 +87,17 @@ function Segmented<T extends string>({
 
 export function Lab() {
   const [page, setPage] = useState(readPage);
-  const [mist, setMist] = useState(() => readFlag("mist", true));
   const [dark, setDark] = useState(() => readFlag("dark", false));
 
   useEffect(() => {
     const root = document.documentElement;
     root.classList.add("lab");
-    root.classList.toggle("theme-mist", mist);
     root.classList.toggle("dark", dark);
     const params = new URLSearchParams(location.search);
     params.set("lab", page);
-    params.set("mist", mist ? "1" : "0");
     params.set("dark", dark ? "1" : "0");
     history.replaceState(null, "", `?${params}`);
-  }, [page, mist, dark]);
+  }, [page, dark]);
 
   const current = PAGES.find((p) => p.id === page) ?? PAGES[0];
 
@@ -147,14 +144,6 @@ export function Lab() {
               </PopoverContent>
             </Popover>
           )}
-          <Segmented
-            value={mist ? "mist" : "current"}
-            options={[
-              { id: "current", label: "Current tokens" },
-              { id: "mist", label: "Mist + violet" },
-            ]}
-            onChange={(v) => setMist(v === "mist")}
-          />
           <Segmented
             value={dark ? "dark" : "light"}
             options={[

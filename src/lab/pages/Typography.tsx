@@ -157,14 +157,14 @@ export function TypographyPage() {
     <>
       <h1 className="mb-1 text-lg font-semibold">Typography and color roles</h1>
       <p className="mb-8 max-w-2xl text-sm text-muted-foreground">
-        The app composes text from 8 sizes, 3 weights and 11 color classes case by case.
-        The proposal is a short list of named roles, one combination each, and a single
-        small size (11px) for meta text.
+        The app composed text from 8 sizes, 3 weights and 11 color classes case by case.
+        The redesign uses a short list of named roles, one combination each, and a
+        single small size (11px), text-2xs, for meta text.
       </p>
 
       <LabSection
-        title="Today"
-        note="Class usage across src/components. Three ad-hoc pixel sizes and six status hues stand out."
+        title="Before the redesign"
+        note="Class usage across src/components before the merge. Three ad-hoc pixel sizes and six status hues stood out."
       >
         <div className="grid grid-cols-3 gap-4">
           {(["sizes", "weights", "colors"] as const).map((group) => (

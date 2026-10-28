@@ -21,7 +21,8 @@ interface Entry {
 const RULES: { rule: string; example: string }[] = [
   {
     rule: "Sentence case for everything in the app: panel titles, buttons, labels, tabs, settings. Title Case only in native menus.",
-    example: "FIGURES & TABLES → Figures & tables · New File (context menu) → New file",
+    example:
+      "FIGURES & TABLES → Figures & tables · New File stays in native context menus",
   },
   {
     rule: "One name per thing. Bibliography is the panel and the .bib data; Sources are where entries come from; References never appears. Issues (not problems, not errors list). Properties (not Info). Navigator is the left column, Preview the PDF.",
@@ -166,7 +167,7 @@ const PROPOSALS: { where: string; from: string; to: string; why?: string }[] = [
   {
     where: "Files",
     from: "New File / New Folder (context menu)",
-    to: "New file / New folder",
+    to: "Unchanged: native menus keep Title Case",
   },
   { where: "Files", from: "Confirm (rename dialog)", to: "Rename" },
   {

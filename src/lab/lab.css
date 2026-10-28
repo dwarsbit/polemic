@@ -1,6 +1,0 @@
-/* The Design Lab's stylesheet: the app's stylesheet plus the proposed
-   tokens. Loaded instead of index.css when the lab is up (main.tsx),
-   so Tailwind generates the tint/status utilities for the lab pages
-   without touching the app's CSS. */
-@import "../index.css";
-@import "./lab-theme.css";
