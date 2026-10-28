@@ -70,6 +70,7 @@ import {
   runVisualChecks,
   setVisualIssueHandler,
 } from "@/lib/visual/writing";
+import { formatShortcut } from "@/lib/platform";
 
 /** The cursor's place in the document, for face switches. */
 function anchorFromDoc(editor: NonNullable<ReturnType<typeof useEditor>>): FaceAnchor {
@@ -276,7 +277,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
         <Button
           variant="ghost"
           size="icon-sm"
-          title="Undo (Cmd/Ctrl + Z)"
+          title={`Undo (${formatShortcut("Mod+Z")})`}
           disabled={!active?.canUndo}
           onClick={toggle(() => editor.chain().undo().run())}
         >
@@ -285,7 +286,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
         <Button
           variant="ghost"
           size="icon-sm"
-          title="Redo (Cmd/Ctrl + Shift + Z)"
+          title={`Redo (${formatShortcut("Mod+Shift+Z")})`}
           disabled={!active?.canRedo}
           onClick={toggle(() => editor.chain().redo().run())}
         >
@@ -297,7 +298,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
         <Button
           variant={active?.bold ? "secondary" : "ghost"}
           size="icon-sm"
-          title="Bold — \\textbf (Cmd/Ctrl + B)"
+          title={`Bold (${formatShortcut("Mod+B")})`}
           onClick={toggle(() => editor.chain().toggleBold().run())}
         >
           <Bold className="size-4" />
@@ -305,7 +306,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
         <Button
           variant={active?.italic ? "secondary" : "ghost"}
           size="icon-sm"
-          title="Emphasis — \\emph (Cmd/Ctrl + I)"
+          title={`Emphasis (${formatShortcut("Mod+I")})`}
           onClick={toggle(() => editor.chain().toggleItalic().run())}
         >
           <Italic className="size-4" />
@@ -313,7 +314,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
         <Button
           variant={active?.underline ? "secondary" : "ghost"}
           size="icon-sm"
-          title="Underline — \\underline (Cmd/Ctrl + U)"
+          title={`Underline (${formatShortcut("Mod+U")})`}
           onClick={toggle(() => editor.chain().toggleUnderline().run())}
         >
           <Underline className="size-4" />

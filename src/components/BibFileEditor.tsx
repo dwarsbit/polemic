@@ -31,6 +31,7 @@ import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import { useUiStore } from "@/store/ui";
 import { cn } from "cn";
+import { formatShortcut } from "@/lib/platform";
 
 interface DialogState {
   kind: "edit" | "new";
@@ -344,7 +345,7 @@ export function BibFileEditor() {
           size="sm"
           className="shrink-0"
           disabled={!dirty}
-          title="Save (Cmd/Ctrl + S)"
+          title={`Save (${formatShortcut("Mod+S")})`}
           onClick={() => void saveNow()}
         >
           Save

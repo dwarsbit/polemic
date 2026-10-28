@@ -167,7 +167,9 @@ export function FloatsPanel() {
         {floats === null && order !== null ? null : floats === null ||
           floats.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
-            {activeFile ? "No figures or tables in this document." : "No file open."}
+            {activeFile
+              ? "No figures or tables in this document yet."
+              : "No file open."}
           </p>
         ) : visible.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">

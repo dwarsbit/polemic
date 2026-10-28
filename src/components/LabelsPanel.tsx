@@ -345,14 +345,14 @@ export function LabelsPanel() {
               </button>
               {row.refs === 0 ? (
                 <span className="mr-1 shrink-0 rounded-full border border-warning/50 px-1.5 py-0 text-2xs leading-4 text-warning">
-                  unused
+                  Unused
                 </span>
               ) : (
                 <span
                   className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground"
                   title={`${row.refs} reference${row.refs === 1 ? "" : "s"}`}
                 >
-                  {row.refs}×
+                  {row.refs}
                 </span>
               )}
               <span className="max-w-24 shrink-0 truncate text-2xs text-muted-foreground">
@@ -398,7 +398,7 @@ export function LabelsPanel() {
           <p className="px-2 text-xs text-muted-foreground">
             {query.trim().length > 0
               ? "No labels match your search."
-              : "No labels in this project yet."}
+              : "No labels yet. Add one with \\label."}
           </p>
         ) : (
           groups.map(([group, groupRows]) => {
@@ -475,7 +475,7 @@ export function LabelsPanel() {
                     {ref.name}
                   </button>
                   <span className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground">
-                    {ref.count}×
+                    {ref.count}
                   </span>
                   <span className="max-w-24 shrink-0 truncate text-2xs text-muted-foreground">
                     {ref.file}:{ref.line}

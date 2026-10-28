@@ -151,10 +151,10 @@ export function TabsBar() {
       >
         <DialogContent className="max-w-sm">
           <DialogHeader>
-            <DialogTitle>Close {pendingClose?.split("/").pop()}?</DialogTitle>
+            <DialogTitle>Save changes to {pendingClose?.split("/").pop()}?</DialogTitle>
           </DialogHeader>
           <p className="text-sm text-muted-foreground">
-            This file has unsaved changes.
+            Your changes will be lost if you don't save them.
           </p>
           <DialogFooter>
             <Button variant="outline" onClick={() => setPendingClose(null)}>
@@ -169,7 +169,7 @@ export function TabsBar() {
                   void useProjectStore.getState().closeFile(file, { discard: true });
               }}
             >
-              Discard
+              Don&apos;t save
             </Button>
             <Button
               disabled={!pendingDirty}
@@ -179,7 +179,7 @@ export function TabsBar() {
                 if (file) void useProjectStore.getState().closeFile(file);
               }}
             >
-              Save &amp; Close
+              Save
             </Button>
           </DialogFooter>
         </DialogContent>

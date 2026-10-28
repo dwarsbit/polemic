@@ -16,6 +16,7 @@ import {
 import type { IssuesTool } from "@/components/IssuesPanel";
 import type { LeftTab } from "@/components/Sidebar";
 import { useDialogsStore } from "@/store/dialogs";
+import { formatShortcut } from "@/lib/platform";
 import { cn } from "cn";
 
 /** Navigator panels, selectable from the top of the rail. */
@@ -24,7 +25,7 @@ const NAVIGATOR_TABS: { id: LeftTab; label: string; icon: typeof Folder }[] = [
   { id: "outline", label: "Outline", icon: ListTree },
   { id: "symbols", label: "Symbols", icon: Sigma },
   { id: "assets", label: "Assets", icon: Images },
-  { id: "floats", label: "Figures & Tables", icon: GalleryVertical },
+  { id: "floats", label: "Figures & tables", icon: GalleryVertical },
   { id: "labels", label: "Labels", icon: Tags },
   { id: "bibliography", label: "Bibliography", icon: BookOpen },
 ];
@@ -32,8 +33,8 @@ const NAVIGATOR_TABS: { id: LeftTab; label: string; icon: typeof Folder }[] = [
 /** Bottom-dock tools (the issues row), selectable from the bottom. */
 const ISSUE_TOOLS: { id: IssuesTool; label: string; icon: typeof Folder }[] = [
   { id: "issues", label: "Issues", icon: AlertTriangle },
-  { id: "log", label: "Compile Log", icon: ScrollText },
-  { id: "search", label: "Search", icon: Search },
+  { id: "log", label: "Compile log", icon: ScrollText },
+  { id: "search", label: "Search in project", icon: Search },
 ];
 
 /** A rail icon. The open panel's icon sits on the accent surface with
@@ -108,14 +109,14 @@ export function LeftRail({
           dialogs. */}
       <div className="my-1 w-5 border-t" />
       <RailButton
-        label="Manage packages (Cmd/Ctrl + Alt + P)"
+        label={`Packages (${formatShortcut("Mod+Alt+P")})`}
         active={false}
         onClick={() => useDialogsStore.getState().setPackagesDialogOpen(true)}
       >
         <Package className="size-4" />
       </RailButton>
       <RailButton
-        label="Document settings (class, paper, title)"
+        label="Document settings"
         active={false}
         onClick={() => useDialogsStore.getState().setDocumentSettingsOpen(true)}
       >

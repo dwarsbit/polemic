@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { openPdf, synctexBackward } from "@/lib/tauri";
 import { exportPdfAs } from "@/lib/pdf-export";
-import { modKey } from "@/lib/platform";
+import { modKey, formatShortcut } from "@/lib/platform";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
@@ -196,7 +196,7 @@ export function PreviewPane() {
           <button
             type="button"
             className="rounded-md p-1 hover:bg-accent hover:text-foreground"
-            title="Save PDF as…"
+            title={`Export PDF… (${formatShortcut("Mod+E")})`}
             onClick={() => void handleExport()}
           >
             <Download className="size-3.5" />
@@ -204,7 +204,7 @@ export function PreviewPane() {
           <button
             type="button"
             className="rounded-md p-1 hover:bg-accent hover:text-foreground"
-            title="Open PDF in system viewer"
+            title="Open in default viewer"
             onClick={() => void handleOpenPdf()}
           >
             <ExternalLink className="size-3.5" />
@@ -256,7 +256,7 @@ export function PreviewPane() {
             <AlertTriangle className="mt-0.5 size-3.5 shrink-0 text-destructive" />
             <span className="max-h-24 flex-1 overflow-auto whitespace-pre-wrap">
               {error ??
-                "Compilation failed. Showing the last successful build; see the issues panel below the editor."}
+                "The last compile failed. This is the previous PDF; the errors are in Issues."}
             </span>
           </div>
         )}
@@ -265,7 +265,7 @@ export function PreviewPane() {
         ) : status === "error" && error ? (
           <div className="flex h-full flex-col items-center gap-2 p-6">
             <AlertTriangle className="size-8 text-destructive" />
-            <p className="text-sm font-medium">Compilation problem</p>
+            <p className="text-sm font-medium">The compile failed</p>
             <pre className="max-h-full w-full overflow-auto rounded bg-card p-3 font-mono text-xs whitespace-pre-wrap">
               {error}
             </pre>
@@ -273,7 +273,7 @@ export function PreviewPane() {
         ) : status === "error" ? (
           <div className="flex h-full items-center justify-center">
             <p className="max-w-64 text-center text-sm text-muted-foreground">
-              Compilation failed. See the issues panel below the editor.
+              The errors are listed in Issues, below the editor.
             </p>
           </div>
         ) : (
@@ -281,7 +281,8 @@ export function PreviewPane() {
             <div className="flex max-w-64 flex-col items-center gap-2 text-muted-foreground">
               <FileText className="size-8" />
               <p className="text-center text-sm">
-                Press Compile (or {modKey}S) to build and preview the PDF.
+                Compile to see the PDF here. {formatShortcut("Mod+S")} saves and
+                compiles.
               </p>
             </div>
           </div>

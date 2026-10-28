@@ -81,7 +81,7 @@ export function IssuesPanel({
     setFixNote(null);
     const outcome = await fixIssue(issue);
     if (outcome === "declined") {
-      setFixNote("No automatic fix for this one — try Fix with AI.");
+      setFixNote("No built-in fix for this error. Try Ask AI.");
     } else if (outcome === "no-file") {
       setFixNote("This issue does not point at an openable file.");
     } else if (outcome === "error") {
@@ -145,7 +145,7 @@ export function IssuesPanel({
           issues.length === 0 ? (
             <p className="px-1.5 py-1 text-xs text-muted-foreground">
               {status === "error"
-                ? "Compilation failed with no parsed issues — check the compile log."
+                ? "The compile failed without a readable error. See the compile log."
                 : "No issues."}
             </p>
           ) : (
@@ -185,7 +185,7 @@ export function IssuesPanel({
                       variant="ghost"
                       size="sm"
                       className="h-5 shrink-0 gap-1 px-1.5 text-2xs text-muted-foreground opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
-                      title="Ask the configured AI provider for a fix, with a preview"
+                      title="Ask the AI assistant for a fix, with a preview"
                       onClick={(e) => {
                         e.stopPropagation();
                         void onAiFix(issue);

@@ -572,7 +572,7 @@ export function OutlinePanel() {
         {docOutline === null && order !== null ? null : docOutline === null ||
           docOutline.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
-            {activeFile ? "No sections in this document." : "No file open."}
+            {activeFile ? "No sections yet. Add one with \\section." : "No file open."}
           </p>
         ) : (
           docOutline.map((group) => {

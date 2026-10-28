@@ -171,7 +171,9 @@ export function FilesPanel() {
         }}
       >
         {files.length === 0 ? (
-          <p className="px-2 text-xs text-muted-foreground">Empty project.</p>
+          <p className="px-2 py-1 text-xs text-muted-foreground">
+            No files yet. Create one with the buttons above.
+          </p>
         ) : (
           <FileTree
             entries={sortedFiles}
@@ -207,8 +209,8 @@ export function FilesPanel() {
           </DialogHeader>
           {dialogKind === "delete" ? (
             <p className="text-sm">
-              Delete <span className="font-medium">{(target as FileEntry)?.path}</span>?
-              It moves to the system trash, where you can restore it.
+              Move <span className="font-medium">{(target as FileEntry)?.path}</span> to
+              the trash? You can restore it from there.
             </p>
           ) : (
             <Input
@@ -240,7 +242,7 @@ export function FilesPanel() {
               onClick={() => void handleConfirm()}
             >
               {dialogKind === "delete" && "Delete"}
-              {dialogKind !== "delete" && "Confirm"}
+              {dialogKind === "rename" ? "Rename" : dialogKind !== "delete" && "Create"}
             </Button>
           </DialogFooter>
         </DialogContent>

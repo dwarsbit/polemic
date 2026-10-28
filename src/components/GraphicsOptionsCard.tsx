@@ -145,7 +145,7 @@ export function GraphicsOptionsCard({
         <OptionInput
           className="flex-1"
           value={width}
-          placeholder="0.8\\textwidth"
+          placeholder={"0.8\\textwidth"}
           onChange={(value) => onChange(setOptionValue(entries, "width", value))}
         />
         <Presets

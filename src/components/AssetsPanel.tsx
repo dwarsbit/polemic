@@ -350,8 +350,8 @@ export function AssetsPanel() {
       <div className="flex-1 overflow-y-auto p-1.5">
         {paths.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
-            No assets yet. Import image, PDF, or data files with the + button — they are
-            copied into the project's assets/ folder.
+            No assets yet. Import images, PDFs or data with the + button; they are
+            copied into assets/.
           </p>
         ) : filtered.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
@@ -449,7 +449,7 @@ export function AssetsPanel() {
                     {ref.path}
                   </button>
                   <span className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground">
-                    {ref.count}×
+                    {ref.count}
                   </span>
                   <span className="max-w-24 shrink-0 truncate text-2xs text-muted-foreground">
                     {ref.file}:{ref.line}
@@ -602,7 +602,7 @@ function InspectorDetails({
       <p className={cn(usageCount === 0 ? "text-warning" : "text-muted-foreground")}>
         {usageCount === 0
           ? "Unused"
-          : `Used in ${usageCount} place${usageCount === 1 ? "" : "s"}`}
+          : `Used ${usageCount === 1 ? "once" : `${usageCount} times`}`}
       </p>
     </div>
   );

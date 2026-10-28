@@ -17,6 +17,7 @@ import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import { useSearchStore, type SearchScope } from "@/store/search";
 import { cn } from "cn";
+import { formatShortcut } from "@/lib/platform";
 
 interface Hit {
   file: string;
@@ -227,7 +228,7 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
         <Input
           autoFocus
           className="h-7 min-w-0 flex-1 rounded-md border-none bg-transparent px-1 text-xs shadow-none focus-visible:ring-0"
-          placeholder="Search project"
+          placeholder="Search in project"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => {
@@ -314,7 +315,7 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
             size="sm"
             className="h-6 shrink-0 px-2 text-xs"
             disabled={shownHits === null || shownHits.length === 0}
-            title="Replace every match (Cmd/Ctrl+Enter)"
+            title={`Replace all (${formatShortcut("Mod+Enter")})`}
             onClick={() => void replace()}
           >
             Replace all

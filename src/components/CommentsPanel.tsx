@@ -9,6 +9,7 @@ import { useEditorStore } from "@/store/editor";
 import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
 import { cn } from "cn";
+import { formatShortcut } from "@/lib/platform";
 
 export function CommentsPanel() {
   const comments = useCommentsStore((s) => s.comments);
@@ -70,7 +71,8 @@ export function CommentsPanel() {
         <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center">
           <MessageSquareOff className="size-5 text-muted-foreground" />
           <p className="text-xs text-muted-foreground">
-            No comments yet. Right-click in the editor to add one.
+            No comments yet. Select text and press {formatShortcut("Mod+Alt+C")}, or
+            right-click in the editor.
           </p>
         </div>
       </div>
@@ -179,7 +181,7 @@ export function CommentsPanel() {
                       <Button
                         variant="ghost"
                         size="icon-xs"
-                        title={comment.resolved ? "Mark unresolved" : "Mark resolved"}
+                        title={comment.resolved ? "Reopen" : "Resolve"}
                         onClick={() =>
                           void update(comment.id, { resolved: !comment.resolved })
                         }

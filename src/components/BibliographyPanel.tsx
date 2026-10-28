@@ -543,14 +543,14 @@ export function BibliographyPanel() {
               </button>
               {row.cited === 0 ? (
                 <span className="mr-1 shrink-0 rounded-full border border-warning/50 px-1.5 py-0 text-2xs leading-4 text-warning">
-                  unused
+                  Unused
                 </span>
               ) : (
                 <span
                   className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground"
                   title={`${row.cited} citation${row.cited === 1 ? "" : "s"}`}
                 >
-                  {row.cited}×
+                  {row.cited}
                 </span>
               )}
               {row.incomplete && (
@@ -558,7 +558,7 @@ export function BibliographyPanel() {
                   className="mr-1 shrink-0 text-2xs text-warning"
                   title={`Missing fields: ${missingFields(row.entry, backend).join(", ")}`}
                 >
-                  incomplete
+                  Incomplete
                 </span>
               )}
               <span className="max-w-20 shrink-0 truncate text-2xs text-muted-foreground">
@@ -639,8 +639,7 @@ export function BibliographyPanel() {
         {scanned === null ? null : bibTexts.length === 0 ? (
           <div className="space-y-2.5 px-2 pt-2">
             <p className="text-xs text-muted-foreground">
-              No bibliography yet. Create a .bib file for this project to start adding
-              references.
+              No bibliography yet. Create bibliography.bib to start adding entries.
             </p>
             <Button
               size="sm"
@@ -660,7 +659,7 @@ export function BibliographyPanel() {
           <p className="px-2 text-xs text-muted-foreground">
             {query.trim().length > 0
               ? "No entries match your search."
-              : "No entries in the project's .bib files."}
+              : "No entries yet. Add one with + or from your sources."}
           </p>
         ) : (
           groups.map(([type, typeRows]) => {
@@ -741,7 +740,7 @@ export function BibliographyPanel() {
                     {cite.key}
                   </button>
                   <span className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground">
-                    {cite.count}×
+                    {cite.count}
                   </span>
                   <span className="max-w-24 shrink-0 truncate text-2xs text-muted-foreground">
                     {cite.file}:{cite.line}
