@@ -43,7 +43,7 @@ function statusWord(entry: GitEntry): string {
 function entryColor(entry: GitEntry): string {
   if (entry.x === "?") return "text-muted-foreground";
   if (entry.x !== " ") return "text-success";
-  return "text-warning";
+  return "text-info";
 }
 
 export function GitPanel() {
@@ -92,8 +92,8 @@ export function GitPanel() {
   return (
     <div className="flex h-full flex-col">
       <SectionHeader
-        label="GIT"
-        collapsed={false}
+        label="Git"
+
         actions={
           <div className="flex items-center gap-0.5">
             {status?.branch && (
@@ -120,7 +120,7 @@ export function GitPanel() {
           </div>
         }
       />
-      <div className="flex-1 overflow-y-auto px-2 pb-2">
+      <div className="flex-1 overflow-y-auto p-1.5">
         {status === undefined && (
           <p className="px-2 text-xs text-muted-foreground">Loading…</p>
         )}

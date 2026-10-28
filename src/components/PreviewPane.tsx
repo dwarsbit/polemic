@@ -182,20 +182,20 @@ export function PreviewPane() {
 
   return (
     <div className="flex h-full w-full flex-col">
-      <div className="@container flex h-9 shrink-0 items-center gap-2 border-b px-3 text-xs font-medium text-muted-foreground">
-        <span>PREVIEW</span>
+      <div className="@container flex h-9 shrink-0 items-center gap-2 border-b px-3 text-muted-foreground">
+        <span className="text-xs font-medium text-foreground">Preview</span>
         {pageCount > 0 && (
           <span className="text-2xs whitespace-nowrap tabular-nums">
             {currentPage} / {pageCount}
           </span>
         )}
-        <div className="ml-auto flex shrink-0 items-center gap-1">
-          <span className="hidden text-2xs whitespace-nowrap @sm:inline">
+        <div className="ml-auto flex shrink-0 items-center gap-0.5">
+          <span className="mr-1 hidden text-2xs whitespace-nowrap @sm:inline">
             {modKey}click: source
           </span>
           <button
             type="button"
-            className="rounded p-1 hover:bg-accent"
+            className="rounded-md p-1 hover:bg-accent hover:text-foreground"
             title="Save PDF as…"
             onClick={() => void handleExport()}
           >
@@ -203,7 +203,7 @@ export function PreviewPane() {
           </button>
           <button
             type="button"
-            className="rounded p-1 hover:bg-accent"
+            className="rounded-md p-1 hover:bg-accent hover:text-foreground"
             title="Open PDF in system viewer"
             onClick={() => void handleOpenPdf()}
           >
@@ -211,7 +211,7 @@ export function PreviewPane() {
           </button>
           <button
             type="button"
-            className="rounded p-1 hover:bg-accent"
+            className="rounded-md p-1 hover:bg-accent hover:text-foreground"
             title="Zoom out"
             onClick={zoomOut}
           >
@@ -222,7 +222,7 @@ export function PreviewPane() {
           </span>
           <button
             type="button"
-            className="rounded p-1 hover:bg-accent"
+            className="rounded-md p-1 hover:bg-accent hover:text-foreground"
             title="Zoom in"
             onClick={zoomIn}
           >

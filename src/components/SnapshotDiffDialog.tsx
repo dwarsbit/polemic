@@ -177,8 +177,8 @@ export function SnapshotDiffDialog({
           <div className="flex min-h-0 flex-col pl-4">
             {active && (
               <SectionHeader
-                label={active.path.toUpperCase()}
-                collapsed={false}
+                label={active.path}
+
                 actions={
                   <Button
                     variant="ghost"

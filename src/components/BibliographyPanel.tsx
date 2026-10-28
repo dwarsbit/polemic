@@ -521,7 +521,7 @@ export function BibliographyPanel() {
             <>
               <button
                 type="button"
-                className="min-w-0 flex-1 truncate py-1 text-left text-sm"
+                className="min-w-0 flex-1 truncate py-1.5 text-left text-xs"
                 title={row.title || row.entry.key}
                 onClick={() => goTo(row.file, row.entry.line)}
                 onDoubleClick={() => insertCitation(row.entry.key, citeCommands[0])}
@@ -585,8 +585,8 @@ export function BibliographyPanel() {
   return (
     <div className="flex h-full flex-col">
       <SectionHeader
-        label="BIBLIOGRAPHY"
-        collapsed={false}
+        label="Bibliography"
+
         actions={
           <>
             <Button
@@ -621,7 +621,7 @@ export function BibliographyPanel() {
           </>
         }
       />
-      <div className="flex shrink-0 items-center gap-1.5 px-2 pb-1.5">
+      <div className="flex shrink-0 items-center gap-1.5 p-2">
         <div className="relative min-w-0 flex-1">
           <Search className="absolute top-1/2 left-2 size-3 -translate-y-1/2 text-muted-foreground" />
           <Input
@@ -635,7 +635,7 @@ export function BibliographyPanel() {
           />
         </div>
       </div>
-      <div className="flex-1 overflow-y-auto px-2 pb-2">
+      <div className="flex-1 overflow-y-auto p-1.5">
         {scanned === null ? null : bibTexts.length === 0 ? (
           <div className="space-y-2.5 px-2 pt-2">
             <p className="text-xs text-muted-foreground">
@@ -688,7 +688,7 @@ export function BibliographyPanel() {
                   )}
                   <button
                     type="button"
-                    className="min-w-0 flex-1 truncate py-1 text-left text-sm font-medium text-muted-foreground hover:text-foreground"
+                    className="min-w-0 flex-1 truncate py-1.5 text-left text-xs font-medium text-muted-foreground hover:text-foreground"
                     onClick={() => toggle(key)}
                   >
                     {type}
@@ -719,7 +719,7 @@ export function BibliographyPanel() {
                   )}
                 />
               </button>
-              <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-warning">
+              <span className="min-w-0 flex-1 truncate py-1.5 text-xs font-medium text-warning">
                 Undefined citations
               </span>
               <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
@@ -734,7 +734,7 @@ export function BibliographyPanel() {
                 >
                   <button
                     type="button"
-                    className="min-w-0 flex-1 truncate py-1 text-left text-sm font-mono text-xs"
+                    className="min-w-0 flex-1 truncate py-1.5 text-left font-mono text-xs"
                     title={`${cite.count} citation${cite.count === 1 ? "" : "s"} without an entry`}
                     onClick={() => goTo(cite.file, cite.line)}
                   >

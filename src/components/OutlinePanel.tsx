@@ -509,7 +509,7 @@ export function OutlinePanel() {
           )}
           <button
             type="button"
-            className="min-w-0 flex-1 truncate py-1 text-left text-sm"
+            className="min-w-0 flex-1 truncate py-1.5 text-left text-xs"
             data-outline-key={key}
             title={`${node.entry.title}\nDrag to move (also into another file) · Alt+↑/↓ move · Alt+←/→ promote/demote`}
             onClick={() => {
@@ -545,9 +545,9 @@ export function OutlinePanel() {
 
   return (
     <div className="flex h-full flex-col">
-      <SectionHeader label="OUTLINE" collapsed={false} />
+      <SectionHeader label="Outline" />
       {moveStatus !== null && (
-        <div className="mx-2 mb-1 flex items-start gap-2 rounded-md bg-muted px-2 py-1.5 text-xs text-muted-foreground">
+        <div className="m-2 mb-1 flex items-start gap-2 rounded-md bg-muted px-2 py-1.5 text-xs text-muted-foreground">
           <span className="min-w-0 flex-1">{moveStatus.text}</span>
           {moveStatus.undoable && (
             <button
@@ -568,7 +568,7 @@ export function OutlinePanel() {
           </button>
         </div>
       )}
-      <div ref={listRef} className="flex-1 overflow-y-auto px-2 pb-2">
+      <div ref={listRef} className="flex-1 overflow-y-auto p-1.5">
         {docOutline === null && order !== null ? null : docOutline === null ||
           docOutline.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
@@ -598,7 +598,7 @@ export function OutlinePanel() {
                   <button
                     type="button"
                     title={`Open ${group.file}`}
-                    className="min-w-0 flex-1 truncate py-1 pl-2 text-left text-sm font-medium text-muted-foreground hover:text-foreground"
+                    className="min-w-0 flex-1 truncate py-1.5 pl-2 text-left text-xs font-medium text-muted-foreground hover:text-foreground"
                     onClick={() => goTo(group.file, 1)}
                     onDoubleClick={() => {
                       if (roots.length > 0) toggle(fileKey);

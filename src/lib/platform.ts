@@ -3,6 +3,11 @@ export const isMac =
   typeof navigator !== "undefined" &&
   /Mac/.test(navigator.platform || navigator.userAgent);
 
+/** True on Windows. */
+export const isWindows =
+  typeof navigator !== "undefined" &&
+  /Win/.test(navigator.platform || navigator.userAgent);
+
 /** The primary modifier as shown in hints: "⌘" on macOS, "Ctrl+" elsewhere. */
 export const modKey = isMac ? "⌘" : "Ctrl+";
 

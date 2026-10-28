@@ -52,8 +52,8 @@ export function HistoryPanel() {
   return (
     <div className="flex h-full flex-col">
       <SectionHeader
-        label="HISTORY"
-        collapsed={false}
+        label="History"
+
         actions={
           <Button
             variant="ghost"
@@ -68,7 +68,7 @@ export function HistoryPanel() {
           </Button>
         }
       />
-      <div className="flex-1 overflow-y-auto px-2 pb-2">
+      <div className="flex-1 overflow-y-auto p-1.5">
         {error && <p className="px-2 text-xs text-destructive">{String(error)}</p>}
         {!error && (log ?? []).length === 0 && (
           <p className="px-2 text-xs text-muted-foreground">No commits yet.</p>

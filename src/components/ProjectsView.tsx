@@ -143,8 +143,8 @@ export function ProjectsView() {
   }
 
   return (
-    <div className="flex h-full items-center justify-center bg-background text-foreground">
-      <div className="w-full max-w-lg rounded-xl border bg-card p-6 shadow-sm">
+    <div className="flex h-full items-center justify-center text-foreground">
+      <div className="w-full max-w-lg rounded-xl border bg-card p-6 shadow-xs">
         <div className="flex flex-col items-center gap-1.5">
           <img src={logo} alt="Polemic" className="size-14" draggable={false} />
           <h1 className="text-lg font-semibold tracking-tight">Polemic</h1>
@@ -173,7 +173,7 @@ export function ProjectsView() {
         </div>
         {templates.length > 0 && (
           <div className="mt-2">
-            <p className="mb-1.5 text-xs font-medium text-muted-foreground">TEMPLATE</p>
+            <p className="mb-1.5 text-xs font-medium">Template</p>
             <div className="grid grid-cols-3 gap-1.5">
               {templates.map((template) => (
                 <button
@@ -183,7 +183,7 @@ export function ProjectsView() {
                   className={cn(
                     "flex flex-col items-center gap-1 rounded-md border px-2 py-2.5 text-xs transition-colors",
                     templateId === template.id
-                      ? "border-primary bg-primary/10 font-medium"
+                      ? "border-tint bg-tint-soft font-medium"
                       : "hover:bg-accent",
                   )}
                   onClick={() => setTemplateId(template.id)}
@@ -195,12 +195,12 @@ export function ProjectsView() {
             </div>
             {missingPackages.length > 0 && (
               <p className="mt-2 text-xs text-warning">
-                Not installed in your TeX distribution: {missingPackages.join(", ")}.
-                With TeX Live, run{" "}
+                This template needs {missingPackages.join(", ")}, which your TeX
+                distribution lacks. With TeX Live, install them with{" "}
                 <code className="font-mono">
                   tlmgr install {missingPackages.join(" ")}
                 </code>
-                ; MiKTeX installs them on the first compile.
+                . MiKTeX installs them on the first compile.
               </p>
             )}
           </div>
@@ -213,18 +213,18 @@ export function ProjectsView() {
             onClick={() => void handleOpenFolder()}
           >
             <FolderOpen />
-            Open existing folder
+            Open folder…
           </Button>
         </div>
         {error && <p className="mt-2 text-xs text-destructive">{error}</p>}
         <Separator className="my-4" />
-        <h2 className="mb-2 text-xs font-medium text-muted-foreground">
-          RECENT PROJECTS
-        </h2>
+        <h2 className="mb-2 text-xs font-medium">Recent</h2>
         {settings === null ? (
           <p className="text-sm text-muted-foreground">Loading…</p>
         ) : projects.length === 0 ? (
-          <p className="text-sm text-muted-foreground">No projects yet.</p>
+          <p className="text-sm text-muted-foreground">
+            No projects yet. Create one above or open a folder.
+          </p>
         ) : (
           <ul className="space-y-1">
             {projects.map((project) => {
@@ -232,7 +232,7 @@ export function ProjectsView() {
               return (
                 <li
                   key={project.path}
-                  className="group flex items-center justify-between rounded px-2 py-1.5 hover:bg-accent"
+                  className="group flex items-center justify-between rounded-md px-2 py-1.5 hover:bg-accent"
                 >
                   <button
                     type="button"
@@ -309,8 +309,8 @@ export function ProjectsView() {
             />
           ) : action.kind === "delete" ? (
             <p className="text-sm">
-              Move <span className="font-medium">{action.name}</span> to the trash? The
-              folder stays in the trash until you empty it.
+              Move <span className="font-medium">{action.name}</span> to the trash? You
+              can restore it from there until you empty the trash.
             </p>
           ) : null}
           {error && <p className="text-xs text-destructive">{error}</p>}

@@ -66,7 +66,7 @@ export function CommentsPanel() {
   if (comments.length === 0) {
     return (
       <div className="flex h-full flex-col">
-        <SectionHeader label="COMMENTS" collapsed={false} />
+        <SectionHeader label="Comments" />
         <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center">
           <MessageSquareOff className="size-5 text-muted-foreground" />
           <p className="text-xs text-muted-foreground">
@@ -81,8 +81,8 @@ export function CommentsPanel() {
     <div className="h-full overflow-y-auto">
       <div className="sticky top-0 z-10 bg-card">
         <SectionHeader
-          label="COMMENTS"
-          collapsed={false}
+          label="Comments"
+
           actions={
             <Button
               variant={hideResolved ? "secondary" : "ghost"}

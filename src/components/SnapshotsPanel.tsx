@@ -33,8 +33,8 @@ export function SnapshotsPanel() {
   return (
     <div className="flex h-full flex-col">
       <SectionHeader
-        label="SNAPSHOTS"
-        collapsed={false}
+        label="Snapshots"
+
         actions={
           <Button
             variant="ghost"
@@ -47,7 +47,7 @@ export function SnapshotsPanel() {
           </Button>
         }
       />
-      <div className="flex-1 overflow-y-auto px-2 pb-2">
+      <div className="flex-1 overflow-y-auto p-1.5">
         {snapshots.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">No snapshots yet.</p>
         ) : (

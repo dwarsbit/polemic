@@ -47,7 +47,7 @@ export function TabsBar() {
   return (
     // The bar's bottom line is a pseudo-element so the active tab, drawn
     // above it, can cover it and open into the editor below.
-    <div className="relative flex h-9 shrink-0 items-end gap-0.5 bg-muted/40 px-1 pt-1 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-border">
+    <div className="relative flex h-9 shrink-0 items-end gap-0.5 bg-muted/40 px-1.5 pt-1 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-border">
       <div className="flex min-w-0 flex-1 items-end gap-0.5 overflow-x-auto">
         {openFiles.map((file) => {
           const active = file === activeFile;
@@ -105,7 +105,7 @@ export function TabsBar() {
                 setDragging(null);
               }}
               className={cn(
-                "group flex shrink-0 items-center gap-1.5 rounded-t-md border px-2.5 text-xs",
+                "group flex h-8 shrink-0 items-center gap-1.5 rounded-t-md border px-2.5 text-xs",
                 active
                   ? "relative z-10 border-border border-b-transparent bg-card text-foreground"
                   : "border-transparent text-muted-foreground hover:bg-accent/50",
@@ -117,7 +117,7 @@ export function TabsBar() {
             >
               <button
                 type="button"
-                className="max-w-40 truncate py-1.5"
+                className="max-w-40 truncate"
                 title={file}
                 onClick={() => void openFile(file)}
               >
@@ -126,7 +126,7 @@ export function TabsBar() {
               <span
                 className={cn(
                   "size-1.5 rounded-full",
-                  isDirty(file) ? "bg-primary" : "bg-transparent",
+                  isDirty(file) ? "bg-tint" : "bg-transparent",
                 )}
               />
               <button

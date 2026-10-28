@@ -1,10 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
-import { Check, Loader2, TriangleAlert } from "lucide-react";
-import { detectTex } from "@/lib/tauri";
+import { Check, Loader2 } from "lucide-react";
+import { detectTex, type ToolInfo } from "@/lib/tauri";
 import { countWords, totalWords } from "@/lib/word-count";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
+import { cn } from "@/lib/utils";
+
+/** The distribution's name from pdflatex's version line, e.g.
+ *  "pdfTeX 3.14… (TeX Live 2025)" gives "TeX Live 2025". */
+export function distributionName(tool: ToolInfo): string {
+  const match = tool.version?.match(/\((TeX Live \d{4}|MiKTeX[^)]*)/);
+  return match ? match[1].trim() : "TeX found";
+}
+
+function Dot({ className }: { className: string }) {
+  return <span className={cn("size-1.5 shrink-0 rounded-full", className)} />;
+}
 
 function CompileStatus() {
   const status = usePreviewStore((s) => s.status);
@@ -16,28 +28,33 @@ function CompileStatus() {
   switch (status) {
     case "compiling":
       return (
-        <span className="flex items-center gap-1">
+        <span className="flex items-center gap-1.5">
           <Loader2 className="size-3 animate-spin" />
           Compiling…
         </span>
       );
     case "ok":
       return (
-        <span className="flex items-center gap-1">
-          <Check className="size-3 text-success" />
+        <span className="flex items-center gap-1.5">
+          <Dot className="bg-success" />
           Compiled{via}
         </span>
       );
     case "error":
       return (
-        <span className="flex items-center gap-1 text-destructive">
-          <TriangleAlert className="size-3" />
+        <span className="flex items-center gap-1.5 text-destructive">
+          <Dot className="bg-destructive" />
           {errors > 0 ? `${errors} error${errors === 1 ? "" : "s"}` : "Compile failed"}
           {via}
         </span>
       );
     default:
-      return <span>Not compiled</span>;
+      return (
+        <span className="flex items-center gap-1.5">
+          <Dot className="bg-muted-foreground/50" />
+          Not compiled yet
+        </span>
+      );
   }
 }
 
@@ -52,11 +69,9 @@ export function StatusBar() {
   });
 
   return (
-    <footer className="flex h-8 shrink-0 items-center justify-between px-4 text-2xs text-muted-foreground">
+    <footer className="flex h-7 shrink-0 items-center justify-between px-3 text-2xs text-muted-foreground">
       <div className="flex min-w-0 items-center gap-3">
-        <span className="truncate">
-          {activeFile === null ? "No file open" : activeFile}
-        </span>
+        <span className="truncate">{activeFile ?? "No file open"}</span>
         {activeFile !== null && (
           <span className="shrink-0 tabular-nums">
             {totalWords(countWords(content)).toLocaleString()} words
@@ -65,11 +80,18 @@ export function StatusBar() {
       </div>
       <div className="flex shrink-0 items-center gap-3">
         <CompileStatus />
-        {tex && (
-          <span className={tex.pdflatex.found ? undefined : "text-destructive"}>
-            {tex.pdflatex.found ? "TeX ready" : "TeX distribution not found"}
-          </span>
-        )}
+        {tex &&
+          (tex.pdflatex.found ? (
+            <span
+              className="flex items-center gap-1"
+              title={tex.pdflatex.path ?? undefined}
+            >
+              <Check className="size-3 text-success" />
+              {distributionName(tex.pdflatex)}
+            </span>
+          ) : (
+            <span className="text-destructive">No TeX distribution found</span>
+          ))}
       </div>
     </footer>
   );

@@ -277,8 +277,8 @@ export function AssetsPanel() {
   return (
     <div className="flex h-full flex-col">
       <SectionHeader
-        label="ASSETS"
-        collapsed={false}
+        label="Assets"
+
         actions={
           <Button
             variant="ghost"
@@ -290,7 +290,7 @@ export function AssetsPanel() {
           </Button>
         }
       />
-      <div className="flex shrink-0 items-center gap-1.5 px-2 pb-1.5">
+      <div className="flex shrink-0 items-center gap-1.5 p-2">
         <div className="relative min-w-0 flex-1">
           <Search className="absolute top-1/2 left-2 size-3 -translate-y-1/2 text-muted-foreground" />
           <Input
@@ -347,7 +347,7 @@ export function AssetsPanel() {
           })}
         </div>
       )}
-      <div className="flex-1 overflow-y-auto px-2 pb-2">
+      <div className="flex-1 overflow-y-auto p-1.5">
         {paths.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
             No assets yet. Import image, PDF, or data files with the + button — they are
@@ -427,7 +427,7 @@ export function AssetsPanel() {
                   )}
                 />
               </button>
-              <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-warning">
+              <span className="min-w-0 flex-1 truncate py-1.5 text-xs font-medium text-warning">
                 Missing files
               </span>
               <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
@@ -442,7 +442,7 @@ export function AssetsPanel() {
                 >
                   <button
                     type="button"
-                    className="min-w-0 flex-1 truncate py-1 text-left text-sm"
+                    className="min-w-0 flex-1 truncate py-1.5 text-left text-xs"
                     title={`${ref.count} reference${ref.count === 1 ? "" : "s"} to a file not in the project`}
                     onClick={() => goTo(ref.file, ref.line)}
                   >

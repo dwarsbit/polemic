@@ -115,7 +115,7 @@ function readingTime(words: number): string {
 
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-baseline justify-between gap-2 px-2 py-1 text-sm">
+    <div className="flex items-baseline justify-between gap-2 px-2 py-1 text-xs">
       <span className="min-w-0 text-muted-foreground">{label}</span>
       <span className="shrink-0 font-medium whitespace-nowrap tabular-nums">
         {value}
@@ -207,8 +207,8 @@ export function PropertiesPanel() {
 
   return (
     <div className="flex h-full flex-col">
-      <SectionHeader label="PROPERTIES" collapsed={false} />
-      <div className="flex-1 overflow-y-auto px-2 pb-2">
+      <SectionHeader label="Properties" />
+      <div className="flex-1 overflow-y-auto p-1.5">
         {activeFile === null ? (
           <p className="px-2 text-xs text-muted-foreground">No file open.</p>
         ) : (
