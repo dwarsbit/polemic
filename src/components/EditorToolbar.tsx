@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { NewTheoremDialog } from "@/components/NewTheoremDialog";
+import { SuggestToggle } from "@/components/SuggestToggle";
 import { wrapFigure } from "@/lib/editor-figure";
 import { FIGURE_SCAFFOLD, TABLE_SCAFFOLD, insertAtCursor } from "@/lib/editor-insert";
 import { applyEditsInView } from "@/lib/editor-edits";
@@ -241,6 +242,8 @@ export function EditorToolbar() {
           <Underline className="size-4" />
         </Button>
       </ButtonGroup>
+      <Separator orientation="vertical" className="h-5 data-vertical:self-center" />
+      <SuggestToggle />
     </div>
   );
 }
