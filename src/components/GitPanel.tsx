@@ -32,6 +32,7 @@ import {
   type GitStatus,
 } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
+import { useSettingsStore } from "@/store/settings";
 
 const MERGE_MESSAGE = "Merge remote changes";
 
@@ -97,6 +98,7 @@ export function GitPanel() {
   const project = useProjectStore((s) => s.project);
   const openFile = useProjectStore((s) => s.openFile);
   const syncFromDisk = useProjectStore((s) => s.syncFromDisk);
+  const openSettings = useSettingsStore((s) => s.openSettings);
   const queryClient = useQueryClient();
   const [message, setMessage] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -359,7 +361,23 @@ export function GitPanel() {
                 {merging ? "Finish merge" : "Commit"}
               </Button>
             </div>
-            {error && <p className="mt-1 px-2 text-xs text-destructive">{error}</p>}
+            {error && (
+              <p className="mt-1 px-2 text-xs text-destructive">
+                {error}
+                {error.includes("git account") && (
+                  <>
+                    {" "}
+                    <button
+                      type="button"
+                      className="underline"
+                      onClick={() => openSettings("git")}
+                    >
+                      Open git accounts
+                    </button>
+                  </>
+                )}
+              </p>
+            )}
           </>
         )}
       </div>

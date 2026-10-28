@@ -78,6 +78,8 @@ export interface Settings {
   authorName: string | null;
   /** The author's initials, the suggestion id; null derives them. */
   authorInitials: string | null;
+  /** Accounts for private HTTPS remotes; the tokens stay Rust-side. */
+  gitAccounts: { id: string; host: string; username: string }[];
 }
 
 /** Grammar checking: built-in Harper (English), LanguageTool on the
@@ -771,6 +773,40 @@ export function gitResolveConflict(
 /** Stage a hand-edited conflicted file; refused while markers remain. */
 export function gitMarkResolved(projectDir: string, path: string): Promise<void> {
   return invoke<void>("git_mark_resolved", { projectDir, path });
+}
+
+/** A git account as Settings shows it: never the token itself. */
+export interface GitAccountView {
+  id: string;
+  host: string;
+  username: string;
+  hasToken: boolean;
+}
+
+export function gitAccounts(): Promise<GitAccountView[]> {
+  return invoke<GitAccountView[]>("git_accounts");
+}
+
+/**
+ * Add an account, or update one by id. A new account needs a token; an
+ * existing one keeps its token when none is given.
+ */
+export function gitAccountSave(account: {
+  id?: string;
+  host: string;
+  username: string;
+  token?: string;
+}): Promise<GitAccountView[]> {
+  return invoke<GitAccountView[]>("git_account_save", {
+    id: account.id ?? null,
+    host: account.host,
+    username: account.username,
+    token: account.token ?? null,
+  });
+}
+
+export function gitAccountRemove(id: string): Promise<GitAccountView[]> {
+  return invoke<GitAccountView[]>("git_account_remove", { id });
 }
 
 /** Clone a repository into the projects root as the project `name`. */
