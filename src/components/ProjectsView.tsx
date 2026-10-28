@@ -194,7 +194,7 @@ export function ProjectsView() {
               ))}
             </div>
             {missingPackages.length > 0 && (
-              <p className="mt-2 text-xs text-amber-600 dark:text-amber-400">
+              <p className="mt-2 text-xs text-warning">
                 Not installed in your TeX distribution: {missingPackages.join(", ")}.
                 With TeX Live, run{" "}
                 <code className="font-mono">

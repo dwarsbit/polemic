@@ -542,12 +542,12 @@ export function BibliographyPanel() {
                 )}
               </button>
               {row.cited === 0 ? (
-                <span className="mr-1 shrink-0 rounded-full border border-amber-400/60 px-1.5 py-0 text-[10px] leading-4 text-amber-600 dark:text-amber-400">
+                <span className="mr-1 shrink-0 rounded-full border border-warning/50 px-1.5 py-0 text-2xs leading-4 text-warning">
                   unused
                 </span>
               ) : (
                 <span
-                  className="mr-1.5 shrink-0 text-[10px] tabular-nums text-muted-foreground"
+                  className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground"
                   title={`${row.cited} citation${row.cited === 1 ? "" : "s"}`}
                 >
                   {row.cited}×
@@ -555,13 +555,13 @@ export function BibliographyPanel() {
               )}
               {row.incomplete && (
                 <span
-                  className="mr-1 shrink-0 text-[10px] text-amber-600 dark:text-amber-400"
+                  className="mr-1 shrink-0 text-2xs text-warning"
                   title={`Missing fields: ${missingFields(row.entry, backend).join(", ")}`}
                 >
                   incomplete
                 </span>
               )}
-              <span className="max-w-20 shrink-0 truncate text-[10px] text-muted-foreground">
+              <span className="max-w-20 shrink-0 truncate text-2xs text-muted-foreground">
                 {row.file}:{row.entry.line}
               </span>
               <button
@@ -576,7 +576,7 @@ export function BibliographyPanel() {
           )}
         </div>
         {isRenaming && renameError !== null && (
-          <p className="px-6 pt-0.5 text-[11px] text-destructive">{renameError}</p>
+          <p className="px-6 pt-0.5 text-2xs text-destructive">{renameError}</p>
         )}
       </div>
     );
@@ -639,8 +639,8 @@ export function BibliographyPanel() {
         {scanned === null ? null : bibTexts.length === 0 ? (
           <div className="space-y-2.5 px-2 pt-2">
             <p className="text-xs text-muted-foreground">
-              No bibliography yet. Create a .bib file for this project to start
-              adding references.
+              No bibliography yet. Create a .bib file for this project to start adding
+              references.
             </p>
             <Button
               size="sm"
@@ -693,7 +693,7 @@ export function BibliographyPanel() {
                   >
                     {type}
                   </button>
-                  <span className="mr-1 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+                  <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
                     {typeRows.length}
                   </span>
                 </div>
@@ -719,10 +719,10 @@ export function BibliographyPanel() {
                   )}
                 />
               </button>
-              <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-amber-600 dark:text-amber-400">
+              <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-warning">
                 Undefined citations
               </span>
-              <span className="mr-1 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+              <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
                 {undefinedCitations.length}
               </span>
             </div>
@@ -740,10 +740,10 @@ export function BibliographyPanel() {
                   >
                     {cite.key}
                   </button>
-                  <span className="mr-1.5 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+                  <span className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground">
                     {cite.count}×
                   </span>
-                  <span className="max-w-24 shrink-0 truncate text-[10px] text-muted-foreground">
+                  <span className="max-w-24 shrink-0 truncate text-2xs text-muted-foreground">
                     {cite.file}:{cite.line}
                   </span>
                 </div>

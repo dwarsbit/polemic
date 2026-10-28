@@ -247,7 +247,7 @@ export function SourcesSearchDialog({
               )}
               {sections.map(({ source, bib, zotero }) => (
                 <div key={source.id}>
-                  <p className="px-2 pb-1 pt-2 text-[11px] font-medium text-muted-foreground">
+                  <p className="px-2 pb-1 pt-2 text-2xs font-medium text-muted-foreground">
                     {sourceName(source)}
                   </p>
                   <ul className="space-y-0.5 p-1">
@@ -322,10 +322,10 @@ function HitRow({
           <span className="ml-2 text-muted-foreground">{title}</span>
         )}
       </span>
-      <span className="shrink-0 text-[10px] text-muted-foreground">{tag}</span>
+      <span className="shrink-0 text-2xs text-muted-foreground">{tag}</span>
       <span
         className={cn(
-          "shrink-0 rounded-full border px-1.5 py-0 text-[10px] leading-4",
+          "shrink-0 rounded-full border px-1.5 py-0 text-2xs leading-4",
           present ? "text-muted-foreground" : "text-foreground",
         )}
       >

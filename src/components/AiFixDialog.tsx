@@ -92,7 +92,7 @@ export function AiFixDialog() {
         <div className="flex-1 min-h-0 px-6 pb-4">
           <ScrollArea className="h-full rounded border p-2">
             {!configured && (
-              <p className="p-2 text-xs text-amber-600">
+              <p className="p-2 text-xs text-warning">
                 No AI provider is configured — set one up in Settings → AI.
               </p>
             )}
@@ -103,7 +103,7 @@ export function AiFixDialog() {
               </p>
             )}
             {configured && state.kind === "error" && (
-              <p className="p-2 text-xs text-amber-600">{state.error}</p>
+              <p className="p-2 text-xs text-warning">{state.error}</p>
             )}
             {configured && state.kind === "fix" && (
               <>

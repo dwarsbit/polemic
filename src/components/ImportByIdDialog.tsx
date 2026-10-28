@@ -137,9 +137,7 @@ export function ImportByIdDialog({
                 <div className="rounded-md border p-2 text-xs">
                   <div className="flex items-baseline justify-between gap-2">
                     <span className="font-mono">{draft.key}</span>
-                    <span className="text-[10px] text-muted-foreground">
-                      {draft.type}
-                    </span>
+                    <span className="text-2xs text-muted-foreground">{draft.type}</span>
                   </div>
                   <p className="mt-0.5 text-muted-foreground">
                     {draft.fields.find((f) => f.name === "title")?.value ??

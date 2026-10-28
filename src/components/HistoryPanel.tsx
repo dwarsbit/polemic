@@ -26,12 +26,12 @@ function CommitRow({ commit }: { commit: GitCommit }) {
       title={`${new Date(commit.timestampMillis).toLocaleString()} — ${commit.hash}`}
     >
       <p className="flex items-baseline gap-1.5">
-        <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
+        <span className="shrink-0 font-mono text-2xs text-muted-foreground">
           {commit.hash.slice(0, 7)}
         </span>
         <span className="min-w-0 truncate text-xs font-medium">{commit.message}</span>
       </p>
-      <p className="text-[11px] text-muted-foreground">
+      <p className="text-2xs text-muted-foreground">
         {commit.author} · {timeAgo(commit.timestampMillis)}
       </p>
     </li>

@@ -129,7 +129,7 @@ function GrammarItems({
 }) {
   return (
     <>
-      <p className="px-2 pt-1 text-[10px] font-medium tracking-wide text-muted-foreground uppercase">
+      <p className="px-2 pt-1 text-2xs font-medium tracking-wide text-muted-foreground uppercase">
         {issue.category}
       </p>
       <p className="px-2 pb-1">{issue.message}</p>

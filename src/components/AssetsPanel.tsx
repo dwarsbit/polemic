@@ -330,7 +330,7 @@ export function AssetsPanel() {
                 key={tag}
                 type="button"
                 className={cn(
-                  "shrink-0 rounded-full border px-1.5 py-0.5 text-[10px] transition-colors",
+                  "shrink-0 rounded-full border px-1.5 py-0.5 text-2xs transition-colors",
                   active
                     ? "bg-accent text-accent-foreground"
                     : "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
@@ -405,7 +405,7 @@ export function AssetsPanel() {
                   <div className="flex aspect-video items-center justify-center overflow-hidden rounded-md bg-muted">
                     <AssetThumb path={path} kind={kind} />
                   </div>
-                  <span className="truncate text-[11px]">{path.split("/").pop()}</span>
+                  <span className="truncate text-2xs">{path.split("/").pop()}</span>
                 </button>
               );
             })}
@@ -427,10 +427,10 @@ export function AssetsPanel() {
                   )}
                 />
               </button>
-              <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-amber-600 dark:text-amber-400">
+              <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-warning">
                 Missing files
               </span>
-              <span className="mr-1 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+              <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
                 {missing.length}
               </span>
             </div>
@@ -448,10 +448,10 @@ export function AssetsPanel() {
                   >
                     {ref.path}
                   </button>
-                  <span className="mr-1.5 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+                  <span className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground">
                     {ref.count}×
                   </span>
-                  <span className="max-w-24 shrink-0 truncate text-[10px] text-muted-foreground">
+                  <span className="max-w-24 shrink-0 truncate text-2xs text-muted-foreground">
                     {ref.file}:{ref.line}
                   </span>
                 </div>
@@ -491,7 +491,7 @@ export function AssetsPanel() {
             {selectedTags.map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center gap-0.5 rounded-full border px-1.5 py-0.5 text-[10px]"
+                className="inline-flex items-center gap-0.5 rounded-full border px-1.5 py-0.5 text-2xs"
               >
                 {tag}
                 <button
@@ -509,7 +509,7 @@ export function AssetsPanel() {
               </span>
             ))}
             <input
-              className="min-w-0 flex-1 border-b bg-transparent text-[10px] outline-none focus:border-primary"
+              className="min-w-0 flex-1 border-b bg-transparent text-2xs outline-none focus:border-primary"
               placeholder="Add tag…"
               value={tagDraft}
               onChange={(e) => setTagDraft(e.target.value)}
@@ -582,7 +582,7 @@ function InspectorDetails({
   }, [path, kind]);
 
   return (
-    <div className="min-w-0 flex-1 space-y-0.5 text-[11px]">
+    <div className="min-w-0 flex-1 space-y-0.5 text-2xs">
       <p className="truncate font-medium" title={path}>
         {entry.name}
       </p>
@@ -599,13 +599,7 @@ function InspectorDetails({
           {new Date(entry.modified * 1000).toLocaleDateString()}
         </p>
       )}
-      <p
-        className={cn(
-          usageCount === 0
-            ? "text-amber-600 dark:text-amber-400"
-            : "text-muted-foreground",
-        )}
-      >
+      <p className={cn(usageCount === 0 ? "text-warning" : "text-muted-foreground")}>
         {usageCount === 0
           ? "Unused"
           : `Used in ${usageCount} place${usageCount === 1 ? "" : "s"}`}

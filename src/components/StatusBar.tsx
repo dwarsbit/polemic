@@ -24,7 +24,7 @@ function CompileStatus() {
     case "ok":
       return (
         <span className="flex items-center gap-1">
-          <Check className="size-3 text-green-600" />
+          <Check className="size-3 text-success" />
           Compiled{via}
         </span>
       );
@@ -52,7 +52,7 @@ export function StatusBar() {
   });
 
   return (
-    <footer className="flex h-8 shrink-0 items-center justify-between px-4 text-[11px] text-muted-foreground">
+    <footer className="flex h-8 shrink-0 items-center justify-between px-4 text-2xs text-muted-foreground">
       <div className="flex min-w-0 items-center gap-3">
         <span className="truncate">
           {activeFile === null ? "No file open" : activeFile}

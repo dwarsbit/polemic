@@ -265,7 +265,7 @@ export function PropertiesPanel() {
                 )}
               </>
             )}
-            <p className="mt-2 px-2 text-[11px] text-muted-foreground">
+            <p className="mt-2 px-2 text-2xs text-muted-foreground">
               Counted like texcount: words in the document body (text, headings,
               captions, footnotes); commands, math, comments, and the bibliography are
               excluded. Section counts include their subsections.

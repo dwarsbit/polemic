@@ -164,11 +164,9 @@ export function SnapshotDiffDialog({
                     <span className="block truncate text-xs font-medium">
                       {change.path}
                     </span>
-                    <span className="text-[11px] text-muted-foreground">
+                    <span className="text-2xs text-muted-foreground">
                       {statusLabel(change.status)}{" "}
-                      <span className="text-emerald-600 dark:text-emerald-400">
-                        +{change.addedLines}
-                      </span>{" "}
+                      <span className="text-success">+{change.addedLines}</span>{" "}
                       <span className="text-destructive">−{change.removedLines}</span>
                     </span>
                   </button>

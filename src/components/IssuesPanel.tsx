@@ -16,7 +16,7 @@ function issueIcon(issue: CompileIssue) {
   if (issue.severity === "error") {
     return <AlertTriangle className="mt-0.5 size-3.5 shrink-0 text-destructive" />;
   }
-  return <AlertTriangle className="mt-0.5 size-3.5 shrink-0 text-amber-500" />;
+  return <AlertTriangle className="mt-0.5 size-3.5 shrink-0 text-warning" />;
 }
 
 async function jumpToIssue(issue: CompileIssue) {
@@ -155,7 +155,7 @@ export function IssuesPanel({
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="h-4 shrink-0 gap-1 px-1 text-[11px] text-muted-foreground"
+                        className="h-4 shrink-0 gap-1 px-1 text-2xs text-muted-foreground"
                         title={fixes[index].title}
                         onClick={(e) => {
                           e.stopPropagation();
@@ -169,7 +169,7 @@ export function IssuesPanel({
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="h-4 shrink-0 gap-1 px-1 text-[11px] text-muted-foreground"
+                      className="h-4 shrink-0 gap-1 px-1 text-2xs text-muted-foreground"
                       title="Ask the configured AI provider for a fix, with a preview"
                       onClick={(e) => {
                         e.stopPropagation();
@@ -187,7 +187,7 @@ export function IssuesPanel({
                     )}
                   </div>
                   {issue.hint && (
-                    <p className="pr-1 pb-0.5 pl-6 text-[11px] text-muted-foreground">
+                    <p className="pr-1 pb-0.5 pl-6 text-2xs text-muted-foreground">
                       {issue.hint}
                     </p>
                   )}
@@ -200,7 +200,7 @@ export function IssuesPanel({
         ) : (
           <pre className="font-mono text-xs whitespace-pre-wrap">{log}</pre>
         )}
-        {fixNote !== null && <p className="mt-1 text-xs text-amber-600">{fixNote}</p>}
+        {fixNote !== null && <p className="mt-1 text-xs text-warning">{fixNote}</p>}
       </div>
     </div>
   );

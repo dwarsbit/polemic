@@ -185,12 +185,12 @@ export function PreviewPane() {
       <div className="@container flex h-9 shrink-0 items-center gap-2 border-b px-3 text-xs font-medium text-muted-foreground">
         <span>PREVIEW</span>
         {pageCount > 0 && (
-          <span className="text-[10px] whitespace-nowrap tabular-nums">
+          <span className="text-2xs whitespace-nowrap tabular-nums">
             {currentPage} / {pageCount}
           </span>
         )}
         <div className="ml-auto flex shrink-0 items-center gap-1">
-          <span className="hidden text-[10px] whitespace-nowrap @sm:inline">
+          <span className="hidden text-2xs whitespace-nowrap @sm:inline">
             {modKey}click: source
           </span>
           <button
@@ -217,7 +217,7 @@ export function PreviewPane() {
           >
             <ZoomOut className="size-3.5" />
           </button>
-          <span className="w-9 text-center text-[10px] tabular-nums">
+          <span className="w-9 text-center text-2xs tabular-nums">
             {Math.round(zoom * 100)}%
           </span>
           <button

@@ -628,7 +628,7 @@ export function VisualTexEditor() {
       )}
       {missingMaketitle === true && (
         <p className="flex shrink-0 items-center gap-2 border-b bg-accent/40 px-3 py-1 text-xs text-muted-foreground">
-          <AlertTriangle className="size-3.5 shrink-0 text-amber-500" />
+          <AlertTriangle className="size-3.5 shrink-0 text-warning" />
           No \maketitle: the title will not appear in the PDF.
           <Button
             variant="outline"

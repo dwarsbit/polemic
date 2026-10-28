@@ -187,16 +187,14 @@ export function CommentsPanel() {
                         <Check
                           className={cn(
                             "size-3",
-                            comment.resolved
-                              ? "text-emerald-600 dark:text-emerald-400"
-                              : "text-muted-foreground",
+                            comment.resolved ? "text-success" : "text-muted-foreground",
                           )}
                         />
                       </Button>
                     </div>
                     {/* Edit and delete sit on the meta line so the text
                         keeps the row's full width. */}
-                    <div className="mt-0.5 flex items-center pl-3.5 text-[10px] text-muted-foreground">
+                    <div className="mt-0.5 flex items-center pl-3.5 text-2xs text-muted-foreground">
                       <span className="flex-1">
                         {orphaned
                           ? "anchor not found"

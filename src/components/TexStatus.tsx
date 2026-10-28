@@ -18,7 +18,7 @@ function StatusRow({
       {found === null ? (
         <span className="mt-0.5 size-4 shrink-0" />
       ) : found ? (
-        <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-green-600" />
+        <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-success" />
       ) : (
         <XCircle className="mt-0.5 size-4 shrink-0 text-destructive" />
       )}

@@ -240,7 +240,7 @@ export function EntryEditorDialog({
             </div>
           )}
           {missing.length > 0 && (
-            <p className="text-xs text-amber-600 dark:text-amber-400">
+            <p className="text-xs text-warning">
               Missing for {typeLabel(draft.type)}: {missing.join(", ")} — a warning
               only, saving works.
             </p>

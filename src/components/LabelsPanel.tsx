@@ -344,18 +344,18 @@ export function LabelsPanel() {
                 {group === row.name ? row.name : row.name.slice(group.length + 1)}
               </button>
               {row.refs === 0 ? (
-                <span className="mr-1 shrink-0 rounded-full border border-amber-400/60 px-1.5 py-0 text-[10px] leading-4 text-amber-600 dark:text-amber-400">
+                <span className="mr-1 shrink-0 rounded-full border border-warning/50 px-1.5 py-0 text-2xs leading-4 text-warning">
                   unused
                 </span>
               ) : (
                 <span
-                  className="mr-1.5 shrink-0 text-[10px] tabular-nums text-muted-foreground"
+                  className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground"
                   title={`${row.refs} reference${row.refs === 1 ? "" : "s"}`}
                 >
                   {row.refs}×
                 </span>
               )}
-              <span className="max-w-24 shrink-0 truncate text-[10px] text-muted-foreground">
+              <span className="max-w-24 shrink-0 truncate text-2xs text-muted-foreground">
                 {row.def.file}:{row.def.line}
               </span>
               <button
@@ -370,7 +370,7 @@ export function LabelsPanel() {
           )}
         </div>
         {isRenaming && renameError !== null && (
-          <p className="px-6 pt-0.5 text-[11px] text-destructive">{renameError}</p>
+          <p className="px-6 pt-0.5 text-2xs text-destructive">{renameError}</p>
         )}
       </div>
     );
@@ -427,7 +427,7 @@ export function LabelsPanel() {
                   <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-muted-foreground">
                     {group}
                   </span>
-                  <span className="mr-1 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+                  <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
                     {groupRows.length}
                   </span>
                 </div>
@@ -453,10 +453,10 @@ export function LabelsPanel() {
                   )}
                 />
               </button>
-              <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-amber-600 dark:text-amber-400">
+              <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-warning">
                 Undefined references
               </span>
-              <span className="mr-1 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+              <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
                 {undefinedRefs.length}
               </span>
             </div>
@@ -474,10 +474,10 @@ export function LabelsPanel() {
                   >
                     {ref.name}
                   </button>
-                  <span className="mr-1.5 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+                  <span className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground">
                     {ref.count}×
                   </span>
-                  <span className="max-w-24 shrink-0 truncate text-[10px] text-muted-foreground">
+                  <span className="max-w-24 shrink-0 truncate text-2xs text-muted-foreground">
                     {ref.file}:{ref.line}
                   </span>
                 </div>

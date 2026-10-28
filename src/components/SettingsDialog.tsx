@@ -823,7 +823,7 @@ export function SettingsDialog({
             <ScrollArea className="min-h-0 flex-1 px-2 pb-3">
               {groups.map((group) => (
                 <div key={group} className="mt-3 first:mt-0">
-                  <p className="px-2 pb-1 text-[10px] font-medium text-muted-foreground">
+                  <p className="px-2 pb-1 text-2xs font-medium text-muted-foreground">
                     {group}
                   </p>
                   {sections

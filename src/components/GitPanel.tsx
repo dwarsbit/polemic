@@ -42,8 +42,8 @@ function statusWord(entry: GitEntry): string {
 
 function entryColor(entry: GitEntry): string {
   if (entry.x === "?") return "text-muted-foreground";
-  if (entry.x !== " ") return "text-emerald-600 dark:text-emerald-400";
-  return "text-amber-600 dark:text-amber-400";
+  if (entry.x !== " ") return "text-success";
+  return "text-warning";
 }
 
 export function GitPanel() {
@@ -97,7 +97,7 @@ export function GitPanel() {
         actions={
           <div className="flex items-center gap-0.5">
             {status?.branch && (
-              <span className="mr-1 flex items-center gap-1 text-[11px] text-muted-foreground">
+              <span className="mr-1 flex items-center gap-1 text-2xs text-muted-foreground">
                 <GitBranch className="size-3" />
                 {status.branch}
                 {(status.ahead > 0 || status.behind > 0) && (
@@ -149,7 +149,7 @@ export function GitPanel() {
 
             {staged.length > 0 && (
               <>
-                <p className="mt-2 px-2 text-[11px] font-medium text-muted-foreground">
+                <p className="mt-2 px-2 text-2xs font-medium text-muted-foreground">
                   STAGED
                 </p>
                 {staged.map((entry) => (
@@ -168,7 +168,7 @@ export function GitPanel() {
 
             {unstaged.length > 0 && (
               <>
-                <p className="mt-2 px-2 text-[11px] font-medium text-muted-foreground">
+                <p className="mt-2 px-2 text-2xs font-medium text-muted-foreground">
                   CHANGES
                 </p>
                 {unstaged.map((entry) => (
@@ -247,7 +247,7 @@ function GitRow({
       title={`${statusWord(entry)}: ${entry.path}`}
     >
       <span
-        className={`w-3 shrink-0 text-center font-mono text-[11px] ${entryColor(entry)}`}
+        className={`w-3 shrink-0 text-center font-mono text-2xs ${entryColor(entry)}`}
       >
         {action === "unstage" ? codeLabel(entry.x) : codeLabel(entry.y)}
       </span>
