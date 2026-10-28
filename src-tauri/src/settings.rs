@@ -49,6 +49,10 @@ pub struct AiSettings {
 pub struct GrammarSettings {
     /// Off unless false is stored: on by default.
     pub enabled: Option<bool>,
+    /// "builtin", "polemic" (the account's server, Professional) or
+    /// "languagetool" (`language_tool_url`). None: LanguageTool when a
+    /// URL is set, else built in.
+    pub provider: Option<String>,
     /// A LanguageTool server up to /v2 (local, or the public service:
     /// opt-in, the text leaves the machine). None: built-in Harper.
     pub language_tool_url: Option<String>,

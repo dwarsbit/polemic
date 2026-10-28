@@ -89,6 +89,13 @@ export async function runVisualChecks(view: EditorView): Promise<void> {
   }
   if (grammarEnabled()) {
     const results = await checkBlocks(blocks);
+    if (results === null) {
+      // The checker failed: keep the grammar marks shown, as the Code face does.
+      const shown = writingKey.getState(view.state)?.find() ?? [];
+      if (view.state.doc === doc) {
+        decorations.push(...shown.filter((d) => d.spec.issue?.kind === "grammar"));
+      }
+    }
     blocks.forEach((block, i) => {
       for (const issue of results?.[i] ?? []) {
         const from = block.starts[issue.from];

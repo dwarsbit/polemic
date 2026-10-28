@@ -80,16 +80,30 @@ export interface Settings {
   authorInitials: string | null;
 }
 
-/** Grammar checking: built-in Harper (English), or a LanguageTool server. */
+/** Grammar checking: built-in Harper (English), LanguageTool on the
+ *  Polemic account's server (Professional), or the user's own LanguageTool. */
 export interface GrammarSettings {
   /** null means on. */
   enabled: boolean | null;
+  /** null: "languagetool" when a URL is set, else "builtin". */
+  provider: GrammarProvider | null;
   /** A LanguageTool server up to /v2; null uses the built-in checker. */
   languageToolUrl: string | null;
   /** "en-US" (default), "en-GB", "en-AU", "en-CA", "en-IN". */
   englishVariant: string | null;
   /** Rule ids switched off. */
   disabledRules: string[];
+}
+
+export type GrammarProvider = "builtin" | "polemic" | "languagetool";
+
+/** Why a grammar check failed (the Rust `GrammarError`). */
+export interface GrammarError {
+  kind:
+    "signedOut" | "planRequired" | "tooLong" | "rateLimited" | "unavailable" | "failed";
+  message: string;
+  /** Seconds, for "rateLimited". */
+  retryAfter: number | null;
 }
 
 /** A grammar or style issue in a prose block (UTF-16 offsets). */
@@ -377,7 +391,8 @@ export function addSpellcheckWord(word: string): Promise<void> {
   return invoke<void>("add_spellcheck_word", { word });
 }
 
-/** Grammar issues per prose block (see lib/prose). */
+/** Grammar issues per prose block (see lib/prose). Rejects with a
+ *  `GrammarError`. */
 export function checkGrammar(blocks: string[]): Promise<GrammarIssue[][]> {
   return invoke<GrammarIssue[][]>("check_grammar", { blocks });
 }
@@ -721,6 +736,8 @@ export interface AccountUser {
   email: string;
   emailVerified: boolean;
   createdAt: string;
+  /** null from servers without billing. */
+  plan: "free" | "professional" | null;
 }
 
 export interface AccountStatus {

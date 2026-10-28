@@ -15,6 +15,7 @@ import { usePreviewStore } from "@/store/preview";
 
 const DEFAULT_GRAMMAR: GrammarSettings = {
   enabled: null,
+  provider: null,
   languageToolUrl: null,
   englishVariant: null,
   disabledRules: [],

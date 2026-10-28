@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { retryGrammar } from "@/lib/grammar-check";
 import {
   accountCancelSignIn,
   accountSetServer,
@@ -64,6 +65,7 @@ export function AccountSettingsSection() {
     run("signing-in", async () => {
       await accountSignIn();
       show(await accountStatus());
+      retryGrammar();
     });
 
   const signOut = () =>
@@ -134,6 +136,10 @@ export function AccountSettingsSection() {
                   <p className="truncate text-sm font-medium">{status.user.name}</p>
                   <p className="truncate text-xs text-muted-foreground">
                     {status.user.email}
+                    {status.user.plan &&
+                      (status.user.plan === "professional"
+                        ? " · Polemic Professional"
+                        : " · Free plan")}
                   </p>
                 </>
               ) : (

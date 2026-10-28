@@ -605,6 +605,11 @@ fn update_grammar_settings(
     if let Some(url) = grammar.language_tool_url.as_deref() {
         ai::check_service_url(url, "the LanguageTool URL")?;
     }
+    if let Some(provider) = grammar.provider.as_deref() {
+        if !grammar::PROVIDERS.contains(&provider) {
+            return Err(format!("unknown grammar provider: {provider}"));
+        }
+    }
     settings::update(&app, |s| {
         s.grammar = grammar;
         s.clone()
@@ -615,35 +620,56 @@ fn update_grammar_settings(
 /// the English variant changes).
 struct HarperState(std::sync::Mutex<Option<(String, grammar::Harper)>>);
 
-/// Grammar issues per prose block: LanguageTool when a server is
-/// configured, else Harper for English; nothing for other languages.
+/// Grammar issues per prose block: LanguageTool (the user's server or
+/// the Polemic account's) when chosen, else Harper for English;
+/// nothing for other languages.
 #[tauri::command]
 async fn check_grammar(
     app: tauri::AppHandle,
     harper: tauri::State<'_, HarperState>,
     blocks: Vec<String>,
-) -> Result<Vec<Vec<grammar::GrammarIssue>>, String> {
+) -> Result<Vec<Vec<grammar::GrammarIssue>>, grammar::GrammarError> {
     let cfg = settings::snapshot(&app)?;
     let language = cfg.spellcheck_language.clone().unwrap_or_else(|| "en".into());
-    if let Some(url) = cfg.grammar.language_tool_url.as_deref() {
-        let lt_language = if language == "en" {
-            cfg.grammar.english_variant.clone().unwrap_or_else(|| "en-US".into())
-        } else {
-            language
-        };
-        return grammar::check_languagetool(url, &lt_language, &blocks, &cfg.grammar.disabled_rules)
-            .await;
+    let variant = cfg.grammar.english_variant.clone().unwrap_or_else(|| "en-US".into());
+    let lt_language = if language == "en" { variant.clone() } else { language.clone() };
+    let disabled = &cfg.grammar.disabled_rules;
+    match grammar::provider(&cfg.grammar) {
+        grammar::Provider::Polemic => {
+            let server = account::server_of(&app)?;
+            let token = account::token_with(&server, &account::STORE)
+                .ok_or_else(grammar::GrammarError::signed_out)?;
+            let base_url = format!("{server}/api/grammar/v2");
+            let endpoint = grammar::Endpoint {
+                base_url: &base_url,
+                bearer: Some(&token),
+                max_chars: grammar::POLEMIC_MAX_CHARS,
+            };
+            let result = grammar::check_languagetool(&endpoint, &lt_language, &blocks, disabled).await;
+            if matches!(&result, Err(e) if e.kind == grammar::GrammarErrorKind::SignedOut) {
+                account::forget_rejected_with(&server, &token, &account::STORE);
+            }
+            return result;
+        }
+        grammar::Provider::LanguageTool(url) => {
+            let endpoint = grammar::Endpoint {
+                base_url: url,
+                bearer: None,
+                max_chars: usize::MAX,
+            };
+            return grammar::check_languagetool(&endpoint, &lt_language, &blocks, disabled).await;
+        }
+        grammar::Provider::Builtin => {}
     }
     if language != "en" {
         return Ok(vec![Vec::new(); blocks.len()]);
     }
-    let variant = cfg.grammar.english_variant.clone().unwrap_or_else(|| "en-US".into());
     let mut guard = harper.0.lock().map_err(|e| e.to_string())?;
     if guard.as_ref().is_none_or(|(v, _)| *v != variant) {
         *guard = Some((variant.clone(), grammar::Harper::new(grammar::dialect_for(&variant))));
     }
     let (_, checker) = guard.as_mut().expect("set above");
-    Ok(checker.check(&blocks, &cfg.grammar.disabled_rules))
+    Ok(checker.check(&blocks, disabled))
 }
 
 /// Harper's rules with descriptions, for switching them off.

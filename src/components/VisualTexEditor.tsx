@@ -84,6 +84,7 @@ import {
   runVisualChecks,
   setVisualIssueHandler,
 } from "@/lib/visual/writing";
+import { useGrammarStatus } from "@/lib/grammar-check";
 import { formatShortcut } from "@/lib/platform";
 
 /** The cursor's place in the document, for face switches. */
@@ -633,6 +634,7 @@ export function VisualTexEditor() {
   const spellcheckEnabled = useSettingsStore((s) => s.spellcheckEnabled);
   const spellcheckLanguage = useSettingsStore((s) => s.spellcheckLanguage);
   const grammar = useSettingsStore((s) => s.grammar);
+  const grammarRetry = useGrammarStatus((s) => s.retry);
 
   // Spelling and grammar, as in the Code face: debounced after edits,
   // and again when the settings change.
@@ -657,7 +659,7 @@ export function VisualTexEditor() {
       editor.off("update", onUpdate);
       setVisualIssueHandler(null);
     };
-  }, [editor, spellcheckEnabled, spellcheckLanguage, grammar]);
+  }, [editor, spellcheckEnabled, spellcheckLanguage, grammar, grammarRetry]);
 
   // Suggest mode follows the switch, the author and the open file.
   const suggestAuthor = useSuggestAuthor();

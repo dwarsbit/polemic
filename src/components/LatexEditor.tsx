@@ -102,6 +102,7 @@ import {
   grammarIssueAt,
   runGrammarCheck,
   setGrammarIssues,
+  useGrammarStatus,
 } from "@/lib/grammar-check";
 import {
   TEXT_WRAPPERS,
@@ -1281,6 +1282,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
   // Debounced grammar check: longer than spelling's, since a sentence
   // is mid-edit more often than a word, and a server may be remote.
   const grammar = useSettingsStore((s) => s.grammar);
+  const grammarRetry = useGrammarStatus((s) => s.retry);
   useEffect(() => {
     const view = viewRef.current;
     if (!view) return;
@@ -1290,7 +1292,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     }
     const timer = setTimeout(() => void runGrammarCheck(view), 1200);
     return () => clearTimeout(timer);
-  }, [content, docVersion, grammar, spellcheckLanguage]);
+  }, [content, docVersion, grammar, grammarRetry, spellcheckLanguage]);
 
   // Re-check with a fresh cache when the spellcheck language changes.
   useEffect(() => {
