@@ -10,7 +10,8 @@ export type PanelCommand =
   | "toggle-search"
   | "toggle-issues"
   | "toggle-log"
-  | "show-bibliography";
+  | "show-bibliography"
+  | "show-version-control";
 
 const handlers = new Map<PanelCommand, () => void>();
 

@@ -155,6 +155,7 @@ export function ProjectsView() {
         <Separator className="my-4" />
         <div className="flex gap-2">
           <Input
+            autoFocus
             placeholder="New project name"
             value={name}
             onChange={(e) => setName(e.target.value)}

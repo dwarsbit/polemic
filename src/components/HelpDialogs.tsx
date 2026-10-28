@@ -7,30 +7,91 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { formatShortcut, isMac } from "@/lib/platform";
 
-const SHORTCUTS: [string, string][] = [
-  ["Cmd/Ctrl + P", "Open the command palette"],
-  ["Cmd/Ctrl + Alt + 2", "Open the Sources settings"],
-  ["Cmd/Ctrl + S", "Save and compile"],
-  ["Cmd/Ctrl + C", "Copy the current line (when nothing is selected)"],
-  ["Cmd/Ctrl + X", "Cut the current line (when nothing is selected)"],
-  ["Cmd/Ctrl + D", "Delete the current line"],
-  ["Cmd/Ctrl + F", "Find in the current file"],
-  ["Cmd/Ctrl + Shift + F", "Search across the project"],
-  ["Shift + Alt + F", "Format the document"],
-  ["Cmd/Ctrl + Shift + T", "Insert a table"],
-  ["Cmd/Ctrl + Alt + G", "Wrap the image at the cursor in a figure"],
-  ["Cmd/Ctrl + Alt + T", "Insert a TikZ picture"],
-  ["Cmd/Ctrl + Alt + P", "Manage LaTeX packages"],
-  ["Cmd/Ctrl + B", "Bold — \\textbf (toggles around the selection)"],
-  ["Cmd/Ctrl + I", "Emphasis — \\emph (toggles around the selection)"],
-  ["Cmd/Ctrl + U", "Underline — \\underline (toggles around the selection)"],
-  ["Cmd/Ctrl + click (editor)", "Jump to this spot in the PDF (SyncTeX)"],
-  ["Cmd/Ctrl + click (PDF)", "Jump to the source line (SyncTeX)"],
-  ["Cmd/Ctrl + Space", "Autocomplete LaTeX commands, environments, labels, citations"],
-  ["Right-click marked word", "Add the word to your dictionary"],
-  ["Alt + G", "Go to line"],
+/** Shortcut groups; keys are platform-neutral specs ("Mod" is ⌘ on
+ *  macOS and Ctrl elsewhere) or a plain description of a gesture. */
+const SHORTCUTS: { group: string; items: [string, string][] }[] = [
+  {
+    group: "General",
+    items: [
+      ["Mod+P", "Command palette"],
+      ["Mod+,", "Settings"],
+      ["Mod+/", "Keyboard shortcuts"],
+      ["Mod+O", "Open project"],
+      ["Mod+Shift+W", "Close project"],
+    ],
+  },
+  {
+    group: "Files and output",
+    items: [
+      ["Mod+S", "Save and compile"],
+      ["Mod+Shift+R", "Compile"],
+      ["Mod+E", "Export PDF"],
+      ["Mod+Shift+E", "Reveal build folder"],
+    ],
+  },
+  {
+    group: "Editing",
+    items: [
+      ["Mod+F", "Find in file"],
+      ["Mod+Shift+F", "Find in project"],
+      ["Shift+Alt+F", "Format document"],
+      ["Mod+Alt+C", "Add comment"],
+      ["Mod+C", "Copy the line (nothing selected)"],
+      ["Mod+X", "Cut the line (nothing selected)"],
+      ["Mod+D", "Delete the line"],
+      ["Alt+G", "Go to line"],
+      ["Mod+Space", "Complete commands, labels and citations"],
+      ["Mod+B", "Bold (\\textbf)"],
+      ["Mod+I", "Emphasis (\\emph)"],
+      ["Mod+U", "Underline (\\underline)"],
+    ],
+  },
+  {
+    group: "Insert",
+    items: [
+      ["Mod+Shift+T", "Table"],
+      ["Mod+Alt+G", "Figure from image"],
+      ["Mod+Alt+T", "TikZ picture"],
+      ["Mod+Shift+C", "Citation"],
+    ],
+  },
+  {
+    group: "View",
+    items: [
+      ["Mod+Alt+1", "Visual"],
+      ["Mod+Alt+2", "Code"],
+      ["Mod+Alt+B", "Navigator"],
+      ["Mod+Shift+P", "PDF preview"],
+      ["Mod+J", "Properties"],
+      ["Mod+Shift+M", "Issues"],
+      ["Mod+=", "Zoom the PDF in"],
+      ["Mod+-", "Zoom the PDF out"],
+      ["Mod+0", "PDF at actual size"],
+    ],
+  },
+  {
+    group: "Project",
+    items: [
+      ["Mod+Alt+P", "Packages"],
+      ["Mod+K", "Commit"],
+    ],
+  },
+  {
+    group: "Mouse",
+    items: [
+      [`${isMac ? "⌘" : "Ctrl+"}click in the editor`, "Show this spot in the PDF"],
+      [`${isMac ? "⌘" : "Ctrl+"}click in the PDF`, "Show the source line"],
+      ["Right-click a marked word", "Corrections and dictionary"],
+    ],
+  },
 ];
+
+/** A spec ("Mod+Shift+P") formatted for this platform; gestures pass through. */
+function keysLabel(keys: string): string {
+  return /^(Mod|Shift|Alt|Ctrl)(\+|$)/.test(keys) ? formatShortcut(keys) : keys;
+}
 
 export function ShortcutsDialog({
   open,
@@ -41,20 +102,32 @@ export function ShortcutsDialog({
 }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="flex max-h-[85vh] max-w-lg flex-col gap-4 sm:max-w-lg">
         <DialogHeader>
           <DialogTitle>Keyboard shortcuts</DialogTitle>
         </DialogHeader>
-        <ul className="space-y-1.5 text-sm">
-          {SHORTCUTS.map(([keys, description]) => (
-            <li key={keys} className="flex items-center justify-between gap-4">
-              <span className="rounded border bg-muted px-1.5 py-0.5 font-mono text-xs">
-                {keys}
-              </span>
-              <span className="text-muted-foreground">{description}</span>
-            </li>
+        <div className="-mx-2 min-h-0 space-y-4 overflow-y-auto px-2">
+          {SHORTCUTS.map(({ group, items }) => (
+            <section key={group}>
+              <p className="mb-1 text-2xs font-medium tracking-wide text-muted-foreground uppercase">
+                {group}
+              </p>
+              <ul className="divide-y divide-border rounded-lg border">
+                {items.map(([keys, description]) => (
+                  <li
+                    key={keys}
+                    className="flex items-center justify-between gap-4 px-3 py-1.5 text-sm"
+                  >
+                    <span>{description}</span>
+                    <kbd className="shrink-0 rounded border bg-muted px-1.5 py-0.5 font-sans text-xs text-muted-foreground">
+                      {keysLabel(keys)}
+                    </kbd>
+                  </li>
+                ))}
+              </ul>
+            </section>
           ))}
-        </ul>
+        </div>
       </DialogContent>
     </Dialog>
   );

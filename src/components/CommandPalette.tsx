@@ -3,7 +3,13 @@ import {
   AlertTriangle,
   BookOpen,
   Camera,
+  FileCog,
   FileText,
+  GitBranch,
+  Link,
+  Quote,
+  Sigma,
+  Superscript,
   FolderOpen,
   Image,
   Keyboard,
@@ -29,7 +35,10 @@ import { insertTikzSnippet, TIKZ_SNIPPETS } from "@/lib/tikz-snippets";
 import { addCommentAtCursor, addFileComment } from "@/lib/editor-comments";
 import { runPanelCommand } from "@/lib/panel-commands";
 import { fuzzyRank, type FuzzyItem } from "@/lib/fuzzy";
-import { revealBuildFolder, type FileEntry } from "@/lib/tauri";
+import { insertWithCompletion } from "@/lib/editor-commands";
+import { insertAtCursor } from "@/lib/editor-insert";
+import { formatShortcut } from "@/lib/platform";
+import { openProjectDialog, revealBuildFolder, type FileEntry } from "@/lib/tauri";
 import { useDialogsStore } from "@/store/dialogs";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
@@ -70,24 +79,35 @@ export function CommandPalette() {
   const commands = useMemo<Command[]>(() => {
     const app: Command[] = [
       {
-        id: "mode-sources",
-        title: "Sources…",
+        id: "open-project",
+        title: "Open project…",
+        icon: FolderOpen,
+        shortcut: formatShortcut("Mod+O"),
+        keywords: "folder existing",
+        run: () =>
+          void openProjectDialog()
+            .then((info) => info && useProjectStore.getState().openProject(info.path))
+            .catch(() => undefined),
+      },
+      {
+        id: "sources",
+        title: "Bibliography sources…",
         icon: BookOpen,
-        shortcut: "Cmd/Ctrl + Alt + 2",
-        keywords: "workspace bibliography sources zotero settings",
+        keywords: "bibliography sources zotero bib settings",
         run: () => useSettingsStore.getState().openSettings("bibliography"),
       },
       {
         id: "settings",
-        title: "Open settings",
+        title: "Settings…",
         icon: Settings,
         keywords: "preferences theme language spellcheck",
         run: () => useSettingsStore.getState().setSettingsDialogOpen(true),
       },
       {
         id: "shortcuts",
-        title: "Show keyboard shortcuts",
+        title: "Keyboard shortcuts",
         icon: Keyboard,
+        shortcut: formatShortcut("Mod+/"),
         run: () => useDialogsStore.getState().setShortcutsOpen(true),
       },
       {
@@ -104,35 +124,38 @@ export function CommandPalette() {
     return [
       {
         id: "save",
-        title: "Save file",
+        title: "Save",
         icon: Save,
-        shortcut: "Cmd/Ctrl + S",
+        shortcut: formatShortcut("Mod+S"),
         run: () => void store.saveActiveFile(),
       },
       {
         id: "format",
         title: "Format document",
         icon: WandSparkles,
-        shortcut: "Shift + Alt + F",
+        shortcut: formatShortcut("Shift+Alt+F"),
         run: () => formatDocument(),
       },
       {
         id: "compile",
-        title: "Compile project",
+        title: "Compile",
         icon: Play,
+        shortcut: formatShortcut("Mod+Shift+R"),
         run: () => void usePreviewStore.getState().compileNow(),
       },
       {
         id: "export-pdf",
-        title: "Export PDF as…",
+        title: "Export PDF…",
         icon: FileText,
-        shortcut: "Cmd/Ctrl + E",
+        shortcut: formatShortcut("Mod+E"),
         run: () => void exportPdfAs(),
       },
       {
-        id: "new-project",
-        title: "New project (back to the projects view)",
+        id: "close-project",
+        title: "Close project",
         icon: FolderOpen,
+        shortcut: formatShortcut("Mod+Shift+W"),
+        keywords: "new switch projects view",
         run: () => {
           void store
             .flushBuffers()
@@ -149,7 +172,7 @@ export function CommandPalette() {
         id: "add-comment",
         title: "Add comment",
         icon: MessageSquare,
-        shortcut: "Cmd/Ctrl + Alt + C",
+        shortcut: formatShortcut("Mod+Alt+C"),
         keywords: "note annotation review",
         run: () => addCommentAtCursor(),
       },
@@ -162,43 +185,47 @@ export function CommandPalette() {
       },
       {
         id: "toggle-sidebar",
-        title: "Toggle sidebar",
+        title: "Toggle navigator",
         icon: PanelLeft,
-        keywords: "files outline symbols hide show",
+        shortcut: formatShortcut("Mod+Alt+B"),
+        keywords: "sidebar files outline symbols hide show",
         run: () => runPanelCommand("toggle-sidebar"),
       },
       {
         id: "toggle-preview",
         title: "Toggle PDF preview",
         icon: PanelRight,
+        shortcut: formatShortcut("Mod+Shift+P"),
         keywords: "pdf hide show",
         run: () => runPanelCommand("toggle-preview"),
       },
       {
         id: "toggle-right",
-        title: "Toggle right panel",
+        title: "Toggle properties",
         icon: PanelRight,
-        keywords: "git snapshots history properties hide show",
+        shortcut: formatShortcut("Mod+J"),
+        keywords: "right panel git snapshots history comments hide show",
         run: () => runPanelCommand("toggle-right"),
       },
       {
         id: "toggle-search",
-        title: "Search in project",
+        title: "Find in project",
         icon: Search,
-        shortcut: "Cmd/Ctrl + Shift + F",
+        shortcut: formatShortcut("Mod+Shift+F"),
         keywords: "find grep across files",
         run: () => runPanelCommand("toggle-search"),
       },
       {
         id: "toggle-issues",
-        title: "Show issues",
+        title: "Toggle issues",
         icon: AlertTriangle,
+        shortcut: formatShortcut("Mod+Shift+M"),
         keywords: "errors warnings problems hide show",
         run: () => runPanelCommand("toggle-issues"),
       },
       {
         id: "toggle-log",
-        title: "Show compile log",
+        title: "Toggle compile log",
         icon: ScrollText,
         keywords: "latexmk output hide show",
         run: () => runPanelCommand("toggle-log"),
@@ -207,7 +234,7 @@ export function CommandPalette() {
         id: "insert-table",
         title: "Insert table…",
         icon: TableProperties,
-        shortcut: "Cmd/Ctrl + Shift + T",
+        shortcut: formatShortcut("Mod+Shift+T"),
         keywords: "tabular booktabs rows columns skeleton",
         run: () => useDialogsStore.getState().setTableDialogOpen(true),
       },
@@ -220,19 +247,62 @@ export function CommandPalette() {
       },
       {
         id: "packages",
-        title: "Manage packages…",
+        title: "Packages…",
         icon: Package,
-        shortcut: "Cmd/Ctrl + Alt + P",
+        shortcut: formatShortcut("Mod+Alt+P"),
         keywords: "ctan usepackage libraries install latex",
         run: () => useDialogsStore.getState().setPackagesDialogOpen(true),
       },
       {
         id: "wrap-figure",
-        title: "Wrap in figure",
+        title: "Figure from image…",
         icon: Image,
-        shortcut: "Cmd/Ctrl + Alt + G",
-        keywords: "includegraphics caption float graphic",
+        shortcut: formatShortcut("Mod+Alt+G"),
+        keywords: "wrap includegraphics caption float graphic",
         run: () => wrapFigure(),
+      },
+      {
+        id: "insert-citation",
+        title: "Insert citation…",
+        icon: Quote,
+        shortcut: formatShortcut("Mod+Shift+C"),
+        keywords: "cite reference bibliography",
+        run: () => insertWithCompletion("\\cite{}", 6),
+      },
+      {
+        id: "insert-reference",
+        title: "Insert reference…",
+        icon: Link,
+        keywords: "ref label cross-reference",
+        run: () => insertWithCompletion("\\ref{}", 5),
+      },
+      {
+        id: "insert-footnote",
+        title: "Insert footnote",
+        icon: Superscript,
+        run: () => insertAtCursor("\\footnote{}", 10),
+      },
+      {
+        id: "insert-display-math",
+        title: "Insert display math",
+        icon: Sigma,
+        keywords: "equation formula",
+        run: () => insertAtCursor("\\[\n  \n\\]", "\\[\n  ".length),
+      },
+      {
+        id: "document-settings",
+        title: "Document settings…",
+        icon: FileCog,
+        keywords: "class paper title author",
+        run: () => useDialogsStore.getState().setDocumentSettingsOpen(true),
+      },
+      {
+        id: "commit",
+        title: versionControl === "git" ? "Commit…" : "Show snapshots",
+        icon: GitBranch,
+        shortcut: formatShortcut("Mod+K"),
+        keywords: "git version control history",
+        run: () => runPanelCommand("show-version-control"),
       },
       ...TIKZ_SNIPPETS.map((snippet) => ({
         id: `tikz-${snippet.id}`,
@@ -254,7 +324,7 @@ export function CommandPalette() {
         : []),
       {
         id: "toggle-autocompile",
-        title: `Auto-compile: turn ${usePreviewStore.getState().autoCompile ? "off" : "on"}`,
+        title: `Turn auto-compile ${usePreviewStore.getState().autoCompile ? "off" : "on"}`,
         icon: Zap,
         run: () => usePreviewStore.getState().toggleAutoCompile(),
       },
