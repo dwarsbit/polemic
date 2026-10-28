@@ -1,0 +1,95 @@
+name: Smoke
+
+# Builds the app on macOS and Windows and checks that it starts and
+# stays up for a few seconds. Separate from CI: it is slower, and it
+# launches the real app (window, webview, Rust backend).
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # How long the app must stay up, in seconds.
+  SMOKE_SECONDS: 15
+
+jobs:
+  smoke:
+    name: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      - name: Install frontend dependencies
+        run: pnpm install --frozen-lockfile
+
+      # A debug build with the frontend embedded (a plain cargo build
+      # would load the dev server URL instead). No installers.
+      - name: Build the app (debug)
+        run: pnpm tauri build --debug --no-bundle
+
+      - name: Launch and stay up (macOS)
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          ./src-tauri/target/debug/polemic > app.log 2>&1 &
+          pid=$!
+          sleep "$SMOKE_SECONDS"
+          if ! kill -0 "$pid" 2>/dev/null; then
+            status=0
+            wait "$pid" || status=$?
+            echo "::error::Polemic exited within ${SMOKE_SECONDS}s (status $status)"
+            cat app.log
+            exit 1
+          fi
+          echo "Polemic is still running after ${SMOKE_SECONDS}s"
+          kill "$pid"
+          cat app.log
+
+      - name: Launch and stay up (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $app = Start-Process -FilePath ".\src-tauri\target\debug\polemic.exe" `
+            -RedirectStandardOutput app.log -RedirectStandardError app.err.log -PassThru
+          Start-Sleep -Seconds $env:SMOKE_SECONDS
+          if ($app.HasExited) {
+            Write-Output "::error::Polemic exited within $($env:SMOKE_SECONDS)s (status $($app.ExitCode))"
+            Get-Content app.log, app.err.log -ErrorAction SilentlyContinue
+            exit 1
+          }
+          Write-Output "Polemic is still running after $($env:SMOKE_SECONDS)s"
+          Stop-Process -Id $app.Id -Force
+          Get-Content app.log, app.err.log -ErrorAction SilentlyContinue
+
+      - name: Upload app log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-log-${{ matrix.os }}
+          path: app*.log
+          if-no-files-found: ignore
