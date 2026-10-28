@@ -57,3 +57,22 @@ export function flushQueuedEditsForView(): void {
     applyEditsInView(edits, "input.fixLatex");
   }
 }
+
+type HistoryHandler = (direction: "undo" | "redo") => boolean;
+
+let historyHandler: HistoryHandler | null = null;
+
+/** Called by the editor component to serve undo/redo requests. */
+export function setHistoryHandler(h: HistoryHandler | null) {
+  historyHandler = h;
+}
+
+/**
+ * Undo or redo in the source editor's history from outside the editor
+ * (e.g. Ctrl+Z right after an outline panel edit, focus still in the
+ * panel). True when something changed; false when the editor is not
+ * mounted or has nothing to take back.
+ */
+export function runEditorHistory(direction: "undo" | "redo"): boolean {
+  return historyHandler?.(direction) ?? false;
+}

@@ -15,7 +15,7 @@ vi.mock("@/lib/tauri", async (importOriginal) => ({
 }));
 
 import { OutlinePanel } from "@/components/OutlinePanel";
-import { setApplyEditsHandler } from "@/lib/editor-edits";
+import { setApplyEditsHandler, setHistoryHandler } from "@/lib/editor-edits";
 import { applyEdits, type SourceEdit } from "@/lib/label-index";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
@@ -106,6 +106,7 @@ afterEach(() => {
   act(() => root?.unmount());
   root = null;
   setApplyEditsHandler(null);
+  setHistoryHandler(null);
   vi.restoreAllMocks();
   document.body.innerHTML = "";
 });
@@ -117,5 +118,57 @@ describe("OutlinePanel drag", () => {
     expect(useEditorStore.getState().content).toBe(
       "\\section{Two}\nsecond\n\\section{One}\nfirst\n",
     );
+  });
+});
+
+describe("OutlinePanel undo", () => {
+  function press(target: EventTarget, init: KeyboardEventInit) {
+    const event = new KeyboardEvent("keydown", {
+      bubbles: true,
+      cancelable: true,
+      ...init,
+    });
+    target.dispatchEvent(event);
+    return event;
+  }
+
+  it("takes Ctrl+Z and Ctrl+Shift+Z to the editor while focus is in the panel", async () => {
+    const host = await mount();
+    const original = useEditorStore.getState().content;
+    await drag(row(host, "One"), row(host, "Two"));
+    const moved = useEditorStore.getState().content;
+    // The editor's history: the drag is its last step.
+    const history = vi.fn((direction: "undo" | "redo") => {
+      useEditorStore.setState({ content: direction === "undo" ? original : moved });
+      return true;
+    });
+    setHistoryHandler(history);
+
+    const button = row(host, "Two").querySelector("button[data-outline-key]")!;
+    let event!: KeyboardEvent;
+    await act(async () => {
+      event = press(button, { key: "z", ctrlKey: true });
+    });
+    expect(event.defaultPrevented).toBe(true);
+    expect(history).toHaveBeenLastCalledWith("undo");
+    expect(useEditorStore.getState().content).toBe(original);
+
+    // Nothing focused at all (WebKit leaves clicked buttons unfocused).
+    await act(async () => {
+      press(document.body, { key: "Z", metaKey: true, shiftKey: true });
+    });
+    expect(history).toHaveBeenLastCalledWith("redo");
+    expect(useEditorStore.getState().content).toBe(moved);
+  });
+
+  it("leaves Ctrl+Z alone in other panels and fields", async () => {
+    await mount();
+    const history = vi.fn(() => true);
+    setHistoryHandler(history);
+    const field = document.createElement("input");
+    document.body.append(field);
+    const event = press(field, { key: "z", ctrlKey: true });
+    expect(event.defaultPrevented).toBe(false);
+    expect(history).not.toHaveBeenCalled();
   });
 });

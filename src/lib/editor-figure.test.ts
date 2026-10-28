@@ -5,6 +5,7 @@ import {
   findIncludeGraphics,
   insertPackages,
   missingPackages,
+  planWrapFigure,
   wrapIncludeFigure,
 } from "./editor-figure";
 
@@ -91,5 +92,31 @@ describe("insertPackages setup lines", () => {
     // Already loaded: the author's own setup stays as it is.
     const loaded = "\\documentclass{article}\n\\usepackage{pgfplots}\n";
     expect(insertPackages(loaded, ["pgfplots"])).toBe(loaded);
+  });
+});
+
+describe("planWrapFigure", () => {
+  it("wraps an include sharing its line on fresh lines", () => {
+    const doc = "See \\includegraphics{a.png} here.\n";
+    const plan = planWrapFigure(doc, doc.indexOf("a.png"));
+    expect(plan.from).toBe(doc.indexOf("\\includegraphics"));
+    expect(plan.to).toBe(doc.indexOf(" here"));
+    expect(plan.insert.startsWith("\n\\begin{figure}")).toBe(true);
+    expect(plan.insert.endsWith("\\end{figure}\n")).toBe(true);
+  });
+
+  it("leaves an include alone on its line as is", () => {
+    const doc = "a\n  \\includegraphics{a.png}\nb";
+    const plan = planWrapFigure(doc, doc.indexOf("a.png"));
+    expect(plan.insert).toBe(wrapIncludeFigure("\\includegraphics{a.png}", "a.png"));
+  });
+
+  it("puts the scaffold on a fresh line when the cursor is mid-line", () => {
+    const doc = "Some text here";
+    const plan = planWrapFigure(doc, 4);
+    expect(plan).toEqual({ from: 4, to: 4, insert: `\n${figureScaffold()}\n` });
+    const atEnd = planWrapFigure(doc, doc.length);
+    expect(atEnd.insert).toBe(`\n${figureScaffold()}`);
+    expect(planWrapFigure("", 0).insert).toBe(figureScaffold());
   });
 });
