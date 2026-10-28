@@ -836,8 +836,9 @@ export function SettingsDialog({
               id: "grammar-checker",
               label: "Checker and rules",
               description:
-                "Built in, offline and English only. A LanguageTool server adds other languages.",
-              keywords: "languagetool server rules disable passive voice checker",
+                "Built in, offline and English only. Polemic (Professional) or a LanguageTool server check every language.",
+              keywords:
+                "languagetool polemic professional server rules disable passive voice checker",
               control: null,
             },
           ],

@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { Check, Loader2 } from "lucide-react";
 import { SuggestToggle } from "@/components/SuggestToggle";
-import { detectTex, type ToolInfo } from "@/lib/tauri";
+import { useGrammarStatus } from "@/lib/grammar-check";
+import { detectTex, type GrammarError, type ToolInfo } from "@/lib/tauri";
 import { countWords, totalWords } from "@/lib/word-count";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
+import { useSettingsStore } from "@/store/settings";
 import { cn } from "@/lib/utils";
 
 /** The distribution's name from pdflatex's version line, e.g.
@@ -59,6 +61,34 @@ function CompileStatus() {
   }
 }
 
+const GRAMMAR_PROBLEMS: Record<GrammarError["kind"], string> = {
+  signedOut: "Grammar: signed out",
+  planRequired: "Grammar: needs Professional",
+  tooLong: "Grammar: paragraph too long",
+  rateLimited: "Grammar: paused",
+  unavailable: "Grammar unavailable",
+  failed: "Grammar check failed",
+};
+
+/** Why grammar checking stopped, when it did; opens its settings. */
+function GrammarStatus() {
+  const problem = useGrammarStatus((s) => s.problem);
+  const enabled = useSettingsStore((s) => s.grammar.enabled !== false);
+  const openSettings = useSettingsStore((s) => s.openSettings);
+  if (!problem || !enabled) return null;
+  return (
+    <button
+      type="button"
+      className="flex items-center gap-1 hover:text-foreground"
+      title={problem.message}
+      onClick={() => openSettings("writing")}
+    >
+      <Dot className="bg-warning" />
+      {GRAMMAR_PROBLEMS[problem.kind]}
+    </button>
+  );
+}
+
 /** The transparent strip along the bottom window edge. */
 export function StatusBar() {
   const activeFile = useProjectStore((s) => s.activeFile);
@@ -81,6 +111,7 @@ export function StatusBar() {
         {activeFile?.endsWith(".tex") && <SuggestToggle compact />}
       </div>
       <div className="flex shrink-0 items-center gap-3">
+        <GrammarStatus />
         <CompileStatus />
         {tex &&
           (tex.pdflatex.found ? (

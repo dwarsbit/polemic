@@ -1,7 +1,8 @@
 import { StateEffect, StateField } from "@codemirror/state";
 import { Decoration, EditorView, type DecorationSet } from "@codemirror/view";
+import { create } from "zustand";
 import { extractProse, sourceRange, type ProseBlock } from "@/lib/prose";
-import { checkGrammar, type GrammarIssue } from "@/lib/tauri";
+import { checkGrammar, type GrammarError, type GrammarIssue } from "@/lib/tauri";
 import { useSettingsStore } from "@/store/settings";
 
 /**
@@ -32,11 +33,49 @@ export function clearGrammarCache() {
 function settingsKey(): string {
   const { grammar, spellcheckLanguage } = useSettingsStore.getState();
   return JSON.stringify([
+    grammar.provider,
     grammar.languageToolUrl,
     grammar.englishVariant,
     grammar.disabledRules,
     spellcheckLanguage,
   ]);
+}
+
+interface GrammarStatus {
+  /** Why the last check failed; null once one succeeds. */
+  problem: GrammarError | null;
+  /** Bumped when a rate limit's wait is over, so the editors check again. */
+  retry: number;
+}
+
+/** The checker's state, for the status bar and the settings. */
+export const useGrammarStatus = create<GrammarStatus>(() => ({
+  problem: null,
+  retry: 0,
+}));
+
+let retryTimer: ReturnType<typeof setTimeout> | undefined;
+
+function report(problem: GrammarError | null) {
+  clearTimeout(retryTimer);
+  useGrammarStatus.setState({ problem });
+  if (problem?.kind === "rateLimited") {
+    // The backend refuses checks until then; don't ask before.
+    retryTimer = setTimeout(
+      () => useGrammarStatus.setState((s) => ({ problem: null, retry: s.retry + 1 })),
+      (problem.retryAfter ?? 60) * 1000,
+    );
+  }
+}
+
+/** Check again now (the account just signed in, say). */
+export function retryGrammar() {
+  report(null);
+  useGrammarStatus.setState((s) => ({ retry: s.retry + 1 }));
+}
+
+function isGrammarError(e: unknown): e is GrammarError {
+  return typeof e === "object" && e !== null && "kind" in e && "message" in e;
 }
 
 /** Whether grammar checking is on. */
@@ -47,7 +86,8 @@ export function grammarEnabled(): boolean {
 /**
  * Issues per block, from the cache or the checker. Issues touching a
  * placeholder (math, citations) are dropped: they are about text the
- * user did not write. Null when the checker is unavailable.
+ * user did not write. Null when the checker is unavailable (the reason
+ * goes to `useGrammarStatus`); callers keep what they show.
  */
 export async function checkBlocks(
   blocks: ProseBlock[],
@@ -62,8 +102,11 @@ export async function checkBlocks(
     try {
       const results = await checkGrammar(missing);
       missing.forEach((text, i) => cache.set(text, results[i] ?? []));
-    } catch {
-      return null; // no backend (browser) or the server failed
+      if (useGrammarStatus.getState().problem !== null) report(null);
+    } catch (e) {
+      // No backend (browser), or the checker failed: say why, if it did.
+      if (isGrammarError(e)) report(e);
+      return null;
     }
   }
   return blocks.map((block) =>

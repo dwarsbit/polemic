@@ -42,6 +42,9 @@ pub struct AccountUser {
     pub email: String,
     pub email_verified: bool,
     pub created_at: String,
+    /// "free" or "professional"; None from servers before billing.
+    #[serde(default)]
+    pub plan: Option<String>,
 }
 
 /// `POST /api/desktop/token` (contracts' `desktopTokenResponse`).
@@ -370,6 +373,22 @@ fn load(store: &impl Store) -> Option<Credential> {
         .and_then(|json| serde_json::from_str(&json).ok())
 }
 
+/// The stored token for `server`; None when signed out or signed in
+/// to another server.
+pub fn token_with(server: &str, store: &impl Store) -> Option<String> {
+    load(store)
+        .filter(|credential| credential.server == server)
+        .map(|credential| credential.token)
+}
+
+/// Forgets a token `server` no longer accepts (a 401 from a paid
+/// service), as `status_with` does.
+pub fn forget_rejected_with(server: &str, token: &str, store: &impl Store) {
+    if load(store).is_some_and(|c| c.server == server && c.token == token) {
+        let _ = store.delete();
+    }
+}
+
 async fn revoke(credential: &Credential) -> Result<(), String> {
     client()?
         .delete(format!("{}/api/desktop/session", credential.server))
@@ -460,7 +479,7 @@ pub async fn status_with(server: &str, store: &impl Store) -> AccountStatus {
 
 // --- commands ----------------------------------------------------------------
 
-fn server_of(app: &tauri::AppHandle) -> Result<String, String> {
+pub fn server_of(app: &tauri::AppHandle) -> Result<String, String> {
     let settings = crate::settings::snapshot(app)?;
     Ok(settings
         .account_server
@@ -688,6 +707,44 @@ mod tests {
                 user: None,
                 problem: None
             }
+        );
+    }
+
+    #[test]
+    fn tokens_go_only_to_their_own_server() {
+        let store = MemoryStore::default();
+        assert_eq!(token_with("https://app.test", &store), None);
+        let credential = Credential {
+            server: "https://app.test".into(),
+            token: "tok".into(),
+        };
+        store
+            .set(&serde_json::to_string(&credential).unwrap())
+            .unwrap();
+        assert_eq!(
+            token_with("https://app.test", &store).as_deref(),
+            Some("tok")
+        );
+        assert_eq!(token_with("https://other.test", &store), None);
+
+        // A stale 401 (an older token) leaves a newer sign-in alone.
+        forget_rejected_with("https://app.test", "old", &store);
+        assert!(load(&store).is_some());
+        forget_rejected_with("https://app.test", "tok", &store);
+        assert!(load(&store).is_none());
+    }
+
+    #[test]
+    fn users_from_servers_before_billing_have_no_plan() {
+        let old = r#"{"id":"u","name":"N","email":"e@x","emailVerified":true,"createdAt":"t"}"#;
+        assert_eq!(serde_json::from_str::<AccountUser>(old).unwrap().plan, None);
+        let new = r#"{"id":"u","name":"N","email":"e@x","emailVerified":true,"createdAt":"t","plan":"professional","image":null}"#;
+        assert_eq!(
+            serde_json::from_str::<AccountUser>(new)
+                .unwrap()
+                .plan
+                .as_deref(),
+            Some("professional")
         );
     }
 
