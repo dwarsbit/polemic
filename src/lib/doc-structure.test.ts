@@ -3,6 +3,7 @@ import {
   buildDocumentOrder,
   extractIncludes,
   includeAt,
+  includeInSnippet,
   includeChain,
   includeLineOf,
   includeSpec,
@@ -265,6 +266,23 @@ describe("includeAt", () => {
   it("ignores plain text and comments", () => {
     expect(includeAt(source, 2)).toBeNull();
     expect(includeAt(source, source.indexOf("gone"))).toBeNull();
+  });
+});
+
+describe("includeInSnippet", () => {
+  it("takes the include under the offset", () => {
+    const src = "\\input{a}\n\\include{b}";
+    expect(includeInSnippet(src, src.indexOf("{b}"))?.spec).toBe("b");
+    expect(includeInSnippet(src, 2)?.spec).toBe("a");
+  });
+  it("takes nothing when the offset misses every include", () => {
+    expect(includeInSnippet("x \\input{a}", 0)).toBeNull();
+  });
+  it("falls back to the first live include without an offset", () => {
+    expect(includeInSnippet("% \\input{gone}\n\\subfile{sub/a}", null)?.spec).toBe(
+      "sub/a",
+    );
+    expect(includeInSnippet("\\textbf{x}", null)).toBeNull();
   });
 });
 

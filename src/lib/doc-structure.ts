@@ -154,6 +154,23 @@ export function includeAt(source: string, pos: number): IncludeSpan | null {
   return null;
 }
 
+/**
+ * The include a raw source snippet carries (the Visual face's raw
+ * nodes): the one around `pos` when the click offset is known, else
+ * the first one outside a comment.
+ */
+export function includeInSnippet(src: string, pos: number | null): IncludeSpan | null {
+  if (pos !== null) return includeAt(src, pos);
+  let lineStart = 0;
+  for (const line of src.split("\n")) {
+    const m = /\\(?:input|include|subfile)\s*\{/.exec(stripComment(line));
+    const found = m === null ? null : includeAt(src, lineStart + m.index);
+    if (found !== null) return found;
+    lineStart += line.length + 1;
+  }
+  return null;
+}
+
 /** The include spec for a project-relative path (idiomatic: no .tex). */
 export function includeSpec(path: string): string {
   return path.endsWith(".tex") ? path.slice(0, -4) : path;
