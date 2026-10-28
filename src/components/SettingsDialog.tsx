@@ -8,8 +8,10 @@ import {
   PencilLine,
   Search,
   Sparkles,
+  UserRound,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AccountSettingsSection } from "@/components/AccountSettingsSection";
 import { AiSettingsSection } from "@/components/AiSettingsSection";
 import { GrammarSettingsSection } from "@/components/GrammarSettingsSection";
 import { SourcesSettingsCard } from "@/components/SourcesSettings";
@@ -326,6 +328,28 @@ export function SettingsDialog({
               ),
             },
           ],
+        },
+      ],
+    },
+    {
+      id: "account",
+      group: "GENERAL",
+      label: "Account",
+      icon: UserRound,
+      cards: [
+        {
+          title: "Polemic account",
+          rows: [
+            {
+              id: "account",
+              label: "Polemic account",
+              description:
+                "Sign in for Polemic Professional services. Local features never need an account.",
+              keywords: "sign in sign out login logout account professional server self-hosted",
+              control: null,
+            },
+          ],
+          content: <AccountSettingsSection />,
         },
       ],
     },

@@ -103,6 +103,9 @@ pub struct Settings {
     pub ai: Option<AiSettings>,
     pub grammar: GrammarSettings,
     pub user_words: Vec<String>,
+    /// The Polemic server for the Professional account; None means
+    /// app.polemicapp.com. The token itself is in the credential store.
+    pub account_server: Option<String>,
 }
 
 /// Managed state holding the in-memory settings.
