@@ -487,6 +487,55 @@ pub fn abort_merge(dir: &Path) -> Result<(), String> {
     run_git(dir, &["merge", "--abort"]).map(|_| ())
 }
 
+/// Which side of a conflict to keep.
+#[derive(serde::Deserialize, Clone, Copy, Debug, PartialEq)]
+#[serde(rename_all = "lowercase")]
+pub enum ConflictSide {
+    /// The local version (what was committed here).
+    Ours,
+    /// The remote version (what the pull brought in).
+    Theirs,
+}
+
+/// Resolve a conflicted path by taking one side whole, then stage it.
+/// A side that deleted the file deletes it.
+pub fn resolve_conflict(dir: &Path, path: &str, side: ConflictSide) -> Result<(), String> {
+    let flag = match side {
+        ConflictSide::Ours => "--ours",
+        ConflictSide::Theirs => "--theirs",
+    };
+    match run_git(dir, &["checkout", flag, "--", path]) {
+        Ok(_) => stage(dir, &[path.to_string()]),
+        Err(e) if e.contains("does not have") => {
+            run_git(dir, &["rm", "-q", "--", path]).map(|_| ())
+        }
+        Err(e) => Err(e),
+    }
+}
+
+/// The first line (1-based) that still opens or closes a conflict
+/// hunk. A bare `=======` is not counted: it can be a line of its own.
+pub fn conflict_marker_line(text: &str) -> Option<usize> {
+    text.lines()
+        .position(|line| line.starts_with("<<<<<<< ") || line.starts_with(">>>>>>> "))
+        .map(|index| index + 1)
+}
+
+/// Stage a conflicted path the user edited by hand, unless markers
+/// remain in it. `file` is the path on disk (None when deleted).
+pub fn mark_resolved(dir: &Path, path: &str, file: Option<&Path>) -> Result<(), String> {
+    if let Some(file) = file {
+        if let Ok(text) = std::fs::read_to_string(file) {
+            if let Some(line) = conflict_marker_line(&text) {
+                return Err(format!(
+                    "{path} still has conflict markers (line {line}): keep one side or edit them away first"
+                ));
+            }
+        }
+    }
+    stage(dir, &[path.to_string()])
+}
+
 /// Clone `url` into `dest` (which must not exist yet).
 pub fn clone(url: &str, dest: &Path) -> Result<(), String> {
     let url = check_remote_url(url)?;
@@ -841,6 +890,35 @@ mod tests {
         assert!(!info.merging && info.conflicts.is_empty());
         assert_eq!(read(&b, "main.tex"), "one\nAB\nB2\n");
 
+        // Keep theirs on one conflict, keep mine on another; a file
+        // one side deleted goes with that side.
+        write_and_commit(&a, "main.tex", "one\nAB\nA3\n", "a third");
+        write_and_commit(&a, "extra.tex", "extra\n", "extra file");
+        run_git(&a, &["rm", "-q", "a.tex"]).unwrap();
+        commit(&a, "drop a.tex").unwrap();
+        push(&a).unwrap();
+        write_and_commit(&b, "main.tex", "one\nAB\nB3\n", "b third");
+        write_and_commit(&b, "extra.tex", "other\n", "extra too");
+        write_and_commit(&b, "a.tex", "a edited\n", "edit a.tex");
+        let outcome = pull(&b).unwrap();
+        assert_eq!(
+            outcome,
+            PullOutcome::Conflicts { paths: vec!["a.tex".into(), "extra.tex".into(), "main.tex".into()] }
+        );
+        let marked = mark_resolved(&b, "main.tex", Some(&b.join("main.tex"))).unwrap_err();
+        assert!(marked.contains("conflict markers"), "{marked}");
+        resolve_conflict(&b, "main.tex", ConflictSide::Theirs).unwrap();
+        assert_eq!(read(&b, "main.tex"), "one\nAB\nA3\n");
+        resolve_conflict(&b, "extra.tex", ConflictSide::Ours).unwrap();
+        assert_eq!(read(&b, "extra.tex"), "other\n");
+        resolve_conflict(&b, "a.tex", ConflictSide::Theirs).unwrap();
+        assert!(!b.join("a.tex").exists());
+        let info = status(&b);
+        assert!(info.conflicts.is_empty() && info.merging, "{:?}", info.conflicts);
+        commit(&b, "merged by sides").unwrap();
+        assert!(!status(&b).merging);
+        push(&b).unwrap();
+
         // Removing the remote.
         set_remote(&b, "").unwrap();
         assert_eq!(status(&b).remote, None);
@@ -866,6 +944,15 @@ mod tests {
         assert!(fetch(&dir).is_err());
         assert!(started.elapsed() < std::time::Duration::from_secs(60));
         let _ = std::fs::remove_dir_all(dir);
+    }
+
+    #[test]
+    fn finds_conflict_markers() {
+        assert_eq!(conflict_marker_line("a\n<<<<<<< HEAD\nb\n=======\nc\n>>>>>>> origin\n"), Some(2));
+        assert_eq!(conflict_marker_line("a\n=======\nb\n"), None);
+        assert_eq!(conflict_marker_line("a\n>>>>>>> origin/main\n"), Some(2));
+        assert_eq!(conflict_marker_line("a\n\\hrule % =======\n"), None);
+        assert_eq!(conflict_marker_line(""), None);
     }
 
     #[test]

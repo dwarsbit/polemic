@@ -20,8 +20,10 @@ import {
   gitCommit,
   gitFetch,
   gitInit,
+  gitMarkResolved,
   gitPull,
   gitPush,
+  gitResolveConflict,
   gitSetRemote,
   gitStage,
   gitStatus,
@@ -260,7 +262,12 @@ export function GitPanel() {
                     key={`c-${path}`}
                     path={path}
                     onOpen={() => void openFile(path)}
-                    onResolved={() => void run(() => gitStage(project!.path, [path]))}
+                    onKeep={(side) =>
+                      void run(() => gitResolveConflict(project!.path, path, side))
+                    }
+                    onResolved={() =>
+                      void run(() => gitMarkResolved(project!.path, path))
+                    }
                   />
                 ))}
               </>
@@ -480,10 +487,12 @@ function RemoteRow({
 function ConflictRow({
   path,
   onOpen,
+  onKeep,
   onResolved,
 }: {
   path: string;
   onOpen: () => void;
+  onKeep: (side: "ours" | "theirs") => void;
   onResolved: () => void;
 }) {
   return (
@@ -497,11 +506,30 @@ function ConflictRow({
       <button
         type="button"
         className="min-w-0 flex-1 truncate text-left text-xs hover:underline"
+        title="Open the file and pick per conflict"
         onClick={onOpen}
       >
         {path}
       </button>
-      <span className="hidden shrink-0 items-center group-hover:flex">
+      <span className="hidden shrink-0 items-center gap-0.5 group-hover:flex">
+        <Button
+          variant="ghost"
+          size="xs"
+          className="h-5 px-1.5 text-2xs"
+          title="Keep mine: the whole file as I had it"
+          onClick={() => onKeep("ours")}
+        >
+          Mine
+        </Button>
+        <Button
+          variant="ghost"
+          size="xs"
+          className="h-5 px-1.5 text-2xs"
+          title="Keep theirs: the whole file as the remote has it"
+          onClick={() => onKeep("theirs")}
+        >
+          Theirs
+        </Button>
         <Button
           variant="ghost"
           size="icon"

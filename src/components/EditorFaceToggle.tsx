@@ -1,3 +1,5 @@
+import { hasConflictMarkers } from "@/lib/conflict-markers";
+import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import { useUiStore, type EditorFace } from "@/store/ui";
 import { cn } from "cn";
@@ -20,10 +22,14 @@ export function EditorFaceToggle() {
   const bibMode = useUiStore((s) => s.bibEditorMode);
   const setTexMode = useUiStore((s) => s.setTexEditorMode);
   const setBibMode = useUiStore((s) => s.setBibEditorMode);
+  const conflicted = useEditorStore((s) => hasConflictMarkers(s.content));
 
   if (!hasEditorFace(activeFile)) return null;
   const isBib = activeFile!.endsWith(".bib");
-  const mode: EditorFace = isBib ? bibMode : texMode;
+  // A .tex file with conflict markers is shown in the Code view (see
+  // EditorView); the toggle says so.
+  const locked = conflicted && !isBib;
+  const mode: EditorFace = locked ? "code" : isBib ? bibMode : texMode;
   const setMode = isBib ? setBibMode : setTexMode;
   const faces: { id: EditorFace; label: string }[] = [
     { id: "visual", label: "Visual" },
@@ -42,9 +48,12 @@ export function EditorFaceToggle() {
           type="button"
           role="tab"
           aria-selected={mode === face.id}
+          disabled={locked && face.id === "visual"}
           title={
             face.id === "visual"
-              ? "The rendered or managed form of the file"
+              ? locked
+                ? "Resolve the git conflict markers first"
+                : "The rendered or managed form of the file"
               : "The raw text of the file"
           }
           className={cn(

@@ -349,6 +349,48 @@ body {
   box-shadow: inset 3px 0 0 var(--info);
 }
 
+/* Git conflict hunks in the Code view: mine tinted success, theirs
+   info, the marker lines muted; a bar with the choices above each. */
+.cm-conflict-ours {
+  background: color-mix(in oklch, var(--success) 12%, transparent);
+}
+.cm-conflict-theirs {
+  background: color-mix(in oklch, var(--info) 12%, transparent);
+}
+.cm-conflict-marker {
+  color: var(--muted-foreground);
+  background: color-mix(in oklch, var(--muted-foreground) 10%, transparent);
+}
+.cm-conflict-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.125rem 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  color: var(--muted-foreground);
+  background: color-mix(in oklch, var(--warning) 10%, transparent);
+  border-bottom: 1px solid color-mix(in oklch, var(--warning) 30%, transparent);
+}
+.cm-conflict-bar-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cm-conflict-button {
+  padding: 0 0.375rem;
+  border-radius: 0.25rem;
+  color: var(--foreground);
+  background: var(--card);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+.cm-conflict-button:hover {
+  background: var(--accent);
+}
+
 /* Long-line hint in the line-numbers gutter (warning). */
 .cm-lineNumbers .cm-line-too-long {
   box-shadow: inset 3px 0 0 var(--warning);
