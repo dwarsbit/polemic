@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { Camera, GitBranch, History, Info, MessageSquare } from "lucide-react";
+import {
+  Camera,
+  FileDiff,
+  GitBranch,
+  History,
+  Info,
+  MessageSquare,
+} from "lucide-react";
 import { Group, Panel, Separator, usePanelRef } from "react-resizable-panels";
 import { CommentDialog } from "@/components/CommentDialog";
 import { CommentsPanel } from "@/components/CommentsPanel";
@@ -18,6 +25,7 @@ import type { LeftTab } from "@/components/Sidebar";
 import { GitPanel } from "@/components/GitPanel";
 import { HistoryPanel } from "@/components/HistoryPanel";
 import { SnapshotsPanel } from "@/components/SnapshotsPanel";
+import { SuggestionsPanel } from "@/components/SuggestionsPanel";
 import { StatusBar } from "@/components/StatusBar";
 import { TabsBar } from "@/components/TabsBar";
 import { EditorToolbar } from "@/components/EditorToolbar";
@@ -40,7 +48,8 @@ const CARD = "h-full overflow-hidden rounded-xl border bg-card shadow-sm";
 const HANDLE_X = "w-2 rounded bg-transparent hover:bg-primary/20";
 const HANDLE_Y = "h-2 w-full rounded bg-transparent hover:bg-primary/20";
 
-type RightTab = "version-control" | "history" | "comments" | "properties";
+type RightTab =
+  "version-control" | "history" | "comments" | "suggestions" | "properties";
 
 function pickLayout(
   all: Record<string, number> | null,
@@ -93,6 +102,7 @@ export function EditorView() {
       ? [{ id: "history" as const, label: "History", icon: History }]
       : []),
     { id: "comments" as const, label: "Comments", icon: MessageSquare },
+    { id: "suggestions" as const, label: "Suggestions", icon: FileDiff },
     { id: "properties" as const, label: "Properties", icon: Info },
   ];
 
@@ -309,6 +319,8 @@ export function EditorView() {
                       <div className="min-h-0 min-w-0 flex-1 overflow-hidden">
                         {rightTab === "comments" ? (
                           <CommentsPanel />
+                        ) : rightTab === "suggestions" ? (
+                          <SuggestionsPanel />
                         ) : rightTab === "properties" ? (
                           <PropertiesPanel />
                         ) : rightTab === "history" && versionControl === "git" ? (

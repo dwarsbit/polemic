@@ -14,8 +14,10 @@ import {
   Sparkles,
   SpellCheck,
   Sun,
+  UserRound,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AccountSettingsSection } from "@/components/AccountSettingsSection";
 import { AiSettingsSection } from "@/components/AiSettingsSection";
 import { GrammarSettingsSection } from "@/components/GrammarSettingsSection";
 import { SourcesSettingsCard } from "@/components/SourcesSettings";
@@ -397,6 +399,29 @@ export function SettingsDialog({
               ),
             },
           ],
+        },
+      ],
+    },
+    {
+      id: "account",
+      label: "Account",
+      icon: UserRound,
+      intro: "Sign in to a Polemic server. Local features never need an account.",
+      cards: [
+        {
+          title: "Polemic account",
+          rows: [
+            {
+              id: "account",
+              label: "Polemic account",
+              description:
+                "Sign in for Polemic Professional services. Local features never need an account.",
+              keywords:
+                "sign in sign out login logout account professional server self-hosted",
+              control: null,
+            },
+          ],
+          content: <AccountSettingsSection />,
         },
       ],
     },

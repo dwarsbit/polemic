@@ -70,17 +70,24 @@ pub trait Store: Send + Sync {
     fn delete(&self) -> Result<(), String>;
 }
 
-pub struct OsStore;
+/// One credential in the OS store, under the service "polemic".
+pub struct OsStore {
+    user: &'static str,
+}
 
 impl OsStore {
-    fn entry() -> Result<keyring::Entry, String> {
-        keyring::Entry::new("polemic", "api-keys").map_err(|e| e.to_string())
+    pub const fn new(user: &'static str) -> Self {
+        OsStore { user }
+    }
+
+    fn entry(&self) -> Result<keyring::Entry, String> {
+        keyring::Entry::new("polemic", self.user).map_err(|e| e.to_string())
     }
 }
 
 impl Store for OsStore {
     fn get(&self) -> Result<Option<String>, String> {
-        match Self::entry()?.get_password() {
+        match self.entry()?.get_password() {
             Ok(value) => Ok(Some(value)),
             Err(keyring::Error::NoEntry) => Ok(None),
             Err(e) => Err(e.to_string()),
@@ -88,11 +95,11 @@ impl Store for OsStore {
     }
 
     fn set(&self, value: &str) -> Result<(), String> {
-        Self::entry()?.set_password(value).map_err(|e| e.to_string())
+        self.entry()?.set_password(value).map_err(|e| e.to_string())
     }
 
     fn delete(&self) -> Result<(), String> {
-        match Self::entry()?.delete_credential() {
+        match self.entry()?.delete_credential() {
             Ok(()) | Err(keyring::Error::NoEntry) => Ok(()),
             Err(e) => Err(e.to_string()),
         }
@@ -168,7 +175,7 @@ impl<S: Store> Vault<S> {
     }
 }
 
-pub static VAULT: Vault<OsStore> = Vault::new(OsStore);
+pub static VAULT: Vault<OsStore> = Vault::new(OsStore::new("api-keys"));
 
 #[cfg(test)]
 mod tests {

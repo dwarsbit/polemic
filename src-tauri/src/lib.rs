@@ -1,3 +1,4 @@
+mod account;
 mod files;
 mod git;
 mod guard;
@@ -1980,6 +1981,11 @@ pub fn run() {    tauri::Builder::default()
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
+            account::account_status,
+            account::account_set_server,
+            account::account_sign_in,
+            account::account_cancel_sign_in,
+            account::account_sign_out,
             detect_tex,
             get_settings,
             set_projects_root,

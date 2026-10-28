@@ -11,6 +11,9 @@ export interface ApplyEditsOptions {
   /** False keeps the change out of the editor's undo history (an edit
    *  spanning several files undoes through its own record instead). */
   addToHistory?: boolean;
+  /** Keep the change its own undo step, never joined with typing
+   *  right before or after it. */
+  isolate?: boolean;
 }
 
 type ApplyEditsHandler = (
@@ -56,4 +59,23 @@ export function flushQueuedEditsForView(): void {
   if (edits !== null && edits.length > 0) {
     applyEditsInView(edits, "input.fixLatex");
   }
+}
+
+type HistoryHandler = (direction: "undo" | "redo") => boolean;
+
+let historyHandler: HistoryHandler | null = null;
+
+/** Called by the editor component to serve undo/redo requests. */
+export function setHistoryHandler(h: HistoryHandler | null) {
+  historyHandler = h;
+}
+
+/**
+ * Undo or redo in the source editor's history from outside the editor
+ * (e.g. Ctrl+Z right after an outline panel edit, focus still in the
+ * panel). True when something changed; false when the editor is not
+ * mounted or has nothing to take back.
+ */
+export function runEditorHistory(direction: "undo" | "redo"): boolean {
+  return historyHandler?.(direction) ?? false;
 }

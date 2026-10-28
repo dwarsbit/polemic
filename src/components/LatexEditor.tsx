@@ -14,11 +14,14 @@ import { openSearchPanel } from "@codemirror/search";
 import { stex } from "@codemirror/legacy-modes/mode/stex";
 import { linter, lintGutter, setDiagnostics, type Diagnostic } from "@codemirror/lint";
 import { EditorView, basicSetup } from "codemirror";
+import { isolateHistory, redo, undo } from "@codemirror/commands";
 import { keymap, Decoration } from "@codemirror/view";
 import type { DecorationSet } from "@codemirror/view";
 import { latexAutocompletion } from "@/lib/completion";
 import { lineAnchor } from "@/lib/comment-anchor";
 import { commentGutter, refreshComments } from "@/lib/comment-gutter";
+import { setChangeAuthors, trackChanges } from "@/lib/changes-view";
+import { parseAuthors } from "@/lib/changes";
 import {
   addCommentAtCursor,
   openCommentDialog,
@@ -29,7 +32,7 @@ import { labelLine, refAt } from "@/lib/label-refs";
 import { includeAt } from "@/lib/doc-structure";
 import { openIncludeTarget } from "@/lib/include-nav";
 import { refLabelLint, refreshRefLabelLint } from "@/lib/ref-label-lint";
-import { canUndoCrossFileMove, undoCrossFileMove } from "@/lib/outline-move";
+import { stepCrossFileMoveFromEditor } from "@/lib/outline-move";
 import { setFormatDocumentHandler, formatDocument } from "@/lib/editor-format";
 import { editorFontStack } from "@/lib/editor-fonts";
 import { editorHighlightExtension } from "@/lib/editor-themes";
@@ -52,13 +55,11 @@ import { mathPairing } from "@/lib/math-pairing";
 import { freshLineInsert, setInsertHandler } from "@/lib/editor-insert";
 import {
   ensurePackages,
-  figureScaffold,
-  findIncludeGraphics,
   insertPackages,
+  planWrapFigure,
   setEnsurePackagesHandler,
   setWrapFigureHandler,
   wrapFigure,
-  wrapIncludeFigure,
 } from "@/lib/editor-figure";
 import { insertTikzSnippet } from "@/lib/tikz-snippets";
 import { setEditorDropHandler, setEditorDropIndicator } from "@/lib/editor-drag";
@@ -72,7 +73,11 @@ import {
 import { GraphicsOptionsCard } from "@/components/GraphicsOptionsCard";
 import { cogHoverField, setCogHover, setCogOpenHandler } from "@/lib/graphics-cog";
 import { setRemoveUsepackageHandler } from "@/lib/editor-preamble";
-import { flushQueuedEditsForView, setApplyEditsHandler } from "@/lib/editor-edits";
+import {
+  flushQueuedEditsForView,
+  setApplyEditsHandler,
+  setHistoryHandler,
+} from "@/lib/editor-edits";
 import { planUsepackageRemoval } from "@/lib/packages";
 import {
   assetDropText,
@@ -381,6 +386,30 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     if (view) view.dispatch({ effects: refreshComments.of(null) });
   }, [comments, activeFile]);
 
+  // Suggestion colors and names come from the main file's preamble
+  // when an \input chapter is open.
+  const mainFile = useProjectStore((s) => s.mainFile);
+  const mainBuffer = useProjectStore((s) =>
+    s.mainFile === null ? undefined : s.buffers[s.mainFile],
+  );
+  useEffect(() => {
+    if (mainFile === null || activeFile === mainFile || !projectPath) {
+      viewRef.current?.dispatch({ effects: setChangeAuthors.of([]) });
+      return;
+    }
+    let cancelled = false;
+    void (async () => {
+      const text =
+        mainBuffer ?? (await readProjectFile(projectPath, mainFile).catch(() => ""));
+      if (!cancelled) {
+        viewRef.current?.dispatch({ effects: setChangeAuthors.of(parseAuthors(text)) });
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [mainFile, activeFile, mainBuffer, projectPath]);
+
   // Missing-graphics hints follow the file tree (an image added,
   // renamed or removed), not only edits.
   useEffect(() => {
@@ -445,6 +474,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
           EditorView.lineWrapping,
           lineWidthGutter,
           commentGutter,
+          trackChanges,
           EditorView.theme({
             "&": { height: "100%" },
             ".cm-scroller": {
@@ -455,20 +485,26 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
           }),
           // Ctrl+Z right after a cross-file outline move undoes it in
           // both files; it is not in this file's own history.
+          // A cross-file move steps in both files (it is not in this
+          // view's history).
           Prec.high(
-            keymap.of([
-              {
-                key: "Mod-z",
-                run: (view) => {
-                  const file = useProjectStore.getState().activeFile;
-                  if (file === null || !canUndoCrossFileMove(file, view.state.doc)) {
-                    return false;
-                  }
-                  void undoCrossFileMove();
-                  return true;
-                },
-              },
-            ]),
+            keymap.of(
+              (
+                [
+                  ["Mod-z", "undo"],
+                  ["Mod-Shift-z", "redo"],
+                  ["Mod-y", "redo"],
+                ] as const
+              ).map(([key, direction]) => ({
+                key,
+                run: (view: EditorView) =>
+                  stepCrossFileMoveFromEditor(
+                    useProjectStore.getState().activeFile,
+                    view.state.doc,
+                    direction,
+                  ),
+              })),
+            ),
           ),
           keymap.of([
             {
@@ -829,18 +865,18 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     // Serve "Wrap in Figure": wrap the \includegraphics at the cursor
     // (a scaffold when none is found) in a figure environment.
     setWrapFigureHandler(() => {
-      const doc = view.state.doc.toString();
-      const pos = view.state.selection.main.head;
-      const hit = findIncludeGraphics(doc, pos);
-      const insert = hit
-        ? wrapIncludeFigure(doc.slice(hit.from, hit.to), hit.path)
-        : figureScaffold();
+      const { from, to, insert } = planWrapFigure(
+        view.state.doc.toString(),
+        view.state.selection.main.head,
+      );
       view.dispatch({
-        changes: { from: hit ? hit.from : pos, to: hit ? hit.to : pos, insert },
-        selection: { anchor: (hit ? hit.from : pos) + insert.length },
+        changes: { from, to, insert },
+        // After \end{figure}, not past the newline that ends it.
+        selection: { anchor: from + insert.replace(/\n$/, "").length },
         scrollIntoView: true,
         userEvent: "input.paste",
       });
+      view.focus();
       return true;
     });
     // Serve preamble management: add missing \usepackage lines.
@@ -984,10 +1020,26 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       view.dispatch({
         changes: [...edits].sort((a, b) => a.from - b.from),
         userEvent: userEvent ?? "input.renameLabel",
-        annotations:
-          options?.addToHistory === false ? Transaction.addToHistory.of(false) : [],
+        annotations: [
+          ...(options?.addToHistory === false
+            ? [Transaction.addToHistory.of(false)]
+            : []),
+          ...(options?.isolate ? [isolateHistory.of("full")] : []),
+        ],
       });
       // The Visual face reparses only on docVersion: reload it.
+      if (hidden) useEditorStore.getState().loadContent(view.state.doc.toString());
+      return true;
+    });
+    // Undo/redo from outside the editor (the outline panel). Behind
+    // the Visual face only while this view still matches the store:
+    // anything typed there since is not in this history.
+    setHistoryHandler((direction) => {
+      const hidden = !visibleRef.current;
+      if (hidden && useEditorStore.getState().content !== view.state.doc.toString()) {
+        return false;
+      }
+      if (!(direction === "undo" ? undo : redo)(view)) return false;
       if (hidden) useEditorStore.getState().loadContent(view.state.doc.toString());
       return true;
     });
@@ -1069,6 +1121,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       setCogOpenHandler(null);
       setRemoveUsepackageHandler(null);
       setApplyEditsHandler(null);
+      setHistoryHandler(null);
       if (docMetaTimer !== undefined) clearTimeout(docMetaTimer);
       indicator.remove();
       unlistenDrag?.();

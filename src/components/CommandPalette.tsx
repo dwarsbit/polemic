@@ -25,6 +25,7 @@ import {
   Shapes,
   Sparkles,
   TableProperties,
+  UserRound,
   WandSparkles,
   Zap,
 } from "lucide-react";
@@ -102,6 +103,13 @@ export function CommandPalette() {
         icon: Settings,
         keywords: "preferences theme language spellcheck",
         run: () => useSettingsStore.getState().setSettingsDialogOpen(true),
+      },
+      {
+        id: "account",
+        title: "Polemic account…",
+        icon: UserRound,
+        keywords: "sign in sign out login logout professional server",
+        run: () => useSettingsStore.getState().openSettings("account"),
       },
       {
         id: "shortcuts",

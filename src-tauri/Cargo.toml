@@ -29,6 +29,10 @@ tauri-plugin-window-state = "2"
 reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json"] }
 svg2pdf = "0.13.0"
 harper-core = "3"
+base64 = "0.22"
+getrandom = "0.3"
+sha2 = "0.10"
+url = "2"
 
 [target.'cfg(unix)'.dependencies]
 libc = "0.2"
