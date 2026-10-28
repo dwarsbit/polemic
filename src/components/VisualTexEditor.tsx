@@ -440,11 +440,14 @@ export function VisualTexEditor() {
   useEffect(() => {
     if (editor === null) return;
     let timer: ReturnType<typeof setTimeout> | null = null;
+    // Only an edit since the last flush serializes: the TeX the face
+    // regenerates is not byte-identical to the source (blank lines
+    // between blocks), so flushing an untouched document would mark the
+    // file dirty, and rewrite it, just for being viewed.
     const flush = () => {
-      if (timer !== null) {
-        clearTimeout(timer);
-        timer = null;
-      }
+      if (timer === null) return;
+      clearTimeout(timer);
+      timer = null;
       const tex = serializeTex(editor.getJSON() as unknown as DocNode);
       useEditorStore.getState().setContent(tex);
       const { activeFile, lastSavedContent } = useProjectStore.getState();

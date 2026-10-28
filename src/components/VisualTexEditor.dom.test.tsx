@@ -354,6 +354,37 @@ describe("VisualTexEditor render", () => {
     root.unmount();
   });
 
+  it("leaves an untouched file clean through flushes and unmount", async () => {
+    // Not byte-identical to what the face would regenerate (no blank
+    // lines between blocks): any serialization would show.
+    const tex = "\\documentclass{article}\n\\begin{document}\nBody.\n\\end{document}\n";
+    useEditorStore.getState().loadContent(tex);
+    useProjectStore.setState({
+      activeFile: "main.tex",
+      lastSavedContent: tex,
+      buffers: {},
+    });
+    const host = document.createElement("div");
+    document.body.append(host);
+    const root: Root = createRoot(host);
+    await act(async () => {
+      root.render(<VisualTexEditor />);
+    });
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 400));
+    });
+
+    // A save, a buffer flush or the face toggle flushes first.
+    flushPendingSerialize();
+    expect(useEditorStore.getState().content).toBe(tex);
+
+    // Leaving the face (toggle, file switch) flushes on unmount.
+    act(() => root.unmount());
+    expect(useEditorStore.getState().content).toBe(tex);
+    expect(useProjectStore.getState().buffers).toEqual({});
+    useProjectStore.setState({ activeFile: null, lastSavedContent: null });
+  });
+
   it("respects the font size and spellcheck settings", async () => {
     useEditorStore.getState().loadContent(TEX);
     const host = document.createElement("div");
