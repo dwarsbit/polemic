@@ -18,8 +18,14 @@ import type { DecorationSet } from "@codemirror/view";
 import { latexAutocompletion } from "@/lib/completion";
 import { lineAnchor } from "@/lib/comment-anchor";
 import { commentGutter, refreshComments } from "@/lib/comment-gutter";
-import { setChangeAuthors, trackChanges } from "@/lib/changes-view";
-import { parseAuthors } from "@/lib/changes";
+import {
+  setChangeAuthors,
+  setSuggestListener,
+  setSuggestMode,
+  trackChanges,
+} from "@/lib/changes-view";
+import { ensurePreamble, parseAuthors } from "@/lib/changes";
+import { currentText, writeFileEdits } from "@/lib/project-texts";
 import {
   addCommentAtCursor,
   openCommentDialog,
@@ -114,6 +120,8 @@ import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
+import { useSuggestStore } from "@/store/suggest";
+import { suggestionAuthor } from "@/store/settings";
 
 interface SpellPopover {
   issue: WritingIssue;
@@ -406,6 +414,57 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       cancelled = true;
     };
   }, [mainFile, activeFile, mainBuffer, projectPath]);
+
+  // Suggest mode: the author's id comes from the main file's preamble
+  // (an existing definition with the same name, else the initials).
+  const suggesting = useSuggestStore((s) => s.enabled);
+  const authorName = useSettingsStore((s) => s.authorName);
+  const authorInitials = useSettingsStore((s) => s.authorInitials);
+  useEffect(() => {
+    const author = suggestionAuthor({ authorName, authorInitials });
+    if (
+      !suggesting ||
+      author === null ||
+      activeFile === null ||
+      !activeFile.endsWith(".tex")
+    ) {
+      viewRef.current?.dispatch({ effects: setSuggestMode.of(null) });
+      return;
+    }
+    let cancelled = false;
+    void (async () => {
+      const hasPreamble = mainFile === null || activeFile === mainFile;
+      const main = hasPreamble
+        ? useEditorStore.getState().content
+        : ((await currentText(mainFile)) ?? "");
+      if (cancelled) return;
+      const { id } = ensurePreamble(main, author);
+      viewRef.current?.dispatch({
+        effects: setSuggestMode.of({ ...author, id, hasPreamble }),
+      });
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [suggesting, authorName, authorInitials, activeFile, mainFile]);
+  useEffect(() => {
+    setSuggestListener({
+      message: (text) => useSuggestStore.getState().flash(text),
+      // A suggestion in a chapter: set the main file's preamble up.
+      needsSetup: () => {
+        void (async () => {
+          const { mainFile: main } = useProjectStore.getState();
+          const author = suggestionAuthor(useSettingsStore.getState());
+          if (main === null || author === null) return;
+          const text = await currentText(main);
+          if (text === null) return;
+          const { edits } = ensurePreamble(text, author);
+          await writeFileEdits(main, text, edits, "input.suggestSetup");
+        })();
+      },
+    });
+    return () => setSuggestListener(null);
+  }, []);
 
   // Missing-graphics hints follow the file tree (an image added,
   // renamed or removed), not only edits.

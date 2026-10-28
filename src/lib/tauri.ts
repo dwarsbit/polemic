@@ -74,6 +74,10 @@ export interface Settings {
   grammar: GrammarSettings;
   /** The Polemic server for the account; null means app.polemicapp.com. */
   accountServer: string | null;
+  /** The name on suggestions (track changes); null until set. */
+  authorName: string | null;
+  /** The author's initials, the suggestion id; null derives them. */
+  authorInitials: string | null;
 }
 
 /** Grammar checking: built-in Harper (English), or a LanguageTool server. */
@@ -318,6 +322,10 @@ export interface EditorPreferences {
   onlineLookup?: boolean;
   /** The user's reference sources (see SourceDef). */
   sources?: SourceDef[];
+  /** Empty clears it. */
+  authorName?: string;
+  /** Empty clears it. */
+  authorInitials?: string;
 }
 
 export function updatePreferences(prefs: EditorPreferences): Promise<Settings> {

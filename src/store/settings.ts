@@ -39,6 +39,10 @@ interface SettingsState {
   autoIncludeNewFiles: boolean;
   /** Opt-in: DOI/arXiv import may contact doi.org. */
   onlineLookup: boolean;
+  /** The name on suggestions; empty until set. */
+  authorName: string;
+  /** The initials set by the user; empty means derived from the name. */
+  authorInitials: string;
   /** Explicit version-control choice; null means auto. */
   versionControl: "git" | "snapshots" | null;
   /** Whether the git binary is on PATH (part of startup gating). */
@@ -68,6 +72,7 @@ interface SettingsState {
   setReopenLastProject: (enabled: boolean) => Promise<void>;
   setAutoIncludeNewFiles: (enabled: boolean) => Promise<void>;
   setOnlineLookup: (enabled: boolean) => Promise<void>;
+  setAuthor: (author: { name?: string; initials?: string }) => Promise<void>;
   setVersionControl: (value: "git" | "snapshots") => Promise<void>;
   setGitAvailable: (available: boolean) => void;
   setSettingsDialogOpen: (open: boolean) => void;
@@ -108,6 +113,8 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   reopenLastProject: true,
   autoIncludeNewFiles: true,
   onlineLookup: false,
+  authorName: "",
+  authorInitials: "",
   versionControl: null,
   gitAvailable: false,
   settingsDialogOpen: false,
@@ -141,6 +148,8 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       reopenLastProject: settings.reopenLastProject ?? true,
       autoIncludeNewFiles: settings.autoIncludeNewFiles ?? true,
       onlineLookup: settings.onlineLookup ?? false,
+      authorName: settings.authorName ?? "",
+      authorInitials: settings.authorInitials ?? "",
       versionControl:
         settings.versionControl === "git" || settings.versionControl === "snapshots"
           ? settings.versionControl
@@ -211,6 +220,15 @@ export const useSettingsStore = create<SettingsState>((set) => ({
     set({ onlineLookup: enabled });
     await updatePreferences({ onlineLookup: enabled });
   },
+  setAuthor: async ({ name, initials }) => {
+    set({
+      ...(name !== undefined ? { authorName: name.trim() } : {}),
+      ...(initials !== undefined
+        ? { authorInitials: initials.replace(/[^A-Za-z0-9]/g, "").slice(0, 8) }
+        : {}),
+    });
+    await updatePreferences({ authorName: name, authorInitials: initials });
+  },
   setVersionControl: async (value) => {
     set({ versionControl: value });
     await persistVersionControl(value);
@@ -268,4 +286,23 @@ export function resolveVersionControl(state: {
   if (state.versionControl === "snapshots") return "snapshots";
   if (state.versionControl === "git" && state.gitAvailable) return "git";
   return state.gitAvailable ? "git" : "snapshots";
+}
+
+/** The initials for a name: the first letter of each word, at most three. */
+export function initialsOf(name: string): string {
+  const letters = name
+    .split(/[\s-]+/)
+    .map((word) => word.match(/[A-Za-z0-9]/)?.[0] ?? "")
+    .join("");
+  const short = letters.length > 3 ? letters[0] + letters.slice(-1) : letters;
+  return short.toUpperCase();
+}
+
+/** The suggestion author from Settings, or null while no name is set. */
+export function suggestionAuthor(
+  state: Pick<SettingsState, "authorName" | "authorInitials">,
+): { name: string; initials: string } | null {
+  const name = state.authorName.trim();
+  if (name === "") return null;
+  return { name, initials: state.authorInitials || initialsOf(name) || "A" };
 }

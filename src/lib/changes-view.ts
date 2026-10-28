@@ -7,6 +7,7 @@
  */
 
 import {
+  Annotation,
   ChangeSet,
   EditorSelection,
   EditorState,
@@ -30,6 +31,8 @@ import {
 import { isolateHistory } from "@codemirror/commands";
 import {
   acceptChange,
+  applyEdits,
+  ensurePreamble,
   finalText,
   parseAuthors,
   parseChanges,
@@ -38,6 +41,7 @@ import {
   type ChangeAuthor,
   type SourceRange,
 } from "@/lib/changes";
+import { suggestDeleteChar, suggestReplace, type SuggestResult } from "@/lib/suggest";
 
 /** CSS colors for the xcolor names authors are usually given. */
 const XCOLORS: Record<string, string> = {
@@ -432,7 +436,8 @@ function unprotected(
  * delete that only met markup removes the next visible character.
  */
 const protectMarkup = EditorState.transactionFilter.of((tr) => {
-  if (!tr.docChanged || !isUserEdit(tr)) return tr;
+  if (!tr.docChanged || !isUserEdit(tr) || tr.annotation(suggestApplied)) return tr;
+  if (tr.startState.field(suggestField, false)?.author) return tr;
   const state = tr.startState.field(changesField, false);
   if (!state || state.hidden.length === 0) return tr;
   const { hidden } = state;
@@ -496,9 +501,177 @@ const protectMarkup = EditorState.transactionFilter.of((tr) => {
   };
 });
 
+/** Who suggests, while suggest mode is on. */
+export interface SuggestAuthor {
+  /** The id in the markup (`id=`). */
+  id: string;
+  name: string;
+  initials: string;
+  /** Whether this document holds the preamble (the main file). */
+  hasPreamble: boolean;
+}
+
+/** Turns suggest mode on (with the author) or off (null). */
+export const setSuggestMode = StateEffect.define<SuggestAuthor | null>();
+const setPending = StateEffect.define<SourceRange | null>();
+
+/** Marks the transaction suggest mode produced from a user edit. */
+const suggestApplied = Annotation.define<boolean>();
+
+interface SuggestState {
+  author: SuggestAuthor | null;
+  /** Own suggested text being typed that does not parse yet. */
+  pending: SourceRange | null;
+}
+
+export const suggestField = StateField.define<SuggestState>({
+  create: () => ({ author: null, pending: null }),
+  update(value, tr) {
+    let { author, pending } = value;
+    if (pending !== null && tr.docChanged) {
+      pending = {
+        from: tr.changes.mapPos(pending.from, -1),
+        to: tr.changes.mapPos(pending.to, 1),
+      };
+    }
+    for (const effect of tr.effects) {
+      if (effect.is(setSuggestMode)) {
+        author = effect.value;
+        pending = null;
+      } else if (effect.is(setPending)) pending = effect.value;
+    }
+    return author === value.author && pending === value.pending
+      ? value
+      : { author, pending };
+  },
+});
+
+type SuggestListener = {
+  /** A refused edit's short message. */
+  message: (text: string) => void;
+  /** A suggestion was written in a file without the preamble. */
+  needsSetup: () => void;
+};
+
+let listener: SuggestListener | null = null;
+
+/** Set by the editor host: where messages and setup requests go. */
+export function setSuggestListener(next: SuggestListener | null) {
+  listener = next;
+}
+
+const SUGGESTED_EVENTS = [
+  "input.type",
+  "input.paste",
+  "input.complete",
+  "input.drop",
+  "delete",
+];
+
+/** The one edit turning `a` into `b`. */
+function diff(a: string, b: string): { from: number; to: number; insert: string } {
+  let start = 0;
+  const max = Math.min(a.length, b.length);
+  while (start < max && a[start] === b[start]) start++;
+  let end = 0;
+  while (end < max - start && a[a.length - 1 - end] === b[b.length - 1 - end]) end++;
+  return { from: start, to: a.length - end, insert: b.slice(start, b.length - end) };
+}
+
+/**
+ * Suggest mode: typing, deleting and pasting become suggestions (see
+ * lib/suggest.ts). A refused edit leaves the text alone and reports a
+ * short message. The first suggestion sets the preamble up.
+ */
+const suggestFilter = EditorState.transactionFilter.of((tr) => {
+  if (!tr.docChanged || tr.annotation(suggestApplied)) return tr;
+  const mode = tr.startState.field(suggestField, false);
+  const author = mode?.author;
+  if (!mode || !author) return tr;
+  if (!SUGGESTED_EVENTS.some((event) => tr.isUserEvent(event))) return tr;
+  const edits: { fromA: number; toA: number; fromB: number; text: string }[] = [];
+  tr.changes.iterChanges((fromA, toA, fromB, _toB, inserted) =>
+    edits.push({ fromA, toA, fromB, text: inserted.toString() }),
+  );
+  const refused = (message: string) => {
+    queueMicrotask(() => listener?.message(message));
+    return {};
+  };
+  if (edits.length !== 1) return refused("Suggest mode edits one place at a time.");
+  const [edit] = edits;
+  const source = tr.startState.doc.toString();
+  // The preamble is set up, not suggested.
+  const body = source.indexOf("\\begin{document}");
+  if (body !== -1 && edit.toA <= body) return tr;
+  const selection = tr.startState.selection.main;
+  let result: SuggestResult;
+  if (edit.text === "" && selection.empty && tr.isUserEvent("delete.backward")) {
+    result = suggestDeleteChar(
+      source,
+      selection.head,
+      "backward",
+      author.id,
+      mode.pending,
+    );
+  } else if (edit.text === "" && selection.empty && tr.isUserEvent("delete.forward")) {
+    result = suggestDeleteChar(
+      source,
+      selection.head,
+      "forward",
+      author.id,
+      mode.pending,
+    );
+  } else {
+    result = suggestReplace(
+      source,
+      edit.fromA,
+      edit.toA,
+      edit.text,
+      author.id,
+      mode.pending,
+    );
+  }
+  if (!result.ok) return refused(result.message);
+  let next = result.source;
+  let cursor = result.cursor;
+  // A caret the edit put inside its own text (an auto-closed brace).
+  const offset = tr.newSelection.main.head - edit.fromB;
+  if (result.textStart !== null && offset >= 0 && offset < edit.text.length) {
+    cursor = result.textStart + offset;
+  }
+  let pending = result.pending;
+  if (result.marked) {
+    if (author.hasPreamble) {
+      const setup = ensurePreamble(next, author).edits;
+      if (setup.length > 0) {
+        const shift = (pos: number) =>
+          pos +
+          setup.filter((e) => e.from <= pos).reduce((n, e) => n + e.insert.length, 0);
+        next = applyEdits(next, setup);
+        cursor = shift(cursor);
+        pending = pending && { from: shift(pending.from), to: shift(pending.to) };
+      }
+    } else {
+      queueMicrotask(() => listener?.needsSetup());
+    }
+  }
+  const change = diff(source, next);
+  const userEvent = tr.annotation(Transaction.userEvent);
+  return {
+    changes: change,
+    selection: EditorSelection.cursor(cursor),
+    effects: setPending.of(pending),
+    annotations: suggestApplied.of(true),
+    scrollIntoView: true,
+    ...(userEvent ? { userEvent } : {}),
+  };
+});
+
 /** Everything the Code view needs for track changes. */
 export const trackChanges: Extension = [
   changesField,
+  suggestField,
+  suggestFilter,
   protectMarkup,
   changeHover,
   changeGutter,
