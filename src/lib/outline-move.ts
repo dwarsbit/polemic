@@ -199,6 +199,20 @@ async function restoreMove(
   return true;
 }
 
+type MoveStepListener = (direction: "undo" | "redo") => void;
+
+const stepListeners = new Set<MoveStepListener>();
+
+/** Hear about every undo or redo of a cross-file move, whichever key,
+ *  button or face started it (the outline's status line follows).
+ *  Returns the unsubscribe. */
+export function onCrossFileMoveStep(listener: MoveStepListener): () => void {
+  stepListeners.add(listener);
+  return () => {
+    stepListeners.delete(listener);
+  };
+}
+
 /** Undo the recorded move in both files; it can then be redone. */
 export async function undoCrossFileMove(): Promise<boolean> {
   const move = lastMove;
@@ -208,7 +222,10 @@ export async function undoCrossFileMove(): Promise<boolean> {
     lastMove = null;
     return true;
   });
-  if (done) undoneMove = move;
+  if (done) {
+    undoneMove = move;
+    for (const listener of stepListeners) listener("undo");
+  }
   return done;
 }
 
@@ -221,7 +238,10 @@ export async function redoCrossFileMove(): Promise<boolean> {
     undoneMove = null;
     return true;
   });
-  if (done) lastMove = move;
+  if (done) {
+    lastMove = move;
+    for (const listener of stepListeners) listener("redo");
+  }
   return done;
 }
 

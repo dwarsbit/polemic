@@ -27,6 +27,7 @@ import {
   currentText,
   hasCrossFileMove,
   hasUndoneCrossFileMove,
+  onCrossFileMoveStep,
   redoCrossFileMove,
   undoCrossFileMove,
 } from "@/lib/outline-move";
@@ -432,19 +433,30 @@ export function OutlinePanel() {
     const done = await (direction === "undo"
       ? undoCrossFileMove()
       : redoCrossFileMove());
-    setEditTick((tick) => tick + 1);
-    setMoveStatus(
-      done
-        ? direction === "undo"
-          ? { text: "Move undone.", action: "redo" }
-          : { text: "Move redone.", action: "undo" }
-        : {
-            text: `Cannot ${direction}: one of the files changed since.`,
-            action: null,
-          },
-    );
+    // Success updates the status line through the step listener below.
+    if (!done) {
+      setMoveStatus({
+        text: `Cannot ${direction}: one of the files changed since.`,
+        action: null,
+      });
+    }
     return done;
   }
+
+  // Whatever stepped a cross-file move (this panel, Ctrl+Z in either
+  // face), the status line says so and offers the way back.
+  useEffect(
+    () =>
+      onCrossFileMoveStep((direction) => {
+        setEditTick((tick) => tick + 1);
+        setMoveStatus(
+          direction === "undo"
+            ? { text: "Move undone.", action: "redo" }
+            : { text: "Move redone.", action: "undo" },
+        );
+      }),
+    [],
+  );
 
   // Ctrl+Z / Ctrl+Shift+Z right after a panel edit, while focus is in
   // the panel (or nowhere: WebKit does not focus clicked buttons). A
