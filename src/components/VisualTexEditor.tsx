@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { EditorContent, useEditor, useEditorState } from "@tiptap/react";
 import { StarterKit } from "@tiptap/starter-kit";
 import type { Editor, JSONContent } from "@tiptap/core";
+import { Text } from "@codemirror/state";
 import { NodeSelection } from "@tiptap/pm/state";
 import {
   AlertTriangle,
@@ -57,7 +58,11 @@ import {
   type FaceAnchor,
 } from "@/lib/visual/face-anchor";
 import { fragmentToContent, looksLikeLatex } from "@/lib/visual/insert";
-import { setPendingSerializeFlush } from "@/lib/visual/pending-serialize";
+import {
+  flushPendingSerialize,
+  setPendingSerializeFlush,
+} from "@/lib/visual/pending-serialize";
+import { stepCrossFileMoveFromEditor } from "@/lib/outline-move";
 import { parseTex } from "@/lib/visual/parse";
 import { serializeTex } from "@/lib/visual/serialize";
 import type { DocNode } from "@/lib/visual/doc-types";
@@ -414,6 +419,29 @@ export function VisualTexEditor() {
     ],
     content: docFromTex(entryContent),
     editorProps: {
+      // A cross-file outline move steps in both files: Tiptap's history
+      // holds only this file's half of it. The store copy is compared,
+      // not a reserialization, which is not byte-identical to the source.
+      handleKeyDown: (_view, event) => {
+        if (!(event.metaKey || event.ctrlKey) || event.altKey) return false;
+        const key = event.key.toLowerCase();
+        const direction =
+          key === "z"
+            ? event.shiftKey
+              ? "redo"
+              : "undo"
+            : key === "y"
+              ? "redo"
+              : null;
+        if (direction === null) return false;
+        flushPendingSerialize();
+        const content = useEditorStore.getState().content;
+        return stepCrossFileMoveFromEditor(
+          useProjectStore.getState().activeFile,
+          Text.of(content.split("\n")),
+          direction,
+        );
+      },
       // Pasted LaTeX becomes nodes, not literal text.
       handlePaste: (_view, event) => {
         const text = event.clipboardData?.getData("text/plain") ?? "";
