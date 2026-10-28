@@ -62,6 +62,18 @@ pub struct GrammarSettings {
     pub disabled_rules: Vec<String>,
 }
 
+/// A git account: the token for a host lives in the credential store
+/// (see git_accounts.rs); only the host and the username are here.
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub struct GitAccount {
+    pub id: String,
+    /// Lowercase host, with the port when not the default ("github.com").
+    pub host: String,
+    /// The username the host expects beside a token ("git" for Overleaf).
+    pub username: String,
+}
+
 #[derive(Serialize, Deserialize, Clone, Debug, Default)]
 #[serde(rename_all = "camelCase", default)]
 pub struct Settings {
@@ -114,6 +126,8 @@ pub struct Settings {
     pub author_name: Option<String>,
     /// The author's initials, the id in `\definechangesauthor`.
     pub author_initials: Option<String>,
+    /// Accounts for private HTTPS remotes; tokens in the credential store.
+    pub git_accounts: Vec<GitAccount>,
 }
 
 /// Managed state holding the in-memory settings.

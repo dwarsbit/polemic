@@ -1,6 +1,7 @@
 mod account;
 mod files;
 pub mod git;
+mod git_accounts;
 mod guard;
 mod logparse;
 mod profile;
@@ -1452,30 +1453,114 @@ fn git_mark_resolved(project_dir: String, path: String) -> Result<(), String> {
     git::mark_resolved(&dir, &path, file.exists().then_some(file.as_path()))
 }
 
+/// The credentials for a remote URL from the git accounts.
+fn git_credentials(app: &tauri::AppHandle, url: &str) -> Result<git::Credentials, String> {
+    let accounts = settings::snapshot(app)?.git_accounts;
+    Ok(git_accounts::credentials_for(&accounts, url))
+}
+
+/// The credentials for a project's origin.
+fn origin_credentials(
+    app: &tauri::AppHandle,
+    dir: &std::path::Path,
+) -> Result<git::Credentials, String> {
+    match git::remote_url(dir) {
+        Some(url) => git_credentials(app, &url),
+        None => Ok(None),
+    }
+}
+
 // The network operations run off the main thread: a slow remote must
 // not freeze the window.
 #[tauri::command]
-async fn git_fetch(project_dir: String) -> Result<(), String> {
+async fn git_fetch(app: tauri::AppHandle, project_dir: String) -> Result<(), String> {
     let dir = canonical_project(&project_dir)?;
-    tauri::async_runtime::spawn_blocking(move || git::fetch(&dir))
+    let credentials = origin_credentials(&app, &dir)?;
+    tauri::async_runtime::spawn_blocking(move || git::fetch(&dir, credentials))
         .await
         .map_err(|e| e.to_string())?
 }
 
 #[tauri::command]
-async fn git_pull(project_dir: String) -> Result<git::PullOutcome, String> {
+async fn git_pull(app: tauri::AppHandle, project_dir: String) -> Result<git::PullOutcome, String> {
     let dir = canonical_project(&project_dir)?;
-    tauri::async_runtime::spawn_blocking(move || git::pull(&dir))
+    let credentials = origin_credentials(&app, &dir)?;
+    tauri::async_runtime::spawn_blocking(move || git::pull(&dir, credentials))
         .await
         .map_err(|e| e.to_string())?
 }
 
 #[tauri::command]
-async fn git_push(project_dir: String) -> Result<(), String> {
+async fn git_push(app: tauri::AppHandle, project_dir: String) -> Result<(), String> {
     let dir = canonical_project(&project_dir)?;
-    tauri::async_runtime::spawn_blocking(move || git::push(&dir))
+    let credentials = origin_credentials(&app, &dir)?;
+    tauri::async_runtime::spawn_blocking(move || git::push(&dir, credentials))
         .await
         .map_err(|e| e.to_string())?
+}
+
+// --- git accounts ------------------------------------------------------------
+
+#[tauri::command]
+fn git_accounts(app: tauri::AppHandle) -> Result<Vec<git_accounts::GitAccountView>, String> {
+    let accounts = settings::snapshot(&app)?.git_accounts;
+    Ok(git_accounts::views_with(&accounts, &git_accounts::STORE))
+}
+
+/// Add an account, or update one by id. A new account needs a token;
+/// an existing one keeps its token when none is given.
+#[tauri::command]
+fn git_account_save(
+    app: tauri::AppHandle,
+    id: Option<String>,
+    host: String,
+    username: String,
+    token: Option<String>,
+) -> Result<Vec<git_accounts::GitAccountView>, String> {
+    let host = git_accounts::normalize_host(&host)?;
+    let username = username.trim().to_string();
+    if username.is_empty() {
+        return Err("The username is empty".into());
+    }
+    let token = token.map(|t| t.trim().to_string()).filter(|t| !t.is_empty());
+    let existing = settings::snapshot(&app)?.git_accounts;
+    let id = match id {
+        Some(id) if existing.iter().any(|a| a.id == id) => id,
+        Some(_) => return Err("That account no longer exists".into()),
+        None => {
+            if token.is_none() {
+                return Err("A new account needs a token".into());
+            }
+            // The same host and user twice would be one account.
+            existing
+                .iter()
+                .find(|a| a.host == host && a.username == username)
+                .map(|a| a.id.clone())
+                .unwrap_or(git_accounts::new_id()?)
+        }
+    };
+    // The token first: without a credential store the account is not kept.
+    if let Some(token) = token {
+        git_accounts::set_token_with(&git_accounts::STORE, &id, &token)?;
+    }
+    settings::update(&app, |s| {
+        let account = settings::GitAccount { id: id.clone(), host, username };
+        match s.git_accounts.iter_mut().find(|a| a.id == id) {
+            Some(slot) => *slot = account,
+            None => s.git_accounts.push(account),
+        }
+    })?;
+    git_accounts(app)
+}
+
+#[tauri::command]
+fn git_account_remove(
+    app: tauri::AppHandle,
+    id: String,
+) -> Result<Vec<git_accounts::GitAccountView>, String> {
+    settings::update(&app, |s| s.git_accounts.retain(|a| a.id != id))?;
+    git_accounts::remove_token_with(&git_accounts::STORE, &id)?;
+    git_accounts(app)
 }
 
 /// Clone a repository into the projects root as a new project.
@@ -1494,7 +1579,8 @@ async fn git_clone_project(
         return Err(format!("a project named \"{name}\" already exists"));
     }
     let clone_dest = dest.clone();
-    tauri::async_runtime::spawn_blocking(move || git::clone(&url, &clone_dest))
+    let credentials = git_credentials(&app, &url)?;
+    tauri::async_runtime::spawn_blocking(move || git::clone(&url, &clone_dest, credentials))
         .await
         .map_err(|e| e.to_string())??;
     let dir = fs::canonicalize(&dest).map_err(|e| format!("failed to open the clone: {e}"))?;
@@ -2175,6 +2261,9 @@ pub fn run() {    tauri::Builder::default()
             git_pull,
             git_push,
             git_clone_project,
+            git_accounts,
+            git_account_save,
+            git_account_remove,
             git_available,
             git_ignored,
             set_version_control,
