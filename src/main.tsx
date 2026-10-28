@@ -8,8 +8,23 @@ import "./index.css";
 // the html.mac overrides in index.css).
 if (isMac) document.documentElement.classList.add("mac");
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+
+// Dev builds only: `?lab` opens the Design Lab (prototypes of the shell,
+// settings, typography, menus and copy) instead of the app. The guard
+// lets the bundler drop the lab from release builds entirely.
+if (import.meta.env.DEV && new URLSearchParams(location.search).has("lab")) {
+  void Promise.all([import("./lab/lab.css"), import("./lab/Lab")]).then(([, { Lab }]) =>
+    root.render(
+      <React.StrictMode>
+        <Lab />
+      </React.StrictMode>,
+    ),
+  );
+} else {
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  );
+}
