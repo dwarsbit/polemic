@@ -38,7 +38,7 @@ const ISSUE_TOOLS: { id: IssuesTool; label: string; icon: typeof Folder }[] = [
 ];
 
 /** A rail icon. The open panel's icon sits on the accent surface with
- *  a violet bar on the window edge. Shared with the right rail. */
+ *  a indigo bar on the window edge. Shared with the right rail. */
 export function RailButton({
   label,
   active,

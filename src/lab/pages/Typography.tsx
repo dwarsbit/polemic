@@ -216,18 +216,18 @@ export function TypographyPage() {
 
       <LabSection
         title="Color roles"
-        note="The mist gray scale carries all surfaces and text. Violet is the only tint: focus rings, text selection, selected rows and pills. One hue per status meaning, as tokens, so panels stop mixing amber-400/500/600/700 and orange."
+        note="The mist gray scale carries all surfaces and text. Indigo is the only tint: focus rings, text selection, selected rows and pills. One hue per status meaning, as tokens, so panels stop mixing amber-400/500/600/700 and orange."
       >
         <div className="grid grid-cols-4 gap-3">
           <Swatch name="Foreground" className="bg-foreground" />
           <Swatch name="Muted foreground" className="bg-muted-foreground" />
           <Swatch name="Border" className="bg-border" />
           <Swatch name="Muted / accent" className="bg-muted" />
-          <Swatch name="Tint" className="bg-tint" text="violet-500 · ring, selection" />
+          <Swatch name="Tint" className="bg-tint" text="indigo-500 · ring, selection" />
           <Swatch
             name="Tint soft"
             className="bg-tint-soft"
-            text="violet 10% · pills, selected rows"
+            text="indigo 10% · pills, selected rows"
           />
           <Swatch name="Success" className="bg-success" text="emerald-600 / 400" />
           <Swatch name="Warning" className="bg-warning" text="amber-600 / 400" />

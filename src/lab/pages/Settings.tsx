@@ -41,7 +41,7 @@ export const SETTINGS_NOTES = [
   "Page intro: each page opens with its title and one line saying what lives here, so a targeted open (Sources… from the menu) lands with context.",
   "Rows: label 14px medium, description 12px muted, controls right-aligned in a fixed 176px column so switches, selects and toggle groups line up down the page. Rows are 56px minimum.",
   "Cards: titled cards have the title inside the card at 14px medium, not a muted strip. The first card of a page is titled too, so nothing is untitled.",
-  "Theme: three preview tiles (Light, Dark, System) with a violet ring on the selected one, instead of a three-way toggle.",
+  "Theme: three preview tiles (Light, Dark, System) with a indigo ring on the selected one, instead of a three-way toggle.",
   "Copy: sentence case everywhere; descriptions say what happens, not how it is implemented; no trailing periods on one-word labels; shortcuts in parentheses after the description.",
 ];
 

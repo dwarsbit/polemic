@@ -46,9 +46,9 @@ export const SYNTAX_THEMES: SyntaxTheme[] = [
   {
     id: "default",
     label: "Polemic",
-    // The app's mist grays, violet commands, standard accent colors.
+    // The app's mist grays, indigo commands, standard accent colors.
     light: paletteStyle({
-      keyword: "oklch(49.1% 0.27 292.581)", // violet-700
+      keyword: "oklch(45.7% 0.24 277.023)", // indigo-700
       comment: "oklch(56% 0.021 213.5)", // mist-500
       string: "oklch(50.8% 0.118 165.612)", // emerald-700
       atom: "oklch(50% 0.134 242.749)", // sky-700
@@ -57,7 +57,7 @@ export const SYNTAX_THEMES: SyntaxTheme[] = [
       invalid: "oklch(58.6% 0.253 17.585)", // rose-600
     }),
     dark: paletteStyle({
-      keyword: "oklch(81.1% 0.111 293.571)", // violet-300
+      keyword: "oklch(78.5% 0.115 274.713)", // indigo-300
       comment: "oklch(72.3% 0.014 214.4)", // mist-400
       string: "oklch(84.5% 0.143 164.978)", // emerald-300
       atom: "oklch(82.8% 0.111 230.318)", // sky-300

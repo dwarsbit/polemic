@@ -325,7 +325,7 @@ export function MenuPage() {
       <h1 className="mb-1 text-lg font-semibold">Native menus</h1>
       <p className="mb-8 max-w-2xl text-sm text-muted-foreground">
         The platform order is File, Edit, then the app's own menus, then Window and
-        Help. Items in violet do not exist yet; everything else is the same MenuItem
+        Help. Items in indigo do not exist yet; everything else is the same MenuItem
         moved. Shortcuts shown as macOS; Windows and Linux map ⌘ to Ctrl.
       </p>
 

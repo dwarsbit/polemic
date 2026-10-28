@@ -61,12 +61,12 @@ import { cn } from "@/lib/utils";
 export const SHELL_NOTES = [
   "Backdrop: the window behind the cards is one step darker than the cards (sidebar token), so they read as floating in light mode too. Gaps 8px, outer padding 8px, resize handles live in the gaps.",
   "Header: 44px (was 48). The project name is a switcher button (open, rename, switch in a menu) instead of hover-revealed pencil and folder icons. Compile is the primary button; auto-compile and preview are toggles next to it.",
-  "Rails: 40px wide; the active icon gets the accent surface and a 2px violet bar on the window edge. The two action icons (packages, document settings) sit below a divider as before.",
+  "Rails: 40px wide; the active icon gets the accent surface and a 2px indigo bar on the window edge. The two action icons (packages, document settings) sit below a divider as before.",
   "Panel header: one component everywhere (36px, sentence-case title, optional count, actions right, hairline below). Replaces ALL-CAPS muted labels and the three ad-hoc headers (preview, issues, search).",
-  "Lists: 28px rows, 12px text; the selected row is violet-tinted, hover is the accent surface. Meta text (counts, line numbers, paths) is 11px muted.",
-  "Tabs: 36px bar; the active tab opens into the editor as before, the dirty dot is violet. The breadcrumb and the toolbar keep their rows.",
+  "Lists: 28px rows, 12px text; the selected row is indigo-tinted, hover is the accent surface. Meta text (counts, line numbers, paths) is 11px muted.",
+  "Tabs: 36px bar; the active tab opens into the editor as before, the dirty dot is indigo. The breadcrumb and the toolbar keep their rows.",
   "Status bar: 28px (was 32), 11px text, a colored dot for the compile state instead of an icon per state.",
-  "Colors: mist gray scale, near-black primary, violet only for focus, selection, selected rows and pills; success, warning, destructive and info are tokens.",
+  "Colors: mist gray scale, near-black primary, indigo only for focus, selection, selected rows and pills; success, warning, destructive and info are tokens.",
 ];
 
 type LeftTab =
@@ -284,7 +284,7 @@ function RailButton({
         active
           ? "bg-accent text-foreground"
           : "text-muted-foreground hover:bg-accent/60 hover:text-foreground",
-        // The violet bar on the window edge marks the open panel.
+        // The indigo bar on the window edge marks the open panel.
         active &&
           "after:absolute after:top-1.5 after:bottom-1.5 after:w-0.5 after:rounded-full after:bg-tint",
         active && (side === "left" ? "after:-left-2" : "after:-right-2"),

@@ -49,7 +49,7 @@
   --color-background: var(--background);
   --color-primary-fill: var(--primary-fill);
   --color-primary-edge: var(--primary-edge);
-  /* The one tint (violet): focus rings, text selection, selected rows,
+  /* The one tint (indigo): focus rings, text selection, selected rows,
      pills. Soft and edge are its translucent fill and border. */
   --color-tint: var(--tint);
   --color-tint-foreground: var(--tint-foreground);
@@ -73,7 +73,7 @@
 }
 
 /* Design tokens: shadcn semantic tokens on Tailwind's mist gray scale
-   (a cool gray, hue ~200-225), a near-black primary, and violet as the
+   (a cool gray, hue ~200-225), a near-black primary, and indigo as the
    only tint. The comments name the Tailwind step each value is. */
 :root {
   --background: oklch(1 0 0);
@@ -97,12 +97,12 @@
   --destructive: oklch(57.7% 0.245 27.325); /* red-600 */
   --border: oklch(92.5% 0.005 214.3); /* mist-200 */
   --input: oklch(92.5% 0.005 214.3);
-  --ring: oklch(60.6% 0.25 292.717); /* violet-500 */
-  --selection: oklch(89.4% 0.057 293.283); /* violet-200 */
-  --tint: oklch(60.6% 0.25 292.717); /* violet-500 */
-  --tint-foreground: oklch(49.1% 0.27 292.581); /* violet-700 */
-  --tint-soft: oklch(60.6% 0.25 292.717 / 10%);
-  --tint-edge: oklch(60.6% 0.25 292.717 / 25%);
+  --ring: oklch(58.5% 0.233 277.117); /* indigo-500 */
+  --selection: oklch(87% 0.065 274.039); /* indigo-200 */
+  --tint: oklch(58.5% 0.233 277.117); /* indigo-500 */
+  --tint-foreground: oklch(45.7% 0.24 277.023); /* indigo-700 */
+  --tint-soft: oklch(58.5% 0.233 277.117 / 10%);
+  --tint-edge: oklch(58.5% 0.233 277.117 / 25%);
   --success: oklch(59.6% 0.145 163.225); /* emerald-600 */
   --warning: oklch(66.6% 0.179 58.318); /* amber-600 */
   --info: oklch(58.8% 0.158 241.966); /* sky-600 */
@@ -120,7 +120,7 @@
   --sidebar-accent: oklch(96.3% 0.002 197.1);
   --sidebar-accent-foreground: oklch(21.8% 0.008 223.9);
   --sidebar-border: oklch(92.5% 0.005 214.3);
-  --sidebar-ring: oklch(60.6% 0.25 292.717);
+  --sidebar-ring: oklch(58.5% 0.233 277.117);
 }
 
 /* macOS vibrancy: the chrome (header, rails, status bar) is fully
@@ -157,12 +157,12 @@ html.mac.dark body {
   --destructive: oklch(70.4% 0.191 22.216); /* red-400 */
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(70.2% 0.183 293.541); /* violet-400 */
-  --selection: oklch(60.6% 0.25 292.717 / 40%);
-  --tint: oklch(70.2% 0.183 293.541); /* violet-400 */
-  --tint-foreground: oklch(81.1% 0.111 293.571); /* violet-300 */
-  --tint-soft: oklch(70.2% 0.183 293.541 / 15%);
-  --tint-edge: oklch(70.2% 0.183 293.541 / 30%);
+  --ring: oklch(67.3% 0.182 276.935); /* indigo-400 */
+  --selection: oklch(58.5% 0.233 277.117 / 40%);
+  --tint: oklch(67.3% 0.182 276.935); /* indigo-400 */
+  --tint-foreground: oklch(78.5% 0.115 274.713); /* indigo-300 */
+  --tint-soft: oklch(67.3% 0.182 276.935 / 15%);
+  --tint-edge: oklch(67.3% 0.182 276.935 / 30%);
   --success: oklch(76.5% 0.177 163.223); /* emerald-400 */
   --warning: oklch(82.8% 0.189 84.429); /* amber-400 */
   --info: oklch(74.6% 0.16 232.661); /* sky-400 */
@@ -173,12 +173,12 @@ html.mac.dark body {
   --chart-5: oklch(27.5% 0.011 216.9);
   --sidebar: oklch(14.8% 0.004 228.8); /* mist-950 */
   --sidebar-foreground: oklch(98.7% 0.002 197.1);
-  --sidebar-primary: oklch(70.2% 0.183 293.541);
+  --sidebar-primary: oklch(67.3% 0.182 276.935);
   --sidebar-primary-foreground: oklch(98.7% 0.002 197.1);
   --sidebar-accent: oklch(27.5% 0.011 216.9);
   --sidebar-accent-foreground: oklch(98.7% 0.002 197.1);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(70.2% 0.183 293.541);
+  --sidebar-ring: oklch(67.3% 0.182 276.935);
 }
 
 @layer base {
@@ -740,13 +740,13 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   vertical-align: baseline;
   border-radius: 4px;
 }
-/* Focused raw editor: the border turns violet — no outline rings. */
+/* Focused raw editor: the border turns indigo — no outline rings. */
 .visual-editor .vis-raw-edit:focus {
   border-color: var(--tint-edge);
 }
 
 /* Node selection (atoms show their raw editor on selection): a quiet
-   violet tint instead of a ring. */
+   indigo tint instead of a ring. */
 .visual-editor .vis-selected {
   border-radius: 4px;
   background: var(--tint-soft);
