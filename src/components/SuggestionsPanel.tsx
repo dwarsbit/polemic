@@ -18,6 +18,7 @@ import {
 import { authorStyles } from "@/lib/changes-view";
 import { currentText, texPaths, writeFileEdits } from "@/lib/project-texts";
 import { readProjectFile, type FileEntry } from "@/lib/tauri";
+import { flushPendingSerialize } from "@/lib/visual/pending-serialize";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import { cn } from "cn";
@@ -202,6 +203,8 @@ export function SuggestionsPanel() {
   }
 
   async function resolveRow(row: Row, how: "accept" | "reject") {
+    // The Visual view writes its edits back with a delay.
+    flushPendingSerialize();
     const text = await currentText(row.file);
     // Planned against an older text: wait for the list to catch up.
     if (
@@ -223,6 +226,8 @@ export function SuggestionsPanel() {
   }
 
   async function resolveFiles(targets: string[], how: "accept" | "reject") {
+    // The Visual view writes its edits back with a delay.
+    flushPendingSerialize();
     const store = useProjectStore.getState();
     const closed = targets.filter(
       (file) => file !== store.activeFile && store.buffers[file] === undefined,
@@ -253,6 +258,8 @@ export function SuggestionsPanel() {
   }
 
   async function removeTrackChangesSetup(file: string) {
+    // The Visual view writes its edits back with a delay.
+    flushPendingSerialize();
     const text = await currentText(file);
     if (text === null) return;
     if (await write(file, text, removeSetup(text), "input.removeChangesSetup")) {
