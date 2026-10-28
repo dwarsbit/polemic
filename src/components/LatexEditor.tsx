@@ -54,6 +54,7 @@ import {
 } from "@/lib/visual/face-anchor";
 import { mathHover, mathHoverEnabled } from "@/lib/math-hover";
 import { envPairing } from "@/lib/env-pairing";
+import { conflictMarkers } from "@/lib/conflict-markers";
 import { gitLineGutter, setGitLines } from "@/lib/git-gutter";
 import { lineStatus } from "@/lib/git-line-status";
 import { lineOps } from "@/lib/line-ops";
@@ -477,6 +478,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
           lineOps,
           tabIndent,
           gitLineGutter,
+          conflictMarkers,
           linter(() => []),
           refLabelLint,
           lintGutter(),

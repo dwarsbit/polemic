@@ -1434,6 +1434,24 @@ fn git_abort_merge(project_dir: String) -> Result<(), String> {
     git::abort_merge(&dir)
 }
 
+#[tauri::command]
+fn git_resolve_conflict(
+    project_dir: String,
+    path: String,
+    side: git::ConflictSide,
+) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    project_file(&project_dir, &path)?;
+    git::resolve_conflict(&dir, &path, side)
+}
+
+#[tauri::command]
+fn git_mark_resolved(project_dir: String, path: String) -> Result<(), String> {
+    let dir = canonical_project(&project_dir)?;
+    let file = project_file(&project_dir, &path)?;
+    git::mark_resolved(&dir, &path, file.exists().then_some(file.as_path()))
+}
+
 // The network operations run off the main thread: a slow remote must
 // not freeze the window.
 #[tauri::command]
@@ -2151,6 +2169,8 @@ pub fn run() {    tauri::Builder::default()
             git_show_head,
             git_set_remote,
             git_abort_merge,
+            git_resolve_conflict,
+            git_mark_resolved,
             git_fetch,
             git_pull,
             git_push,

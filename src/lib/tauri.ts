@@ -759,6 +759,20 @@ export function gitAbortMerge(projectDir: string): Promise<void> {
   return invoke<void>("git_abort_merge", { projectDir });
 }
 
+/** Resolve a conflicted file by taking one side whole ("ours" = mine). */
+export function gitResolveConflict(
+  projectDir: string,
+  path: string,
+  side: "ours" | "theirs",
+): Promise<void> {
+  return invoke<void>("git_resolve_conflict", { projectDir, path, side });
+}
+
+/** Stage a hand-edited conflicted file; refused while markers remain. */
+export function gitMarkResolved(projectDir: string, path: string): Promise<void> {
+  return invoke<void>("git_mark_resolved", { projectDir, path });
+}
+
 /** Clone a repository into the projects root as the project `name`. */
 export function gitCloneProject(url: string, name: string): Promise<ProjectInfo> {
   return invoke<ProjectInfo>("git_clone_project", { url, name });

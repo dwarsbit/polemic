@@ -37,6 +37,8 @@ import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 import { useUiStore } from "@/store/ui";
+import { useEditorStore } from "@/store/editor";
+import { hasConflictMarkers } from "@/lib/conflict-markers";
 import { cn } from "cn";
 
 const COLUMN_PANEL_IDS = ["navigator", "editor", "preview", "properties"];
@@ -86,7 +88,11 @@ export function EditorView() {
   // .bib files edit through their own two-faced editor.
   const activeFileIsBib = activeFile !== null && activeFile.endsWith(".bib");
   const activeFileIsTex = activeFile !== null && activeFile.endsWith(".tex");
-  const texEditorMode = useUiStore((s) => s.texEditorMode);
+  const texEditorModeChosen = useUiStore((s) => s.texEditorMode);
+  // A file with git conflict markers stays in the Code view: the
+  // markers are resolved there, and the Visual face cannot parse them.
+  const conflicted = useEditorStore((s) => hasConflictMarkers(s.content));
+  const texEditorMode = conflicted ? "code" : texEditorModeChosen;
   const texVisual = activeFileIsTex && texEditorMode === "visual";
   const bibEditorMode = useUiStore((s) => s.bibEditorMode);
   /** The active file's face, or null for kinds without one. */

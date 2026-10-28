@@ -13,6 +13,8 @@ import type { GitPullOutcome, GitStatus } from "@/lib/tauri";
 const repo = {
   status: null as unknown as GitStatus,
   pullOutcome: { kind: "upToDate" } as GitPullOutcome,
+  /** Files whose hand edit left markers behind. */
+  markersLeft: [] as string[],
 };
 
 function status(partial: Partial<GitStatus> = {}): GitStatus {
@@ -63,6 +65,21 @@ vi.mock("@/lib/tauri", () => ({
   }),
   gitPush: vi.fn(async () => {
     repo.status = { ...repo.status, ahead: 0, upstream: "origin/main" };
+  }),
+  gitResolveConflict: vi.fn(async (_dir: string, path: string) => {
+    repo.status = {
+      ...repo.status,
+      conflicts: repo.status.conflicts.filter((p) => p !== path),
+    };
+  }),
+  gitMarkResolved: vi.fn(async (_dir: string, path: string) => {
+    if (repo.markersLeft.includes(path)) {
+      throw new Error(`${path} still has conflict markers (line 3)`);
+    }
+    repo.status = {
+      ...repo.status,
+      conflicts: repo.status.conflicts.filter((p) => p !== path),
+    };
   }),
   gitAbortMerge: vi.fn(async () => {
     repo.status = { ...repo.status, merging: false, conflicts: [] };
@@ -137,6 +154,7 @@ async function type(input: HTMLInputElement, value: string) {
 beforeEach(() => {
   repo.status = status();
   repo.pullOutcome = { kind: "upToDate" };
+  repo.markersLeft = [];
 });
 
 afterEach(async () => {
@@ -207,7 +225,7 @@ describe("GitPanel remotes", () => {
     expect(resolve).toHaveLength(2);
     await act(async () => resolve[0]!.click());
     await settle();
-    expect(tauri.gitStage).toHaveBeenCalledWith("/tmp/paper", ["main.tex"]);
+    expect(tauri.gitMarkResolved).toHaveBeenCalledWith("/tmp/paper", "main.tex");
     expect(host.textContent).not.toContain("main.tex");
     expect(button("Finish merge")!.disabled).toBe(true);
 
@@ -217,6 +235,48 @@ describe("GitPanel remotes", () => {
     await click("Finish merge");
     expect(tauri.gitCommit).toHaveBeenCalledWith("/tmp/paper", "Merge remote changes");
     expect(button("Commit")).toBeDefined();
+  });
+
+  it("keeps mine or theirs per file, and refuses to mark a file with markers", async () => {
+    repo.status = status({
+      remote: "https://github.com/ada/paper.git",
+      merging: true,
+      conflicts: ["main.tex", "refs.bib", "notes.tex"],
+    });
+    repo.markersLeft = ["notes.tex"];
+    await render();
+
+    const rowButtons = (title: string) =>
+      [...host.querySelectorAll("button")].filter((b) => b.title.startsWith(title));
+    await act(async () => rowButtons("Keep mine")[0]!.click());
+    await settle();
+    expect(tauri.gitResolveConflict).toHaveBeenCalledWith(
+      "/tmp/paper",
+      "main.tex",
+      "ours",
+    );
+    await act(async () => rowButtons("Keep theirs")[0]!.click());
+    await settle();
+    expect(tauri.gitResolveConflict).toHaveBeenCalledWith(
+      "/tmp/paper",
+      "refs.bib",
+      "theirs",
+    );
+    expect(host.textContent).not.toContain("main.tex");
+    expect(host.textContent).not.toContain("refs.bib");
+
+    await act(async () => rowButtons("Mark resolved")[0]!.click());
+    await settle();
+    expect(tauri.gitMarkResolved).toHaveBeenCalledWith("/tmp/paper", "notes.tex");
+    expect(host.textContent).toContain("still has conflict markers");
+    expect(host.textContent).toContain("notes.tex");
+    expect(button("Finish merge")!.disabled).toBe(true);
+
+    repo.markersLeft = [];
+    await act(async () => rowButtons("Mark resolved")[0]!.click());
+    await settle();
+    expect(host.textContent).not.toContain("notes.tex");
+    expect(button("Finish merge")!.disabled).toBe(false);
   });
 
   it("aborts a merge", async () => {
