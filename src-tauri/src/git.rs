@@ -738,6 +738,12 @@ mod tests {
         run_git(dir, &["config", "user.name", "Test"]).unwrap();
     }
 
+    /// A file's text with git's line endings undone (Windows runners
+    /// check out with autocrlf on).
+    fn read(dir: &Path, path: &str) -> String {
+        std::fs::read_to_string(dir.join(path)).unwrap().replace("\r\n", "\n")
+    }
+
     fn write_and_commit(dir: &Path, path: &str, content: &str, message: &str) {
         std::fs::write(dir.join(path), content).unwrap();
         stage(dir, &[path.into()]).unwrap();
@@ -776,7 +782,7 @@ mod tests {
         let _ = std::fs::remove_dir_all(&b);
         clone(&bare_url, &b).unwrap();
         configure_user(&b);
-        assert_eq!(std::fs::read_to_string(b.join("main.tex")).unwrap(), "one\n");
+        assert_eq!(read(&b, "main.tex"), "one\n");
         assert_eq!(status(&b).upstream.as_deref(), Some("origin/main"));
         assert!(clone(&bare_url, &b).is_err(), "clone over an existing folder");
 
@@ -787,7 +793,7 @@ mod tests {
         fetch(&b).unwrap();
         assert_eq!(status(&b).behind, 1);
         assert_eq!(pull(&b).unwrap(), PullOutcome::Updated);
-        assert_eq!(std::fs::read_to_string(b.join("main.tex")).unwrap(), "one\ntwo\n");
+        assert_eq!(read(&b, "main.tex"), "one\ntwo\n");
 
         // Both change different files: B's push is refused, its pull merges.
         write_and_commit(&a, "a.tex", "a\n", "a's file");
@@ -812,7 +818,7 @@ mod tests {
         let info = status(&b);
         assert!(info.merging);
         assert_eq!(info.conflicts, vec!["main.tex".to_string()]);
-        assert!(std::fs::read_to_string(b.join("main.tex")).unwrap().contains("<<<<<<<"));
+        assert!(read(&b, "main.tex").contains("<<<<<<<"));
         assert!(pull(&b).is_err(), "pull during a merge");
 
         // Resolve by hand, stage, commit: the merge is done.
@@ -833,7 +839,7 @@ mod tests {
         abort_merge(&b).unwrap();
         let info = status(&b);
         assert!(!info.merging && info.conflicts.is_empty());
-        assert_eq!(std::fs::read_to_string(b.join("main.tex")).unwrap(), "one\nAB\nB2\n");
+        assert_eq!(read(&b, "main.tex"), "one\nAB\nB2\n");
 
         // Removing the remote.
         set_remote(&b, "").unwrap();
