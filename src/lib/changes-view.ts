@@ -560,6 +560,16 @@ export function setSuggestListener(next: SuggestListener | null) {
   listener = next;
 }
 
+/** Shows a suggest-mode notice (also used by the Visual view). */
+export function reportSuggestMessage(text: string) {
+  listener?.message(text);
+}
+
+/** Sets the main file up for suggestions (a chapter got one). */
+export function requestSuggestSetup() {
+  listener?.needsSetup();
+}
+
 const SUGGESTED_EVENTS = [
   "input.type",
   "input.paste",

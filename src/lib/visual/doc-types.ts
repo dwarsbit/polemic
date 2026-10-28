@@ -8,12 +8,40 @@
  * and untouched fallbacks round-trip byte-for-byte.
  */
 
-export type MarkType = "bold" | "italic" | "code" | "underline" | "comment";
+export type MarkType =
+  | "bold"
+  | "italic"
+  | "code"
+  | "underline"
+  | "comment"
+  | "insertion"
+  | "deletion"
+  | "changeHighlight";
+
+/** The track changes marks: `\added`, `\deleted`, `\highlight`, and
+ *  the two halves of a `\replaced`. */
+export const CHANGE_MARKS = new Set<MarkType>([
+  "insertion",
+  "deletion",
+  "changeHighlight",
+]);
 
 export interface Mark {
   type: MarkType;
-  /** The LaTeX command the mark came from, e.g. "textbf" or "emph". */
-  attrs?: { cmd?: string };
+  /** The LaTeX command the mark came from, e.g. "textbf" or "emph".
+   *  Change marks: the author id, the `[…]` options as written (null
+   *  when absent), and for a `\replaced` the id pairing its halves. */
+  attrs?: {
+    cmd?: string;
+    author?: string | null;
+    opts?: string | null;
+    pair?: string | null;
+  };
+}
+
+/** Change marks on an inline atom (formatting marks stay text-only). */
+export interface Marked {
+  marks?: Mark[];
 }
 
 export interface TextNode {
@@ -23,43 +51,43 @@ export interface TextNode {
 }
 
 /** A `\\`, `\\*`, or `\\[len]` line break inside a paragraph. */
-export interface HardBreakNode {
+export interface HardBreakNode extends Marked {
   type: "hardBreak";
   attrs: { src: string };
 }
 
 /** Inline math; `src` includes its delimiters, e.g. `$x^2$` or `\(x\)`. */
-export interface MathInlineNode {
+export interface MathInlineNode extends Marked {
   type: "mathInline";
   attrs: { src: string };
 }
 
 /** A citation command such as `\cite[p.~3]{key}`, verbatim. */
-export interface CiteNode {
+export interface CiteNode extends Marked {
   type: "cite";
   attrs: { src: string };
 }
 
 /** A reference command such as `\ref{eq:foo}`, verbatim. */
-export interface RefNode {
+export interface RefNode extends Marked {
   type: "ref";
   attrs: { src: string };
 }
 
 /** A `\label{...}` node, verbatim. */
-export interface LabelNode {
+export interface LabelNode extends Marked {
   type: "label";
   attrs: { src: string };
 }
 
 /** A `\footnote{...}`, verbatim: a superscript chip with an in-place editor. */
-export interface FootnoteNode {
+export interface FootnoteNode extends Marked {
   type: "footnote";
   attrs: { src: string };
 }
 
 /** An unmodelled inline construct (`\LaTeX`, ...), verbatim. */
-export interface RawInlineNode {
+export interface RawInlineNode extends Marked {
   type: "rawTexInline";
   attrs: { src: string };
 }

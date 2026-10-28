@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { EditorContent, useEditor, useEditorState } from "@tiptap/react";
 import { StarterKit } from "@tiptap/starter-kit";
 import type { Editor, JSONContent } from "@tiptap/core";
@@ -33,6 +33,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { NewTheoremDialog } from "@/components/NewTheoremDialog";
+import { SuggestToggle } from "@/components/SuggestToggle";
+import { VisualChangeCard } from "@/components/VisualChangeCard";
+import { useMainFileAuthors, useSuggestAuthor } from "@/hooks/useTrackChanges";
+import { parseAuthors, parseChanges } from "@/lib/changes";
+import { authorStyles } from "@/lib/changes-view";
+import {
+  setVisualSuggestAuthor,
+  trackChangesExtensions,
+} from "@/lib/visual/track-changes";
 import {
   FIGURE_SCAFFOLD,
   TABLE_SCAFFOLD,
@@ -384,6 +393,8 @@ function VisualToolbar({ editor }: { editor: Editor }) {
           <Pi className="size-4" />
         </Button>
       </ButtonGroup>
+      <Separator orientation="vertical" className="h-5 data-vertical:self-center" />
+      <SuggestToggle />
     </div>
   );
 }
@@ -415,6 +426,7 @@ export function VisualTexEditor() {
         strike: false,
       }),
       ...visualTexExtensions,
+      ...trackChangesExtensions,
       WritingChecks,
     ],
     content: docFromTex(entryContent),
@@ -646,6 +658,38 @@ export function VisualTexEditor() {
     };
   }, [editor, spellcheckEnabled, spellcheckLanguage, grammar]);
 
+  // Suggest mode follows the switch, the author and the open file.
+  const suggestAuthor = useSuggestAuthor();
+  useEffect(() => {
+    setVisualSuggestAuthor(suggestAuthor);
+    return () => setVisualSuggestAuthor(null);
+  }, [suggestAuthor]);
+
+  // Suggestion colors per author: the open file's and the main file's
+  // declarations, set as --change-color on the marks.
+  const content = useEditorStore((s) => s.content);
+  const mainAuthors = useMainFileAuthors();
+  const changeStyles = useMemo(
+    () =>
+      authorStyles(
+        [...parseAuthors(content), ...mainAuthors],
+        parseChanges(content).map((c) => c.author),
+      ),
+    [content, mainAuthors],
+  );
+  const changeCss = useMemo(
+    () =>
+      [...changeStyles]
+        .map(([id, style]) =>
+          id === null
+            ? `.visual-editor .vis-change:not([data-author]) { --change-color: ${style.color}; }`
+            : `.visual-editor .vis-change[data-author="${CSS.escape(id)}"] { --change-color: ${style.color}; }`,
+        )
+        .join("\n"),
+    [changeStyles],
+  );
+  const [scrollEl, setScrollEl] = useState<HTMLDivElement | null>(null);
+
   if (editor === null) return null;
 
   return (
@@ -671,7 +715,10 @@ export function VisualTexEditor() {
           </Button>
         </p>
       )}
+      <style>{changeCss}</style>
+      <VisualChangeCard editor={editor} container={scrollEl} styles={changeStyles} />
       <div
+        ref={setScrollEl}
         className="min-h-0 flex-1 overflow-y-auto"
         onMouseDown={() => setWritingPopover(null)}
       >
