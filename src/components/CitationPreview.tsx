@@ -39,7 +39,7 @@ export function CitationPreview({
       <div className="flex items-center justify-between gap-2">
         <span className="text-xs font-medium">Citation preview</span>
         <Select value={style} onValueChange={(value) => setStyle(value as CiteStyle)}>
-          <SelectTrigger className="h-6 w-32 text-[11px]" title="biblatex style">
+          <SelectTrigger className="h-6 w-32 text-2xs" title="biblatex style">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -54,7 +54,7 @@ export function CitationPreview({
       <ul className="space-y-0.5 text-xs">
         {citations.map((citation) => (
           <li key={citation.command} className="flex gap-2">
-            <span className="w-20 shrink-0 font-mono text-[11px] text-muted-foreground">
+            <span className="w-20 shrink-0 font-mono text-2xs text-muted-foreground">
               {citation.command}
             </span>
             <span>{citation.output}</span>
@@ -74,7 +74,7 @@ export function CitationPreview({
           )
         )}
       </p>
-      <p className="text-[10px] text-muted-foreground">
+      <p className="text-2xs text-muted-foreground">
         {note ?? "An approximation of biblatex's default options."}
       </p>
     </div>

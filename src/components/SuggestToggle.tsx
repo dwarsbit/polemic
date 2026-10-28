@@ -22,8 +22,8 @@ export function SuggestToggle({ compact = false }: { compact?: boolean }) {
           aria-pressed={enabled}
           title={title}
           className={cn(
-            "flex items-center gap-1 rounded px-1 hover:text-foreground",
-            enabled && "font-medium text-amber-700 dark:text-amber-400",
+            "flex items-center gap-1 rounded px-1 hover:bg-accent hover:text-foreground",
+            enabled && "font-medium text-warning",
           )}
           onClick={() => setEnabled(!enabled)}
         >
@@ -40,10 +40,7 @@ export function SuggestToggle({ compact = false }: { compact?: boolean }) {
       size="sm"
       aria-pressed={enabled}
       title={title}
-      className={cn(
-        "h-7 gap-1 px-2 text-xs",
-        enabled && "text-amber-700 dark:text-amber-400",
-      )}
+      className={cn("h-7 gap-1 px-2 text-xs", enabled && "text-warning")}
       onMouseDown={(event) => event.preventDefault()}
       onClick={() => setEnabled(!enabled)}
     >

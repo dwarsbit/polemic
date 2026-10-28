@@ -28,7 +28,7 @@ function OptionInput({
   return (
     <input
       className={cn(
-        "h-6 min-w-0 rounded-md border bg-transparent px-1.5 text-[11px] outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30",
+        "h-6 min-w-0 rounded-md border bg-transparent px-1.5 text-2xs outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30",
         className,
       )}
       value={value}
@@ -51,7 +51,7 @@ function Presets({
         <button
           key={value}
           type="button"
-          className="rounded border px-1 py-0.5 font-mono text-[9px] text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+          className="rounded border px-1 py-0.5 font-mono text-2xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
           onClick={() => onPick(value)}
         >
           {value.replace("\\textwidth", "\\TW")}
@@ -125,7 +125,7 @@ export function GraphicsOptionsCard({
           )}
         </div>
         <p
-          className="min-w-0 flex-1 self-center truncate text-[11px] text-muted-foreground"
+          className="min-w-0 flex-1 self-center truncate text-2xs text-muted-foreground"
           title={path}
         >
           {path || "(no file)"}
@@ -141,11 +141,11 @@ export function GraphicsOptionsCard({
       </div>
 
       <div className="flex items-center gap-1.5 pt-1">
-        <span className="w-10 shrink-0 text-[10px] text-muted-foreground">Width</span>
+        <span className="w-10 shrink-0 text-2xs text-muted-foreground">Width</span>
         <OptionInput
           className="flex-1"
           value={width}
-          placeholder="0.8\\textwidth"
+          placeholder={"0.8\\textwidth"}
           onChange={(value) => onChange(setOptionValue(entries, "width", value))}
         />
         <Presets
@@ -154,16 +154,14 @@ export function GraphicsOptionsCard({
         />
       </div>
       <div className="flex items-center gap-1.5">
-        <span className="w-10 shrink-0 text-[10px] text-muted-foreground">Scale</span>
+        <span className="w-10 shrink-0 text-2xs text-muted-foreground">Scale</span>
         <OptionInput
           className="w-16"
           value={scale}
           placeholder="1.5"
           onChange={(value) => onChange(setOptionValue(entries, "scale", value))}
         />
-        <span className="ml-1 w-10 shrink-0 text-[10px] text-muted-foreground">
-          Angle
-        </span>
+        <span className="ml-1 w-10 shrink-0 text-2xs text-muted-foreground">Angle</span>
         <OptionInput
           className="w-12"
           value={angle}
@@ -176,7 +174,7 @@ export function GraphicsOptionsCard({
         />
       </div>
       <div className="flex items-center gap-1.5">
-        <span className="w-10 shrink-0 text-[10px] text-muted-foreground">Trim</span>
+        <span className="w-10 shrink-0 text-2xs text-muted-foreground">Trim</span>
         <div className="flex gap-1">
           {[0, 1, 2, 3].map((index) => (
             <OptionInput
@@ -188,7 +186,7 @@ export function GraphicsOptionsCard({
             />
           ))}
         </div>
-        <label className="ml-auto flex shrink-0 items-center gap-1 text-[10px] text-muted-foreground">
+        <label className="ml-auto flex shrink-0 items-center gap-1 text-2xs text-muted-foreground">
           <Switch
             checked={clip}
             onCheckedChange={(v) => onChange(setOptionFlag(entries, "clip", v))}
@@ -197,7 +195,7 @@ export function GraphicsOptionsCard({
         </label>
       </div>
       <div className="flex items-center gap-1.5">
-        <label className="flex shrink-0 items-center gap-1 text-[10px] text-muted-foreground">
+        <label className="flex shrink-0 items-center gap-1 text-2xs text-muted-foreground">
           <Switch
             checked={keepAspect}
             onCheckedChange={(v) =>
@@ -207,7 +205,7 @@ export function GraphicsOptionsCard({
           Keep aspect ratio
         </label>
         {isPdf && (
-          <span className="ml-auto flex shrink-0 items-center gap-1 text-[10px] text-muted-foreground">
+          <span className="ml-auto flex shrink-0 items-center gap-1 text-2xs text-muted-foreground">
             Page
             <OptionInput
               className="w-10"

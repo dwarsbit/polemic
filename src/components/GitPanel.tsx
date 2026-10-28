@@ -42,8 +42,8 @@ function statusWord(entry: GitEntry): string {
 
 function entryColor(entry: GitEntry): string {
   if (entry.x === "?") return "text-muted-foreground";
-  if (entry.x !== " ") return "text-emerald-600 dark:text-emerald-400";
-  return "text-amber-600 dark:text-amber-400";
+  if (entry.x !== " ") return "text-success";
+  return "text-info";
 }
 
 export function GitPanel() {
@@ -92,12 +92,12 @@ export function GitPanel() {
   return (
     <div className="flex h-full flex-col">
       <SectionHeader
-        label="GIT"
-        collapsed={false}
+        label="Git"
+
         actions={
           <div className="flex items-center gap-0.5">
             {status?.branch && (
-              <span className="mr-1 flex items-center gap-1 text-[11px] text-muted-foreground">
+              <span className="mr-1 flex items-center gap-1 text-2xs text-muted-foreground">
                 <GitBranch className="size-3" />
                 {status.branch}
                 {(status.ahead > 0 || status.behind > 0) && (
@@ -120,18 +120,18 @@ export function GitPanel() {
           </div>
         }
       />
-      <div className="flex-1 overflow-y-auto px-2 pb-2">
+      <div className="flex-1 overflow-y-auto p-1.5">
         {status === undefined && (
           <p className="px-2 text-xs text-muted-foreground">Loading…</p>
         )}
         {status !== undefined && !status.available && (
           <p className="px-2 text-xs text-muted-foreground">
-            git was not found on your PATH.
+            Git is not installed. Snapshots are used instead.
           </p>
         )}
         {status !== undefined && status.available && !status.isRepo && (
           <div className="space-y-1.5 px-2 text-xs text-muted-foreground">
-            <p>This project is not a git repository yet.</p>
+            <p>This project is not under version control yet.</p>
             <Button
               variant="outline"
               size="xs"
@@ -144,13 +144,15 @@ export function GitPanel() {
         {status !== undefined && status.isRepo && (
           <>
             {status.entries.length === 0 && (
-              <p className="px-2 text-xs text-muted-foreground">Working tree clean.</p>
+              <p className="px-2 text-xs text-muted-foreground">
+                No changes since the last commit.
+              </p>
             )}
 
             {staged.length > 0 && (
               <>
-                <p className="mt-2 px-2 text-[11px] font-medium text-muted-foreground">
-                  STAGED
+                <p className="mt-2 px-2 text-2xs font-medium tracking-wide text-muted-foreground uppercase">
+                  Staged
                 </p>
                 {staged.map((entry) => (
                   <GitRow
@@ -168,8 +170,8 @@ export function GitPanel() {
 
             {unstaged.length > 0 && (
               <>
-                <p className="mt-2 px-2 text-[11px] font-medium text-muted-foreground">
-                  CHANGES
+                <p className="mt-2 px-2 text-2xs font-medium tracking-wide text-muted-foreground uppercase">
+                  Changes
                 </p>
                 {unstaged.map((entry) => (
                   <GitRow
@@ -188,7 +190,7 @@ export function GitPanel() {
             <div className="mt-3 flex flex-col gap-1.5 px-2">
               <Input
                 className="h-7 rounded-3xl text-xs"
-                placeholder="Commit message…"
+                placeholder="Commit message"
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
                 onKeyDown={(event) => {
@@ -247,7 +249,7 @@ function GitRow({
       title={`${statusWord(entry)}: ${entry.path}`}
     >
       <span
-        className={`w-3 shrink-0 text-center font-mono text-[11px] ${entryColor(entry)}`}
+        className={`w-3 shrink-0 text-center font-mono text-2xs ${entryColor(entry)}`}
       >
         {action === "unstage" ? codeLabel(entry.x) : codeLabel(entry.y)}
       </span>
@@ -263,7 +265,7 @@ function GitRow({
           variant="ghost"
           size="icon"
           className="size-5"
-          title="Show changes vs HEAD"
+          title="Show changes"
           onClick={onDiff}
         >
           <FileDiff className="size-3" />

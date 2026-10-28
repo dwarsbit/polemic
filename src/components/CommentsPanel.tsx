@@ -21,6 +21,7 @@ import { useEditorStore } from "@/store/editor";
 import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
 import { cn } from "cn";
+import { formatShortcut } from "@/lib/platform";
 
 /** The pseudo-category of the notes on suggestions. */
 const NOTES = "__suggestion-notes";
@@ -60,7 +61,7 @@ function NoteRow({
           <span className="line-clamp-3 break-words text-foreground">{note.note}</span>
         </button>
       </div>
-      <div className="mt-0.5 flex items-center pl-3.5 text-[10px] text-muted-foreground">
+      <div className="mt-0.5 flex items-center pl-3.5 text-2xs text-muted-foreground">
         <span className="min-w-0 flex-1 truncate">
           Suggestion note · {authorName} · line {note.line}
         </span>
@@ -219,11 +220,12 @@ export function CommentsPanel() {
   if (comments.length === 0 && notes.length === 0) {
     return (
       <div className="flex h-full flex-col">
-        <SectionHeader label="COMMENTS" collapsed={false} />
+        <SectionHeader label="Comments" />
         <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center">
           <MessageSquareOff className="size-5 text-muted-foreground" />
           <p className="text-xs text-muted-foreground">
-            No comments yet. Right-click in the editor to add one.
+            No comments yet. Select text and press {formatShortcut("Mod+Alt+C")}, or
+            right-click in the editor.
           </p>
         </div>
       </div>
@@ -234,8 +236,8 @@ export function CommentsPanel() {
     <div className="h-full overflow-y-auto">
       <div className="sticky top-0 z-10 bg-card">
         <SectionHeader
-          label="COMMENTS"
-          collapsed={false}
+          label="Comments"
+
           actions={
             <Button
               variant={hideResolved ? "secondary" : "ghost"}
@@ -369,7 +371,7 @@ export function CommentsPanel() {
                       <Button
                         variant="ghost"
                         size="icon-xs"
-                        title={comment.resolved ? "Mark unresolved" : "Mark resolved"}
+                        title={comment.resolved ? "Reopen" : "Resolve"}
                         onClick={() =>
                           void update(comment.id, { resolved: !comment.resolved })
                         }
@@ -377,16 +379,14 @@ export function CommentsPanel() {
                         <Check
                           className={cn(
                             "size-3",
-                            comment.resolved
-                              ? "text-emerald-600 dark:text-emerald-400"
-                              : "text-muted-foreground",
+                            comment.resolved ? "text-success" : "text-muted-foreground",
                           )}
                         />
                       </Button>
                     </div>
                     {/* Edit and delete sit on the meta line so the text
                         keeps the row's full width. */}
-                    <div className="mt-0.5 flex items-center pl-3.5 text-[10px] text-muted-foreground">
+                    <div className="mt-0.5 flex items-center pl-3.5 text-2xs text-muted-foreground">
                       <span className="flex-1">
                         {orphaned
                           ? "anchor not found"

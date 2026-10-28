@@ -16,6 +16,7 @@ import {
 import type { IssuesTool } from "@/components/IssuesPanel";
 import type { LeftTab } from "@/components/Sidebar";
 import { useDialogsStore } from "@/store/dialogs";
+import { formatShortcut } from "@/lib/platform";
 import { cn } from "cn";
 
 /** Navigator panels, selectable from the top of the rail. */
@@ -24,7 +25,7 @@ const NAVIGATOR_TABS: { id: LeftTab; label: string; icon: typeof Folder }[] = [
   { id: "outline", label: "Outline", icon: ListTree },
   { id: "symbols", label: "Symbols", icon: Sigma },
   { id: "assets", label: "Assets", icon: Images },
-  { id: "floats", label: "Figures & Tables", icon: GalleryVertical },
+  { id: "floats", label: "Figures & tables", icon: GalleryVertical },
   { id: "labels", label: "Labels", icon: Tags },
   { id: "bibliography", label: "Bibliography", icon: BookOpen },
 ];
@@ -32,18 +33,22 @@ const NAVIGATOR_TABS: { id: LeftTab; label: string; icon: typeof Folder }[] = [
 /** Bottom-dock tools (the issues row), selectable from the bottom. */
 const ISSUE_TOOLS: { id: IssuesTool; label: string; icon: typeof Folder }[] = [
   { id: "issues", label: "Issues", icon: AlertTriangle },
-  { id: "log", label: "Compile Log", icon: ScrollText },
-  { id: "search", label: "Search", icon: Search },
+  { id: "log", label: "Compile log", icon: ScrollText },
+  { id: "search", label: "Search in project", icon: Search },
 ];
 
-function RailButton({
+/** A rail icon. The open panel's icon sits on the accent surface with
+ *  a indigo bar on the window edge. Shared with the right rail. */
+export function RailButton({
   label,
   active,
+  side = "left",
   onClick,
   children,
 }: {
   label: string;
   active: boolean;
+  side?: "left" | "right";
   onClick: () => void;
   children: ReactNode;
 }) {
@@ -51,12 +56,14 @@ function RailButton({
     <button
       type="button"
       title={label}
+      aria-label={label}
       aria-current={active}
       className={cn(
-        "flex size-8 items-center justify-center rounded-lg transition-colors",
+        "relative flex size-8 items-center justify-center rounded-lg transition-colors",
         active
-          ? "bg-accent text-accent-foreground"
-          : "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
+          ? "bg-accent text-foreground after:absolute after:top-1.5 after:bottom-1.5 after:w-0.5 after:rounded-full after:bg-tint"
+          : "text-muted-foreground hover:bg-accent/60 hover:text-foreground",
+        active && (side === "left" ? "after:-left-2" : "after:-right-2"),
       )}
       onClick={onClick}
     >
@@ -84,7 +91,7 @@ export function LeftRail({
   onSelectIssuesTool: (tool: IssuesTool) => void;
 }) {
   return (
-    <nav className="flex w-10 shrink-0 flex-col items-center gap-1.5 py-2 pl-2">
+    <nav className="flex w-10 shrink-0 flex-col items-center gap-1 py-1 pl-2">
       {NAVIGATOR_TABS.map((tab) => {
         const Icon = tab.icon;
         return (
@@ -102,20 +109,20 @@ export function LeftRail({
           dialogs. */}
       <div className="my-1 w-5 border-t" />
       <RailButton
-        label="Manage packages (Cmd/Ctrl + Alt + P)"
+        label={`Packages (${formatShortcut("Mod+Alt+P")})`}
         active={false}
         onClick={() => useDialogsStore.getState().setPackagesDialogOpen(true)}
       >
         <Package className="size-4" />
       </RailButton>
       <RailButton
-        label="Document settings (class, paper, title)"
+        label="Document settings"
         active={false}
         onClick={() => useDialogsStore.getState().setDocumentSettingsOpen(true)}
       >
         <FileCog className="size-4" />
       </RailButton>
-      <div className="mt-auto flex flex-col items-center gap-1.5">
+      <div className="mt-auto flex flex-col items-center gap-1 pb-1">
         {ISSUE_TOOLS.map((tool) => {
           const Icon = tool.icon;
           return (

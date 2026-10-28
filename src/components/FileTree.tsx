@@ -9,9 +9,9 @@ import { useProjectStore } from "@/store/project";
 export type FileStatus = "added" | "changed" | "ignored";
 
 const STATUS_CLASS: Record<FileStatus, string> = {
-  added: "text-emerald-600 dark:text-emerald-400",
-  changed: "text-sky-600 dark:text-sky-400",
-  ignored: "text-orange-500 dark:text-orange-400",
+  added: "text-success",
+  changed: "text-info",
+  ignored: "text-warning",
 };
 
 /** The parent folder path of a file, or null when it is at the root. */
@@ -74,13 +74,13 @@ export function FileTree({
   }
 
   return (
-    <ul className="text-sm">
+    <ul className="text-xs">
       {entries.map((entry) =>
         entry.isDir ? (
           <li key={entry.path}>
             <details open>
               <summary
-                className="group flex cursor-pointer items-center gap-1.5 rounded px-2 py-1 hover:bg-accent"
+                className="group flex h-7 cursor-pointer items-center gap-1.5 rounded-md px-2 hover:bg-accent"
                 style={{ paddingLeft: 8 + depth * 12 }}
                 onContextMenu={(event) => openMenu(event, entry)}
               >
@@ -111,8 +111,8 @@ export function FileTree({
           <li key={entry.path}>
             <div
               className={cn(
-                "group flex w-full items-center gap-1.5 rounded px-2 py-1",
-                activeFile === entry.path ? "bg-accent" : "hover:bg-accent",
+                "group flex h-7 w-full items-center gap-1.5 rounded-md px-2",
+                activeFile === entry.path ? "bg-tint-soft" : "hover:bg-accent",
               )}
               style={{ paddingLeft: 8 + depth * 12 }}
               onContextMenu={(event) => openMenu(event, entry)}
@@ -143,7 +143,7 @@ export function FileTree({
                 </span>
               </button>
               {mainFile === entry.path && (
-                <Star className="size-3 shrink-0 fill-amber-400 text-amber-400" />
+                <Star className="size-3 shrink-0 fill-warning text-warning" />
               )}
               <span className="hidden items-center gap-0.5 group-hover:flex">
                 {entry.path.endsWith(".tex") && mainFile !== entry.path && (

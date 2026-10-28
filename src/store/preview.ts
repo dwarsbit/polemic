@@ -42,6 +42,8 @@ interface PreviewState {
   setZoom: (zoom: number) => void;
   zoomIn: () => void;
   zoomOut: () => void;
+  /** Back to 100%. */
+  resetZoom: () => void;
   autoCompile: boolean;
   toggleAutoCompile: () => void;
   setAutoCompile: (value: boolean) => void;
@@ -72,6 +74,7 @@ export const usePreviewStore = create<PreviewState>((set) => ({
   setZoom: (zoom) => set({ zoom }),
   zoomIn: () => adjustZoom(set, Math.min(usePreviewStore.getState().zoom + 0.25, 3)),
   zoomOut: () => adjustZoom(set, Math.max(usePreviewStore.getState().zoom - 0.25, 0.5)),
+  resetZoom: () => adjustZoom(set, 1),
   autoCompile: true,
   toggleAutoCompile: () => set((state) => ({ autoCompile: !state.autoCompile })),
   setAutoCompile: (value) => set({ autoCompile: value }),

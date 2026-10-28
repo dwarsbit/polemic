@@ -8,7 +8,9 @@ import {
   StateField,
   Transaction,
 } from "@codemirror/state";
+import { startCompletion } from "@codemirror/autocomplete";
 import { StreamLanguage } from "@codemirror/language";
+import { openSearchPanel } from "@codemirror/search";
 import { stex } from "@codemirror/legacy-modes/mode/stex";
 import { linter, lintGutter, setDiagnostics, type Diagnostic } from "@codemirror/lint";
 import { EditorView, basicSetup } from "codemirror";
@@ -120,6 +122,7 @@ import { gitShowHead, isTauri, readProjectFile, synctexForward } from "@/lib/tau
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useCommentsStore } from "@/store/comments";
+import { setEditorCommandHandler } from "@/lib/editor-commands";
 import { useProjectStore } from "@/store/project";
 import { useSuggestStore } from "@/store/suggest";
 import { suggestionAuthor } from "@/store/settings";
@@ -854,6 +857,11 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     // cursor. Multi-line snippets are blocks: fresh lines, never
     // landed mid-line.
     setTableAtCursorHandler(() => editTableAt(view, view.state.selection.main.head));
+    // Serve the Find and the Citation/Reference menu items.
+    setEditorCommandHandler((command) => {
+      view.focus();
+      return command === "find" ? openSearchPanel(view) : startCompletion(view);
+    });
     setInsertHandler((text, cursorOffset) => {
       const range = view.state.selection.main;
       const doc = view.state.doc;
@@ -1117,6 +1125,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     }
     return () => {
       setInsertHandler(null);
+      setEditorCommandHandler(null);
       setTableAtCursorHandler(null);
       setWrapFigureHandler(null);
       setEnsurePackagesHandler(null);

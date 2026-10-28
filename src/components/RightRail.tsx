@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { cn } from "cn";
+import { RailButton } from "@/components/LeftRail";
 
 export interface RightRailTab {
   id: string;
@@ -22,26 +22,19 @@ export function RightRail({
   onSelect: (tab: string) => void;
 }) {
   return (
-    <nav className="flex w-10 shrink-0 flex-col items-center gap-1.5 py-2 pr-2">
+    <nav className="flex w-10 shrink-0 flex-col items-center gap-1 py-1 pr-2">
       {tabs.map((tab) => {
         const Icon = tab.icon;
-        const active = panelOpen && activeTab === tab.id;
         return (
-          <button
+          <RailButton
             key={tab.id}
-            type="button"
-            title={tab.label}
-            aria-current={active}
-            className={cn(
-              "flex size-8 items-center justify-center rounded-lg transition-colors",
-              active
-                ? "bg-accent text-accent-foreground"
-                : "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
-            )}
+            side="right"
+            label={tab.label}
+            active={panelOpen && activeTab === tab.id}
             onClick={() => onSelect(tab.id)}
           >
             <Icon className="size-4" />
-          </button>
+          </RailButton>
         );
       })}
     </nav>

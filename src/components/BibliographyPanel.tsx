@@ -524,7 +524,7 @@ export function BibliographyPanel() {
             <>
               <button
                 type="button"
-                className="min-w-0 flex-1 truncate py-1 text-left text-sm"
+                className="min-w-0 flex-1 truncate py-1.5 text-left text-xs"
                 title={row.title || row.entry.key}
                 onClick={() => goTo(row.file, row.entry.line)}
                 onDoubleClick={() => insertCitation(row.entry.key, citeCommands[0])}
@@ -545,26 +545,26 @@ export function BibliographyPanel() {
                 )}
               </button>
               {row.cited === 0 ? (
-                <span className="mr-1 shrink-0 rounded-full border border-amber-400/60 px-1.5 py-0 text-[10px] leading-4 text-amber-600 dark:text-amber-400">
-                  unused
+                <span className="mr-1 shrink-0 rounded-full border border-warning/50 px-1.5 py-0 text-2xs leading-4 text-warning">
+                  Unused
                 </span>
               ) : (
                 <span
-                  className="mr-1.5 shrink-0 text-[10px] tabular-nums text-muted-foreground"
+                  className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground"
                   title={`${row.cited} citation${row.cited === 1 ? "" : "s"}`}
                 >
-                  {row.cited}×
+                  {row.cited}
                 </span>
               )}
               {row.incomplete && (
                 <span
-                  className="mr-1 shrink-0 text-[10px] text-amber-600 dark:text-amber-400"
+                  className="mr-1 shrink-0 text-2xs text-warning"
                   title={`Missing fields: ${missingFields(row.entry, backend).join(", ")}`}
                 >
-                  incomplete
+                  Incomplete
                 </span>
               )}
-              <span className="max-w-20 shrink-0 truncate text-[10px] text-muted-foreground">
+              <span className="max-w-20 shrink-0 truncate text-2xs text-muted-foreground">
                 {row.file}:{row.entry.line}
               </span>
               <button
@@ -579,7 +579,7 @@ export function BibliographyPanel() {
           )}
         </div>
         {isRenaming && renameError !== null && (
-          <p className="px-6 pt-0.5 text-[11px] text-destructive">{renameError}</p>
+          <p className="px-6 pt-0.5 text-2xs text-destructive">{renameError}</p>
         )}
       </div>
     );
@@ -588,8 +588,8 @@ export function BibliographyPanel() {
   return (
     <div className="flex h-full flex-col">
       <SectionHeader
-        label="BIBLIOGRAPHY"
-        collapsed={false}
+        label="Bibliography"
+
         actions={
           <>
             <Button
@@ -624,7 +624,7 @@ export function BibliographyPanel() {
           </>
         }
       />
-      <div className="flex shrink-0 items-center gap-1.5 px-2 pb-1.5">
+      <div className="flex shrink-0 items-center gap-1.5 p-2">
         <div className="relative min-w-0 flex-1">
           <Search className="absolute top-1/2 left-2 size-3 -translate-y-1/2 text-muted-foreground" />
           <Input
@@ -638,12 +638,11 @@ export function BibliographyPanel() {
           />
         </div>
       </div>
-      <div className="flex-1 overflow-y-auto px-2 pb-2">
+      <div className="flex-1 overflow-y-auto p-1.5">
         {scanned === null ? null : bibTexts.length === 0 ? (
           <div className="space-y-2.5 px-2 pt-2">
             <p className="text-xs text-muted-foreground">
-              No bibliography yet. Create a .bib file for this project to start
-              adding references.
+              No bibliography yet. Create bibliography.bib to start adding entries.
             </p>
             <Button
               size="sm"
@@ -663,7 +662,7 @@ export function BibliographyPanel() {
           <p className="px-2 text-xs text-muted-foreground">
             {query.trim().length > 0
               ? "No entries match your search."
-              : "No entries in the project's .bib files."}
+              : "No entries yet. Add one with + or from your sources."}
           </p>
         ) : (
           groups.map(([type, typeRows]) => {
@@ -691,12 +690,12 @@ export function BibliographyPanel() {
                   )}
                   <button
                     type="button"
-                    className="min-w-0 flex-1 truncate py-1 text-left text-sm font-medium text-muted-foreground hover:text-foreground"
+                    className="min-w-0 flex-1 truncate py-1.5 text-left text-xs font-medium text-muted-foreground hover:text-foreground"
                     onClick={() => toggle(key)}
                   >
                     {type}
                   </button>
-                  <span className="mr-1 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+                  <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
                     {typeRows.length}
                   </span>
                 </div>
@@ -722,10 +721,10 @@ export function BibliographyPanel() {
                   )}
                 />
               </button>
-              <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-amber-600 dark:text-amber-400">
+              <span className="min-w-0 flex-1 truncate py-1.5 text-xs font-medium text-warning">
                 Undefined citations
               </span>
-              <span className="mr-1 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+              <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
                 {undefinedCitations.length}
               </span>
             </div>
@@ -737,16 +736,16 @@ export function BibliographyPanel() {
                 >
                   <button
                     type="button"
-                    className="min-w-0 flex-1 truncate py-1 text-left text-sm font-mono text-xs"
+                    className="min-w-0 flex-1 truncate py-1.5 text-left font-mono text-xs"
                     title={`${cite.count} citation${cite.count === 1 ? "" : "s"} without an entry`}
                     onClick={() => goTo(cite.file, cite.line)}
                   >
                     {cite.key}
                   </button>
-                  <span className="mr-1.5 shrink-0 text-[10px] tabular-nums text-muted-foreground">
-                    {cite.count}×
+                  <span className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground">
+                    {cite.count}
                   </span>
-                  <span className="max-w-24 shrink-0 truncate text-[10px] text-muted-foreground">
+                  <span className="max-w-24 shrink-0 truncate text-2xs text-muted-foreground">
                     {cite.file}:{cite.line}
                   </span>
                 </div>

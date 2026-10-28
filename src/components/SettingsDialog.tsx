@@ -2,12 +2,18 @@ import { useEffect, useState, type ReactNode } from "react";
 import { open as openDialog } from "@tauri-apps/plugin-dialog";
 import {
   BookOpen,
+  Check,
   FolderOpen,
+  Monitor,
+  Moon,
   Package,
   Palette,
   PencilLine,
   Search,
+  SlidersHorizontal,
   Sparkles,
+  SpellCheck,
+  Sun,
   UserRound,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -48,12 +54,11 @@ import { fuzzyMatch } from "@/lib/fuzzy";
 import { initialsOf, resolveVersionControl, useSettingsStore } from "@/store/settings";
 import { cn } from "cn";
 
-const THEMES: ThemePreference[] = ["light", "dark", "system"];
-const THEME_LABELS: Record<ThemePreference, string> = {
-  light: "Light",
-  dark: "Dark",
-  system: "System",
-};
+const THEMES: { id: ThemePreference; label: string; icon: typeof Sun }[] = [
+  { id: "light", label: "Light", icon: Sun },
+  { id: "dark", label: "Dark", icon: Moon },
+  { id: "system", label: "System", icon: Monitor },
+];
 const FONT_SIZES = [12, 14, 16, 18];
 
 const ENGLISH_VARIANTS = [
@@ -73,7 +78,8 @@ const LANGUAGE_NAMES: Record<string, string> = {
   nl: "Dutch",
 };
 
-/** One settings row: label/description on the left, the control right. */
+/** One settings row: label and description on the left, the control in
+ *  a fixed-width column on the right so controls line up down a page. */
 interface RowDef {
   id: string;
   label: string;
@@ -85,36 +91,36 @@ interface RowDef {
   after?: ReactNode;
 }
 
-/** Settings grouped on one card; the first card of a section is the
- *  untitled one, later cards carry a title ("Font settings"). */
+/** A titled card of rows, or of a custom body (the TeX status list).
+ *  Rows of a custom-body card only feed the search. */
 interface CardDef {
-  title?: string;
-  /** Row settings; empty when the card uses a custom body. */
+  title: string;
   rows: RowDef[];
-  /** A custom card body instead of rows (e.g. the TeX status list). */
   content?: ReactNode;
 }
 
-/** A left-menu item: a group (GENERAL, EDITOR, …), an icon, and cards. */
+/** A page in the left menu: its icon, a one-line intro, and cards. */
 interface SectionDef {
   id: string;
-  group: string;
   label: string;
+  intro: string;
   icon: typeof Palette;
   cards: CardDef[];
 }
 
 function RowView({ row }: { row: RowDef }) {
   return (
-    <div className="py-3">
-      <div className="flex items-center justify-between gap-4">
+    <div className="py-3 first:pt-1 last:pb-1">
+      <div className="flex min-h-8 items-center justify-between gap-6">
         <div className="min-w-0">
           <p className="text-sm font-medium">{row.label}</p>
           {row.description && (
-            <p className="text-xs text-muted-foreground">{row.description}</p>
+            <p className="mt-0.5 text-xs text-muted-foreground">{row.description}</p>
           )}
         </div>
-        {row.control}
+        {row.control !== null && (
+          <div className="flex w-44 shrink-0 justify-end">{row.control}</div>
+        )}
       </div>
       {row.after}
     </div>
@@ -123,22 +129,83 @@ function RowView({ row }: { row: RowDef }) {
 
 function CardView({ card }: { card: CardDef }) {
   return (
-    <section className="overflow-hidden rounded-xl border bg-card shadow-sm">
-      {card.title && (
-        <p className="border-b px-4 py-2.5 text-xs font-medium text-muted-foreground">
-          {card.title}
-        </p>
-      )}
+    <section className="rounded-xl border bg-card px-4 py-3 shadow-xs">
+      <p className="mb-2 text-sm font-medium">{card.title}</p>
       {card.content !== undefined ? (
-        <div className="px-4 py-2">{card.content}</div>
+        card.content
       ) : (
-        <div className="divide-y divide-border px-4">
+        <div className="divide-y divide-border">
           {card.rows.map((row) => (
             <RowView key={row.id} row={row} />
           ))}
         </div>
       )}
     </section>
+  );
+}
+
+/** A theme choice drawn as a small window preview. */
+function ThemeTile({
+  id,
+  label,
+  icon: Icon,
+  active,
+  onSelect,
+}: {
+  id: ThemePreference;
+  label: string;
+  icon: typeof Sun;
+  active: boolean;
+  onSelect: () => void;
+}) {
+  const dark = id === "dark";
+  return (
+    <button
+      type="button"
+      aria-pressed={active}
+      className={cn(
+        "flex w-28 flex-col gap-1.5 rounded-lg p-1 text-left transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/30",
+        active ? "ring-2 ring-tint" : "hover:bg-accent",
+      )}
+      onClick={onSelect}
+    >
+      <div
+        className={cn(
+          "relative h-16 w-full overflow-hidden rounded-md border",
+          id === "light" && "bg-white",
+          dark && "bg-neutral-900",
+          id === "system" && "bg-[linear-gradient(135deg,white_50%,#171717_50%)]",
+        )}
+      >
+        <div
+          className={cn(
+            "absolute top-2 left-2 h-2 w-10 rounded-sm",
+            dark ? "bg-neutral-600" : "bg-neutral-300",
+          )}
+        />
+        <div
+          className={cn(
+            "absolute top-6 left-2 h-1.5 w-16 rounded-sm",
+            dark ? "bg-neutral-700" : "bg-neutral-200",
+          )}
+        />
+        <div
+          className={cn(
+            "absolute top-9 left-2 h-1.5 w-12 rounded-sm",
+            dark ? "bg-neutral-700" : "bg-neutral-200",
+          )}
+        />
+        {active && (
+          <span className="absolute right-1.5 bottom-1.5 flex size-4 items-center justify-center rounded-full bg-tint text-white">
+            <Check className="size-2.5" />
+          </span>
+        )}
+      </div>
+      <span className="flex items-center gap-1 px-1 text-xs font-medium">
+        <Icon className="size-3 text-muted-foreground" />
+        {label}
+      </span>
+    </button>
   );
 }
 
@@ -243,15 +310,17 @@ export function SettingsDialog({
   const sections: SectionDef[] = [
     {
       id: "general",
-      group: "GENERAL",
       label: "General",
-      icon: FolderOpen,
+      icon: SlidersHorizontal,
+      intro:
+        "Startup, where projects live, your name on suggestions, and version control.",
       cards: [
         {
+          title: "Projects",
           rows: [
             {
               id: "reopen",
-              label: "Reopen last project",
+              label: "Reopen the last project",
               description: "On launch, open the project you worked on last.",
               keywords: "startup launch restore",
               control: (
@@ -262,14 +331,55 @@ export function SettingsDialog({
               ),
             },
             {
+              id: "projects-root",
+              label: "Projects folder",
+              description:
+                "New projects are created here. Existing projects stay where they are.",
+              keywords: "directory location storage disk",
+              control: (
+                <Button variant="outline" size="sm" onClick={() => void pickRoot()}>
+                  <FolderOpen />
+                  Choose…
+                </Button>
+              ),
+              after: (
+                <>
+                  <p className="mt-2 truncate rounded-md border bg-muted px-2 py-1 font-mono text-2xs text-muted-foreground">
+                    {projectsRoot ?? "Default location"}
+                  </p>
+                  {rootError && (
+                    <p className="mt-1 text-xs text-destructive">{rootError}</p>
+                  )}
+                </>
+              ),
+            },
+            {
+              id: "auto-include",
+              label: "Add new files to the main document",
+              description:
+                "A .tex file created in the Files panel is included with \\input{} right away.",
+              keywords: "input import document order include automatically",
+              control: (
+                <Switch
+                  checked={autoIncludeNewFiles}
+                  onCheckedChange={(v) => void setAutoIncludeNewFiles(v)}
+                />
+              ),
+            },
+          ],
+        },
+        {
+          title: "Track changes",
+          rows: [
+            {
               id: "author-name",
               label: "Your name",
-              description: "Shown on your suggestions when you edit in Suggest mode.",
+              description: "Shown on your suggestions in Suggest mode.",
               keywords: "author track changes suggestions review name",
               control: (
                 <Input
                   key={`name:${authorName}`}
-                  className="h-8 w-48 text-xs"
+                  className="h-8 w-44 text-xs"
                   placeholder="Name"
                   aria-label="Your name"
                   defaultValue={authorName}
@@ -302,26 +412,18 @@ export function SettingsDialog({
                 />
               ),
             },
-            {
-              id: "auto-include",
-              label: "Include new files automatically",
-              description:
-                "Files created in the Files panel are added to the main document with \\input{}.",
-              keywords: "input import document order",
-              control: (
-                <Switch
-                  checked={autoIncludeNewFiles}
-                  onCheckedChange={(v) => void setAutoIncludeNewFiles(v)}
-                />
-              ),
-            },
+          ],
+        },
+        {
+          title: "Version control",
+          rows: [
             {
               id: "version-control",
-              label: "Version control",
+              label: "Track changes with",
               description: gitAvailable
-                ? "By default Polemic uses git when it is installed and snapshots otherwise."
-                : "git was not found on your PATH; snapshots are used.",
-              keywords: "git snapshots backup history",
+                ? "Git when it is installed, snapshots otherwise."
+                : "Git is not installed, so snapshots are used.",
+              keywords: "git snapshots backup history version control",
               control: (
                 <ToggleButtonGroup
                   type="single"
@@ -336,9 +438,7 @@ export function SettingsDialog({
                     value="git"
                     size="sm"
                     disabled={!gitAvailable}
-                    title={
-                      gitAvailable ? "Use git" : "git is not installed on this system"
-                    }
+                    title={gitAvailable ? undefined : "Git is not installed"}
                   >
                     Git
                   </ToggleButton>
@@ -348,38 +448,15 @@ export function SettingsDialog({
                 </ToggleButtonGroup>
               ),
             },
-            {
-              id: "projects-root",
-              label: "Projects folder",
-              description:
-                "New projects are created here. Existing projects stay where they are.",
-              keywords: "directory location storage disk",
-              control: (
-                <Button variant="outline" size="sm" onClick={() => void pickRoot()}>
-                  <FolderOpen />
-                  Choose folder
-                </Button>
-              ),
-              after: (
-                <>
-                  <p className="mt-2 truncate rounded border bg-muted px-2 py-1 font-mono text-xs">
-                    {projectsRoot ?? "(default)"}
-                  </p>
-                  {rootError && (
-                    <p className="mt-1 text-xs text-destructive">{rootError}</p>
-                  )}
-                </>
-              ),
-            },
           ],
         },
       ],
     },
     {
       id: "account",
-      group: "GENERAL",
       label: "Account",
       icon: UserRound,
+      intro: "Sign in to a Polemic server. Local features never need an account.",
       cards: [
         {
           title: "Polemic account",
@@ -389,7 +466,8 @@ export function SettingsDialog({
               label: "Polemic account",
               description:
                 "Sign in for Polemic Professional services. Local features never need an account.",
-              keywords: "sign in sign out login logout account professional server self-hosted",
+              keywords:
+                "sign in sign out login logout account professional server self-hosted",
               control: null,
             },
           ],
@@ -398,19 +476,267 @@ export function SettingsDialog({
       ],
     },
     {
-      id: "editor",
-      group: "EDITOR",
-      label: "Editor",
-      icon: PencilLine,
+      id: "appearance",
+      label: "Appearance",
+      icon: Palette,
+      intro: "Theme, editor font, and the text cursor.",
       cards: [
         {
+          title: "Theme",
+          rows: [
+            {
+              id: "theme",
+              label: "Mode",
+              description: "System follows the light or dark setting of your computer.",
+              keywords: "light dark mode appearance theme",
+              control: null,
+              after: (
+                <div className="mt-2 flex gap-2">
+                  {THEMES.map((option) => (
+                    <ThemeTile
+                      key={option.id}
+                      id={option.id}
+                      label={option.label}
+                      icon={option.icon}
+                      active={theme === option.id}
+                      onSelect={() => void setTheme(option.id)}
+                    />
+                  ))}
+                </div>
+              ),
+            },
+          ],
+        },
+        {
+          title: "Editor font",
+          rows: [
+            {
+              id: "editor-font",
+              label: "Font",
+              description:
+                "Bundled with the app, so the editor looks the same everywhere.",
+              keywords: "mono monospace typeface code editor font",
+              control: (
+                <Select
+                  value={editorFont}
+                  onValueChange={(value) => {
+                    if (value) void setEditorFont(value);
+                  }}
+                >
+                  <SelectTrigger className="w-44">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {EDITOR_FONTS.map((font) => (
+                      <SelectItem key={font.id} value={font.id}>
+                        {font.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              ),
+            },
+            {
+              id: "font-size",
+              label: "Size",
+              keywords: "text size scale editor font size",
+              control: (
+                <Select
+                  value={String(fontSize)}
+                  onValueChange={(value) => {
+                    if (value) void setFontSize(Number(value));
+                  }}
+                >
+                  <SelectTrigger className="w-24">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {FONT_SIZES.map((size) => (
+                      <SelectItem key={size} value={String(size)}>
+                        {size} px
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              ),
+            },
+            {
+              id: "syntax-theme",
+              label: "Syntax colors",
+              description: "Each scheme has a light and a dark variant.",
+              keywords: "highlighting colors code syntax theme",
+              control: (
+                <Select
+                  value={syntaxTheme}
+                  onValueChange={(value) => {
+                    if (value) void setSyntaxTheme(value);
+                  }}
+                >
+                  <SelectTrigger className="w-44">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {SYNTAX_THEMES.map((syntax) => (
+                      <SelectItem key={syntax.id} value={syntax.id}>
+                        {syntax.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              ),
+            },
+          ],
+        },
+        {
+          title: "Text cursor",
+          rows: [
+            {
+              id: "cursor-style",
+              label: "Shape",
+              description: "A thin line, or a translucent block over the character.",
+              keywords: "caret text cursor block line style",
+              control: (
+                <ToggleButtonGroup
+                  type="single"
+                  value={caretStyle}
+                  onValueChange={(value) => {
+                    if (value === "line" || value === "block") {
+                      void setCaretStyle(value);
+                    }
+                  }}
+                >
+                  <ToggleButton value="line" size="sm">
+                    Line
+                  </ToggleButton>
+                  <ToggleButton value="block" size="sm">
+                    Block
+                  </ToggleButton>
+                </ToggleButtonGroup>
+              ),
+            },
+            {
+              id: "cursor-color",
+              label: "Color",
+              description: "Theme follows light and dark; custom keeps one color.",
+              keywords: "caret text cursor colour color",
+              control: (
+                <div className="flex items-center gap-1.5">
+                  {caretColor === "custom" && (
+                    <input
+                      type="color"
+                      title="Custom cursor color"
+                      className="h-7 w-8 cursor-pointer rounded-md border bg-transparent p-0.5"
+                      value={caretCustomColor}
+                      onChange={(e) => void setCaretCustomColor(e.target.value)}
+                    />
+                  )}
+                  <ToggleButtonGroup
+                    type="single"
+                    value={caretColor}
+                    onValueChange={(value) => {
+                      if (value === "primary" || value === "custom") {
+                        void setCaretColor(value);
+                      }
+                    }}
+                  >
+                    <ToggleButton value="primary" size="sm">
+                      Theme
+                    </ToggleButton>
+                    <ToggleButton value="custom" size="sm">
+                      Custom
+                    </ToggleButton>
+                  </ToggleButtonGroup>
+                </div>
+              ),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "editor",
+      label: "Editor",
+      icon: PencilLine,
+      intro: "How the code editor behaves while you type and save.",
+      cards: [
+        {
+          title: "Typing",
+          rows: [
+            {
+              id: "supsub",
+              label: "Braces after ^ and _",
+              description: "Typing ^ or _ inserts {} with the cursor inside.",
+              keywords: "superscript subscript exponent auto braces math input",
+              control: (
+                <Switch
+                  checked={supsubBraces}
+                  onCheckedChange={(v) => void setSupsubBraces(v)}
+                />
+              ),
+            },
+            {
+              id: "double-dollar",
+              label: "Turn $$ into \\[ \\]",
+              description: "The second $ of a pair becomes display-math brackets.",
+              keywords: "display math delimiters brackets convert dollar",
+              control: (
+                <Switch
+                  checked={convertDoubleDollar}
+                  onCheckedChange={(v) => void setConvertDoubleDollar(v)}
+                />
+              ),
+            },
+            {
+              id: "math-preview",
+              label: "Math preview on hover",
+              description: "A card above a formula shows how it renders.",
+              keywords: "hover math render preview katex",
+              control: (
+                <Switch
+                  checked={mathPreviewEngine === "katex"}
+                  onCheckedChange={(v) =>
+                    void setMathPreviewEngine(v ? "katex" : "off")
+                  }
+                />
+              ),
+            },
+          ],
+        },
+        {
+          title: "Saving",
+          rows: [
+            {
+              id: "format-on-save",
+              label: "Format on save",
+              description:
+                "Indent environments and tidy whitespace in .tex files. Shift+Alt+F formats now.",
+              keywords: "indent whitespace pretty print format",
+              control: (
+                <Switch
+                  checked={formatOnSave}
+                  onCheckedChange={(v) => void setFormatOnSave(v)}
+                />
+              ),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "writing",
+      label: "Writing",
+      icon: SpellCheck,
+      intro: "Spelling and grammar checks, in both the code and the visual editor.",
+      cards: [
+        {
+          title: "Spelling",
           rows: [
             {
               id: "spellcheck",
-              label: "Spellcheck",
+              label: "Check spelling",
               description:
-                "Right-click a marked word for corrections, to add it to your dictionary, or to ignore it in this project.",
-              keywords: "dictionary words typo underline",
+                "Right-click a marked word for corrections, or to add it to your dictionary.",
+              keywords: "dictionary words typo underline spellcheck",
               control: (
                 <Switch
                   checked={spellcheckEnabled}
@@ -420,10 +746,11 @@ export function SettingsDialog({
             },
             {
               id: "spellcheck-language",
-              label: "Spellcheck language",
+              label: "Language",
               description:
-                "Picking a language that is not installed yet downloads its wordlist (about 10-20 MB).",
-              keywords: "dictionary wordlist download german french spanish",
+                "A language that is not installed yet is downloaded (10–20 MB).",
+              keywords:
+                "dictionary wordlist download german french spanish spellcheck language",
               control: (
                 <Select
                   value={spellcheckLanguage}
@@ -438,7 +765,7 @@ export function SettingsDialog({
                   <SelectTrigger
                     className="w-36"
                     disabled={downloading !== null}
-                    title={downloading !== null ? "Downloading wordlist…" : undefined}
+                    title={downloading !== null ? "Downloading…" : undefined}
                   >
                     <SelectValue />
                   </SelectTrigger>
@@ -457,84 +784,16 @@ export function SettingsDialog({
                 <p className="mt-1 text-xs text-destructive">{langError}</p>
               ),
             },
-            {
-              id: "format-on-save",
-              label: "Format on save",
-              description:
-                "Indent environments and normalize whitespace when saving .tex files (Shift+Alt+F formats on demand).",
-              keywords: "indent whitespace pretty print",
-              control: (
-                <Switch
-                  checked={formatOnSave}
-                  onCheckedChange={(v) => void setFormatOnSave(v)}
-                />
-              ),
-            },
-            {
-              id: "math-preview",
-              label: "Math preview",
-              description:
-                "A hover card above math blocks shows how they render. More engines can be added.",
-              keywords: "hover math render preview",
-              control: (
-                <ToggleButtonGroup
-                  type="single"
-                  value={mathPreviewEngine}
-                  onValueChange={(value) => {
-                    if (value === "katex" || value === "off") {
-                      void setMathPreviewEngine(value);
-                    }
-                  }}
-                >
-                  <ToggleButton value="katex" size="sm">
-                    On
-                  </ToggleButton>
-                  <ToggleButton value="off" size="sm">
-                    Off
-                  </ToggleButton>
-                </ToggleButtonGroup>
-              ),
-            },
           ],
         },
         {
-          title: "Math input",
-          rows: [
-            {
-              id: "supsub",
-              label: "Auto-braces for ^ and _",
-              description: "Typing ^ or _ inserts braces with the cursor inside (^{}).",
-              keywords: "superscript subscript exponent",
-              control: (
-                <Switch
-                  checked={supsubBraces}
-                  onCheckedChange={(v) => void setSupsubBraces(v)}
-                />
-              ),
-            },
-            {
-              id: "double-dollar",
-              label: "Convert $$ to \\[ \\]",
-              description:
-                "Typing the second $ of a pair creates display-math brackets instead of $$.",
-              keywords: "display math delimiters brackets",
-              control: (
-                <Switch
-                  checked={convertDoubleDollar}
-                  onCheckedChange={(v) => void setConvertDoubleDollar(v)}
-                />
-              ),
-            },
-          ],
-        },
-        {
-          title: "Grammar",
+          title: "Grammar and style",
           rows: [
             {
               id: "grammar",
-              label: "Grammar and style",
+              label: "Check grammar and style",
               description:
-                "Underline grammar and style issues in blue; right-click for the fix or to turn the rule off.",
+                "Marks issues in blue; right-click for the fix or to turn a rule off.",
               keywords: "grammar style languagetool harper check sentence",
               control: (
                 <Switch
@@ -546,7 +805,7 @@ export function SettingsDialog({
             {
               id: "english-variant",
               label: "English variant",
-              description: "Spelling conventions the grammar checker expects.",
+              description: "The spelling conventions the grammar check expects.",
               keywords: "british american australian canadian indian dialect",
               control: (
                 <Select
@@ -571,14 +830,14 @@ export function SettingsDialog({
           ],
         },
         {
-          title: "Grammar checker and rules",
+          title: "Checker and rules",
           rows: [
             {
               id: "grammar-checker",
               label: "Checker and rules",
               description:
-                "Built in for English and offline; a LanguageTool server adds other languages.",
-              keywords: "languagetool server rules disable passive voice",
+                "Built in, offline and English only. A LanguageTool server adds other languages.",
+              keywords: "languagetool server rules disable passive voice checker",
               control: null,
             },
           ],
@@ -588,29 +847,39 @@ export function SettingsDialog({
     },
     {
       id: "tex",
-      group: "PROJECT",
-      label: "TeX & Compile",
+      label: "Compile",
       icon: Package,
+      intro: "Your TeX distribution and the tools Polemic found on this computer.",
       cards: [
         {
-          rows: [],
+          title: "TeX distribution",
+          rows: [
+            {
+              id: "tex-status",
+              label: "TeX distribution",
+              description: "pdflatex, xelatex, lualatex and latexmk on this computer.",
+              keywords: "tex live miktex latexmk pdflatex xelatex lualatex compile",
+              control: null,
+            },
+          ],
           content: <TexStatusSection />,
         },
       ],
     },
     {
       id: "bibliography",
-      group: "BIBLIOGRAPHY",
       label: "Bibliography",
       icon: BookOpen,
+      intro: "Where citations come from when you add one.",
       cards: [
         {
+          title: "Sources",
           rows: [
             {
               id: "sources",
               label: "Sources",
               description:
-                'Where "Add from Sources…" searches: .bib files and Zotero connections.',
+                "The .bib files and Zotero libraries that “Add from Sources…” searches.",
               keywords: "zotero bibtex bib references citations sources",
               control: null,
             },
@@ -622,9 +891,9 @@ export function SettingsDialog({
           rows: [
             {
               id: "online-lookup",
-              label: "Online DOI/arXiv lookup",
+              label: "Look up DOI and arXiv IDs online",
               description:
-                'Lets "Import by DOI or arXiv ID" contact doi.org to fetch a BibTeX entry. Only the identifier you paste is sent. Off by default.',
+                "Fetches the entry from doi.org. Only the identifier you paste is sent. Off by default.",
               keywords:
                 "doi arxiv import online lookup network bibtex crossref datacite",
               control: (
@@ -640,195 +909,24 @@ export function SettingsDialog({
     },
     {
       id: "ai",
-      group: "ASSISTANT",
-      label: "AI",
+      label: "Assistant",
       icon: Sparkles,
+      intro:
+        "An optional AI provider for compile errors the built-in fixes cannot handle.",
       cards: [
         {
+          title: "Provider",
           rows: [
             {
               id: "ai-provider",
-              label: "AI quickfix provider",
+              label: "AI provider",
               description:
-                'An OpenAI-compatible endpoint the "Fix with AI" action uses for errors the built-in rules cannot fix.',
-              keywords: "ai fix error llm openai mistral api key model",
+                "Any OpenAI-compatible endpoint, used by Ask AI in the issues list.",
+              keywords: "ai fix error llm openai mistral api key model assistant",
               control: null,
             },
           ],
           content: <AiSettingsSection />,
-        },
-      ],
-    },
-    {
-      id: "appearance",
-      group: "APPEARANCE",
-      label: "Appearance",
-      icon: Palette,
-      cards: [
-        {
-          rows: [
-            {
-              id: "theme",
-              label: "Theme",
-              description: undefined,
-              keywords: "light dark mode appearance",
-              control: (
-                <ToggleButtonGroup
-                  type="single"
-                  value={theme}
-                  onValueChange={(value) => {
-                    if (value) void setTheme(value as ThemePreference);
-                  }}
-                >
-                  {THEMES.map((option) => (
-                    <ToggleButton key={option} value={option} size="sm">
-                      {THEME_LABELS[option]}
-                    </ToggleButton>
-                  ))}
-                </ToggleButtonGroup>
-              ),
-            },
-            {
-              id: "cursor-style",
-              label: "Cursor style",
-              description: "A 2px line, or a translucent block over the character.",
-              keywords: "caret text cursor block line",
-              control: (
-                <ToggleButtonGroup
-                  type="single"
-                  value={caretStyle}
-                  onValueChange={(value) => {
-                    if (value === "line" || value === "block") {
-                      void setCaretStyle(value);
-                    }
-                  }}
-                >
-                  <ToggleButton value="line" size="sm">
-                    Line
-                  </ToggleButton>
-                  <ToggleButton value="block" size="sm">
-                    Block
-                  </ToggleButton>
-                </ToggleButtonGroup>
-              ),
-            },
-            {
-              id: "cursor-color",
-              label: "Cursor color",
-              description:
-                "Theme follows light and dark appearance; custom uses a fixed color.",
-              keywords: "caret text cursor colour",
-              control: (
-                <div className="flex items-center gap-1.5">
-                  <ToggleButtonGroup
-                    type="single"
-                    value={caretColor}
-                    onValueChange={(value) => {
-                      if (value === "primary" || value === "custom") {
-                        void setCaretColor(value);
-                      }
-                    }}
-                  >
-                    <ToggleButton value="primary" size="sm">
-                      Theme
-                    </ToggleButton>
-                    <ToggleButton value="custom" size="sm">
-                      Custom
-                    </ToggleButton>
-                  </ToggleButtonGroup>
-                  {caretColor === "custom" && (
-                    <input
-                      type="color"
-                      title="Custom cursor color"
-                      className="h-7 w-8 cursor-pointer rounded-md border bg-transparent p-0.5"
-                      value={caretCustomColor}
-                      onChange={(e) => void setCaretCustomColor(e.target.value)}
-                    />
-                  )}
-                </div>
-              ),
-            },
-          ],
-        },
-        {
-          title: "Font settings",
-          rows: [
-            {
-              id: "editor-font",
-              label: "Editor font",
-              description: "Fonts are bundled with the app.",
-              keywords: "mono monospace typeface code",
-              control: (
-                <Select
-                  value={editorFont}
-                  onValueChange={(value) => {
-                    if (value) void setEditorFont(value);
-                  }}
-                >
-                  <SelectTrigger className="w-44">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {EDITOR_FONTS.map((font) => (
-                      <SelectItem key={font.id} value={font.id}>
-                        {font.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              ),
-            },
-            {
-              id: "font-size",
-              label: "Editor font size",
-              description: "Font and syntax theme apply to the source editor.",
-              keywords: "text size scale",
-              control: (
-                <Select
-                  value={String(fontSize)}
-                  onValueChange={(value) => {
-                    if (value) void setFontSize(Number(value));
-                  }}
-                >
-                  <SelectTrigger className="w-20">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {FONT_SIZES.map((size) => (
-                      <SelectItem key={size} value={String(size)}>
-                        {size} px
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              ),
-            },
-            {
-              id: "syntax-theme",
-              label: "Syntax theme",
-              description: "Each theme follows the app's light or dark mode.",
-              keywords: "highlighting colors code",
-              control: (
-                <Select
-                  value={syntaxTheme}
-                  onValueChange={(value) => {
-                    if (value) void setSyntaxTheme(value);
-                  }}
-                >
-                  <SelectTrigger className="w-44">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {SYNTAX_THEMES.map((syntax) => (
-                      <SelectItem key={syntax.id} value={syntax.id}>
-                        {syntax.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              ),
-            },
-          ],
         },
       ],
     },
@@ -862,61 +960,46 @@ export function SettingsDialog({
           .filter((hit): hit is NonNullable<typeof hit> => hit !== null)
           .sort((a, b) => b.score - a.score);
 
-  const groups = sections
-    .map((s) => s.group)
-    .filter((group, index, all) => all.indexOf(group) === index);
-
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="flex h-[600px] max-h-[90vh] w-full max-w-4xl flex-col gap-0 overflow-hidden p-0 sm:max-w-4xl">
-        <DialogHeader className="px-6 pt-5 pb-3">
+        <DialogHeader className="px-5 pt-4 pb-3">
           <DialogTitle>Settings</DialogTitle>
         </DialogHeader>
-        <div className="grid min-h-0 flex-1 grid-cols-[200px_1fr]">
-          <nav className="flex min-h-0 flex-col border-r bg-muted/30">
-            <div className="p-3 pb-2">
-              <div className="relative">
-                <Search className="absolute top-1/2 left-2.5 size-3.5 -translate-y-1/2 text-muted-foreground" />
-                <Input
-                  className="h-8 rounded-lg pl-8 text-xs"
-                  placeholder="Search settings"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Escape") setQuery("");
-                  }}
-                />
-              </div>
+        <div className="grid min-h-0 flex-1 grid-cols-[184px_1fr]">
+          <nav className="flex min-h-0 flex-col border-r bg-muted/30 p-2">
+            <div className="relative mb-2">
+              <Search className="absolute top-1/2 left-2.5 size-3.5 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                className="h-8 rounded-lg pl-8 text-xs"
+                placeholder="Search settings"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") setQuery("");
+                }}
+              />
             </div>
-            <ScrollArea className="min-h-0 flex-1 px-2 pb-3">
-              {groups.map((group) => (
-                <div key={group} className="mt-3 first:mt-0">
-                  <p className="px-2 pb-1 text-[10px] font-medium text-muted-foreground">
-                    {group}
-                  </p>
-                  {sections
-                    .filter((s) => s.group === group)
-                    .map(({ id, label, icon: Icon }) => (
-                      <button
-                        key={id}
-                        type="button"
-                        className={cn(
-                          "flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-sm transition-colors",
-                          activeSection.id === id
-                            ? "bg-accent text-accent-foreground"
-                            : "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
-                        )}
-                        onClick={() => {
-                          setQuery("");
-                          setSection(id);
-                          if (requestedSection !== null) clearSettingsSection();
-                        }}
-                      >
-                        <Icon className="size-4" />
-                        {label}
-                      </button>
-                    ))}
-                </div>
+            <ScrollArea className="min-h-0 flex-1">
+              {sections.map(({ id, label, icon: Icon }) => (
+                <button
+                  key={id}
+                  type="button"
+                  className={cn(
+                    "flex h-7 w-full items-center gap-2 rounded-md px-2 text-xs transition-colors",
+                    activeSection.id === id && trimmed.length === 0
+                      ? "bg-accent font-medium text-foreground"
+                      : "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
+                  )}
+                  onClick={() => {
+                    setQuery("");
+                    setSection(id);
+                    if (requestedSection !== null) clearSettingsSection();
+                  }}
+                >
+                  <Icon className="size-4" />
+                  {label}
+                </button>
               ))}
             </ScrollArea>
           </nav>
@@ -928,7 +1011,7 @@ export function SettingsDialog({
                     No settings match &ldquo;{trimmed}&rdquo;.
                   </p>
                 ) : (
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     {sections
                       .map((s) => ({
                         section: s,
@@ -936,21 +1019,25 @@ export function SettingsDialog({
                       }))
                       .filter(({ hits }) => hits.length > 0)
                       .map(({ section: s, hits }) => (
-                        <div key={s.id}>
-                          <p className="px-1 pb-1.5 text-xs font-medium text-muted-foreground">
-                            {s.label}
-                          </p>
-                          <CardView card={{ rows: hits.map((hit) => hit.row) }} />
-                        </div>
+                        <CardView
+                          key={s.id}
+                          card={{ title: s.label, rows: hits.map((hit) => hit.row) }}
+                        />
                       ))}
                   </div>
                 )
               ) : (
-                <div className="space-y-4">
-                  {activeSection.cards.map((card, index) => (
-                    <CardView key={index} card={card} />
-                  ))}
-                </div>
+                <>
+                  <h2 className="text-base font-semibold">{activeSection.label}</h2>
+                  <p className="mt-0.5 mb-4 text-xs text-muted-foreground">
+                    {activeSection.intro}
+                  </p>
+                  <div className="space-y-3">
+                    {activeSection.cards.map((card) => (
+                      <CardView key={card.title} card={card} />
+                    ))}
+                  </div>
+                </>
               )}
             </div>
           </ScrollArea>

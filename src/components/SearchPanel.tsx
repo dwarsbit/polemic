@@ -18,6 +18,7 @@ import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import { useSearchStore, type SearchScope } from "@/store/search";
 import { cn } from "cn";
+import { formatShortcut } from "@/lib/platform";
 
 interface Hit {
   file: string;
@@ -235,7 +236,7 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
         <Input
           autoFocus
           className="h-7 min-w-0 flex-1 rounded-md border-none bg-transparent px-1 text-xs shadow-none focus-visible:ring-0"
-          placeholder="Search project"
+          placeholder="Search in project"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => {
@@ -291,7 +292,7 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
                     : "Matches outside math"
               }
               className={cn(
-                "rounded px-1.5 py-0.5 text-[10px] capitalize transition-colors",
+                "rounded px-1.5 py-0.5 text-2xs capitalize transition-colors",
                 scope === s
                   ? "bg-accent text-accent-foreground"
                   : "text-muted-foreground hover:text-foreground",
@@ -332,7 +333,7 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
             size="sm"
             className="h-6 shrink-0 px-2 text-xs"
             disabled={shownHits === null || shownHits.length === 0}
-            title="Replace every match (Cmd/Ctrl+Enter)"
+            title={`Replace all (${formatShortcut("Mod+Enter")})`}
             onClick={() => void replace()}
           >
             Replace all
@@ -353,7 +354,7 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
                 {(index === 0 || shownHits[index - 1].file !== hit.file) && (
                   <button
                     type="button"
-                    className="mt-1 block w-full truncate rounded px-1 py-0.5 text-left text-[11px] font-medium text-muted-foreground hover:bg-accent hover:text-foreground"
+                    className="mt-1 block w-full truncate rounded px-1 py-0.5 text-left text-2xs font-medium text-muted-foreground hover:bg-accent hover:text-foreground"
                     onClick={() => goTo(hit.file, 1)}
                   >
                     {hit.file}
@@ -378,7 +379,7 @@ export function SearchPanel({ onToggle }: { onToggle: () => void }) {
                   {replaceOpen && (
                     <button
                       type="button"
-                      className="absolute right-1 top-0.5 hidden rounded border bg-card px-1.5 text-[10px] text-muted-foreground hover:text-foreground group-hover:block"
+                      className="absolute right-1 top-0.5 hidden rounded border bg-card px-1.5 text-2xs text-muted-foreground hover:text-foreground group-hover:block"
                       title="Replace the matches on this line"
                       onClick={() => void replace({ file: hit.file, line: hit.line })}
                     >

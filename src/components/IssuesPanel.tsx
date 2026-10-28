@@ -1,4 +1,12 @@
-import { AlertTriangle, ChevronDown, Loader2, Sparkles, Wrench } from "lucide-react";
+import {
+  ChevronDown,
+  CircleAlert,
+  Loader2,
+  Sparkles,
+  TriangleAlert,
+  Wrench,
+} from "lucide-react";
+import { SectionHeader } from "@/components/SectionHeader";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { CompileIssue } from "@/lib/tauri";
@@ -14,9 +22,9 @@ export type IssuesTool = "issues" | "log" | "search";
 
 function issueIcon(issue: CompileIssue) {
   if (issue.severity === "error") {
-    return <AlertTriangle className="mt-0.5 size-3.5 shrink-0 text-destructive" />;
+    return <CircleAlert className="mt-0.5 size-3.5 shrink-0 text-destructive" />;
   }
-  return <AlertTriangle className="mt-0.5 size-3.5 shrink-0 text-amber-500" />;
+  return <TriangleAlert className="mt-0.5 size-3.5 shrink-0 text-warning" />;
 }
 
 async function jumpToIssue(issue: CompileIssue) {
@@ -73,7 +81,7 @@ export function IssuesPanel({
     setFixNote(null);
     const outcome = await fixIssue(issue);
     if (outcome === "declined") {
-      setFixNote("No automatic fix for this one — try Fix with AI.");
+      setFixNote("No built-in fix for this error. Try Ask AI.");
     } else if (outcome === "no-file") {
       setFixNote("This issue does not point at an openable file.");
     } else if (outcome === "error") {
@@ -98,39 +106,46 @@ export function IssuesPanel({
 
   return (
     <div className="flex h-full flex-col overflow-hidden rounded-xl border bg-card shadow-sm">
-      <div className="flex h-8 shrink-0 items-center gap-2 px-3">
-        <span className="text-xs font-medium text-muted-foreground">
-          {tool === "issues" ? "ISSUES" : "COMPILE LOG"}
-        </span>
-        {tool === "issues" && (
-          <>
-            {status === "compiling" && <Loader2 className="size-3 animate-spin" />}
-            {issues.length > 0 && (
-              <span className="text-xs">
-                <span className="font-medium text-destructive">{errors} errors</span>
-                <span className="text-muted-foreground">, {warnings} warnings</span>
-              </span>
-            )}
-          </>
-        )}
-        <div className="ml-auto flex items-center gap-1">
+      <SectionHeader
+        label={tool === "issues" ? "Issues" : "Compile log"}
+        actions={
           <Button
             variant="ghost"
             size="icon"
-            className="size-6"
+            className="size-6 text-muted-foreground"
             title="Hide panel"
             onClick={onToggle}
           >
             <ChevronDown className="size-3.5" />
           </Button>
-        </div>
-      </div>
-      <div className="flex-1 overflow-y-auto px-3 pb-2">
+        }
+      >
+        {tool === "issues" && (
+          <>
+            {status === "compiling" && (
+              <Loader2 className="size-3 animate-spin text-muted-foreground" />
+            )}
+            {issues.length > 0 && (
+              <span className="flex items-center gap-2 text-2xs">
+                <span className="flex items-center gap-1 text-destructive">
+                  <CircleAlert className="size-3" />
+                  {errors === 1 ? "1 error" : `${errors} errors`}
+                </span>
+                <span className="flex items-center gap-1 text-warning">
+                  <TriangleAlert className="size-3" />
+                  {warnings === 1 ? "1 warning" : `${warnings} warnings`}
+                </span>
+              </span>
+            )}
+          </>
+        )}
+      </SectionHeader>
+      <div className="flex-1 overflow-y-auto p-1.5">
         {tool === "issues" ? (
           issues.length === 0 ? (
-            <p className="text-xs text-muted-foreground">
+            <p className="px-1.5 py-1 text-xs text-muted-foreground">
               {status === "error"
-                ? "Compilation failed with no parsed issues — check the compile log."
+                ? "The compile failed without a readable error. See the compile log."
                 : "No issues."}
             </p>
           ) : (
@@ -140,7 +155,7 @@ export function IssuesPanel({
                   <div
                     role="button"
                     tabIndex={0}
-                    className="flex w-full cursor-pointer items-start gap-1.5 rounded px-1 py-0.5 text-left text-xs hover:bg-accent"
+                    className="group flex w-full cursor-pointer items-start gap-2 rounded-md px-2 py-1 text-left text-xs hover:bg-accent"
                     onClick={() => void jumpToIssue(issue)}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
@@ -155,39 +170,39 @@ export function IssuesPanel({
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="h-4 shrink-0 gap-1 px-1 text-[11px] text-muted-foreground"
+                        className="h-5 shrink-0 gap-1 px-1.5 text-2xs text-muted-foreground opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
                         title={fixes[index].title}
                         onClick={(e) => {
                           e.stopPropagation();
                           void onFix(issue);
                         }}
                       >
-                        <Wrench className="size-2.5" />
+                        <Wrench className="size-3" />
                         Fix
                       </Button>
                     )}
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="h-4 shrink-0 gap-1 px-1 text-[11px] text-muted-foreground"
-                      title="Ask the configured AI provider for a fix, with a preview"
+                      className="h-5 shrink-0 gap-1 px-1.5 text-2xs text-muted-foreground opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
+                      title="Ask the AI assistant for a fix, with a preview"
                       onClick={(e) => {
                         e.stopPropagation();
                         void onAiFix(issue);
                       }}
                     >
-                      <Sparkles className="size-2.5" />
-                      AI
+                      <Sparkles className="size-3" />
+                      Ask AI
                     </Button>
                     {issue.file && (
-                      <span className="shrink-0 text-muted-foreground">
+                      <span className="shrink-0 font-mono text-2xs leading-4.5 text-muted-foreground">
                         {issue.file}
                         {issue.line !== null ? `:${issue.line}` : ""}
                       </span>
                     )}
                   </div>
                   {issue.hint && (
-                    <p className="pr-1 pb-0.5 pl-6 text-[11px] text-muted-foreground">
+                    <p className="pr-2 pb-1 pl-7.5 text-2xs text-muted-foreground">
                       {issue.hint}
                     </p>
                   )}
@@ -196,11 +211,15 @@ export function IssuesPanel({
             </ul>
           )
         ) : log === null ? (
-          <p className="text-xs text-muted-foreground">Nothing compiled yet.</p>
+          <p className="px-1.5 py-1 text-xs text-muted-foreground">
+            Nothing compiled yet.
+          </p>
         ) : (
-          <pre className="font-mono text-xs whitespace-pre-wrap">{log}</pre>
+          <pre className="px-1.5 py-1 font-mono text-2xs leading-5 whitespace-pre-wrap text-muted-foreground">
+            {log}
+          </pre>
         )}
-        {fixNote !== null && <p className="mt-1 text-xs text-amber-600">{fixNote}</p>}
+        {fixNote !== null && <p className="mt-1 text-xs text-warning">{fixNote}</p>}
       </div>
     </div>
   );

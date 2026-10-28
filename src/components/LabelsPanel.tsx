@@ -337,25 +337,25 @@ export function LabelsPanel() {
             <>
               <button
                 type="button"
-                className="min-w-0 flex-1 truncate py-1 text-left text-sm"
+                className="min-w-0 flex-1 truncate py-1.5 text-left text-xs"
                 title={locations}
                 onClick={() => goTo(row.def.file, row.def.line)}
               >
                 {group === row.name ? row.name : row.name.slice(group.length + 1)}
               </button>
               {row.refs === 0 ? (
-                <span className="mr-1 shrink-0 rounded-full border border-amber-400/60 px-1.5 py-0 text-[10px] leading-4 text-amber-600 dark:text-amber-400">
-                  unused
+                <span className="mr-1 shrink-0 rounded-full border border-warning/50 px-1.5 py-0 text-2xs leading-4 text-warning">
+                  Unused
                 </span>
               ) : (
                 <span
-                  className="mr-1.5 shrink-0 text-[10px] tabular-nums text-muted-foreground"
+                  className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground"
                   title={`${row.refs} reference${row.refs === 1 ? "" : "s"}`}
                 >
-                  {row.refs}×
+                  {row.refs}
                 </span>
               )}
-              <span className="max-w-24 shrink-0 truncate text-[10px] text-muted-foreground">
+              <span className="max-w-24 shrink-0 truncate text-2xs text-muted-foreground">
                 {row.def.file}:{row.def.line}
               </span>
               <button
@@ -370,7 +370,7 @@ export function LabelsPanel() {
           )}
         </div>
         {isRenaming && renameError !== null && (
-          <p className="px-6 pt-0.5 text-[11px] text-destructive">{renameError}</p>
+          <p className="px-6 pt-0.5 text-2xs text-destructive">{renameError}</p>
         )}
       </div>
     );
@@ -378,8 +378,8 @@ export function LabelsPanel() {
 
   return (
     <div className="flex h-full flex-col">
-      <SectionHeader label="LABELS" collapsed={false} />
-      <div className="flex shrink-0 items-center gap-1.5 px-2 pb-1.5">
+      <SectionHeader label="Labels" />
+      <div className="flex shrink-0 items-center gap-1.5 p-2">
         <div className="relative min-w-0 flex-1">
           <Search className="absolute top-1/2 left-2 size-3 -translate-y-1/2 text-muted-foreground" />
           <Input
@@ -393,12 +393,12 @@ export function LabelsPanel() {
           />
         </div>
       </div>
-      <div className="flex-1 overflow-y-auto px-2 pb-2">
+      <div className="flex-1 overflow-y-auto p-1.5">
         {scanned === null ? null : rows.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
             {query.trim().length > 0
               ? "No labels match your search."
-              : "No labels in this project yet."}
+              : "No labels yet. Add one with \\label."}
           </p>
         ) : (
           groups.map(([group, groupRows]) => {
@@ -424,10 +424,10 @@ export function LabelsPanel() {
                   ) : (
                     <span className="size-5 shrink-0" />
                   )}
-                  <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-muted-foreground">
+                  <span className="min-w-0 flex-1 truncate py-1.5 text-xs font-medium text-muted-foreground">
                     {group}
                   </span>
-                  <span className="mr-1 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+                  <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
                     {groupRows.length}
                   </span>
                 </div>
@@ -453,10 +453,10 @@ export function LabelsPanel() {
                   )}
                 />
               </button>
-              <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-amber-600 dark:text-amber-400">
+              <span className="min-w-0 flex-1 truncate py-1.5 text-xs font-medium text-warning">
                 Undefined references
               </span>
-              <span className="mr-1 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+              <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
                 {undefinedRefs.length}
               </span>
             </div>
@@ -468,16 +468,16 @@ export function LabelsPanel() {
                 >
                   <button
                     type="button"
-                    className="min-w-0 flex-1 truncate py-1 text-left text-sm"
+                    className="min-w-0 flex-1 truncate py-1.5 text-left text-xs"
                     title={`${ref.count} reference${ref.count === 1 ? "" : "s"} without a label`}
                     onClick={() => goTo(ref.file, ref.line)}
                   >
                     {ref.name}
                   </button>
-                  <span className="mr-1.5 shrink-0 text-[10px] tabular-nums text-muted-foreground">
-                    {ref.count}×
+                  <span className="mr-1.5 shrink-0 text-2xs tabular-nums text-muted-foreground">
+                    {ref.count}
                   </span>
-                  <span className="max-w-24 shrink-0 truncate text-[10px] text-muted-foreground">
+                  <span className="max-w-24 shrink-0 truncate text-2xs text-muted-foreground">
                     {ref.file}:{ref.line}
                   </span>
                 </div>

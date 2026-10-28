@@ -20,9 +20,9 @@ export const DEFAULT_ACCOUNT_SERVER = "https://app.polemicapp.com";
 export function AccountSettingsSection() {
   const [status, setStatus] = useState<AccountStatus | null>(null);
   const [server, setServer] = useState("");
-  const [busy, setBusy] = useState<"loading" | "signing-in" | "signing-out" | "saving" | null>(
-    "loading",
-  );
+  const [busy, setBusy] = useState<
+    "loading" | "signing-in" | "signing-out" | "saving" | null
+  >("loading");
   const [error, setError] = useState<string | null>(null);
 
   function show(next: AccountStatus) {
@@ -72,7 +72,8 @@ export function AccountSettingsSection() {
       show(await accountStatus());
     });
 
-  const serverChanged = status !== null && server.trim().replace(/\/+$/, "") !== status.server;
+  const serverChanged =
+    status !== null && server.trim().replace(/\/+$/, "") !== status.server;
 
   return (
     <div className="space-y-4 py-4">
@@ -101,8 +102,8 @@ export function AccountSettingsSection() {
           </Button>
         </div>
         <p className="mt-1 text-xs text-muted-foreground">
-          {DEFAULT_ACCOUNT_SERVER} for Polemic Professional, or your organization&rsquo;s own
-          Polemic server. Changing it signs you out.
+          {DEFAULT_ACCOUNT_SERVER} for Polemic Professional, or your
+          organization&rsquo;s own Polemic server. Changing it signs you out.
         </p>
       </div>
 
@@ -117,7 +118,11 @@ export function AccountSettingsSection() {
                 Sign in there and choose Allow. Then come back here.
               </p>
             </div>
-            <Button variant="outline" size="sm" onClick={() => void accountCancelSignIn()}>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => void accountCancelSignIn()}
+            >
               Cancel
             </Button>
           </div>
@@ -127,12 +132,16 @@ export function AccountSettingsSection() {
               {status.user ? (
                 <>
                   <p className="truncate text-sm font-medium">{status.user.name}</p>
-                  <p className="truncate text-xs text-muted-foreground">{status.user.email}</p>
+                  <p className="truncate text-xs text-muted-foreground">
+                    {status.user.email}
+                  </p>
                 </>
               ) : (
                 <p className="text-sm font-medium">Signed in</p>
               )}
-              {status.problem && <p className="text-xs text-muted-foreground">{status.problem}</p>}
+              {status.problem && (
+                <p className="text-xs text-muted-foreground">{status.problem}</p>
+              )}
             </div>
             <Button
               variant="outline"
@@ -152,7 +161,11 @@ export function AccountSettingsSection() {
                   "Everything that runs on your computer works without an account. Sign in to use Polemic Professional services."}
               </p>
             </div>
-            <Button size="sm" disabled={busy !== null || serverChanged} onClick={() => void signIn()}>
+            <Button
+              size="sm"
+              disabled={busy !== null || serverChanged}
+              onClick={() => void signIn()}
+            >
               Sign in
             </Button>
           </div>

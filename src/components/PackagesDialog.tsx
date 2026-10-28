@@ -159,8 +159,8 @@ export function PackagesDialog({
             <div className="min-h-0 flex-1 overflow-y-auto px-2 py-2 text-sm">
               {docPackages.length > 0 && (
                 <>
-                  <p className="px-1 pb-1 text-[10px] font-medium text-muted-foreground">
-                    IN THIS DOCUMENT
+                  <p className="px-1 pb-1 text-2xs font-medium tracking-wide text-muted-foreground uppercase">
+                    In this document
                   </p>
                   <ul className="mb-3">
                     {docPackages.map((name) => {
@@ -203,10 +203,10 @@ export function PackagesDialog({
                   </ul>
                 </>
               )}
-              <p className="px-1 pb-1 text-[10px] font-medium text-muted-foreground">
+              <p className="px-1 pb-1 text-2xs font-medium tracking-wide text-muted-foreground uppercase">
                 {shownResults === null
-                  ? "CTAN CATALOG"
-                  : `CTAN RESULTS (${shownResults.length})`}
+                  ? "CTAN catalog"
+                  : `CTAN results (${shownResults.length})`}
               </p>
               {shownError && (
                 <p className="px-2 py-1 text-xs text-destructive" title={shownError}>
@@ -267,12 +267,12 @@ export function PackagesDialog({
                     "Checking your TeX distribution…"
                   ) : selectedInfo.installed ? (
                     <>
-                      <Check className="size-3.5 text-green-600" />
+                      <Check className="size-3.5 text-success" />
                       Installed in your TeX distribution
                     </>
                   ) : (
                     <>
-                      <CircleAlert className="size-3.5 text-amber-500" />
+                      <CircleAlert className="size-3.5 text-warning" />
                       Not found in your TeX distribution
                     </>
                   )}

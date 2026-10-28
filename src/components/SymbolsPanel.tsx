@@ -17,10 +17,10 @@ export function SymbolsPanel({
 
   return (
     <div className="flex h-full flex-col">
-      <SectionHeader label="SYMBOLS" collapsed={collapsed} onToggle={onToggle} />
+      <SectionHeader label="Symbols" collapsed={collapsed} onToggle={onToggle} />
       {collapsed === false && (
         <>
-          <div className="px-3 pb-1">
+          <div className="px-3 py-2">
             <select
               className="h-7 w-full rounded-md border bg-background px-1.5 text-xs"
               value={categoryId}
@@ -33,7 +33,7 @@ export function SymbolsPanel({
               ))}
             </select>
           </div>
-          <div className="flex-1 overflow-y-auto px-2 pb-2">
+          <div className="flex-1 overflow-y-auto p-1.5">
             <div className="grid grid-cols-6 gap-1">
               {category.symbols.map((symbol) => (
                 <button

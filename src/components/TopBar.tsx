@@ -1,17 +1,32 @@
 import { useState } from "react";
-import { Eye, FolderOpen, Loader2, Pencil, Play, Zap } from "lucide-react";
+import { ChevronDown, Eye, FolderOpen, Loader2, Pencil, Play, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { EditorFaceToggle } from "@/components/EditorFaceToggle";
-import { STOPLIGHT_WIDTH, isMac } from "@/lib/platform";
+import { STOPLIGHT_WIDTH, isMac, isWindows, modKey } from "@/lib/platform";
 import { isTauri } from "@/lib/tauri";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 import { useSettingsStore } from "@/store/settings";
+/** "Show in Finder" and its counterparts on the other platforms. */
+const REVEAL_LABEL = isMac
+  ? "Show in Finder"
+  : isWindows
+    ? "Show in Explorer"
+    : "Show in file manager";
+
 /**
- * The persistent window header: the project controls (name, rename,
- * switch, compile) when a project is open.
+ * The persistent window header: the project menu (rename, reveal,
+ * switch) on the left, the Visual/Code switch in the center, and the
+ * preview, auto-compile and Compile controls on the right.
  */
 export function TopBar() {
   const project = useProjectStore((s) => s.project);
@@ -48,6 +63,13 @@ export function TopBar() {
     }
   }
 
+  function revealProject() {
+    if (!project) return;
+    void import("@tauri-apps/plugin-opener")
+      .then(({ revealItemInDir }) => revealItemInDir(project.path))
+      .catch(() => undefined);
+  }
+
   function switchProject() {
     void useProjectStore
       .getState()
@@ -57,7 +79,7 @@ export function TopBar() {
 
   return (
     <header
-      className="relative flex h-12 shrink-0 items-center justify-between bg-transparent text-foreground"
+      className="relative flex h-11 shrink-0 items-center justify-between bg-transparent text-foreground"
       style={isMac ? { paddingLeft: STOPLIGHT_WIDTH } : undefined}
       onPointerDown={(event) => {
         // Drag the window from the header: anywhere except its
@@ -69,13 +91,13 @@ export function TopBar() {
           .catch(() => undefined);
       }}
     >
-      <div className="flex min-w-0 items-center gap-3 pl-4">
+      <div className="flex min-w-0 items-center gap-3 pl-3">
         {showProjectControls && (
           <div className="flex min-w-0 items-center gap-1.5">
             {renaming ? (
               <Input
                 autoFocus
-                className="h-7 w-52 text-sm"
+                className="h-7 w-56 text-sm"
                 value={name}
                 title={renameError ?? undefined}
                 aria-invalid={renameError !== null}
@@ -90,37 +112,50 @@ export function TopBar() {
                 }}
               />
             ) : (
-              <span className="group/name flex min-w-0 items-center gap-1.5">
-                <span className="truncate text-sm font-medium">
-                  {project?.name ?? ""}
-                </span>
-                {project && (
-                  <>
-                    <Button
-                      variant="ghost"
-                      size="icon-xs"
-                      className="text-muted-foreground opacity-0 transition-opacity group-hover/name:opacity-100"
-                      title="Rename project"
-                      onClick={() => {
-                        setName(project.name);
-                        setRenameError(null);
-                        setRenaming(true);
-                      }}
-                    >
-                      <Pencil className="size-3" />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="icon-xs"
-                      className="text-muted-foreground opacity-0 transition-opacity group-hover/name:opacity-100"
-                      title="Switch project"
-                      onClick={switchProject}
-                    >
-                      <FolderOpen className="size-3" />
-                    </Button>
-                  </>
-                )}
-              </span>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="max-w-80 gap-1.5 px-2"
+                    title="Project"
+                  >
+                    <FolderOpen className="size-3.5 text-muted-foreground" />
+                    <span className="truncate">{project?.name ?? ""}</span>
+                    <ChevronDown className="size-3 text-muted-foreground" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="start"
+                  className="w-56"
+                  // Keep focus in the rename field instead of the trigger.
+                  onCloseAutoFocus={(e) => {
+                    if (renaming) e.preventDefault();
+                  }}
+                >
+                  <DropdownMenuItem
+                    onSelect={() => {
+                      if (!project) return;
+                      setName(project.name);
+                      setRenameError(null);
+                      setRenaming(true);
+                    }}
+                  >
+                    <Pencil />
+                    Rename project…
+                  </DropdownMenuItem>
+                  {isTauri() && (
+                    <DropdownMenuItem onSelect={revealProject}>
+                      <FolderOpen />
+                      {REVEAL_LABEL}
+                    </DropdownMenuItem>
+                  )}
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onSelect={switchProject}>
+                    Close project
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             )}
             {renameError && (
               <span className="truncate text-xs text-destructive" title={renameError}>
@@ -132,37 +167,41 @@ export function TopBar() {
       </div>
       {/* The Visual/Code switch sits in the window's center; the
           pointer-events wrapper keeps empty space clickable. */}
-      {/* The Visual/Code switch sits in the window's center; the
-          pointer-events wrapper keeps empty space clickable. */}
       <div className="pointer-events-none absolute inset-x-0 top-0 flex h-full items-center justify-center">
         <div className="pointer-events-auto">
           <EditorFaceToggle />
         </div>
       </div>
-      <div className="flex items-center gap-2 pr-4">
+      <div className="flex items-center gap-2 pr-3">
         {showProjectControls && (
           <Button
-            variant={previewVisible ? "default" : "outline"}
+            variant={previewVisible ? "secondary" : "ghost"}
             size="icon-sm"
+            aria-pressed={previewVisible}
             onClick={togglePreview}
-            title={`PDF preview: ${previewVisible ? "visible" : "hidden"}`}
+            title={`${previewVisible ? "Hide" : "Show"} PDF preview (${modKey}Shift+P)`}
           >
-            <Eye />
+            <Eye className={previewVisible ? undefined : "text-muted-foreground"} />
           </Button>
         )}
         {showProjectControls && (
-          <ButtonGroup title="Compile the project now">
+          <ButtonGroup>
             <Button
-              variant={autoCompile ? "default" : "outline"}
+              variant={autoCompile ? "secondary" : "outline"}
               size="icon-sm"
+              aria-pressed={autoCompile}
               onClick={toggleAutoCompile}
-              title={`Auto-compile on save: ${autoCompile ? "on" : "off"}`}
+              title={`Auto-compile on save (${autoCompile ? "on" : "off"})`}
             >
-              <Zap />
+              <Zap
+                className={
+                  autoCompile ? "text-tint-foreground" : "text-muted-foreground"
+                }
+              />
             </Button>
             <Button
               size="sm"
-              variant="outline"
+              title={`Compile (${modKey}Shift+R)`}
               onClick={() => void compileNow()}
               disabled={status === "compiling"}
             >

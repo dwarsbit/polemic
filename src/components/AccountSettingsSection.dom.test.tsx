@@ -17,7 +17,12 @@ const server = { status: null as unknown as AccountStatus, finishSignIn: () => {
 vi.mock("@/lib/tauri", () => ({
   accountStatus: vi.fn(async () => server.status),
   accountSetServer: vi.fn(async (url: string) => {
-    server.status = { server: url.replace(/\/+$/, ""), signedIn: false, user: null, problem: null };
+    server.status = {
+      server: url.replace(/\/+$/, ""),
+      signedIn: false,
+      user: null,
+      problem: null,
+    };
     return server.status;
   }),
   accountSignIn: vi.fn(
@@ -49,7 +54,9 @@ async function render() {
 }
 
 const button = (label: string) =>
-  [...host.querySelectorAll("button")].find((b) => b.textContent === label) as HTMLButtonElement;
+  [...host.querySelectorAll("button")].find(
+    (b) => b.textContent === label,
+  ) as HTMLButtonElement;
 
 async function click(label: string) {
   await act(async () => button(label).click());
@@ -58,7 +65,12 @@ async function click(label: string) {
 describe("AccountSettingsSection", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    server.status = { server: "https://app.polemicapp.com", signedIn: false, user: null, problem: null };
+    server.status = {
+      server: "https://app.polemicapp.com",
+      signedIn: false,
+      user: null,
+      problem: null,
+    };
   });
   afterEach(() => {
     act(() => root?.unmount());
@@ -95,7 +107,10 @@ describe("AccountSettingsSection", () => {
     const input = host.querySelector<HTMLInputElement>("#account-server")!;
     expect(input.value).toBe("https://app.polemicapp.com");
     await act(async () => {
-      const setValue = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")!.set!;
+      const setValue = Object.getOwnPropertyDescriptor(
+        HTMLInputElement.prototype,
+        "value",
+      )!.set!;
       setValue.call(input, "https://polemic.example.org/");
       input.dispatchEvent(new Event("input", { bubbles: true }));
     });
@@ -108,7 +123,11 @@ describe("AccountSettingsSection", () => {
   });
 
   it("shows why the account could not be loaded", async () => {
-    server.status = { ...server.status, signedIn: true, problem: "Could not reach https://app.polemicapp.com." };
+    server.status = {
+      ...server.status,
+      signedIn: true,
+      problem: "Could not reach https://app.polemicapp.com.",
+    };
     await render();
     expect(host.textContent).toContain("Signed in");
     expect(host.textContent).toContain("Could not reach");

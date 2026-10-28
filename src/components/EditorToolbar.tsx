@@ -32,6 +32,7 @@ import { ensurePackages } from "@/lib/editor-figure";
 import { applyTextWrapper } from "@/lib/editor-wrappers";
 import { THEOREM_ENVS, newtheoremDeclarations } from "@/lib/visual/parse";
 import { useEditorStore } from "@/store/editor";
+import { formatShortcut } from "@/lib/platform";
 
 /** A list skeleton with the caret right after the first \item. */
 function listSkeleton(kind: "itemize" | "enumerate") {
@@ -185,7 +186,7 @@ export function EditorToolbar() {
         <Button
           variant="ghost"
           size="icon-sm"
-          title="Insert a table, or edit the one at the cursor (Cmd/Ctrl + Shift + T)"
+          title={`Insert or edit table (${formatShortcut("Mod+Shift+T")})`}
           onClick={() => insertOrEditTable()}
         >
           <TableProperties className="size-4" />
@@ -193,7 +194,7 @@ export function EditorToolbar() {
         <Button
           variant="ghost"
           size="icon-sm"
-          title="Wrap in figure (Cmd/Ctrl + Alt + G)"
+          title={`Figure from image (${formatShortcut("Mod+Alt+G")})`}
           onClick={() => wrapFigure()}
         >
           <Image className="size-4" />
@@ -201,7 +202,7 @@ export function EditorToolbar() {
         <Button
           variant="ghost"
           size="icon-sm"
-          title="Bulleted list (itemize)"
+          title="Bulleted list"
           onClick={() => insertAtCursor(itemize.text, itemize.cursorOffset)}
         >
           <List className="size-4" />
@@ -209,7 +210,7 @@ export function EditorToolbar() {
         <Button
           variant="ghost"
           size="icon-sm"
-          title="Numbered list (enumerate)"
+          title="Numbered list"
           onClick={() => insertAtCursor(enumerate.text, enumerate.cursorOffset)}
         >
           <ListOrdered className="size-4" />
@@ -220,7 +221,7 @@ export function EditorToolbar() {
         <Button
           variant="ghost"
           size="icon-sm"
-          title="Bold — \\textbf (Cmd/Ctrl + B)"
+          title={`Bold (${formatShortcut("Mod+B")})`}
           onClick={() => applyTextWrapper("bold")}
         >
           <Bold className="size-4" />
@@ -228,7 +229,7 @@ export function EditorToolbar() {
         <Button
           variant="ghost"
           size="icon-sm"
-          title="Emphasis — \\emph (Cmd/Ctrl + I)"
+          title={`Emphasis (${formatShortcut("Mod+I")})`}
           onClick={() => applyTextWrapper("emph")}
         >
           <Italic className="size-4" />
@@ -236,7 +237,7 @@ export function EditorToolbar() {
         <Button
           variant="ghost"
           size="icon-sm"
-          title="Underline — \\underline (Cmd/Ctrl + U)"
+          title={`Underline (${formatShortcut("Mod+U")})`}
           onClick={() => applyTextWrapper("underline")}
         >
           <Underline className="size-4" />

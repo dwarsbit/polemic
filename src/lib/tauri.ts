@@ -433,6 +433,12 @@ export function setProjectMenuEnabled(enabled: boolean): Promise<void> {
   return invoke<void>("set_project_menu_enabled", { enabled });
 }
 
+/** Set the checkmark of a View menu item (a panel, the editor face). */
+export function setMenuChecked(id: string, checked: boolean): Promise<void> {
+  if (!isTauri()) return Promise.resolve();
+  return invoke<void>("set_menu_checked", { id, checked });
+}
+
 export function setPanelLayout(layout: Record<string, number>): Promise<void> {
   return invoke<void>("set_panel_layout", { layout });
 }

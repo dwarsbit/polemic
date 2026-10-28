@@ -136,8 +136,8 @@ export function FloatsPanel() {
 
   return (
     <div className="flex h-full flex-col">
-      <SectionHeader label="FIGURES & TABLES" collapsed={false} />
-      <div className="flex shrink-0 items-center gap-1.5 px-2 pb-1.5">
+      <SectionHeader label="Figures & tables" />
+      <div className="flex shrink-0 items-center gap-1.5 p-2">
         <div className="relative min-w-0 flex-1">
           <Search className="absolute top-1/2 left-2 size-3 -translate-y-1/2 text-muted-foreground" />
           <Input
@@ -155,20 +155,21 @@ export function FloatsPanel() {
           title="Show only floats without a caption or label"
           aria-pressed={issuesOnly}
           className={cn(
-            "h-7 shrink-0 rounded-md border px-2 text-[11px] tabular-nums transition-colors hover:bg-accent",
-            issuesOnly &&
-              "border-amber-500/60 bg-amber-500/10 text-amber-700 dark:text-amber-400",
+            "h-7 shrink-0 rounded-md border px-2 text-2xs tabular-nums transition-colors hover:bg-accent",
+            issuesOnly && "border-warning/50 bg-warning/10 text-warning",
           )}
           onClick={() => setIssuesOnly((on) => !on)}
         >
           Issues {issueCount}
         </button>
       </div>
-      <div className="flex-1 overflow-y-auto px-2 pb-2">
+      <div className="flex-1 overflow-y-auto p-1.5">
         {floats === null && order !== null ? null : floats === null ||
           floats.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
-            {activeFile ? "No figures or tables in this document." : "No file open."}
+            {activeFile
+              ? "No figures or tables in this document yet."
+              : "No file open."}
           </p>
         ) : visible.length === 0 ? (
           <p className="px-2 text-xs text-muted-foreground">
@@ -195,10 +196,10 @@ export function FloatsPanel() {
                       )}
                     />
                   </button>
-                  <span className="min-w-0 flex-1 truncate py-1 text-sm font-medium text-muted-foreground">
+                  <span className="min-w-0 flex-1 truncate py-1.5 text-xs font-medium text-muted-foreground">
                     {label}
                   </span>
-                  <span className="mr-1 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+                  <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
                     {rows.length}
                   </span>
                 </div>
@@ -229,26 +230,24 @@ export function FloatsPanel() {
                         )}
                         <span className="min-w-0 flex-1">
                           <span className="flex items-baseline gap-1.5">
-                            <span className="shrink-0 text-[11px] tabular-nums text-muted-foreground">
+                            <span className="shrink-0 text-2xs tabular-nums text-muted-foreground">
                               {float.number}
                             </span>
                             {float.caption !== null ? (
-                              <span className="truncate text-sm">{float.caption}</span>
+                              <span className="truncate text-xs">{float.caption}</span>
                             ) : (
-                              <span className="truncate text-sm text-amber-600 italic dark:text-amber-400">
+                              <span className="truncate text-xs text-warning italic">
                                 No caption
                               </span>
                             )}
                           </span>
-                          <span className="flex min-w-0 items-center gap-1.5 text-[10px] whitespace-nowrap text-muted-foreground">
+                          <span className="flex min-w-0 items-center gap-1.5 text-2xs whitespace-nowrap text-muted-foreground">
                             {float.label !== null ? (
                               <span className="min-w-0 truncate font-mono">
                                 {float.label}
                               </span>
                             ) : (
-                              <span className="shrink-0 text-amber-600 dark:text-amber-400">
-                                No label
-                              </span>
+                              <span className="shrink-0 text-warning">No label</span>
                             )}
                             <span className="ml-auto min-w-0 truncate">
                               {float.file}:{float.line}

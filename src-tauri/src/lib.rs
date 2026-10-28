@@ -1485,22 +1485,86 @@ fn reveal_build_folder(app: tauri::AppHandle, project_dir: String) -> Result<(),
 pub struct MenuState(pub std::sync::Mutex<Option<tauri::menu::Menu<tauri::Wry>>>);
 
 /// Menu items that only make sense with a project open.
-const PROJECT_MENU_ITEMS: [&str; 15] = [
+const PROJECT_MENU_ITEMS: [&str; 30] = [
     "new_project",
     "save",
-    "format",
+    "compile",
     "export_pdf",
     "reveal_build",
-    "toggle_sidebar",
-    "toggle_preview",
-    "toggle_right",
+    "close_project",
+    "find_in_file",
     "search",
-    "issues",
-    "log",
+    "format",
+    "add_comment",
     "insert_table",
     "wrap_figure",
     "insert_tikz",
+    "insert_csv",
+    "insert_citation",
+    "insert_reference",
+    "insert_footnote",
+    "insert_display_math",
+    "face_visual",
+    "face_code",
+    "toggle_sidebar",
+    "toggle_preview",
+    "toggle_right",
+    "issues",
+    "log",
+    "zoom_reset",
+    "zoom_in",
+    "zoom_out",
     "packages",
+    "document_settings",
+];
+
+/// Project items beyond the fixed-size list above (kept separate so the
+/// array length stays readable).
+const PROJECT_MENU_ITEMS_MORE: [&str; 3] = ["sources", "take_snapshot", "commit"];
+
+/// Menu item id → the frontend event it emits.
+const MENU_EVENTS: [(&str, &str); 41] = [
+    ("new_project", "menu://new-project"),
+    ("open_project", "menu://open-project"),
+    ("save", "menu://save"),
+    ("compile", "menu://compile"),
+    ("export_pdf", "menu://export-pdf"),
+    ("reveal_build", "menu://reveal-build"),
+    ("close_project", "menu://close-project"),
+    ("find_in_file", "menu://find"),
+    ("search", "menu://toggle-search"),
+    ("format", "menu://format"),
+    ("add_comment", "menu://add-comment"),
+    ("insert_table", "menu://insert-table"),
+    ("wrap_figure", "menu://wrap-figure"),
+    ("insert_tikz", "menu://insert-tikz"),
+    ("insert_csv", "menu://insert-csv"),
+    ("insert_citation", "menu://insert-citation"),
+    ("insert_reference", "menu://insert-reference"),
+    ("insert_footnote", "menu://insert-footnote"),
+    ("insert_display_math", "menu://insert-display-math"),
+    ("face_visual", "menu://face-visual"),
+    ("face_code", "menu://face-code"),
+    ("toggle_sidebar", "menu://toggle-sidebar"),
+    ("toggle_preview", "menu://toggle-preview"),
+    ("toggle_right", "menu://toggle-right"),
+    ("issues", "menu://toggle-issues"),
+    ("log", "menu://toggle-log"),
+    ("command_palette", "menu://palette"),
+    ("zoom_reset", "menu://zoom-reset"),
+    ("zoom_in", "menu://zoom-in"),
+    ("zoom_out", "menu://zoom-out"),
+    ("packages", "menu://packages"),
+    ("document_settings", "menu://document-settings"),
+    ("sources", "menu://sources"),
+    ("take_snapshot", "menu://take-snapshot"),
+    ("commit", "menu://commit"),
+    ("settings", "menu://settings"),
+    ("help", "menu://help"),
+    ("shortcuts", "menu://shortcuts"),
+    ("report_issue", "menu://report-issue"),
+    ("about", "menu://about"),
+    ("component_gallery", "menu://component-gallery"),
 ];
 
 /// Find a menu item by id, searching through the menu's submenus.
@@ -1510,15 +1574,15 @@ fn find_menu_item(
     id: &str,
 ) -> Option<tauri::menu::MenuItemKind<tauri::Wry>> {
     for item in menu.items().unwrap_or_default() {
-        match &item {
+        match item {
             tauri::menu::MenuItemKind::Submenu(submenu) => {
                 if let Some(found) = submenu.get(id) {
                     return Some(found);
                 }
             }
-            _ => {
-                if item.id().0 == id {
-                    return Some(item.clone());
+            other => {
+                if other.id() == id {
+                    return Some(other);
                 }
             }
         }
@@ -1526,6 +1590,16 @@ fn find_menu_item(
     None
 }
 
+/// Enable or disable a plain or check item.
+fn set_item_enabled(item: &tauri::menu::MenuItemKind<tauri::Wry>, enabled: bool) -> tauri::Result<()> {
+    match item {
+        tauri::menu::MenuItemKind::MenuItem(item) => item.set_enabled(enabled),
+        tauri::menu::MenuItemKind::Check(item) => item.set_enabled(enabled),
+        _ => Ok(()),
+    }
+}
+
+/// Enable or disable the menu items that need an open project.
 #[tauri::command]
 fn set_project_menu_enabled(
     state: tauri::State<MenuState>,
@@ -1535,237 +1609,235 @@ fn set_project_menu_enabled(
     let Some(menu) = guard.as_ref() else {
         return Ok(());
     };
-    for id in PROJECT_MENU_ITEMS {
-        if let Some(tauri::menu::MenuItemKind::MenuItem(item)) = find_menu_item(menu, id) {
-            item.set_enabled(enabled)
+    for id in PROJECT_MENU_ITEMS.iter().chain(PROJECT_MENU_ITEMS_MORE.iter()) {
+        if let Some(item) = find_menu_item(menu, id) {
+            set_item_enabled(&item, enabled)
                 .map_err(|e| format!("failed to update menu item {id}: {e}"))?;
         }
     }
     Ok(())
 }
 
+/// Set the checkmark of a View menu item (panels, the editor face), so
+/// the menu mirrors what the window shows.
+#[tauri::command]
+fn set_menu_checked(
+    state: tauri::State<MenuState>,
+    id: String,
+    checked: bool,
+) -> Result<(), String> {
+    let guard = state.0.lock().map_err(|e| e.to_string())?;
+    let Some(menu) = guard.as_ref() else {
+        return Ok(());
+    };
+    if let Some(tauri::menu::MenuItemKind::Check(item)) = find_menu_item(menu, &id) {
+        item.set_checked(checked)
+            .map_err(|e| format!("failed to check menu item {id}: {e}"))?;
+    }
+    Ok(())
+}
+
 /// Build the native OS menu and forward its items to the frontend.
+///
+/// The order follows the platform: File, Edit, then the app's Insert,
+/// View and Project menus, then Window (macOS) and Help. Native menus
+/// use Title Case; an ellipsis marks items that open a dialog. View
+/// lists panels as check items named after the panel.
 fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
-    use tauri::menu::{MenuBuilder, MenuItem, SubmenuBuilder};
+    use tauri::menu::{CheckMenuItem, MenuBuilder, MenuItem, SubmenuBuilder};
 
     let handle = app.handle();
-    let new_project =
-        MenuItem::with_id(handle, "new_project", "New Project", true, Some("CmdOrCtrl+N"))?;
-    let save = MenuItem::with_id(handle, "save", "Save", true, Some("CmdOrCtrl+S"))?;
-    let format =
-        MenuItem::with_id(handle, "format", "Format Document", true, Some("Shift+Alt+F"))?;
-    let export_pdf =
-        MenuItem::with_id(handle, "export_pdf", "Export PDF as…", true, Some("CmdOrCtrl+E"))?;
-    let reveal_build = MenuItem::with_id(
-        handle,
-        "reveal_build",
-        "Reveal Build Folder",
-        true,
-        Some("CmdOrCtrl+Shift+E"),
-    )?;
-    let toggle_sidebar =
-        MenuItem::with_id(handle, "toggle_sidebar", "Toggle Sidebar", true, Some("CmdOrCtrl+Alt+B"))?;
-    let toggle_preview = MenuItem::with_id(
-        handle,
-        "toggle_preview",
-        "Toggle PDF Preview",
-        true,
-        Some("CmdOrCtrl+Shift+P"),
-    )?;
-    let toggle_right =
-        MenuItem::with_id(handle, "toggle_right", "Toggle Right Panel", true, Some("CmdOrCtrl+J"))?;
-    let search = MenuItem::with_id(
-        handle,
-        "search",
-        "Search in Project…",
-        true,
-        Some("CmdOrCtrl+Shift+F"),
-    )?;
-    let issues =
-        MenuItem::with_id(handle, "issues", "Show Issues", true, Option::<&str>::None)?;
-    let log = MenuItem::with_id(
-        handle,
-        "log",
-        "Show Compile Log",
-        true,
-        Option::<&str>::None,
-    )?;
-    let insert_table = MenuItem::with_id(
-        handle,
-        "insert_table",
-        "Table…",
-        true,
-        Some("CmdOrCtrl+Shift+T"),
-    )?;
-    let wrap_figure = MenuItem::with_id(
-        handle,
-        "wrap_figure",
-        "Figure from Image…",
-        true,
-        Some("CmdOrCtrl+Alt+G"),
-    )?;
-    let insert_tikz = MenuItem::with_id(
-        handle,
-        "insert_tikz",
-        "TikZ Picture…",
-        true,
-        Some("CmdOrCtrl+Alt+T"),
-    )?;
-    let packages = MenuItem::with_id(
-        handle,
-        "packages",
-        "Packages…",
-        true,
-        Some("CmdOrCtrl+Alt+P"),
-    )?;
-    // The workspace modes from the header toggle; Sources now lives in
-    // the settings dialog's Bibliography section.
-    let mode_editor =
-        MenuItem::with_id(handle, "mode_editor", "Go to Editor", true, Some("CmdOrCtrl+Alt+1"))?;
-    let sources = MenuItem::with_id(
-        handle,
-        "sources",
-        "Sources…",
-        true,
-        Some("CmdOrCtrl+Alt+2"),
-    )?;
+    let item = |id: &str, text: &str, accel: Option<&str>| {
+        MenuItem::with_id(handle, id, text, true, accel)
+    };
+    let check = |id: &str, text: &str, checked: bool, accel: Option<&str>| {
+        CheckMenuItem::with_id(handle, id, text, true, checked, accel)
+    };
+
+    // File
+    let new_project = item("new_project", "New Project…", Some("CmdOrCtrl+N"))?;
+    let open_project = item("open_project", "Open Project…", Some("CmdOrCtrl+O"))?;
+    let save = item("save", "Save", Some("CmdOrCtrl+S"))?;
+    let compile = item("compile", "Compile", Some("CmdOrCtrl+Shift+R"))?;
+    let export_pdf = item("export_pdf", "Export PDF…", Some("CmdOrCtrl+E"))?;
+    let reveal_build = item("reveal_build", "Reveal Build Folder", Some("CmdOrCtrl+Shift+E"))?;
+    let close_project = item("close_project", "Close Project", Some("CmdOrCtrl+Shift+W"))?;
+
+    // Edit (after the predefined clipboard items)
+    let find_in_file = item("find_in_file", "Find in File", Some("CmdOrCtrl+F"))?;
+    let search = item("search", "Find in Project…", Some("CmdOrCtrl+Shift+F"))?;
+    let format = item("format", "Format Document", Some("Shift+Alt+F"))?;
+    let add_comment = item("add_comment", "Add Comment", Some("CmdOrCtrl+Alt+C"))?;
+
+    // Insert
+    let insert_table = item("insert_table", "Table…", Some("CmdOrCtrl+Shift+T"))?;
+    let wrap_figure = item("wrap_figure", "Figure from Image…", Some("CmdOrCtrl+Alt+G"))?;
+    let insert_tikz = item("insert_tikz", "TikZ Picture…", Some("CmdOrCtrl+Alt+T"))?;
+    let insert_csv = item("insert_csv", "Table or Plot from CSV…", None)?;
+    let insert_citation = item("insert_citation", "Citation…", Some("CmdOrCtrl+Shift+C"))?;
+    let insert_reference = item("insert_reference", "Reference…", None)?;
+    let insert_footnote = item("insert_footnote", "Footnote", None)?;
+    let insert_display_math = item("insert_display_math", "Display Math", None)?;
+
+    // View
+    let face_visual = check("face_visual", "Visual", false, Some("CmdOrCtrl+Alt+1"))?;
+    let face_code = check("face_code", "Code", true, Some("CmdOrCtrl+Alt+2"))?;
+    let toggle_sidebar = check("toggle_sidebar", "Navigator", true, Some("CmdOrCtrl+Alt+B"))?;
+    let toggle_preview = check("toggle_preview", "PDF Preview", true, Some("CmdOrCtrl+Shift+P"))?;
+    let toggle_right = check("toggle_right", "Properties", false, Some("CmdOrCtrl+J"))?;
+    let issues = check("issues", "Issues", true, Some("CmdOrCtrl+Shift+M"))?;
+    let log = check("log", "Compile Log", false, None)?;
+    let palette = item("command_palette", "Command Palette…", Some("CmdOrCtrl+P"))?;
+    let zoom_reset = item("zoom_reset", "Actual Size", Some("CmdOrCtrl+0"))?;
+    let zoom_in = item("zoom_in", "Zoom In", Some("CmdOrCtrl+="))?;
+    let zoom_out = item("zoom_out", "Zoom Out", Some("CmdOrCtrl+-"))?;
+
+    // Project
+    let packages = item("packages", "Packages…", Some("CmdOrCtrl+Alt+P"))?;
+    let document_settings = item("document_settings", "Document Settings…", None)?;
+    let sources = item("sources", "Bibliography Sources…", None)?;
+    let take_snapshot = item("take_snapshot", "Take Snapshot", None)?;
+    let commit = item("commit", "Commit…", Some("CmdOrCtrl+K"))?;
+
+    // App and Help
+    let settings = item("settings", "Settings…", Some("CmdOrCtrl+,"))?;
+    let help = item("help", "Polemic Help", None)?;
+    let shortcuts = item("shortcuts", "Keyboard Shortcuts", Some("CmdOrCtrl+/"))?;
+    let report_issue = item("report_issue", "Report an Issue…", None)?;
+    let about = item("about", "About Polemic", None)?;
+
     // The Develop menu: tools that only exist in dev builds. The whole
     // submenu is compiled out in release, so the menu item never ships.
     #[cfg(debug_assertions)]
-    let component_gallery = MenuItem::with_id(
-        handle,
-        "component_gallery",
-        "Component Gallery",
-        true,
-        Option::<&str>::None,
-    )?;
+    let component_gallery = item("component_gallery", "Component Gallery", None)?;
     #[cfg(debug_assertions)]
     let develop_menu = SubmenuBuilder::new(handle, "Develop")
         .item(&component_gallery)
         .build()?;
 
+    let file_builder = SubmenuBuilder::new(handle, "File")
+        .item(&new_project)
+        .item(&open_project)
+        .separator()
+        .item(&save)
+        .item(&compile)
+        .item(&export_pdf)
+        .item(&reveal_build)
+        .separator()
+        .item(&close_project);
     // The native Edit menu: its predefined items deliver Cmd+X/C/V and
     // friends to the focused webview (the custom menu replaced the
     // Tauri default, which ships this submenu).
-    #[cfg(target_os = "macos")]
-    let edit_menu = SubmenuBuilder::new(handle, "Edit")
+    let edit_builder = SubmenuBuilder::new(handle, "Edit")
         .undo()
         .redo()
         .separator()
         .cut()
         .copy()
         .paste()
-        .separator()
         .select_all()
+        .separator()
+        .item(&find_in_file)
+        .item(&search)
+        .separator()
+        .item(&format)
+        .item(&add_comment);
+    let insert_menu = SubmenuBuilder::new(handle, "Insert")
+        .item(&insert_table)
+        .item(&wrap_figure)
+        .item(&insert_tikz)
+        .item(&insert_csv)
+        .separator()
+        .item(&insert_citation)
+        .item(&insert_reference)
+        .separator()
+        .item(&insert_footnote)
+        .item(&insert_display_math)
         .build()?;
-    let settings = MenuItem::with_id(handle, "settings", "Settings", true, Some("CmdOrCtrl+,"))?;
-    let shortcuts =
-        MenuItem::with_id(handle, "shortcuts", "Keyboard Shortcuts", true, Some("CmdOrCtrl+/"))?;
-    let palette = MenuItem::with_id(
-        handle,
-        "command_palette",
-        "Command Palette…",
-        true,
-        Some("CmdOrCtrl+P"),
-    )?;
-    let about = MenuItem::with_id(handle, "about", "About Polemic", true, Option::<&str>::None)?;
+    let view_menu = SubmenuBuilder::new(handle, "View")
+        .item(&face_visual)
+        .item(&face_code)
+        .separator()
+        .item(&toggle_sidebar)
+        .item(&toggle_preview)
+        .item(&toggle_right)
+        .item(&issues)
+        .item(&log)
+        .separator()
+        .item(&palette)
+        .separator()
+        .item(&zoom_reset)
+        .item(&zoom_in)
+        .item(&zoom_out)
+        .build()?;
+    let project_menu = SubmenuBuilder::new(handle, "Project")
+        .item(&packages)
+        .item(&document_settings)
+        .item(&sources)
+        .separator()
+        .item(&take_snapshot)
+        .item(&commit)
+        .build()?;
+    let help_builder = SubmenuBuilder::new(handle, "Help")
+        .item(&help)
+        .item(&shortcuts)
+        .separator()
+        .item(&report_issue);
 
     #[cfg(target_os = "macos")]
     let menu = {
         let app_menu = SubmenuBuilder::new(handle, "Polemic")
             .item(&about)
             .separator()
-            .item(&shortcuts)
-            .item(&palette)
             .item(&settings)
             .separator()
             .services()
+            .separator()
             .hide()
             .hide_others()
             .show_all()
             .separator()
             .quit()
             .build()?;
-        let file_menu = SubmenuBuilder::new(handle, "File")
-            .item(&new_project)
+        let window_menu = SubmenuBuilder::new(handle, "Window")
+            .minimize()
+            .maximize_with_text("Zoom")
             .separator()
-            .item(&save)
-            .item(&format)
-            .item(&export_pdf)
-            .item(&reveal_build)
-            .separator()
-            .quit()
+            .fullscreen()
             .build()?;
-        let view_menu = SubmenuBuilder::new(handle, "View")
-            .item(&mode_editor)
-            .item(&sources)
-            .separator()
-            .item(&toggle_sidebar)
-            .item(&toggle_preview)
-            .item(&toggle_right)
-            .separator()
-            .item(&search)
-            .item(&issues)
-            .item(&log)
-            .build()?;
-        let insert_menu = SubmenuBuilder::new(handle, "Insert")
-            .item(&insert_table)
-            .item(&wrap_figure)
-            .item(&insert_tikz)
-            .separator()
-            .item(&packages)
-            .build()?;
-        let menu_builder = MenuBuilder::new(handle)
-            .items(&[&app_menu, &file_menu, &insert_menu, &edit_menu, &view_menu]);
+        let file_menu = file_builder.build()?;
+        let edit_menu = edit_builder.build()?;
+        let help_menu = help_builder.build()?;
+        let menu_builder = MenuBuilder::new(handle).items(&[
+            &app_menu,
+            &file_menu,
+            &edit_menu,
+            &insert_menu,
+            &view_menu,
+            &project_menu,
+            &window_menu,
+            &help_menu,
+        ]);
         #[cfg(debug_assertions)]
         let menu_builder = menu_builder.item(&develop_menu);
         menu_builder.build()?
     };
 
+    // Windows and Linux have no app menu: Settings ends Edit, Exit ends
+    // File, and About ends Help.
     #[cfg(not(target_os = "macos"))]
     let menu = {
-        let file_menu = SubmenuBuilder::new(handle, "File")
-            .item(&new_project)
-            .separator()
-            .item(&save)
-            .item(&format)
-            .item(&insert_table)
-            .item(&wrap_figure)
-            .item(&insert_tikz)
-            .item(&packages)
-            .item(&export_pdf)
-            .item(&reveal_build)
-            .separator()
-            .item(&toggle_sidebar)
-            .item(&toggle_preview)
-            .item(&toggle_right)
-            .separator()
-            .item(&mode_editor)
-            .item(&sources)
-            .separator()
-            .item(&search)
-            .item(&issues)
-            .item(&log)
-            .separator()
-            .item(&settings)
-            .item(&shortcuts)
-            .item(&palette)
-            .item(&about)
-            .separator()
-            .quit()
-            .build()?;
-        let edit_menu = SubmenuBuilder::new(handle, "Edit")
-            .undo()
-            .redo()
-            .separator()
-            .cut()
-            .copy()
-            .paste()
-            .separator()
-            .select_all()
-            .build()?;
-        let menu_builder = MenuBuilder::new(handle)
-            .items(&[&file_menu, &edit_menu]);
+        let file_menu = file_builder.separator().quit_with_text("Exit").build()?;
+        let edit_menu = edit_builder.separator().item(&settings).build()?;
+        let help_menu = help_builder.separator().item(&about).build()?;
+        let menu_builder = MenuBuilder::new(handle).items(&[
+            &file_menu,
+            &edit_menu,
+            &insert_menu,
+            &view_menu,
+            &project_menu,
+            &help_menu,
+        ]);
         #[cfg(debug_assertions)]
         let menu_builder = menu_builder.item(&develop_menu);
         menu_builder.build()?
@@ -1780,11 +1852,9 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
 
     // Keep the menu so menu items can be enabled/disabled at runtime.
     // Start with project items disabled; the frontend enables them on open.
-    for id in PROJECT_MENU_ITEMS {
-        if let Some(tauri::menu::MenuItemKind::MenuItem(item)) =
-            find_menu_item(&menu, id)
-        {
-            let _ = item.set_enabled(false);
+    for id in PROJECT_MENU_ITEMS.iter().chain(PROJECT_MENU_ITEMS_MORE.iter()) {
+        if let Some(item) = find_menu_item(&menu, id) {
+            let _ = set_item_enabled(&item, false);
         }
     }
     if let Some(state) = handle.try_state::<MenuState>() {
@@ -1796,39 +1866,13 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     handle.on_menu_event(|app, event| {
         use tauri::Emitter;
         let id = event.id().as_ref();
-        let event_name = match id {
-            "new_project" => "menu://new-project",
-            "save" => "menu://save",
-            "format" => "menu://format",
-            "toggle_sidebar" => "menu://toggle-sidebar",
-            "toggle_preview" => "menu://toggle-preview",
-            "toggle_right" => "menu://toggle-right",
-            "search" => "menu://toggle-search",
-            "issues" => "menu://toggle-issues",
-            "log" => "menu://toggle-log",
-            "insert_table" => "menu://insert-table",
-            "wrap_figure" => "menu://wrap-figure",
-            "insert_tikz" => "menu://insert-tikz",
-            "packages" => "menu://packages",
-            "mode_editor" => "menu://mode-editor",
-            "sources" => "menu://sources",
-            "component_gallery" => "menu://component-gallery",
-            "export_pdf" => "menu://export-pdf",
-            "reveal_build" => "menu://reveal-build",
-            "settings" => "menu://settings",
-            "shortcuts" => "menu://shortcuts",
-            "command_palette" => "menu://palette",
-            "about" => "menu://about",
-            _ => {
-                // Context menu items (show_context_menu) carry a "ctx/"
-                // prefix; forward the selection to the frontend.
-                if let Some(action) = id.strip_prefix("ctx/") {
-                    let _ = app.emit("menu://context", action);
-                }
-                return;
-            }
-        };
-        let _ = app.emit(event_name, ());
+        if let Some((_, event_name)) = MENU_EVENTS.iter().find(|(item, _)| *item == id) {
+            let _ = app.emit(event_name, ());
+        } else if let Some(action) = id.strip_prefix("ctx/") {
+            // Context menu items (show_context_menu) carry a "ctx/"
+            // prefix; forward the selection to the frontend.
+            let _ = app.emit("menu://context", action);
+        }
     });
 
     Ok(())
@@ -1980,6 +2024,7 @@ pub fn run() {    tauri::Builder::default()
             install_spellcheck_language,
             set_spellcheck_language,
             set_project_menu_enabled,
+            set_menu_checked,
             set_panel_layout,
             set_preview_zoom,
             set_pinned_project,

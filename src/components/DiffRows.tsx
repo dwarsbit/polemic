@@ -7,7 +7,7 @@ export function DiffRows({ rows }: { rows: DiffRow[] }) {
     <div className="font-mono text-xs leading-5">
       {rows.map((row, index) =>
         row.kind === "gap" ? (
-          <p key={index} className="my-1 text-center text-[11px] text-muted-foreground">
+          <p key={index} className="my-1 text-center text-2xs text-muted-foreground">
             ⋯ {row.count} unchanged lines
           </p>
         ) : (
@@ -15,8 +15,7 @@ export function DiffRows({ rows }: { rows: DiffRow[] }) {
             key={index}
             className={cn(
               "flex gap-3 px-1",
-              row.line.type === "add" &&
-                "bg-emerald-600/10 text-emerald-700 dark:text-emerald-300",
+              row.line.type === "add" && "bg-success/10 text-success",
               row.line.type === "remove" && "bg-destructive/10",
             )}
           >

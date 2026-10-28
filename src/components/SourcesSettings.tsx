@@ -33,9 +33,9 @@ type ZoteroStatus = "checking" | "ok" | "error" | "off";
 function Dot({ state }: { state: ZoteroStatus }) {
   const color =
     state === "ok"
-      ? "bg-emerald-500"
+      ? "bg-success"
       : state === "error"
-        ? "bg-rose-500"
+        ? "bg-destructive"
         : state === "off"
           ? "bg-muted-foreground/40"
           : "bg-muted-foreground/60";

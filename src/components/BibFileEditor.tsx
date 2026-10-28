@@ -31,6 +31,7 @@ import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import { useUiStore } from "@/store/ui";
 import { cn } from "cn";
+import { formatShortcut } from "@/lib/platform";
 
 interface DialogState {
   kind: "edit" | "new";
@@ -247,7 +248,7 @@ export function BibFileEditor() {
           {missing.length > 0 && (
             <Badge
               variant="outline"
-              className="h-4.5 border-transparent bg-amber-500/10 px-1.5 text-[10px] text-amber-700 dark:text-amber-400"
+              className="h-4.5 border-transparent bg-warning/10 px-1.5 text-2xs text-warning"
               title={`Missing fields: ${missing.join(", ")}`}
             >
               incomplete
@@ -256,7 +257,7 @@ export function BibFileEditor() {
           {duplicateKeys.has(entry.key) && (
             <Badge
               variant="outline"
-              className="h-4.5 border-transparent bg-rose-500/10 px-1.5 text-[10px] text-rose-700 dark:text-rose-400"
+              className="h-4.5 border-transparent bg-destructive/10 px-1.5 text-2xs text-destructive"
               title="Another entry in this file uses the same key"
             >
               duplicate key
@@ -275,7 +276,7 @@ export function BibFileEditor() {
             <Button
               variant="ghost"
               size="sm"
-              className="h-5 px-1.5 text-[10px] text-destructive"
+              className="h-5 px-1.5 text-2xs text-destructive"
               title="Delete this entry"
               onClick={() => deleteEntry(entry.key)}
             >
@@ -314,7 +315,7 @@ export function BibFileEditor() {
         <div className="min-w-0 flex-1" />
         {mode === "visual" && (
           <span
-            className="shrink-0 text-[11px] tabular-nums text-muted-foreground"
+            className="shrink-0 text-2xs tabular-nums text-muted-foreground"
             title="The state of this file's references"
           >
             {parsed.entries.length === 1
@@ -323,23 +324,19 @@ export function BibFileEditor() {
             {incompleteCount > 0 && (
               <>
                 {" · "}
-                <span className="text-amber-600 dark:text-amber-400">
-                  {incompleteCount} incomplete
-                </span>
+                <span className="text-warning">{incompleteCount} incomplete</span>
               </>
             )}
             {duplicateKeys.size > 0 && (
               <>
                 {" · "}
-                <span className="text-rose-600 dark:text-rose-400">
-                  {duplicateKeys.size} duplicate
-                </span>
+                <span className="text-destructive">{duplicateKeys.size} duplicate</span>
               </>
             )}
           </span>
         )}
         {dirty && (
-          <span className="shrink-0 text-[11px] text-muted-foreground">
+          <span className="shrink-0 text-2xs text-muted-foreground">
             Unsaved changes
           </span>
         )}
@@ -348,7 +345,7 @@ export function BibFileEditor() {
           size="sm"
           className="shrink-0"
           disabled={!dirty}
-          title="Save (Cmd/Ctrl + S)"
+          title={`Save (${formatShortcut("Mod+S")})`}
           onClick={() => void saveNow()}
         >
           Save
@@ -439,7 +436,7 @@ export function BibFileEditor() {
                       >
                         {typeLabel(type)}
                       </span>
-                      <span className="mr-1 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+                      <span className="mr-1 shrink-0 text-2xs tabular-nums text-muted-foreground">
                         {typeEntries.length}
                       </span>
                     </div>

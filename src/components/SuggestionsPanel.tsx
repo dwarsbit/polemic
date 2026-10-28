@@ -256,7 +256,7 @@ export function SuggestionsPanel() {
         title={`Accept ${what}`}
         onClick={() => onResolve("accept")}
       >
-        <Check className="text-emerald-600 dark:text-emerald-400" />
+        <Check className="text-success" />
       </Button>
       <Button
         variant="ghost"
@@ -264,7 +264,7 @@ export function SuggestionsPanel() {
         title={`Reject ${what}`}
         onClick={() => onResolve("reject")}
       >
-        <X className="text-red-600 dark:text-red-400" />
+        <X className="text-destructive" />
       </Button>
     </>
   );
@@ -272,7 +272,7 @@ export function SuggestionsPanel() {
   if (rows.length === 0) {
     return (
       <div className="flex h-full flex-col">
-        <SectionHeader label="SUGGESTIONS" collapsed={false} />
+        <SectionHeader label="Suggestions" />
         <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center">
           <FileDiff className="size-5 text-muted-foreground" />
           <p className="text-xs text-muted-foreground">
@@ -298,8 +298,8 @@ export function SuggestionsPanel() {
     <div className="h-full overflow-y-auto">
       <div className="sticky top-0 z-10 bg-card">
         <SectionHeader
-          label="SUGGESTIONS"
-          collapsed={false}
+          label="Suggestions"
+          count={rows.length}
           actions={resolveButtons(
             (how) =>
               void resolveFiles(
@@ -392,7 +392,7 @@ export function SuggestionsPanel() {
                         )}
                       </button>
                     </div>
-                    <div className="mt-0.5 flex items-center pl-3.5 text-[10px] text-muted-foreground">
+                    <div className="mt-0.5 flex items-center pl-3.5 text-2xs text-muted-foreground">
                       <span className="min-w-0 flex-1 truncate">
                         {style?.name ?? row.change.author} ·{" "}
                         {KIND_LABEL[row.change.kind]}

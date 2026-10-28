@@ -117,7 +117,7 @@ function TableGridEditor({ request }: { request: TableGridRequest }) {
     rules.length > 0 && (
       <tr key={key} aria-hidden>
         <td colSpan={columns + 1} className="px-1 py-0.5">
-          <div className="flex items-center gap-2 text-[10px] text-muted-foreground">
+          <div className="flex items-center gap-2 text-2xs text-muted-foreground">
             <div className="h-px flex-1 bg-border" />
             {rules.map(ruleName).join(" · ")}
             <div className="h-px flex-1 bg-border" />

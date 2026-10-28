@@ -45,7 +45,7 @@ export function IncludeBreadcrumbs() {
   return (
     <nav
       aria-label="Include path"
-      className="flex h-6 shrink-0 items-center gap-0.5 overflow-hidden border-b px-2 text-[11px] text-muted-foreground"
+      className="flex h-6 shrink-0 items-center gap-0.5 overflow-hidden border-b px-2 text-2xs text-muted-foreground"
     >
       {chain === null ? (
         <span className="truncate" title={activeFile}>

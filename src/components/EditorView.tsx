@@ -30,6 +30,7 @@ import { StatusBar } from "@/components/StatusBar";
 import { TabsBar } from "@/components/TabsBar";
 import { EditorToolbar } from "@/components/EditorToolbar";
 import { VisualTexEditor } from "@/components/VisualTexEditor";
+import { setMenuCheckSource, syncMenuChecks } from "@/lib/menu-checks";
 import { setPanelCommandHandler } from "@/lib/panel-commands";
 import { setCommentDialogHandler, type CommentTarget } from "@/lib/editor-comments";
 import { useCommentsStore } from "@/store/comments";
@@ -87,6 +88,9 @@ export function EditorView() {
   const activeFileIsTex = activeFile !== null && activeFile.endsWith(".tex");
   const texEditorMode = useUiStore((s) => s.texEditorMode);
   const texVisual = activeFileIsTex && texEditorMode === "visual";
+  const bibEditorMode = useUiStore((s) => s.bibEditorMode);
+  /** The active file's face, or null for kinds without one. */
+  const face = activeFileIsTex ? texEditorMode : activeFileIsBib ? bibEditorMode : null;
 
   const rightTabs = [
     {
@@ -193,6 +197,10 @@ export function EditorView() {
     setPanelCommandHandler("show-bibliography", () =>
       selectNavigatorTab("bibliography"),
     );
+    setPanelCommandHandler("show-version-control", () => {
+      setRightTab("version-control");
+      if (!propertiesOpen) propertiesRef.current?.expand();
+    });
     return () => {
       setPanelCommandHandler("toggle-sidebar", null);
       setPanelCommandHandler("toggle-preview", null);
@@ -201,8 +209,30 @@ export function EditorView() {
       setPanelCommandHandler("toggle-issues", null);
       setPanelCommandHandler("toggle-log", null);
       setPanelCommandHandler("show-bibliography", null);
+      setPanelCommandHandler("show-version-control", null);
     };
   });
+
+  // Mirror what the window shows in the View menu's checkmarks.
+  useEffect(() => {
+    setMenuCheckSource(() => ({
+      face_visual: face === "visual",
+      face_code: face === "code",
+      toggle_sidebar: navigatorOpen,
+      toggle_preview: previewVisible,
+      toggle_right: propertiesOpen,
+      issues: issuesOpen && issuesTool === "issues",
+      log: issuesOpen && issuesTool === "log",
+    }));
+    syncMenuChecks();
+  });
+  useEffect(
+    () => () => {
+      setMenuCheckSource(null);
+      syncMenuChecks();
+    },
+    [],
+  );
 
   return (
     <div className="flex h-full min-h-0 flex-col">

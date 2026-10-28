@@ -26,12 +26,12 @@ function CommitRow({ commit }: { commit: GitCommit }) {
       title={`${new Date(commit.timestampMillis).toLocaleString()} — ${commit.hash}`}
     >
       <p className="flex items-baseline gap-1.5">
-        <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
+        <span className="shrink-0 font-mono text-2xs text-muted-foreground">
           {commit.hash.slice(0, 7)}
         </span>
         <span className="min-w-0 truncate text-xs font-medium">{commit.message}</span>
       </p>
-      <p className="text-[11px] text-muted-foreground">
+      <p className="text-2xs text-muted-foreground">
         {commit.author} · {timeAgo(commit.timestampMillis)}
       </p>
     </li>
@@ -52,8 +52,8 @@ export function HistoryPanel() {
   return (
     <div className="flex h-full flex-col">
       <SectionHeader
-        label="HISTORY"
-        collapsed={false}
+        label="History"
+
         actions={
           <Button
             variant="ghost"
@@ -68,7 +68,7 @@ export function HistoryPanel() {
           </Button>
         }
       />
-      <div className="flex-1 overflow-y-auto px-2 pb-2">
+      <div className="flex-1 overflow-y-auto p-1.5">
         {error && <p className="px-2 text-xs text-destructive">{String(error)}</p>}
         {!error && (log ?? []).length === 0 && (
           <p className="px-2 text-xs text-muted-foreground">No commits yet.</p>
