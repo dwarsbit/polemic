@@ -4,6 +4,8 @@
  * helpers are unit-tested; the handlers apply them to the live view.
  */
 
+import { freshLineInsert } from "./editor-insert";
+
 const INCLUDE_RE = /\\includegraphics(?:\[[^\]]*\])?\{([^}]*)\}/g;
 
 /** The \includegraphics command containing `pos`, or on its line. */
@@ -55,6 +57,28 @@ export function wrapIncludeFigure(include: string, path: string): string {
 /** A figure scaffold with a placeholder include, when nothing is found. */
 export function figureScaffold(): string {
   return wrapIncludeFigure("\\includegraphics[width=\\textwidth]{file}", "file");
+}
+
+/**
+ * The edit "Wrap in Figure" makes at `pos`: the \includegraphics there
+ * (or on its line) wrapped in a figure, else a scaffold at the cursor.
+ * The figure lands on its own lines, never mid-line.
+ */
+export function planWrapFigure(
+  doc: string,
+  pos: number,
+): { from: number; to: number; insert: string } {
+  const hit = findIncludeGraphics(doc, pos);
+  const from = hit ? hit.from : pos;
+  const to = hit ? hit.to : pos;
+  const figure = hit
+    ? wrapIncludeFigure(doc.slice(from, to), hit.path)
+    : figureScaffold();
+  const lineStart = doc.lastIndexOf("\n", from - 1) + 1;
+  const lineEnd = doc.indexOf("\n", to);
+  const before = doc.slice(lineStart, from);
+  const after = doc.slice(to, lineEnd === -1 ? doc.length : lineEnd);
+  return { from, to, insert: freshLineInsert(figure, before, after) };
 }
 
 const USEPACKAGE_RE = /\\usepackage(?:\[[^\]]*\])?\{([^}]*)\}/g;

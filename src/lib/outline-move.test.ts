@@ -17,8 +17,10 @@ import { applyEdits } from "@/lib/label-index";
 import { planMoveToFile } from "@/lib/outline-edit";
 import {
   applyCrossFileMove,
+  canRedoCrossFileMove,
   canUndoCrossFileMove,
   clearCrossFileMove,
+  redoCrossFileMove,
   undoCrossFileMove,
 } from "@/lib/outline-move";
 import { useEditorStore } from "@/store/editor";
@@ -95,5 +97,41 @@ describe("cross-file move", () => {
     await moveB();
     const edited = useEditorStore.getState().content + "x";
     expect(canUndoCrossFileMove("main.tex", Text.of(edited.split("\n")))).toBe(false);
+  });
+
+  it("redoes an undone move in both files, and undoes it again", async () => {
+    await moveB();
+    const moved = useEditorStore.getState().content;
+    const movedChapter = disk["chapter.tex"];
+    expect(await redoCrossFileMove()).toBe(false); // nothing undone yet
+    await undoCrossFileMove();
+
+    expect(canRedoCrossFileMove("main.tex", Text.of(main.split("\n")))).toBe(true);
+    expect(await redoCrossFileMove()).toBe(true);
+    expect(useEditorStore.getState().content).toBe(moved);
+    expect(disk["chapter.tex"]).toBe(movedChapter);
+    expect(history).toEqual([false, false, false]);
+    expect(await redoCrossFileMove()).toBe(false);
+
+    expect(await undoCrossFileMove()).toBe(true);
+    expect(useEditorStore.getState().content).toBe(main);
+    expect(disk["chapter.tex"]).toBe(chapter);
+  });
+
+  it("does not redo when a file changed after the undo", async () => {
+    await moveB();
+    await undoCrossFileMove();
+    disk["chapter.tex"] += "more\n";
+    expect(await redoCrossFileMove()).toBe(false);
+    expect(useEditorStore.getState().content).toBe(main);
+    const edited = main + "x";
+    expect(canRedoCrossFileMove("main.tex", Text.of(edited.split("\n")))).toBe(false);
+  });
+
+  it("forgets the undone move once another move is recorded", async () => {
+    await moveB();
+    await undoCrossFileMove();
+    await moveB();
+    expect(await redoCrossFileMove()).toBe(false);
   });
 });

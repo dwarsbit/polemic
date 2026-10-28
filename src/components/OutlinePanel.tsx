@@ -26,8 +26,11 @@ import {
   applyFileEdits,
   currentText,
   hasCrossFileMove,
+  hasUndoneCrossFileMove,
+  redoCrossFileMove,
   undoCrossFileMove,
 } from "@/lib/outline-move";
+import { runEditorHistory } from "@/lib/editor-edits";
 import { readProjectFile } from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
@@ -171,10 +174,11 @@ export function OutlinePanel() {
   const [dropTarget, setDropTarget] = useState<DropTarget | null>(null);
   // When a pointer drag last ended (suppresses the trailing click).
   const dragEndedAt = useRef(0);
-  // After a move into another file: what happened, and whether Undo applies.
+  // After a move into another file: what happened, and whether Undo
+  // (or, once undone, Redo) applies.
   const [moveStatus, setMoveStatus] = useState<{
     text: string;
-    undoable: boolean;
+    action: "undo" | "redo" | null;
   } | null>(null);
   // Bumped after a structure edit to files other than the active one,
   // which the content-driven refresh would not notice.
@@ -182,6 +186,7 @@ export function OutlinePanel() {
   // The section to refocus once the outline reflects a keyboard edit.
   const refocus = useRef<{ file: string; title: string } | null>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   // Per-session expansion state: nodes start expanded, so only the
   // collapsed keys are tracked.
@@ -299,7 +304,9 @@ export function OutlinePanel() {
       texPathsOf(files),
     ).then((result) => {
       setEditTick((tick) => tick + 1);
-      if (result !== null) setMoveStatus({ text: result.text, undoable: result.moved });
+      if (result !== null) {
+        setMoveStatus({ text: result.text, action: result.moved ? "undo" : null });
+      }
     });
   }
 
@@ -412,21 +419,61 @@ export function OutlinePanel() {
     window.addEventListener("keydown", onKeyDown);
   }
 
-  function undoMove() {
-    // Already undone (Ctrl+Z in the editor): nothing left to do.
-    if (!hasCrossFileMove()) {
+  /** Undo or redo the recorded cross-file move; false when there is
+   *  none or a file changed since (the status line then says so). */
+  async function stepMove(direction: "undo" | "redo"): Promise<boolean> {
+    const pending =
+      direction === "undo" ? hasCrossFileMove() : hasUndoneCrossFileMove();
+    // Already stepped (Ctrl+Z in the editor): nothing left to do.
+    if (!pending) {
       setMoveStatus(null);
-      return;
+      return false;
     }
-    void undoCrossFileMove().then((undone) => {
-      setEditTick((tick) => tick + 1);
-      setMoveStatus(
-        undone
-          ? null
-          : { text: "Cannot undo: one of the files changed since.", undoable: false },
-      );
-    });
+    const done = await (direction === "undo"
+      ? undoCrossFileMove()
+      : redoCrossFileMove());
+    setEditTick((tick) => tick + 1);
+    setMoveStatus(
+      done
+        ? direction === "undo"
+          ? { text: "Move undone.", action: "redo" }
+          : { text: "Move redone.", action: "undo" }
+        : {
+            text: `Cannot ${direction}: one of the files changed since.`,
+            action: null,
+          },
+    );
+    return done;
   }
+
+  // Ctrl+Z / Ctrl+Shift+Z right after a panel edit, while focus is in
+  // the panel (or nowhere: WebKit does not focus clicked buttons). A
+  // cross-file move steps first; anything else is in the editor's own
+  // history.
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (!(event.metaKey || event.ctrlKey) || event.altKey) return;
+      const key = event.key.toLowerCase();
+      const direction =
+        key === "z" ? (event.shiftKey ? "redo" : "undo") : key === "y" ? "redo" : null;
+      if (direction === null) return;
+      const target = event.target as globalThis.Node | null;
+      const inPanel = target !== null && rootRef.current?.contains(target) === true;
+      if (!inPanel && target !== document.body && target !== null) return;
+      event.preventDefault();
+      void (async () => {
+        const pending =
+          direction === "undo" ? hasCrossFileMove() : hasUndoneCrossFileMove();
+        if (pending && (await stepMove(direction))) return;
+        if (runEditorHistory(direction)) {
+          setEditTick((tick) => tick + 1);
+          setMoveStatus(null);
+        }
+      })();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  });
 
   function structureActions(file: string, entry: OutlineEntry) {
     return {
@@ -544,18 +591,20 @@ export function OutlinePanel() {
   }
 
   return (
-    <div className="flex h-full flex-col">
+    <div ref={rootRef} className="flex h-full flex-col">
       <SectionHeader label="OUTLINE" collapsed={false} />
       {moveStatus !== null && (
         <div className="mx-2 mb-1 flex items-start gap-2 rounded-md bg-muted px-2 py-1.5 text-xs text-muted-foreground">
           <span className="min-w-0 flex-1">{moveStatus.text}</span>
-          {moveStatus.undoable && (
+          {moveStatus.action !== null && (
             <button
               type="button"
               className="shrink-0 font-medium text-foreground hover:underline"
-              onClick={undoMove}
+              onClick={() => {
+                if (moveStatus.action !== null) void stepMove(moveStatus.action);
+              }}
             >
-              Undo
+              {moveStatus.action === "undo" ? "Undo" : "Redo"}
             </button>
           )}
           <button

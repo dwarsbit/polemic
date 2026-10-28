@@ -13,7 +13,8 @@ import { useProjectStore } from "@/store/project";
  * single editor history can take back, so it stays out of the
  * editor's history and is recorded here instead: Ctrl+Z (or Undo in
  * the outline) restores both files while they are as the move left
- * them.
+ * them, and Ctrl+Shift+Z (or Redo) moves the section again while they
+ * are as the undo left them.
  */
 
 /** The freshest text of a file: live editor, unsaved buffer, or disk. */
@@ -63,16 +64,25 @@ export interface FileChange {
   after: string;
 }
 
-let lastMove: { projectPath: string; changes: FileChange[] } | null = null;
+interface RecordedMove {
+  projectPath: string;
+  changes: FileChange[];
+}
+
+/** The move Ctrl+Z takes back, and the undone one Ctrl+Shift+Z redoes. */
+let lastMove: RecordedMove | null = null;
+let undoneMove: RecordedMove | null = null;
 
 /** Remember a cross-file move for undo; replaces any earlier one. */
 export function recordCrossFileMove(projectPath: string, changes: FileChange[]): void {
   lastMove = { projectPath, changes };
+  undoneMove = null;
 }
 
 /** Forget the recorded move (e.g. after another structure edit). */
 export function clearCrossFileMove(): void {
   lastMove = null;
+  undoneMove = null;
 }
 
 /** Whether a move is recorded (not yet undone or replaced). */
@@ -80,15 +90,35 @@ export function hasCrossFileMove(): boolean {
   return lastMove !== null;
 }
 
+/** Whether an undone move is recorded (not yet redone or replaced). */
+export function hasUndoneCrossFileMove(): boolean {
+  return undoneMove !== null;
+}
+
+function fileIs(
+  move: RecordedMove | null,
+  side: "before" | "after",
+  file: string,
+  doc: Text,
+) {
+  const change = move?.changes.find((c) => c.file === file);
+  return (
+    change !== undefined &&
+    doc.length === change[side].length &&
+    doc.toString() === change[side]
+  );
+}
+
 /** Whether Ctrl+Z in `file` should undo the recorded move: the file
  *  takes part in it and is exactly as the move left it. */
 export function canUndoCrossFileMove(file: string, doc: Text): boolean {
-  const change = lastMove?.changes.find((c) => c.file === file);
-  return (
-    change !== undefined &&
-    doc.length === change.after.length &&
-    doc.toString() === change.after
-  );
+  return fileIs(lastMove, "after", file, doc);
+}
+
+/** Whether Ctrl+Shift+Z in `file` should redo the undone move: the
+ *  file takes part in it and is exactly as the undo left it. */
+export function canRedoCrossFileMove(file: string, doc: Text): boolean {
+  return fileIs(undoneMove, "before", file, doc);
 }
 
 /** The single edit turning `from` into `to` (common ends kept). */
@@ -111,19 +141,24 @@ function diffEdit(from: string, to: string): SourceEdit {
 }
 
 /**
- * Undo the recorded move in both files. Nothing happens (false) when
- * either file changed since, so a half undo never loses the section.
+ * Turn both files of a move from one side to the other. Nothing
+ * happens (false) when either file changed since, so a half undo or
+ * redo never loses the section.
  */
-export async function undoCrossFileMove(): Promise<boolean> {
-  const move = lastMove;
+async function restoreMove(
+  move: RecordedMove,
+  from: "before" | "after",
+  to: "before" | "after",
+  /** Takes the move off its slot; false when it is gone meanwhile. */
+  claim: () => boolean,
+): Promise<boolean> {
   const project = useProjectStore.getState().project;
-  if (move === null || project?.path !== move.projectPath) return false;
+  if (project?.path !== move.projectPath) return false;
   const texts = await Promise.all(
     move.changes.map((change) => currentText(move.projectPath, change.file)),
   );
-  if (move.changes.some((change, i) => texts[i] !== change.after)) return false;
-  if (lastMove !== move) return false;
-  lastMove = null;
+  if (move.changes.some((change, i) => texts[i] !== change[from])) return false;
+  if (!claim()) return false;
   // The active file first: if its editor is gone, leave both alone.
   const { activeFile } = useProjectStore.getState();
   const ordered = [...move.changes].sort(
@@ -133,13 +168,39 @@ export async function undoCrossFileMove(): Promise<boolean> {
     const ok = await applyFileEdits(
       move.projectPath,
       change.file,
-      change.after,
-      [diffEdit(change.after, change.before)],
+      change[from],
+      [diffEdit(change[from], change[to])],
       { addToHistory: false },
     );
     if (!ok) return false;
   }
   return true;
+}
+
+/** Undo the recorded move in both files; it can then be redone. */
+export async function undoCrossFileMove(): Promise<boolean> {
+  const move = lastMove;
+  if (move === null) return false;
+  const done = await restoreMove(move, "after", "before", () => {
+    if (lastMove !== move) return false;
+    lastMove = null;
+    return true;
+  });
+  if (done) undoneMove = move;
+  return done;
+}
+
+/** Redo the undone move in both files; it can then be undone again. */
+export async function redoCrossFileMove(): Promise<boolean> {
+  const move = undoneMove;
+  if (move === null) return false;
+  const done = await restoreMove(move, "before", "after", () => {
+    if (undoneMove !== move) return false;
+    undoneMove = null;
+    return true;
+  });
+  if (done) lastMove = move;
+  return done;
 }
 
 /**
