@@ -6,6 +6,7 @@
  * this, sharing `splitPreamble` / `preambleText` with the parser.
  */
 
+import { applyEdits, showSuggestionsInPdf, suggestionsShownInPdf } from "./changes";
 import { splitPreamble } from "./visual/parse";
 import { preambleText } from "./visual/serialize";
 import type { PreambleAttrs } from "./visual/doc-types";
@@ -36,6 +37,9 @@ export interface DocumentSettings {
   date: string;
   /** How many \usepackage lines the preamble declares. */
   packageCount: number;
+  /** Track changes: the PDF shows the suggestions (no `final` option of
+   *  `changes`); null when the document doesn't load the package. */
+  suggestionsInPdf: boolean | null;
 }
 
 /** The options list of a `\documentclass[...]{...}` source line. */
@@ -86,6 +90,7 @@ export function readDocumentSettings(content: string): DocumentSettings | null {
       attrs.packagesSrc === null
         ? 0
         : attrs.packagesSrc.split("\n").filter((line) => line.trim().length > 0).length,
+    suggestionsInPdf: suggestionsShownInPdf(content),
   };
 }
 
@@ -115,5 +120,7 @@ export function applyDocumentSettings(
   attrs.dateSrc = next.date.trim().length > 0 ? `\\date{${next.date}}` : null;
 
   const rest = content.slice(beginIdx);
-  return preambleText(attrs) + rest;
+  const out = preambleText(attrs) + rest;
+  if (next.suggestionsInPdf === null) return out;
+  return applyEdits(out, showSuggestionsInPdf(out, next.suggestionsInPdf));
 }

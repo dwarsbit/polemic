@@ -14,6 +14,7 @@ import {
   replaceIncludeSpec,
   replaceIncludeSpecPrefix,
 } from "@/lib/doc-structure";
+import { finalText } from "@/lib/changes";
 import { extractLabels } from "@/lib/outline";
 import { extractRefPositions } from "@/lib/label-refs";
 import { formatDocument } from "@/lib/editor-format";
@@ -238,10 +239,13 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       set((state) => ({ buffers: { ...state.buffers, [path]: content } })),
     refreshDocMeta: (path, content) =>
       set({
-        labelsByFile: { ...get().labelsByFile, [path]: extractLabels(content) },
+        labelsByFile: {
+          ...get().labelsByFile,
+          [path]: extractLabels(finalText(content).text),
+        },
         refsByFile: {
           ...get().refsByFile,
-          [path]: extractRefPositions(content).map((ref) => ref.name),
+          [path]: extractRefPositions(finalText(content).text).map((ref) => ref.name),
         },
         citeKeysByFile: {
           ...get().citeKeysByFile,
@@ -337,8 +341,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         for (const texPath of collectPaths(files, ".tex")) {
           try {
             const content = await api.readProjectFile(info.path, texPath);
-            labelsByFile[texPath] = extractLabels(content);
-            refsByFile[texPath] = extractRefPositions(content).map((ref) => ref.name);
+            labelsByFile[texPath] = extractLabels(finalText(content).text);
+            refsByFile[texPath] = extractRefPositions(finalText(content).text).map(
+              (ref) => ref.name,
+            );
             graphicsPathsByFile[texPath] = extractGraphicsPaths(content);
             biblatexByFile[texPath] = loadsBiblatex(content);
             natbibByFile[texPath] = loadsNatbib(content);
@@ -411,10 +417,13 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         activeFile: path,
         lastSavedContent: onDisk,
         openFiles: nextOpen,
-        labelsByFile: { ...get().labelsByFile, [path]: extractLabels(content) },
+        labelsByFile: {
+          ...get().labelsByFile,
+          [path]: extractLabels(finalText(content).text),
+        },
         refsByFile: {
           ...get().refsByFile,
-          [path]: extractRefPositions(content).map((ref) => ref.name),
+          [path]: extractRefPositions(finalText(content).text).map((ref) => ref.name),
         },
         citeKeysByFile: { ...get().citeKeysByFile, [path]: extractCiteKeys(content) },
         graphicsPathsByFile: {
@@ -637,10 +646,15 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         lastSavedContent:
           get().activeFile === activeFile ? content : get().lastSavedContent,
         buffers: withoutWritten(get().buffers, { [activeFile]: content }),
-        labelsByFile: { ...get().labelsByFile, [activeFile]: extractLabels(content) },
+        labelsByFile: {
+          ...get().labelsByFile,
+          [activeFile]: extractLabels(finalText(content).text),
+        },
         refsByFile: {
           ...get().refsByFile,
-          [activeFile]: extractRefPositions(content).map((ref) => ref.name),
+          [activeFile]: extractRefPositions(finalText(content).text).map(
+            (ref) => ref.name,
+          ),
         },
         citeKeysByFile: {
           ...get().citeKeysByFile,

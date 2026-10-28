@@ -1,3 +1,5 @@
+import { finalText } from "@/lib/changes";
+
 export interface OutlineEntry {
   /** -2 part, -1 chapter, 0 section, 1 subsection, 2 subsubsection. */
   level: number;
@@ -35,7 +37,9 @@ export function parseOutline(source: string): OutlineEntry[] {
     if (match) {
       const command = match[1];
       const level = SECTION_COMMANDS.indexOf(command as never) + LEVEL_OFFSET;
-      entries.push({ level, title: match[2], line: index + 1, command });
+      // The title as it reads with every suggestion accepted.
+      const title = match[2].includes("\\") ? finalText(match[2]).text : match[2];
+      entries.push({ level, title, line: index + 1, command });
     }
   });
   return entries;

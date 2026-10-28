@@ -53,6 +53,7 @@ describe("applyDocumentSettings", () => {
     title: "New Title",
     author: "B.~Writer",
     date: "2026-10-02",
+    suggestionsInPdf: null,
   };
 
   it("rebuilds the documentclass line and metadata, keeping the rest", () => {
@@ -99,5 +100,22 @@ describe("applyDocumentSettings", () => {
     const once = applyDocumentSettings(MAIN, base);
     const twice = applyDocumentSettings(once!, base);
     expect(twice).toBe(once);
+  });
+});
+
+describe("Show suggestions in the PDF", () => {
+  const TRACKED =
+    "\\documentclass{article}\n\\usepackage{changes}\n\\begin{document}\nHi\n\\end{document}\n";
+
+  it("reads and toggles the final option of changes", () => {
+    const settings = readDocumentSettings(TRACKED)!;
+    expect(settings.suggestionsInPdf).toBe(true);
+    const hidden = applyDocumentSettings(TRACKED, { ...settings, suggestionsInPdf: false })!;
+    expect(hidden).toContain("\\usepackage[final]{changes}");
+    expect(readDocumentSettings(hidden)!.suggestionsInPdf).toBe(false);
+  });
+
+  it("is absent without the package", () => {
+    expect(readDocumentSettings(MAIN)!.suggestionsInPdf).toBeNull();
   });
 });

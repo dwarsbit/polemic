@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { ask } from "@tauri-apps/plugin-dialog";
 import { Check, FileDiff, X } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -16,8 +16,10 @@ import {
   type ChangeFilter,
 } from "@/lib/changes";
 import { authorStyles } from "@/lib/changes-view";
-import { currentText, texPaths, writeFileEdits } from "@/lib/project-texts";
-import { readProjectFile, type FileEntry } from "@/lib/tauri";
+import { useProjectTexts } from "@/hooks/useProjectTexts";
+import { noteKey } from "@/lib/suggestion-notes";
+import { useCommentsStore } from "@/store/comments";
+import { currentText, writeFileEdits } from "@/lib/project-texts";
 import { flushPendingSerialize } from "@/lib/visual/pending-serialize";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
@@ -61,64 +63,14 @@ const pluralize = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"
  * and for all shown (optionally one author's).
  */
 export function SuggestionsPanel() {
-  const project = useProjectStore((s) => s.project);
-  const files = useProjectStore((s) => s.files);
   const activeFile = useProjectStore((s) => s.activeFile);
   const mainFile = useProjectStore((s) => s.mainFile);
-  const buffers = useProjectStore((s) => s.buffers);
-  const content = useEditorStore((s) => s.content);
-
-  const [texts, setTexts] = useState<Map<string, string> | null>(null);
-  // Bumped after files were written on disk, to read them again.
-  const [diskTick, setDiskTick] = useState(0);
+  const { texts, reload } = useProjectTexts();
   // undefined: every author; null: suggestions without an author id.
   const [authorFilter, setAuthorFilter] = useState<string | null | undefined>(
     undefined,
   );
   const [message, setMessage] = useState<string | null>(null);
-
-  // Disk reads are cached per file tree; the active file and open
-  // buffers always come from memory.
-  const diskCache = useRef<{
-    files: FileEntry[];
-    tick: number;
-    texts: Map<string, string>;
-  }>({ files: [], tick: 0, texts: new Map() });
-
-  useEffect(() => {
-    if (!project) return;
-    let cancelled = false;
-    const timer = setTimeout(() => {
-      void (async () => {
-        const cache = diskCache.current;
-        if (cache.files !== files || cache.tick !== diskTick) {
-          cache.files = files;
-          cache.tick = diskTick;
-          cache.texts.clear();
-        }
-        const found = new Map<string, string>();
-        for (const path of texPaths(files)) {
-          let text: string | undefined;
-          if (path === activeFile) text = content;
-          else if (buffers[path] !== undefined) text = buffers[path];
-          else {
-            text = cache.texts.get(path);
-            if (text === undefined) {
-              text =
-                (await readProjectFile(project.path, path).catch(() => null)) ?? "";
-              cache.texts.set(path, text);
-            }
-          }
-          found.set(path, text);
-        }
-        if (!cancelled) setTexts(found);
-      })();
-    }, 250);
-    return () => {
-      cancelled = true;
-      clearTimeout(timer);
-    };
-  }, [project, files, activeFile, content, buffers, diskTick]);
 
   const rows = useMemo(() => {
     const out: Row[] = [];
@@ -197,7 +149,7 @@ export function SuggestionsPanel() {
       isolate: true,
     });
     if (changed && file !== useProjectStore.getState().activeFile) {
-      setDiskTick((tick) => tick + 1);
+      reload();
     }
     return changed;
   }
@@ -217,12 +169,17 @@ export function SuggestionsPanel() {
       text,
       row.change.range,
     );
-    await write(
+    const changed = await write(
       row.file,
       text,
       edits,
       how === "accept" ? "input.acceptChange" : "input.rejectChange",
     );
+    if (changed && row.change.note !== null) {
+      void useCommentsStore
+        .getState()
+        .resolveReplies(row.file, [noteKey(row.change.author, row.change.note)]);
+    }
   }
 
   async function resolveFiles(targets: string[], how: "accept" | "reject") {
@@ -248,7 +205,19 @@ export function SuggestionsPanel() {
       if (text === null) continue;
       const edits = (how === "accept" ? acceptAll : rejectAll)(text, filter);
       const userEvent = how === "accept" ? "input.acceptChange" : "input.rejectChange";
-      if (await write(file, text, edits, userEvent)) done++;
+      // Notes go with their suggestions; their replies are resolved.
+      const keys = parseChanges(text)
+        .filter(
+          (c) =>
+            c.note !== null &&
+            c.kind !== "highlight" &&
+            (filter.author === undefined || c.author === filter.author),
+        )
+        .map((c) => noteKey(c.author, c.note!));
+      if (await write(file, text, edits, userEvent)) {
+        done++;
+        void useCommentsStore.getState().resolveReplies(file, keys);
+      }
     }
     if (done > 1) {
       flash(

@@ -90,3 +90,17 @@ describe("extractWordRanges", () => {
     ]);
   });
 });
+
+describe("track changes", () => {
+  it("reads the final text: insertions in, deletions and markup out", () => {
+    const source =
+      "The \\replaced[id=LG]{results}{reslts} \\added[id=AN]{clearly} show \\deleted{teh} it.";
+    expect(texts(source)).toEqual(["The results clearly show it."]);
+  });
+
+  it("maps every character back to the source", () => {
+    const source = "A \\added[id=LG]{nwe} word.";
+    const words = extractWordRanges(source).map((w) => source.slice(w.from, w.to));
+    expect(words).toEqual(["A", "nwe", "word"]);
+  });
+});

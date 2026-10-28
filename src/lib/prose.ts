@@ -8,6 +8,8 @@
  * and every character remembers the source range it came from.
  */
 
+import { finalText } from "@/lib/changes";
+
 export interface ProseBlock {
   /** The readable text. */
   text: string;
@@ -225,8 +227,24 @@ function skipsArg(command: string, arg: number): boolean {
   return SKIP_FIRST_ARG.has(command) && arg === 0;
 }
 
-/** Split a LaTeX source into prose blocks (see the module comment). */
+/**
+ * Split a LaTeX source into prose blocks (see the module comment). With
+ * track changes, the final text is read: suggested deletions are not
+ * prose, suggested insertions are; ranges point into the source.
+ */
 export function extractProse(source: string): ProseBlock[] {
+  if (!MARKUP_RE.test(source)) return extractRawProse(source);
+  const { text, map } = finalText(source);
+  return extractRawProse(text).map((block) => ({
+    ...block,
+    starts: block.starts.map((at) => map.toSource(at)),
+    ends: block.ends.map((at) => map.toSource(at - 1) + 1),
+  }));
+}
+
+const MARKUP_RE = /\\(?:added|deleted|replaced|highlight)(?![a-zA-Z])/;
+
+function extractRawProse(source: string): ProseBlock[] {
   const beginDoc = source.indexOf("\\begin{document}");
   const start = beginDoc === -1 ? 0 : beginDoc + "\\begin{document}".length;
   // LaTeX ignores everything after \end{document}; so does the check.
