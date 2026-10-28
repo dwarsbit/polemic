@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FolderOpen, Pencil, Pin, PinOff, Plus, Trash2 } from "lucide-react";
+import { FolderOpen, GitBranch, Pencil, Pin, PinOff, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -15,8 +15,10 @@ import {
   createProject,
   deleteProject,
   getSettings,
+  gitCloneProject,
   listTemplates,
   openProjectDialog,
+  projectNameFromRemote,
   renameProject,
   setPinnedProject,
   texPackageInfo,
@@ -30,7 +32,8 @@ import { useProjectStore } from "@/store/project";
 type ActionDialog =
   | { kind: "none" }
   | { kind: "rename"; path: string; name: string }
-  | { kind: "delete"; path: string; name: string };
+  | { kind: "delete"; path: string; name: string }
+  | { kind: "clone" };
 
 export function ProjectsView() {
   const [settings, setSettings] = useState<Settings | null>(null);
@@ -39,6 +42,9 @@ export function ProjectsView() {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [action, setAction] = useState<ActionDialog>({ kind: "none" });
+  const [cloneUrl, setCloneUrl] = useState("");
+  // The clone's project name: taken from the URL until the user types one.
+  const [cloneName, setCloneName] = useState<string | null>(null);
   const [templates, setTemplates] = useState<TemplateInfo[]>([]);
   const [templateId, setTemplateId] = useState("article");
   // Packages the chosen template needs but the TeX distribution lacks.
@@ -127,6 +133,9 @@ export function ProjectsView() {
       })
     : [];
 
+  const effectiveCloneName = cloneName ?? projectNameFromRemote(cloneUrl);
+  const canClone = cloneUrl.trim() !== "" && effectiveCloneName.trim() !== "" && !busy;
+
   async function confirmAction() {
     setError(null);
     try {
@@ -135,6 +144,16 @@ export function ProjectsView() {
         await refresh();
       } else if (action.kind === "delete") {
         setSettings(await deleteProject(action.path));
+      } else if (action.kind === "clone") {
+        setBusy(true);
+        try {
+          const info = await gitCloneProject(cloneUrl, effectiveCloneName);
+          setAction({ kind: "none" });
+          await openProject(info.path);
+        } finally {
+          setBusy(false);
+        }
+        return;
       }
       setAction({ kind: "none" });
     } catch (e) {
@@ -207,14 +226,28 @@ export function ProjectsView() {
           </div>
         )}
         <Separator className="mt-3" />
-        <div className="mt-3">
+        <div className="mt-3 flex gap-2">
           <Button
             variant="outline"
-            className="w-full"
+            className="flex-1"
             onClick={() => void handleOpenFolder()}
           >
             <FolderOpen />
             Open folder…
+          </Button>
+          <Button
+            variant="outline"
+            className="flex-1"
+            title="Clone a git repository into a new project"
+            onClick={() => {
+              setError(null);
+              setCloneUrl("");
+              setCloneName(null);
+              setAction({ kind: "clone" });
+            }}
+          >
+            <GitBranch />
+            Clone repository…
           </Button>
         </div>
         {error && <p className="mt-2 text-xs text-destructive">{error}</p>}
@@ -296,7 +329,11 @@ export function ProjectsView() {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>
-              {action.kind === "rename" ? "Rename project" : "Delete project"}
+              {action.kind === "rename"
+                ? "Rename project"
+                : action.kind === "clone"
+                  ? "Clone repository"
+                  : "Delete project"}
             </DialogTitle>
           </DialogHeader>
           {action.kind === "rename" ? (
@@ -313,6 +350,30 @@ export function ProjectsView() {
               Move <span className="font-medium">{action.name}</span> to the trash? You
               can restore it from there until you empty the trash.
             </p>
+          ) : action.kind === "clone" ? (
+            <div className="flex flex-col gap-2">
+              <Input
+                autoFocus
+                placeholder="https://github.com/you/paper.git"
+                value={cloneUrl}
+                onChange={(e) => setCloneUrl(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && canClone) void confirmAction();
+                }}
+              />
+              <Input
+                placeholder="Project name"
+                value={effectiveCloneName}
+                onChange={(e) => setCloneName(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && canClone) void confirmAction();
+                }}
+              />
+              <p className="text-xs text-muted-foreground">
+                The repository is cloned into your projects folder. A private repository
+                needs a git account in Settings, or an SSH key.
+              </p>
+            </div>
           ) : null}
           {error && <p className="text-xs text-destructive">{error}</p>}
           <DialogFooter>
@@ -321,10 +382,19 @@ export function ProjectsView() {
             </Button>
             <Button
               variant={action.kind === "delete" ? "destructive" : "default"}
-              disabled={action.kind === "rename" && newName.trim() === ""}
+              disabled={
+                (action.kind === "rename" && newName.trim() === "") ||
+                (action.kind === "clone" && !canClone)
+              }
               onClick={() => void confirmAction()}
             >
-              {action.kind === "delete" ? "Move to trash" : "Rename"}
+              {action.kind === "delete"
+                ? "Move to trash"
+                : action.kind === "clone"
+                  ? busy
+                    ? "Cloning…"
+                    : "Clone"
+                  : "Rename"}
             </Button>
           </DialogFooter>
         </DialogContent>

@@ -1,19 +1,37 @@
 import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Check, FileDiff, GitBranch, Minus, Plus, RefreshCcw } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUp,
+  Check,
+  FileDiff,
+  GitBranch,
+  Minus,
+  Plus,
+  RefreshCcw,
+  Undo2,
+} from "lucide-react";
 import { GitDiffDialog } from "@/components/GitDiffDialog";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
+  gitAbortMerge,
   gitCommit,
+  gitFetch,
   gitInit,
+  gitPull,
+  gitPush,
+  gitSetRemote,
   gitStage,
   gitStatus,
   gitUnstage,
   type GitEntry,
+  type GitStatus,
 } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
+
+const MERGE_MESSAGE = "Merge remote changes";
 
 function codeLabel(code: string): string {
   switch (code) {
@@ -46,11 +64,42 @@ function entryColor(entry: GitEntry): string {
   return "text-info";
 }
 
+/** The remote as the panel names it: host and path, no scheme or .git. */
+export function remoteLabel(url: string): string {
+  return url
+    .replace(/^[a-z+]+:\/\//i, "")
+    .replace(/^[^@/]+@/, "")
+    .replace(/\.git$/, "");
+}
+
+/** What a pull, push or fetch reports in the panel. */
+export function syncNotice(
+  kind: "fetched" | "pushed" | "upToDate" | "updated" | "conflicts",
+  count = 0,
+): string {
+  switch (kind) {
+    case "fetched":
+      return "Fetched.";
+    case "pushed":
+      return "Pushed.";
+    case "upToDate":
+      return "Already up to date.";
+    case "updated":
+      return "Updated from the remote.";
+    case "conflicts":
+      return `Both sides changed ${count === 1 ? "one file" : `${count} files`}: fix the marked lines, mark each file resolved, then commit.`;
+  }
+}
+
 export function GitPanel() {
   const project = useProjectStore((s) => s.project);
+  const openFile = useProjectStore((s) => s.openFile);
+  const syncFromDisk = useProjectStore((s) => s.syncFromDisk);
   const queryClient = useQueryClient();
   const [message, setMessage] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
+  const [busy, setBusy] = useState<"fetch" | "pull" | "push" | null>(null);
   const [diffTarget, setDiffTarget] = useState<string | null>(null);
 
   const { data: status } = useQuery({
@@ -71,11 +120,26 @@ export function GitPanel() {
 
   async function run(action: () => Promise<unknown>) {
     setError(null);
+    setNotice(null);
     try {
       await action();
       await refresh();
     } catch (e) {
       setError(String(e));
+    }
+  }
+
+  /** A remote operation: the buttons wait, the files refresh after. */
+  async function sync(kind: NonNullable<typeof busy>, action: () => Promise<string>) {
+    setBusy(kind);
+    try {
+      await run(async () => {
+        setNotice(await action());
+      });
+    } finally {
+      setBusy(null);
+      // A pull changes files on disk; the editor picks them up.
+      if (kind === "pull") await syncFromDisk();
     }
   }
 
@@ -87,13 +151,27 @@ export function GitPanel() {
   const unstaged = (status?.entries ?? []).filter(
     (entry) => entry.x === "?" || entry.y !== " ",
   );
+  const conflicts = status?.conflicts ?? [];
+  const merging = status?.merging ?? false;
   const hasStaged = staged.length > 0;
+  // A merge commits once every conflict is marked resolved; its message
+  // has a default.
+  const canCommit =
+    conflicts.length === 0 && (merging ? true : hasStaged && message.trim() !== "");
+
+  function commit() {
+    const msg = message.trim() || (merging ? MERGE_MESSAGE : "");
+    if (!msg) return;
+    setMessage("");
+    void run(async () => {
+      await gitCommit(project!.path, msg);
+    });
+  }
 
   return (
     <div className="flex h-full flex-col">
       <SectionHeader
         label="Git"
-
         actions={
           <div className="flex items-center gap-0.5">
             {status?.branch && (
@@ -143,8 +221,66 @@ export function GitPanel() {
         )}
         {status !== undefined && status.isRepo && (
           <>
-            {status.entries.length === 0 && (
-              <p className="px-2 text-xs text-muted-foreground">
+            <RemoteRow
+              status={status}
+              busy={busy}
+              onFetch={() =>
+                void sync("fetch", async () => {
+                  await gitFetch(project!.path);
+                  return syncNotice("fetched");
+                })
+              }
+              onPull={() =>
+                void sync("pull", async () => {
+                  const outcome = await gitPull(project!.path);
+                  return outcome.kind === "conflicts"
+                    ? syncNotice("conflicts", outcome.paths.length)
+                    : syncNotice(outcome.kind);
+                })
+              }
+              onPush={() =>
+                void sync("push", async () => {
+                  await gitPush(project!.path);
+                  return syncNotice("pushed");
+                })
+              }
+              onSetRemote={(url) => run(() => gitSetRemote(project!.path, url))}
+            />
+            {notice && (
+              <p className="mt-1 px-2 text-xs text-muted-foreground">{notice}</p>
+            )}
+
+            {conflicts.length > 0 && (
+              <>
+                <p className="mt-2 px-2 text-2xs font-medium tracking-wide text-warning uppercase">
+                  Conflicts
+                </p>
+                {conflicts.map((path) => (
+                  <ConflictRow
+                    key={`c-${path}`}
+                    path={path}
+                    onOpen={() => void openFile(path)}
+                    onResolved={() => void run(() => gitStage(project!.path, [path]))}
+                  />
+                ))}
+              </>
+            )}
+            {merging && (
+              <div className="mt-1.5 px-2">
+                <Button
+                  variant="outline"
+                  size="xs"
+                  title="Drop the merge and go back to before the pull"
+                  onClick={() => void run(() => gitAbortMerge(project!.path))}
+                >
+                  <Undo2 />
+                  Abort merge
+                </Button>
+              </div>
+            )}
+
+            {status.entries.length === 0 && conflicts.length === 0 && !merging && (
+              <p className="mt-2 px-2 text-xs text-muted-foreground">
                 No changes since the last commit.
               </p>
             )}
@@ -190,34 +326,30 @@ export function GitPanel() {
             <div className="mt-3 flex flex-col gap-1.5 px-2">
               <Input
                 className="h-7 rounded-3xl text-xs"
-                placeholder="Commit message"
+                placeholder={merging ? MERGE_MESSAGE : "Commit message"}
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
                 onKeyDown={(event) => {
-                  if (event.key === "Enter" && message.trim() && hasStaged) {
-                    const msg = message;
-                    setMessage("");
-                    void run(async () => {
-                      await gitCommit(project!.path, msg);
-                    });
-                  }
+                  if (event.key === "Enter" && canCommit) commit();
                 }}
               />
               <Button
                 size="sm"
                 className="h-7 w-full px-2"
-                disabled={!message.trim() || !hasStaged}
-                title={hasStaged ? "Commit staged changes" : "Nothing staged"}
-                onClick={() => {
-                  const msg = message;
-                  setMessage("");
-                  void run(async () => {
-                    await gitCommit(project!.path, msg);
-                  });
-                }}
+                disabled={!canCommit}
+                title={
+                  conflicts.length > 0
+                    ? "Resolve the conflicts first"
+                    : merging
+                      ? "Commit the merge"
+                      : hasStaged
+                        ? "Commit staged changes"
+                        : "Nothing staged"
+                }
+                onClick={commit}
               >
                 <Check className="size-3.5" />
-                Commit
+                {merging ? "Finish merge" : "Commit"}
               </Button>
             </div>
             {error && <p className="mt-1 px-2 text-xs text-destructive">{error}</p>}
@@ -228,6 +360,158 @@ export function GitPanel() {
       {diffTarget && (
         <GitDiffDialog path={diffTarget} onClose={() => setDiffTarget(null)} />
       )}
+    </div>
+  );
+}
+
+/**
+ * The remote and the sync actions. Without a remote: a way to add one;
+ * with one: Fetch, Pull (with the count behind) and Push (ahead).
+ */
+function RemoteRow({
+  status,
+  busy,
+  onFetch,
+  onPull,
+  onPush,
+  onSetRemote,
+}: {
+  status: GitStatus;
+  busy: "fetch" | "pull" | "push" | null;
+  onFetch: () => void;
+  onPull: () => void;
+  onPush: () => void;
+  onSetRemote: (url: string) => Promise<void>;
+}) {
+  const [editing, setEditing] = useState(false);
+  const [url, setUrl] = useState("");
+
+  function startEditing() {
+    setUrl(status.remote ?? "");
+    setEditing(true);
+  }
+
+  async function save() {
+    await onSetRemote(url);
+    setEditing(false);
+  }
+
+  if (editing) {
+    return (
+      <div className="flex flex-col gap-1.5 px-2 pt-1">
+        <Input
+          autoFocus
+          className="h-7 text-xs"
+          placeholder="https://github.com/you/paper.git"
+          value={url}
+          onChange={(event) => setUrl(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") void save();
+            if (event.key === "Escape") setEditing(false);
+          }}
+        />
+        <div className="flex gap-1">
+          <Button size="xs" onClick={() => void save()}>
+            {url.trim() === "" && status.remote ? "Remove remote" : "Save remote"}
+          </Button>
+          <Button variant="ghost" size="xs" onClick={() => setEditing(false)}>
+            Cancel
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  if (!status.remote) {
+    return (
+      <div className="flex items-center justify-between gap-2 px-2 pt-1 text-xs text-muted-foreground">
+        <span>No remote yet.</span>
+        <Button variant="outline" size="xs" onClick={startEditing}>
+          Add remote…
+        </Button>
+      </div>
+    );
+  }
+
+  const working = busy !== null;
+  return (
+    <div className="flex items-center gap-1 px-2 pt-1">
+      <button
+        type="button"
+        className="min-w-0 flex-1 truncate text-left text-xs text-muted-foreground hover:underline"
+        title={`${status.remote}\nClick to change the remote`}
+        onClick={startEditing}
+      >
+        {remoteLabel(status.remote)}
+      </button>
+      <Button
+        variant="ghost"
+        size="icon-xs"
+        title={busy === "fetch" ? "Fetching…" : "Fetch: see what the remote has"}
+        disabled={working}
+        onClick={onFetch}
+      >
+        <RefreshCcw className={busy === "fetch" ? "animate-spin" : undefined} />
+      </Button>
+      <Button
+        variant="outline"
+        size="xs"
+        title={busy === "pull" ? "Pulling…" : "Pull the remote's commits"}
+        disabled={working || status.merging}
+        onClick={onPull}
+      >
+        <ArrowDown />
+        {status.behind > 0 ? `Pull ${status.behind}` : "Pull"}
+      </Button>
+      <Button
+        variant="outline"
+        size="xs"
+        title={busy === "push" ? "Pushing…" : "Push your commits"}
+        disabled={working || status.merging}
+        onClick={onPush}
+      >
+        <ArrowUp />
+        {status.ahead > 0 ? `Push ${status.ahead}` : "Push"}
+      </Button>
+    </div>
+  );
+}
+
+function ConflictRow({
+  path,
+  onOpen,
+  onResolved,
+}: {
+  path: string;
+  onOpen: () => void;
+  onResolved: () => void;
+}) {
+  return (
+    <div
+      className="group flex items-center gap-1 rounded px-2 py-0.5 hover:bg-accent"
+      title={`conflict: ${path}`}
+    >
+      <span className="w-3 shrink-0 text-center font-mono text-2xs text-warning">
+        U
+      </span>
+      <button
+        type="button"
+        className="min-w-0 flex-1 truncate text-left text-xs hover:underline"
+        onClick={onOpen}
+      >
+        {path}
+      </button>
+      <span className="hidden shrink-0 items-center group-hover:flex">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-5"
+          title="Mark resolved"
+          onClick={onResolved}
+        >
+          <Check className="size-3" />
+        </Button>
+      </span>
     </div>
   );
 }

@@ -25,6 +25,77 @@ pub struct GitStatusInfo {
     pub ahead: u32,
     pub behind: u32,
     pub entries: Vec<GitEntry>,
+    /// The `origin` remote's URL; None without a remote.
+    pub remote: Option<String>,
+    /// The branch's upstream ("origin/main"); None until the first push.
+    pub upstream: Option<String>,
+    /// Paths left unmerged by a pull (both sides changed them).
+    pub conflicts: Vec<String>,
+    /// A merge is in progress: conflicts to resolve, then commit.
+    pub merging: bool,
+}
+
+/// What a pull did.
+#[derive(Serialize, Clone, Debug, PartialEq)]
+#[serde(rename_all = "camelCase", tag = "kind")]
+pub enum PullOutcome {
+    UpToDate,
+    /// New commits came in (a fast-forward or a clean merge).
+    Updated,
+    /// The merge stopped on these paths; resolve, stage, commit.
+    Conflicts { paths: Vec<String> },
+}
+
+/// The name of the one remote Polemic manages.
+const REMOTE: &str = "origin";
+
+/// Environment variable that turns the Polemic binary into git's askpass
+/// helper (see `run_askpass`); the two below carry the answers.
+const ASKPASS_FLAG: &str = "POLEMIC_ASKPASS";
+const ASKPASS_USERNAME: &str = "POLEMIC_GIT_USERNAME";
+const ASKPASS_PASSWORD: &str = "POLEMIC_GIT_PASSWORD";
+
+/// The credentials for a remote URL: (username, password or token).
+/// None lets git fall back to the user's own credential helper or SSH.
+/// Filled in by the git accounts (GitHub, GitLab, custom remotes).
+pub fn credentials_for(_url: &str) -> Option<(String, String)> {
+    None
+}
+
+/// Git's prompts are "Username for 'https://host': " and "Password for
+/// 'https://user@host': ". The answer for one, or None to refuse.
+fn askpass_answer(prompt: &str, username: &str, password: &str) -> Option<String> {
+    let lower = prompt.trim_start().to_ascii_lowercase();
+    if lower.starts_with("username") {
+        Some(username.to_string())
+    } else if lower.starts_with("password") {
+        Some(password.to_string())
+    } else {
+        None
+    }
+}
+
+/// When git started this process as its askpass helper, answer its
+/// prompt and return true; the caller then exits instead of starting
+/// the app. The answers travel in the environment of the git process
+/// that Polemic itself started, never further.
+pub fn run_askpass() -> bool {
+    if std::env::var_os(ASKPASS_FLAG).is_none() {
+        return false;
+    }
+    let prompt = std::env::args().nth(1).unwrap_or_default();
+    let username = std::env::var(ASKPASS_USERNAME).unwrap_or_default();
+    let password = std::env::var(ASKPASS_PASSWORD).unwrap_or_default();
+    match askpass_answer(&prompt, &username, &password) {
+        Some(answer) if !answer.is_empty() => {
+            use std::io::Write;
+            let mut out = std::io::stdout();
+            let _ = writeln!(out, "{answer}");
+            let _ = out.flush();
+        }
+        _ => std::process::exit(1),
+    }
+    true
 }
 
 #[derive(Serialize, Clone)]
@@ -112,14 +183,28 @@ fn git_command(dir: &Path) -> Command {
         command.arg("-c").arg(value);
     }
     command.current_dir(dir);
+    // No window to type into: never wait for a terminal prompt.
+    command.env("GIT_TERMINAL_PROMPT", "0");
     command
 }
 
-fn run_git(dir: &Path, args: &[&str]) -> Result<String, String> {
-    let output = git_command(dir)
-        .args(args)
-        .output()
-        .map_err(|e| format!("failed to run git: {e}"))?;
+/// A git command that may talk to a remote: Polemic's own binary answers
+/// the credential prompt with the account's token when there is one.
+/// Without one git still tries the user's credential helper and SSH.
+fn remote_git_command(dir: &Path, url: Option<&str>) -> Command {
+    let mut command = git_command(dir);
+    if let Ok(exe) = std::env::current_exe() {
+        command.env("GIT_ASKPASS", exe);
+        command.env(ASKPASS_FLAG, "1");
+    }
+    if let Some((username, password)) = url.and_then(credentials_for) {
+        command.env(ASKPASS_USERNAME, username);
+        command.env(ASKPASS_PASSWORD, password);
+    }
+    command
+}
+
+fn finish(output: std::process::Output, args: &[&str]) -> Result<String, String> {
     if output.status.success() {
         return Ok(String::from_utf8_lossy(&output.stdout).into_owned());
     }
@@ -129,6 +214,22 @@ fn run_git(dir: &Path, args: &[&str]) -> Result<String, String> {
     } else {
         stderr
     })
+}
+
+fn run_git(dir: &Path, args: &[&str]) -> Result<String, String> {
+    let output = git_command(dir)
+        .args(args)
+        .output()
+        .map_err(|e| format!("failed to run git: {e}"))?;
+    finish(output, args)
+}
+
+fn run_remote_git(dir: &Path, url: Option<&str>, args: &[&str]) -> Result<String, String> {
+    let output = remote_git_command(dir, url)
+        .args(args)
+        .output()
+        .map_err(|e| format!("failed to run git: {e}"))?;
+    finish(output, args)
 }
 
 /// True when the `git` binary can be executed at all.
@@ -153,11 +254,18 @@ fn parse_status(output: &str) -> GitStatusInfo {
     let mut info = GitStatusInfo::default();
     for line in output.lines() {
         if let Some(branch_line) = line.strip_prefix("## ") {
-            let name = branch_line.split("...").next().unwrap_or(branch_line);
+            let (name, rest) = branch_line
+                .split_once("...")
+                .unwrap_or((branch_line, ""));
             if let Some(branch) = name.strip_prefix("No commits yet on ") {
                 info.branch = Some(branch.to_string());
             } else if name != "No branch" {
                 info.branch = Some(name.to_string());
+            }
+            // "main...origin/main [ahead 1]": the upstream, then the counts.
+            let upstream = rest.split(" [").next().unwrap_or("").trim();
+            if !upstream.is_empty() {
+                info.upstream = Some(upstream.to_string());
             }
             if let Some((ahead, behind)) = parse_ahead_behind(branch_line) {
                 info.ahead = ahead;
@@ -175,6 +283,10 @@ fn parse_status(output: &str) -> GitStatusInfo {
         if let Some((_, new)) = path.split_once(" -> ") {
             path = new.to_string();
         }
+        if is_conflict(x, y) {
+            info.conflicts.push(path);
+            continue;
+        }
         info.entries.push(GitEntry {
             path,
             x: x.to_string(),
@@ -182,6 +294,11 @@ fn parse_status(output: &str) -> GitStatusInfo {
         });
     }
     info
+}
+
+/// The porcelain codes of an unmerged path: DD, AU, UD, UA, DU, AA, UU.
+fn is_conflict(x: char, y: char) -> bool {
+    x == 'U' || y == 'U' || (x == 'A' && y == 'A') || (x == 'D' && y == 'D')
 }
 
 fn parse_ahead_behind(branch_line: &str) -> Option<(u32, u32)> {
@@ -226,12 +343,194 @@ pub fn status(dir: &Path) -> GitStatusInfo {
             info.ahead = parsed.ahead;
             info.behind = parsed.behind;
             info.entries = parsed.entries;
+            info.upstream = parsed.upstream;
+            info.conflicts = parsed.conflicts;
         }
         Err(e) => {
             info.branch = Some(e);
         }
     }
+    info.remote = remote_url(dir);
+    info.merging = merge_in_progress(dir);
     info
+}
+
+/// The origin URL, or None when the repository has no origin.
+pub fn remote_url(dir: &Path) -> Option<String> {
+    run_git(dir, &["remote", "get-url", REMOTE])
+        .ok()
+        .map(|url| url.trim().to_string())
+        .filter(|url| !url.is_empty())
+}
+
+fn merge_in_progress(dir: &Path) -> bool {
+    run_git(dir, &["rev-parse", "--git-path", "MERGE_HEAD"])
+        .map(|path| dir.join(path.trim()).exists())
+        .unwrap_or(false)
+}
+
+/// A remote URL as typed. HTTPS, SSH (`ssh://` or `git@host:path`),
+/// `git://` and `file://` (a bare repository on a synced drive); nothing
+/// git would read as an option.
+pub fn check_remote_url(url: &str) -> Result<String, String> {
+    let url = url.trim();
+    if url.is_empty() {
+        return Err("The remote URL is empty".into());
+    }
+    if url.starts_with('-') || url.contains(char::is_whitespace) {
+        return Err("That is not a remote URL".into());
+    }
+    let scheme_ok = ["https://", "http://", "ssh://", "git://", "file://"]
+        .iter()
+        .any(|scheme| url.starts_with(scheme));
+    // scp-like: user@host:path, with no slash before the colon (a
+    // single letter before it is a Windows drive, not a host).
+    let scp_like = match url.split_once(':') {
+        Some((host, path)) => host.len() > 1 && !host.contains('/') && !path.is_empty(),
+        None => false,
+    };
+    if !scheme_ok && !scp_like {
+        return Err(
+            "The remote URL should look like https://github.com/you/paper.git or git@github.com:you/paper.git"
+                .into(),
+        );
+    }
+    Ok(url.to_string())
+}
+
+/// Set (or, with an empty URL, remove) the origin remote.
+pub fn set_remote(dir: &Path, url: &str) -> Result<(), String> {
+    if url.trim().is_empty() {
+        if remote_url(dir).is_some() {
+            run_git(dir, &["remote", "remove", REMOTE])?;
+        }
+        return Ok(());
+    }
+    let url = check_remote_url(url)?;
+    if remote_url(dir).is_some() {
+        run_git(dir, &["remote", "set-url", REMOTE, &url])?;
+    } else {
+        run_git(dir, &["remote", "add", REMOTE, &url])?;
+    }
+    Ok(())
+}
+
+fn need_remote(dir: &Path) -> Result<String, String> {
+    remote_url(dir).ok_or_else(|| "This project has no remote yet".to_string())
+}
+
+fn current_branch(dir: &Path) -> Result<String, String> {
+    let branch = run_git(dir, &["symbolic-ref", "--short", "-q", "HEAD"])
+        .map(|b| b.trim().to_string())
+        .unwrap_or_default();
+    if branch.is_empty() {
+        return Err("Not on a branch: check out a branch first".into());
+    }
+    Ok(branch)
+}
+
+fn has_upstream(dir: &Path) -> bool {
+    run_git(dir, &["rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}"]).is_ok()
+}
+
+pub fn fetch(dir: &Path) -> Result<(), String> {
+    let url = need_remote(dir)?;
+    run_remote_git(dir, Some(&url), &["fetch", "--prune", REMOTE]).map(|_| ())
+}
+
+/// Pull the upstream (merging, never rebasing, so local history stays
+/// as committed). The first pull of a branch sets its upstream.
+pub fn pull(dir: &Path) -> Result<PullOutcome, String> {
+    let url = need_remote(dir)?;
+    if merge_in_progress(dir) {
+        return Err("A merge is in progress: resolve the conflicts and commit, or abort the merge".into());
+    }
+    let branch = current_branch(dir)?;
+    let before = head(dir);
+    let mut args = vec!["pull", "--no-rebase", "--no-edit"];
+    if !has_upstream(dir) {
+        args.extend(["--set-upstream", REMOTE, branch.as_str()]);
+    }
+    match run_remote_git(dir, Some(&url), &args) {
+        Ok(_) => Ok(if head(dir) == before {
+            PullOutcome::UpToDate
+        } else {
+            PullOutcome::Updated
+        }),
+        Err(e) => {
+            if merge_in_progress(dir) {
+                let conflicts = status(dir).conflicts;
+                if !conflicts.is_empty() {
+                    return Ok(PullOutcome::Conflicts { paths: conflicts });
+                }
+            }
+            Err(friendly_remote_error(&e))
+        }
+    }
+}
+
+/// Push the branch; the first push sets it to track the remote.
+pub fn push(dir: &Path) -> Result<(), String> {
+    let url = need_remote(dir)?;
+    let branch = current_branch(dir)?;
+    let mut args = vec!["push"];
+    if !has_upstream(dir) {
+        args.extend(["--set-upstream", REMOTE, branch.as_str()]);
+    }
+    run_remote_git(dir, Some(&url), &args)
+        .map(|_| ())
+        .map_err(|e| friendly_remote_error(&e))
+}
+
+/// Drop an unfinished merge, back to the state before the pull.
+pub fn abort_merge(dir: &Path) -> Result<(), String> {
+    run_git(dir, &["merge", "--abort"]).map(|_| ())
+}
+
+/// Clone `url` into `dest` (which must not exist yet).
+pub fn clone(url: &str, dest: &Path) -> Result<(), String> {
+    let url = check_remote_url(url)?;
+    if dest.exists() {
+        return Err(format!("{} already exists", dest.display()));
+    }
+    let parent = dest
+        .parent()
+        .ok_or_else(|| "The clone destination has no parent folder".to_string())?;
+    std::fs::create_dir_all(parent).map_err(|e| format!("failed to create projects root: {e}"))?;
+    let dest_str = dest.to_string_lossy().to_string();
+    run_remote_git(parent, Some(&url), &["clone", "--", &url, &dest_str])
+        .map(|_| ())
+        .map_err(|e| friendly_remote_error(&e))
+}
+
+fn head(dir: &Path) -> Option<String> {
+    run_git(dir, &["rev-parse", "HEAD"]).ok().map(|h| h.trim().to_string())
+}
+
+/// Git's remote errors, in the words of the panel.
+fn friendly_remote_error(stderr: &str) -> String {
+    let lower = stderr.to_ascii_lowercase();
+    if lower.contains("could not read username")
+        || lower.contains("could not read password")
+        || lower.contains("authentication failed")
+        || lower.contains("terminal prompts disabled")
+    {
+        "The remote refused the credentials. Add a git account in Settings or check the token".into()
+    } else if lower.contains("permission denied (publickey)") {
+        "SSH key not accepted: add your key to the ssh agent or use an HTTPS remote".into()
+    } else if lower.contains("host key verification failed") {
+        "The SSH host is not known yet: connect once from a terminal to accept its key".into()
+    } else if lower.contains("src refspec") {
+        "Nothing to push yet: make a commit first".into()
+    } else if lower.contains("fetch first") || lower.contains("non-fast-forward") {
+        "The remote has commits you do not have: pull first, then push".into()
+    } else if lower.contains("would be overwritten by merge") {
+        "Commit or discard your local changes before pulling".into()
+    } else if lower.contains("could not resolve host") || lower.contains("could not connect") {
+        "The remote cannot be reached: check the connection".into()
+    } else {
+        stderr.to_string()
+    }
 }
 
 pub fn init(dir: &Path) -> Result<(), String> {
@@ -380,6 +679,187 @@ mod tests {
         let _ = run_git(&dir, &["-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "m"]);
         assert!(!marker.exists(), "repository config ran a command");
         let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn parses_upstream_and_conflicts() {
+        let info = parse_status("## main...origin/main [ahead 1, behind 2]\nUU main.tex\nAA new.tex\nM  ok.tex\n");
+        assert_eq!(info.upstream.as_deref(), Some("origin/main"));
+        assert_eq!(info.conflicts, vec!["main.tex".to_string(), "new.tex".to_string()]);
+        assert_eq!(info.entries.len(), 1);
+
+        let info = parse_status("## main...origin/main\n");
+        assert_eq!(info.upstream.as_deref(), Some("origin/main"));
+        assert_eq!((info.ahead, info.behind), (0, 0));
+
+        let info = parse_status("## main\n");
+        assert_eq!(info.upstream, None);
+    }
+
+    #[test]
+    fn checks_remote_urls() {
+        for ok in [
+            "https://github.com/you/paper.git",
+            "git@github.com:you/paper.git",
+            "ssh://git@gitlab.example.org:2222/you/paper.git",
+            "https://git.overleaf.com/abc123",
+            "file:///Volumes/Drive/paper.git",
+        ] {
+            assert!(check_remote_url(ok).is_ok(), "{ok}");
+        }
+        for bad in ["", "--upload-pack=evil", "C:\\paper", "/home/me/paper", "paper", "https://x y"] {
+            assert!(check_remote_url(bad).is_err(), "{bad}");
+        }
+    }
+
+    #[test]
+    fn askpass_answers_git_prompts_only() {
+        assert_eq!(
+            askpass_answer("Username for 'https://github.com': ", "u", "p").as_deref(),
+            Some("u")
+        );
+        assert_eq!(
+            askpass_answer("Password for 'https://u@github.com': ", "u", "p").as_deref(),
+            Some("p")
+        );
+        assert_eq!(askpass_answer("Enter passphrase for key: ", "u", "p"), None);
+    }
+
+    /// A temp repo with a user configured, for the end-to-end tests.
+    fn temp_repo(name: &str) -> std::path::PathBuf {
+        let dir = std::env::temp_dir().join(format!("polemic-git-{name}-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(&dir).unwrap();
+        dir
+    }
+
+    fn configure_user(dir: &Path) {
+        run_git(dir, &["config", "user.email", "test@example.com"]).unwrap();
+        run_git(dir, &["config", "user.name", "Test"]).unwrap();
+    }
+
+    fn write_and_commit(dir: &Path, path: &str, content: &str, message: &str) {
+        std::fs::write(dir.join(path), content).unwrap();
+        stage(dir, &[path.into()]).unwrap();
+        commit(dir, message).unwrap();
+    }
+
+    #[test]
+    fn pushes_pulls_and_merges_through_a_local_remote() {
+        if !available() {
+            return;
+        }
+        let bare = temp_repo("bare");
+        run_git(&bare, &["init", "-q", "--bare", "-b", "main"]).unwrap();
+        let bare_url = url::Url::from_file_path(&bare).unwrap().to_string();
+
+        // Device A: a fresh project, published to the remote.
+        let a = temp_repo("a");
+        init(&a).unwrap();
+        run_git(&a, &["checkout", "-q", "-b", "main"]).unwrap();
+        configure_user(&a);
+        write_and_commit(&a, "main.tex", "one\n", "first");
+        assert_eq!(status(&a).remote, None);
+        assert!(push(&a).is_err(), "push without a remote");
+        set_remote(&a, &bare_url).unwrap();
+        let info = status(&a);
+        assert_eq!(info.remote.as_deref(), Some(bare_url.as_str()));
+        assert_eq!(info.upstream, None);
+        push(&a).unwrap();
+        let info = status(&a);
+        assert_eq!(info.upstream.as_deref(), Some("origin/main"));
+        assert_eq!((info.ahead, info.behind), (0, 0));
+        assert_eq!(pull(&a).unwrap(), PullOutcome::UpToDate);
+
+        // Device B: a clone of the same project.
+        let b = temp_repo("b");
+        let _ = std::fs::remove_dir_all(&b);
+        clone(&bare_url, &b).unwrap();
+        configure_user(&b);
+        assert_eq!(std::fs::read_to_string(b.join("main.tex")).unwrap(), "one\n");
+        assert_eq!(status(&b).upstream.as_deref(), Some("origin/main"));
+        assert!(clone(&bare_url, &b).is_err(), "clone over an existing folder");
+
+        // A commits and pushes; B sees it after a fetch, takes it with a pull.
+        write_and_commit(&a, "main.tex", "one\ntwo\n", "second");
+        assert_eq!(status(&a).ahead, 1);
+        push(&a).unwrap();
+        fetch(&b).unwrap();
+        assert_eq!(status(&b).behind, 1);
+        assert_eq!(pull(&b).unwrap(), PullOutcome::Updated);
+        assert_eq!(std::fs::read_to_string(b.join("main.tex")).unwrap(), "one\ntwo\n");
+
+        // Both change different files: B's push is refused, its pull merges.
+        write_and_commit(&a, "a.tex", "a\n", "a's file");
+        push(&a).unwrap();
+        write_and_commit(&b, "b.tex", "b\n", "b's file");
+        let refused = push(&b).unwrap_err();
+        assert!(refused.contains("pull first"), "{refused}");
+        assert_eq!(pull(&b).unwrap(), PullOutcome::Updated);
+        assert!(b.join("a.tex").exists());
+        assert!(!status(&b).merging);
+        push(&b).unwrap();
+
+        // Both change the same line: the pull stops on the conflict.
+        pull(&a).unwrap();
+        write_and_commit(&a, "main.tex", "one\nA\n", "a's edit");
+        push(&a).unwrap();
+        write_and_commit(&b, "main.tex", "one\nB\n", "b's edit");
+        assert_eq!(
+            pull(&b).unwrap(),
+            PullOutcome::Conflicts { paths: vec!["main.tex".into()] }
+        );
+        let info = status(&b);
+        assert!(info.merging);
+        assert_eq!(info.conflicts, vec!["main.tex".to_string()]);
+        assert!(std::fs::read_to_string(b.join("main.tex")).unwrap().contains("<<<<<<<"));
+        assert!(pull(&b).is_err(), "pull during a merge");
+
+        // Resolve by hand, stage, commit: the merge is done.
+        std::fs::write(b.join("main.tex"), "one\nAB\n").unwrap();
+        stage(&b, &["main.tex".into()]).unwrap();
+        let info = status(&b);
+        assert!(info.conflicts.is_empty() && info.merging);
+        commit(&b, "merged").unwrap();
+        assert!(!status(&b).merging);
+        push(&b).unwrap();
+
+        // Or abort: back to before the pull.
+        assert_eq!(pull(&a).unwrap(), PullOutcome::Updated);
+        write_and_commit(&a, "main.tex", "one\nAB\nA2\n", "a again");
+        push(&a).unwrap();
+        write_and_commit(&b, "main.tex", "one\nAB\nB2\n", "b again");
+        assert!(matches!(pull(&b).unwrap(), PullOutcome::Conflicts { .. }));
+        abort_merge(&b).unwrap();
+        let info = status(&b);
+        assert!(!info.merging && info.conflicts.is_empty());
+        assert_eq!(std::fs::read_to_string(b.join("main.tex")).unwrap(), "one\nAB\nB2\n");
+
+        // Removing the remote.
+        set_remote(&b, "").unwrap();
+        assert_eq!(status(&b).remote, None);
+
+        for dir in [bare, a, b] {
+            let _ = std::fs::remove_dir_all(dir);
+        }
+    }
+
+    /// An HTTPS remote that asks for credentials gets the account's
+    /// token through the askpass helper, and fails fast without one.
+    #[test]
+    fn remote_commands_never_wait_for_a_terminal() {
+        if !available() {
+            return;
+        }
+        let dir = temp_repo("askpass");
+        init(&dir).unwrap();
+        // 127.0.0.1:9 (discard) answers nothing; git must give up on its
+        // own rather than wait for a prompt. Any error is fine.
+        set_remote(&dir, "https://127.0.0.1:9/paper.git").unwrap();
+        let started = std::time::Instant::now();
+        assert!(fetch(&dir).is_err());
+        assert!(started.elapsed() < std::time::Duration::from_secs(60));
+        let _ = std::fs::remove_dir_all(dir);
     }
 
     #[test]
