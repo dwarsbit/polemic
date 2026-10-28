@@ -72,6 +72,8 @@ export interface Settings {
   /** The AI quickfix provider; null until configured. */
   ai: AiSettings | null;
   grammar: GrammarSettings;
+  /** The Polemic server for the account; null means app.polemicapp.com. */
+  accountServer: string | null;
 }
 
 /** Grammar checking: built-in Harper (English), or a LanguageTool server. */
@@ -691,4 +693,47 @@ export function gitLog(projectDir: string, limit: number): Promise<GitCommit[]> 
 
 export function gitShowHead(projectDir: string, path: string): Promise<string | null> {
   return invoke<string | null>("git_show_head", { projectDir, path });
+}
+
+// --- Polemic account (Professional) -------------------------------------------
+
+/** The signed-in user, as the server's GET /api/me returns it. */
+export interface AccountUser {
+  id: string;
+  name: string;
+  email: string;
+  emailVerified: boolean;
+  createdAt: string;
+}
+
+export interface AccountStatus {
+  server: string;
+  signedIn: boolean;
+  /** null while signed out, or signed in but the server can't be reached. */
+  user: AccountUser | null;
+  /** Why the user could not be fetched (offline, expired sign-in). */
+  problem: string | null;
+}
+
+export function accountStatus(): Promise<AccountStatus> {
+  return invoke<AccountStatus>("account_status");
+}
+
+/** Changes the server (empty: app.polemicapp.com); signs out of the old one. */
+export function accountSetServer(server: string): Promise<AccountStatus> {
+  return invoke<AccountStatus>("account_set_server", { server });
+}
+
+/** Opens the browser and resolves once the user has allowed Polemic there. */
+export function accountSignIn(): Promise<AccountUser> {
+  return invoke<AccountUser>("account_sign_in");
+}
+
+export function accountCancelSignIn(): Promise<void> {
+  return invoke("account_cancel_sign_in");
+}
+
+/** Revokes the token on the server and forgets it. */
+export function accountSignOut(): Promise<void> {
+  return invoke("account_sign_out");
 }
