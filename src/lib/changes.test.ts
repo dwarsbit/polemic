@@ -10,6 +10,7 @@ import {
   parseChanges,
   rejectAll,
   rejectChange,
+  removeSetup,
   setNote,
   type Change,
 } from "@/lib/changes";
@@ -537,5 +538,29 @@ describe("setNote", () => {
 
   it("finds the change by offset and returns nothing elsewhere", () => {
     expect(setNote("plain", 0, "x")).toEqual([]);
+  });
+});
+
+describe("removeSetup", () => {
+  const remove = (source: string) => applyEdits(source, removeSetup(source));
+
+  it("drops the package line and every author line", () => {
+    const source =
+      "\\documentclass{article}\n\\usepackage{graphicx}\n\\usepackage{changes}\n" +
+      "\\definechangesauthor[name={Ann}, color=orange]{AN}\n" +
+      "\\definechangesauthor[name={Bob}]{BO}\n\\begin{document}\nHi\n\\end{document}\n";
+    expect(remove(source)).toBe(
+      "\\documentclass{article}\n\\usepackage{graphicx}\n\\begin{document}\nHi\n\\end{document}\n",
+    );
+  });
+
+  it("keeps other packages in a shared list and text on shared lines", () => {
+    const source =
+      "\\usepackage{xcolor,changes} % tc\n\\definechangesauthor{AN} \\relax\n";
+    expect(remove(source)).toBe("\\usepackage{xcolor} % tc\n \\relax\n");
+  });
+
+  it("does nothing without a setup", () => {
+    expect(removeSetup("\\usepackage{graphicx}\nText\n")).toEqual([]);
   });
 });

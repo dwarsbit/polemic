@@ -11,6 +11,9 @@ export interface ApplyEditsOptions {
   /** False keeps the change out of the editor's undo history (an edit
    *  spanning several files undoes through its own record instead). */
   addToHistory?: boolean;
+  /** Keep the change its own undo step, never joined with typing
+   *  right before or after it. */
+  isolate?: boolean;
 }
 
 type ApplyEditsHandler = (

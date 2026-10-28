@@ -12,12 +12,14 @@ import { StreamLanguage } from "@codemirror/language";
 import { stex } from "@codemirror/legacy-modes/mode/stex";
 import { linter, lintGutter, setDiagnostics, type Diagnostic } from "@codemirror/lint";
 import { EditorView, basicSetup } from "codemirror";
-import { redo, undo } from "@codemirror/commands";
+import { isolateHistory, redo, undo } from "@codemirror/commands";
 import { keymap, Decoration } from "@codemirror/view";
 import type { DecorationSet } from "@codemirror/view";
 import { latexAutocompletion } from "@/lib/completion";
 import { lineAnchor } from "@/lib/comment-anchor";
 import { commentGutter, refreshComments } from "@/lib/comment-gutter";
+import { setChangeAuthors, trackChanges } from "@/lib/changes-view";
+import { parseAuthors } from "@/lib/changes";
 import {
   addCommentAtCursor,
   openCommentDialog,
@@ -381,6 +383,30 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     if (view) view.dispatch({ effects: refreshComments.of(null) });
   }, [comments, activeFile]);
 
+  // Suggestion colors and names come from the main file's preamble
+  // when an \input chapter is open.
+  const mainFile = useProjectStore((s) => s.mainFile);
+  const mainBuffer = useProjectStore((s) =>
+    s.mainFile === null ? undefined : s.buffers[s.mainFile],
+  );
+  useEffect(() => {
+    if (mainFile === null || activeFile === mainFile || !projectPath) {
+      viewRef.current?.dispatch({ effects: setChangeAuthors.of([]) });
+      return;
+    }
+    let cancelled = false;
+    void (async () => {
+      const text =
+        mainBuffer ?? (await readProjectFile(projectPath, mainFile).catch(() => ""));
+      if (!cancelled) {
+        viewRef.current?.dispatch({ effects: setChangeAuthors.of(parseAuthors(text)) });
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [mainFile, activeFile, mainBuffer, projectPath]);
+
   // Missing-graphics hints follow the file tree (an image added,
   // renamed or removed), not only edits.
   useEffect(() => {
@@ -445,6 +471,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
           EditorView.lineWrapping,
           lineWidthGutter,
           commentGutter,
+          trackChanges,
           EditorView.theme({
             "&": { height: "100%" },
             ".cm-scroller": {
@@ -985,8 +1012,12 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       view.dispatch({
         changes: [...edits].sort((a, b) => a.from - b.from),
         userEvent: userEvent ?? "input.renameLabel",
-        annotations:
-          options?.addToHistory === false ? Transaction.addToHistory.of(false) : [],
+        annotations: [
+          ...(options?.addToHistory === false
+            ? [Transaction.addToHistory.of(false)]
+            : []),
+          ...(options?.isolate ? [isolateHistory.of("full")] : []),
+        ],
       });
       // The Visual face reparses only on docVersion: reload it.
       if (hidden) useEditorStore.getState().loadContent(view.state.doc.toString());

@@ -355,6 +355,105 @@ body {
   opacity: 0.3;
 }
 
+/* Track changes: suggested text colored by author (--change-color on
+   each mark), insertions tinted, deletions struck out. */
+.cm-change-ins {
+  color: var(--change-color);
+  background: color-mix(in srgb, var(--change-color) 12%, transparent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--change-color) 55%, transparent);
+  text-underline-offset: 3px;
+}
+
+.cm-change-del {
+  color: var(--change-color);
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+/* The old text of a replacement sits right before the new. */
+.cm-change-old {
+  margin-right: 0.5ch;
+}
+
+.cm-change-gutter {
+  width: 8px;
+}
+
+.cm-change-gutter .cm-gutterElement {
+  padding: 0;
+}
+
+.cm-change-bar {
+  width: 4px;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+.cm-change-bar:hover {
+  opacity: 1;
+}
+
+/* The suggestion hover card with Accept and Reject. */
+.cm-tooltip.change-card {
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  padding: 0.4rem 0.5rem;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  font-size: 12px;
+  max-width: 320px;
+}
+
+.change-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.change-card-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.change-card-author {
+  font-weight: 500;
+}
+
+.change-card-kind {
+  color: var(--muted-foreground);
+}
+
+.change-card-note {
+  margin-top: 0.25rem;
+  white-space: pre-wrap;
+}
+
+.change-card-actions {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.375rem;
+}
+
+.cm-change-action {
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  padding: 0.125rem 0.5rem;
+  background: var(--card);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.cm-change-action:hover {
+  background: var(--accent);
+}
+
 /* Math hover preview card, in the shadcn card style (rounded-xl border
    bg-card shadow-sm). The tooltip dom itself is the card, so the
    two-class selector wins over CodeMirror's default .cm-tooltip. */
