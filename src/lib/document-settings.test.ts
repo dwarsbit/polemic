@@ -110,7 +110,10 @@ describe("Show suggestions in the PDF", () => {
   it("reads and toggles the final option of changes", () => {
     const settings = readDocumentSettings(TRACKED)!;
     expect(settings.suggestionsInPdf).toBe(true);
-    const hidden = applyDocumentSettings(TRACKED, { ...settings, suggestionsInPdf: false })!;
+    const hidden = applyDocumentSettings(TRACKED, {
+      ...settings,
+      suggestionsInPdf: false,
+    })!;
     expect(hidden).toContain("\\usepackage[final]{changes}");
     expect(readDocumentSettings(hidden)!.suggestionsInPdf).toBe(false);
   });

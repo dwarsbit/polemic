@@ -61,7 +61,7 @@ function NoteRow({
           <span className="line-clamp-3 break-words text-foreground">{note.note}</span>
         </button>
       </div>
-      <div className="mt-0.5 flex items-center pl-3.5 text-[10px] text-muted-foreground">
+      <div className="mt-0.5 flex items-center pl-3.5 text-2xs text-muted-foreground">
         <span className="min-w-0 flex-1 truncate">
           Suggestion note · {authorName} · line {note.line}
         </span>

@@ -697,7 +697,7 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
 /* Track changes in the Visual view (colors per author from the
    editor's style element). */
 .visual-editor .vis-change {
-  --change-color: #64748b;
+  --change-color: var(--muted-foreground);
 }
 
 .visual-editor .vis-ins {

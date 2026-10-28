@@ -264,7 +264,7 @@ export function SuggestionsPanel() {
         title={`Reject ${what}`}
         onClick={() => onResolve("reject")}
       >
-        <X className="text-red-600 dark:text-red-400" />
+        <X className="text-destructive" />
       </Button>
     </>
   );
