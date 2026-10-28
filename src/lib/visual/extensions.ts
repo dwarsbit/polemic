@@ -38,6 +38,8 @@ import {
 import type { PreambleAttrs } from "./doc-types";
 import { REF_CMDS, THEOREM_ENVS } from "./parse";
 import { assetKind } from "@/lib/assets";
+import { includeInSnippet } from "@/lib/doc-structure";
+import { openIncludeTarget } from "@/lib/include-nav";
 import { parseTable, tableAt, type TableGrid } from "@/lib/table-grid";
 import { useDialogsStore } from "@/store/dialogs";
 import { showNativeContextMenu, type NativeMenuEntry } from "@/lib/native-menu";
@@ -63,6 +65,9 @@ interface RawViewSpec {
   preview?: (src: string) => HTMLElement;
   /** A context menu for the node, or null for the native default. */
   contextMenu?: (src: string) => NativeMenuEntry[] | null;
+  /** Cmd/Ctrl+click on the preview, with the clicked offset into the
+   *  source when known; true when handled. */
+  modClick?: (src: string, offset: number | null) => boolean;
 }
 
 /**
@@ -104,6 +109,18 @@ class EditableRawView implements NodeView {
       }
       this.startEditing();
     });
+    if (spec.modClick !== undefined) {
+      // Ahead of ProseMirror's own mousedown (on an ancestor), which
+      // would node-select the atom.
+      this.dom.addEventListener("mousedown", (event) => {
+        if (this.editing || !(event.metaKey || event.ctrlKey)) return;
+        const offset = sourceOffsetAt(this.dom, event.clientX, event.clientY);
+        if (spec.modClick?.(this.node.attrs.src, offset)) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      });
+    }
     if (spec.contextMenu !== undefined) {
       this.dom.addEventListener("contextmenu", (event) => {
         const items = spec.contextMenu?.(this.node.attrs.src);
@@ -216,6 +233,47 @@ class EditableRawView implements NodeView {
 
 function nodeIsInline(node: PMNode): boolean {
   return node.isInline;
+}
+
+/**
+ * The character offset under a point within a raw preview, whose text
+ * is the node's source verbatim; null when the browser cannot tell.
+ */
+function sourceOffsetAt(root: HTMLElement, x: number, y: number): number | null {
+  let node: globalThis.Node | null = null;
+  let offset = 0;
+  const doc = root.ownerDocument as Document & {
+    caretPositionFromPoint?: (
+      x: number,
+      y: number,
+    ) => {
+      offsetNode: globalThis.Node;
+      offset: number;
+    } | null;
+  };
+  if (typeof doc.caretPositionFromPoint === "function") {
+    const position = doc.caretPositionFromPoint(x, y);
+    if (position !== null) ({ offsetNode: node, offset } = position);
+  } else if (typeof doc.caretRangeFromPoint === "function") {
+    const range = doc.caretRangeFromPoint(x, y);
+    if (range !== null) ({ startContainer: node, startOffset: offset } = range);
+  }
+  if (node === null || node.nodeType !== 3 || !root.contains(node)) return null;
+  const walker = doc.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  let before = 0;
+  for (let text = walker.nextNode(); text !== null; text = walker.nextNode()) {
+    if (text === node) return before + offset;
+    before += text.textContent?.length ?? 0;
+  }
+  return null;
+}
+
+/** Cmd/Ctrl+click on a raw node: open the file an include names. */
+function openIncludeIn(src: string, offset: number | null): boolean {
+  const include = includeInSnippet(src, offset);
+  if (include === null) return false;
+  void openIncludeTarget(include.spec);
+  return true;
 }
 
 // ---------------------------------------------------------------------------
@@ -1782,6 +1840,8 @@ const RawTexBlock = Node.create({
         className: "vis-raw-block",
         editText: (src) => src,
         buildSrc: (_old, text) => text,
+        // A block can hold several lines: the include under the click.
+        modClick: openIncludeIn,
       });
   },
 });
@@ -1806,6 +1866,8 @@ const RawTexInline = Node.create({
         className: "vis-raw-inline",
         editText: (src) => src,
         buildSrc: (_old, text) => text,
+        // The whole pill is the command: any spot on it opens the file.
+        modClick: (src) => openIncludeIn(src, null),
       });
   },
 });
