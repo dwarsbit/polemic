@@ -39,6 +39,8 @@ export function proseBlocksOfDoc(doc: PMNode): ProseBlock[] {
     };
     node.forEach((child, offset) => {
       const at = pos + 1 + offset;
+      // Suggested deletions are not part of the final text.
+      if (child.marks.some((m) => m.type.name === "deletion")) return;
       if (child.isText) {
         const text = child.text ?? "";
         for (let k = 0; k < text.length; k++) push(text[k], at + k, at + k + 1);

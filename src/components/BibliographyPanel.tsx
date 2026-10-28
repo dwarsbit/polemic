@@ -30,6 +30,7 @@ import {
   extractCitePositions,
   planCiteKeyRename,
 } from "@/lib/cite-refs";
+import { finalText } from "@/lib/changes";
 import { detectBiblatexStyle } from "@/lib/citation-preview";
 import { insertAtCursor } from "@/lib/editor-insert";
 import { applyEditsInView } from "@/lib/editor-edits";
@@ -204,7 +205,8 @@ export function BibliographyPanel() {
   const rows = useMemo<BibRow[]>(() => {
     const counts = new Map<string, number>();
     for (const { content } of texTexts) {
-      for (const cite of extractCitePositions(content)) {
+      // Citations in suggested deletions don't count.
+      for (const cite of extractCitePositions(finalText(content).text)) {
         counts.set(cite.key, (counts.get(cite.key) ?? 0) + 1);
       }
     }
@@ -247,7 +249,8 @@ export function BibliographyPanel() {
     const q = query.trim();
     const byKey = new Map<string, UndefinedCitation>();
     for (const { file, content } of texTexts) {
-      for (const cite of extractCitePositions(content)) {
+      const final = finalText(content);
+      for (const cite of extractCitePositions(final.text)) {
         if (defined.has(cite.key)) continue;
         if (q.length > 0 && fuzzyMatch(q, cite.key) === null) continue;
         const existing = byKey.get(cite.key);
@@ -255,7 +258,7 @@ export function BibliographyPanel() {
           byKey.set(cite.key, {
             key: cite.key,
             file,
-            line: lineOf(content, cite.from),
+            line: lineOf(content, final.map.toSource(cite.from)),
             count: 1,
           });
         } else {

@@ -367,6 +367,33 @@ export function parseChanges(source: string): Change[] {
   return flatten(parseTree(source), []);
 }
 
+/**
+ * The source ranges that are not in the final text: every suggestion's
+ * hidden markup (command, options, braces) and, unless
+ * `includeDeleted`, its deleted text. Sorted, non-overlapping.
+ */
+export function suggestionSkipRanges(
+  source: string,
+  includeDeleted = false,
+): SourceRange[] {
+  const out: SourceRange[] = [];
+  for (const change of parseChanges(source)) {
+    const { range, added, deleted } = change;
+    const parts = [added, deleted].filter((r): r is SourceRange => r !== null);
+    parts.sort((a, b) => a.from - b.from);
+    let cursor = range.from;
+    for (const part of parts) {
+      out.push({ from: cursor, to: part.from });
+      if (part === deleted && !includeDeleted) out.push({ ...part });
+      cursor = part.to;
+    }
+    out.push({ from: cursor, to: range.to });
+  }
+  return out
+    .filter((r) => r.from < r.to)
+    .sort((a, b) => a.from - b.from || a.to - b.to);
+}
+
 /** The `\definechangesauthor` declarations, in order. */
 export function parseAuthors(source: string): ChangeAuthor[] {
   const authors: ChangeAuthor[] = [];
@@ -859,4 +886,62 @@ export function removeSetup(source: string): SourceEdit[] {
   edits.sort((a, b) => a.from - b.from);
   // A whole-line package removal may already cover an author line.
   return edits.filter((e, i) => i === 0 || e.from >= edits[i - 1].to);
+}
+
+/** The `\usepackage{changes}` command (outside comments), if any. */
+function changesPackage(source: string) {
+  const begin = source.indexOf("\\begin{document}");
+  const preamble = begin === -1 ? source : source.slice(0, begin);
+  return (
+    parseUsepackage(preamble).find(
+      (p) => p.names.includes("changes") && !inComment(source, p.from),
+    ) ?? null
+  );
+}
+
+const optionList = (options: string | null) =>
+  (options ?? "")
+    .split(",")
+    .map((o) => o.trim())
+    .filter((o) => o !== "");
+
+/**
+ * Whether the PDF shows the suggestions (the package's markup) rather
+ * than the final text (`final` option); null when the document does
+ * not load `changes`.
+ */
+export function suggestionsShownInPdf(source: string): boolean | null {
+  const pkg = changesPackage(source);
+  return pkg === null ? null : !optionList(pkg.options).includes("final");
+}
+
+/** The edits that show or hide the suggestions in the PDF by adding or
+ *  removing the `final` option of `changes`. */
+export function showSuggestionsInPdf(source: string, show: boolean): SourceEdit[] {
+  const pkg = changesPackage(source);
+  if (pkg === null) return [];
+  const options = optionList(pkg.options).filter((o) => o !== "final");
+  if (!show) options.push("final");
+  const others = pkg.names.filter((n) => n !== "changes");
+  const command = (names: string[], opts: string[]) =>
+    `\\usepackage${opts.length > 0 ? `[${opts.join(", ")}]` : ""}{${names.join(", ")}}`;
+  const insert =
+    others.length === 0
+      ? command(["changes"], options)
+      : // The option must not apply to the other packages: split them off.
+        `${command(others, optionList(pkg.options))}\n${command(["changes"], options)}`;
+  if (insert === source.slice(pkg.from, pkg.to)) return [];
+  return [{ from: pkg.from, to: pkg.to, insert }];
+}
+
+/** `[…]` options with the note set to `note` (null or blank removes it):
+ *  setNote on the options alone, for views that keep them as a string. */
+export function optionsWithNote(
+  options: string | null,
+  note: string | null,
+): string | null {
+  const command = `\\added${options ?? ""}{}`;
+  const next = applyEdits(command, setNote(command, 0, note));
+  const opts = next.slice("\\added".length, next.length - 2);
+  return opts === "" ? null : opts;
 }

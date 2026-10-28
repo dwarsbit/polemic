@@ -58,3 +58,12 @@ describe("countWordsBySection", () => {
     expect(parts.map(totalWords)).toEqual([2, 4, 2]);
   });
 });
+
+describe("countWords with track changes", () => {
+  it("counts the final text", () => {
+    const text =
+      "\\begin{document}\nOne \\added[id=LG]{two three} \\deleted[id=LG]{four five six} " +
+      "\\replaced{seven}{eight nine}.\n\\end{document}\n";
+    expect(totalWords(countWords(text))).toBe(4);
+  });
+});
