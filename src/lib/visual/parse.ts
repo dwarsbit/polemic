@@ -7,7 +7,9 @@
  * source, so no content is lost or mangled on the way back.
  */
 
+import { readChangeAt } from "@/lib/changes";
 import {
+  CHANGE_MARKS,
   type Block,
   type DocNode,
   type Inline,
@@ -156,6 +158,9 @@ const FLOAT_ENVS = new Set([
   "subfigure*",
   "sidewaysfigure",
 ]);
+
+/** Pairs the halves of each parsed `\replaced`. */
+let pairSeq = 0;
 
 /** Formatting commands → marks. */
 const FORMAT_MARKS: Record<string, MarkType> = {
@@ -439,6 +444,10 @@ function parseInlineString(s: string, marks: Mark[], opts?: RunOpts): Inline[] {
 function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
   const nodes: Inline[] = [];
   let text = "";
+  // Atoms inside a suggestion carry its change marks.
+  const changeMarks = marks.filter((m) => CHANGE_MARKS.has(m.type));
+  const atom = <T extends Inline>(node: T): T =>
+    changeMarks.length > 0 ? { ...node, marks: changeMarks } : node;
   const flush = () => {
     if (text.length === 0) return;
     nodes.push({ type: "text", text, ...(marks.length > 0 ? { marks } : {}) });
@@ -486,7 +495,7 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
           const close = c.src.indexOf("$$", i + 2);
           const end = close === -1 ? c.src.length : close + 2;
           flush();
-          nodes.push({ type: "mathInline", attrs: { src: c.src.slice(i, end) } });
+          nodes.push(atom({ type: "mathInline", attrs: { src: c.src.slice(i, end) } }));
           c.pos = end;
           continue;
         }
@@ -500,7 +509,9 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
         continue;
       }
       flush();
-      nodes.push({ type: "mathInline", attrs: { src: c.src.slice(i, close + 1) } });
+      nodes.push(
+        atom({ type: "mathInline", attrs: { src: c.src.slice(i, close + 1) } }),
+      );
       c.pos = close + 1;
       continue;
     }
@@ -538,7 +549,7 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
         const close = findLiteral(c.src, i + 2, "\\]");
         const end = close === -1 ? c.src.length : close + 2;
         flush();
-        nodes.push({ type: "mathInline", attrs: { src: c.src.slice(i, end) } });
+        nodes.push(atom({ type: "mathInline", attrs: { src: c.src.slice(i, end) } }));
         c.pos = end;
         continue;
       }
@@ -550,7 +561,7 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
       const close = findLiteral(c.src, i + 2, "\\)");
       const end = close === -1 ? c.src.length : close + 2;
       flush();
-      nodes.push({ type: "mathInline", attrs: { src: c.src.slice(i, end) } });
+      nodes.push(atom({ type: "mathInline", attrs: { src: c.src.slice(i, end) } }));
       c.pos = end;
       continue;
     }
@@ -564,7 +575,7 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
         if (k !== -1) j = k;
       }
       flush();
-      nodes.push({ type: "hardBreak", attrs: { src: c.src.slice(i, j) } });
+      nodes.push(atom({ type: "hardBreak", attrs: { src: c.src.slice(i, j) } }));
       c.pos = j;
       continue;
     }
@@ -574,7 +585,9 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
       if (opts?.inGroup) {
         const body = envBody(c.src, i, begin.env);
         flush();
-        nodes.push({ type: "rawTexInline", attrs: { src: c.src.slice(i, body.end) } });
+        nodes.push(
+          atom({ type: "rawTexInline", attrs: { src: c.src.slice(i, body.end) } }),
+        );
         c.pos = body.end;
         continue;
       }
@@ -587,7 +600,7 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
       if (opts?.inGroup) {
         const token = readCommandToken(c.src, i);
         flush();
-        nodes.push({ type: "rawTexInline", attrs: { src: token.text } });
+        nodes.push(atom({ type: "rawTexInline", attrs: { src: token.text } }));
         c.pos = token.end;
         continue;
       }
@@ -610,9 +623,50 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
       // \, \; \! spacing and bare backslashes: raw, verbatim
       const token = readCommandToken(c.src, i);
       flush();
-      nodes.push({ type: "rawTexInline", attrs: { src: token.text } });
+      nodes.push(atom({ type: "rawTexInline", attrs: { src: token.text } }));
       c.pos = token.end;
       continue;
+    }
+
+    // Track changes: \added, \deleted, \replaced, \highlight become
+    // marks over their text (the model in lib/changes.ts reads them).
+    if (
+      cmd === "added" ||
+      cmd === "deleted" ||
+      cmd === "replaced" ||
+      cmd === "highlight"
+    ) {
+      const change = readChangeAt(c.src, i);
+      if (change !== null) {
+        const attrs = {
+          author: change.author,
+          opts: change.options
+            ? c.src.slice(change.options.from, change.options.to)
+            : null,
+          pair: change.kind === "replaced" ? `r${++pairSeq}` : null,
+        };
+        const run = (range: { from: number; to: number } | null, type: MarkType) => {
+          if (range === null) return;
+          nodes.push(
+            ...parseInlineString(
+              c.src.slice(range.from, range.to),
+              [...marks, { type, attrs }],
+              {
+                inGroup: true,
+              },
+            ),
+          );
+        };
+        flush();
+        if (change.kind === "highlight") run(change.added, "changeHighlight");
+        else {
+          // The old text first, as both views show a replacement.
+          run(change.deleted, "deletion");
+          run(change.added, "insertion");
+        }
+        c.pos = change.range.to;
+        continue;
+      }
     }
 
     if (FORMAT_MARKS[cmd] !== undefined) {
@@ -631,7 +685,7 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
       const token = readCommandToken(c.src, i);
       flush();
       const type = cmd === "label" ? "label" : REF_CMDS.has(cmd) ? "ref" : "cite";
-      nodes.push({ type, attrs: { src: token.text } } as Inline);
+      nodes.push(atom({ type, attrs: { src: token.text } } as Inline));
       c.pos = token.end;
       continue;
     }
@@ -639,7 +693,7 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
     if (cmd === "footnote") {
       const token = readCommandToken(c.src, i);
       flush();
-      nodes.push({ type: "footnote", attrs: { src: token.text } });
+      nodes.push(atom({ type: "footnote", attrs: { src: token.text } }));
       c.pos = token.end;
       continue;
     }
@@ -647,7 +701,7 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
     // Unknown command: raw with its attached arguments
     const token = readCommandToken(c.src, i);
     flush();
-    nodes.push({ type: "rawTexInline", attrs: { src: token.text } });
+    nodes.push(atom({ type: "rawTexInline", attrs: { src: token.text } }));
     c.pos = token.end;
   }
 
@@ -959,7 +1013,7 @@ export function splitPreamble(preamble: string): PreambleAttrs {
 /** Commands that start the body, for recovering a preamble from a
  *  malformed file without a `\begin{document}`. */
 const BODY_MARKER =
-  /^\\(maketitle|tableofcontents|printbibliography|part|chapter|section|subsection|subsubsection|paragraph|subparagraph|begin|item|input|include|label|ref|eqref|cite|cref|footnote|newpage|clearpage|pagebreak|linebreak)(?![a-zA-Z])/;
+  /^\\(maketitle|tableofcontents|printbibliography|part|chapter|section|subsection|subsubsection|paragraph|subparagraph|begin|item|input|include|label|ref|eqref|cite|cref|footnote|newpage|clearpage|pagebreak|linebreak|added|deleted|replaced|highlight)(?![a-zA-Z])/;
 
 /**
  * Where the body starts in a file without a `\begin{document}`: before

@@ -8,6 +8,7 @@
  */
 
 import {
+  CHANGE_MARKS,
   type Block,
   type DocNode,
   type EnvBlockNode,
@@ -40,39 +41,107 @@ function applyMarks(text: string, marks: Mark[]): string {
   let out = text;
   for (let i = marks.length - 1; i >= 0; i--) {
     const mark = marks[i];
-    if (mark.type === "comment") continue; // handled by the caller
+    if (mark.type === "comment" || CHANGE_MARKS.has(mark.type)) continue;
     const cmd = mark.attrs?.cmd ?? FORMAT_DEFAULTS[mark.type];
     out = `\\${cmd}{${out}}`;
   }
   return out;
 }
 
-function serializeInline(nodes: Inline[] | undefined): string {
-  let out = "";
-  for (const node of nodes ?? []) {
-    switch (node.type) {
-      case "text": {
-        const isComment = node.marks?.some((m) => m.type === "comment") ?? false;
-        if (isComment) {
-          // Comment content is raw, and the newline it consumed returns.
-          out += node.text + "\n";
-        } else {
-          out += applyMarks(escapeText(node.text), node.marks ?? []);
-        }
-        break;
-      }
-      case "hardBreak":
-        out += node.attrs.src;
-        break;
-      case "mathInline":
-      case "cite":
-      case "ref":
-      case "label":
-      case "footnote":
-      case "rawTexInline":
-        out += node.attrs.src;
-        break;
+function serializeNode(node: Inline): string {
+  switch (node.type) {
+    case "text": {
+      const isComment = node.marks?.some((m) => m.type === "comment") ?? false;
+      // Comment content is raw, and the newline it consumed returns.
+      if (isComment) return node.text + "\n";
+      return applyMarks(escapeText(node.text), node.marks ?? []);
     }
+    case "hardBreak":
+    case "mathInline":
+    case "cite":
+    case "ref":
+    case "label":
+    case "footnote":
+    case "rawTexInline":
+      return node.attrs.src;
+  }
+}
+
+/** The outermost change mark of a node: deletions wrap insertions
+ *  (another author's new text struck out), both wrap highlights. */
+const CHANGE_ORDER = ["deletion", "insertion", "changeHighlight"];
+
+function changeMarkOf(node: Inline): Mark | null {
+  let best: Mark | null = null;
+  for (const mark of node.marks ?? []) {
+    if (!CHANGE_MARKS.has(mark.type)) continue;
+    if (
+      best === null ||
+      CHANGE_ORDER.indexOf(mark.type) < CHANGE_ORDER.indexOf(best.type)
+    ) {
+      best = mark;
+    }
+  }
+  return best;
+}
+
+const sameChange = (a: Mark | null, b: Mark | null) =>
+  a !== null &&
+  b !== null &&
+  a.type === b.type &&
+  (a.attrs?.author ?? null) === (b.attrs?.author ?? null) &&
+  (a.attrs?.opts ?? null) === (b.attrs?.opts ?? null) &&
+  (a.attrs?.pair ?? null) === (b.attrs?.pair ?? null);
+
+const without = (node: Inline, mark: Mark): Inline => {
+  const marks = (node.marks ?? []).filter((m) => m !== mark && !sameChange(m, mark));
+  return { ...node, marks } as Inline;
+};
+
+const CHANGE_CMD: Record<string, string> = {
+  insertion: "added",
+  deletion: "deleted",
+  changeHighlight: "highlight",
+};
+
+/**
+ * Inline content as LaTeX: a run of nodes sharing a change mark is one
+ * `\added` / `\deleted` / `\highlight`, and the two halves of a
+ * replacement (same `pair`, old text first) one `\replaced`.
+ */
+function serializeInline(nodes: Inline[] | undefined): string {
+  const list = nodes ?? [];
+  let out = "";
+  let i = 0;
+  // The run of nodes from `start` sharing `mark`, the mark removed.
+  const runFrom = (start: number, mark: Mark) => {
+    let end = start;
+    while (end < list.length && sameChange(changeMarkOf(list[end]), mark)) end++;
+    return { end, inner: list.slice(start, end).map((n) => without(n, mark)) };
+  };
+  while (i < list.length) {
+    const mark = changeMarkOf(list[i]);
+    if (mark === null) {
+      out += serializeNode(list[i]);
+      i++;
+      continue;
+    }
+    const run = runFrom(i, mark);
+    const opts = mark.attrs?.opts ?? "";
+    const pair = mark.attrs?.pair ?? null;
+    if (mark.type === "deletion" && pair !== null) {
+      const next = changeMarkOf(
+        list[run.end] ?? ({ type: "text", text: "" } as Inline),
+      );
+      if (next !== null && next.type === "insertion" && next.attrs?.pair === pair) {
+        const added = runFrom(run.end, next);
+        out += `\\replaced${opts}{${serializeInline(added.inner)}}{${serializeInline(run.inner)}}`;
+        i = added.end;
+        continue;
+      }
+    }
+    out += `\\${CHANGE_CMD[mark.type]}${opts}{${serializeInline(run.inner)}}`;
+    i = run.end;
   }
   return out;
 }

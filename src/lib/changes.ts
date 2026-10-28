@@ -339,6 +339,29 @@ function flatten(nodes: Change[], out: Change[]): Change[] {
   return out;
 }
 
+/**
+ * The suggestion command starting at `pos` (its backslash), read up to
+ * `limit`, or null when there is none or it is malformed.
+ */
+export function readChangeAt(
+  source: string,
+  pos: number,
+  limit = source.length,
+): Change | null {
+  if (source[pos] !== "\\") return null;
+  let end = pos + 1;
+  while (end < limit && isLetter(source[end])) end++;
+  const name = source.slice(pos + 1, end);
+  if (!(name in ARITY)) return null;
+  return readChange(source, name as ChangeKind, pos, end, limit);
+}
+
+/** The note (`comment=`) in a change's `[…]` options text, or null. */
+export function noteOfOptions(options: string | null): string | null {
+  if (options === null) return null;
+  return readChangeAt(`\\added${options}{}`, 0)?.note ?? null;
+}
+
 /** Every suggestion (and highlight) in document order, nested ones included. */
 export function parseChanges(source: string): Change[] {
   return flatten(parseTree(source), []);
