@@ -318,6 +318,21 @@ export function DocumentSettingsDialog({
               </div>
               <Switch checked={draft.draft} onCheckedChange={(v) => set("draft", v)} />
             </div>
+            {draft.suggestionsInPdf !== null && (
+              <div className="flex items-center justify-between rounded-lg border px-3 py-2">
+                <div>
+                  <p className="text-xs font-medium">Show suggestions in the PDF</p>
+                  <p className="text-xs text-muted-foreground">
+                    Off: the PDF shows the text with every suggestion accepted
+                  </p>
+                </div>
+                <Switch
+                  checked={draft.suggestionsInPdf}
+                  aria-label="Show suggestions in the PDF"
+                  onCheckedChange={(v) => set("suggestionsInPdf", v)}
+                />
+              </div>
+            )}
             <div className="flex flex-col gap-2 rounded-lg border px-3 py-2.5">
               <p className="text-xs font-medium">Title metadata</p>
               <Input

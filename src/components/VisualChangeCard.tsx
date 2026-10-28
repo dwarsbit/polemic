@@ -2,9 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import type { Editor } from "@tiptap/core";
 import { Button } from "@/components/ui/button";
 import type { AuthorStyle } from "@/lib/changes-view";
+import { openCommentDialog } from "@/lib/editor-comments";
+import { useProjectStore } from "@/store/project";
 import {
   changeAt,
   resolveVisualChange,
+  setVisualNote,
   type VisualChange,
 } from "@/lib/visual/track-changes";
 
@@ -111,6 +114,27 @@ export function VisualChangeCard({
         <p className="mt-1 whitespace-pre-wrap">{change.note}</p>
       )}
       <div className="mt-1.5 flex gap-1">
+        <Button
+          variant="outline"
+          size="xs"
+          title="A note on this suggestion, shown in the Comments panel"
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={() => {
+            const file = useProjectStore.getState().activeFile;
+            setHovered(null);
+            if (file === null) return;
+            openCommentDialog({
+              kind: "note",
+              file,
+              at: null,
+              note: change.note,
+              author: change.author,
+              apply: (note) => setVisualNote(editor.view, change, note),
+            });
+          }}
+        >
+          {change.note === null ? "Note" : "Edit note"}
+        </Button>
         <Button
           variant="outline"
           size="xs"

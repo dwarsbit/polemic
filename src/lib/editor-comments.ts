@@ -3,8 +3,27 @@ import { useProjectStore } from "@/store/project";
 
 /** What the comment dialog should edit: a new draft or an existing comment. */
 export type CommentTarget =
-  | { kind: "new"; file: string; anchor: Comment["anchor"] }
-  | { kind: "edit"; id: string };
+  | {
+      kind: "new";
+      file: string;
+      anchor: Comment["anchor"];
+      /** A reply to the suggestion note with this key. */
+      suggestion?: string;
+    }
+  | { kind: "edit"; id: string }
+  | {
+      /** A suggestion's note (`comment=` in the markup): new or edited. */
+      kind: "note";
+      file: string;
+      /** The suggestion's start in the file, when known (Code view). */
+      at: number | null;
+      /** The current note, null for none yet. */
+      note: string | null;
+      author: string | null;
+      /** Writes the note itself (the Visual view); else the file is
+       *  edited through setNote. */
+      apply?: (note: string | null) => void;
+    };
 
 let dialogHandler: ((target: CommentTarget) => void) | null = null;
 /** Set by the editor view, which hosts the dialog. */

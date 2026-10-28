@@ -7,6 +7,8 @@
  * positions, so counts can be grouped per section.
  */
 
+import { finalText } from "@/lib/changes";
+
 export type WordKind = "text" | "header" | "other";
 
 export interface WordStats {
@@ -288,10 +290,11 @@ function scan(text: string): Hit[] {
   return hits;
 }
 
-/** Word statistics of a whole source. */
+/** Word statistics of a whole source, read as its final text (every
+ *  suggestion accepted). */
 export function countWords(text: string): WordStats {
   const stats = emptyStats();
-  for (const hit of scan(text)) stats[hit.kind]++;
+  for (const hit of scan(finalText(text).text)) stats[hit.kind]++;
   return stats;
 }
 
@@ -306,8 +309,10 @@ export function countWordsBySection(text: string, headingLines: number[]): WordS
   const bounds = headingLines.map((line) => lineStarts[line - 1] ?? text.length);
   const out = Array.from({ length: headingLines.length + 1 }, emptyStats);
   let section = 0;
-  for (const hit of scan(text)) {
-    while (section < bounds.length && hit.pos >= bounds[section]) section++;
+  const final = finalText(text);
+  for (const hit of scan(final.text)) {
+    const pos = final.map.toSource(hit.pos);
+    while (section < bounds.length && pos >= bounds[section]) section++;
     out[section][hit.kind]++;
   }
   return out;

@@ -51,3 +51,21 @@ describe("replaceEdits", () => {
     expect(applyEdits(text, edits)).toBe("beta $\\alpha$");
   });
 });
+
+describe("search with track changes", () => {
+  const text = "keep \\added[id=LG]{new word} and \\deleted[id=LG]{old word} here";
+
+  it("skips deleted text and the markup by default", () => {
+    const hits = searchText(text, "word", all);
+    expect(hits[0].matches.map(([a, b]) => text.slice(a, b))).toEqual(["word"]);
+    expect(hits[0].matches[0][0]).toBe(text.indexOf("new word") + 4);
+    expect(searchText(text, "added", all)).toEqual([]);
+    expect(searchText(text, "id=LG", all)).toEqual([]);
+  });
+
+  it("finds deleted text on request", () => {
+    expect(
+      searchText(text, "word", { ...all, includeDeleted: true })[0].matches,
+    ).toHaveLength(2);
+  });
+});

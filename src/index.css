@@ -355,6 +355,12 @@ body {
   opacity: 0.3;
 }
 
+/* A note on a suggestion: dashed, so it reads apart from comments. */
+.cm-comment-bar.suggestion-note {
+  background: transparent;
+  border: 1.5px dashed var(--muted-foreground);
+}
+
 /* Track changes: suggested text colored by author (--change-color on
    each mark), insertions tinted, deletions struck out. */
 .cm-change-ins {

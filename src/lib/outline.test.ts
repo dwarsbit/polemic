@@ -55,3 +55,12 @@ describe("extractLabels", () => {
     expect(extractLabels("no labels here")).toEqual([]);
   });
 });
+
+describe("parseOutline with track changes", () => {
+  it("shows titles as they read with every suggestion accepted", () => {
+    expect(
+      parseOutline("\\section{The \\replaced[id=LG]{new}{old} \\added{good} title}")[0]
+        .title,
+    ).toBe("The new good title");
+  });
+});
