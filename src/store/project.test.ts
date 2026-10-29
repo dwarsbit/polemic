@@ -1,7 +1,13 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-// An in-memory project folder behind the Tauri commands.
+// In-memory project folders behind the Tauri commands; `disk` is "/p".
 const disk = new Map<string, string>();
+const folders = new Map<string, Map<string, string>>([["/p", disk]]);
+function folder(dir: string): Map<string, string> {
+  let files = folders.get(dir);
+  if (!files) folders.set(dir, (files = new Map()));
+  return files;
+}
 const ask = vi.fn(() => Promise.resolve(true));
 
 vi.mock("@tauri-apps/plugin-dialog", () => ({
@@ -9,19 +15,23 @@ vi.mock("@tauri-apps/plugin-dialog", () => ({
 }));
 
 vi.mock("@/lib/tauri", () => ({
-  readProjectFile: (_dir: string, path: string) => {
-    const content = disk.get(path);
+  readProjectFile: (dir: string, path: string) => {
+    const content = folder(dir).get(path);
     return content === undefined
       ? Promise.reject(new Error(`no ${path}`))
       : Promise.resolve(content);
   },
-  writeProjectFile: (_dir: string, path: string, content: string) => {
-    disk.set(path, content);
+  writeProjectFile: (dir: string, path: string, content: string) => {
+    folder(dir).set(path, content);
     return Promise.resolve();
   },
-  listFiles: () =>
+  openProject: (dir: string) => Promise.resolve({ name: dir.slice(1), path: dir }),
+  getSettings: () => Promise.resolve({ mainFiles: {}, openFiles: {} }),
+  getProjectConfig: () => Promise.resolve({}),
+  setProjectMenuEnabled: () => Promise.resolve(),
+  listFiles: (dir: string) =>
     Promise.resolve(
-      [...disk.keys()].map((path) => ({
+      [...folder(dir).keys()].map((path) => ({
         name: path,
         path,
         isDir: false,
@@ -146,5 +156,30 @@ describe("the preview follows the project", () => {
     useProjectStore.setState({ project: { name: "q", path: "/q" } });
     expect(usePreviewStore.getState().pdfBytes).toBeNull();
     expect(usePreviewStore.getState().status).toBe("idle");
+  });
+});
+
+describe("switching projects", () => {
+  it("saves the old project's edits to it and keeps them out of the new one", async () => {
+    await openMain("a on disk");
+    type("a unsaved");
+    const other = folder("/q");
+    other.clear();
+    other.set("main.tex", "b on disk");
+
+    await useProjectStore.getState().openProject("/q");
+
+    expect(disk.get("main.tex")).toBe("a unsaved");
+    expect(other.get("main.tex")).toBe("b on disk");
+    const state = useProjectStore.getState();
+    expect(state.project?.path).toBe("/q");
+    expect(state.buffers).toEqual({});
+    expect(state.activeFile).toBe("main.tex");
+    expect(state.lastSavedContent).toBe("b on disk");
+    expect(useEditorStore.getState().content).toBe("b on disk");
+
+    await state.flushBuffers();
+    await useProjectStore.getState().closeFile("main.tex");
+    expect(other.get("main.tex")).toBe("b on disk");
   });
 });

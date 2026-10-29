@@ -285,6 +285,25 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     },
 
     openProject: async (path) => {
+      // Buffers are keyed by relative path: write the current project's
+      // edits to its own folder before another project takes the store,
+      // or they would show up in (and be saved into) the new one.
+      if (get().project) {
+        try {
+          await get().flushBuffers();
+        } catch (e) {
+          const discard = await ask(
+            `Some changes could not be saved:\n\n${e}\n\nOpen the other project anyway and lose them?`,
+            {
+              title: "Unsaved changes",
+              kind: "warning",
+              okLabel: "Open without saving",
+              cancelLabel: "Keep project open",
+            },
+          ).catch(() => false);
+          if (!discard) return;
+        }
+      }
       const info = await api.openProject(path);
       const files = await api.listFiles(info.path);
       const settings = await api.getSettings();
@@ -303,6 +322,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         files,
         mainFile,
         openFiles: storedOpen,
+        activeFile: null,
+        lastSavedContent: null,
+        buffers: {},
+        snapshots: [],
         labelsByFile: {},
         refsByFile: {},
         citeKeysByFile: {},
