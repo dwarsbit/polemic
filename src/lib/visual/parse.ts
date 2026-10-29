@@ -481,7 +481,9 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
         if (w !== " " && w !== "\t" && w !== "\n") break;
         j++;
       }
-      if (j >= c.src.length) {
+      // (Inside a group the end is the closing brace, not EOF:
+      // `\textbf{bold }x` keeps its space.)
+      if (j >= c.src.length && opts?.inGroup !== true) {
         c.pos = j;
         continue;
       }

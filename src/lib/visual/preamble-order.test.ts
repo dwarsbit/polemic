@@ -116,6 +116,7 @@ describe("fragment files", () => {
       // No paragraph break inside a group or display math.
       expect(once).not.toMatch(/\{[^}]*\n\s*\n[^{]*\}/);
       expect(once).not.toMatch(/\\\[[^]*?\n\s*\n[^]*?\\\]/);
+      expect(serializeTex(parseTex(once))).toBe(once);
     });
   }
 
