@@ -809,6 +809,51 @@ export function gitAccountRemove(id: string): Promise<GitAccountView[]> {
   return invoke<GitAccountView[]>("git_account_remove", { id });
 }
 
+/** Whether this build can sign in to GitHub (it has an OAuth client ID). */
+export function githubSignInAvailable(): Promise<boolean> {
+  return invoke<boolean>("github_sign_in_available");
+}
+
+export interface GithubSignIn {
+  /** The code to type at verificationUri. */
+  userCode: string;
+  verificationUri: string;
+  /** Seconds until the code expires. */
+  expiresIn: number;
+}
+
+/** Start the device flow: the code, with the browser opened at its page. */
+export function githubSignInStart(): Promise<GithubSignIn> {
+  return invoke<GithubSignIn>("github_sign_in_start");
+}
+
+/** Wait for the code to be entered; the accounts, with GitHub's added. */
+export function githubSignInFinish(): Promise<GitAccountView[]> {
+  return invoke<GitAccountView[]>("github_sign_in_finish");
+}
+
+export function githubSignInCancel(): Promise<void> {
+  return invoke<void>("github_sign_in_cancel");
+}
+
+/** Create a GitHub repository for the project, set it as origin, push. */
+export function githubPublish(
+  projectDir: string,
+  name: string,
+  isPrivate: boolean,
+): Promise<string> {
+  return invoke<string>("github_publish", { projectDir, name, private: isPrivate });
+}
+
+/** The repository name a project suggests: letters, digits, -, _ and . only. */
+export function suggestedRepoName(projectName: string): string {
+  const name = projectName
+    .trim()
+    .replace(/[^A-Za-z0-9._-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return name === "" || name === "." || name === ".." ? "paper" : name;
+}
+
 /** Clone a repository into the projects root as the project `name`. */
 export function gitCloneProject(url: string, name: string): Promise<ProjectInfo> {
   return invoke<ProjectInfo>("git_clone_project", { url, name });
