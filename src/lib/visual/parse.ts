@@ -1086,27 +1086,57 @@ export function splitPreamble(preamble: string): PreambleAttrs {
 // ---------------------------------------------------------------------------
 // Entry point
 
-/** Commands that start the body, for recovering a preamble from a
- *  malformed file without a `\begin{document}`. */
-const BODY_MARKER =
-  /^\\(maketitle|tableofcontents|printbibliography|part|chapter|section|subsection|subsubsection|paragraph|subparagraph|begin|item|input|include|label|ref|eqref|cite|cref|footnote|newpage|clearpage|pagebreak|linebreak|added|deleted|replaced|highlight)(?![a-zA-Z])/;
+/** Commands that belong in a preamble, for recovering one from a file
+ *  without a `\begin{document}`. Any other command starts the body. */
+const PREAMBLE_CMD =
+  /^\\(documentclass|usepackage|RequirePackage|title|author|date|thanks|newcommand|renewcommand|providecommand|DeclareRobustCommand|NewDocumentCommand|RenewDocumentCommand|ProvideDocumentCommand|newenvironment|renewenvironment|NewDocumentEnvironment|def|edef|gdef|let|newif|makeatletter|makeatother|newtheorem|theoremstyle|DeclareMathOperator|numberwithin|newcounter|setcounter|newlength|setlength|addtolength|linespread|geometry|hypersetup|graphicspath|bibliographystyle|bibliography|addbibresource|definecolor|colorlet|pagestyle|usetikzlibrary|tikzset|pgfplotsset|lstset|sisetup|captionsetup|crefname|Crefname|setmainfont|setsansfont|setmonofont|definechangesauthor)(?![a-zA-Z])/;
+
+/** End (exclusive) of the preamble line starting at `i`: through its
+ *  newline, extended while a `{` opened on it is still unclosed. */
+function preambleLineEnd(src: string, i: number): number {
+  let depth = 0;
+  let inComment = false;
+  let j = i;
+  while (j < src.length) {
+    const ch = src[j];
+    if (ch === "\n") {
+      inComment = false;
+      j++;
+      if (depth <= 0) return j;
+      continue;
+    }
+    if (inComment) {
+      j++;
+      continue;
+    }
+    if (ch === "%") inComment = true;
+    else if (ch === "\\") j++;
+    else if (ch === "{") depth++;
+    else if (ch === "}") depth--;
+    j++;
+  }
+  return src.length;
+}
 
 /**
  * Where the body starts in a file without a `\begin{document}`: before
- * the first line that is body content — plain text or a body command.
- * Blank lines and comments count as preamble lines. Returns -1 when
- * the whole file is preamble commands (no body at all).
+ * the first line that is body content — anything but a preamble
+ * command (a definition spanning lines counts as one). Blank lines and
+ * comments count as preamble lines. Returns -1 when the whole file is
+ * preamble commands (no body at all).
  */
 function recoveredPreambleEnd(source: string): number {
-  let offset = 0;
-  for (const line of source.split("\n")) {
-    const trimmed = line.trim();
+  let i = 0;
+  while (i < source.length) {
+    let j = i;
+    while (source[j] === " " || source[j] === "\t") j++;
     const isPreamble =
-      trimmed.length === 0 ||
-      trimmed.startsWith("%") ||
-      (trimmed.startsWith("\\") && !BODY_MARKER.test(trimmed));
-    if (!isPreamble) return offset;
-    offset += line.length + 1;
+      j >= source.length ||
+      source[j] === "\n" ||
+      source[j] === "%" ||
+      PREAMBLE_CMD.test(source.slice(j, j + 40));
+    if (!isPreamble) return i;
+    i = preambleLineEnd(source, i);
   }
   return -1;
 }

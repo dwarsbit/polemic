@@ -206,6 +206,46 @@ describe("parseTex", () => {
     ]);
   });
 
+  it.each([
+    ["a format command", "\\textbf{Bold} start.\n"],
+    ["an unknown command", "\\noindent Text here.\n"],
+    ["a symbol accent", "\\'{E}t\\'{e} was hot.\n"],
+    ["a bare group", "{\\bfseries Bold} start.\n"],
+    ["math", "\\(x\\) is small.\n"],
+  ])("keeps a file starting with %s as body", (_name, tex) => {
+    const doc = parseTex(tex);
+    expect(doc.content?.map((b) => b.type)).toEqual(["paragraph"]);
+    expect(serializeTex(doc)).toBe(tex);
+  });
+
+  it("recovers only known preamble commands before the body", () => {
+    const tex =
+      "\\usepackage{amsmath}\n\\newcommand{\\R}{\\mathbb{R}}\n\\emph{Body} here.\n";
+    const doc = parseTex(tex);
+    expect(doc.content?.map((b) => b.type)).toEqual(["preamble", "paragraph"]);
+    expect(serializeTex(doc)).toContain("\\emph{Body} here.");
+  });
+
+  it("keeps a multi-line preamble definition in the preamble", () => {
+    const tex = [
+      "\\documentclass{article}",
+      "\\newcommand{\\note}[1]{%",
+      "  \\textbf{Note:} #1",
+      "}",
+      "\\def\\foo{",
+      "  bar",
+      "}",
+      "",
+      "Body text.",
+      "",
+    ].join("\n");
+    const doc = parseTex(tex);
+    expect(doc.content?.map((b) => b.type)).toEqual(["preamble", "paragraph"]);
+    expect(doc.content?.[0]).toMatchObject({
+      attrs: { src: expect.stringContaining("  bar\n}") },
+    });
+  });
+
   it("keeps a body-first file without \\begin{document} preamble-free", () => {
     const doc = parseTex("\\section{Hi}\nBody text.\n");
     expect(doc.attrs?.wrapped).toBe(false);
