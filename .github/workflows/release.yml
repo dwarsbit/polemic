@@ -141,6 +141,9 @@ jobs:
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The GitHub OAuth App's client ID (not a secret) turns on
+          # "Sign in with GitHub"; without it the button stays off.
+          POLEMIC_GITHUB_CLIENT_ID: ${{ vars.POLEMIC_GITHUB_CLIENT_ID }}
         with:
           tagName: ${{ github.ref_name }}
           releaseName: "Polemic ${{ github.ref_name }}"

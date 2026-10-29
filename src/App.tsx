@@ -49,11 +49,8 @@ function openExternal(url: string): Promise<void> {
 }
 
 /** Leave the project for the projects view, saving open buffers first. */
-function closeProjectToStart(): Promise<void> {
-  return useProjectStore
-    .getState()
-    .flushBuffers()
-    .finally(() => useProjectStore.getState().closeProject());
+function closeProjectToStart(): Promise<boolean> {
+  return useProjectStore.getState().leaveProject();
 }
 
 /** Switch the active file between its Visual and Code faces. */

@@ -1,34 +1,46 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-// An in-memory project folder behind the Tauri commands.
+// In-memory project folders behind the Tauri commands; `disk` is "/p".
 const disk = new Map<string, string>();
 /** Runs inside a disk write, before it resolves: an edit racing it. */
 let duringWrite: ((path: string) => void) | null = null;
+const folders = new Map<string, Map<string, string>>([["/p", disk]]);
+function folder(dir: string): Map<string, string> {
+  let files = folders.get(dir);
+  if (!files) folders.set(dir, (files = new Map()));
+  return files;
+}
 const ask = vi.fn(() => Promise.resolve(true));
+let failWrites = false;
 
 vi.mock("@tauri-apps/plugin-dialog", () => ({
   ask: (...args: unknown[]) => ask(...(args as [])),
 }));
 
 vi.mock("@/lib/tauri", () => ({
-  readProjectFile: (_dir: string, path: string) => {
-    const content = disk.get(path);
+  readProjectFile: (dir: string, path: string) => {
+    const content = folder(dir).get(path);
     return content === undefined
       ? Promise.reject(new Error(`no ${path}`))
       : Promise.resolve(content);
   },
-  writeProjectFile: (_dir: string, path: string, content: string) => {
-    disk.set(path, content);
+  writeProjectFile: (dir: string, path: string, content: string) => {
+    if (failWrites) return Promise.reject(new Error("disk full"));
+    folder(dir).set(path, content);
     duringWrite?.(path);
     return Promise.resolve();
   },
-  deleteEntry: (_dir: string, path: string) => {
-    disk.delete(path);
+  deleteEntry: (dir: string, path: string) => {
+    folder(dir).delete(path);
     return Promise.resolve();
   },
-  listFiles: () =>
+  openProject: (dir: string) => Promise.resolve({ name: dir.slice(1), path: dir }),
+  getSettings: () => Promise.resolve({ mainFiles: {}, openFiles: {} }),
+  getProjectConfig: () => Promise.resolve({}),
+  setProjectMenuEnabled: () => Promise.resolve(),
+  listFiles: (dir: string) =>
     Promise.resolve(
-      [...disk.keys()].map((path) => ({
+      [...folder(dir).keys()].map((path) => ({
         name: path,
         path,
         isDir: false,
@@ -36,9 +48,10 @@ vi.mock("@/lib/tauri", () => ({
       })),
     ),
   setOpenFiles: () => Promise.resolve(),
-  renameEntry: (_dir: string, from: string, to: string) => {
-    disk.set(to, disk.get(from)!);
-    disk.delete(from);
+  renameEntry: (dir: string, from: string, to: string) => {
+    const files = folder(dir);
+    files.set(to, files.get(from)!);
+    files.delete(from);
     return Promise.resolve();
   },
   updatePreferences: () => Promise.resolve(),
@@ -74,6 +87,7 @@ function type(content: string) {
 beforeEach(() => {
   duringWrite = null;
   ask.mockClear();
+  failWrites = false;
   ask.mockImplementation(() => Promise.resolve(true));
 });
 
@@ -238,5 +252,63 @@ describe("the preview follows the project", () => {
     useProjectStore.setState({ project: { name: "q", path: "/q" } });
     expect(usePreviewStore.getState().pdfBytes).toBeNull();
     expect(usePreviewStore.getState().status).toBe("idle");
+  });
+});
+
+describe("switching projects", () => {
+  it("saves the old project's edits to it and keeps them out of the new one", async () => {
+    await openMain("a on disk");
+    type("a unsaved");
+    const other = folder("/q");
+    other.clear();
+    other.set("main.tex", "b on disk");
+
+    await useProjectStore.getState().openProject("/q");
+
+    expect(disk.get("main.tex")).toBe("a unsaved");
+    expect(other.get("main.tex")).toBe("b on disk");
+    const state = useProjectStore.getState();
+    expect(state.project?.path).toBe("/q");
+    expect(state.buffers).toEqual({});
+    expect(state.activeFile).toBe("main.tex");
+    expect(state.lastSavedContent).toBe("b on disk");
+    expect(useEditorStore.getState().content).toBe("b on disk");
+
+    await state.flushBuffers();
+    await useProjectStore.getState().closeFile("main.tex");
+    expect(other.get("main.tex")).toBe("b on disk");
+  });
+});
+
+describe("closing the project", () => {
+  it("saves unsaved edits before closing", async () => {
+    await openMain("one");
+    type("unsaved");
+    expect(await useProjectStore.getState().leaveProject()).toBe(true);
+    expect(disk.get("main.tex")).toBe("unsaved");
+    expect(useProjectStore.getState().project).toBeNull();
+    expect(ask).not.toHaveBeenCalled();
+  });
+
+  it("keeps the project open when saving fails and the user says so", async () => {
+    await openMain("one");
+    type("unsaved");
+    failWrites = true;
+    ask.mockImplementation(() => Promise.resolve(false));
+    expect(await useProjectStore.getState().leaveProject()).toBe(false);
+    expect(ask).toHaveBeenCalledOnce();
+    const state = useProjectStore.getState();
+    expect(state.project).toEqual(project);
+    expect(state.buffers).toEqual({ "main.tex": "unsaved" });
+  });
+
+  it("closes without saving when the user accepts losing the edits", async () => {
+    await openMain("one");
+    type("unsaved");
+    failWrites = true;
+    expect(await useProjectStore.getState().leaveProject()).toBe(true);
+    expect(ask).toHaveBeenCalledOnce();
+    expect(useProjectStore.getState().project).toBeNull();
+    expect(disk.get("main.tex")).toBe("one");
   });
 });
