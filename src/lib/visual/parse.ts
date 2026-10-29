@@ -200,6 +200,18 @@ interface RunOpts {
 // ---------------------------------------------------------------------------
 // Small scanners (all comment- and escape-aware)
 
+/** End (exclusive) of a `\verb<d>...<d>` or `\verb*<d>...<d>` at `i`,
+ *  or -1. The body is opaque: no comment, brace or command inside. */
+function verbEnd(src: string, i: number): number {
+  const m = /^\\verb\*?([^a-zA-Z*\s])/.exec(src.slice(i, i + 7));
+  if (m === null) return -1;
+  const bodyStart = i + m[0].length;
+  const close = src.indexOf(m[1], bodyStart);
+  const nl = src.indexOf("\n", bodyStart);
+  if (close === -1 || (nl !== -1 && nl < close)) return -1;
+  return close + 1;
+}
+
 /** The environment name of a `\begin{env}` at `i`, or null. */
 function matchBegin(src: string, i: number): { env: string; after: number } | null {
   if (!src.startsWith("\\begin{", i)) return null;
@@ -251,6 +263,11 @@ function envBody(
       continue;
     }
     if (ch === "\\") {
+      const verb = verbEnd(src, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
       if (src.startsWith(beginToken, i)) {
         depth++;
         i += beginToken.length;
@@ -289,6 +306,11 @@ function findDollar(src: string, from: number): number {
       continue;
     }
     if (ch === "\\") {
+      const verb = verbEnd(src, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
       i += 2;
       continue;
     }
@@ -322,6 +344,11 @@ function findLiteral(src: string, from: number, marker: string): number {
     }
     if (src.startsWith(marker, i)) return i;
     if (ch === "\\") {
+      const verb = verbEnd(src, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
       i += 2;
       continue;
     }
@@ -340,6 +367,11 @@ function readBalancedGroup(
   while (i < src.length) {
     const ch = src[i];
     if (ch === "\\") {
+      const verb = verbEnd(src, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
       i += 2;
       continue;
     }
@@ -413,6 +445,11 @@ function findBracketEnd(src: string, pos: number): number {
       continue;
     }
     if (ch === "\\") {
+      const verb = verbEnd(src, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
       i += 2;
       continue;
     }
@@ -642,19 +679,12 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
     }
 
     // \verb<d>...<d> (and \verb*): one opaque token, the body untouched.
-    const verb = /^\\verb\*?([^a-zA-Z*\s])/.exec(c.src.slice(i, i + 7));
-    if (verb !== null) {
-      const bodyStart = i + verb[0].length;
-      const close = c.src.indexOf(verb[1], bodyStart);
-      const nl = c.src.indexOf("\n", bodyStart);
-      if (close !== -1 && (nl === -1 || close < nl)) {
-        flush();
-        nodes.push(
-          atom({ type: "rawTexInline", attrs: { src: c.src.slice(i, close + 1) } }),
-        );
-        c.pos = close + 1;
-        continue;
-      }
+    const verb = verbEnd(c.src, i);
+    if (verb !== -1) {
+      flush();
+      nodes.push(atom({ type: "rawTexInline", attrs: { src: c.src.slice(i, verb) } }));
+      c.pos = verb;
+      continue;
     }
 
     // Command
@@ -922,6 +952,11 @@ function itemPositions(inner: string): number[] {
       continue;
     }
     if (ch === "\\") {
+      const verb = verbEnd(inner, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
       const begin = matchBegin(inner, i);
       if (begin !== null) {
         depth++;
