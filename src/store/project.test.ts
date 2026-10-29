@@ -2,6 +2,8 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 // An in-memory project folder behind the Tauri commands.
 const disk = new Map<string, string>();
+/** Runs inside a disk write, before it resolves: an edit racing it. */
+let duringWrite: ((path: string) => void) | null = null;
 const ask = vi.fn(() => Promise.resolve(true));
 
 vi.mock("@tauri-apps/plugin-dialog", () => ({
@@ -17,6 +19,11 @@ vi.mock("@/lib/tauri", () => ({
   },
   writeProjectFile: (_dir: string, path: string, content: string) => {
     disk.set(path, content);
+    duringWrite?.(path);
+    return Promise.resolve();
+  },
+  deleteEntry: (_dir: string, path: string) => {
+    disk.delete(path);
     return Promise.resolve();
   },
   listFiles: () =>
@@ -65,6 +72,7 @@ function type(content: string) {
 }
 
 beforeEach(() => {
+  duringWrite = null;
   ask.mockClear();
   ask.mockImplementation(() => Promise.resolve(true));
 });
@@ -170,6 +178,29 @@ describe("edits landing during an async store action", () => {
     useProjectStore.getState().markDirty("main.tex", "edited");
     await renaming;
     expect(useProjectStore.getState().buffers).toEqual({ "main.tex": "edited" });
+  });
+
+  it("deleteEntry keeps a buffer marked dirty during the delete", async () => {
+    await openMain("one");
+    disk.set("old.png", "");
+    const deleting = useProjectStore.getState().deleteEntry("old.png");
+    useProjectStore.getState().markDirty("other.tex", "edited");
+    await deleting;
+    expect(useProjectStore.getState().buffers).toEqual({ "other.tex": "edited" });
+  });
+
+  it("an include sync keeps a buffer marked dirty during its write", async () => {
+    // Deleting ch.tex drops its \input from main.tex (applyContentUpdate).
+    await openMain("\\input{ch}\nbody");
+    disk.set("ch.tex", "chapter");
+    duringWrite = (path) => {
+      if (path === "main.tex") {
+        useProjectStore.getState().markDirty("other.tex", "edited");
+      }
+    };
+    await useProjectStore.getState().deleteEntry("ch.tex");
+    expect(disk.get("main.tex")).toBe("body");
+    expect(useProjectStore.getState().buffers).toEqual({ "other.tex": "edited" });
   });
 });
 
