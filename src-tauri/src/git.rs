@@ -560,6 +560,11 @@ pub fn clone(url: &str, dest: &Path, credentials: Credentials) -> Result<(), Str
         .map_err(|e| friendly_remote_error(&e))
 }
 
+/// Does the current branch have a commit yet?
+pub fn has_commits(dir: &Path) -> bool {
+    head(dir).is_some()
+}
+
 fn head(dir: &Path) -> Option<String> {
     run_git(dir, &["rev-parse", "HEAD"]).ok().map(|h| h.trim().to_string())
 }
