@@ -492,10 +492,7 @@ export function VisualTexEditor() {
       timer = null;
       const tex = serializeTex(editor.getJSON() as unknown as DocNode);
       useEditorStore.getState().setContent(tex);
-      const { activeFile, lastSavedContent } = useProjectStore.getState();
-      if (activeFile !== null && tex !== lastSavedContent) {
-        useProjectStore.getState().markDirty(activeFile, tex);
-      }
+      useProjectStore.getState().noteActiveEdit(tex);
     };
     const previous = setPendingSerializeFlush(flush);
     const schedule = () => {

@@ -29,6 +29,11 @@ vi.mock("@/lib/tauri", () => ({
       })),
     ),
   setOpenFiles: () => Promise.resolve(),
+  renameEntry: (_dir: string, from: string, to: string) => {
+    disk.set(to, disk.get(from)!);
+    disk.delete(from);
+    return Promise.resolve();
+  },
   updatePreferences: () => Promise.resolve(),
   restoreSnapshot: () => Promise.resolve(),
   listSnapshots: () => Promise.resolve([]),
@@ -109,6 +114,62 @@ describe("saving against outside changes", () => {
     );
     expect(disk.get("main.tex")).toBe("theirs");
     expect(ask).not.toHaveBeenCalled();
+  });
+});
+
+describe("undoing back to the saved text", () => {
+  function edit(content: string) {
+    useEditorStore.getState().setContent(content);
+    useProjectStore.getState().noteActiveEdit(content);
+  }
+
+  it("drops the buffer, so closing the tab does not write the undone edit", async () => {
+    await openMain("X");
+    edit("Xa");
+    expect(useProjectStore.getState().buffers).toEqual({ "main.tex": "Xa" });
+    edit("X");
+    expect(useProjectStore.getState().buffers).toEqual({});
+    await useProjectStore.getState().closeFile("main.tex");
+    expect(disk.get("main.tex")).toBe("X");
+  });
+
+  it("does not flush the undone edit on window close", async () => {
+    await openMain("X");
+    edit("Xa");
+    edit("X");
+    await useProjectStore.getState().flushBuffers();
+    expect(disk.get("main.tex")).toBe("X");
+  });
+
+  it("does not bring the undone edit back when the tab is reopened", async () => {
+    await openMain("X");
+    disk.set("other.tex", "O");
+    edit("Xa");
+    edit("X");
+    await useProjectStore.getState().openFile("other.tex");
+    await useProjectStore.getState().openFile("main.tex");
+    expect(useEditorStore.getState().content).toBe("X");
+  });
+});
+
+describe("edits landing during an async store action", () => {
+  it("closeFile keeps a buffer marked dirty during its write", async () => {
+    await openMain("one");
+    type("two");
+    const closing = useProjectStore.getState().closeFile("main.tex");
+    useProjectStore.getState().markDirty("other.tex", "edited");
+    await closing;
+    expect(disk.get("main.tex")).toBe("two");
+    expect(useProjectStore.getState().buffers).toEqual({ "other.tex": "edited" });
+  });
+
+  it("renameEntry keeps a buffer marked dirty during the rename", async () => {
+    await openMain("one");
+    disk.set("old.tex", "old");
+    const renaming = useProjectStore.getState().renameEntry("old.tex", "new.tex");
+    useProjectStore.getState().markDirty("main.tex", "edited");
+    await renaming;
+    expect(useProjectStore.getState().buffers).toEqual({ "main.tex": "edited" });
   });
 });
 
