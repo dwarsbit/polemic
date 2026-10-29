@@ -96,6 +96,41 @@ function isInside(parentPath: string, childPath: string): boolean {
   return childPath === parentPath || childPath.startsWith(parentPath + "/");
 }
 
+type FileMetadata = Pick<
+  ProjectState,
+  | "labelsByFile"
+  | "refsByFile"
+  | "citeKeysByFile"
+  | "graphicsPathsByFile"
+  | "biblatexByFile"
+  | "natbibByFile"
+>;
+
+/** Per-file metadata after `path` (a file, or a folder and everything
+ *  under it) was renamed to `newPath`, or deleted when `newPath` is null. */
+function moveFileMetadata(
+  state: FileMetadata,
+  path: string,
+  newPath: string | null,
+): FileMetadata {
+  const move = <T>(byFile: Record<string, T>): Record<string, T> => {
+    const next: Record<string, T> = {};
+    for (const [file, value] of Object.entries(byFile)) {
+      if (!isInside(path, file)) next[file] = value;
+      else if (newPath !== null) next[newPath + file.slice(path.length)] = value;
+    }
+    return next;
+  };
+  return {
+    labelsByFile: move(state.labelsByFile),
+    refsByFile: move(state.refsByFile),
+    citeKeysByFile: move(state.citeKeysByFile),
+    graphicsPathsByFile: move(state.graphicsPathsByFile),
+    biblatexByFile: move(state.biblatexByFile),
+    natbibByFile: move(state.natbibByFile),
+  };
+}
+
 /** Drop a buffer only if it still holds what was written: an edit that
  *  landed while the write was in flight stays dirty. */
 function withoutWritten(
@@ -538,6 +573,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         activeFile,
         buffers: nextBuffers,
         openFiles: get().openFiles.map((f) => remap(f) ?? f),
+        ...moveFileMetadata(get(), path, newPath),
       });
       if (mainFile !== null && mainFile !== get().mainFile) {
         await get().setMainFile(mainFile);
@@ -592,6 +628,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         lastSavedContent: isInside(path, get().activeFile ?? "")
           ? null
           : get().lastSavedContent,
+        ...moveFileMetadata(get(), path, null),
       });
       await get().refreshFiles();
       // Deleted .tex files: drop their \input/\include lines everywhere.
