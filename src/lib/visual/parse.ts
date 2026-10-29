@@ -17,6 +17,8 @@ import {
   type Mark,
   type MarkType,
   type PreambleAttrs,
+  type PreambleLayout,
+  type PreambleSlot,
 } from "./doc-types";
 
 /** Sectioning commands and their display level. */
@@ -933,8 +935,9 @@ function parseItems(inner: string, ctx: EnvCtx): ListItemNode[] | null {
  * Split a preamble into the pieces the visual editor models. The
  * well-known commands (`\documentclass`, `\usepackage`, `\title`,
  * `\author`, `\date`) are extracted verbatim; everything else stays
- * in `src`, byte-for-byte. Comment-aware, so commented-out commands
- * are not extracted.
+ * in `src`, byte-for-byte, and `layout` records where the extracted
+ * ones sat. Comment-aware, so commented-out commands are not
+ * extracted.
  */
 export function splitPreamble(preamble: string): PreambleAttrs {
   const attrs: PreambleAttrs = {
@@ -946,8 +949,8 @@ export function splitPreamble(preamble: string): PreambleAttrs {
     src: "",
   };
   const packages: string[] = [];
-  const removals: [number, number][] = [];
-  const extract = (from: number, to: number, slot: keyof PreambleAttrs) => {
+  const removals: [number, number, PreambleSlot][] = [];
+  const extract = (from: number, to: number, slot: PreambleSlot) => {
     const value = preamble.slice(from, to);
     if (slot === "packagesSrc") {
       packages.push(value);
@@ -956,7 +959,7 @@ export function splitPreamble(preamble: string): PreambleAttrs {
     } else {
       return; // a duplicate (e.g. a second \author) stays in the raw rest
     }
-    removals.push([from, to]);
+    removals.push([from, to, slot]);
   };
   let i = 0;
   let inComment = false;
@@ -978,7 +981,7 @@ export function splitPreamble(preamble: string): PreambleAttrs {
       );
       if (m !== null) {
         const token = readCommandToken(preamble, i);
-        const slot: keyof PreambleAttrs =
+        const slot: PreambleSlot =
           m[1] === "documentclass"
             ? "documentclassSrc"
             : m[1] === "usepackage"
@@ -997,13 +1000,18 @@ export function splitPreamble(preamble: string): PreambleAttrs {
     }
     i++;
   }
-  let rest = preamble;
-  for (let k = removals.length - 1; k >= 0; k--) {
-    const [from, to] = removals[k]!;
-    rest = rest.slice(0, from) + rest.slice(to);
+  let rest = "";
+  let last = 0;
+  const slots: PreambleLayout["slots"] = [];
+  for (const [from, to, slot] of removals) {
+    rest += preamble.slice(last, from);
+    slots.push({ slot, at: rest.length });
+    last = to;
   }
+  rest += preamble.slice(last);
   attrs.packagesSrc = packages.length > 0 ? packages.join("\n") : null;
   attrs.src = rest;
+  attrs.layout = { src: rest, slots, packages };
   return attrs;
 }
 
@@ -1017,22 +1025,46 @@ const BODY_MARKER =
 
 /**
  * Where the body starts in a file without a `\begin{document}`: before
- * the first line that is body content — plain text or a body command.
- * Blank lines and comments count as preamble lines. Returns -1 when
- * the whole file is preamble commands (no body at all).
+ * the first line that is body content — plain text, display math or a
+ * body command. Blank lines and comments count as preamble lines, and
+ * a line that leaves a brace group open pulls in the lines up to its
+ * close, so a construct is never split. Returns -1 when the whole file
+ * is preamble commands (no body at all), and 0 when there is no
+ * `\documentclass` to recover a preamble around (an `\input`
+ * fragment).
  */
 function recoveredPreambleEnd(source: string): number {
   let offset = 0;
+  let depth = 0;
+  let hasClass = false;
   for (const line of source.split("\n")) {
     const trimmed = line.trim();
     const isPreamble =
+      depth > 0 ||
       trimmed.length === 0 ||
       trimmed.startsWith("%") ||
-      (trimmed.startsWith("\\") && !BODY_MARKER.test(trimmed));
-    if (!isPreamble) return offset;
+      (trimmed.startsWith("\\") &&
+        !/^\\[[(]/.test(trimmed) &&
+        !BODY_MARKER.test(trimmed));
+    if (!isPreamble) return hasClass ? offset : 0;
+    if (/^\s*\\documentclass(?![a-zA-Z])/.test(line)) hasClass = true;
+    depth = Math.max(0, depth + braceBalance(line));
     offset += line.length + 1;
   }
-  return -1;
+  return hasClass ? -1 : 0;
+}
+
+/** Open minus closed braces on a line, skipping escapes and comments. */
+function braceBalance(line: string): number {
+  let balance = 0;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (ch === "%") break;
+    if (ch === "\\") i++;
+    else if (ch === "{") balance++;
+    else if (ch === "}") balance--;
+  }
+  return balance;
 }
 
 /**

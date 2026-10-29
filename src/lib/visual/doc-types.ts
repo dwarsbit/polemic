@@ -105,8 +105,8 @@ export type Inline =
 /**
  * The file's preamble, split into the pieces the visual editor models.
  * Everything that stays raw (`src`: comments, `\newcommand`s, geometry,
- * …) round-trips verbatim; the extracted commands are re-serialized in
- * a canonical order.
+ * …) round-trips verbatim; the extracted commands go back where they
+ * were (`layout`), or in a canonical order when there is no layout.
  */
 export interface PreambleAttrs {
   /** `\documentclass[11pt,a4paper]{article}`, verbatim, or null. */
@@ -121,6 +121,25 @@ export interface PreambleAttrs {
   dateSrc: string | null;
   /** The remaining preamble, verbatim. */
   src: string;
+  /** Where the extracted commands sat in the source; absent or null
+   *  for the canonical order. */
+  layout?: PreambleLayout | null;
+}
+
+/** An extracted command's slot in the preamble. */
+export type PreambleSlot =
+  "documentclassSrc" | "packagesSrc" | "titleSrc" | "authorSrc" | "dateSrc";
+
+/**
+ * The source order of a parsed preamble: each extracted command's
+ * offset into the raw rest (`src`) as parsed. Packages get one entry
+ * each, in order, and `packages` keeps their original texts so an
+ * appended package can be told apart from the parsed ones.
+ */
+export interface PreambleLayout {
+  src: string;
+  slots: { slot: PreambleSlot; at: number }[];
+  packages: string[];
 }
 
 export interface PreambleNode {
