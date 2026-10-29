@@ -6,12 +6,14 @@ import {
   gitAccountRemove,
   gitAccountSave,
   gitAccounts,
-  githubSignInAvailable,
-  githubSignInCancel,
-  githubSignInFinish,
-  githubSignInStart,
+  HOSTING_NAMES,
+  signInAvailable,
+  signInCancel,
+  signInFinish,
+  signInStart,
   type GitAccountView,
-  type GithubSignIn,
+  type Hosting,
+  type SignIn,
 } from "@/lib/tauri";
 
 /** Where a token comes from on the hosts people use most. */
@@ -51,9 +53,12 @@ export function GitAccountsSection() {
   const [form, setForm] = useState<Form | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [githubAvailable, setGithubAvailable] = useState(false);
-  /** The code waiting to be typed on github.com, while signing in. */
-  const [githubCode, setGithubCode] = useState<GithubSignIn | null>(null);
+  /** The hosts this build can sign in to. */
+  const [hosts, setHosts] = useState<Hosting[]>([]);
+  /** The code waiting to be typed on the host's page, while signing in. */
+  const [pending, setPending] = useState<{ provider: Hosting; code: SignIn } | null>(
+    null,
+  );
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -61,27 +66,28 @@ export function GitAccountsSection() {
     gitAccounts()
       .then((list) => live && setAccounts(list))
       .catch((e) => live && setError(String(e)));
-    githubSignInAvailable()
-      .then((available) => live && setGithubAvailable(available))
+    const all: Hosting[] = ["github", "gitlab"];
+    Promise.all(all.map((h) => signInAvailable(h).catch(() => false)))
+      .then((available) => live && setHosts(all.filter((_, i) => available[i])))
       .catch(() => undefined);
     return () => {
       live = false;
     };
   }, []);
 
-  async function signInWithGithub() {
+  async function signInWith(provider: Hosting) {
     setError(null);
     setBusy(true);
     try {
-      setGithubCode(await githubSignInStart());
+      setPending({ provider, code: await signInStart(provider) });
       setCopied(false);
-      // Resolves once the code is entered on github.com.
-      setAccounts(await githubSignInFinish());
+      // Resolves once the code is entered on the host's page.
+      setAccounts(await signInFinish(provider));
     } catch (e) {
       const message = String(e);
       if (!message.includes("Sign-in cancelled")) setError(message);
     } finally {
-      setGithubCode(null);
+      setPending(null);
       setBusy(false);
     }
   }
@@ -141,7 +147,7 @@ export function GitAccountsSection() {
               <div className="min-w-0">
                 <p className="truncate text-sm font-medium">{account.host}</p>
                 <p className="truncate text-xs text-muted-foreground">
-                  {account.username}
+                  {account.name ?? account.username}
                   {account.hasToken ? " · token set" : " · no token"}
                 </p>
               </div>
@@ -178,17 +184,18 @@ export function GitAccountsSection() {
         </ul>
       )}
 
-      {githubCode !== null && (
+      {pending !== null && (
         <div
           className="space-y-2 rounded-lg border bg-background px-3 py-3"
           aria-live="polite"
         >
           <p className="text-sm">
-            Enter this code on GitHub, in the page that opened in your browser:
+            Enter this code on {HOSTING_NAMES[pending.provider]}, in the page that
+            opened in your browser:
           </p>
           <div className="flex items-center gap-2">
             <code className="rounded bg-accent px-2 py-1 font-mono text-base tracking-widest">
-              {githubCode.userCode}
+              {pending.code.userCode}
             </code>
             <Button
               variant="ghost"
@@ -196,7 +203,7 @@ export function GitAccountsSection() {
               title="Copy the code"
               onClick={() => {
                 void navigator.clipboard
-                  ?.writeText(githubCode.userCode)
+                  ?.writeText(pending.code.userCode)
                   .then(() => setCopied(true))
                   .catch(() => undefined);
               }}
@@ -206,26 +213,28 @@ export function GitAccountsSection() {
             {copied && <span className="text-xs text-muted-foreground">Copied</span>}
           </div>
           <p className="text-xs text-muted-foreground">
-            Not open? Go to {githubCode.verificationUri}. Waiting for GitHub…
+            Not open? Go to {pending.code.verificationUri}. Waiting for{" "}
+            {HOSTING_NAMES[pending.provider]}…
           </p>
-          <Button variant="outline" size="sm" onClick={() => void githubSignInCancel()}>
+          <Button variant="outline" size="sm" onClick={() => void signInCancel()}>
             Cancel
           </Button>
         </div>
       )}
 
-      {form === null && githubCode === null ? (
+      {form === null && pending === null ? (
         <div className="flex flex-wrap gap-2">
-          {githubAvailable && (
+          {hosts.map((provider) => (
             <Button
+              key={provider}
               size="sm"
               disabled={busy || accounts === null}
-              title="Sign in on github.com; the token is kept as the github.com account"
-              onClick={() => void signInWithGithub()}
+              title={`Sign in on ${HOSTING_NAMES[provider]}; the token is kept as its git account`}
+              onClick={() => void signInWith(provider)}
             >
-              Sign in with GitHub
+              Sign in with {HOSTING_NAMES[provider]}
             </Button>
-          )}
+          ))}
           <Button
             variant="outline"
             size="sm"

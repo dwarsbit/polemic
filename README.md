@@ -34,7 +34,7 @@ pnpm install
 pnpm tauri dev
 ```
 
-## GitHub sign-in
+## GitHub and GitLab sign-in
 
 "Sign in with GitHub" uses the OAuth device flow of Polemic's own
 GitHub OAuth App, whose client ID is in `src-tauri/src/github.rs`.
@@ -47,6 +47,15 @@ one with **Enable Device Flow** ticked, then set
 ```bash
 POLEMIC_GITHUB_CLIENT_ID=<client id> pnpm tauri dev
 ```
+
+"Sign in with GitLab" works the same way for gitlab.com, through a
+GitLab application (scope `api`, not confidential). Polemic's
+application ID goes in `src-tauri/src/gitlab.rs`; until it is there,
+set `POLEMIC_GITLAB_CLIENT_ID` to turn the button on. GitLab's tokens
+expire after two hours, so Polemic keeps the refresh token in the
+credential store too and renews the access token before a pull or
+push. A self-hosted GitLab is a custom remote with a personal access
+token.
 
 Without signing in, a personal access token added in Settings → Git
 works for pull, push and Publish.

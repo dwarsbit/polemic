@@ -28,7 +28,9 @@ import {
   gitStage,
   gitStatus,
   gitUnstage,
-  githubPublish,
+  HOSTING_NAMES,
+  publishTo,
+  type Hosting,
   suggestedRepoName,
   type GitEntry,
   type GitStatus,
@@ -262,9 +264,9 @@ export function GitPanel() {
               }
               onSetRemote={(url) => run(() => gitSetRemote(project!.path, url))}
               projectName={project!.name}
-              onPublish={(name, isPrivate) =>
+              onPublish={(provider, name, isPrivate) =>
                 sync("publish", async () => {
-                  const url = await githubPublish(project!.path, name, isPrivate);
+                  const url = await publishTo(provider, project!.path, name, isPrivate);
                   return `Published to ${remoteLabel(url)}.`;
                 })
               }
@@ -431,11 +433,12 @@ function RemoteRow({
   onPush: () => void;
   onSetRemote: (url: string) => Promise<boolean>;
   projectName: string;
-  onPublish: (name: string, isPrivate: boolean) => Promise<boolean>;
+  onPublish: (provider: Hosting, name: string, isPrivate: boolean) => Promise<boolean>;
 }) {
   const [editing, setEditing] = useState(false);
   const [url, setUrl] = useState("");
   const [publishing, setPublishing] = useState<{
+    provider: Hosting;
     name: string;
     isPrivate: boolean;
   } | null>(null);
@@ -479,10 +482,27 @@ function RemoteRow({
   if (publishing !== null && !status.remote) {
     const publish = async () => {
       // A failed publish keeps the form, with the error below it.
-      if (await onPublish(publishing.name, publishing.isPrivate)) setPublishing(null);
+      if (await onPublish(publishing.provider, publishing.name, publishing.isPrivate)) {
+        setPublishing(null);
+      }
     };
     return (
       <div className="flex flex-col gap-1.5 px-2 pt-1">
+        <select
+          aria-label="Host"
+          className="h-7 rounded-md border bg-background px-2 text-xs"
+          value={publishing.provider}
+          disabled={busy === "publish"}
+          onChange={(event) =>
+            setPublishing({ ...publishing, provider: event.target.value as Hosting })
+          }
+        >
+          {(Object.keys(HOSTING_NAMES) as Hosting[]).map((provider) => (
+            <option key={provider} value={provider}>
+              {HOSTING_NAMES[provider]}
+            </option>
+          ))}
+        </select>
         <Input
           autoFocus
           aria-label="Repository name"
@@ -537,12 +557,16 @@ function RemoteRow({
           <Button
             variant="outline"
             size="xs"
-            title="Create a GitHub repository for this project and push it"
+            title="Create a repository on GitHub or GitLab for this project and push it"
             onClick={() =>
-              setPublishing({ name: suggestedRepoName(projectName), isPrivate: true })
+              setPublishing({
+                provider: "github",
+                name: suggestedRepoName(projectName),
+                isPrivate: true,
+              })
             }
           >
-            Publish to GitHub…
+            Publish…
           </Button>
           <Button variant="outline" size="xs" onClick={startEditing}>
             Add remote…
