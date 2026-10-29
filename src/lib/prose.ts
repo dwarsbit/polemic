@@ -9,6 +9,7 @@
  */
 
 import { finalText } from "@/lib/changes";
+import { documentBodyRange } from "@/lib/document-markers";
 
 export interface ProseBlock {
   /** The readable text. */
@@ -245,11 +246,8 @@ export function extractProse(source: string): ProseBlock[] {
 const MARKUP_RE = /\\(?:added|deleted|replaced|highlight)(?![a-zA-Z])/;
 
 function extractRawProse(source: string): ProseBlock[] {
-  const beginDoc = source.indexOf("\\begin{document}");
-  const start = beginDoc === -1 ? 0 : beginDoc + "\\begin{document}".length;
   // LaTeX ignores everything after \end{document}; so does the check.
-  const endDoc = source.indexOf("\\end{document}", start);
-  const end = endDoc === -1 ? source.length : endDoc;
+  const [start, end] = documentBodyRange(source);
 
   const blocks: ProseBlock[] = [];
   const builders: Builder[] = [new Builder()];

@@ -1,6 +1,21 @@
 import { describe, expect, it } from "vitest";
 import { countWords, countWordsBySection, totalWords } from "@/lib/word-count";
 
+describe("countWords past commented document markers", () => {
+  it("counts the real body only", () => {
+    const src = [
+      "% \\begin{document} later",
+      "\\title{Skip me}",
+      "\\begin{document}",
+      "One two. % \\end{document}",
+      "Three.",
+      "\\end{document}",
+      "after the end",
+    ].join("\n");
+    expect(totalWords(countWords(src))).toBe(3);
+  });
+});
+
 describe("countWords", () => {
   it("counts the body only, by kind", () => {
     const src = [

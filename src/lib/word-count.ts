@@ -8,6 +8,7 @@
  */
 
 import { finalText } from "@/lib/changes";
+import { documentBodyRange } from "@/lib/document-markers";
 
 export type WordKind = "text" | "header" | "other";
 
@@ -166,17 +167,9 @@ function skipSpaces(text: string, i: number, end: number): number {
   return i;
 }
 
-/** The body range: inside \begin{document}…\end{document} when present. */
-function bodyRange(text: string): [number, number] {
-  const begin = text.indexOf("\\begin{document}");
-  const start = begin === -1 ? 0 : begin + "\\begin{document}".length;
-  const endDoc = text.indexOf("\\end{document}", start);
-  return [start, endDoc === -1 ? text.length : endDoc];
-}
-
 /** Every counted word and math item in the source, in order. */
 function scan(text: string): Hit[] {
-  const [start, end] = bodyRange(text);
+  const [start, end] = documentBodyRange(text);
   const hits: Hit[] = [];
   // Brace contexts: what words inside the current group count as.
   const stack: (WordKind | "skip")[] = [];

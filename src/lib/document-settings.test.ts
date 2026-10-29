@@ -19,6 +19,24 @@ Body.
 \\end{document}
 `;
 
+describe("settings past a commented \\begin{document}", () => {
+  const src =
+    "\\documentclass{article}\n% \\begin{document} later\n\\title{Real}\n" +
+    "\\begin{document}\nBody.\n\\end{document}\n";
+
+  it("reads the whole preamble", () => {
+    expect(readDocumentSettings(src)?.title).toBe("Real");
+  });
+
+  it("rewrites the whole preamble", () => {
+    const settings = readDocumentSettings(src)!;
+    const out = applyDocumentSettings(src, { ...settings, title: "New" });
+    expect(out).toContain("\\title{New}");
+    expect(out).not.toContain("\\title{Real}");
+    expect(out).toContain("% \\begin{document} later");
+  });
+});
+
 describe("readDocumentSettings", () => {
   it("reads class, options, metadata, and package count", () => {
     const s = readDocumentSettings(MAIN);

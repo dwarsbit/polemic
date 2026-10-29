@@ -28,6 +28,7 @@ import { SuggestToggle } from "@/components/SuggestToggle";
 import { wrapFigure } from "@/lib/editor-figure";
 import { FIGURE_SCAFFOLD, TABLE_SCAFFOLD, insertAtCursor } from "@/lib/editor-insert";
 import { applyEditsInView } from "@/lib/editor-edits";
+import { findDocumentBegin } from "@/lib/document-markers";
 import { ensurePackages } from "@/lib/editor-figure";
 import { applyTextWrapper } from "@/lib/editor-wrappers";
 import { THEOREM_ENVS, newtheoremDeclarations } from "@/lib/visual/parse";
@@ -57,7 +58,7 @@ export function EditorToolbar() {
   const content = useEditorStore((s) => s.content);
   // \newtheorem-declared envs join the theorem section, live.
   const declared = useMemo(() => {
-    const cut = content.indexOf("\\begin{document}");
+    const cut = findDocumentBegin(content);
     return cut === -1 ? [] : newtheoremDeclarations(content.slice(0, cut));
   }, [content]);
 
@@ -71,14 +72,14 @@ export function EditorToolbar() {
     const name =
       display.length > 0 ? display : env.charAt(0).toUpperCase() + env.slice(1);
     const contentNow = useEditorStore.getState().content;
-    const beginAt = contentNow.indexOf("\\begin{document}");
+    const beginAt = findDocumentBegin(contentNow);
     if (beginAt === -1) {
       return "The file has no preamble: no \\begin{document} to declare before.";
     }
     ensurePackages(["amsthm"]);
     // The package line may have shifted positions; re-read the doc.
     const after = useEditorStore.getState().content;
-    const beginAfter = after.indexOf("\\begin{document}");
+    const beginAfter = findDocumentBegin(after);
     const lineStart = after.lastIndexOf("\n", beginAfter) + 1;
     const changed = applyEditsInView([
       { from: lineStart, to: lineStart, insert: `\\newtheorem{${env}}{${name}}\n` },

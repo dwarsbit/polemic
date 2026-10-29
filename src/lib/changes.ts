@@ -19,6 +19,7 @@ import {
   planUsepackageRemoval,
   type SourceEdit,
 } from "@/lib/packages";
+import { findDocumentBegin } from "@/lib/document-markers";
 
 export type { SourceEdit };
 
@@ -742,17 +743,6 @@ const AUTHOR_COLORS = [
   "purple",
 ];
 
-/** The `\begin{document}` outside comments and `\verb`, or -1. */
-export function documentBegin(source: string): number {
-  let begin = -1;
-  forEachCommand(source, 0, source.length, (name, start, nameEnd) => {
-    if (begin === -1 && name === "begin" && source.startsWith("{document}", nameEnd))
-      begin = start;
-    return begin === -1 ? undefined : source.length;
-  });
-  return begin;
-}
-
 /**
  * The edits that set a document up for suggestions by `author`: adds
  * `\usepackage{changes}` and the author's `\definechangesauthor` when
@@ -764,7 +754,7 @@ export function ensurePreamble(
   source: string,
   author: SuggestionAuthor,
 ): { id: string; edits: SourceEdit[] } {
-  const begin = documentBegin(source);
+  const begin = findDocumentBegin(source);
   const preamble = begin === -1 ? source : source.slice(0, begin);
   const authors = parseAuthors(preamble);
   const existing = authors.find((a) => a.name === author.name.trim());
@@ -909,7 +899,7 @@ export function removeSetup(source: string): SourceEdit[] {
 
 /** The `\usepackage{changes}` command (outside comments), if any. */
 function changesPackage(source: string) {
-  const begin = documentBegin(source);
+  const begin = findDocumentBegin(source);
   const preamble = begin === -1 ? source : source.slice(0, begin);
   return (
     parseUsepackage(preamble).find(
