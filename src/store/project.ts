@@ -55,6 +55,9 @@ interface ProjectState {
   refreshDocMeta: (path: string, content: string) => void;
   flushBuffers: () => Promise<void>;
   openProject: (path: string) => Promise<void>;
+  /** Save the open project's edits, then close it. If saving fails,
+   *  ask first; false when the user keeps the project open. */
+  leaveProject: () => Promise<boolean>;
   closeProject: () => void;
   refreshFiles: () => Promise<void>;
   openFile: (path: string) => Promise<void>;
@@ -223,6 +226,22 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     }
   }
 
+  /** Write unsaved edits before the project leaves the store. If that
+   *  fails, ask whether to go on and lose them; true to go on. */
+  async function saveBeforeLeaving(question: string, okLabel: string): Promise<boolean> {
+    try {
+      await get().flushBuffers();
+      return true;
+    } catch (e) {
+      return ask(`Some changes could not be saved:\n\n${e}\n\n${question}`, {
+        title: "Unsaved changes",
+        kind: "warning",
+        okLabel,
+        cancelLabel: "Keep project open",
+      }).catch(() => false);
+    }
+  }
+
   return {
     project: null,
     files: [],
@@ -323,21 +342,14 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       // Buffers are keyed by relative path: write the current project's
       // edits to its own folder before another project takes the store,
       // or they would show up in (and be saved into) the new one.
-      if (get().project) {
-        try {
-          await get().flushBuffers();
-        } catch (e) {
-          const discard = await ask(
-            `Some changes could not be saved:\n\n${e}\n\nOpen the other project anyway and lose them?`,
-            {
-              title: "Unsaved changes",
-              kind: "warning",
-              okLabel: "Open without saving",
-              cancelLabel: "Keep project open",
-            },
-          ).catch(() => false);
-          if (!discard) return;
-        }
+      if (
+        get().project &&
+        !(await saveBeforeLeaving(
+          "Open the other project anyway and lose them?",
+          "Open without saving",
+        ))
+      ) {
+        return;
       }
       const info = await api.openProject(path);
       const files = await api.listFiles(info.path);
@@ -432,8 +444,21 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       })();
     },
 
+    leaveProject: async () => {
+      if (
+        !(await saveBeforeLeaving(
+          "Close the project anyway and lose them?",
+          "Close without saving",
+        ))
+      ) {
+        return false;
+      }
+      get().closeProject();
+      return true;
+    },
+
     closeProject: () => {
-      // Dirty buffers are flushed by the caller before closing.
+      // Dirty buffers are flushed by the caller (see leaveProject).
       void api.setProjectMenuEnabled(false);
       useEditorStore.getState().loadContent("");
       set({

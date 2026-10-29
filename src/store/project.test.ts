@@ -9,6 +9,7 @@ function folder(dir: string): Map<string, string> {
   return files;
 }
 const ask = vi.fn(() => Promise.resolve(true));
+let failWrites = false;
 
 vi.mock("@tauri-apps/plugin-dialog", () => ({
   ask: (...args: unknown[]) => ask(...(args as [])),
@@ -22,6 +23,7 @@ vi.mock("@/lib/tauri", () => ({
       : Promise.resolve(content);
   },
   writeProjectFile: (dir: string, path: string, content: string) => {
+    if (failWrites) return Promise.reject(new Error("disk full"));
     folder(dir).set(path, content);
     return Promise.resolve();
   },
@@ -71,6 +73,7 @@ function type(content: string) {
 
 beforeEach(() => {
   ask.mockClear();
+  failWrites = false;
   ask.mockImplementation(() => Promise.resolve(true));
 });
 
@@ -181,5 +184,38 @@ describe("switching projects", () => {
     await state.flushBuffers();
     await useProjectStore.getState().closeFile("main.tex");
     expect(other.get("main.tex")).toBe("b on disk");
+  });
+});
+
+describe("closing the project", () => {
+  it("saves unsaved edits before closing", async () => {
+    await openMain("one");
+    type("unsaved");
+    expect(await useProjectStore.getState().leaveProject()).toBe(true);
+    expect(disk.get("main.tex")).toBe("unsaved");
+    expect(useProjectStore.getState().project).toBeNull();
+    expect(ask).not.toHaveBeenCalled();
+  });
+
+  it("keeps the project open when saving fails and the user says so", async () => {
+    await openMain("one");
+    type("unsaved");
+    failWrites = true;
+    ask.mockImplementation(() => Promise.resolve(false));
+    expect(await useProjectStore.getState().leaveProject()).toBe(false);
+    expect(ask).toHaveBeenCalledOnce();
+    const state = useProjectStore.getState();
+    expect(state.project).toEqual(project);
+    expect(state.buffers).toEqual({ "main.tex": "unsaved" });
+  });
+
+  it("closes without saving when the user accepts losing the edits", async () => {
+    await openMain("one");
+    type("unsaved");
+    failWrites = true;
+    expect(await useProjectStore.getState().leaveProject()).toBe(true);
+    expect(ask).toHaveBeenCalledOnce();
+    expect(useProjectStore.getState().project).toBeNull();
+    expect(disk.get("main.tex")).toBe("one");
   });
 });

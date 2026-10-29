@@ -164,11 +164,7 @@ export function CommandPalette() {
         icon: FolderOpen,
         shortcut: formatShortcut("Mod+Shift+W"),
         keywords: "new switch projects view",
-        run: () => {
-          void store
-            .flushBuffers()
-            .finally(() => useProjectStore.getState().closeProject());
-        },
+        run: () => void store.leaveProject(),
       },
       {
         id: "reveal-build",
