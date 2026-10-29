@@ -88,6 +88,18 @@ function lineEnd(src: string, i: number, limit: number): number {
   return nl === -1 || nl > limit ? limit : nl;
 }
 
+/** The end (after the closing delimiter) of a `\verb<d>…<d>` or
+ *  `\verb*<d>…<d>` at `i`, or -1 when there is none on the line. */
+function verbEnd(src: string, i: number, limit: number): number {
+  if (!src.startsWith("\\verb", i)) return -1;
+  let d = i + 5;
+  if (src[d] === "*") d++;
+  const delim = src[d];
+  if (delim === undefined || isLetter(delim) || /\s/.test(delim)) return -1;
+  const close = src.indexOf(delim, d + 1);
+  return close === -1 || close >= lineEnd(src, d, limit) ? -1 : close + 1;
+}
+
 /** Is there a blank line starting at the `\n` at `i`? */
 function blankLineAt(src: string, i: number, limit: number): boolean {
   let j = i + 1;
@@ -106,8 +118,10 @@ function groupEnd(src: string, open: number, limit: number): number {
   let i = bracket ? open + 1 : open;
   while (i < limit) {
     const ch = src[i];
-    if (ch === "\\") i += 2;
-    else if (ch === "%") i = lineEnd(src, i, limit);
+    if (ch === "\\") {
+      const verb = verbEnd(src, i, limit);
+      i = verb === -1 ? i + 2 : verb;
+    } else if (ch === "%") i = lineEnd(src, i, limit);
     else if (ch === "\n") {
       if (blankLineAt(src, i, limit)) return -1;
       i++;
@@ -169,11 +183,8 @@ function forEachCommand(
     }
     const name = src.slice(i + 1, j);
     if (name === "verb") {
-      let d = j;
-      if (src[d] === "*") d++;
-      const delim = src[d];
-      const close = delim === undefined ? -1 : src.indexOf(delim, d + 1);
-      i = close === -1 || close >= lineEnd(src, d, to) ? j : close + 1;
+      const verb = verbEnd(src, i, to);
+      i = verb === -1 ? j : verb;
       continue;
     }
     if (name === "begin" && src[j] === "{") {
@@ -731,6 +742,17 @@ const AUTHOR_COLORS = [
   "purple",
 ];
 
+/** The `\begin{document}` outside comments and `\verb`, or -1. */
+export function documentBegin(source: string): number {
+  let begin = -1;
+  forEachCommand(source, 0, source.length, (name, start, nameEnd) => {
+    if (begin === -1 && name === "begin" && source.startsWith("{document}", nameEnd))
+      begin = start;
+    return begin === -1 ? undefined : source.length;
+  });
+  return begin;
+}
+
 /**
  * The edits that set a document up for suggestions by `author`: adds
  * `\usepackage{changes}` and the author's `\definechangesauthor` when
@@ -742,12 +764,7 @@ export function ensurePreamble(
   source: string,
   author: SuggestionAuthor,
 ): { id: string; edits: SourceEdit[] } {
-  let begin = -1;
-  forEachCommand(source, 0, source.length, (name, start, nameEnd) => {
-    if (begin === -1 && name === "begin" && source.startsWith("{document}", nameEnd))
-      begin = start;
-    return begin === -1 ? undefined : source.length;
-  });
+  const begin = documentBegin(source);
   const preamble = begin === -1 ? source : source.slice(0, begin);
   const authors = parseAuthors(preamble);
   const existing = authors.find((a) => a.name === author.name.trim());
@@ -804,8 +821,10 @@ export function ensurePreamble(
 function inComment(src: string, pos: number): boolean {
   const lineStart = src.lastIndexOf("\n", pos - 1) + 1;
   for (let i = lineStart; i < pos; i++) {
-    if (src[i] === "\\") i++;
-    else if (src[i] === "%") return true;
+    if (src[i] === "\\") {
+      const verb = verbEnd(src, i, pos);
+      i = verb === -1 ? i + 1 : verb - 1;
+    } else if (src[i] === "%") return true;
   }
   return false;
 }
@@ -890,7 +909,7 @@ export function removeSetup(source: string): SourceEdit[] {
 
 /** The `\usepackage{changes}` command (outside comments), if any. */
 function changesPackage(source: string) {
-  const begin = source.indexOf("\\begin{document}");
+  const begin = documentBegin(source);
   const preamble = begin === -1 ? source : source.slice(0, begin);
   return (
     parseUsepackage(preamble).find(

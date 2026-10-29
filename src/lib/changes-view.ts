@@ -32,6 +32,7 @@ import { isolateHistory } from "@codemirror/commands";
 import {
   acceptChange,
   applyEdits,
+  documentBegin,
   ensurePreamble,
   finalText,
   parseAuthors,
@@ -639,7 +640,7 @@ const suggestFilter = EditorState.transactionFilter.of((tr) => {
   const [edit] = edits;
   const source = tr.startState.doc.toString();
   // The preamble is set up, not suggested.
-  const body = source.indexOf("\\begin{document}");
+  const body = documentBegin(source);
   if (body !== -1 && edit.toA <= body) return tr;
   const selection = tr.startState.selection.main;
   let result: SuggestResult;

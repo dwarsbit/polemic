@@ -115,6 +115,11 @@ describe("parseChanges", () => {
     expect(summary("\\added{100\\%} done")[0].added).toBe("100\\%");
   });
 
+  it("matches braces past a \\verb inside an argument", () => {
+    const source = "\\added[id=LG]{a \\verb|}| b} c";
+    expect(summary(source)).toMatchObject([{ kind: "added", added: "a \\verb|}| b" }]);
+  });
+
   it("ignores markup in comments, \\verb and verbatim", () => {
     const source = [
       "% \\added{in a comment}",
@@ -588,6 +593,18 @@ describe("showSuggestionsInPdf", () => {
     expect(set("\\usepackage{xcolor,changes}\n", false)).toBe(
       "\\usepackage{xcolor}\n\\usepackage[final]{changes}\n",
     );
+  });
+
+  it("looks past a \\begin{document} in a comment or \\verb", () => {
+    const source =
+      "% moved above \\begin{document}\n\\newcommand{\\x}{\\verb|\\begin{document}|}\n" +
+      "\\usepackage{changes}\n\\begin{document}\n";
+    expect(suggestionsShownInPdf(source)).toBe(true);
+  });
+
+  it("reads the package after a % inside \\verb on its line", () => {
+    const source = "\\verb|%| \\usepackage{changes}\n\\begin{document}\n";
+    expect(suggestionsShownInPdf(source)).toBe(true);
   });
 
   it("is null without the package", () => {

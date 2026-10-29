@@ -1141,6 +1141,43 @@ function recoveredPreambleEnd(source: string): number {
   return -1;
 }
 
+/** The `marker` (`\begin{document}`, `\end{document}`) from `from`,
+ *  outside comments, `\verb` and verbatim environments, or -1. */
+function findDocumentMarker(src: string, marker: string, from: number): number {
+  let i = from;
+  let inComment = false;
+  while (i < src.length) {
+    const ch = src[i];
+    if (inComment) {
+      if (ch === "\n") inComment = false;
+      i++;
+      continue;
+    }
+    if (ch === "%") {
+      inComment = true;
+      i++;
+      continue;
+    }
+    if (ch === "\\") {
+      if (src.startsWith(marker, i)) return i;
+      const verb = verbEnd(src, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
+      const begin = matchBegin(src, i);
+      if (begin !== null && VERBATIM_ENVS.has(begin.env)) {
+        i = envBody(src, i, begin.env).end;
+        continue;
+      }
+      i += 2;
+      continue;
+    }
+    i++;
+  }
+  return -1;
+}
+
 /**
  * Parse a `.tex` file into the visual editor's document. The preamble
  * (everything before `\begin{document}`) becomes a `preamble` node
@@ -1153,7 +1190,7 @@ function recoveredPreambleEnd(source: string): number {
  * the preamble node, so the card shows and the metadata is editable.
  */
 export function parseTex(source: string): DocNode {
-  const beginIdx = source.indexOf("\\begin{document}");
+  const beginIdx = findDocumentMarker(source, "\\begin{document}", 0);
   const content: Block[] = [];
   let body = source;
   let postamble = "";
@@ -1164,7 +1201,7 @@ export function parseTex(source: string): DocNode {
   if (beginIdx !== -1) {
     const afterBegin = beginIdx + "\\begin{document}".length;
     const preamble = source.slice(0, beginIdx);
-    const endIdx = source.indexOf("\\end{document}", afterBegin);
+    const endIdx = findDocumentMarker(source, "\\end{document}", afterBegin);
     body = endIdx === -1 ? source.slice(afterBegin) : source.slice(afterBegin, endIdx);
     postamble = endIdx === -1 ? "" : source.slice(endIdx + "\\end{document}".length);
     if (preamble.trim().length > 0) {

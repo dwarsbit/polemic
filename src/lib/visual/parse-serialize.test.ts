@@ -246,6 +246,34 @@ describe("parseTex", () => {
     });
   });
 
+  it("finds \\begin{document} past one in a comment or \\verb", () => {
+    const tex =
+      "\\documentclass{article}\n% old \\begin{document}\n" +
+      "\\newcommand{\\x}{\\verb|\\begin{document}|}\n\\begin{document}\n\nBody.\n\n\\end{document}\n";
+    const doc = parseTex(tex);
+    expect(doc.attrs?.wrapped).toBe(true);
+    expect(doc.content?.map((b) => b.type)).toEqual(["preamble", "paragraph"]);
+    expect(serializeTex(doc)).toContain("\\newcommand{\\x}{\\verb|\\begin{document}|}");
+  });
+
+  it("finds \\end{document} past one in a comment, \\verb or verbatim", () => {
+    const tex = [
+      "\\begin{document}",
+      "",
+      "Type \\verb|\\end{document}| last. % not \\end{document}",
+      "",
+      "\\begin{verbatim}",
+      "\\end{document}",
+      "\\end{verbatim}",
+      "",
+      "\\end{document}",
+      "",
+    ].join("\n");
+    const doc = parseTex(tex);
+    expect(doc.attrs?.postamble).toBe("\n");
+    expect(serializeTex(doc)).toBe(tex);
+  });
+
   it("keeps a body-first file without \\begin{document} preamble-free", () => {
     const doc = parseTex("\\section{Hi}\nBody text.\n");
     expect(doc.attrs?.wrapped).toBe(false);
