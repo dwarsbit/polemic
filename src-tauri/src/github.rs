@@ -14,31 +14,21 @@
 //! secret exists or is needed, and no Polemic server is involved: the
 //! editor talks to github.com directly.
 
-use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::atomic::AtomicBool;
 use std::sync::Arc;
-use std::time::{Duration, Instant};
+use std::time::Duration;
 
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 
-use crate::git::{self, Credentials};
+use crate::git::Credentials;
+pub use crate::hosting::{check_repo_name, first_client_id, DeviceCode};
+use crate::hosting::{self, client, Flow};
 
 pub const HOST: &str = "github.com";
-const HTTP_TIMEOUT: Duration = Duration::from_secs(20);
 const SCOPE: &str = "repo";
 
 /// Polemic's GitHub OAuth App ("Polemic", owned by dwarsbit).
 pub const DEFAULT_CLIENT_ID: &str = "Ov23li7iBrzadnQWtIZv";
-
-/// The first client ID that is set: run time, then build time, then
-/// Polemic's own. An empty value counts as unset.
-fn first_client_id(candidates: &[Option<&str>]) -> Option<String> {
-    candidates
-        .iter()
-        .flatten()
-        .map(|id| id.trim())
-        .find(|id| !id.is_empty())
-        .map(str::to_string)
-}
 
 /// The OAuth App's client ID this build signs in with.
 pub fn client_id() -> Option<String> {
@@ -68,24 +58,13 @@ impl Default for Endpoints {
     }
 }
 
-fn client() -> Result<reqwest::Client, String> {
-    reqwest::Client::builder()
-        .timeout(HTTP_TIMEOUT)
-        .user_agent(concat!("Polemic/", env!("CARGO_PKG_VERSION")))
-        .build()
-        .map_err(|e| e.to_string())
-}
-
-/// What the user needs to finish signing in on github.com.
-#[derive(Deserialize, Serialize, Clone, Debug, PartialEq)]
-pub struct DeviceCode {
-    pub device_code: String,
-    pub user_code: String,
-    pub verification_uri: String,
-    /// Seconds until the codes expire.
-    pub expires_in: u64,
-    /// Seconds to wait between polls.
-    pub interval: u64,
+fn flow(endpoints: &Endpoints) -> Flow {
+    Flow {
+        provider: "GitHub",
+        code_url: format!("{}/login/device/code", endpoints.web),
+        token_url: format!("{}/login/oauth/access_token", endpoints.web),
+        scope: SCOPE,
+    }
 }
 
 /// `POST /login/device/code`: a code for the user to type.
@@ -93,76 +72,11 @@ pub async fn request_device_code(
     endpoints: &Endpoints,
     client_id: &str,
 ) -> Result<DeviceCode, String> {
-    let response = client()?
-        .post(format!("{}/login/device/code", endpoints.web))
-        .header("Accept", "application/json")
-        .form(&[("client_id", client_id), ("scope", SCOPE)])
-        .send()
-        .await
-        .map_err(|e| format!("Could not reach GitHub: {e}"))?;
-    let status = response.status();
-    let body: serde_json::Value = response
-        .json()
-        .await
-        .map_err(|e| format!("Unexpected answer from GitHub: {e}"))?;
-    if let Some(error) = body.get("error").and_then(|e| e.as_str()) {
-        return Err(match error {
-            "device_flow_disabled" => {
-                "GitHub sign-in is not enabled for this app (device flow is off)".into()
-            }
-            "incorrect_client_credentials" => "GitHub does not know this app's client ID".into(),
-            other => format!("GitHub refused the sign-in: {other}"),
-        });
-    }
-    if !status.is_success() {
-        return Err(format!("GitHub answered {status}"));
-    }
-    serde_json::from_value(body).map_err(|e| format!("Unexpected answer from GitHub: {e}"))
+    hosting::request_device_code(&flow(endpoints), client_id).await
 }
 
-/// One poll's answer.
-#[derive(Debug, PartialEq)]
-enum Poll {
-    Token(String),
-    Pending,
-    SlowDown,
-}
-
-async fn poll_once(
-    endpoints: &Endpoints,
-    client_id: &str,
-    device_code: &str,
-) -> Result<Poll, String> {
-    let response = client()?
-        .post(format!("{}/login/oauth/access_token", endpoints.web))
-        .header("Accept", "application/json")
-        .form(&[
-            ("client_id", client_id),
-            ("device_code", device_code),
-            ("grant_type", "urn:ietf:params:oauth:grant-type:device_code"),
-        ])
-        .send()
-        .await
-        .map_err(|e| format!("Could not reach GitHub: {e}"))?;
-    let body: serde_json::Value = response
-        .json()
-        .await
-        .map_err(|e| format!("Unexpected answer from GitHub: {e}"))?;
-    if let Some(token) = body.get("access_token").and_then(|t| t.as_str()) {
-        return Ok(Poll::Token(token.to_string()));
-    }
-    match body.get("error").and_then(|e| e.as_str()) {
-        Some("authorization_pending") => Ok(Poll::Pending),
-        Some("slow_down") => Ok(Poll::SlowDown),
-        Some("expired_token") => Err("The code expired before it was entered: sign in again".into()),
-        Some("access_denied") => Err("The sign-in was cancelled on GitHub".into()),
-        Some(other) => Err(format!("GitHub refused the sign-in: {other}")),
-        None => Err("Unexpected answer from GitHub".into()),
-    }
-}
-
-/// Poll until the user has entered the code (or it expires, or the
-/// sign-in is cancelled). `unit` is one second outside tests.
+/// Poll until the user has entered the code; the access token (GitHub's
+/// OAuth App tokens do not expire).
 pub async fn wait_for_token(
     endpoints: &Endpoints,
     client_id: &str,
@@ -170,31 +84,9 @@ pub async fn wait_for_token(
     cancel: Arc<AtomicBool>,
     unit: Duration,
 ) -> Result<String, String> {
-    let deadline = Instant::now() + unit * code.expires_in as u32;
-    let mut interval = code.interval.max(1);
-    loop {
-        // Sleep in small steps so a cancel takes effect quickly.
-        let wake = Instant::now() + unit * interval as u32;
-        while Instant::now() < wake {
-            if cancel.load(Ordering::Relaxed) {
-                return Err("Sign-in cancelled".into());
-            }
-            tokio_sleep(unit.min(Duration::from_millis(200))).await;
-        }
-        if Instant::now() > deadline {
-            return Err("The code expired before it was entered: sign in again".into());
-        }
-        match poll_once(endpoints, client_id, &code.device_code).await? {
-            Poll::Token(token) => return Ok(token),
-            Poll::Pending => {}
-            // GitHub asks for 5 more seconds each time.
-            Poll::SlowDown => interval += 5,
-        }
-    }
-}
-
-async fn tokio_sleep(duration: Duration) {
-    let _ = tauri::async_runtime::spawn_blocking(move || std::thread::sleep(duration)).await;
+    hosting::wait_for_tokens(&flow(endpoints), client_id, code, cancel, unit)
+        .await
+        .map(|tokens| tokens.access_token)
 }
 
 #[derive(Deserialize)]
@@ -234,24 +126,6 @@ struct ApiError {
     message: String,
     #[serde(default)]
     errors: Vec<serde_json::Value>,
-}
-
-/// A repository name GitHub will take: letters, digits, `-`, `_`, `.`.
-pub fn check_repo_name(name: &str) -> Result<String, String> {
-    let name = name.trim();
-    if name.is_empty() {
-        return Err("The repository name is empty".into());
-    }
-    if name.len() > 100
-        || name == "."
-        || name == ".."
-        || !name
-            .chars()
-            .all(|c| c.is_ascii_alphanumeric() || matches!(c, '-' | '_' | '.'))
-    {
-        return Err("A repository name takes letters, digits, -, _ and . only".into());
-    }
-    Ok(name.to_string())
 }
 
 /// `POST /user/repos`: a new, empty repository; its HTTPS clone URL.
@@ -313,26 +187,17 @@ pub async fn publish_with(
     name: &str,
     private: bool,
 ) -> Result<String, String> {
-    if git::remote_url(dir).is_some() {
-        return Err("This project already has a remote".into());
-    }
-    if !git::has_commits(dir) {
-        return Err("Make a first commit before publishing".into());
-    }
+    hosting::check_can_publish(dir)?;
     let url = create_repo(endpoints, token, name, private).await?;
-    git::set_remote(dir, &url)?;
     let credentials: Credentials = Some((username.to_string(), token.to_string()));
-    let push_dir = dir.to_path_buf();
-    tauri::async_runtime::spawn_blocking(move || git::push(&push_dir, credentials))
-        .await
-        .map_err(|e| e.to_string())?
-        .map_err(|e| format!("The repository was created, but the push failed: {e}"))?;
+    hosting::push_to_new_remote(dir, &url, credentials).await?;
     Ok(url)
 }
 
 #[cfg(test)]
 pub mod tests {
     use super::*;
+    use crate::git;
     use std::io::{Read, Write};
     use std::net::TcpListener;
     use std::sync::Mutex;

@@ -90,12 +90,14 @@ vi.mock("@/lib/tauri", () => ({
   listComments: vi.fn(async () => []),
   saveComments: vi.fn(async () => {}),
   readProjectFile: vi.fn(async () => ""),
-  githubPublish: vi.fn(async (_dir: string, name: string) => {
+  publishTo: vi.fn(async (provider: string, _dir: string, name: string) => {
     if (repo.publishError) throw new Error(repo.publishError);
-    const url = `https://github.com/ada/${name}.git`;
+    const host = provider === "gitlab" ? "gitlab.com" : "github.com";
+    const url = `https://${host}/ada/${name}.git`;
     repo.status = { ...repo.status, remote: url, upstream: "origin/main" };
     return url;
   }),
+  HOSTING_NAMES: { github: "GitHub", gitlab: "GitLab" },
   suggestedRepoName: (name: string) => name.replace(/\s+/g, "-"),
 }));
 
@@ -306,10 +308,10 @@ describe("GitPanel remotes", () => {
   });
 });
 
-describe("Publish to GitHub", () => {
+describe("Publish", () => {
   it("publishes as a private repository named after the project", async () => {
     await render();
-    await click("Publish to GitHub…");
+    await click("Publish…");
     const name = host.querySelector<HTMLInputElement>(
       'input[aria-label="Repository name"]',
     )!;
@@ -318,17 +320,30 @@ describe("Publish to GitHub", () => {
     expect(isPrivate.checked).toBe(true);
 
     await click("Publish");
-    expect(tauri.githubPublish).toHaveBeenCalledWith("/tmp/paper", "paper", true);
+    expect(tauri.publishTo).toHaveBeenCalledWith("github", "/tmp/paper", "paper", true);
     expect(host.textContent).toContain("Published to github.com/ada/paper.");
     expect(host.textContent).toContain("github.com/ada/paper");
     expect(button("Push")).toBeDefined();
+  });
+
+  it("publishes to GitLab when chosen", async () => {
+    await render();
+    await click("Publish…");
+    const select = host.querySelector<HTMLSelectElement>('select[aria-label="Host"]')!;
+    await act(async () => {
+      select.value = "gitlab";
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+    await click("Publish");
+    expect(tauri.publishTo).toHaveBeenCalledWith("gitlab", "/tmp/paper", "paper", true);
+    expect(host.textContent).toContain("Published to gitlab.com/ada/paper.");
   });
 
   it("keeps the form and links to the accounts when there is no GitHub account", async () => {
     repo.publishError =
       "Add a GitHub account in Settings first: sign in with GitHub or add a token";
     await render();
-    await click("Publish to GitHub…");
+    await click("Publish…");
     await click("Publish");
     expect(host.textContent).toContain("Add a GitHub account in Settings first");
     expect(button("Open git accounts")).toBeDefined();

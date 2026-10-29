@@ -14,6 +14,7 @@ const store = {
   accounts: [] as GitAccountView[],
   tokens: {} as Record<string, string>,
   githubAvailable: false,
+  gitlabAvailable: false,
   /** Ends the pending GitHub sign-in: the code was entered, or cancelled. */
   finishGithub: (() => {}) as (outcome: "entered" | "cancelled") => void,
 };
@@ -35,6 +36,7 @@ vi.mock("@/lib/tauri", () => ({
         id,
         host: account.host,
         username: account.username,
+        name: null,
         hasToken: id in store.tokens,
       };
       const index = store.accounts.findIndex((a) => a.id === id);
@@ -48,13 +50,16 @@ vi.mock("@/lib/tauri", () => ({
     store.accounts = store.accounts.filter((a) => a.id !== id);
     return store.accounts;
   }),
-  githubSignInAvailable: vi.fn(async () => store.githubAvailable),
-  githubSignInStart: vi.fn(async () => ({
+  HOSTING_NAMES: { github: "GitHub", gitlab: "GitLab" },
+  signInAvailable: vi.fn(async (provider: string) =>
+    provider === "github" ? store.githubAvailable : store.gitlabAvailable,
+  ),
+  signInStart: vi.fn(async () => ({
     userCode: "ABCD-1234",
     verificationUri: "https://github.com/login/device",
     expiresIn: 900,
   })),
-  githubSignInFinish: vi.fn(
+  signInFinish: vi.fn(
     () =>
       new Promise<GitAccountView[]>((resolve, reject) => {
         store.finishGithub = (outcome) => {
@@ -65,13 +70,19 @@ vi.mock("@/lib/tauri", () => ({
           store.tokens["gh"] = "gho_token";
           store.accounts = [
             ...store.accounts,
-            { id: "gh", host: "github.com", username: "ada", hasToken: true },
+            {
+              id: "gh",
+              host: "github.com",
+              username: "ada",
+              name: null,
+              hasToken: true,
+            },
           ];
           resolve(store.accounts);
         };
       }),
   ),
-  githubSignInCancel: vi.fn(async () => store.finishGithub("cancelled")),
+  signInCancel: vi.fn(async () => store.finishGithub("cancelled")),
 }));
 
 import { GitAccountsSection, tokenHint } from "@/components/GitAccountsSection";
@@ -122,6 +133,7 @@ beforeEach(() => {
   store.accounts = [];
   store.tokens = {};
   store.githubAvailable = false;
+  store.gitlabAvailable = false;
 });
 
 afterEach(async () => {
@@ -156,7 +168,7 @@ describe("GitAccountsSection", () => {
 
   it("edits the username without resending a token, and removes", async () => {
     store.accounts = [
-      { id: "id-1", host: "gitlab.com", username: "ada", hasToken: true },
+      { id: "id-1", host: "gitlab.com", username: "ada", name: null, hasToken: true },
     ];
     store.tokens = { "id-1": "glpat" };
     await render();
@@ -200,7 +212,7 @@ describe("Sign in with GitHub", () => {
     store.githubAvailable = true;
     await render();
     await click("Sign in with GitHub");
-    expect(tauri.githubSignInStart).toHaveBeenCalled();
+    expect(tauri.signInStart).toHaveBeenCalledWith("github");
     expect(host.textContent).toContain("ABCD-1234");
     expect(host.textContent).toContain("Waiting for GitHub");
     expect(button("Add account")).toBeUndefined();
@@ -212,12 +224,24 @@ describe("Sign in with GitHub", () => {
     expect(host.textContent).toContain("ada · token set");
   });
 
+  it("offers GitLab when the build has its application ID, and shows who signed in", async () => {
+    store.gitlabAvailable = true;
+    store.accounts = [
+      { id: "gl", host: "gitlab.com", username: "oauth2", name: "ada", hasToken: true },
+    ];
+    await render();
+    expect(button("Sign in with GitHub")).toBeUndefined();
+    expect(button("Sign in with GitLab")).toBeDefined();
+    expect(host.textContent).toContain("ada · token set");
+    expect(host.textContent).not.toContain("oauth2");
+  });
+
   it("cancels without an error", async () => {
     store.githubAvailable = true;
     await render();
     await click("Sign in with GitHub");
     await click("Cancel");
-    expect(tauri.githubSignInCancel).toHaveBeenCalled();
+    expect(tauri.signInCancel).toHaveBeenCalled();
     expect(host.textContent).not.toContain("ABCD-1234");
     expect(host.textContent).not.toContain("cancelled");
     expect(button("Sign in with GitHub")).toBeDefined();

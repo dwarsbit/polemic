@@ -70,8 +70,13 @@ pub struct GitAccount {
     pub id: String,
     /// Lowercase host, with the port when not the default ("github.com").
     pub host: String,
-    /// The username the host expects beside a token ("git" for Overleaf).
+    /// The username the host expects beside a token ("git" for Overleaf,
+    /// "oauth2" for a GitLab sign-in).
     pub username: String,
+    /// Who the account is, when the username does not say (the GitLab
+    /// user behind "oauth2").
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, Default)]

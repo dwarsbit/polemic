@@ -3,6 +3,8 @@ mod files;
 pub mod git;
 mod git_accounts;
 mod github;
+mod gitlab;
+mod hosting;
 mod guard;
 mod logparse;
 mod profile;
@@ -1454,19 +1456,62 @@ fn git_mark_resolved(project_dir: String, path: String) -> Result<(), String> {
     git::mark_resolved(&dir, &path, file.exists().then_some(file.as_path()))
 }
 
+/// The credentials for an account, its OAuth token renewed first when
+/// it is about to expire (GitLab's live two hours).
+async fn account_credentials(account: &settings::GitAccount) -> Result<git::Credentials, String> {
+    let Some(secret) = git_accounts::secret_with(&git_accounts::STORE, &account.id) else {
+        return Ok(None);
+    };
+    let token = match git_accounts::due_for_refresh(&secret, git_accounts::now_secs()) {
+        None => secret.access_token().to_string(),
+        Some(refresh_token) => {
+            let expired = || {
+                "The GitLab sign-in has expired: sign in to GitLab again in the git accounts"
+                    .to_string()
+            };
+            if account.host != gitlab::HOST {
+                return Err(expired());
+            }
+            let client_id = gitlab::client_id().ok_or_else(expired)?;
+            let tokens =
+                gitlab::refresh(&gitlab::Endpoints::default(), &client_id, refresh_token).await?;
+            let renewed = oauth_secret(&tokens, refresh_token);
+            git_accounts::set_secret_with(&git_accounts::STORE, &account.id, &renewed)?;
+            renewed.access_token().to_string()
+        }
+    };
+    Ok(Some((account.username.clone(), token)))
+}
+
+/// What to keep from a sign-in or a refresh: GitLab's tokens expire and
+/// come with a refresh token (rotated on each refresh).
+fn oauth_secret(tokens: &hosting::Tokens, previous_refresh: &str) -> git_accounts::Secret {
+    git_accounts::Secret::OAuth(git_accounts::OAuthToken {
+        access_token: tokens.access_token.clone(),
+        refresh_token: tokens
+            .refresh_token
+            .clone()
+            .unwrap_or_else(|| previous_refresh.to_string()),
+        expires_at: git_accounts::now_secs() + tokens.expires_in.unwrap_or(gitlab::DEFAULT_LIFETIME),
+    })
+}
+
 /// The credentials for a remote URL from the git accounts.
-fn git_credentials(app: &tauri::AppHandle, url: &str) -> Result<git::Credentials, String> {
+async fn git_credentials(app: &tauri::AppHandle, url: &str) -> Result<git::Credentials, String> {
     let accounts = settings::snapshot(app)?.git_accounts;
-    Ok(git_accounts::credentials_for(&accounts, url))
+    match git_accounts::account_for(&accounts, url) {
+        Some(account) => account_credentials(account).await,
+        None => Ok(None),
+    }
 }
 
 /// The credentials for a project's origin.
-fn origin_credentials(
+async fn origin_credentials(
     app: &tauri::AppHandle,
     dir: &std::path::Path,
 ) -> Result<git::Credentials, String> {
     match git::remote_url(dir) {
-        Some(url) => git_credentials(app, &url),
+        Some(url) => git_credentials(app, &url).await,
         None => Ok(None),
     }
 }
@@ -1476,7 +1521,7 @@ fn origin_credentials(
 #[tauri::command]
 async fn git_fetch(app: tauri::AppHandle, project_dir: String) -> Result<(), String> {
     let dir = canonical_project(&project_dir)?;
-    let credentials = origin_credentials(&app, &dir)?;
+    let credentials = origin_credentials(&app, &dir).await?;
     tauri::async_runtime::spawn_blocking(move || git::fetch(&dir, credentials))
         .await
         .map_err(|e| e.to_string())?
@@ -1485,7 +1530,7 @@ async fn git_fetch(app: tauri::AppHandle, project_dir: String) -> Result<(), Str
 #[tauri::command]
 async fn git_pull(app: tauri::AppHandle, project_dir: String) -> Result<git::PullOutcome, String> {
     let dir = canonical_project(&project_dir)?;
-    let credentials = origin_credentials(&app, &dir)?;
+    let credentials = origin_credentials(&app, &dir).await?;
     tauri::async_runtime::spawn_blocking(move || git::pull(&dir, credentials))
         .await
         .map_err(|e| e.to_string())?
@@ -1494,7 +1539,7 @@ async fn git_pull(app: tauri::AppHandle, project_dir: String) -> Result<git::Pul
 #[tauri::command]
 async fn git_push(app: tauri::AppHandle, project_dir: String) -> Result<(), String> {
     let dir = canonical_project(&project_dir)?;
-    let credentials = origin_credentials(&app, &dir)?;
+    let credentials = origin_credentials(&app, &dir).await?;
     tauri::async_runtime::spawn_blocking(move || git::push(&dir, credentials))
         .await
         .map_err(|e| e.to_string())?
@@ -1523,8 +1568,12 @@ fn git_account_save(
     if username.is_empty() {
         return Err("The username is empty".into());
     }
-    let token = token.map(|t| t.trim().to_string()).filter(|t| !t.is_empty());
-    save_git_account(&app, id, host, username, token)?;
+    let token = token
+        .map(|t| t.trim().to_string())
+        .filter(|t| !t.is_empty())
+        .map(git_accounts::Secret::Token);
+    // An account edited by hand is no longer a sign-in's: drop the name.
+    save_git_account(&app, id, host, username, None, token)?;
     git_accounts(app)
 }
 
@@ -1534,14 +1583,15 @@ fn save_git_account(
     id: Option<String>,
     host: String,
     username: String,
-    token: Option<String>,
+    name: Option<String>,
+    secret: Option<git_accounts::Secret>,
 ) -> Result<String, String> {
     let existing = settings::snapshot(app)?.git_accounts;
     let id = match id {
         Some(id) if existing.iter().any(|a| a.id == id) => id,
         Some(_) => return Err("That account no longer exists".into()),
         None => {
-            if token.is_none() {
+            if secret.is_none() {
                 return Err("A new account needs a token".into());
             }
             // The same host and user twice would be one account.
@@ -1553,11 +1603,11 @@ fn save_git_account(
         }
     };
     // The token first: without a credential store the account is not kept.
-    if let Some(token) = token {
-        git_accounts::set_token_with(&git_accounts::STORE, &id, &token)?;
+    if let Some(secret) = secret {
+        git_accounts::set_secret_with(&git_accounts::STORE, &id, &secret)?;
     }
     settings::update(app, |s| {
-        let account = settings::GitAccount { id: id.clone(), host, username };
+        let account = settings::GitAccount { id: id.clone(), host, username, name };
         match s.git_accounts.iter_mut().find(|a| a.id == id) {
             Some(slot) => *slot = account,
             None => s.git_accounts.push(account),
@@ -1566,113 +1616,194 @@ fn save_git_account(
     Ok(id)
 }
 
-// --- GitHub -------------------------------------------------------------------
+// --- GitHub and GitLab: sign-in and Publish ----------------------------------
 
-/// The device code waiting to be entered, and its cancel flag.
-static GITHUB_PENDING: std::sync::Mutex<
-    Option<(github::DeviceCode, std::sync::Arc<std::sync::atomic::AtomicBool>)>,
+#[derive(serde::Deserialize, Clone, Copy, Debug, PartialEq)]
+#[serde(rename_all = "lowercase")]
+enum Hosting {
+    Github,
+    Gitlab,
+}
+
+impl Hosting {
+    fn name(self) -> &'static str {
+        match self {
+            Hosting::Github => "GitHub",
+            Hosting::Gitlab => "GitLab",
+        }
+    }
+
+    fn host(self) -> &'static str {
+        match self {
+            Hosting::Github => github::HOST,
+            Hosting::Gitlab => gitlab::HOST,
+        }
+    }
+
+    fn client_id(self) -> Result<String, String> {
+        match self {
+            Hosting::Github => github::client_id(),
+            Hosting::Gitlab => gitlab::client_id(),
+        }
+        .ok_or_else(|| format!("{} sign-in is not set up in this build", self.name()))
+    }
+}
+
+/// The device code waiting to be entered, its host, and its cancel flag.
+static SIGN_IN_PENDING: std::sync::Mutex<
+    Option<(Hosting, hosting::DeviceCode, std::sync::Arc<std::sync::atomic::AtomicBool>)>,
 > = std::sync::Mutex::new(None);
 
 #[derive(serde::Serialize)]
 #[serde(rename_all = "camelCase")]
-struct GithubSignIn {
+struct SignIn {
     user_code: String,
     verification_uri: String,
     expires_in: u64,
 }
 
-/// Whether this build can sign in to GitHub (it has a client ID).
+/// Whether this build can sign in to the host (it has a client ID).
 #[tauri::command]
-fn github_sign_in_available() -> bool {
-    github::client_id().is_some()
+fn hosting_sign_in_available(provider: Hosting) -> bool {
+    provider.client_id().is_ok()
 }
 
-/// Start a GitHub sign-in: the code for the user to type, with the
-/// browser opened at the page to type it on.
+/// Start a sign-in: the code for the user to type, with the browser
+/// opened at the page to type it on.
 #[tauri::command]
-async fn github_sign_in_start(app: tauri::AppHandle) -> Result<GithubSignIn, String> {
+async fn hosting_sign_in_start(app: tauri::AppHandle, provider: Hosting) -> Result<SignIn, String> {
     use tauri_plugin_opener::OpenerExt;
-    let client_id = github::client_id()
-        .ok_or_else(|| "GitHub sign-in is not set up in this build".to_string())?;
-    let code = github::request_device_code(&github::Endpoints::default(), &client_id).await?;
+    let client_id = provider.client_id()?;
+    let code = match provider {
+        Hosting::Github => {
+            github::request_device_code(&github::Endpoints::default(), &client_id).await?
+        }
+        Hosting::Gitlab => {
+            gitlab::request_device_code(&gitlab::Endpoints::default(), &client_id).await?
+        }
+    };
     let cancel = std::sync::Arc::new(std::sync::atomic::AtomicBool::new(false));
-    if let Ok(mut pending) = GITHUB_PENDING.lock() {
-        if let Some((_, old)) = pending.replace((code.clone(), cancel)) {
+    if let Ok(mut pending) = SIGN_IN_PENDING.lock() {
+        if let Some((_, _, old)) = pending.replace((provider, code.clone(), cancel)) {
             old.store(true, std::sync::atomic::Ordering::Relaxed);
         }
     }
     let _ = app.opener().open_url(&code.verification_uri, None::<&str>);
-    Ok(GithubSignIn {
+    Ok(SignIn {
         user_code: code.user_code,
         verification_uri: code.verification_uri,
         expires_in: code.expires_in,
     })
 }
 
-/// Wait for the code to be entered, then keep the token as the
-/// github.com git account of the signed-in user.
+/// Wait for the code to be entered, then keep the token as the host's
+/// git account for the signed-in user.
 #[tauri::command]
-async fn github_sign_in_finish(
+async fn hosting_sign_in_finish(
     app: tauri::AppHandle,
+    provider: Hosting,
 ) -> Result<Vec<git_accounts::GitAccountView>, String> {
-    let client_id = github::client_id()
-        .ok_or_else(|| "GitHub sign-in is not set up in this build".to_string())?;
-    let (code, cancel) = GITHUB_PENDING
+    let client_id = provider.client_id()?;
+    let (pending_for, code, cancel) = SIGN_IN_PENDING
         .lock()
         .map_err(|e| e.to_string())?
         .clone()
-        .ok_or_else(|| "No GitHub sign-in is waiting".to_string())?;
-    let endpoints = github::Endpoints::default();
-    let result = github::wait_for_token(
-        &endpoints,
-        &client_id,
-        &code,
-        cancel.clone(),
-        std::time::Duration::from_secs(1),
-    )
-    .await;
-    if let Ok(mut pending) = GITHUB_PENDING.lock() {
-        if pending.as_ref().is_some_and(|(_, c)| std::sync::Arc::ptr_eq(c, &cancel)) {
+        .ok_or_else(|| format!("No {} sign-in is waiting", provider.name()))?;
+    if pending_for != provider {
+        return Err(format!("No {} sign-in is waiting", provider.name()));
+    }
+    let unit = std::time::Duration::from_secs(1);
+    let result = match provider {
+        Hosting::Github => github::wait_for_token(
+            &github::Endpoints::default(),
+            &client_id,
+            &code,
+            cancel.clone(),
+            unit,
+        )
+        .await
+        .map(|token| hosting::Tokens { access_token: token, refresh_token: None, expires_in: None }),
+        Hosting::Gitlab => {
+            gitlab::wait_for_tokens(&gitlab::Endpoints::default(), &client_id, &code, cancel.clone(), unit)
+                .await
+        }
+    };
+    if let Ok(mut pending) = SIGN_IN_PENDING.lock() {
+        if pending.as_ref().is_some_and(|(_, _, c)| std::sync::Arc::ptr_eq(c, &cancel)) {
             *pending = None;
         }
     }
-    let token = result?;
-    let login = github::login_of(&endpoints, &token).await?;
-    save_git_account(&app, None, github::HOST.into(), login, Some(token))?;
+    let tokens = result?;
+    match provider {
+        Hosting::Github => {
+            let login = github::login_of(&github::Endpoints::default(), &tokens.access_token).await?;
+            let secret = git_accounts::Secret::Token(tokens.access_token);
+            save_git_account(&app, None, github::HOST.into(), login, None, Some(secret))?;
+        }
+        Hosting::Gitlab => {
+            let user =
+                gitlab::username_of(&gitlab::Endpoints::default(), &tokens.access_token).await?;
+            let secret = match &tokens.refresh_token {
+                Some(refresh) => oauth_secret(&tokens, refresh),
+                None => git_accounts::Secret::Token(tokens.access_token.clone()),
+            };
+            save_git_account(
+                &app,
+                None,
+                gitlab::HOST.into(),
+                gitlab::OAUTH_USERNAME.into(),
+                Some(user),
+                Some(secret),
+            )?;
+        }
+    }
     git_accounts(app)
 }
 
 #[tauri::command]
-fn github_sign_in_cancel() {
-    if let Ok(mut pending) = GITHUB_PENDING.lock() {
-        if let Some((_, cancel)) = pending.take() {
+fn hosting_sign_in_cancel() {
+    if let Ok(mut pending) = SIGN_IN_PENDING.lock() {
+        if let Some((_, _, cancel)) = pending.take() {
             cancel.store(true, std::sync::atomic::Ordering::Relaxed);
         }
     }
 }
 
-/// Publish a project to a new GitHub repository with the first
-/// github.com account that has a token; the repository's URL.
+/// Publish a project to a new repository on the host, with the first
+/// account there that has a token; the repository's URL.
 #[tauri::command]
-async fn github_publish(
+async fn hosting_publish(
     app: tauri::AppHandle,
+    provider: Hosting,
     project_dir: String,
     name: String,
     private: bool,
 ) -> Result<String, String> {
     let dir = canonical_project(&project_dir)?;
     let accounts = settings::snapshot(&app)?.git_accounts;
-    let (username, token) = accounts
+    let account = accounts
         .iter()
-        .filter(|a| a.host == github::HOST)
-        .find_map(|a| {
-            git_accounts::token_with(&git_accounts::STORE, &a.id).map(|t| (a.username.clone(), t))
-        })
+        .filter(|a| a.host == provider.host())
+        .find(|a| git_accounts::secret_with(&git_accounts::STORE, &a.id).is_some())
         .ok_or_else(|| {
-            "Add a GitHub account in Settings first: sign in with GitHub or add a token".to_string()
+            format!(
+                "Add a {p} account in Settings first: sign in with {p} or add a token",
+                p = provider.name()
+            )
         })?;
-    github::publish_with(&github::Endpoints::default(), &dir, &username, &token, &name, private)
-        .await
+    let (username, token) = account_credentials(account)
+        .await?
+        .ok_or_else(|| format!("The {} account has no token", provider.name()))?;
+    match provider {
+        Hosting::Github => {
+            github::publish_with(&github::Endpoints::default(), &dir, &username, &token, &name, private)
+                .await
+        }
+        Hosting::Gitlab => {
+            gitlab::publish_with(&gitlab::Endpoints::default(), &dir, &username, &token, &name, private)
+                .await
+        }
+    }
 }
 
 #[tauri::command]
@@ -1701,7 +1832,7 @@ async fn git_clone_project(
         return Err(format!("a project named \"{name}\" already exists"));
     }
     let clone_dest = dest.clone();
-    let credentials = git_credentials(&app, &url)?;
+    let credentials = git_credentials(&app, &url).await?;
     tauri::async_runtime::spawn_blocking(move || git::clone(&url, &clone_dest, credentials))
         .await
         .map_err(|e| e.to_string())??;
@@ -2386,11 +2517,11 @@ pub fn run() {    tauri::Builder::default()
             git_accounts,
             git_account_save,
             git_account_remove,
-            github_sign_in_available,
-            github_sign_in_start,
-            github_sign_in_finish,
-            github_sign_in_cancel,
-            github_publish,
+            hosting_sign_in_available,
+            hosting_sign_in_start,
+            hosting_sign_in_finish,
+            hosting_sign_in_cancel,
+            hosting_publish,
             git_available,
             git_ignored,
             set_version_control,
