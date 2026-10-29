@@ -87,6 +87,8 @@ vi.mock("@/lib/tauri", () => ({
     repo.status = { ...repo.status, merging: false, conflicts: [] };
   }),
   gitShowHead: vi.fn(async () => null),
+  listComments: vi.fn(async () => []),
+  saveComments: vi.fn(async () => {}),
   readProjectFile: vi.fn(async () => ""),
   githubPublish: vi.fn(async (_dir: string, name: string) => {
     if (repo.publishError) throw new Error(repo.publishError);
@@ -212,8 +214,9 @@ describe("GitPanel remotes", () => {
     await click("Pull 1");
     expect(tauri.gitPull).toHaveBeenCalledWith("/tmp/paper");
     expect(host.textContent).toContain("Updated from the remote.");
-    // The pulled files reach the editor.
+    // The pulled files reach the editor, and so do pulled comments.
     expect(useProjectStore.getState().syncFromDisk).toHaveBeenCalled();
+    expect(tauri.listComments).toHaveBeenCalledWith("/tmp/paper");
   });
 
   it("lists a pull's conflicts until each is marked resolved, then commits the merge", async () => {

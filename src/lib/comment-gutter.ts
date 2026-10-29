@@ -15,7 +15,7 @@ interface AnchoredComment {
   category: string;
   resolved: boolean;
   line: number;
-  /** A suggestion's note (in the markup), not a comments.json entry. */
+  /** A suggestion's note (in the markup), not a .polemic/comments entry. */
   note?: { at: number; text: string; author: string | null };
 }
 

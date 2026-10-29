@@ -1,7 +1,7 @@
 /**
  * Notes on suggestions (`comment=` in the markup) as the Comments panel
  * and gutter show them, next to ordinary comments. A note is found by
- * its key, the author and the note text: replies in comments.json carry
+ * its key, the author and the note text: replies in .polemic/comments carry
  * that key, so a thread follows its suggestion while the suggested text
  * is edited, and is resolved when the suggestion is accepted or
  * rejected.
