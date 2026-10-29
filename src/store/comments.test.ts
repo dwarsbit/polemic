@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { Comment } from "@/lib/tauri";
 
-// comments.json per project, written when a save settles.
+// .polemic/comments per project, written when a save settles.
 const disk = new Map<string, Comment[]>();
 // Saves and loads in flight, settled by the test in any order.
 let saves: { dir: string; comments: Comment[]; settle: () => void }[] = [];

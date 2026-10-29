@@ -33,6 +33,7 @@ import {
   type GitEntry,
   type GitStatus,
 } from "@/lib/tauri";
+import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
 import { useSettingsStore } from "@/store/settings";
 
@@ -155,7 +156,11 @@ export function GitPanel() {
     } finally {
       setBusy(null);
       // A pull changes files on disk; the editor picks them up.
-      if (kind === "pull") await syncFromDisk();
+      // Comments pulled from another device show up too.
+      if (kind === "pull") {
+        await syncFromDisk();
+        await useCommentsStore.getState().load();
+      }
     }
   }
 
