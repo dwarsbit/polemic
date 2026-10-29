@@ -96,4 +96,30 @@ describe("comments store", () => {
     expect(useCommentsStore.getState().comments).toEqual([]);
     expect(useCommentsStore.getState().loaded).toBe(false);
   });
+
+  it("keeps a comment added while the list is still loading", async () => {
+    disk.set("/a", [
+      {
+        id: "x",
+        file: "main.tex",
+        category: "note",
+        text: "on disk",
+        createdAt: 0,
+        resolved: false,
+        anchor: null,
+      },
+    ]);
+    const loading = useCommentsStore.getState().load();
+    const adding = useCommentsStore
+      .getState()
+      .add({ file: "main.tex", category: "note", text: "new", anchor: null });
+    loads[0].settle();
+    await loading;
+    await settleSavesNewestFirst();
+    await adding;
+
+    const texts = ["on disk", "new"];
+    expect(useCommentsStore.getState().comments.map((c) => c.text)).toEqual(texts);
+    expect(disk.get("/a")?.map((c) => c.text)).toEqual(texts);
+  });
 });
