@@ -19,7 +19,7 @@ import {
   planUsepackageRemoval,
   type SourceEdit,
 } from "@/lib/packages";
-import { findDocumentBegin } from "@/lib/document-markers";
+import { findDocumentBegin, verbEnd } from "@/lib/document-markers";
 
 export type { SourceEdit };
 
@@ -87,18 +87,6 @@ const isLetter = (ch: string | undefined) =>
 function lineEnd(src: string, i: number, limit: number): number {
   const nl = src.indexOf("\n", i);
   return nl === -1 || nl > limit ? limit : nl;
-}
-
-/** The end (after the closing delimiter) of a `\verb<d>…<d>` or
- *  `\verb*<d>…<d>` at `i`, or -1 when there is none on the line. */
-function verbEnd(src: string, i: number, limit: number): number {
-  if (!src.startsWith("\\verb", i)) return -1;
-  let d = i + 5;
-  if (src[d] === "*") d++;
-  const delim = src[d];
-  if (delim === undefined || isLetter(delim) || /\s/.test(delim)) return -1;
-  const close = src.indexOf(delim, d + 1);
-  return close === -1 || close >= lineEnd(src, d, limit) ? -1 : close + 1;
 }
 
 /** Is there a blank line starting at the `\n` at `i`? */

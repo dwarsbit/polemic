@@ -19,14 +19,15 @@ const VERBATIM_ENVS = new Set([
 ]);
 
 /** End (exclusive) of a `\verb<d>...<d>` or `\verb*<d>...<d>` at `i`,
- *  or -1 when there is none on the line. */
-export function verbEnd(src: string, i: number): number {
+ *  or -1 when it does not close on its line before `limit`. */
+export function verbEnd(src: string, i: number, limit = src.length): number {
   const m = /^\\verb\*?([^a-zA-Z*\s])/.exec(src.slice(i, i + 7));
   if (m === null) return -1;
   const bodyStart = i + m[0].length;
   const close = src.indexOf(m[1], bodyStart);
   const nl = src.indexOf("\n", bodyStart);
-  if (close === -1 || (nl !== -1 && nl < close)) return -1;
+  const end = Math.min(nl === -1 ? src.length : nl, limit);
+  if (close === -1 || close >= end) return -1;
   return close + 1;
 }
 
