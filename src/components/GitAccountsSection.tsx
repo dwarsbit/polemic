@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
-import { KeyRound, Pencil, Plus, Trash2 } from "lucide-react";
+import { Copy, KeyRound, Pencil, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   gitAccountRemove,
   gitAccountSave,
   gitAccounts,
+  githubSignInAvailable,
+  githubSignInCancel,
+  githubSignInFinish,
+  githubSignInStart,
   type GitAccountView,
+  type GithubSignIn,
 } from "@/lib/tauri";
 
 /** Where a token comes from on the hosts people use most. */
@@ -46,16 +51,40 @@ export function GitAccountsSection() {
   const [form, setForm] = useState<Form | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [githubAvailable, setGithubAvailable] = useState(false);
+  /** The code waiting to be typed on github.com, while signing in. */
+  const [githubCode, setGithubCode] = useState<GithubSignIn | null>(null);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     let live = true;
     gitAccounts()
       .then((list) => live && setAccounts(list))
       .catch((e) => live && setError(String(e)));
+    githubSignInAvailable()
+      .then((available) => live && setGithubAvailable(available))
+      .catch(() => undefined);
     return () => {
       live = false;
     };
   }, []);
+
+  async function signInWithGithub() {
+    setError(null);
+    setBusy(true);
+    try {
+      setGithubCode(await githubSignInStart());
+      setCopied(false);
+      // Resolves once the code is entered on github.com.
+      setAccounts(await githubSignInFinish());
+    } catch (e) {
+      const message = String(e);
+      if (!message.includes("Sign-in cancelled")) setError(message);
+    } finally {
+      setGithubCode(null);
+      setBusy(false);
+    }
+  }
 
   async function run(action: () => Promise<GitAccountView[]>) {
     setBusy(true);
@@ -149,17 +178,65 @@ export function GitAccountsSection() {
         </ul>
       )}
 
-      {form === null ? (
-        <Button
-          variant="outline"
-          size="sm"
-          disabled={busy || accounts === null}
-          onClick={() => setForm(EMPTY)}
+      {githubCode !== null && (
+        <div
+          className="space-y-2 rounded-lg border bg-background px-3 py-3"
+          aria-live="polite"
         >
-          <Plus />
-          Add account
-        </Button>
-      ) : (
+          <p className="text-sm">
+            Enter this code on GitHub, in the page that opened in your browser:
+          </p>
+          <div className="flex items-center gap-2">
+            <code className="rounded bg-accent px-2 py-1 font-mono text-base tracking-widest">
+              {githubCode.userCode}
+            </code>
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              title="Copy the code"
+              onClick={() => {
+                void navigator.clipboard
+                  ?.writeText(githubCode.userCode)
+                  .then(() => setCopied(true))
+                  .catch(() => undefined);
+              }}
+            >
+              <Copy />
+            </Button>
+            {copied && <span className="text-xs text-muted-foreground">Copied</span>}
+          </div>
+          <p className="text-xs text-muted-foreground">
+            Not open? Go to {githubCode.verificationUri}. Waiting for GitHub…
+          </p>
+          <Button variant="outline" size="sm" onClick={() => void githubSignInCancel()}>
+            Cancel
+          </Button>
+        </div>
+      )}
+
+      {form === null && githubCode === null ? (
+        <div className="flex flex-wrap gap-2">
+          {githubAvailable && (
+            <Button
+              size="sm"
+              disabled={busy || accounts === null}
+              title="Sign in on github.com; the token is kept as the github.com account"
+              onClick={() => void signInWithGithub()}
+            >
+              Sign in with GitHub
+            </Button>
+          )}
+          <Button
+            variant="outline"
+            size="sm"
+            disabled={busy || accounts === null}
+            onClick={() => setForm(EMPTY)}
+          >
+            <Plus />
+            Add account
+          </Button>
+        </div>
+      ) : form === null ? null : (
         <div className="space-y-2 rounded-lg border bg-background px-3 py-3">
           <div>
             <label className="text-xs text-muted-foreground" htmlFor="git-host">

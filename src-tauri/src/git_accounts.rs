@@ -58,6 +58,11 @@ pub fn remove_token_with(store: &impl Store, id: &str) -> Result<(), String> {
     write(store, &map).map_err(|e| format!("Could not update the credential store: {e}"))
 }
 
+/// The token of one account.
+pub fn token_with(store: &impl Store, id: &str) -> Option<String> {
+    tokens(store).remove(id)
+}
+
 pub fn views_with(accounts: &[GitAccount], store: &impl Store) -> Vec<GitAccountView> {
     let map = tokens(store);
     accounts

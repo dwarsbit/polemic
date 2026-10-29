@@ -13,6 +13,9 @@ import type { GitAccountView } from "@/lib/tauri";
 const store = {
   accounts: [] as GitAccountView[],
   tokens: {} as Record<string, string>,
+  githubAvailable: false,
+  /** Ends the pending GitHub sign-in: the code was entered, or cancelled. */
+  finishGithub: (() => {}) as (outcome: "entered" | "cancelled") => void,
 };
 
 vi.mock("@/lib/tauri", () => ({
@@ -45,6 +48,30 @@ vi.mock("@/lib/tauri", () => ({
     store.accounts = store.accounts.filter((a) => a.id !== id);
     return store.accounts;
   }),
+  githubSignInAvailable: vi.fn(async () => store.githubAvailable),
+  githubSignInStart: vi.fn(async () => ({
+    userCode: "ABCD-1234",
+    verificationUri: "https://github.com/login/device",
+    expiresIn: 900,
+  })),
+  githubSignInFinish: vi.fn(
+    () =>
+      new Promise<GitAccountView[]>((resolve, reject) => {
+        store.finishGithub = (outcome) => {
+          if (outcome === "cancelled") {
+            reject(new Error("Sign-in cancelled"));
+            return;
+          }
+          store.tokens["gh"] = "gho_token";
+          store.accounts = [
+            ...store.accounts,
+            { id: "gh", host: "github.com", username: "ada", hasToken: true },
+          ];
+          resolve(store.accounts);
+        };
+      }),
+  ),
+  githubSignInCancel: vi.fn(async () => store.finishGithub("cancelled")),
 }));
 
 import { GitAccountsSection, tokenHint } from "@/components/GitAccountsSection";
@@ -94,6 +121,7 @@ async function type(id: string, value: string) {
 beforeEach(() => {
   store.accounts = [];
   store.tokens = {};
+  store.githubAvailable = false;
 });
 
 afterEach(async () => {
@@ -158,6 +186,41 @@ describe("GitAccountsSection", () => {
     await click("Add account");
     expect(host.textContent).toContain("should look like github.com");
     expect(host.querySelector("#git-host")).not.toBeNull();
+  });
+});
+
+describe("Sign in with GitHub", () => {
+  it("is hidden when this build has no GitHub client ID", async () => {
+    await render();
+    expect(button("Sign in with GitHub")).toBeUndefined();
+    expect(button("Add account")).toBeDefined();
+  });
+
+  it("shows the code until it is entered, then lists the GitHub account", async () => {
+    store.githubAvailable = true;
+    await render();
+    await click("Sign in with GitHub");
+    expect(tauri.githubSignInStart).toHaveBeenCalled();
+    expect(host.textContent).toContain("ABCD-1234");
+    expect(host.textContent).toContain("Waiting for GitHub");
+    expect(button("Add account")).toBeUndefined();
+
+    await act(async () => store.finishGithub("entered"));
+    await settle();
+    expect(host.textContent).not.toContain("ABCD-1234");
+    expect(host.textContent).toContain("github.com");
+    expect(host.textContent).toContain("ada · token set");
+  });
+
+  it("cancels without an error", async () => {
+    store.githubAvailable = true;
+    await render();
+    await click("Sign in with GitHub");
+    await click("Cancel");
+    expect(tauri.githubSignInCancel).toHaveBeenCalled();
+    expect(host.textContent).not.toContain("ABCD-1234");
+    expect(host.textContent).not.toContain("cancelled");
+    expect(button("Sign in with GitHub")).toBeDefined();
   });
 });
 

@@ -2,6 +2,7 @@ mod account;
 mod files;
 pub mod git;
 mod git_accounts;
+mod github;
 mod guard;
 mod logparse;
 mod profile;
@@ -1523,7 +1524,19 @@ fn git_account_save(
         return Err("The username is empty".into());
     }
     let token = token.map(|t| t.trim().to_string()).filter(|t| !t.is_empty());
-    let existing = settings::snapshot(&app)?.git_accounts;
+    save_git_account(&app, id, host, username, token)?;
+    git_accounts(app)
+}
+
+/// Add or update a git account (see `git_account_save`); its id.
+fn save_git_account(
+    app: &tauri::AppHandle,
+    id: Option<String>,
+    host: String,
+    username: String,
+    token: Option<String>,
+) -> Result<String, String> {
+    let existing = settings::snapshot(app)?.git_accounts;
     let id = match id {
         Some(id) if existing.iter().any(|a| a.id == id) => id,
         Some(_) => return Err("That account no longer exists".into()),
@@ -1543,14 +1556,123 @@ fn git_account_save(
     if let Some(token) = token {
         git_accounts::set_token_with(&git_accounts::STORE, &id, &token)?;
     }
-    settings::update(&app, |s| {
+    settings::update(app, |s| {
         let account = settings::GitAccount { id: id.clone(), host, username };
         match s.git_accounts.iter_mut().find(|a| a.id == id) {
             Some(slot) => *slot = account,
             None => s.git_accounts.push(account),
         }
     })?;
+    Ok(id)
+}
+
+// --- GitHub -------------------------------------------------------------------
+
+/// The device code waiting to be entered, and its cancel flag.
+static GITHUB_PENDING: std::sync::Mutex<
+    Option<(github::DeviceCode, std::sync::Arc<std::sync::atomic::AtomicBool>)>,
+> = std::sync::Mutex::new(None);
+
+#[derive(serde::Serialize)]
+#[serde(rename_all = "camelCase")]
+struct GithubSignIn {
+    user_code: String,
+    verification_uri: String,
+    expires_in: u64,
+}
+
+/// Whether this build can sign in to GitHub (it has a client ID).
+#[tauri::command]
+fn github_sign_in_available() -> bool {
+    github::client_id().is_some()
+}
+
+/// Start a GitHub sign-in: the code for the user to type, with the
+/// browser opened at the page to type it on.
+#[tauri::command]
+async fn github_sign_in_start(app: tauri::AppHandle) -> Result<GithubSignIn, String> {
+    use tauri_plugin_opener::OpenerExt;
+    let client_id = github::client_id()
+        .ok_or_else(|| "GitHub sign-in is not set up in this build".to_string())?;
+    let code = github::request_device_code(&github::Endpoints::default(), &client_id).await?;
+    let cancel = std::sync::Arc::new(std::sync::atomic::AtomicBool::new(false));
+    if let Ok(mut pending) = GITHUB_PENDING.lock() {
+        if let Some((_, old)) = pending.replace((code.clone(), cancel)) {
+            old.store(true, std::sync::atomic::Ordering::Relaxed);
+        }
+    }
+    let _ = app.opener().open_url(&code.verification_uri, None::<&str>);
+    Ok(GithubSignIn {
+        user_code: code.user_code,
+        verification_uri: code.verification_uri,
+        expires_in: code.expires_in,
+    })
+}
+
+/// Wait for the code to be entered, then keep the token as the
+/// github.com git account of the signed-in user.
+#[tauri::command]
+async fn github_sign_in_finish(
+    app: tauri::AppHandle,
+) -> Result<Vec<git_accounts::GitAccountView>, String> {
+    let client_id = github::client_id()
+        .ok_or_else(|| "GitHub sign-in is not set up in this build".to_string())?;
+    let (code, cancel) = GITHUB_PENDING
+        .lock()
+        .map_err(|e| e.to_string())?
+        .clone()
+        .ok_or_else(|| "No GitHub sign-in is waiting".to_string())?;
+    let endpoints = github::Endpoints::default();
+    let result = github::wait_for_token(
+        &endpoints,
+        &client_id,
+        &code,
+        cancel.clone(),
+        std::time::Duration::from_secs(1),
+    )
+    .await;
+    if let Ok(mut pending) = GITHUB_PENDING.lock() {
+        if pending.as_ref().is_some_and(|(_, c)| std::sync::Arc::ptr_eq(c, &cancel)) {
+            *pending = None;
+        }
+    }
+    let token = result?;
+    let login = github::login_of(&endpoints, &token).await?;
+    save_git_account(&app, None, github::HOST.into(), login, Some(token))?;
     git_accounts(app)
+}
+
+#[tauri::command]
+fn github_sign_in_cancel() {
+    if let Ok(mut pending) = GITHUB_PENDING.lock() {
+        if let Some((_, cancel)) = pending.take() {
+            cancel.store(true, std::sync::atomic::Ordering::Relaxed);
+        }
+    }
+}
+
+/// Publish a project to a new GitHub repository with the first
+/// github.com account that has a token; the repository's URL.
+#[tauri::command]
+async fn github_publish(
+    app: tauri::AppHandle,
+    project_dir: String,
+    name: String,
+    private: bool,
+) -> Result<String, String> {
+    let dir = canonical_project(&project_dir)?;
+    let accounts = settings::snapshot(&app)?.git_accounts;
+    let (username, token) = accounts
+        .iter()
+        .filter(|a| a.host == github::HOST)
+        .find_map(|a| {
+            git_accounts::token_with(&git_accounts::STORE, &a.id).map(|t| (a.username.clone(), t))
+        })
+        .ok_or_else(|| {
+            "Add a GitHub account in Settings first: sign in with GitHub or add a token".to_string()
+        })?;
+    github::publish_with(&github::Endpoints::default(), &dir, &username, &token, &name, private)
+        .await
 }
 
 #[tauri::command]
@@ -2264,6 +2386,11 @@ pub fn run() {    tauri::Builder::default()
             git_accounts,
             git_account_save,
             git_account_remove,
+            github_sign_in_available,
+            github_sign_in_start,
+            github_sign_in_finish,
+            github_sign_in_cancel,
+            github_publish,
             git_available,
             git_ignored,
             set_version_control,
