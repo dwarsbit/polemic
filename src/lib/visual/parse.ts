@@ -9,7 +9,6 @@
 
 import { readChangeAt } from "@/lib/changes";
 import {
-  CHANGE_MARKS,
   type Block,
   type DocNode,
   type Inline,
@@ -457,10 +456,10 @@ function parseInlineString(s: string, marks: Mark[], opts?: RunOpts): Inline[] {
 function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
   const nodes: Inline[] = [];
   let text = "";
-  // Atoms inside a suggestion carry its change marks.
-  const changeMarks = marks.filter((m) => CHANGE_MARKS.has(m.type));
+  // Atoms carry the marks around them (formatting and suggestions), so
+  // \textbf{a \cite{x} b} stays one group.
   const atom = <T extends Inline>(node: T): T =>
-    changeMarks.length > 0 ? { ...node, marks: changeMarks } : node;
+    marks.length > 0 ? { ...node, marks } : node;
   const flush = () => {
     if (text.length === 0) return;
     nodes.push({ type: "text", text, ...(marks.length > 0 ? { marks } : {}) });

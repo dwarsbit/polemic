@@ -13,6 +13,12 @@ describe("inline roundtrip preserves source", () => {
     ["accent forms", 'Go \\"{o} \\`{a} \\^{e} \\~{n} \\={o} \\.{z}\n'],
     ["symbol accent without braces", "caf\\'e na\\\"ive\n"],
     ["letter accents", "Go \\c{c} \\v{s} \\u{g} \\H{o}\n"],
+    ["brace group inside a format mark", "Go \\textbf{a {\\itshape b} c}\n"],
+    ["cite inside a format mark", "See \\emph{as in \\cite{knuth} here}\n"],
+    ["math and footnote inside bold", "Go \\textbf{$x$ and\\footnote{n} y}\n"],
+    ["raw atom at a mark edge", "Go \\textbf{\\foo{} y}\n"],
+    ["nested marks around an atom", "Go \\emph{a \\textbf{b \\ref{r}} c}\n"],
+    ["suggestion inside a format mark", "Go \\textbf{a \\added{b} c}\n"],
     ["\\verb body", "x \\verb|a_b  c| y\n"],
     ["\\verb* body", "x \\verb*+a_b  {c+ y\n"],
     ["\\verb with % inside", "x \\verb!50%! y\n"],
@@ -33,12 +39,6 @@ describe("inline roundtrip preserves source", () => {
     const tex = "text % c\nmore\n";
     expect(rt(tex)).toBe(tex);
     expect(parseTex(tex).content).toHaveLength(1);
-  });
-
-  it("keeps a brace group inside a format mark verbatim", () => {
-    // Inline atoms do not carry format marks yet, so the mark splits
-    // around the group; the group itself must survive unescaped.
-    expect(rt("Go \\textbf{a {\\itshape b} c}\n")).toContain("{\\itshape b}");
   });
 
   it("keeps a % inside \\verb out of comments", () => {

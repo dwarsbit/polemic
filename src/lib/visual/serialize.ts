@@ -36,25 +36,13 @@ function escapeText(t: string): string {
   return t.replace(ESCAPED, (ch) => `\\${ch}`).replace(/\u00A0/g, "~");
 }
 
-/** Wrap `text` in its formatting commands, innermost mark first. */
-function applyMarks(text: string, marks: Mark[]): string {
-  let out = text;
-  for (let i = marks.length - 1; i >= 0; i--) {
-    const mark = marks[i];
-    if (mark.type === "comment" || CHANGE_MARKS.has(mark.type)) continue;
-    const cmd = mark.attrs?.cmd ?? FORMAT_DEFAULTS[mark.type];
-    out = `\\${cmd}{${out}}`;
-  }
-  return out;
-}
-
 function serializeNode(node: Inline): string {
   switch (node.type) {
     case "text": {
       const isComment = node.marks?.some((m) => m.type === "comment") ?? false;
       // Comment content is raw, and the newline it consumed returns.
       if (isComment) return node.text + "\n";
-      return applyMarks(escapeText(node.text), node.marks ?? []);
+      return escapeText(node.text);
     }
     case "hardBreak":
     case "mathInline":
@@ -66,6 +54,13 @@ function serializeNode(node: Inline): string {
       return node.attrs.src;
   }
 }
+
+const isFormat = (m: Mark) => m.type !== "comment" && !CHANGE_MARKS.has(m.type);
+
+const formatCmd = (m: Mark) => m.attrs?.cmd ?? FORMAT_DEFAULTS[m.type];
+
+const sameFormat = (a: Mark, b: Mark) =>
+  a.type === b.type && formatCmd(a) === formatCmd(b);
 
 /** The outermost change mark of a node: deletions wrap insertions
  *  (another author's new text struck out), both wrap highlights. */
@@ -93,8 +88,8 @@ const sameChange = (a: Mark | null, b: Mark | null) =>
   (a.attrs?.opts ?? null) === (b.attrs?.opts ?? null) &&
   (a.attrs?.pair ?? null) === (b.attrs?.pair ?? null);
 
-const without = (node: Inline, mark: Mark): Inline => {
-  const marks = (node.marks ?? []).filter((m) => m !== mark && !sameChange(m, mark));
+const without = (node: Inline, same: (m: Mark) => boolean): Inline => {
+  const marks = (node.marks ?? []).filter((m) => !same(m));
   return { ...node, marks } as Inline;
 };
 
@@ -107,7 +102,8 @@ const CHANGE_CMD: Record<string, string> = {
 /**
  * Inline content as LaTeX: a run of nodes sharing a change mark is one
  * `\added` / `\deleted` / `\highlight`, and the two halves of a
- * replacement (same `pair`, old text first) one `\replaced`.
+ * replacement (same `pair`, old text first) one `\replaced`. A run
+ * sharing a formatting mark, atoms included, is one `\textbf{...}` etc.
  */
 function serializeInline(nodes: Inline[] | undefined): string {
   const list = nodes ?? [];
@@ -117,13 +113,39 @@ function serializeInline(nodes: Inline[] | undefined): string {
   const runFrom = (start: number, mark: Mark) => {
     let end = start;
     while (end < list.length && sameChange(changeMarkOf(list[end]), mark)) end++;
-    return { end, inner: list.slice(start, end).map((n) => without(n, mark)) };
+    const same = (m: Mark) => m === mark || sameChange(m, mark);
+    return { end, inner: list.slice(start, end).map((n) => without(n, same)) };
+  };
+  // The end of the run from `start` whose nodes all carry `mark`.
+  const formatRunEnd = (start: number, mark: Mark) => {
+    let end = start;
+    while (
+      end < list.length &&
+      (list[end].marks ?? []).some((m) => isFormat(m) && sameFormat(m, mark))
+    )
+      end++;
+    return end;
   };
   while (i < list.length) {
     const mark = changeMarkOf(list[i]);
     if (mark === null) {
-      out += serializeNode(list[i]);
-      i++;
+      // The formatting mark spanning the most nodes wraps the others.
+      let best: { mark: Mark; end: number } | null = null;
+      for (const m of (list[i].marks ?? []).filter(isFormat)) {
+        const end = formatRunEnd(i, m);
+        if (best === null || end > best.end) best = { mark: m, end };
+      }
+      if (best === null) {
+        out += serializeNode(list[i]);
+        i++;
+        continue;
+      }
+      const fmt = best.mark;
+      const inner = list
+        .slice(i, best.end)
+        .map((n) => without(n, (m) => isFormat(m) && sameFormat(m, fmt)));
+      out += `\\${formatCmd(fmt)}{${serializeInline(inner)}}`;
+      i = best.end;
       continue;
     }
     const run = runFrom(i, mark);
