@@ -23,11 +23,17 @@ interface CommentsState {
   rekeyReplies: (file: string, from: string, to: string) => Promise<void>;
 }
 
-/** Persist the whole list (comments.json is small). */
+/** The tail of the save queue: saves run one at a time, in call order. */
+let saving: Promise<void> = Promise.resolve();
+
+/** Persist the whole list (comments.json is small). Queued behind the
+ *  saves before it, so an older list never lands on disk last. */
 function persist(comments: Comment[]): Promise<void> {
   const { project } = useProjectStore.getState();
   if (!project) return Promise.resolve();
-  return saveComments(project.path, comments);
+  const save = saving.then(() => saveComments(project.path, comments));
+  saving = save.catch(() => {});
+  return save;
 }
 
 export const useCommentsStore = create<CommentsState>((set, get) => ({
@@ -37,11 +43,15 @@ export const useCommentsStore = create<CommentsState>((set, get) => ({
   load: async () => {
     const { project } = useProjectStore.getState();
     if (!project) return;
+    let comments: Comment[];
     try {
-      set({ comments: await listComments(project.path), loaded: true });
+      comments = await listComments(project.path);
     } catch {
-      set({ comments: [], loaded: true });
+      comments = [];
     }
+    // Another project opened meanwhile: these comments are not its.
+    if (useProjectStore.getState().project?.path !== project.path) return;
+    set({ comments, loaded: true });
   },
 
   add: async (comment) => {
