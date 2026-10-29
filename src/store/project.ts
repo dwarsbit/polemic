@@ -51,6 +51,10 @@ interface ProjectState {
   ignoreWord: (word: string) => Promise<void>;
   allCiteKeys: () => string[];
   markDirty: (path: string, content: string) => void;
+  /** Record an edit of the active file: buffer it while it differs
+   *  from the saved text, drop the buffer once it matches again (an
+   *  undo back to the saved state), so no stale buffer is written. */
+  noteActiveEdit: (content: string) => void;
   /** Refresh a file's label/ref/cite-key metadata from its content. */
   refreshDocMeta: (path: string, content: string) => void;
   flushBuffers: () => Promise<void>;
@@ -195,13 +199,17 @@ export const useProjectStore = create<ProjectState>((set, get) => {
    * programmatically edited file resets; acceptable for sync edits.)
    */
   async function applyContentUpdate(path: string, content: string): Promise<void> {
-    const { project, activeFile, buffers } = get();
+    const { project, activeFile } = get();
     if (!project) return;
     await api.writeProjectFile(project.path, path, content);
     void invalidateGitState();
-    const nextBuffers = { ...buffers };
-    delete nextBuffers[path];
-    set({ buffers: nextBuffers });
+    // From the current buffers: edits of other files that landed during
+    // the write stay.
+    set((state) => {
+      const buffers = { ...state.buffers };
+      delete buffers[path];
+      return { buffers };
+    });
     if (path === activeFile) {
       useEditorStore.getState().loadContent(content);
       set({ lastSavedContent: content });
@@ -291,6 +299,18 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     },
     markDirty: (path, content) =>
       set((state) => ({ buffers: { ...state.buffers, [path]: content } })),
+    noteActiveEdit: (content) =>
+      set((state) => {
+        const path = state.activeFile;
+        if (path === null) return {};
+        if (content !== state.lastSavedContent) {
+          return { buffers: { ...state.buffers, [path]: content } };
+        }
+        if (state.buffers[path] === undefined) return {};
+        const buffers = { ...state.buffers };
+        delete buffers[path];
+        return { buffers };
+      }),
     refreshDocMeta: (path, content) =>
       set({
         labelsByFile: {
@@ -525,11 +545,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       // Never lose unsaved changes when a tab is closed.
       if (buffers[path] !== undefined) {
         if (!project) return;
-        await api.writeProjectFile(project.path, path, buffers[path]);
+        const written = { [path]: buffers[path] };
+        await api.writeProjectFile(project.path, path, written[path]);
         void invalidateGitState();
-        const nextBuffers = { ...buffers };
-        delete nextBuffers[path];
-        set({ buffers: nextBuffers });
+        set({ buffers: withoutWritten(get().buffers, written) });
       }
       const index = openFiles.indexOf(path);
       const remaining = openFiles.filter((f) => f !== path);
@@ -599,7 +618,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     },
 
     renameEntry: async (path, newPath) => {
-      const { project, buffers } = get();
+      const { project } = get();
       if (!project) return;
       // \includegraphics references resolve against the project as it
       // was before the rename.
@@ -613,8 +632,9 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           : file;
       const activeFile = remap(get().activeFile);
       const mainFile = remap(get().mainFile);
+      // Remap the current buffers, not a snapshot from before the await.
       const nextBuffers: Record<string, string> = {};
-      for (const [file, content] of Object.entries(buffers)) {
+      for (const [file, content] of Object.entries(get().buffers)) {
         nextBuffers[remap(file) ?? file] = content;
       }
       set({
@@ -655,14 +675,14 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     },
 
     deleteEntry: async (path) => {
-      const { project, buffers } = get();
+      const { project } = get();
       if (!project) return;
       await api.deleteEntry(project.path, path);
       void invalidateGitState();
       const removeInside = (file: string | null) =>
         file !== null && isInside(path, file) ? null : file;
       const nextBuffers: Record<string, string> = {};
-      for (const [file, content] of Object.entries(buffers)) {
+      for (const [file, content] of Object.entries(get().buffers)) {
         if (!isInside(path, file)) nextBuffers[file] = content;
       }
       if (isInside(path, get().activeFile ?? "")) {
