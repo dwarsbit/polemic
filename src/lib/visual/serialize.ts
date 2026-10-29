@@ -100,6 +100,25 @@ const without = (node: Inline, mark: Mark): Inline => {
   return { ...node, marks } as Inline;
 };
 
+/** The outermost formatting mark of a text node (bold, italic, …). */
+function formatMarkOf(node: Inline): Mark | null {
+  if (node.type !== "text") return null;
+  return (
+    (node.marks ?? []).find((m) => m.type !== "comment" && !CHANGE_MARKS.has(m.type)) ??
+    null
+  );
+}
+
+const sameFormat = (a: Mark, b: Mark) =>
+  a.type === b.type &&
+  (a.attrs?.cmd ?? FORMAT_DEFAULTS[a.type]) ===
+    (b.attrs?.cmd ?? FORMAT_DEFAULTS[b.type]);
+
+const withoutFormat = (node: Inline, mark: Mark): Inline => {
+  const marks = (node.marks ?? []).filter((m) => !sameFormat(m, mark));
+  return { ...node, marks } as Inline;
+};
+
 const CHANGE_CMD: Record<string, string> = {
   insertion: "added",
   deletion: "deleted",
@@ -124,8 +143,26 @@ function serializeInline(nodes: Inline[] | undefined): string {
   while (i < list.length) {
     const mark = changeMarkOf(list[i]);
     if (mark === null) {
-      out += serializeNode(list[i]);
-      i++;
+      const format = formatMarkOf(list[i]);
+      if (format === null) {
+        out += serializeNode(list[i]);
+        i++;
+        continue;
+      }
+      // One group for the run sharing the mark, so a comment inside
+      // `\textbf{…}` does not split it in two.
+      let end = i;
+      while (
+        end < list.length &&
+        changeMarkOf(list[end]) === null &&
+        (list[end].marks ?? []).some((m) => sameFormat(m, format))
+      ) {
+        end++;
+      }
+      const inner = list.slice(i, end).map((n) => withoutFormat(n, format));
+      const cmd = format.attrs?.cmd ?? FORMAT_DEFAULTS[format.type];
+      out += `\\${cmd}{${serializeInline(inner)}}`;
+      i = end;
       continue;
     }
     const run = runFrom(i, mark);
