@@ -24,23 +24,26 @@ pub fn check_base_url(base_url: &str) -> Result<(), String> {
 /// A service URL may use plain http only to this machine; `what` names
 /// it in the error ("the AI base URL").
 pub fn check_service_url(base_url: &str, what: &str) -> Result<(), String> {
-    let lower = base_url.trim().to_ascii_lowercase();
-    if lower.starts_with("https://") {
-        return Ok(());
+    let err =
+        || format!("{what} must start with https:// (plain http is only allowed for localhost)");
+    // Parse rather than split by hand: `http://localhost@evil.example`
+    // has evil.example as its host. Userinfo is refused outright, so a
+    // credential never rides in the URL.
+    let url = url::Url::parse(base_url.trim()).map_err(|_| err())?;
+    if !url.username().is_empty() || url.password().is_some() {
+        return Err(err());
     }
-    if let Some(rest) = lower.strip_prefix("http://") {
-        let host = rest.split(['/', '?', '#']).next().unwrap_or("");
-        let host = match host.strip_prefix('[') {
-            Some(v6) => v6.split(']').next().unwrap_or(""),
-            None => host.split(':').next().unwrap_or(""),
-        };
-        if matches!(host, "localhost" | "127.0.0.1" | "::1") {
-            return Ok(());
-        }
+    let host = url.host_str().unwrap_or("");
+    let ok = match url.scheme() {
+        "https" => !host.is_empty(),
+        "http" => matches!(host, "localhost" | "127.0.0.1" | "[::1]"),
+        _ => false,
+    };
+    if ok {
+        Ok(())
+    } else {
+        Err(err())
     }
-    Err(format!(
-        "{what} must start with https:// (plain http is only allowed for localhost)"
-    ))
 }
 
 /// One chat completion; returns the assistant message's content.
@@ -97,9 +100,9 @@ mod tests {
             user: "u".into(),
         };
         let url = format!(
-            "{}/chat/completions",
-            args.base_url.trim_end_matches('/')
-        );
+        "{}/chat/completions",
+        args.base_url.trim_end_matches('/')
+    );
         assert_eq!(url, "https://api.mistral.ai/v1/chat/completions");
     }
 
@@ -112,5 +115,17 @@ mod tests {
         assert!(check_base_url("http://api.example.com/v1").is_err());
         assert!(check_base_url("http://localhost.evil.com/v1").is_err());
         assert!(check_base_url("ftp://x").is_err());
+    }
+
+    #[test]
+    fn rejects_userinfo_in_service_urls() {
+        assert!(check_base_url("http://localhost:80@evil.example/v1").is_err());
+        assert!(check_base_url("http://127.0.0.1:1@evil.example/").is_err());
+        assert!(check_base_url("http://[::1]@evil.example/").is_err());
+        assert!(check_base_url("http://localhost@evil.example/").is_err());
+        assert!(check_base_url("https://user:pass@api.mistral.ai/v1").is_err());
+        assert!(check_base_url("https://key@api.mistral.ai/v1").is_err());
+        assert!(check_base_url("http://localhost.evil.com").is_err());
+        assert!(check_base_url("https://").is_err());
     }
 }

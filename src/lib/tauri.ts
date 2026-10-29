@@ -78,6 +78,8 @@ export interface Settings {
   authorName: string | null;
   /** The author's initials, the suggestion id; null derives them. */
   authorInitials: string | null;
+  /** Accounts for private HTTPS remotes; the tokens stay Rust-side. */
+  gitAccounts: { id: string; host: string; username: string }[];
 }
 
 /** Grammar checking: built-in Harper (English), LanguageTool on the
@@ -771,6 +773,85 @@ export function gitResolveConflict(
 /** Stage a hand-edited conflicted file; refused while markers remain. */
 export function gitMarkResolved(projectDir: string, path: string): Promise<void> {
   return invoke<void>("git_mark_resolved", { projectDir, path });
+}
+
+/** A git account as Settings shows it: never the token itself. */
+export interface GitAccountView {
+  id: string;
+  host: string;
+  username: string;
+  hasToken: boolean;
+}
+
+export function gitAccounts(): Promise<GitAccountView[]> {
+  return invoke<GitAccountView[]>("git_accounts");
+}
+
+/**
+ * Add an account, or update one by id. A new account needs a token; an
+ * existing one keeps its token when none is given.
+ */
+export function gitAccountSave(account: {
+  id?: string;
+  host: string;
+  username: string;
+  token?: string;
+}): Promise<GitAccountView[]> {
+  return invoke<GitAccountView[]>("git_account_save", {
+    id: account.id ?? null,
+    host: account.host,
+    username: account.username,
+    token: account.token ?? null,
+  });
+}
+
+export function gitAccountRemove(id: string): Promise<GitAccountView[]> {
+  return invoke<GitAccountView[]>("git_account_remove", { id });
+}
+
+/** Whether this build can sign in to GitHub (it has an OAuth client ID). */
+export function githubSignInAvailable(): Promise<boolean> {
+  return invoke<boolean>("github_sign_in_available");
+}
+
+export interface GithubSignIn {
+  /** The code to type at verificationUri. */
+  userCode: string;
+  verificationUri: string;
+  /** Seconds until the code expires. */
+  expiresIn: number;
+}
+
+/** Start the device flow: the code, with the browser opened at its page. */
+export function githubSignInStart(): Promise<GithubSignIn> {
+  return invoke<GithubSignIn>("github_sign_in_start");
+}
+
+/** Wait for the code to be entered; the accounts, with GitHub's added. */
+export function githubSignInFinish(): Promise<GitAccountView[]> {
+  return invoke<GitAccountView[]>("github_sign_in_finish");
+}
+
+export function githubSignInCancel(): Promise<void> {
+  return invoke<void>("github_sign_in_cancel");
+}
+
+/** Create a GitHub repository for the project, set it as origin, push. */
+export function githubPublish(
+  projectDir: string,
+  name: string,
+  isPrivate: boolean,
+): Promise<string> {
+  return invoke<string>("github_publish", { projectDir, name, private: isPrivate });
+}
+
+/** The repository name a project suggests: letters, digits, -, _ and . only. */
+export function suggestedRepoName(projectName: string): string {
+  const name = projectName
+    .trim()
+    .replace(/[^A-Za-z0-9._-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return name === "" || name === "." || name === ".." ? "paper" : name;
 }
 
 /** Clone a repository into the projects root as the project `name`. */
