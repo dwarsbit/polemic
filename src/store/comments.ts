@@ -36,25 +36,37 @@ function persist(comments: Comment[]): Promise<void> {
   return save;
 }
 
+/** The load in flight, if any. Changes wait for it, so they apply on top
+ *  of the loaded list rather than being overwritten by it, and their save
+ *  does not replace comments.json with a list missing what it held. */
+let loading: Promise<void> | null = null;
+let loads = 0;
+
 export const useCommentsStore = create<CommentsState>((set, get) => ({
   comments: [],
   loaded: false,
 
-  load: async () => {
+  load: () => {
     const { project } = useProjectStore.getState();
-    if (!project) return;
-    let comments: Comment[];
-    try {
-      comments = await listComments(project.path);
-    } catch {
-      comments = [];
-    }
-    // Another project opened meanwhile: these comments are not its.
-    if (useProjectStore.getState().project?.path !== project.path) return;
-    set({ comments, loaded: true });
+    if (!project) return Promise.resolve();
+    const run = ++loads;
+    loading = (async () => {
+      let comments: Comment[];
+      try {
+        comments = await listComments(project.path);
+      } catch {
+        comments = [];
+      }
+      if (run === loads) loading = null;
+      // Another project opened meanwhile: these comments are not its.
+      if (useProjectStore.getState().project?.path !== project.path) return;
+      set({ comments, loaded: true });
+    })();
+    return loading;
   },
 
   add: async (comment) => {
+    if (loading) await loading;
     const entry: Comment = {
       id: crypto.randomUUID(),
       file: comment.file,
@@ -71,6 +83,7 @@ export const useCommentsStore = create<CommentsState>((set, get) => ({
   },
 
   update: async (id, patch) => {
+    if (loading) await loading;
     const comments = get().comments.map((comment) =>
       comment.id === id ? { ...comment, ...patch } : comment,
     );
@@ -79,12 +92,14 @@ export const useCommentsStore = create<CommentsState>((set, get) => ({
   },
 
   remove: async (id) => {
+    if (loading) await loading;
     const comments = get().comments.filter((comment) => comment.id !== id);
     set({ comments });
     await persist(comments);
   },
 
   resolveReplies: async (file, keys) => {
+    if (loading) await loading;
     const hit = (c: Comment) =>
       c.file === file && !c.resolved && !!c.suggestion && keys.includes(c.suggestion);
     if (keys.length === 0 || !get().comments.some(hit)) return;
@@ -94,6 +109,7 @@ export const useCommentsStore = create<CommentsState>((set, get) => ({
   },
 
   rekeyReplies: async (file, from, to) => {
+    if (loading) await loading;
     const hit = (c: Comment) => c.file === file && c.suggestion === from;
     if (from === to || !get().comments.some(hit)) return;
     const comments = get().comments.map((c) => (hit(c) ? { ...c, suggestion: to } : c));
