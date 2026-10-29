@@ -7,10 +7,12 @@
 //! for github.com (see git_accounts.rs), so fetch, pull and push use it
 //! like any other.
 //!
-//! The OAuth App's client ID is not a secret; it is set at build time
-//! with POLEMIC_GITHUB_CLIENT_ID (or at run time, for development).
-//! Without one, GitHub sign-in is off and Publish still works with a
-//! github.com account added by hand.
+//! The OAuth App's client ID is not a secret: Polemic's own is below,
+//! so builds from source sign in out of the box. A fork can use its
+//! own OAuth App (device flow enabled) by setting
+//! POLEMIC_GITHUB_CLIENT_ID at build time or at run time. No client
+//! secret exists or is needed, and no Polemic server is involved: the
+//! editor talks to github.com directly.
 
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
@@ -24,13 +26,28 @@ pub const HOST: &str = "github.com";
 const HTTP_TIMEOUT: Duration = Duration::from_secs(20);
 const SCOPE: &str = "repo";
 
-/// The OAuth App's client ID, if this build has one.
+/// Polemic's GitHub OAuth App ("Polemic", owned by dwarsbit).
+pub const DEFAULT_CLIENT_ID: &str = "Ov23li7iBrzadnQWtIZv";
+
+/// The first client ID that is set: run time, then build time, then
+/// Polemic's own. An empty value counts as unset.
+fn first_client_id(candidates: &[Option<&str>]) -> Option<String> {
+    candidates
+        .iter()
+        .flatten()
+        .map(|id| id.trim())
+        .find(|id| !id.is_empty())
+        .map(str::to_string)
+}
+
+/// The OAuth App's client ID this build signs in with.
 pub fn client_id() -> Option<String> {
-    std::env::var("POLEMIC_GITHUB_CLIENT_ID")
-        .ok()
-        .or_else(|| option_env!("POLEMIC_GITHUB_CLIENT_ID").map(str::to_string))
-        .map(|id| id.trim().to_string())
-        .filter(|id| !id.is_empty())
+    let runtime = std::env::var("POLEMIC_GITHUB_CLIENT_ID").ok();
+    first_client_id(&[
+        runtime.as_deref(),
+        option_env!("POLEMIC_GITHUB_CLIENT_ID"),
+        Some(DEFAULT_CLIENT_ID),
+    ])
 }
 
 /// Where GitHub lives; tests point both at a local server.
@@ -402,6 +419,15 @@ pub mod tests {
             expires_in: 60,
             interval: 1,
         }
+    }
+
+    #[test]
+    fn picks_the_first_client_id_that_is_set() {
+        assert_eq!(first_client_id(&[None, None, Some("own")]).as_deref(), Some("own"));
+        assert_eq!(first_client_id(&[Some("fork"), None, Some("own")]).as_deref(), Some("fork"));
+        // An empty build variable (an unset repository variable) is no override.
+        assert_eq!(first_client_id(&[None, Some(" "), Some("own")]).as_deref(), Some("own"));
+        assert!(client_id().is_some());
     }
 
     #[test]
