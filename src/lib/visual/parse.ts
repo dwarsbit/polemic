@@ -478,7 +478,8 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
 
     // Whitespace runs (incl. single newlines) are one space in LaTeX;
     // a blank line ends the paragraph, trailing whitespace at EOF is
-    // nothing at all.
+    // nothing at all — except at the end of a group (\textbf{a }),
+    // where it is still a space.
     if (ch === " " || ch === "\t" || ch === "\n") {
       let j = i;
       for (;;) {
@@ -492,6 +493,7 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
         j++;
       }
       if (j >= c.src.length) {
+        if (opts?.inGroup) text += " ";
         c.pos = j;
         continue;
       }

@@ -19,6 +19,10 @@ describe("inline roundtrip preserves source", () => {
     ["raw atom at a mark edge", "Go \\textbf{\\foo{} y}\n"],
     ["nested marks around an atom", "Go \\emph{a \\textbf{b \\ref{r}} c}\n"],
     ["suggestion inside a format mark", "Go \\textbf{a \\added{b} c}\n"],
+    ["trailing space inside a format mark", "Go \\textbf{a }b\n"],
+    ["trailing space before an atom in a mark", "Go \\emph{a \\foo }b\n"],
+    ["trailing space inside a suggestion", "Go \\added{new }text\n"],
+    ["trailing space inside nested marks", "Go \\emph{a \\textbf{b }}c\n"],
     ["\\verb body", "x \\verb|a_b  c| y\n"],
     ["\\verb* body", "x \\verb*+a_b  {c+ y\n"],
     ["\\verb with % inside", "x \\verb!50%! y\n"],
@@ -55,5 +59,13 @@ describe("inline roundtrip preserves source", () => {
 
   it("splits paragraphs at a blank line after a comment", () => {
     expect(parseTex("text % c\n\nmore\n").content).toHaveLength(2);
+  });
+
+  it("collapses trailing whitespace inside a group to one space", () => {
+    expect(rt("Go \\textbf{a \n  }b\n")).toBe("Go \\textbf{a }b\n");
+  });
+
+  it("still drops trailing whitespace in a heading title", () => {
+    expect(rt("\\section{Intro }\n")).toBe("\\section{Intro}\n");
   });
 });
