@@ -39,7 +39,7 @@ export interface Mark {
   };
 }
 
-/** Change marks on an inline atom (formatting marks stay text-only). */
+/** Marks on an inline atom: formatting and change marks. */
 export interface Marked {
   marks?: Mark[];
 }

@@ -206,6 +206,74 @@ describe("parseTex", () => {
     ]);
   });
 
+  it.each([
+    ["a format command", "\\textbf{Bold} start.\n"],
+    ["an unknown command", "\\noindent Text here.\n"],
+    ["a symbol accent", "\\'{E}t\\'{e} was hot.\n"],
+    ["a bare group", "{\\bfseries Bold} start.\n"],
+    ["math", "\\(x\\) is small.\n"],
+  ])("keeps a file starting with %s as body", (_name, tex) => {
+    const doc = parseTex(tex);
+    expect(doc.content?.map((b) => b.type)).toEqual(["paragraph"]);
+    expect(serializeTex(doc)).toBe(tex);
+  });
+
+  it("recovers only known preamble commands before the body", () => {
+    const tex =
+      "\\documentclass{article}\n\\usepackage{amsmath}\n\\newcommand{\\R}{\\mathbb{R}}\n\\emph{Body} here.\n";
+    const doc = parseTex(tex);
+    expect(doc.content?.map((b) => b.type)).toEqual(["preamble", "paragraph"]);
+    expect(serializeTex(doc)).toContain("\\emph{Body} here.");
+  });
+
+  it("keeps a multi-line preamble definition in the preamble", () => {
+    const tex = [
+      "\\documentclass{article}",
+      "\\newcommand{\\note}[1]{%",
+      "  \\textbf{Note:} #1",
+      "}",
+      "\\def\\foo{",
+      "  bar",
+      "}",
+      "",
+      "Body text.",
+      "",
+    ].join("\n");
+    const doc = parseTex(tex);
+    expect(doc.content?.map((b) => b.type)).toEqual(["preamble", "paragraph"]);
+    expect(doc.content?.[0]).toMatchObject({
+      attrs: { src: expect.stringContaining("  bar\n}") },
+    });
+  });
+
+  it("finds \\begin{document} past one in a comment or \\verb", () => {
+    const tex =
+      "\\documentclass{article}\n% old \\begin{document}\n" +
+      "\\newcommand{\\x}{\\verb|\\begin{document}|}\n\\begin{document}\n\nBody.\n\n\\end{document}\n";
+    const doc = parseTex(tex);
+    expect(doc.attrs?.wrapped).toBe(true);
+    expect(doc.content?.map((b) => b.type)).toEqual(["preamble", "paragraph"]);
+    expect(serializeTex(doc)).toContain("\\newcommand{\\x}{\\verb|\\begin{document}|}");
+  });
+
+  it("finds \\end{document} past one in a comment, \\verb or verbatim", () => {
+    const tex = [
+      "\\begin{document}",
+      "",
+      "Type \\verb|\\end{document}| last. % not \\end{document}",
+      "",
+      "\\begin{verbatim}",
+      "\\end{document}",
+      "\\end{verbatim}",
+      "",
+      "\\end{document}",
+      "",
+    ].join("\n");
+    const doc = parseTex(tex);
+    expect(doc.attrs?.postamble).toBe("\n");
+    expect(serializeTex(doc)).toBe(tex);
+  });
+
   it("keeps a body-first file without \\begin{document} preamble-free", () => {
     const doc = parseTex("\\section{Hi}\nBody text.\n");
     expect(doc.attrs?.wrapped).toBe(false);

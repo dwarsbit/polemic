@@ -8,8 +8,8 @@
  */
 
 import { readChangeAt } from "@/lib/changes";
+import { findDocumentBegin, findDocumentEnd, verbEnd } from "@/lib/document-markers";
 import {
-  CHANGE_MARKS,
   type Block,
   type DocNode,
   type Inline,
@@ -254,6 +254,11 @@ function envBody(
       continue;
     }
     if (ch === "\\") {
+      const verb = verbEnd(src, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
       if (src.startsWith(beginToken, i)) {
         depth++;
         i += beginToken.length;
@@ -292,6 +297,11 @@ function findDollar(src: string, from: number): number {
       continue;
     }
     if (ch === "\\") {
+      const verb = verbEnd(src, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
       i += 2;
       continue;
     }
@@ -325,6 +335,11 @@ function findLiteral(src: string, from: number, marker: string): number {
     }
     if (src.startsWith(marker, i)) return i;
     if (ch === "\\") {
+      const verb = verbEnd(src, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
       i += 2;
       continue;
     }
@@ -343,6 +358,11 @@ function readBalancedGroup(
   while (i < src.length) {
     const ch = src[i];
     if (ch === "\\") {
+      const verb = verbEnd(src, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
       i += 2;
       continue;
     }
@@ -362,9 +382,22 @@ function readBalancedGroup(
   return null;
 }
 
+/** Symbol accents (`\'{e}`, `\"o`, ...): their argument stays attached. */
+const SYMBOL_ACCENTS = "'\"`^~=.";
+
 /** A command token with its attached `{...}` / `[...]` arguments, verbatim. */
 function readCommandToken(src: string, i: number): { text: string; end: number } {
   let j = i + 1;
+  if (j < src.length && SYMBOL_ACCENTS.includes(src[j])) {
+    j++;
+    if (src[j] === "{") {
+      const g = readBalancedGroup(src, j);
+      if (g !== null) return { text: src.slice(i, g.end), end: g.end };
+    } else if (j < src.length && /[a-zA-Z]/.test(src[j])) {
+      j++; // \'e: the accented letter
+    }
+    return { text: src.slice(i, j), end: j };
+  }
   while (j < src.length && /[a-zA-Z]/.test(src[j])) j++;
   if (src[j] === "*") j++;
   for (;;) {
@@ -403,6 +436,11 @@ function findBracketEnd(src: string, pos: number): number {
       continue;
     }
     if (ch === "\\") {
+      const verb = verbEnd(src, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
       i += 2;
       continue;
     }
@@ -446,10 +484,10 @@ function parseInlineString(s: string, marks: Mark[], opts?: RunOpts): Inline[] {
 function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
   const nodes: Inline[] = [];
   let text = "";
-  // Atoms inside a suggestion carry its change marks.
-  const changeMarks = marks.filter((m) => CHANGE_MARKS.has(m.type));
+  // Atoms carry the marks around them (formatting and suggestions), so
+  // \textbf{a \cite{x} b} stays one group.
   const atom = <T extends Inline>(node: T): T =>
-    changeMarks.length > 0 ? { ...node, marks: changeMarks } : node;
+    marks.length > 0 ? { ...node, marks } : node;
   const flush = () => {
     if (text.length === 0) return;
     nodes.push({ type: "text", text, ...(marks.length > 0 ? { marks } : {}) });
@@ -468,7 +506,8 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
 
     // Whitespace runs (incl. single newlines) are one space in LaTeX;
     // a blank line ends the paragraph, trailing whitespace at EOF is
-    // nothing at all.
+    // nothing at all — except at the end of a group (\textbf{a }),
+    // where it is still a space.
     if (ch === " " || ch === "\t" || ch === "\n") {
       let j = i;
       for (;;) {
@@ -481,9 +520,8 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
         if (w !== " " && w !== "\t" && w !== "\n") break;
         j++;
       }
-      // (Inside a group the end is the closing brace, not EOF:
-      // `\textbf{bold }x` keeps its space.)
-      if (j >= c.src.length && opts?.inGroup !== true) {
+      if (j >= c.src.length) {
+        if (opts?.inGroup) text += " ";
         c.pos = j;
         continue;
       }
@@ -521,7 +559,8 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
     }
 
     if (ch === "%") {
-      // Comment: verbatim to end of line; the newline is consumed by it.
+      // Comment: verbatim to end of line; the newline is consumed by it,
+      // unless it opens a blank line — that stays a paragraph break.
       const nl = c.src.indexOf("\n", i);
       const end = nl === -1 ? c.src.length : nl;
       flush();
@@ -530,7 +569,17 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
         text: c.src.slice(i, end),
         marks: [...marks, { type: "comment" }],
       });
-      c.pos = nl === -1 ? c.src.length : nl + 1;
+      c.pos = nl === -1 || blankAhead(c.src, nl) ? end : nl + 1;
+      continue;
+    }
+
+    // A bare group ({\bfseries ...}): raw, verbatim. A stray brace too.
+    if (ch === "{" || ch === "}") {
+      const g = ch === "{" ? readBalancedGroup(c.src, i) : null;
+      const end = g === null ? i + 1 : g.end;
+      flush();
+      nodes.push(atom({ type: "rawTexInline", attrs: { src: c.src.slice(i, end) } }));
+      c.pos = end;
       continue;
     }
 
@@ -617,6 +666,15 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
     if (next !== undefined && "{}$&%#_".includes(next)) {
       text += next;
       c.pos = i + 2;
+      continue;
+    }
+
+    // \verb<d>...<d> (and \verb*): one opaque token, the body untouched.
+    const verb = verbEnd(c.src, i);
+    if (verb !== -1) {
+      flush();
+      nodes.push(atom({ type: "rawTexInline", attrs: { src: c.src.slice(i, verb) } }));
+      c.pos = verb;
       continue;
     }
 
@@ -885,6 +943,11 @@ function itemPositions(inner: string): number[] {
       continue;
     }
     if (ch === "\\") {
+      const verb = verbEnd(inner, i);
+      if (verb !== -1) {
+        i = verb;
+        continue;
+      }
       const begin = matchBegin(inner, i);
       if (begin !== null) {
         depth++;
@@ -1020,53 +1083,64 @@ export function splitPreamble(preamble: string): PreambleAttrs {
 // ---------------------------------------------------------------------------
 // Entry point
 
-/** Commands that start the body, for recovering a preamble from a
- *  malformed file without a `\begin{document}`. */
-const BODY_MARKER =
-  /^\\(maketitle|tableofcontents|printbibliography|part|chapter|section|subsection|subsubsection|paragraph|subparagraph|begin|item|input|include|label|ref|eqref|cite|cref|footnote|newpage|clearpage|pagebreak|linebreak|added|deleted|replaced|highlight)(?![a-zA-Z])/;
+/** Commands that belong in a preamble, for recovering one from a file
+ *  without a `\begin{document}`. Any other command starts the body. */
+const PREAMBLE_CMD =
+  /^\\(documentclass|usepackage|RequirePackage|title|author|date|thanks|newcommand|renewcommand|providecommand|DeclareRobustCommand|NewDocumentCommand|RenewDocumentCommand|ProvideDocumentCommand|newenvironment|renewenvironment|NewDocumentEnvironment|def|edef|gdef|let|newif|makeatletter|makeatother|newtheorem|theoremstyle|DeclareMathOperator|numberwithin|newcounter|setcounter|newlength|setlength|addtolength|linespread|geometry|hypersetup|graphicspath|bibliographystyle|bibliography|addbibresource|definecolor|colorlet|pagestyle|usetikzlibrary|tikzset|pgfplotsset|lstset|sisetup|captionsetup|crefname|Crefname|setmainfont|setsansfont|setmonofont|definechangesauthor)(?![a-zA-Z])/;
+
+/** End (exclusive) of the preamble line starting at `i`: through its
+ *  newline, extended while a `{` opened on it is still unclosed. */
+function preambleLineEnd(src: string, i: number): number {
+  let depth = 0;
+  let inComment = false;
+  let j = i;
+  while (j < src.length) {
+    const ch = src[j];
+    if (ch === "\n") {
+      inComment = false;
+      j++;
+      if (depth <= 0) return j;
+      continue;
+    }
+    if (inComment) {
+      j++;
+      continue;
+    }
+    if (ch === "%") inComment = true;
+    else if (ch === "\\") j++;
+    else if (ch === "{") depth++;
+    else if (ch === "}") depth--;
+    j++;
+  }
+  return src.length;
+}
 
 /**
  * Where the body starts in a file without a `\begin{document}`: before
- * the first line that is body content — plain text, display math or a
- * body command. Blank lines and comments count as preamble lines, and
- * a line that leaves a brace group open pulls in the lines up to its
- * close, so a construct is never split. Returns -1 when the whole file
- * is preamble commands (no body at all), and 0 when there is no
+ * the first line that is body content — anything but a preamble
+ * command (a definition spanning lines counts as one). Blank lines and
+ * comments count as preamble lines. Returns -1 when the whole file is
+ * preamble commands (no body at all), and 0 when there is no
  * `\documentclass` to recover a preamble around (an `\input`
  * fragment).
  */
 function recoveredPreambleEnd(source: string): number {
-  let offset = 0;
-  let depth = 0;
+  let i = 0;
   let hasClass = false;
-  for (const line of source.split("\n")) {
-    const trimmed = line.trim();
+  while (i < source.length) {
+    let j = i;
+    while (source[j] === " " || source[j] === "\t") j++;
+    const head = source.slice(j, j + 40);
     const isPreamble =
-      depth > 0 ||
-      trimmed.length === 0 ||
-      trimmed.startsWith("%") ||
-      (trimmed.startsWith("\\") &&
-        !/^\\[[(]/.test(trimmed) &&
-        !BODY_MARKER.test(trimmed));
-    if (!isPreamble) return hasClass ? offset : 0;
-    if (/^\s*\\documentclass(?![a-zA-Z])/.test(line)) hasClass = true;
-    depth = Math.max(0, depth + braceBalance(line));
-    offset += line.length + 1;
+      j >= source.length ||
+      source[j] === "\n" ||
+      source[j] === "%" ||
+      PREAMBLE_CMD.test(head);
+    if (!isPreamble) return hasClass ? i : 0;
+    if (/^\\documentclass(?![a-zA-Z])/.test(head)) hasClass = true;
+    i = preambleLineEnd(source, i);
   }
   return hasClass ? -1 : 0;
-}
-
-/** Open minus closed braces on a line, skipping escapes and comments. */
-function braceBalance(line: string): number {
-  let balance = 0;
-  for (let i = 0; i < line.length; i++) {
-    const ch = line[i];
-    if (ch === "%") break;
-    if (ch === "\\") i++;
-    else if (ch === "{") balance++;
-    else if (ch === "}") balance--;
-  }
-  return balance;
 }
 
 /**
@@ -1081,7 +1155,7 @@ function braceBalance(line: string): number {
  * the preamble node, so the card shows and the metadata is editable.
  */
 export function parseTex(source: string): DocNode {
-  const beginIdx = source.indexOf("\\begin{document}");
+  const beginIdx = findDocumentBegin(source);
   const content: Block[] = [];
   let body = source;
   let postamble = "";
@@ -1092,7 +1166,7 @@ export function parseTex(source: string): DocNode {
   if (beginIdx !== -1) {
     const afterBegin = beginIdx + "\\begin{document}".length;
     const preamble = source.slice(0, beginIdx);
-    const endIdx = source.indexOf("\\end{document}", afterBegin);
+    const endIdx = findDocumentEnd(source, afterBegin);
     body = endIdx === -1 ? source.slice(afterBegin) : source.slice(afterBegin, endIdx);
     postamble = endIdx === -1 ? "" : source.slice(endIdx + "\\end{document}".length);
     if (preamble.trim().length > 0) {

@@ -131,4 +131,10 @@ describe("editor round-trip", () => {
     expect(out).not.toContain("\\draw (0,0)");
     editor.destroy();
   });
+
+  it("keeps atoms inside a format mark in one group", () => {
+    const tex =
+      "See \\textbf{a {\\itshape b} \\cite{k} $x$ c} and \\emph{as in \\ref{r}}.\n";
+    expect(throughEditor(tex)).toBe(tex);
+  });
 });

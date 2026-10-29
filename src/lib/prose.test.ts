@@ -4,6 +4,19 @@ import { extractWordRanges } from "@/lib/spellcheck";
 
 const texts = (source: string) => extractProse(source).map((block) => block.text);
 
+describe("extractProse past commented document markers", () => {
+  it("checks the real body only", () => {
+    const source = [
+      "% \\begin{document} later",
+      "\\begin{document}",
+      "Body text. % \\end{document}",
+      "More body.",
+      "\\end{document}",
+    ].join("\n");
+    expect(extractProse(source).map((b) => b.text)).toEqual(["Body text. More body."]);
+  });
+});
+
 describe("extractProse", () => {
   it("keeps sentences readable around math, citations and references", () => {
     expect(

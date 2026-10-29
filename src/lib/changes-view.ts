@@ -41,6 +41,7 @@ import {
   type ChangeAuthor,
   type SourceRange,
 } from "@/lib/changes";
+import { findDocumentBegin } from "@/lib/document-markers";
 import { openCommentDialog } from "@/lib/editor-comments";
 import { noteKey } from "@/lib/suggestion-notes";
 import { useCommentsStore } from "@/store/comments";
@@ -639,7 +640,7 @@ const suggestFilter = EditorState.transactionFilter.of((tr) => {
   const [edit] = edits;
   const source = tr.startState.doc.toString();
   // The preamble is set up, not suggested.
-  const body = source.indexOf("\\begin{document}");
+  const body = findDocumentBegin(source);
   if (body !== -1 && edit.toA <= body) return tr;
   const selection = tr.startState.selection.main;
   let result: SuggestResult;

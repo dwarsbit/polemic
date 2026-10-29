@@ -15,6 +15,16 @@ import {
   sortTreeByDocumentOrder,
 } from "./doc-structure";
 
+describe("insertInclude past a commented \\end{document}", () => {
+  it("inserts before the real \\end{document}", () => {
+    const content =
+      "\\begin{document}\n% \\end{document} later\nBody.\n\\end{document}\n";
+    expect(insertInclude(content, "ch1")).toBe(
+      "\\begin{document}\n% \\end{document} later\nBody.\n\\input{ch1}\n\\end{document}\n",
+    );
+  });
+});
+
 describe("extractIncludes", () => {
   it("finds input and include in order", () => {
     const text = "\\input{chapters/intro}\nsome text\n\\include{chapters/method}";
