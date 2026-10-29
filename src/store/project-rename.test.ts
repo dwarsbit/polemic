@@ -127,7 +127,10 @@ describe("per-file metadata on rename and delete", () => {
   it("re-keys a renamed file", async () => {
     await useProjectStore.getState().renameEntry("ch/one.tex", "ch/first.tex");
     const s = useProjectStore.getState();
-    expect(s.labelsByFile).toEqual({ "main.tex": ["sec:main"], "ch/first.tex": ["sec:one"] });
+    expect(s.labelsByFile).toEqual({
+      "main.tex": ["sec:main"],
+      "ch/first.tex": ["sec:one"],
+    });
     expect(metadataKeys()).toEqual(Array(5).fill(["ch/first.tex", "main.tex"]));
     expect(s.natbibByFile["ch/first.tex"]).toBe(true);
   });
