@@ -255,8 +255,11 @@ export function serializeBlock(block: Block, indent = 0): string {
       return `\\${block.attrs.cmd}${opt}{${title}}${serializeInline(labels)}`;
     }
     case "paragraph":
-      // Trailing spaces before a paragraph break carry no meaning.
-      return serializeInline(block.content).replace(/[ \t]+$/, "");
+      // Trailing spaces before a paragraph break carry no meaning, nor
+      // does the newline of a closing comment: the break supplies it.
+      return serializeInline(block.content)
+        .replace(/[ \t]+$/, "")
+        .replace(/\n$/, "");
     case "mathBlock":
     case "figureBlock":
     case "rawTexBlock":

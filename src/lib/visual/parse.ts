@@ -360,9 +360,22 @@ function readBalancedGroup(
   return null;
 }
 
+/** Symbol accents (`\'{e}`, `\"o`, ...): their argument stays attached. */
+const SYMBOL_ACCENTS = "'\"`^~=.";
+
 /** A command token with its attached `{...}` / `[...]` arguments, verbatim. */
 function readCommandToken(src: string, i: number): { text: string; end: number } {
   let j = i + 1;
+  if (j < src.length && SYMBOL_ACCENTS.includes(src[j])) {
+    j++;
+    if (src[j] === "{") {
+      const g = readBalancedGroup(src, j);
+      if (g !== null) return { text: src.slice(i, g.end), end: g.end };
+    } else if (j < src.length && /[a-zA-Z]/.test(src[j])) {
+      j++; // \'e: the accented letter
+    }
+    return { text: src.slice(i, j), end: j };
+  }
   while (j < src.length && /[a-zA-Z]/.test(src[j])) j++;
   if (src[j] === "*") j++;
   for (;;) {
@@ -517,7 +530,8 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
     }
 
     if (ch === "%") {
-      // Comment: verbatim to end of line; the newline is consumed by it.
+      // Comment: verbatim to end of line; the newline is consumed by it,
+      // unless it opens a blank line — that stays a paragraph break.
       const nl = c.src.indexOf("\n", i);
       const end = nl === -1 ? c.src.length : nl;
       flush();
@@ -526,7 +540,17 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
         text: c.src.slice(i, end),
         marks: [...marks, { type: "comment" }],
       });
-      c.pos = nl === -1 ? c.src.length : nl + 1;
+      c.pos = nl === -1 || blankAhead(c.src, nl) ? end : nl + 1;
+      continue;
+    }
+
+    // A bare group ({\bfseries ...}): raw, verbatim. A stray brace too.
+    if (ch === "{" || ch === "}") {
+      const g = ch === "{" ? readBalancedGroup(c.src, i) : null;
+      const end = g === null ? i + 1 : g.end;
+      flush();
+      nodes.push(atom({ type: "rawTexInline", attrs: { src: c.src.slice(i, end) } }));
+      c.pos = end;
       continue;
     }
 
@@ -614,6 +638,22 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
       text += next;
       c.pos = i + 2;
       continue;
+    }
+
+    // \verb<d>...<d> (and \verb*): one opaque token, the body untouched.
+    const verb = /^\\verb\*?([^a-zA-Z*\s])/.exec(c.src.slice(i, i + 7));
+    if (verb !== null) {
+      const bodyStart = i + verb[0].length;
+      const close = c.src.indexOf(verb[1], bodyStart);
+      const nl = c.src.indexOf("\n", bodyStart);
+      if (close !== -1 && (nl === -1 || close < nl)) {
+        flush();
+        nodes.push(
+          atom({ type: "rawTexInline", attrs: { src: c.src.slice(i, close + 1) } }),
+        );
+        c.pos = close + 1;
+        continue;
+      }
     }
 
     // Command
