@@ -17,6 +17,8 @@ import {
   type Mark,
   type MarkType,
   type PreambleAttrs,
+  type PreambleLayout,
+  type PreambleSlot,
 } from "./doc-types";
 
 /** Sectioning commands and their display level. */
@@ -998,8 +1000,9 @@ function parseItems(inner: string, ctx: EnvCtx): ListItemNode[] | null {
  * Split a preamble into the pieces the visual editor models. The
  * well-known commands (`\documentclass`, `\usepackage`, `\title`,
  * `\author`, `\date`) are extracted verbatim; everything else stays
- * in `src`, byte-for-byte. Comment-aware, so commented-out commands
- * are not extracted.
+ * in `src`, byte-for-byte, and `layout` records where the extracted
+ * ones sat. Comment-aware, so commented-out commands are not
+ * extracted.
  */
 export function splitPreamble(preamble: string): PreambleAttrs {
   const attrs: PreambleAttrs = {
@@ -1011,8 +1014,8 @@ export function splitPreamble(preamble: string): PreambleAttrs {
     src: "",
   };
   const packages: string[] = [];
-  const removals: [number, number][] = [];
-  const extract = (from: number, to: number, slot: keyof PreambleAttrs) => {
+  const removals: [number, number, PreambleSlot][] = [];
+  const extract = (from: number, to: number, slot: PreambleSlot) => {
     const value = preamble.slice(from, to);
     if (slot === "packagesSrc") {
       packages.push(value);
@@ -1021,7 +1024,7 @@ export function splitPreamble(preamble: string): PreambleAttrs {
     } else {
       return; // a duplicate (e.g. a second \author) stays in the raw rest
     }
-    removals.push([from, to]);
+    removals.push([from, to, slot]);
   };
   let i = 0;
   let inComment = false;
@@ -1043,7 +1046,7 @@ export function splitPreamble(preamble: string): PreambleAttrs {
       );
       if (m !== null) {
         const token = readCommandToken(preamble, i);
-        const slot: keyof PreambleAttrs =
+        const slot: PreambleSlot =
           m[1] === "documentclass"
             ? "documentclassSrc"
             : m[1] === "usepackage"
@@ -1062,13 +1065,18 @@ export function splitPreamble(preamble: string): PreambleAttrs {
     }
     i++;
   }
-  let rest = preamble;
-  for (let k = removals.length - 1; k >= 0; k--) {
-    const [from, to] = removals[k]!;
-    rest = rest.slice(0, from) + rest.slice(to);
+  let rest = "";
+  let last = 0;
+  const slots: PreambleLayout["slots"] = [];
+  for (const [from, to, slot] of removals) {
+    rest += preamble.slice(last, from);
+    slots.push({ slot, at: rest.length });
+    last = to;
   }
+  rest += preamble.slice(last);
   attrs.packagesSrc = packages.length > 0 ? packages.join("\n") : null;
   attrs.src = rest;
+  attrs.layout = { src: rest, slots, packages };
   return attrs;
 }
 
@@ -1112,22 +1120,27 @@ function preambleLineEnd(src: string, i: number): number {
  * the first line that is body content — anything but a preamble
  * command (a definition spanning lines counts as one). Blank lines and
  * comments count as preamble lines. Returns -1 when the whole file is
- * preamble commands (no body at all).
+ * preamble commands (no body at all), and 0 when there is no
+ * `\documentclass` to recover a preamble around (an `\input`
+ * fragment).
  */
 function recoveredPreambleEnd(source: string): number {
   let i = 0;
+  let hasClass = false;
   while (i < source.length) {
     let j = i;
     while (source[j] === " " || source[j] === "\t") j++;
+    const head = source.slice(j, j + 40);
     const isPreamble =
       j >= source.length ||
       source[j] === "\n" ||
       source[j] === "%" ||
-      PREAMBLE_CMD.test(source.slice(j, j + 40));
-    if (!isPreamble) return i;
+      PREAMBLE_CMD.test(head);
+    if (!isPreamble) return hasClass ? i : 0;
+    if (/^\\documentclass(?![a-zA-Z])/.test(head)) hasClass = true;
     i = preambleLineEnd(source, i);
   }
-  return -1;
+  return hasClass ? -1 : 0;
 }
 
 /**

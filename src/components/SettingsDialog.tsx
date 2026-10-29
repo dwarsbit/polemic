@@ -4,6 +4,7 @@ import {
   BookOpen,
   Check,
   FolderOpen,
+  GitBranch,
   Monitor,
   Moon,
   Package,
@@ -19,6 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { AccountSettingsSection } from "@/components/AccountSettingsSection";
 import { AiSettingsSection } from "@/components/AiSettingsSection";
+import { GitAccountsSection } from "@/components/GitAccountsSection";
 import { GrammarSettingsSection } from "@/components/GrammarSettingsSection";
 import { SourcesSettingsCard } from "@/components/SourcesSettings";
 import { TexStatusSection } from "@/components/TexStatus";
@@ -472,6 +474,30 @@ export function SettingsDialog({
             },
           ],
           content: <AccountSettingsSection />,
+        },
+      ],
+    },
+    {
+      id: "git",
+      label: "Git",
+      icon: GitBranch,
+      intro:
+        "Accounts for private remotes over HTTPS. SSH remotes use your keys and agent and need nothing here.",
+      cards: [
+        {
+          title: "Git accounts",
+          rows: [
+            {
+              id: "git-accounts",
+              label: "Git accounts",
+              description:
+                "A token per host: GitHub, GitLab, Gitea, Overleaf's git bridge or your own server.",
+              keywords:
+                "git remote token github gitlab gitea overleaf push pull clone credentials https",
+              control: null,
+            },
+          ],
+          content: <GitAccountsSection />,
         },
       ],
     },

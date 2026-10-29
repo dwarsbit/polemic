@@ -51,10 +51,17 @@ interface ProjectState {
   ignoreWord: (word: string) => Promise<void>;
   allCiteKeys: () => string[];
   markDirty: (path: string, content: string) => void;
+  /** Record an edit of the active file: buffer it while it differs
+   *  from the saved text, drop the buffer once it matches again (an
+   *  undo back to the saved state), so no stale buffer is written. */
+  noteActiveEdit: (content: string) => void;
   /** Refresh a file's label/ref/cite-key metadata from its content. */
   refreshDocMeta: (path: string, content: string) => void;
   flushBuffers: () => Promise<void>;
   openProject: (path: string) => Promise<void>;
+  /** Save the open project's edits, then close it. If saving fails,
+   *  ask first; false when the user keeps the project open. */
+  leaveProject: () => Promise<boolean>;
   closeProject: () => void;
   refreshFiles: () => Promise<void>;
   openFile: (path: string) => Promise<void>;
@@ -94,6 +101,41 @@ function firstTex(entries: api.FileEntry[]): string | null {
 
 function isInside(parentPath: string, childPath: string): boolean {
   return childPath === parentPath || childPath.startsWith(parentPath + "/");
+}
+
+type FileMetadata = Pick<
+  ProjectState,
+  | "labelsByFile"
+  | "refsByFile"
+  | "citeKeysByFile"
+  | "graphicsPathsByFile"
+  | "biblatexByFile"
+  | "natbibByFile"
+>;
+
+/** Per-file metadata after `path` (a file, or a folder and everything
+ *  under it) was renamed to `newPath`, or deleted when `newPath` is null. */
+function moveFileMetadata(
+  state: FileMetadata,
+  path: string,
+  newPath: string | null,
+): FileMetadata {
+  const move = <T>(byFile: Record<string, T>): Record<string, T> => {
+    const next: Record<string, T> = {};
+    for (const [file, value] of Object.entries(byFile)) {
+      if (!isInside(path, file)) next[file] = value;
+      else if (newPath !== null) next[newPath + file.slice(path.length)] = value;
+    }
+    return next;
+  };
+  return {
+    labelsByFile: move(state.labelsByFile),
+    refsByFile: move(state.refsByFile),
+    citeKeysByFile: move(state.citeKeysByFile),
+    graphicsPathsByFile: move(state.graphicsPathsByFile),
+    biblatexByFile: move(state.biblatexByFile),
+    natbibByFile: move(state.natbibByFile),
+  };
 }
 
 /** Drop a buffer only if it still holds what was written: an edit that
@@ -157,13 +199,17 @@ export const useProjectStore = create<ProjectState>((set, get) => {
    * programmatically edited file resets; acceptable for sync edits.)
    */
   async function applyContentUpdate(path: string, content: string): Promise<void> {
-    const { project, activeFile, buffers } = get();
+    const { project, activeFile } = get();
     if (!project) return;
     await api.writeProjectFile(project.path, path, content);
     void invalidateGitState();
-    const nextBuffers = { ...buffers };
-    delete nextBuffers[path];
-    set({ buffers: nextBuffers });
+    // From the current buffers: edits of other files that landed during
+    // the write stay.
+    set((state) => {
+      const buffers = { ...state.buffers };
+      delete buffers[path];
+      return { buffers };
+    });
     if (path === activeFile) {
       useEditorStore.getState().loadContent(content);
       set({ lastSavedContent: content });
@@ -185,6 +231,22 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       if (next !== null && next !== content) {
         await applyContentUpdate(path, next);
       }
+    }
+  }
+
+  /** Write unsaved edits before the project leaves the store. If that
+   *  fails, ask whether to go on and lose them; true to go on. */
+  async function saveBeforeLeaving(question: string, okLabel: string): Promise<boolean> {
+    try {
+      await get().flushBuffers();
+      return true;
+    } catch (e) {
+      return ask(`Some changes could not be saved:\n\n${e}\n\n${question}`, {
+        title: "Unsaved changes",
+        kind: "warning",
+        okLabel,
+        cancelLabel: "Keep project open",
+      }).catch(() => false);
     }
   }
 
@@ -237,6 +299,18 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     },
     markDirty: (path, content) =>
       set((state) => ({ buffers: { ...state.buffers, [path]: content } })),
+    noteActiveEdit: (content) =>
+      set((state) => {
+        const path = state.activeFile;
+        if (path === null) return {};
+        if (content !== state.lastSavedContent) {
+          return { buffers: { ...state.buffers, [path]: content } };
+        }
+        if (state.buffers[path] === undefined) return {};
+        const buffers = { ...state.buffers };
+        delete buffers[path];
+        return { buffers };
+      }),
     refreshDocMeta: (path, content) =>
       set({
         labelsByFile: {
@@ -285,6 +359,18 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     },
 
     openProject: async (path) => {
+      // Buffers are keyed by relative path: write the current project's
+      // edits to its own folder before another project takes the store,
+      // or they would show up in (and be saved into) the new one.
+      if (
+        get().project &&
+        !(await saveBeforeLeaving(
+          "Open the other project anyway and lose them?",
+          "Open without saving",
+        ))
+      ) {
+        return;
+      }
       const info = await api.openProject(path);
       const files = await api.listFiles(info.path);
       const settings = await api.getSettings();
@@ -303,6 +389,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         files,
         mainFile,
         openFiles: storedOpen,
+        activeFile: null,
+        lastSavedContent: null,
+        buffers: {},
+        snapshots: [],
         labelsByFile: {},
         refsByFile: {},
         citeKeysByFile: {},
@@ -374,8 +464,21 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       })();
     },
 
+    leaveProject: async () => {
+      if (
+        !(await saveBeforeLeaving(
+          "Close the project anyway and lose them?",
+          "Close without saving",
+        ))
+      ) {
+        return false;
+      }
+      get().closeProject();
+      return true;
+    },
+
     closeProject: () => {
-      // Dirty buffers are flushed by the caller before closing.
+      // Dirty buffers are flushed by the caller (see leaveProject).
       void api.setProjectMenuEnabled(false);
       useEditorStore.getState().loadContent("");
       set({
@@ -442,11 +545,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       // Never lose unsaved changes when a tab is closed.
       if (buffers[path] !== undefined) {
         if (!project) return;
-        await api.writeProjectFile(project.path, path, buffers[path]);
+        const written = { [path]: buffers[path] };
+        await api.writeProjectFile(project.path, path, written[path]);
         void invalidateGitState();
-        const nextBuffers = { ...buffers };
-        delete nextBuffers[path];
-        set({ buffers: nextBuffers });
+        set({ buffers: withoutWritten(get().buffers, written) });
       }
       const index = openFiles.indexOf(path);
       const remaining = openFiles.filter((f) => f !== path);
@@ -516,7 +618,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     },
 
     renameEntry: async (path, newPath) => {
-      const { project, buffers } = get();
+      const { project } = get();
       if (!project) return;
       // \includegraphics references resolve against the project as it
       // was before the rename.
@@ -530,14 +632,16 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           : file;
       const activeFile = remap(get().activeFile);
       const mainFile = remap(get().mainFile);
+      // Remap the current buffers, not a snapshot from before the await.
       const nextBuffers: Record<string, string> = {};
-      for (const [file, content] of Object.entries(buffers)) {
+      for (const [file, content] of Object.entries(get().buffers)) {
         nextBuffers[remap(file) ?? file] = content;
       }
       set({
         activeFile,
         buffers: nextBuffers,
         openFiles: get().openFiles.map((f) => remap(f) ?? f),
+        ...moveFileMetadata(get(), path, newPath),
       });
       if (mainFile !== null && mainFile !== get().mainFile) {
         await get().setMainFile(mainFile);
@@ -571,14 +675,14 @@ export const useProjectStore = create<ProjectState>((set, get) => {
     },
 
     deleteEntry: async (path) => {
-      const { project, buffers } = get();
+      const { project } = get();
       if (!project) return;
       await api.deleteEntry(project.path, path);
       void invalidateGitState();
       const removeInside = (file: string | null) =>
         file !== null && isInside(path, file) ? null : file;
       const nextBuffers: Record<string, string> = {};
-      for (const [file, content] of Object.entries(buffers)) {
+      for (const [file, content] of Object.entries(get().buffers)) {
         if (!isInside(path, file)) nextBuffers[file] = content;
       }
       if (isInside(path, get().activeFile ?? "")) {
@@ -592,6 +696,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         lastSavedContent: isInside(path, get().activeFile ?? "")
           ? null
           : get().lastSavedContent,
+        ...moveFileMetadata(get(), path, null),
       });
       await get().refreshFiles();
       // Deleted .tex files: drop their \input/\include lines everywhere.

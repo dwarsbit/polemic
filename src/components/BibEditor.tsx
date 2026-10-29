@@ -79,10 +79,7 @@ export function BibEditor({ visible = true }: { visible?: boolean }) {
             if (!update.docChanged) return;
             const content = update.state.doc.toString();
             useEditorStore.getState().setContent(content);
-            const { activeFile, lastSavedContent } = useProjectStore.getState();
-            if (activeFile !== null && content !== lastSavedContent) {
-              useProjectStore.getState().markDirty(activeFile, content);
-            }
+            useProjectStore.getState().noteActiveEdit(content);
           }),
         ],
       }),

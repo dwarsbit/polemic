@@ -55,13 +55,6 @@ const ASKPASS_FLAG: &str = "POLEMIC_ASKPASS";
 const ASKPASS_USERNAME: &str = "POLEMIC_GIT_USERNAME";
 const ASKPASS_PASSWORD: &str = "POLEMIC_GIT_PASSWORD";
 
-/// The credentials for a remote URL: (username, password or token).
-/// None lets git fall back to the user's own credential helper or SSH.
-/// Filled in by the git accounts (GitHub, GitLab, custom remotes).
-pub fn credentials_for(_url: &str) -> Option<(String, String)> {
-    None
-}
-
 /// Git's prompts are "Username for 'https://host': " and "Password for
 /// 'https://user@host': ". The answer for one, or None to refuse.
 fn askpass_answer(prompt: &str, username: &str, password: &str) -> Option<String> {
@@ -123,11 +116,23 @@ fn runs_command(key: &str) -> bool {
             | "core.askpass"
             | "diff.external"
             | "sequence.editor"
-            | "credential.helper"
-    ) || (key.starts_with("filter.") && ends(&[".clean", ".smudge", ".process"]))
+            | "core.alternaterefscommand"
+    ) || (key.starts_with("credential.") && key.ends_with(".helper"))
+        || (key.starts_with("filter.") && ends(&[".clean", ".smudge", ".process"]))
         || (key.starts_with("diff.") && ends(&[".textconv", ".command"]))
         || (key.starts_with("merge.") && key.ends_with(".driver"))
         || (key.starts_with("gpg.") && key.ends_with("program"))
+}
+
+/// Config keys that make a fetch or push run a program (or go somewhere
+/// other than the remote URL shown). A `-c` override cannot neutralize
+/// them: git keeps the first `uploadpack`/`receivepack` value, and
+/// `insteadOf`/`gitProxy` are lists. Remote commands refuse to run instead.
+fn redirects_transport(key: &str) -> bool {
+    let key = key.to_ascii_lowercase();
+    key == "core.gitproxy"
+        || (key.starts_with("remote.") && [".uploadpack", ".receivepack", ".vcs"].iter().any(|s| key.ends_with(s)))
+        || (key.starts_with("url.") && (key.ends_with(".insteadof") || key.ends_with(".pushinsteadof")))
 }
 
 /// `-c` overrides that blank every command-running key the repository
@@ -138,6 +143,8 @@ fn safety_overrides(local_keys: &str) -> Vec<String> {
     let mut out = vec![
         "core.fsmonitor=false".to_string(),
         format!("core.hooksPath={}", no_hooks.display()),
+        // `ext::` URLs run arbitrary commands.
+        "protocol.ext.allow=never".to_string(),
     ];
     let mut signing = false;
     for key in local_keys.lines().map(str::trim) {
@@ -166,18 +173,23 @@ fn safety_overrides(local_keys: &str) -> Vec<String> {
     out
 }
 
-/// A git command for `dir` with the repository's command-running config
-/// neutralized (see `safety_overrides`).
-fn git_command(dir: &Path) -> Command {
+/// The names of the keys the repository config of `dir` sets.
+fn local_config_keys(dir: &Path) -> String {
     // Reading the config list executes nothing.
-    let local_keys = Command::new("git")
+    Command::new("git")
         .args(["config", "--local", "--includes", "--name-only", "--list"])
         .current_dir(dir)
         .output()
         .ok()
         .filter(|o| o.status.success())
         .map(|o| String::from_utf8_lossy(&o.stdout).into_owned())
-        .unwrap_or_default();
+        .unwrap_or_default()
+}
+
+/// A git command for `dir` with the repository's command-running config
+/// neutralized (see `safety_overrides`).
+fn git_command(dir: &Path) -> Command {
+    let local_keys = local_config_keys(dir);
     let mut command = Command::new("git");
     for value in safety_overrides(&local_keys) {
         command.arg("-c").arg(value);
@@ -188,16 +200,29 @@ fn git_command(dir: &Path) -> Command {
     command
 }
 
+/// The (username, token) git's credential prompt gets for a remote;
+/// None lets git fall back to the user's own credential helper or SSH.
+pub type Credentials = Option<(String, String)>;
+
+/// The program git runs for its prompts: Polemic itself (main.rs).
+fn askpass_program() -> Option<std::path::PathBuf> {
+    #[cfg(test)]
+    if let Some(path) = tests::ASKPASS_OVERRIDE.lock().ok().and_then(|p| p.clone()) {
+        return Some(path);
+    }
+    std::env::current_exe().ok()
+}
+
 /// A git command that may talk to a remote: Polemic's own binary answers
 /// the credential prompt with the account's token when there is one.
 /// Without one git still tries the user's credential helper and SSH.
-fn remote_git_command(dir: &Path, url: Option<&str>) -> Command {
+fn remote_git_command(dir: &Path, credentials: Credentials) -> Command {
     let mut command = git_command(dir);
-    if let Ok(exe) = std::env::current_exe() {
-        command.env("GIT_ASKPASS", exe);
+    if let Some(program) = askpass_program() {
+        command.env("GIT_ASKPASS", program);
         command.env(ASKPASS_FLAG, "1");
     }
-    if let Some((username, password)) = url.and_then(credentials_for) {
+    if let Some((username, password)) = credentials {
         command.env(ASKPASS_USERNAME, username);
         command.env(ASKPASS_PASSWORD, password);
     }
@@ -224,8 +249,14 @@ fn run_git(dir: &Path, args: &[&str]) -> Result<String, String> {
     finish(output, args)
 }
 
-fn run_remote_git(dir: &Path, url: Option<&str>, args: &[&str]) -> Result<String, String> {
-    let output = remote_git_command(dir, url)
+fn run_remote_git(dir: &Path, credentials: Credentials, args: &[&str]) -> Result<String, String> {
+    if let Some(key) = local_config_keys(dir).lines().map(str::trim).find(|k| redirects_transport(k)) {
+        return Err(format!(
+            "The repository config sets {key}, which can run a program on fetch or push. \
+             Remove it from .git/config to use the remote."
+        ));
+    }
+    let output = remote_git_command(dir, credentials)
         .args(args)
         .output()
         .map_err(|e| format!("failed to run git: {e}"))?;
@@ -433,15 +464,17 @@ fn has_upstream(dir: &Path) -> bool {
     run_git(dir, &["rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}"]).is_ok()
 }
 
-pub fn fetch(dir: &Path) -> Result<(), String> {
-    let url = need_remote(dir)?;
-    run_remote_git(dir, Some(&url), &["fetch", "--prune", REMOTE]).map(|_| ())
+pub fn fetch(dir: &Path, credentials: Credentials) -> Result<(), String> {
+    need_remote(dir)?;
+    run_remote_git(dir, credentials, &["fetch", "--prune", REMOTE])
+        .map(|_| ())
+        .map_err(|e| friendly_remote_error(&e))
 }
 
 /// Pull the upstream (merging, never rebasing, so local history stays
 /// as committed). The first pull of a branch sets its upstream.
-pub fn pull(dir: &Path) -> Result<PullOutcome, String> {
-    let url = need_remote(dir)?;
+pub fn pull(dir: &Path, credentials: Credentials) -> Result<PullOutcome, String> {
+    need_remote(dir)?;
     if merge_in_progress(dir) {
         return Err("A merge is in progress: resolve the conflicts and commit, or abort the merge".into());
     }
@@ -451,7 +484,7 @@ pub fn pull(dir: &Path) -> Result<PullOutcome, String> {
     if !has_upstream(dir) {
         args.extend(["--set-upstream", REMOTE, branch.as_str()]);
     }
-    match run_remote_git(dir, Some(&url), &args) {
+    match run_remote_git(dir, credentials, &args) {
         Ok(_) => Ok(if head(dir) == before {
             PullOutcome::UpToDate
         } else {
@@ -470,14 +503,14 @@ pub fn pull(dir: &Path) -> Result<PullOutcome, String> {
 }
 
 /// Push the branch; the first push sets it to track the remote.
-pub fn push(dir: &Path) -> Result<(), String> {
-    let url = need_remote(dir)?;
+pub fn push(dir: &Path, credentials: Credentials) -> Result<(), String> {
+    need_remote(dir)?;
     let branch = current_branch(dir)?;
     let mut args = vec!["push"];
     if !has_upstream(dir) {
         args.extend(["--set-upstream", REMOTE, branch.as_str()]);
     }
-    run_remote_git(dir, Some(&url), &args)
+    run_remote_git(dir, credentials, &args)
         .map(|_| ())
         .map_err(|e| friendly_remote_error(&e))
 }
@@ -537,7 +570,7 @@ pub fn mark_resolved(dir: &Path, path: &str, file: Option<&Path>) -> Result<(), 
 }
 
 /// Clone `url` into `dest` (which must not exist yet).
-pub fn clone(url: &str, dest: &Path) -> Result<(), String> {
+pub fn clone(url: &str, dest: &Path, credentials: Credentials) -> Result<(), String> {
     let url = check_remote_url(url)?;
     if dest.exists() {
         return Err(format!("{} already exists", dest.display()));
@@ -547,9 +580,14 @@ pub fn clone(url: &str, dest: &Path) -> Result<(), String> {
         .ok_or_else(|| "The clone destination has no parent folder".to_string())?;
     std::fs::create_dir_all(parent).map_err(|e| format!("failed to create projects root: {e}"))?;
     let dest_str = dest.to_string_lossy().to_string();
-    run_remote_git(parent, Some(&url), &["clone", "--", &url, &dest_str])
+    run_remote_git(parent, credentials, &["clone", "--", &url, &dest_str])
         .map(|_| ())
         .map_err(|e| friendly_remote_error(&e))
+}
+
+/// Does the current branch have a commit yet?
+pub fn has_commits(dir: &Path) -> bool {
+    head(dir).is_some()
 }
 
 fn head(dir: &Path) -> Option<String> {
@@ -677,6 +715,11 @@ pub fn show_head(dir: &Path, path: &str) -> Result<Option<String>, String> {
 mod tests {
     use super::*;
 
+    /// Tests point git's prompt at a script of their own: the test
+    /// binary is not the app, so it cannot answer as main.rs does.
+    pub static ASKPASS_OVERRIDE: std::sync::Mutex<Option<std::path::PathBuf>> =
+        std::sync::Mutex::new(None);
+
     #[test]
     fn blanks_command_keys_from_the_repository_config() {
         let keys = "core.bare\ncore.fsmonitor\nfilter.lfs.process\nfilter.Evil.clean\ndiff.pdf.textconv\ngpg.ssh.program\nuser.name\n";
@@ -694,6 +737,10 @@ mod tests {
             assert!(overrides.iter().any(|o| o == expected), "missing {expected}: {overrides:?}");
         }
         assert!(overrides.iter().any(|o| o.starts_with("core.hooksPath=")));
+        assert!(overrides.iter().any(|o| o == "protocol.ext.allow=never"));
+        assert!(redirects_transport("remote.Origin.UploadPack"));
+        assert!(redirects_transport("url.ext::sh.insteadOf"));
+        assert!(!redirects_transport("remote.origin.url"));
         assert!(!overrides.iter().any(|o| o.starts_with("user.name") || o.starts_with("core.bare")));
     }
 
@@ -728,6 +775,49 @@ mod tests {
         let _ = run_git(&dir, &["-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "m"]);
         assert!(!marker.exists(), "repository config ran a command");
         let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    /// End to end: a repository whose config runs commands on fetch, pull
+    /// or push through the transport (`uploadpack`, `receivepack`, ...).
+    #[cfg(unix)]
+    #[test]
+    fn repository_config_cannot_run_transport_commands() {
+        if !available() {
+            return;
+        }
+        let bare = temp_repo("evil-bare");
+        run_git(&bare, &["init", "-q", "--bare", "-b", "main"]).unwrap();
+        let bare_url = url::Url::from_file_path(&bare).unwrap().to_string();
+        let dir = temp_repo("evil-remote");
+        init(&dir).unwrap();
+        run_git(&dir, &["checkout", "-q", "-b", "main"]).unwrap();
+        configure_user(&dir);
+        write_and_commit(&dir, "main.tex", "x\n", "first");
+        set_remote(&dir, &bare_url).unwrap();
+        push(&dir, None).unwrap();
+
+        let marker = dir.join("PWNED");
+        let git = |args: &[&str]| {
+            Command::new("git").args(args).current_dir(&dir).output().unwrap();
+        };
+        for (key, program) in [
+            ("remote.origin.uploadpack", "git-upload-pack"),
+            ("remote.origin.receivePack", "git-receive-pack"),
+            ("core.gitProxy", "cat"),
+        ] {
+            let cmd = format!("touch {}; {program}", marker.display());
+            git(&["config", key, &cmd]);
+            assert!(fetch(&dir, None).is_err(), "{key}: fetch ran");
+            let _ = pull(&dir, None);
+            assert!(push(&dir, None).is_err(), "{key}: push ran");
+            assert!(!marker.exists(), "{key} ran a command");
+            git(&["config", "--unset", key]);
+        }
+        git(&["config", &format!("url.ext::sh -c touch% {}.insteadOf", marker.display()), &bare_url]);
+        assert!(fetch(&dir, None).is_err(), "insteadOf: fetch ran");
+        assert!(!marker.exists(), "insteadOf ran a command");
+        let _ = std::fs::remove_dir_all(&dir);
+        let _ = std::fs::remove_dir_all(&bare);
     }
 
     #[test]
@@ -815,60 +905,60 @@ mod tests {
         configure_user(&a);
         write_and_commit(&a, "main.tex", "one\n", "first");
         assert_eq!(status(&a).remote, None);
-        assert!(push(&a).is_err(), "push without a remote");
+        assert!(push(&a, None).is_err(), "push without a remote");
         set_remote(&a, &bare_url).unwrap();
         let info = status(&a);
         assert_eq!(info.remote.as_deref(), Some(bare_url.as_str()));
         assert_eq!(info.upstream, None);
-        push(&a).unwrap();
+        push(&a, None).unwrap();
         let info = status(&a);
         assert_eq!(info.upstream.as_deref(), Some("origin/main"));
         assert_eq!((info.ahead, info.behind), (0, 0));
-        assert_eq!(pull(&a).unwrap(), PullOutcome::UpToDate);
+        assert_eq!(pull(&a, None).unwrap(), PullOutcome::UpToDate);
 
         // Device B: a clone of the same project.
         let b = temp_repo("b");
         let _ = std::fs::remove_dir_all(&b);
-        clone(&bare_url, &b).unwrap();
+        clone(&bare_url, &b, None).unwrap();
         configure_user(&b);
         assert_eq!(read(&b, "main.tex"), "one\n");
         assert_eq!(status(&b).upstream.as_deref(), Some("origin/main"));
-        assert!(clone(&bare_url, &b).is_err(), "clone over an existing folder");
+        assert!(clone(&bare_url, &b, None).is_err(), "clone over an existing folder");
 
         // A commits and pushes; B sees it after a fetch, takes it with a pull.
         write_and_commit(&a, "main.tex", "one\ntwo\n", "second");
         assert_eq!(status(&a).ahead, 1);
-        push(&a).unwrap();
-        fetch(&b).unwrap();
+        push(&a, None).unwrap();
+        fetch(&b, None).unwrap();
         assert_eq!(status(&b).behind, 1);
-        assert_eq!(pull(&b).unwrap(), PullOutcome::Updated);
+        assert_eq!(pull(&b, None).unwrap(), PullOutcome::Updated);
         assert_eq!(read(&b, "main.tex"), "one\ntwo\n");
 
         // Both change different files: B's push is refused, its pull merges.
         write_and_commit(&a, "a.tex", "a\n", "a's file");
-        push(&a).unwrap();
+        push(&a, None).unwrap();
         write_and_commit(&b, "b.tex", "b\n", "b's file");
-        let refused = push(&b).unwrap_err();
+        let refused = push(&b, None).unwrap_err();
         assert!(refused.contains("pull first"), "{refused}");
-        assert_eq!(pull(&b).unwrap(), PullOutcome::Updated);
+        assert_eq!(pull(&b, None).unwrap(), PullOutcome::Updated);
         assert!(b.join("a.tex").exists());
         assert!(!status(&b).merging);
-        push(&b).unwrap();
+        push(&b, None).unwrap();
 
         // Both change the same line: the pull stops on the conflict.
-        pull(&a).unwrap();
+        pull(&a, None).unwrap();
         write_and_commit(&a, "main.tex", "one\nA\n", "a's edit");
-        push(&a).unwrap();
+        push(&a, None).unwrap();
         write_and_commit(&b, "main.tex", "one\nB\n", "b's edit");
         assert_eq!(
-            pull(&b).unwrap(),
+            pull(&b, None).unwrap(),
             PullOutcome::Conflicts { paths: vec!["main.tex".into()] }
         );
         let info = status(&b);
         assert!(info.merging);
         assert_eq!(info.conflicts, vec!["main.tex".to_string()]);
         assert!(read(&b, "main.tex").contains("<<<<<<<"));
-        assert!(pull(&b).is_err(), "pull during a merge");
+        assert!(pull(&b, None).is_err(), "pull during a merge");
 
         // Resolve by hand, stage, commit: the merge is done.
         std::fs::write(b.join("main.tex"), "one\nAB\n").unwrap();
@@ -877,14 +967,14 @@ mod tests {
         assert!(info.conflicts.is_empty() && info.merging);
         commit(&b, "merged").unwrap();
         assert!(!status(&b).merging);
-        push(&b).unwrap();
+        push(&b, None).unwrap();
 
         // Or abort: back to before the pull.
-        assert_eq!(pull(&a).unwrap(), PullOutcome::Updated);
+        assert_eq!(pull(&a, None).unwrap(), PullOutcome::Updated);
         write_and_commit(&a, "main.tex", "one\nAB\nA2\n", "a again");
-        push(&a).unwrap();
+        push(&a, None).unwrap();
         write_and_commit(&b, "main.tex", "one\nAB\nB2\n", "b again");
-        assert!(matches!(pull(&b).unwrap(), PullOutcome::Conflicts { .. }));
+        assert!(matches!(pull(&b, None).unwrap(), PullOutcome::Conflicts { .. }));
         abort_merge(&b).unwrap();
         let info = status(&b);
         assert!(!info.merging && info.conflicts.is_empty());
@@ -896,11 +986,11 @@ mod tests {
         write_and_commit(&a, "extra.tex", "extra\n", "extra file");
         run_git(&a, &["rm", "-q", "a.tex"]).unwrap();
         commit(&a, "drop a.tex").unwrap();
-        push(&a).unwrap();
+        push(&a, None).unwrap();
         write_and_commit(&b, "main.tex", "one\nAB\nB3\n", "b third");
         write_and_commit(&b, "extra.tex", "other\n", "extra too");
         write_and_commit(&b, "a.tex", "a edited\n", "edit a.tex");
-        let outcome = pull(&b).unwrap();
+        let outcome = pull(&b, None).unwrap();
         assert_eq!(
             outcome,
             PullOutcome::Conflicts { paths: vec!["a.tex".into(), "extra.tex".into(), "main.tex".into()] }
@@ -917,7 +1007,7 @@ mod tests {
         assert!(info.conflicts.is_empty() && info.merging, "{:?}", info.conflicts);
         commit(&b, "merged by sides").unwrap();
         assert!(!status(&b).merging);
-        push(&b).unwrap();
+        push(&b, None).unwrap();
 
         // Removing the remote.
         set_remote(&b, "").unwrap();
@@ -926,6 +1016,77 @@ mod tests {
         for dir in [bare, a, b] {
             let _ = std::fs::remove_dir_all(dir);
         }
+    }
+
+    /// A one-request HTTP server: it demands Basic auth, then records
+    /// the Authorization header git sends on its second try.
+    #[cfg(unix)]
+    fn auth_recording_server() -> (String, std::sync::mpsc::Receiver<String>) {
+        use std::io::{Read, Write};
+        let listener = std::net::TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        let (tx, rx) = std::sync::mpsc::channel();
+        std::thread::spawn(move || {
+            for stream in listener.incoming().take(2) {
+                let mut stream = stream.unwrap();
+                let mut buf = [0u8; 4096];
+                let n = stream.read(&mut buf).unwrap_or(0);
+                let request = String::from_utf8_lossy(&buf[..n]).into_owned();
+                let auth = request
+                    .lines()
+                    .find_map(|l| l.strip_prefix("Authorization: "))
+                    .map(str::to_string);
+                let response = match auth {
+                    None => "HTTP/1.1 401 Unauthorized\r\nWWW-Authenticate: Basic realm=\"git\"\r\nContent-Length: 0\r\nConnection: close\r\n\r\n".to_string(),
+                    Some(header) => {
+                        let _ = tx.send(header);
+                        "HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\nConnection: close\r\n\r\n".to_string()
+                    }
+                };
+                let _ = stream.write_all(response.as_bytes());
+            }
+        });
+        (format!("http://127.0.0.1:{port}/paper.git"), rx)
+    }
+
+    /// End to end on the git side: the account's username and token
+    /// reach the remote as Basic auth through GIT_ASKPASS and the
+    /// environment of the git process.
+    #[cfg(unix)]
+    #[test]
+    fn credentials_reach_the_remote_through_askpass() {
+        if !available() {
+            return;
+        }
+        let dir = temp_repo("creds");
+        init(&dir).unwrap();
+        let script = dir.join("askpass.sh");
+        std::fs::write(
+            &script,
+            "#!/bin/sh\ncase \"$1\" in\n  Username*) echo \"$POLEMIC_GIT_USERNAME\";;\n  Password*) echo \"$POLEMIC_GIT_PASSWORD\";;\n  *) exit 1;;\nesac\n",
+        )
+        .unwrap();
+        use std::os::unix::fs::PermissionsExt;
+        std::fs::set_permissions(&script, std::fs::Permissions::from_mode(0o755)).unwrap();
+        *ASKPASS_OVERRIDE.lock().unwrap() = Some(script);
+
+        let (url, received) = auth_recording_server();
+        set_remote(&dir, &url).unwrap();
+        // The user's own credential helpers stay out of this.
+        let result = run_remote_git(
+            &dir,
+            Some(("ada".into(), "tok-123".into())),
+            &["-c", "credential.helper=", "fetch", REMOTE],
+        );
+        *ASKPASS_OVERRIDE.lock().unwrap() = None;
+        assert!(result.is_err(), "the server answers 404 once authenticated");
+        let header = received
+            .recv_timeout(std::time::Duration::from_secs(30))
+            .expect("git retried with credentials");
+        use base64::Engine;
+        let expected = base64::engine::general_purpose::STANDARD.encode("ada:tok-123");
+        assert_eq!(header.trim(), format!("Basic {expected}"));
+        let _ = std::fs::remove_dir_all(dir);
     }
 
     /// An HTTPS remote that asks for credentials gets the account's
@@ -941,7 +1102,7 @@ mod tests {
         // own rather than wait for a prompt. Any error is fine.
         set_remote(&dir, "https://127.0.0.1:9/paper.git").unwrap();
         let started = std::time::Instant::now();
-        assert!(fetch(&dir).is_err());
+        assert!(fetch(&dir, None).is_err());
         assert!(started.elapsed() < std::time::Duration::from_secs(60));
         let _ = std::fs::remove_dir_all(dir);
     }

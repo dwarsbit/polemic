@@ -34,6 +34,23 @@ pnpm install
 pnpm tauri dev
 ```
 
+## GitHub sign-in
+
+"Sign in with GitHub" uses the OAuth device flow of Polemic's own
+GitHub OAuth App, whose client ID is in `src-tauri/src/github.rs`.
+The client ID is public and there is no client secret: the editor
+talks to github.com directly, and the token stays in your system's
+credential store. A fork can use its own OAuth App instead: register
+one with **Enable Device Flow** ticked, then set
+`POLEMIC_GITHUB_CLIENT_ID` when building or running.
+
+```bash
+POLEMIC_GITHUB_CLIENT_ID=<client id> pnpm tauri dev
+```
+
+Without signing in, a personal access token added in Settings → Git
+works for pull, push and Publish.
+
 ## Build
 
 ```bash

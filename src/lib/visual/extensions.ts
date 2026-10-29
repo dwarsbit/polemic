@@ -1636,6 +1636,7 @@ const Preamble = Node.create({
       authorSrc: { default: null },
       dateSrc: { default: null },
       src: { default: "" },
+      layout: { default: null },
     };
   },
   parseHTML() {

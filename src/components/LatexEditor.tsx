@@ -813,10 +813,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
             if (update.docChanged) {
               const content = update.state.doc.toString();
               setContent(content);
-              const { activeFile, lastSavedContent } = useProjectStore.getState();
-              if (activeFile !== null && content !== lastSavedContent) {
-                useProjectStore.getState().markDirty(activeFile, content);
-              }
+              useProjectStore.getState().noteActiveEdit(content);
               // Keep label/ref/cite metadata live (completions and
               // cross-file hints read it), debounced per burst of
               // typing. The file and content are captured, so the

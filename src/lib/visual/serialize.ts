@@ -17,6 +17,8 @@ import {
   type ListNode,
   type Mark,
   type PreambleAttrs,
+  type PreambleLayout,
+  type PreambleSlot,
 } from "./doc-types";
 
 /** Two spaces per environment nesting level, matching latex-format.ts. */
@@ -204,13 +206,23 @@ function splitFirstLine(text: string): string[] {
 }
 
 /**
- * Reassemble the preamble text from its decomposed attrs: document
- * class first, then packages, then the raw remainder, then the title
- * metadata — a canonical order, stable across parse/serialize cycles.
+ * Reassemble the preamble text from its decomposed attrs. With a
+ * `layout`, the extracted commands go back where they were parsed
+ * from (see `layoutPreamble`); without one, in a canonical order:
+ * document class, packages, the raw remainder, the title metadata.
  * Always ends with a blank line, so the body (or the
  * `\begin{document}`) never glues onto the last preamble command.
  */
 export function preambleText(attrs: PreambleAttrs): string {
+  const text =
+    attrs.layout !== undefined && attrs.layout !== null
+      ? layoutPreamble(attrs, attrs.layout)
+      : canonicalPreamble(attrs);
+  const trimmed = text.replace(/^\s+/, "").replace(/\s+$/, "");
+  return trimmed.length > 0 ? `${trimmed}\n\n` : "";
+}
+
+function canonicalPreamble(attrs: PreambleAttrs): string {
   const parts: string[] = [];
   if (attrs.documentclassSrc !== null) parts.push(attrs.documentclassSrc);
   if (attrs.packagesSrc !== null) parts.push(attrs.packagesSrc);
@@ -219,8 +231,122 @@ export function preambleText(attrs: PreambleAttrs): string {
   if (attrs.titleSrc !== null) parts.push(attrs.titleSrc);
   if (attrs.authorSrc !== null) parts.push(attrs.authorSrc);
   if (attrs.dateSrc !== null) parts.push(attrs.dateSrc);
-  if (parts.length === 0) return "";
-  return `${parts.join("\n").replace(/\s+$/, "")}\n\n`;
+  return parts.join("\n");
+}
+
+/**
+ * The preamble in its source order. Each slot of the layout is mapped
+ * from the parsed raw rest onto the current one (which the raw editor
+ * or `\newtheorem` insertion may have changed) and gets its command
+ * back; a removed command takes its line along. Packages appended
+ * after parsing follow the last parsed one; if the package list was
+ * otherwise changed, it all goes to the first package's place.
+ * Commands with no slot go where the canonical order puts them.
+ */
+function layoutPreamble(attrs: PreambleAttrs, layout: PreambleLayout): string {
+  const src = attrs.src;
+  const at = offsetMapper(layout.src, src);
+
+  const parsed = layout.packages.join("\n");
+  const current = attrs.packagesSrc;
+  let packages: (string | null)[];
+  let extra: string | null = null;
+  if (current === null) {
+    packages = [];
+  } else if (layout.packages.length > 0 && current === parsed) {
+    packages = layout.packages;
+  } else if (layout.packages.length > 0 && current.startsWith(`${parsed}\n`)) {
+    packages = layout.packages;
+    extra = current.slice(parsed.length + 1);
+  } else {
+    packages = [current];
+  }
+
+  // Insertions per offset into `src`, in order; null drops a line.
+  const inserts = new Map<number, (string | null)[]>();
+  const insert = (offset: number, value: string | null) => {
+    const list = inserts.get(offset) ?? [];
+    list.push(value);
+    inserts.set(offset, list);
+  };
+  const placed = new Set<PreambleSlot>();
+  let packageIndex = 0;
+  let lastPackageAt: number | null = null;
+  for (const { slot, at: offset } of layout.slots) {
+    const pos = at(offset);
+    if (slot === "packagesSrc") {
+      const value = packages[packageIndex++] ?? null;
+      insert(pos, value);
+      if (value !== null) lastPackageAt = pos;
+    } else {
+      insert(pos, attrs[slot]);
+      placed.add(slot);
+    }
+  }
+  if (extra !== null && lastPackageAt !== null) {
+    insert(lastPackageAt, `\n${extra}`);
+    extra = null;
+  }
+  // A package list with no parsed slot left to hold it goes right
+  // after the document class.
+  const unplaced = packageIndex === 0 ? current : extra;
+  const classSlot = layout.slots.find((s) => s.slot === "documentclassSrc");
+  const head: string[] = [];
+  if (attrs.documentclassSrc !== null && classSlot === undefined) {
+    head.push(attrs.documentclassSrc);
+  }
+  if (unplaced !== null) {
+    if (classSlot !== undefined && attrs.documentclassSrc !== null) {
+      insert(at(classSlot.at), `\n${unplaced}`);
+    } else {
+      head.push(unplaced);
+    }
+  }
+
+  let out = "";
+  for (let i = 0; i <= src.length; i++) {
+    const values = inserts.get(i) ?? [];
+    for (const value of values) if (value !== null) out += value;
+    if (i === src.length) break;
+    // A dropped command takes its line break along.
+    const dropped = values.length > 0 && values.every((v) => v === null);
+    if (dropped && src[i] === "\n" && (out.length === 0 || out.endsWith("\n")))
+      continue;
+    out += src[i];
+  }
+
+  const tail: string[] = [];
+  for (const slot of ["titleSrc", "authorSrc", "dateSrc"] as const) {
+    const value = attrs[slot];
+    if (value !== null && !placed.has(slot)) tail.push(value);
+  }
+  const body = out.replace(/^\s+/, "").replace(/\s+$/, "");
+  return [...head, body, ...tail].filter((part) => part.length > 0).join("\n");
+}
+
+/**
+ * Map offsets in `before` onto `after`, assuming one contiguous edit:
+ * offsets in the common prefix stay, those in the common suffix shift
+ * by the length change, and those inside the edit land at its start.
+ */
+function offsetMapper(before: string, after: string): (offset: number) => number {
+  if (before === after) return (offset) => offset;
+  const max = Math.min(before.length, after.length);
+  let prefix = 0;
+  while (prefix < max && before[prefix] === after[prefix]) prefix++;
+  let suffix = 0;
+  while (
+    suffix < max - prefix &&
+    before[before.length - 1 - suffix] === after[after.length - 1 - suffix]
+  ) {
+    suffix++;
+  }
+  const delta = after.length - before.length;
+  return (offset) => {
+    if (offset <= prefix) return offset;
+    if (offset >= before.length - suffix) return offset + delta;
+    return prefix;
+  };
 }
 
 /**

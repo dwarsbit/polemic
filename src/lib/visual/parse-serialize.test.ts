@@ -220,7 +220,7 @@ describe("parseTex", () => {
 
   it("recovers only known preamble commands before the body", () => {
     const tex =
-      "\\usepackage{amsmath}\n\\newcommand{\\R}{\\mathbb{R}}\n\\emph{Body} here.\n";
+      "\\documentclass{article}\n\\usepackage{amsmath}\n\\newcommand{\\R}{\\mathbb{R}}\n\\emph{Body} here.\n";
     const doc = parseTex(tex);
     expect(doc.content?.map((b) => b.type)).toEqual(["preamble", "paragraph"]);
     expect(serializeTex(doc)).toContain("\\emph{Body} here.");
@@ -652,5 +652,26 @@ describe("stability on assorted inputs", () => {
   it.each(cases)("is idempotent for %#", (tex) => {
     const { once, twice } = roundTrip(tex);
     expect(once).toBe(twice);
+  });
+});
+
+describe("comments inside formatting", () => {
+  for (const tex of [
+    "Text \\textbf{bold % c\n rest}\n",
+    "\\textbf{bold % c\n rest}\n",
+    "A \\textbf{a \\emph{b % c\n d} e} f\n",
+    "A \\emph{x % one\n y % two\n z}\n",
+  ]) {
+    it(`keeps the group whole: ${JSON.stringify(tex)}`, () => {
+      const { once, twice } = roundTrip(tex);
+      expect(once).toBe(tex);
+      expect(twice).toBe(once);
+    });
+  }
+
+  it("keeps a space before a group's closing brace", () => {
+    const { once, twice } = roundTrip("a \\textbf{bold }x\n");
+    expect(once).toBe("a \\textbf{bold }x\n");
+    expect(twice).toBe(once);
   });
 });

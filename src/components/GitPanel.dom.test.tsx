@@ -15,6 +15,8 @@ const repo = {
   pullOutcome: { kind: "upToDate" } as GitPullOutcome,
   /** Files whose hand edit left markers behind. */
   markersLeft: [] as string[],
+  /** What github_publish refuses with, if anything. */
+  publishError: null as string | null,
 };
 
 function status(partial: Partial<GitStatus> = {}): GitStatus {
@@ -86,6 +88,13 @@ vi.mock("@/lib/tauri", () => ({
   }),
   gitShowHead: vi.fn(async () => null),
   readProjectFile: vi.fn(async () => ""),
+  githubPublish: vi.fn(async (_dir: string, name: string) => {
+    if (repo.publishError) throw new Error(repo.publishError);
+    const url = `https://github.com/ada/${name}.git`;
+    repo.status = { ...repo.status, remote: url, upstream: "origin/main" };
+    return url;
+  }),
+  suggestedRepoName: (name: string) => name.replace(/\s+/g, "-"),
 }));
 
 vi.mock("@/store/project", () => {
@@ -155,6 +164,7 @@ beforeEach(() => {
   repo.status = status();
   repo.pullOutcome = { kind: "upToDate" };
   repo.markersLeft = [];
+  repo.publishError = null;
 });
 
 afterEach(async () => {
@@ -290,6 +300,36 @@ describe("GitPanel remotes", () => {
     expect(tauri.gitAbortMerge).toHaveBeenCalledWith("/tmp/paper");
     expect(button("Abort merge")).toBeUndefined();
     expect(button("Commit")).toBeDefined();
+  });
+});
+
+describe("Publish to GitHub", () => {
+  it("publishes as a private repository named after the project", async () => {
+    await render();
+    await click("Publish to GitHub…");
+    const name = host.querySelector<HTMLInputElement>(
+      'input[aria-label="Repository name"]',
+    )!;
+    expect(name.value).toBe("paper");
+    const isPrivate = host.querySelector<HTMLInputElement>('input[type="checkbox"]')!;
+    expect(isPrivate.checked).toBe(true);
+
+    await click("Publish");
+    expect(tauri.githubPublish).toHaveBeenCalledWith("/tmp/paper", "paper", true);
+    expect(host.textContent).toContain("Published to github.com/ada/paper.");
+    expect(host.textContent).toContain("github.com/ada/paper");
+    expect(button("Push")).toBeDefined();
+  });
+
+  it("keeps the form and links to the accounts when there is no GitHub account", async () => {
+    repo.publishError =
+      "Add a GitHub account in Settings first: sign in with GitHub or add a token";
+    await render();
+    await click("Publish to GitHub…");
+    await click("Publish");
+    expect(host.textContent).toContain("Add a GitHub account in Settings first");
+    expect(button("Open git accounts")).toBeDefined();
+    expect(host.querySelector('input[aria-label="Repository name"]')).not.toBeNull();
   });
 });
 

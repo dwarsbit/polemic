@@ -28,10 +28,13 @@ import {
   gitStage,
   gitStatus,
   gitUnstage,
+  githubPublish,
+  suggestedRepoName,
   type GitEntry,
   type GitStatus,
 } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
+import { useSettingsStore } from "@/store/settings";
 
 const MERGE_MESSAGE = "Merge remote changes";
 
@@ -97,11 +100,12 @@ export function GitPanel() {
   const project = useProjectStore((s) => s.project);
   const openFile = useProjectStore((s) => s.openFile);
   const syncFromDisk = useProjectStore((s) => s.syncFromDisk);
+  const openSettings = useSettingsStore((s) => s.openSettings);
   const queryClient = useQueryClient();
   const [message, setMessage] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
-  const [busy, setBusy] = useState<"fetch" | "pull" | "push" | null>(null);
+  const [busy, setBusy] = useState<Busy>(null);
   const [diffTarget, setDiffTarget] = useState<string | null>(null);
 
   const { data: status } = useQuery({
@@ -120,24 +124,34 @@ export function GitPanel() {
     await queryClient.invalidateQueries({ queryKey: ["git-ignored"] });
   }
 
-  async function run(action: () => Promise<unknown>) {
+  /** Run an action, then refresh; false (with the error shown) on failure. */
+  async function run(action: () => Promise<unknown>): Promise<boolean> {
     setError(null);
     setNotice(null);
     try {
       await action();
       await refresh();
+      return true;
     } catch (e) {
       setError(String(e));
+      return false;
     }
   }
 
   /** A remote operation: the buttons wait, the files refresh after. */
-  async function sync(kind: NonNullable<typeof busy>, action: () => Promise<string>) {
+  async function sync(
+    kind: NonNullable<Busy>,
+    action: () => Promise<string>,
+  ): Promise<boolean> {
     setBusy(kind);
     try {
-      await run(async () => {
-        setNotice(await action());
+      let message = "";
+      const ok = await run(async () => {
+        message = await action();
       });
+      // run() clears the notice first; set it after.
+      if (ok) setNotice(message);
+      return ok;
     } finally {
       setBusy(null);
       // A pull changes files on disk; the editor picks them up.
@@ -247,6 +261,13 @@ export function GitPanel() {
                 })
               }
               onSetRemote={(url) => run(() => gitSetRemote(project!.path, url))}
+              projectName={project!.name}
+              onPublish={(name, isPrivate) =>
+                sync("publish", async () => {
+                  const url = await githubPublish(project!.path, name, isPrivate);
+                  return `Published to ${remoteLabel(url)}.`;
+                })
+              }
             />
             {notice && (
               <p className="mt-1 px-2 text-xs text-muted-foreground">{notice}</p>
@@ -359,7 +380,23 @@ export function GitPanel() {
                 {merging ? "Finish merge" : "Commit"}
               </Button>
             </div>
-            {error && <p className="mt-1 px-2 text-xs text-destructive">{error}</p>}
+            {error && (
+              <p className="mt-1 px-2 text-xs text-destructive">
+                {error}
+                {/git(hub)? account/i.test(error) && (
+                  <>
+                    {" "}
+                    <button
+                      type="button"
+                      className="underline"
+                      onClick={() => openSettings("git")}
+                    >
+                      Open git accounts
+                    </button>
+                  </>
+                )}
+              </p>
+            )}
           </>
         )}
       </div>
@@ -375,6 +412,8 @@ export function GitPanel() {
  * The remote and the sync actions. Without a remote: a way to add one;
  * with one: Fetch, Pull (with the count behind) and Push (ahead).
  */
+type Busy = "fetch" | "pull" | "push" | "publish" | null;
+
 function RemoteRow({
   status,
   busy,
@@ -382,16 +421,24 @@ function RemoteRow({
   onPull,
   onPush,
   onSetRemote,
+  projectName,
+  onPublish,
 }: {
   status: GitStatus;
-  busy: "fetch" | "pull" | "push" | null;
+  busy: Busy;
   onFetch: () => void;
   onPull: () => void;
   onPush: () => void;
-  onSetRemote: (url: string) => Promise<void>;
+  onSetRemote: (url: string) => Promise<boolean>;
+  projectName: string;
+  onPublish: (name: string, isPrivate: boolean) => Promise<boolean>;
 }) {
   const [editing, setEditing] = useState(false);
   const [url, setUrl] = useState("");
+  const [publishing, setPublishing] = useState<{
+    name: string;
+    isPrivate: boolean;
+  } | null>(null);
 
   function startEditing() {
     setUrl(status.remote ?? "");
@@ -399,8 +446,8 @@ function RemoteRow({
   }
 
   async function save() {
-    await onSetRemote(url);
-    setEditing(false);
+    // A refused URL keeps the field, with the error below it.
+    if (await onSetRemote(url)) setEditing(false);
   }
 
   if (editing) {
@@ -429,13 +476,78 @@ function RemoteRow({
     );
   }
 
+  if (publishing !== null && !status.remote) {
+    const publish = async () => {
+      // A failed publish keeps the form, with the error below it.
+      if (await onPublish(publishing.name, publishing.isPrivate)) setPublishing(null);
+    };
+    return (
+      <div className="flex flex-col gap-1.5 px-2 pt-1">
+        <Input
+          autoFocus
+          aria-label="Repository name"
+          className="h-7 text-xs"
+          value={publishing.name}
+          disabled={busy === "publish"}
+          onChange={(event) =>
+            setPublishing({ ...publishing, name: event.target.value })
+          }
+          onKeyDown={(event) => {
+            if (event.key === "Enter" && publishing.name.trim()) void publish();
+            if (event.key === "Escape") setPublishing(null);
+          }}
+        />
+        <label className="flex items-center gap-1.5 text-xs text-muted-foreground">
+          <input
+            type="checkbox"
+            checked={publishing.isPrivate}
+            disabled={busy === "publish"}
+            onChange={(event) =>
+              setPublishing({ ...publishing, isPrivate: event.target.checked })
+            }
+          />
+          Private repository
+        </label>
+        <div className="flex gap-1">
+          <Button
+            size="xs"
+            disabled={busy !== null || publishing.name.trim() === ""}
+            onClick={() => void publish()}
+          >
+            {busy === "publish" ? "Publishing…" : "Publish"}
+          </Button>
+          <Button
+            variant="ghost"
+            size="xs"
+            disabled={busy === "publish"}
+            onClick={() => setPublishing(null)}
+          >
+            Cancel
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   if (!status.remote) {
     return (
-      <div className="flex items-center justify-between gap-2 px-2 pt-1 text-xs text-muted-foreground">
+      <div className="flex flex-wrap items-center justify-between gap-1 px-2 pt-1 text-xs text-muted-foreground">
         <span>No remote yet.</span>
-        <Button variant="outline" size="xs" onClick={startEditing}>
-          Add remote…
-        </Button>
+        <div className="flex gap-1">
+          <Button
+            variant="outline"
+            size="xs"
+            title="Create a GitHub repository for this project and push it"
+            onClick={() =>
+              setPublishing({ name: suggestedRepoName(projectName), isPrivate: true })
+            }
+          >
+            Publish to GitHub…
+          </Button>
+          <Button variant="outline" size="xs" onClick={startEditing}>
+            Add remote…
+          </Button>
+        </div>
       </div>
     );
   }
