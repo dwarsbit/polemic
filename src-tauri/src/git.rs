@@ -123,11 +123,23 @@ fn runs_command(key: &str) -> bool {
             | "core.askpass"
             | "diff.external"
             | "sequence.editor"
-            | "credential.helper"
-    ) || (key.starts_with("filter.") && ends(&[".clean", ".smudge", ".process"]))
+            | "core.alternaterefscommand"
+    ) || (key.starts_with("credential.") && key.ends_with(".helper"))
+        || (key.starts_with("filter.") && ends(&[".clean", ".smudge", ".process"]))
         || (key.starts_with("diff.") && ends(&[".textconv", ".command"]))
         || (key.starts_with("merge.") && key.ends_with(".driver"))
         || (key.starts_with("gpg.") && key.ends_with("program"))
+}
+
+/// Config keys that make a fetch or push run a program (or go somewhere
+/// other than the remote URL shown). A `-c` override cannot neutralize
+/// them: git keeps the first `uploadpack`/`receivepack` value, and
+/// `insteadOf`/`gitProxy` are lists. Remote commands refuse to run instead.
+fn redirects_transport(key: &str) -> bool {
+    let key = key.to_ascii_lowercase();
+    key == "core.gitproxy"
+        || (key.starts_with("remote.") && [".uploadpack", ".receivepack", ".vcs"].iter().any(|s| key.ends_with(s)))
+        || (key.starts_with("url.") && (key.ends_with(".insteadof") || key.ends_with(".pushinsteadof")))
 }
 
 /// `-c` overrides that blank every command-running key the repository
@@ -138,6 +150,8 @@ fn safety_overrides(local_keys: &str) -> Vec<String> {
     let mut out = vec![
         "core.fsmonitor=false".to_string(),
         format!("core.hooksPath={}", no_hooks.display()),
+        // `ext::` URLs run arbitrary commands.
+        "protocol.ext.allow=never".to_string(),
     ];
     let mut signing = false;
     for key in local_keys.lines().map(str::trim) {
@@ -166,18 +180,23 @@ fn safety_overrides(local_keys: &str) -> Vec<String> {
     out
 }
 
-/// A git command for `dir` with the repository's command-running config
-/// neutralized (see `safety_overrides`).
-fn git_command(dir: &Path) -> Command {
+/// The names of the keys the repository config of `dir` sets.
+fn local_config_keys(dir: &Path) -> String {
     // Reading the config list executes nothing.
-    let local_keys = Command::new("git")
+    Command::new("git")
         .args(["config", "--local", "--includes", "--name-only", "--list"])
         .current_dir(dir)
         .output()
         .ok()
         .filter(|o| o.status.success())
         .map(|o| String::from_utf8_lossy(&o.stdout).into_owned())
-        .unwrap_or_default();
+        .unwrap_or_default()
+}
+
+/// A git command for `dir` with the repository's command-running config
+/// neutralized (see `safety_overrides`).
+fn git_command(dir: &Path) -> Command {
+    let local_keys = local_config_keys(dir);
     let mut command = Command::new("git");
     for value in safety_overrides(&local_keys) {
         command.arg("-c").arg(value);
@@ -225,6 +244,12 @@ fn run_git(dir: &Path, args: &[&str]) -> Result<String, String> {
 }
 
 fn run_remote_git(dir: &Path, url: Option<&str>, args: &[&str]) -> Result<String, String> {
+    if let Some(key) = local_config_keys(dir).lines().map(str::trim).find(|k| redirects_transport(k)) {
+        return Err(format!(
+            "The repository config sets {key}, which can run a program on fetch or push. \
+             Remove it from .git/config to use the remote."
+        ));
+    }
     let output = remote_git_command(dir, url)
         .args(args)
         .output()
@@ -694,6 +719,10 @@ mod tests {
             assert!(overrides.iter().any(|o| o == expected), "missing {expected}: {overrides:?}");
         }
         assert!(overrides.iter().any(|o| o.starts_with("core.hooksPath=")));
+        assert!(overrides.iter().any(|o| o == "protocol.ext.allow=never"));
+        assert!(redirects_transport("remote.Origin.UploadPack"));
+        assert!(redirects_transport("url.ext::sh.insteadOf"));
+        assert!(!redirects_transport("remote.origin.url"));
         assert!(!overrides.iter().any(|o| o.starts_with("user.name") || o.starts_with("core.bare")));
     }
 
@@ -728,6 +757,49 @@ mod tests {
         let _ = run_git(&dir, &["-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "m"]);
         assert!(!marker.exists(), "repository config ran a command");
         let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    /// End to end: a repository whose config runs commands on fetch, pull
+    /// or push through the transport (`uploadpack`, `receivepack`, ...).
+    #[cfg(unix)]
+    #[test]
+    fn repository_config_cannot_run_transport_commands() {
+        if !available() {
+            return;
+        }
+        let bare = temp_repo("evil-bare");
+        run_git(&bare, &["init", "-q", "--bare", "-b", "main"]).unwrap();
+        let bare_url = url::Url::from_file_path(&bare).unwrap().to_string();
+        let dir = temp_repo("evil-remote");
+        init(&dir).unwrap();
+        run_git(&dir, &["checkout", "-q", "-b", "main"]).unwrap();
+        configure_user(&dir);
+        write_and_commit(&dir, "main.tex", "x\n", "first");
+        set_remote(&dir, &bare_url).unwrap();
+        push(&dir).unwrap();
+
+        let marker = dir.join("PWNED");
+        let git = |args: &[&str]| {
+            Command::new("git").args(args).current_dir(&dir).output().unwrap();
+        };
+        for (key, program) in [
+            ("remote.origin.uploadpack", "git-upload-pack"),
+            ("remote.origin.receivePack", "git-receive-pack"),
+            ("core.gitProxy", "cat"),
+        ] {
+            let cmd = format!("touch {}; {program}", marker.display());
+            git(&["config", key, &cmd]);
+            assert!(fetch(&dir).is_err(), "{key}: fetch ran");
+            let _ = pull(&dir);
+            assert!(push(&dir).is_err(), "{key}: push ran");
+            assert!(!marker.exists(), "{key} ran a command");
+            git(&["config", "--unset", key]);
+        }
+        git(&["config", &format!("url.ext::sh -c touch% {}.insteadOf", marker.display()), &bare_url]);
+        assert!(fetch(&dir).is_err(), "insteadOf: fetch ran");
+        assert!(!marker.exists(), "insteadOf ran a command");
+        let _ = std::fs::remove_dir_all(&dir);
+        let _ = std::fs::remove_dir_all(&bare);
     }
 
     #[test]
