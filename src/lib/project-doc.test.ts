@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import * as Y from "yjs";
 import {
   applyFileChange,
+  applyFolder,
   applyFileDelete,
   applyRename,
   applyTextDiff,
@@ -12,6 +13,7 @@ import {
   diskChanges,
   type FolderEntry,
   LOCAL_ORIGIN,
+  mediaType,
   normalizePath,
   readProject,
   readSnapshot,
@@ -22,6 +24,7 @@ import {
   MAX_FILE_BYTES,
 } from "./project-doc";
 import excludeCases from "./project-excludes.cases.json";
+import textCases from "./project-text.cases.json";
 
 interface ExcludeCase {
   path: string;
@@ -119,6 +122,25 @@ describe("text or binary", () => {
     expect(decodeText("a.dat", new Uint8Array([0x41, 0, 0x42]))).toBeNull();
     expect(decodeText("a.txt", new Uint8Array([0xff, 0xfe, 0x41]))).toBeNull();
     expect(decodeText("a.png", encode("looks like text"))).toBeNull();
+  });
+
+  it("classifies the shared cases like the Rust side", () => {
+    for (const c of textCases.cases as {
+      path: string;
+      utf8?: string;
+      hex?: string;
+      text: boolean;
+      type: string;
+    }[]) {
+      const bytes =
+        c.utf8 !== undefined
+          ? encode(c.utf8)
+          : new Uint8Array(c.hex!.split(/\s+/).map((h) => parseInt(h, 16)));
+      const decoded = decodeText(c.path, bytes);
+      expect(decoded !== null, c.path).toBe(c.text);
+      if (decoded !== null) expect(encode(decoded), c.path).toEqual(bytes);
+      expect(mediaType(c.path), c.path).toBe(c.type);
+    }
   });
 
   it("hashes with SHA-256 in lowercase hex", async () => {
@@ -387,5 +409,53 @@ describe("remote updates to disk", () => {
     sync(remote, local);
     expect(seen).toHaveLength(1);
     expect(LOCAL_ORIGIN).toBeTypeOf("symbol");
+  });
+});
+
+describe("applyFolder", () => {
+  it("adds, changes and removes files, keeping ids by path", () => {
+    const doc = buildProjectDoc([
+      text("main.tex", "a"),
+      text("old.tex", "b"),
+      asset("fig/a.png"),
+    ]);
+    const mainId = readProject(doc).texts.get("main.tex")!.id;
+    applyFolder(doc, [
+      text("main.tex", "a2"),
+      text("new.tex", "c"),
+      asset("fig/b.png", HASH_B),
+    ]);
+    expect(files(doc)).toEqual({
+      "main.tex": "a2",
+      "new.tex": "c",
+      "fig/b.png": "asset:bbbb",
+    });
+    expect(readProject(doc).texts.get("main.tex")!.id).toBe(mainId);
+  });
+
+  it("keeps what `keep` names, and works on a document read from elsewhere", () => {
+    const doc = buildProjectDoc([text("main.tex", "a"), text("keep/me.json", "{}")]);
+    const copy = replica(doc);
+    applyFolder(copy, [text("main.tex", "a")], (path) => path.startsWith("keep/"));
+    expect(files(copy)).toEqual({ "main.tex": "a", "keep/me.json": "{}" });
+    Y.applyUpdate(doc, Y.encodeStateAsUpdate(copy, Y.encodeStateVector(doc)));
+    expect(files(doc)).toEqual(files(copy));
+  });
+
+  it("removes a losing conflict copy that is not in the folder", () => {
+    const doc = buildProjectDoc([text("main.tex", "mine")]);
+    const other = buildProjectDoc([text("main.tex", "theirs")]);
+    Y.applyUpdate(doc, Y.encodeStateAsUpdate(other));
+    expect(Object.keys(files(doc)).sort()).toHaveLength(2);
+    applyFolder(doc, [text("main.tex", "mine")]);
+    expect(files(doc)).toEqual({ "main.tex": "mine" });
+  });
+
+  it("is one local transaction", () => {
+    const doc = buildProjectDoc([text("main.tex", "a")]);
+    const origins: unknown[] = [];
+    doc.on("afterTransaction", (tr: Y.Transaction) => origins.push(tr.origin));
+    applyFolder(doc, [text("main.tex", "b"), text("x.tex", "c")]);
+    expect(origins).toEqual([LOCAL_ORIGIN]);
   });
 });

@@ -24,6 +24,7 @@ import {
   Search,
   Settings,
   Shapes,
+  Share2,
   Sparkles,
   TableProperties,
   UserRound,
@@ -308,6 +309,13 @@ export function CommandPalette() {
         icon: FileCog,
         keywords: "class paper title author",
         run: () => useDialogsStore.getState().setDocumentSettingsOpen(true),
+      },
+      {
+        id: "share",
+        title: "Share for review…",
+        icon: Share2,
+        keywords: "publish review link reviewer supervisor professional",
+        run: () => useDialogsStore.getState().setShareOpen(true),
       },
       {
         id: "commit",

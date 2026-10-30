@@ -17,6 +17,7 @@ mod grammar;
 mod ai;
 mod bib_lookup;
 mod settings;
+mod share;
 mod snapshots;
 mod spell;
 mod templates;
@@ -2072,11 +2073,11 @@ const PROJECT_MENU_ITEMS: [&str; 30] = [
 
 /// Project items beyond the fixed-size list above (kept separate so the
 /// array length stays readable).
-const PROJECT_MENU_ITEMS_MORE: [&str; 4] =
-    ["sources", "take_snapshot", "commit", "toggle_comment"];
+const PROJECT_MENU_ITEMS_MORE: [&str; 5] =
+    ["sources", "take_snapshot", "commit", "toggle_comment", "share"];
 
 /// Menu item id → the frontend event it emits.
-const MENU_EVENTS: [(&str, &str); 42] = [
+const MENU_EVENTS: [(&str, &str); 43] = [
     ("new_project", "menu://new-project"),
     ("open_project", "menu://open-project"),
     ("save", "menu://save"),
@@ -2113,6 +2114,7 @@ const MENU_EVENTS: [(&str, &str); 42] = [
     ("sources", "menu://sources"),
     ("take_snapshot", "menu://take-snapshot"),
     ("commit", "menu://commit"),
+    ("share", "menu://share"),
     ("settings", "menu://settings"),
     ("help", "menu://help"),
     ("shortcuts", "menu://shortcuts"),
@@ -2253,6 +2255,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     let sources = item("sources", "Bibliography Sources…", None)?;
     let take_snapshot = item("take_snapshot", "Take Snapshot", None)?;
     let commit = item("commit", "Commit…", Some("CmdOrCtrl+K"))?;
+    let share = item("share", "Share for Review…", None)?;
 
     // App and Help
     let settings = item("settings", "Settings…", Some("CmdOrCtrl+,"))?;
@@ -2333,6 +2336,8 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
         .separator()
         .item(&take_snapshot)
         .item(&commit)
+        .separator()
+        .item(&share)
         .build()?;
     let help_builder = SubmenuBuilder::new(handle, "Help")
         .item(&help)
@@ -2551,6 +2556,18 @@ pub fn run() {    tauri::Builder::default()
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
+            share::share_status,
+            share::share_folder,
+            share::share_create,
+            share::share_sync,
+            share::share_upload_assets,
+            share::share_push,
+            share::share_publish,
+            share::share_snapshots,
+            share::share_links,
+            share::share_create_link,
+            share::share_delete_link,
+            share::share_stop,
             account::account_status,
             account::account_set_server,
             account::account_sign_in,

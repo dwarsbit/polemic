@@ -1,0 +1,85 @@
+{
+  "comment": "Which project files sync as text and which as assets, with the asset's media type: decodeText and mediaType in project-doc.ts, decode_text and media_type in src-tauri/src/share.rs. Both test suites run these cases. Bytes are given as utf8 or as hex.",
+  "cases": [
+    {
+      "path": "main.tex",
+      "utf8": "\\documentclass{article}",
+      "text": true,
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "empty.tex",
+      "utf8": "",
+      "text": true,
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "refs.bib",
+      "hex": "ef bb bf 40 61 72 74",
+      "text": true,
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "notes/ümlaut.txt",
+      "utf8": "Grüße",
+      "text": true,
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "figure.eps",
+      "utf8": "%!PS-Adobe-3.0 EPSF",
+      "text": true,
+      "type": "application/postscript"
+    },
+    {
+      "path": "fig/plot.png",
+      "utf8": "not really a png",
+      "text": false,
+      "type": "image/png"
+    },
+    { "path": "FIG/SCAN.JPG", "utf8": "x", "text": false, "type": "image/jpeg" },
+    {
+      "path": "paper.PDF",
+      "utf8": "%PDF-1.7",
+      "text": false,
+      "type": "application/pdf"
+    },
+    { "path": "fonts/body.woff2", "utf8": "wOF2", "text": false, "type": "font/woff2" },
+    {
+      "path": "data.tar.gz",
+      "utf8": "x",
+      "text": false,
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "logo.psd",
+      "utf8": "8BPS",
+      "text": false,
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "data.bin",
+      "hex": "00 01 02",
+      "text": false,
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "latin1.tex",
+      "hex": "63 61 66 e9",
+      "text": false,
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "Makefile",
+      "utf8": "all:\n\tlatexmk",
+      "text": true,
+      "type": "application/octet-stream"
+    },
+    {
+      "path": ".latexmkrc",
+      "utf8": "$pdf_mode = 1;",
+      "text": true,
+      "type": "application/octet-stream"
+    }
+  ]
+}
