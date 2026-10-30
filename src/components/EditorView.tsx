@@ -35,6 +35,7 @@ import { setPanelCommandHandler } from "@/lib/panel-commands";
 import { setCommentDialogHandler, type CommentTarget } from "@/lib/editor-comments";
 import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
+import { useReviewCommentPull } from "@/hooks/useReviewCommentPull";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 import { useUiStore } from "@/store/ui";
 import { useEditorStore } from "@/store/editor";
@@ -181,8 +182,10 @@ export function EditorView() {
     }
   }
 
-  // Comments: load on open, host the add/edit dialog.
+  // Comments: load on open, host the add/edit dialog, and bring in
+  // reviewers' comments while the project is shared.
   const [commentTarget, setCommentTarget] = useState<CommentTarget | null>(null);
+  useReviewCommentPull();
   useEffect(() => {
     setCommentDialogHandler(setCommentTarget);
     void useCommentsStore.getState().load();

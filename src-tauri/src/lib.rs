@@ -2567,6 +2567,8 @@ pub fn run() {    tauri::Builder::default()
             share::share_links,
             share::share_create_link,
             share::share_delete_link,
+            share::share_comment_state,
+            share::share_save_comments,
             share::share_stop,
             account::account_status,
             account::account_set_server,

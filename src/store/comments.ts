@@ -13,6 +13,7 @@ interface CommentsState {
     text: string;
     anchor: Comment["anchor"];
     suggestion?: string | null;
+    replyTo?: string | null;
   }) => Promise<void>;
   update: (id: string, patch: Partial<Omit<Comment, "id" | "file">>) => Promise<void>;
   remove: (id: string) => Promise<void>;
@@ -76,6 +77,7 @@ export const useCommentsStore = create<CommentsState>((set, get) => ({
       resolved: false,
       anchor: comment.anchor,
       ...(comment.suggestion ? { suggestion: comment.suggestion } : {}),
+      ...(comment.replyTo ? { replyTo: comment.replyTo } : {}),
     };
     const comments = [...get().comments, entry];
     set({ comments });

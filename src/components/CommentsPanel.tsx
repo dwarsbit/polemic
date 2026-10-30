@@ -20,8 +20,73 @@ import { openCommentDialog } from "@/lib/editor-comments";
 import { useEditorStore } from "@/store/editor";
 import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
+import type { Comment, CommentAuthor } from "@/lib/tauri";
 import { cn } from "cn";
 import { formatShortcut } from "@/lib/platform";
+
+/** A reviewer's name; a typed one is marked as unchecked. */
+function AuthorName({
+  author,
+  suffix = "",
+}: {
+  author: CommentAuthor;
+  suffix?: string;
+}) {
+  return (
+    <span
+      title={
+        author.verified
+          ? "Signed in on the review page"
+          : "Name typed on the review page, not checked"
+      }
+    >
+      {author.name}
+      {author.verified ? "" : " (unverified)"}
+      {suffix}
+    </span>
+  );
+}
+
+/** Replies to a comment, under it. */
+function Replies({ replies }: { replies: Comment[] }) {
+  const update = useCommentsStore((s) => s.update);
+  const remove = useCommentsStore((s) => s.remove);
+  return replies.map((reply) => (
+    <div
+      key={reply.id}
+      className={cn(
+        "mt-1 ml-3.5 flex items-start gap-1 border-l pl-2 text-xs",
+        reply.resolved && "opacity-50",
+      )}
+      data-reply
+    >
+      <span className="min-w-0 flex-1 break-words">
+        {reply.text}
+        <span className="block text-2xs text-muted-foreground">
+          {reply.author ? <AuthorName author={reply.author} /> : "You"}
+        </span>
+      </span>
+      <Button
+        variant="ghost"
+        size="icon-xs"
+        className="size-5"
+        title={reply.resolved ? "Mark unresolved" : "Mark resolved"}
+        onClick={() => void update(reply.id, { resolved: !reply.resolved })}
+      >
+        <Check className="size-3" />
+      </Button>
+      <Button
+        variant="ghost"
+        size="icon-xs"
+        className="size-5"
+        title="Delete reply"
+        onClick={() => void remove(reply.id)}
+      >
+        <Trash2 className="size-3" />
+      </Button>
+    </div>
+  ));
+}
 
 /** The pseudo-category of the notes on suggestions. */
 const NOTES = "__suggestion-notes";
@@ -160,9 +225,16 @@ export function CommentsPanel() {
     () => new Set(notes.map((note) => `${note.file}\u0000${note.key}`)),
     [notes],
   );
-  /** Replies shown under their note (not in the comment list). */
-  const isThreaded = (comment: { file: string; suggestion?: string | null }) =>
-    !!comment.suggestion && noteKeys.has(`${comment.file}\u0000${comment.suggestion}`);
+  const commentIds = useMemo(() => new Set(comments.map((c) => c.id)), [comments]);
+  /** Replies shown under their note or comment (not in the comment list). */
+  const isThreaded = (comment: {
+    file: string;
+    suggestion?: string | null;
+    replyTo?: string;
+  }) =>
+    (!!comment.suggestion &&
+      noteKeys.has(`${comment.file}\u0000${comment.suggestion}`)) ||
+    (!!comment.replyTo && commentIds.has(comment.replyTo));
 
   /** The anchored line for a comment, or null when orphaned. */
   function lineOf(comment: {
@@ -387,7 +459,10 @@ export function CommentsPanel() {
                     {/* Edit and delete sit on the meta line so the text
                         keeps the row's full width. */}
                     <div className="mt-0.5 flex items-center pl-3.5 text-2xs text-muted-foreground">
-                      <span className="flex-1">
+                      <span className="min-w-0 flex-1 truncate">
+                        {comment.author && (
+                          <AuthorName author={comment.author} suffix=" · " />
+                        )}
                         {orphaned
                           ? "anchor not found"
                           : comment.anchor === null
@@ -396,6 +471,22 @@ export function CommentsPanel() {
                               ? `line ${line}`
                               : `line ${comment.anchor.line}`}
                       </span>
+                      <Button
+                        variant="ghost"
+                        size="icon-xs"
+                        className="size-5 opacity-0 group-focus-within:opacity-100 group-hover:opacity-100"
+                        title="Reply"
+                        onClick={() =>
+                          openCommentDialog({
+                            kind: "new",
+                            file,
+                            anchor: null,
+                            replyTo: comment.id,
+                          })
+                        }
+                      >
+                        <Reply className="size-3" />
+                      </Button>
                       <Button
                         variant="ghost"
                         size="icon-xs"
@@ -417,6 +508,12 @@ export function CommentsPanel() {
                         <Trash2 className="size-3" />
                       </Button>
                     </div>
+                    <Replies
+                      replies={comments.filter(
+                        (c) =>
+                          c.replyTo === comment.id && (!hideResolved || !c.resolved),
+                      )}
+                    />
                   </div>
                 );
               })}

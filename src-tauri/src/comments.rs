@@ -22,6 +22,21 @@ pub struct Comment {
     /// text), so the thread follows the suggestion. Absent otherwise.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub suggestion: Option<String>,
+    /// Who wrote it on a review page (phase 5a); absent for the
+    /// project's own comments.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub author: Option<CommentAuthor>,
+    /// The comment this one answers. Absent otherwise.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub reply_to: Option<String>,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct CommentAuthor {
+    pub name: String,
+    /// False for a name the reviewer typed: anyone with the link could
+    /// have written it.
+    pub verified: bool,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -126,6 +141,40 @@ pub fn list(project_dir: &Path) -> Vec<Comment> {
     comments
 }
 
+/// The ids of the comment files in the project, parsed or not.
+pub fn ids_on_disk(project_dir: &Path) -> Vec<String> {
+    fs::read_dir(comments_dir(project_dir))
+        .map(|entries| {
+            entries
+                .filter_map(Result::ok)
+                .filter_map(|e| {
+                    let name = e.file_name().to_string_lossy().to_string();
+                    name.strip_suffix(".json").map(str::to_string)
+                })
+                .filter(|id| valid_id(id))
+                .collect()
+        })
+        .unwrap_or_default()
+}
+
+/// Writes comments that came from elsewhere (a review page), each only
+/// if its file is not there yet; returns the ids written. They are not
+/// remembered as read, so a save from an older list leaves them alone.
+pub fn add_new(project_dir: &Path, comments: &[Comment]) -> Result<Vec<String>, String> {
+    migrate(project_dir);
+    let mut written = Vec::new();
+    for comment in comments.iter().filter(|c| valid_id(&c.id)) {
+        if comment_path(project_dir, &comment.id).exists() {
+            continue;
+        }
+        fs::create_dir_all(comments_dir(project_dir))
+            .map_err(|e| format!("failed to create .polemic/comments: {e}"))?;
+        write_one(project_dir, comment)?;
+        written.push(comment.id.clone());
+    }
+    Ok(written)
+}
+
 /// Write the editor's list: each comment to its file, and the files of
 /// comments it removed deleted.
 pub fn save(project_dir: &Path, comments: &[Comment]) -> Result<(), String> {
@@ -192,6 +241,8 @@ mod tests {
             resolved: false,
             anchor: None,
             suggestion: None,
+            author: None,
+            reply_to: None,
         }
     }
 
@@ -261,6 +312,80 @@ mod tests {
         std::thread::sleep(std::time::Duration::from_millis(20));
         save(&dir, &[comment("a", 1, "one")]).unwrap();
         assert_eq!(fs::metadata(&path).unwrap().modified().unwrap(), before);
+        let _ = fs::remove_dir_all(dir);
+    }
+
+    /// What the review page writes (JSON.stringify(comment, null, 2)).
+    const FROM_REVIEW: &str = r#"{
+  "id": "r1",
+  "file": "main.tex",
+  "category": "question",
+  "text": "Which world?",
+  "createdAt": 5,
+  "resolved": false,
+  "anchor": {
+    "text": "Hello, world.",
+    "line": 3
+  },
+  "author": {
+    "name": "Gina Guest",
+    "verified": false
+  },
+  "replyTo": "a"
+}"#;
+
+    #[test]
+    fn keeps_a_review_comment_byte_for_byte() {
+        let comment: Comment = serde_json::from_str(FROM_REVIEW).unwrap();
+        assert_eq!(
+            comment.author,
+            Some(CommentAuthor {
+                name: "Gina Guest".into(),
+                verified: false
+            })
+        );
+        assert_eq!(comment.reply_to.as_deref(), Some("a"));
+        assert_eq!(serde_json::to_string_pretty(&comment).unwrap(), FROM_REVIEW);
+        // The project's own comments gain no keys.
+        let own = serde_json::to_string(&comment_with_id("b")).unwrap();
+        assert!(!own.contains("author") && !own.contains("replyTo"));
+    }
+
+    fn comment_with_id(id: &str) -> Comment {
+        comment(id, 1, "one")
+    }
+
+    #[test]
+    fn adds_new_comments_without_touching_existing_ones() {
+        let dir = temp_project("add-new");
+        save(&dir, &[comment("a", 1, "mine")]).unwrap();
+        let review: Comment = serde_json::from_str(FROM_REVIEW).unwrap();
+        let clash = comment("a", 9, "not mine");
+        let bad = comment("../x", 9, "escape");
+        let written = add_new(&dir, &[review.clone(), clash, bad]).unwrap();
+        assert_eq!(written, ["r1"]);
+        assert_eq!(files(&dir), ["a.json", "r1.json"]);
+        assert_eq!(list(&dir)[0].text, "mine");
+        assert_eq!(
+            fs::read_to_string(comment_path(&dir, "r1")).unwrap(),
+            FROM_REVIEW
+        );
+        let mut ids = ids_on_disk(&dir);
+        ids.sort();
+        assert_eq!(ids, ["a", "r1"]);
+        assert!(add_new(&dir, &[review]).unwrap().is_empty());
+        let _ = fs::remove_dir_all(dir);
+    }
+
+    #[test]
+    fn a_save_from_an_older_list_keeps_added_comments() {
+        let dir = temp_project("add-new-save");
+        save(&dir, &[comment("a", 1, "one")]).unwrap();
+        list(&dir);
+        add_new(&dir, &[serde_json::from_str(FROM_REVIEW).unwrap()]).unwrap();
+        // The editor's list was read before the pull.
+        save(&dir, &[comment("a", 1, "one, edited")]).unwrap();
+        assert_eq!(files(&dir), ["a.json", "r1.json"]);
         let _ = fs::remove_dir_all(dir);
     }
 }

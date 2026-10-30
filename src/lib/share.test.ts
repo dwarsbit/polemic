@@ -4,11 +4,14 @@ import { readProject, type FolderEntry } from "./project-doc";
 import {
   fromBase64,
   isCommentFile,
+  parseComment,
   publishForReview,
+  pullReviewComments,
   toBase64,
   type PublishApi,
   type PublishedSnapshot,
 } from "./share";
+import type { Comment } from "./tauri";
 
 const text = (path: string, value: string): FolderEntry => ({
   path,
@@ -33,6 +36,11 @@ function fakeServer() {
   const uploaded: string[][] = [];
   let folder: FolderEntry[] = [];
   let created = 0;
+  const seen = new Set<string>();
+  const commentIds = () =>
+    folder
+      .filter((entry) => isCommentFile(entry.path))
+      .map((entry) => entry.path.slice(".polemic/comments/".length, -".json".length));
   const api: PublishApi = {
     folder: async () => {
       calls.push("folder");
@@ -48,6 +56,24 @@ function fakeServer() {
         update: toBase64(Y.encodeStateAsUpdate(doc, fromBase64(stateVector))),
         stateVector: toBase64(Y.encodeStateVector(doc)),
       };
+    },
+    commentState: async () => {
+      calls.push("state");
+      return { seen: [...seen], onDisk: commentIds() };
+    },
+    saveComments: async (comments, ids) => {
+      calls.push("save");
+      const written = comments
+        .filter((c) => !commentIds().includes(c.id))
+        .map((c) => {
+          folder = [
+            ...folder,
+            text(`.polemic/comments/${c.id}.json`, JSON.stringify(c, null, 2)),
+          ];
+          return c.id;
+        });
+      for (const id of [...ids, ...written]) seen.add(id);
+      return written;
     },
     uploadAssets: async (hashes) => {
       calls.push("upload");
@@ -78,9 +104,40 @@ function fakeServer() {
     pushed,
     uploaded,
     created: () => created,
+    seen,
+    folder: () => folder,
     setFolder: (entries: FolderEntry[]) => (folder = entries),
+    /** A comment written on the review page: a new comment file in the document. */
+    review(comment: Comment) {
+      const page = new Y.Doc();
+      Y.applyUpdate(page, Y.encodeStateAsUpdate(doc));
+      page.transact(() => {
+        const id = crypto.randomUUID();
+        page
+          .getMap<Y.Text>("texts")
+          .set(id, new Y.Text(JSON.stringify(comment, null, 2)));
+        page.getMap<string>("paths").set(id, `.polemic/comments/${comment.id}.json`);
+      });
+      Y.applyUpdate(doc, Y.encodeStateAsUpdate(page, Y.encodeStateVector(doc)));
+    },
   };
 }
+
+const reviewComment = (id: string, extra: Partial<Comment> = {}): Comment => ({
+  id,
+  file: "main.tex",
+  category: "question",
+  text: `Comment ${id}`,
+  createdAt: 5,
+  resolved: false,
+  anchor: { text: "a", line: 1 },
+  author: { name: "Gina Guest", verified: false },
+  ...extra,
+});
+const ownCommentText = (id: string) =>
+  JSON.stringify({ ...reviewComment(id), author: undefined });
+const ownComment = (id: string) =>
+  text(`.polemic/comments/${id}.json`, ownCommentText(id));
 
 /** The server's document as files: path → text, or asset:<hash prefix>. */
 function files(doc: Y.Doc): Record<string, string> {
@@ -106,9 +163,11 @@ describe("publish for review", () => {
     );
     expect(snapshot.main).toBe("main.tex");
     expect(server.calls).toEqual([
-      "folder",
       "create",
       "sync",
+      "state",
+      "save",
+      "folder",
       "upload",
       "push",
       "publish",
@@ -139,45 +198,45 @@ describe("publish for review", () => {
     const calls = server.calls.length;
     await publishForReview(server.api, { name: "Thesis", main: null });
     expect(server.calls.slice(calls)).toEqual([
-      "folder",
       "create",
       "sync",
+      "state",
+      "save",
+      "folder",
       "upload",
       "publish",
     ]);
   });
 
-  it("removes files gone from the folder, but keeps reviewers' comment files", async () => {
+  it("removes files gone from the folder, and pulls reviewers' comments in first", async () => {
     const server = fakeServer();
     server.setFolder([
       text("main.tex", "a"),
       text("old.tex", "b"),
       asset("fig/old.png", HASH_A),
-      text(".polemic/comments/mine.json", "{}"),
+      ownComment("mine"),
     ]);
     await publishForReview(server.api, { name: "Thesis", main: null });
+    server.review(reviewComment("rev1"));
 
-    // A reviewer's comment arrives on the server (step 4).
-    const reviewer = new Y.Doc();
-    Y.applyUpdate(reviewer, Y.encodeStateAsUpdate(server.doc));
-    reviewer.transact(() => {
-      reviewer.getMap<Y.Text>("texts").set("rev1", new Y.Text('{"body":"Cite this"}'));
-      reviewer.getMap<string>("paths").set("rev1", ".polemic/comments/rev1.json");
-    });
-    Y.applyUpdate(
-      server.doc,
-      Y.encodeStateAsUpdate(reviewer, Y.encodeStateVector(server.doc)),
-    );
-
-    server.setFolder([text("main.tex", "a"), asset("fig/new.png", HASH_B)]);
+    server.setFolder([
+      text("main.tex", "a"),
+      asset("fig/new.png", HASH_B),
+      ownComment("mine"),
+    ]);
     await publishForReview(server.api, { name: "Thesis", main: null });
+    const pulled = JSON.stringify(reviewComment("rev1"), null, 2);
     expect(files(server.doc)).toEqual({
       "main.tex": "a",
       "fig/new.png": "asset:bbbb",
-      ".polemic/comments/mine.json": "{}",
-      ".polemic/comments/rev1.json": '{"body":"Cite this"}',
+      ".polemic/comments/mine.json": ownCommentText("mine"),
+      ".polemic/comments/rev1.json": pulled,
     });
+    expect(
+      server.folder().find((e) => e.path === ".polemic/comments/rev1.json"),
+    ).toEqual(text(".polemic/comments/rev1.json", pulled));
     expect(server.uploaded[1]).toEqual([HASH_B]);
+    expect([...server.seen].sort()).toEqual(["mine", "rev1"]);
   });
 
   it("stops before touching the server document when an upload fails", async () => {
@@ -201,5 +260,135 @@ describe("publish for review", () => {
     const bytes = new Uint8Array(200_000).map((_, i) => (i * 31) % 256);
     expect(fromBase64(toBase64(bytes))).toEqual(bytes);
     expect(toBase64(new Uint8Array([0, 0]))).toBe("AAA=");
+  });
+});
+
+describe("pulling reviewers' comments", () => {
+  async function published() {
+    const server = fakeServer();
+    server.setFolder([text("main.tex", "a"), ownComment("mine")]);
+    await publishForReview(server.api, { name: "Thesis", main: null });
+    return server;
+  }
+
+  it("writes a reviewer's comment into the folder once", async () => {
+    const server = await published();
+    server.review(reviewComment("r1", { replyTo: "mine" }));
+    const first = await pullReviewComments(server.api);
+    expect(first.added).toEqual([reviewComment("r1", { replyTo: "mine" })]);
+    expect(first.seen).toEqual(new Set(["mine", "r1"]));
+    const again = await pullReviewComments(server.api);
+    expect(again.added).toEqual([]);
+    expect(server.folder().filter((e) => isCommentFile(e.path))).toHaveLength(2);
+  });
+
+  it("never overwrites the folder's copy", async () => {
+    const server = await published();
+    server.review(reviewComment("r1"));
+    await pullReviewComments(server.api);
+    // The owner resolves it here; a pull keeps that.
+    const resolved = text(
+      ".polemic/comments/r1.json",
+      JSON.stringify({ ...reviewComment("r1"), resolved: true }, null, 2),
+    );
+    server.setFolder([
+      ...server.folder().filter((e) => !e.path.endsWith("r1.json")),
+      resolved,
+    ]);
+    await pullReviewComments(server.api);
+    expect(server.folder().find((e) => e.path.endsWith("r1.json"))).toEqual(resolved);
+    // The next publish sends the resolved copy.
+    await publishForReview(server.api, { name: "Thesis", main: null });
+    expect(JSON.parse(files(server.doc)[".polemic/comments/r1.json"]).resolved).toBe(
+      true,
+    );
+  });
+
+  it("does not bring back a comment deleted here, and the next publish removes it", async () => {
+    const server = await published();
+    server.review(reviewComment("r1"));
+    await pullReviewComments(server.api);
+    server.setFolder(server.folder().filter((e) => !e.path.endsWith("r1.json")));
+    expect((await pullReviewComments(server.api)).added).toEqual([]);
+    await publishForReview(server.api, { name: "Thesis", main: null });
+    expect(Object.keys(files(server.doc))).toEqual([
+      "main.tex",
+      ".polemic/comments/mine.json",
+    ]);
+  });
+
+  it("counts a reviewer's comment that reached the folder another way as held", async () => {
+    const server = await published();
+    server.review(reviewComment("r1"));
+    // A git pull brought it in before this folder pulled from the server.
+    const viaGit = text(
+      ".polemic/comments/r1.json",
+      JSON.stringify(reviewComment("r1"), null, 2),
+    );
+    server.setFolder([...server.folder(), viaGit]);
+    expect((await pullReviewComments(server.api)).added).toEqual([]);
+    server.setFolder(server.folder().filter((e) => e !== viaGit));
+    expect((await pullReviewComments(server.api)).added).toEqual([]);
+  });
+
+  it("removes the folder's own comments deleted here, never pulling them back", async () => {
+    const server = await published();
+    server.seen.clear(); // A link from before this step remembers none.
+    server.setFolder([text("main.tex", "a")]);
+    expect((await pullReviewComments(server.api)).added).toEqual([]);
+    await publishForReview(server.api, { name: "Thesis", main: null });
+    expect(Object.keys(files(server.doc))).toEqual(["main.tex"]);
+  });
+
+  it("keeps a reviewer's comment that arrives during a publish", async () => {
+    const server = await published();
+    const folder = server.api.folder;
+    server.api.folder = async () => {
+      server.review(reviewComment("late"));
+      return folder();
+    };
+    await publishForReview(server.api, { name: "Thesis", main: null });
+    expect(files(server.doc)).toHaveProperty([".polemic/comments/late.json"]);
+    server.api.folder = folder;
+    expect((await pullReviewComments(server.api)).added.map((c) => c.id)).toEqual([
+      "late",
+    ]);
+  });
+
+  it("skips files that are not a reviewer's comment", async () => {
+    const server = await published();
+    server.review({ ...reviewComment("bad"), createdAt: -1 });
+    server.review({ ...reviewComment("own"), author: undefined });
+    expect((await pullReviewComments(server.api)).added).toEqual([]);
+  });
+});
+
+describe("parseComment", () => {
+  const json = (value: unknown) => JSON.stringify(value);
+  it("reads the editor's and the review page's comments", () => {
+    expect(parseComment(json(reviewComment("a")), "a")).toEqual(reviewComment("a"));
+    const own = {
+      ...reviewComment("a"),
+      author: undefined,
+      suggestion: null,
+      anchor: null,
+    };
+    expect(parseComment(json(own), "a")).toEqual(JSON.parse(json(own)));
+  });
+
+  it("refuses anything else", () => {
+    expect(parseComment("{", "a")).toBeNull();
+    expect(parseComment(json(reviewComment("a")), "b")).toBeNull();
+    expect(parseComment(json(reviewComment("../a")), "../a")).toBeNull();
+    for (const bad of [
+      { text: 1 },
+      { createdAt: 1.5 },
+      { anchor: { text: "a", line: 0 } },
+      { author: { name: "x" } },
+      { replyTo: "a/b" },
+      { resolved: "no" },
+    ]) {
+      expect(parseComment(json({ ...reviewComment("a"), ...bad }), "a")).toBeNull();
+    }
   });
 });
