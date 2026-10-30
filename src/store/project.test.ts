@@ -59,6 +59,7 @@ vi.mock("@/lib/tauri", () => ({
   listSnapshots: () => Promise.resolve([]),
   compileProject: () => Promise.resolve({ success: false, issues: [], log: "" }),
   getPdf: () => Promise.resolve(new Uint8Array()),
+  cancelCompile: () => Promise.resolve(),
   setPreviewZoom: () => Promise.resolve(),
 }));
 

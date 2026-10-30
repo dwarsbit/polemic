@@ -133,6 +133,9 @@ pub struct Settings {
     pub author_initials: Option<String>,
     /// Accounts for private HTTPS remotes; tokens in the credential store.
     pub git_accounts: Vec<GitAccount>,
+    /// Where compiles run: "local" or "polemic" (the account's server,
+    /// Professional). None means on this computer.
+    pub compile_provider: Option<String>,
 }
 
 /// Managed state holding the in-memory settings.

@@ -1,4 +1,6 @@
 mod account;
+mod cloud_compile;
+mod excludes;
 mod files;
 pub mod git;
 mod git_accounts;
@@ -1123,52 +1125,154 @@ fn set_open_files(
 
 // --- compilation ----------------------------------------------------------
 
+/// The outcome of a compile whose files are in build/: issues from the
+/// .log, and a bibliography tool failure from latexmk's output and a
+/// .blg written since `started`.
+fn compile_outcome(
+    dir: &std::path::Path,
+    main_tex: &str,
+    success: bool,
+    log: String,
+    engine: &str,
+    started: std::time::SystemTime,
+) -> CompileOutcome {
+    let base = dir.join("build").join(pdf_output_path(main_tex));
+    let mut issues = fs::read_to_string(base.with_extension("log"))
+        .map(|text| logparse::parse_issues(&text))
+        .unwrap_or_default();
+    // A .blg left over from an earlier run says nothing about this one.
+    let blg_path = base.with_extension("blg");
+    let blg = fs::metadata(&blg_path)
+        .and_then(|meta| meta.modified())
+        .is_ok_and(|modified| modified >= started)
+        .then(|| fs::read_to_string(&blg_path).ok())
+        .flatten();
+    if let Some(failure) = logparse::parse_bib_tool_failure(&log, blg.as_deref()) {
+        issues.retain(|issue| !logparse::is_rerun_bib_tool_warning(issue));
+        issues.insert(0, failure);
+    }
+    CompileOutcome {
+        success,
+        issues,
+        log,
+        engine: engine.into(),
+    }
+}
+
+/// Compiles on this computer, or with Polemic when Settings → Compile
+/// says so; either way the outputs land in build/.
 #[tauri::command]
 async fn compile_project(
+    app: tauri::AppHandle,
     project_dir: String,
     main_tex: String,
-) -> Result<CompileOutcome, String> {
+) -> Result<CompileOutcome, cloud_compile::CompileError> {
+    let dir = canonical_project(&project_dir)?;
+    validate_tex_arg(&project_dir, &main_tex)?;
+    let main_source = fs::read_to_string(project_file(&project_dir, &main_tex)?)
+        .unwrap_or_default();
+    let engine = profile::resolve(&profile::load(&dir), &main_source);
+    if settings::snapshot(&app)?.compile_provider.as_deref() == Some("polemic") {
+        return compile_with_polemic(&app, &dir, &main_tex, engine).await;
+    }
     tauri::async_runtime::spawn_blocking(move || {
-        let dir = canonical_project(&project_dir)?;
-        validate_tex_arg(&project_dir, &main_tex)?;
-        let main_source = fs::read_to_string(project_file(&project_dir, &main_tex)?)
-            .unwrap_or_default();
-        let engine = profile::resolve(&profile::load(&dir), &main_source);
         let started = std::time::SystemTime::now();
         let output = output_with_timeout(latexmk_command(&dir, &main_tex, engine), COMPILE_TIMEOUT).map_err(|e| match e {
-            RunError::Spawn(e) => format!("failed to run latexmk: {e}\n\nIs a TeX distribution (TeX Live, MacTeX, or MiKTeX) installed and on your PATH?"),
+            RunError::Spawn(e) => cloud_compile::CompileError::new(
+                cloud_compile::CompileErrorKind::NoTex,
+                format!("failed to run latexmk: {e}\n\nIs a TeX distribution (TeX Live, MacTeX, or MiKTeX) installed and on your PATH?"),
+            ),
             RunError::TimedOut => format!(
                 "the compile was stopped after {} minutes. The document may loop forever; check recent macro changes.",
                 COMPILE_TIMEOUT.as_secs() / 60
-            ),
+            )
+            .into(),
         })?;
-        let success = output.status.success();
         let mut log = String::from_utf8_lossy(&output.stdout).to_string();
         log.push_str(&String::from_utf8_lossy(&output.stderr));
-        let base = dir.join("build").join(pdf_output_path(&main_tex));
-        let mut issues = fs::read_to_string(base.with_extension("log"))
-            .map(|text| logparse::parse_issues(&text))
-            .unwrap_or_default();
-        // A .blg left over from an earlier run says nothing about this one.
-        let blg_path = base.with_extension("blg");
-        let blg = fs::metadata(&blg_path)
-            .and_then(|meta| meta.modified())
-            .is_ok_and(|modified| modified >= started)
-            .then(|| fs::read_to_string(&blg_path).ok())
-            .flatten();
-        if let Some(failure) = logparse::parse_bib_tool_failure(&log, blg.as_deref()) {
-            issues.retain(|issue| !logparse::is_rerun_bib_tool_warning(issue));
-            issues.insert(0, failure);
-        }
-        Ok(CompileOutcome {
-            success,
-            issues,
-            log,
-            engine: engine.name().into(),
-        })
+        Ok(compile_outcome(&dir, &main_tex, output.status.success(), log, engine.name(), started))
     })
     .await
     .map_err(|e| e.to_string())?
+}
+
+/// Longest a compile runs on the server (its 4 minutes).
+const CLOUD_COMPILE_MINUTES: u64 = 4;
+
+async fn compile_with_polemic(
+    app: &tauri::AppHandle,
+    dir: &std::path::Path,
+    main_tex: &str,
+    engine: profile::Engine,
+) -> Result<CompileOutcome, cloud_compile::CompileError> {
+    let server = account::server_of(app)?;
+    let token = account::token_with(&server, &account::STORE)
+        .ok_or_else(cloud_compile::CompileError::signed_out)?;
+    let main = main_tex.replace('\\', "/");
+    let started = std::time::SystemTime::now();
+    let result = cloud_compile::cancellable(cloud_compile::compile_with(
+        &server, &token, dir, &main, engine,
+    ))
+    .await;
+    if matches!(&result, Err(e) if e.kind == cloud_compile::CompileErrorKind::SignedOut) {
+        account::forget_rejected_with(&server, &token, &account::STORE);
+    }
+    let compiled = result?;
+    let mut outcome = compile_outcome(
+        dir,
+        main_tex,
+        compiled.status == "success",
+        compiled.output,
+        &compiled.engine,
+        started,
+    );
+    logparse::add_font_hints(&mut outcome.issues);
+    if compiled.status == "timeout" {
+        outcome.issues.insert(
+            0,
+            logparse::CompileIssue {
+                severity: "error".into(),
+                file: None,
+                line: None,
+                message: format!(
+                    "The compile was stopped after {CLOUD_COMPILE_MINUTES} minutes on the Polemic server."
+                ),
+                detail: Vec::new(),
+                hint: Some(
+                    "The document may loop forever; check recent macro changes. A long document can compile on this computer, which allows 10 minutes.".into(),
+                ),
+            },
+        );
+    }
+    Ok(outcome)
+}
+
+/// Stops a compile with Polemic that is still running (a newer compile
+/// or another project is on its way).
+#[tauri::command]
+fn cancel_compile() {
+    cloud_compile::cancel();
+}
+
+#[tauri::command]
+fn set_compile_provider(app: tauri::AppHandle, provider: String) -> Result<Settings, String> {
+    if provider != "local" && provider != "polemic" {
+        return Err(format!("unknown compile provider: {provider}"));
+    }
+    settings::update(&app, |s| {
+        s.compile_provider = Some(provider.clone());
+        s.clone()
+    })
+}
+
+/// Whether the account can compile with Polemic, for Settings.
+#[tauri::command]
+async fn cloud_compile_status(app: tauri::AppHandle) -> Result<cloud_compile::Availability, String> {
+    let server = account::server_of(&app)?;
+    let Some(token) = account::token_with(&server, &account::STORE) else {
+        return Ok(cloud_compile::Availability::SignedOut);
+    };
+    Ok(cloud_compile::availability_with(&server, &token).await)
 }
 
 #[tauri::command]
@@ -1238,6 +1342,8 @@ fn synctex_forward(
     let input = input.unwrap_or_else(|| main_tex.clone());
     validate_tex_arg(&project_dir, &main_tex)?;
     validate_tex_arg(&project_dir, &input)?;
+    // Still the `synctex` program, which a user who compiles with
+    // Polemic may not have; phase 6 step 4 reads .synctex.gz itself.
     let output = Command::new("synctex")
         .arg("view")
         .arg("-i")
@@ -1284,6 +1390,7 @@ fn synctex_backward(
     y: f64,
 ) -> Result<SynctexBackward, String> {
     let dir = canonical_project(&project_dir)?;
+    // The `synctex` program, as in synctex_forward (step 4 replaces it).
     let output = Command::new("synctex")
         .arg("edit")
         .arg("-o")
@@ -1313,7 +1420,8 @@ fn synctex_backward(
     let line = line.ok_or("synctex returned no line")?;
     // synctex reports absolute paths that may contain "/./"; normalize to
     // a project-relative path.
-    let rel = fs::canonicalize(&file)
+    // A compile with Polemic records project-relative names.
+    let rel = fs::canonicalize(dir.join(&file))
         .ok()
         .and_then(|canon| canon.strip_prefix(&dir).ok().map(|p| p.to_string_lossy().to_string()))
         .or_else(|| {
@@ -2488,6 +2596,9 @@ pub fn run() {    tauri::Builder::default()
             set_main_file,
             set_open_files,
             compile_project,
+            cancel_compile,
+            set_compile_provider,
+            cloud_compile_status,
             get_pdf,
             export_pdf,
             open_pdf,
