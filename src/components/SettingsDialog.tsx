@@ -20,6 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { AccountSettingsSection } from "@/components/AccountSettingsSection";
 import { AiSettingsSection } from "@/components/AiSettingsSection";
+import { CompileSettingsSection } from "@/components/CompileSettingsSection";
 import { GitAccountsSection } from "@/components/GitAccountsSection";
 import { GrammarSettingsSection } from "@/components/GrammarSettingsSection";
 import { SourcesSettingsCard } from "@/components/SourcesSettings";
@@ -876,8 +877,22 @@ export function SettingsDialog({
       id: "tex",
       label: "Compile",
       icon: Package,
-      intro: "Your TeX distribution and the tools Polemic found on this computer.",
+      intro: "Where documents compile, and the TeX tools Polemic found on this computer.",
       cards: [
+        {
+          title: "Where to compile",
+          rows: [
+            {
+              id: "compile-provider",
+              label: "Where to compile",
+              description:
+                "On this computer with your TeX distribution, or with Polemic (Professional) without installing TeX.",
+              keywords: "cloud server polemic professional compile remote online tex live",
+              control: null,
+            },
+          ],
+          content: <CompileSettingsSection />,
+        },
         {
           title: "TeX distribution",
           rows: [

@@ -1,8 +1,10 @@
 import { create } from "zustand";
 import {
+  cancelCompile,
   compileProject,
   getPdf,
   setPreviewZoom,
+  type CompileError,
   type CompileIssue,
   type TexEngine,
 } from "@/lib/tauri";
@@ -20,7 +22,8 @@ export interface ScrollTarget {
 // project must not apply its result.
 let compileGeneration = 0;
 // latexmk runs one at a time (they share the build folder); a request
-// during a run queues a single follow-up run.
+// during a run queues a single follow-up run. A compile with Polemic
+// still running is stopped instead of awaited: the follow-up replaces it.
 let inFlight: Promise<void> | null = null;
 let queued: Promise<void> | null = null;
 
@@ -28,6 +31,8 @@ interface PreviewState {
   status: PreviewStatus;
   pdfBytes: Uint8Array | null;
   error: string | null;
+  /** What kind of failure `error` is, for the actions shown with it. */
+  errorKind: CompileError["kind"] | null;
   issues: CompileIssue[];
   log: string | null;
   /** The engine of the last finished compile. */
@@ -63,6 +68,7 @@ export const usePreviewStore = create<PreviewState>((set) => ({
   status: "idle",
   pdfBytes: null,
   error: null,
+  errorKind: null,
   issues: [],
   log: null,
   engine: null,
@@ -82,10 +88,12 @@ export const usePreviewStore = create<PreviewState>((set) => ({
     set((state) => ({ scrollTarget: target, scrollVersion: state.scrollVersion + 1 })),
   resetForProject: () => {
     compileGeneration++;
+    void cancelCompile().catch(() => {});
     set({
       status: "idle",
       pdfBytes: null,
       error: null,
+      errorKind: null,
       issues: [],
       log: null,
       engine: null,
@@ -95,6 +103,7 @@ export const usePreviewStore = create<PreviewState>((set) => ({
   },
   compileNow: (): Promise<void> => {
     if (inFlight !== null) {
+      void cancelCompile().catch(() => {});
       queued ??= inFlight.then((): Promise<void> => {
         queued = null;
         return usePreviewStore.getState().compileNow();
@@ -116,6 +125,7 @@ async function runCompile(
     set({
       status: "error",
       error: "No project with a main .tex file is open.",
+      errorKind: "failed",
       issues: [],
       log: null,
     });
@@ -137,12 +147,14 @@ async function runCompile(
           issues: outcome.issues,
           log: outcome.log,
           error: null,
+          errorKind: null,
         });
       } catch (e) {
         if (generation !== compileGeneration) return;
         set({
           status: "error",
           error: String(e),
+          errorKind: "failed",
           issues: outcome.issues,
           log: outcome.log,
         });
@@ -150,12 +162,28 @@ async function runCompile(
     } else {
       // Compile failed: keep the last PDF, surface issues in the panel.
       if (generation !== compileGeneration) return;
-      set({ status: "error", error: null, issues: outcome.issues, log: outcome.log });
+      set({
+        status: "error",
+        error: null,
+        errorKind: null,
+        issues: outcome.issues,
+        log: outcome.log,
+      });
     }
   } catch (e) {
-    // Infrastructure failure (e.g. latexmk missing).
-    if (generation === compileGeneration) {
-      set({ status: "error", error: String(e), issues: [], log: null });
-    }
+    // Infrastructure failure (e.g. latexmk missing, the server refused).
+    if (generation !== compileGeneration) return;
+    const error = compileError(e);
+    // Stopped for the queued follow-up, which sets the state itself.
+    if (error.kind === "cancelled") return;
+    set({ status: "error", error: error.message, errorKind: error.kind, issues: [], log: null });
   }
+}
+
+/** A compile error as `compileProject` throws it, or any other error. */
+export function compileError(e: unknown): CompileError {
+  if (typeof e === "object" && e !== null && "kind" in e && "message" in e) {
+    return e as CompileError;
+  }
+  return { kind: "failed", message: String(e), retryAfter: null };
 }

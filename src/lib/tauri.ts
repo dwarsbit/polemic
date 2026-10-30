@@ -80,7 +80,12 @@ export interface Settings {
   authorInitials: string | null;
   /** Accounts for private HTTPS remotes; the tokens stay Rust-side. */
   gitAccounts: { id: string; host: string; username: string; name?: string }[];
+  /** Where compiles run; null means on this computer. */
+  compileProvider: CompileProvider | null;
 }
+
+/** On this computer, or on the Polemic account's server (Professional). */
+export type CompileProvider = "local" | "polemic";
 
 /** Grammar checking: built-in Harper (English), LanguageTool on the
  *  Polemic account's server (Professional), or the user's own LanguageTool. */
@@ -238,6 +243,37 @@ export interface CompileOutcome {
 
 export type TexEngine = "pdflatex" | "xelatex" | "lualatex";
 
+/** Why a compile failed (the Rust `CompileError`). */
+export interface CompileError {
+  kind:
+    | "noTex"
+    | "signedOut"
+    | "planRequired"
+    | "disabled"
+    | "tooLarge"
+    | "rateLimited"
+    | "unavailable"
+    | "superseded"
+    | "cancelled"
+    | "failed";
+  message: string;
+  /** Seconds, for "rateLimited". */
+  retryAfter: number | null;
+}
+
+/** Whether compiling with Polemic works for the account (Settings). */
+export type CloudCompileStatus =
+  "available" | "signedOut" | "planRequired" | "disabled" | "unknown";
+
+export function cloudCompileStatus(): Promise<CloudCompileStatus> {
+  return invoke<CloudCompileStatus>("cloud_compile_status");
+}
+
+/** Stops a compile with Polemic that is still running. */
+export function cancelCompile(): Promise<void> {
+  return invoke<void>("cancel_compile");
+}
+
 /** Per-project settings in `.polemic/project.json`. */
 export interface ProjectConfig {
   /** null or "auto": magic comment, then a preamble guess. */
@@ -357,6 +393,10 @@ export function updatePreferences(prefs: EditorPreferences): Promise<Settings> {
 
 export function setVersionControl(value: "git" | "snapshots"): Promise<Settings> {
   return invoke<Settings>("set_version_control", { value });
+}
+
+export function setCompileProvider(provider: CompileProvider): Promise<Settings> {
+  return invoke<Settings>("set_compile_provider", { provider });
 }
 
 /** A native context menu entry, shown by the show_context_menu command. */

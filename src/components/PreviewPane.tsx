@@ -11,6 +11,7 @@ import {
   X,
   ZoomOut,
 } from "lucide-react";
+import { CompileErrorActions } from "@/components/CompileSettingsSection";
 import { openPdf, synctexBackward } from "@/lib/tauri";
 import { exportPdfAs } from "@/lib/pdf-export";
 import { modKey, formatShortcut } from "@/lib/platform";
@@ -46,6 +47,7 @@ export function PreviewPane() {
   const status = usePreviewStore((s) => s.status);
   const pdfBytes = usePreviewStore((s) => s.pdfBytes);
   const error = usePreviewStore((s) => s.error);
+  const errorKind = usePreviewStore((s) => s.errorKind);
   const notice = usePreviewStore((s) => s.notice);
   const scrollTarget = usePreviewStore((s) => s.scrollTarget);
   const scrollVersion = usePreviewStore((s) => s.scrollVersion);
@@ -254,10 +256,13 @@ export function PreviewPane() {
           // The last good PDF stays visible; say that it is out of date.
           <div className="sticky top-0 z-10 flex items-start gap-2 border-b bg-card px-3 py-2 text-xs">
             <AlertTriangle className="mt-0.5 size-3.5 shrink-0 text-destructive" />
-            <span className="max-h-24 flex-1 overflow-auto whitespace-pre-wrap">
-              {error ??
-                "The last compile failed. This is the previous PDF; the errors are in Issues."}
-            </span>
+            <div className="flex-1 space-y-2">
+              <p className="max-h-24 overflow-auto whitespace-pre-wrap">
+                {error ??
+                  "The last compile failed. This is the previous PDF; the errors are in Issues."}
+              </p>
+              <CompileErrorActions kind={error ? errorKind : null} />
+            </div>
           </div>
         )}
         {pdfBytes ? (
@@ -269,6 +274,7 @@ export function PreviewPane() {
             <pre className="max-h-full w-full overflow-auto rounded bg-card p-3 font-mono text-xs whitespace-pre-wrap">
               {error}
             </pre>
+            <CompileErrorActions kind={errorKind} />
           </div>
         ) : status === "error" ? (
           <div className="flex h-full items-center justify-center">

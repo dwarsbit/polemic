@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import {
+  setCompileProvider as persistCompileProvider,
   setPanelLayout,
   setSpellcheckLanguage as persistSpellcheckLanguage,
   setVersionControl as persistVersionControl,
@@ -7,6 +8,7 @@ import {
   updateGrammarSettings,
   updatePreferences,
   type AiSettings,
+  type CompileProvider,
   type GrammarSettings,
   type Settings,
 } from "@/lib/tauri";
@@ -46,6 +48,8 @@ interface SettingsState {
   authorInitials: string;
   /** Explicit version-control choice; null means auto. */
   versionControl: "git" | "snapshots" | null;
+  /** Where compiles run: on this computer (default) or with Polemic. */
+  compileProvider: CompileProvider;
   /** Whether the git binary is on PATH (part of startup gating). */
   gitAvailable: boolean;
   settingsDialogOpen: boolean;
@@ -75,6 +79,7 @@ interface SettingsState {
   setOnlineLookup: (enabled: boolean) => Promise<void>;
   setAuthor: (author: { name?: string; initials?: string }) => Promise<void>;
   setVersionControl: (value: "git" | "snapshots") => Promise<void>;
+  setCompileProvider: (provider: CompileProvider) => Promise<void>;
   setGitAvailable: (available: boolean) => void;
   setSettingsDialogOpen: (open: boolean) => void;
   /** Open the settings dialog, optionally on a specific section. */
@@ -117,6 +122,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   authorName: "",
   authorInitials: "",
   versionControl: null,
+  compileProvider: "local",
   gitAvailable: false,
   settingsDialogOpen: false,
   settingsSection: null,
@@ -155,6 +161,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
         settings.versionControl === "git" || settings.versionControl === "snapshots"
           ? settings.versionControl
           : null,
+      compileProvider: settings.compileProvider === "polemic" ? "polemic" : "local",
       projectsRoot: settings.projectsRoot,
       panelLayout: settings.panelLayout,
       ai: settings.ai,
@@ -233,6 +240,10 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   setVersionControl: async (value) => {
     set({ versionControl: value });
     await persistVersionControl(value);
+  },
+  setCompileProvider: async (provider) => {
+    await persistCompileProvider(provider);
+    set({ compileProvider: provider });
   },
   setGitAvailable: (available) => set({ gitAvailable: available }),
   setSpellcheckLanguage: async (lang) => {

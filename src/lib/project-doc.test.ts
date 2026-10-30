@@ -21,6 +21,14 @@ import {
   watchRemoteChanges,
   MAX_FILE_BYTES,
 } from "./project-doc";
+import excludeCases from "./project-excludes.cases.json";
+
+interface ExcludeCase {
+  path: string;
+  isDir?: boolean;
+  size?: number;
+  excluded: boolean;
+}
 
 const encode = (text: string) => new TextEncoder().encode(text);
 const text = (path: string, value: string): FolderEntry => ({
@@ -80,42 +88,23 @@ describe("normalizePath", () => {
 });
 
 describe("excludes", () => {
-  it("skips git, build output and big files", () => {
-    const excluded = createExcluder();
-    expect(excluded(".git/config")).toBe(true);
-    expect(excluded("sub/.git/HEAD")).toBe(true);
-    expect(excluded("build/main.pdf")).toBe(true);
-    expect(excluded("main.aux")).toBe(true);
-    expect(excluded("main.synctex.gz")).toBe(true);
-    expect(excluded("ch/intro.log")).toBe(true);
-    expect(excluded("main.tex", { size: MAX_FILE_BYTES + 1 })).toBe(true);
-    expect(excluded("main.tex", { size: MAX_FILE_BYTES })).toBe(false);
-    expect(excluded(".polemic/comments/c1.json")).toBe(false);
-    expect(excluded(".gitignore")).toBe(false);
-    expect(excluded("figures/plot.pdf")).toBe(false);
+  // The same cases run against the Rust copy of these rules (excludes.rs),
+  // which picks the files for a cloud compile.
+  it("uses the same size limit as the shared cases", () => {
+    expect(MAX_FILE_BYTES).toBe(excludeCases.maxFileBytes);
   });
 
-  it("follows .gitignore rules", () => {
-    const excluded = createExcluder([
-      { dir: "", text: "# notes\n*.tmp\n/drafts/\ndata/**/raw.csv\n!keep.tmp\n" },
-      { dir: "fig", text: "*.svg\n!logo.svg\n" },
-    ]);
-    expect(excluded("a.tmp")).toBe(true);
-    expect(excluded("deep/b.tmp")).toBe(true);
-    expect(excluded("keep.tmp")).toBe(false);
-    expect(excluded("drafts/old.tex")).toBe(true);
-    expect(excluded("ch/drafts/old.tex")).toBe(false);
-    expect(excluded("data/raw.csv")).toBe(true);
-    expect(excluded("data/2024/raw.csv")).toBe(true);
-    expect(excluded("fig/plot.svg")).toBe(true);
-    expect(excluded("fig/logo.svg")).toBe(false);
-    expect(excluded("other/plot.svg")).toBe(false);
-  });
-
-  it("never re-includes a file inside an ignored folder", () => {
-    const excluded = createExcluder([{ dir: "", text: "out/\n!out/keep.tex\n" }]);
-    expect(excluded("out/keep.tex")).toBe(true);
-  });
+  for (const group of excludeCases.groups) {
+    it(group.name, () => {
+      const excluded = createExcluder(group.gitignores);
+      for (const c of group.cases as ExcludeCase[]) {
+        expect(
+          excluded(c.path, { isDir: c.isDir, size: c.size }),
+          `${c.path}${c.isDir ? "/" : ""}`,
+        ).toBe(c.excluded);
+      }
+    });
+  }
 });
 
 describe("text or binary", () => {

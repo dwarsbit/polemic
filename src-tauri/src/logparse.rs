@@ -344,9 +344,33 @@ pub fn is_rerun_bib_tool_warning(issue: &CompileIssue) -> bool {
     issue.message.starts_with("Package biblatex Warning: Please (re)run")
 }
 
+/// After a compile with Polemic: a font fontspec cannot find is usually
+/// one installed on this computer, which the server does not have.
+pub fn add_font_hints(issues: &mut [CompileIssue]) {
+    for issue in issues {
+        if issue.hint.is_none() && issue.message.contains("fontspec Error: The font") {
+            issue.hint = Some(
+                "Polemic's server has TeX Live's fonts, not the ones installed on this \
+                 computer. Put the font file (.otf or .ttf) in the project and load it by \
+                 file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+                    .into(),
+            );
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn hints_at_fonts_missing_on_the_server() {
+        let log = "./main.tex:3: Package fontspec Error: The font \"Comic Neue\" cannot\n(fontspec)                be found.\n./main.tex:9: Undefined control sequence.\n";
+        let mut issues = parse_issues(log);
+        add_font_hints(&mut issues);
+        assert!(issues[0].hint.as_deref().unwrap().contains("font file"));
+        assert_eq!(issues[1].hint, None);
+    }
 
     #[test]
     fn parses_file_line_errors_and_warnings() {

@@ -1,0 +1,87 @@
+{
+  "comment": "Which project files are left out of a sync (project-doc.ts) and a cloud compile (src-tauri/src/excludes.rs). Both test suites run these cases.",
+  "maxFileBytes": 52428800,
+  "groups": [
+    {
+      "name": "git, build output and big files",
+      "gitignores": [],
+      "cases": [
+        { "path": ".git/config", "excluded": true },
+        { "path": "sub/.git/HEAD", "excluded": true },
+        { "path": ".git", "isDir": true, "excluded": true },
+        { "path": "build/main.pdf", "excluded": true },
+        { "path": "ch/build/x.tex", "excluded": true },
+        { "path": ".snapshots/1/main.tex", "excluded": true },
+        { "path": "node_modules/x/index.js", "excluded": true },
+        { "path": "main.aux", "excluded": true },
+        { "path": "main.synctex.gz", "excluded": true },
+        { "path": "MAIN.LOG", "excluded": true },
+        { "path": "ch/intro.log", "excluded": true },
+        { "path": "fig/.DS_Store", "excluded": true },
+        { "path": "main.tex", "size": 52428801, "excluded": true },
+        { "path": "main.tex", "size": 52428800, "excluded": false },
+        { "path": ".polemic/comments/c1.json", "excluded": false },
+        { "path": ".gitignore", "excluded": false },
+        { "path": "figures/plot.pdf", "excluded": false },
+        { "path": "builder/main.tex", "excluded": false },
+        { "path": "catalog.tex", "excluded": false }
+      ]
+    },
+    {
+      "name": ".gitignore rules",
+      "gitignores": [
+        { "dir": "", "text": "# notes\n*.tmp\n/drafts/\ndata/**/raw.csv\n!keep.tmp\n" },
+        { "dir": "fig", "text": "*.svg\r\n!logo.svg\r\n" }
+      ],
+      "cases": [
+        { "path": "a.tmp", "excluded": true },
+        { "path": "deep/b.tmp", "excluded": true },
+        { "path": "keep.tmp", "excluded": false },
+        { "path": "drafts/old.tex", "excluded": true },
+        { "path": "drafts", "isDir": true, "excluded": true },
+        { "path": "drafts", "excluded": false },
+        { "path": "ch/drafts/old.tex", "excluded": false },
+        { "path": "data/raw.csv", "excluded": true },
+        { "path": "data/2024/raw.csv", "excluded": true },
+        { "path": "fig/plot.svg", "excluded": true },
+        { "path": "fig/logo.svg", "excluded": false },
+        { "path": "other/plot.svg", "excluded": false },
+        { "path": "# notes", "excluded": false }
+      ]
+    },
+    {
+      "name": "nothing inside an ignored folder comes back",
+      "gitignores": [{ "dir": "", "text": "out/\n!out/keep.tex\n" }],
+      "cases": [
+        { "path": "out/keep.tex", "excluded": true },
+        { "path": "x/out/a.tex", "excluded": true }
+      ]
+    },
+    {
+      "name": "globs, classes and escapes",
+      "gitignores": [
+        {
+          "dir": "",
+          "text": "fig?.png\nv[0-9].tex\nnot[!a].txt\n\\#hash.tex\n\\!bang.tex\nspace\\ \nlogs/**\n**/tmp/*.tex\na.b\n"
+        }
+      ],
+      "cases": [
+        { "path": "fig1.png", "excluded": true },
+        { "path": "fig12.png", "excluded": false },
+        { "path": "v3.tex", "excluded": true },
+        { "path": "vx.tex", "excluded": false },
+        { "path": "notb.txt", "excluded": true },
+        { "path": "nota.txt", "excluded": false },
+        { "path": "#hash.tex", "excluded": true },
+        { "path": "!bang.tex", "excluded": true },
+        { "path": "space ", "excluded": true },
+        { "path": "logs/2026/run.txt", "excluded": true },
+        { "path": "ch/tmp/x.tex", "excluded": true },
+        { "path": "tmp/x.tex", "excluded": true },
+        { "path": "tmp/x.bib", "excluded": false },
+        { "path": "a.b", "excluded": true },
+        { "path": "axb", "excluded": false }
+      ]
+    }
+  ]
+}
