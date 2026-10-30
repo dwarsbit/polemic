@@ -89,7 +89,7 @@ registration and update `AZURE_CLIENT_SECRET` before then.
 
 ## Checking a release
 
-After pushing a tag, open the Release run in the Actions tab. A
+After running the Release workflow, open its run in the Actions tab. A
 _Configure macOS signing_ or _Configure Windows signing_ step without a
 warning means that platform was signed. On a downloaded build:
 
