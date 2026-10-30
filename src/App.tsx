@@ -9,6 +9,7 @@ import { TableDialog } from "@/components/TableDialog";
 import { TableGridDialog } from "@/components/TableGridDialog";
 import { CsvImportDialog } from "@/components/CsvImportDialog";
 import { DocumentSettingsDialog } from "@/components/DocumentSettingsDialog";
+import { ShareDialog } from "@/components/ShareDialog";
 import { PackagesDialog } from "@/components/PackagesDialog";
 import { EditorView } from "@/components/EditorView";
 import { ProjectsView } from "@/components/ProjectsView";
@@ -82,6 +83,8 @@ function App() {
   const setPackagesDialogOpen = useDialogsStore((s) => s.setPackagesDialogOpen);
   const documentSettingsOpen = useDialogsStore((s) => s.documentSettingsOpen);
   const setDocumentSettingsOpen = useDialogsStore((s) => s.setDocumentSettingsOpen);
+  const shareOpen = useDialogsStore((s) => s.shareOpen);
+  const setShareOpen = useDialogsStore((s) => s.setShareOpen);
   const paletteOpen = useDialogsStore((s) => s.paletteOpen);
   const galleryOpen = useDialogsStore((s) => s.galleryOpen);
 
@@ -301,6 +304,7 @@ function App() {
           // Project
           ["menu://packages", () => dialogs().setPackagesDialogOpen(true)],
           ["menu://document-settings", () => dialogs().setDocumentSettingsOpen(true)],
+          ["menu://share", () => dialogs().setShareOpen(true)],
           [
             "menu://sources",
             () => useSettingsStore.getState().openSettings("bibliography"),
@@ -396,6 +400,7 @@ function App() {
         open={documentSettingsOpen}
         onOpenChange={setDocumentSettingsOpen}
       />
+      {hasProject && <ShareDialog open={shareOpen} onOpenChange={setShareOpen} />}
       {paletteOpen && <CommandPalette />}
       <AiFixDialog />
     </QueryClientProvider>

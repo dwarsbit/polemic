@@ -104,9 +104,9 @@ pub struct ManifestFile {
     pub size: u64,
 }
 
-struct LocalFile {
-    file: ManifestFile,
-    abs: PathBuf,
+pub(crate) struct LocalFile {
+    pub file: ManifestFile,
+    pub abs: PathBuf,
 }
 
 /// Whether the server takes a project path (contracts' `projectPathProblem`;
@@ -122,7 +122,7 @@ fn sendable(path: &str) -> bool {
 static HASHES: LazyLock<Mutex<HashMap<PathBuf, (u64, SystemTime, String)>>> =
     LazyLock::new(|| Mutex::new(HashMap::new()));
 
-fn hash_bytes(bytes: &[u8]) -> String {
+pub(crate) fn hash_bytes(bytes: &[u8]) -> String {
     format!("{:x}", Sha256::digest(bytes))
 }
 
@@ -225,7 +225,7 @@ fn walk(
 /// The files a compile sends, by path: what a linked project would
 /// sync (no .git, no build output, .gitignore applied, nothing over
 /// 50 MB), hashed.
-fn local_files(dir: &Path) -> Result<Vec<LocalFile>, CompileError> {
+pub(crate) fn local_files(dir: &Path) -> Result<Vec<LocalFile>, CompileError> {
     let root = fs::canonicalize(dir).map_err(|e| format!("project not accessible: {e}"))?;
     let mut out = Vec::new();
     walk(&root, &root, "", &mut Excluder::default(), &mut out, &mut 0)?;

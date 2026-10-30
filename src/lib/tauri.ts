@@ -1,4 +1,6 @@
 import { invoke } from "@tauri-apps/api/core";
+import type { FolderEntry } from "@/lib/project-doc";
+import type { PublishedSnapshot } from "@/lib/share";
 
 export interface ToolInfo {
   found: boolean;
@@ -965,4 +967,106 @@ export function accountCancelSignIn(): Promise<void> {
 /** Revokes the token on the server and forgets it. */
 export function accountSignOut(): Promise<void> {
   return invoke("account_sign_out");
+}
+
+// --- Publish for review (Professional, phase 5a) -----------------------------
+
+/** The server project a folder publishes to (kept in the app data folder). */
+export interface ShareLink {
+  server: string;
+  projectId: string;
+  name: string;
+}
+
+export interface ShareStatus {
+  server: string;
+  signedIn: boolean;
+  link: ShareLink | null;
+}
+
+/** Errors of the share_* commands (src-tauri/src/share.rs). */
+export interface ShareError {
+  kind:
+    "signedOut" | "planRequired" | "notFound" | "tooLarge" | "unavailable" | "failed";
+  message: string;
+}
+
+export function isShareError(value: unknown): value is ShareError {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    typeof (value as ShareError).kind === "string" &&
+    typeof (value as ShareError).message === "string"
+  );
+}
+
+export interface ReviewLink {
+  id: string;
+  role: "commenter" | "viewer";
+  /** null: the link works until it is deleted. */
+  expiresAt: string | null;
+  createdAt: string;
+  /** Only right after the link was made; the server keeps a hash. */
+  url?: string;
+}
+
+export function shareStatus(projectDir: string): Promise<ShareStatus> {
+  return invoke<ShareStatus>("share_status", { projectDir });
+}
+
+/** The folder as the published document holds it. */
+export function shareFolder(projectDir: string): Promise<FolderEntry[]> {
+  return invoke<FolderEntry[]>("share_folder", { projectDir });
+}
+
+export function shareCreate(projectDir: string, name: string): Promise<ShareLink> {
+  return invoke<ShareLink>("share_create", { projectDir, name });
+}
+
+export function shareSync(
+  projectDir: string,
+  stateVector: string,
+): Promise<{ update: string; stateVector: string }> {
+  return invoke("share_sync", { projectDir, stateVector });
+}
+
+export function shareUploadAssets(projectDir: string, hashes: string[]): Promise<void> {
+  return invoke("share_upload_assets", { projectDir, hashes });
+}
+
+export function sharePush(projectDir: string, update: string): Promise<void> {
+  return invoke("share_push", { projectDir, update });
+}
+
+export function sharePublish(
+  projectDir: string,
+  main: string | null,
+): Promise<PublishedSnapshot> {
+  return invoke<PublishedSnapshot>("share_publish", { projectDir, main });
+}
+
+/** Published versions, newest first. */
+export function shareSnapshots(projectDir: string): Promise<PublishedSnapshot[]> {
+  return invoke<PublishedSnapshot[]>("share_snapshots", { projectDir });
+}
+
+export function shareLinks(projectDir: string): Promise<ReviewLink[]> {
+  return invoke<ReviewLink[]>("share_links", { projectDir });
+}
+
+export function shareCreateLink(
+  projectDir: string,
+  role: ReviewLink["role"],
+  expiresInDays: number | null,
+): Promise<ReviewLink> {
+  return invoke<ReviewLink>("share_create_link", { projectDir, role, expiresInDays });
+}
+
+export function shareDeleteLink(projectDir: string, linkId: string): Promise<void> {
+  return invoke("share_delete_link", { projectDir, linkId });
+}
+
+/** Deletes the server copy and its links; the folder is not touched. */
+export function shareStop(projectDir: string): Promise<void> {
+  return invoke("share_stop", { projectDir });
 }

@@ -532,6 +532,32 @@ function removeText(doc: Y.Doc, id: string) {
 }
 
 /**
+ * Makes the document hold the folder's files: changed files get their
+ * diffs, new ones appear, and files gone from the folder are removed,
+ * except those `keep` names (a one-way publish keeps the comment files
+ * reviewers added on the server). A file keeps its id, found by path,
+ * so a document read back from the server is updated, not duplicated.
+ */
+export function applyFolder(
+  doc: Y.Doc,
+  entries: FolderEntry[],
+  keep: (path: string) => boolean = () => false,
+): void {
+  doc.transact(() => {
+    const meta = doc.getMap("meta");
+    if (meta.get("layout") !== LAYOUT_VERSION) meta.set("layout", LAYOUT_VERSION);
+    const present = new Set(entries.map((entry) => entry.path));
+    for (const entry of entries) setFile(doc, entry);
+    for (const [path, id] of resolvePaths(doc).texts) {
+      if (!present.has(path) && !keep(path)) removeText(doc, id);
+    }
+    for (const path of [...assets(doc).keys()]) {
+      if (!present.has(path) && !keep(path)) assets(doc).delete(path);
+    }
+  }, LOCAL_ORIGIN);
+}
+
+/**
  * A file changed or appeared on disk. A text file gets the minimal
  * diff into its Y.Text; no other file is touched. A file that turned
  * from text into an asset (or back) swaps kinds.
