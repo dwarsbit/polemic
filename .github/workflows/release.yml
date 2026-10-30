@@ -1,20 +1,109 @@
 name: Release
 
+# Releases a new version: sets the version everywhere, commits to main and
+# pushes the tag vX.Y.Z, creates a draft GitHub Release with the version's
+# changelog section as notes, then builds the installers for every
+# platform and attaches them to it. Publish the draft by hand once the
+# assets look right. Pushes use GITHUB_TOKEN, so they do not trigger
+# other workflows: anything a release needs runs as a job here.
+
 on:
-  push:
-    tags:
-      - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release (X.Y.Z, without the v)"
+        required: true
+        type: string
+
+concurrency:
+  group: release
+  cancel-in-progress: false
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  test:
-    uses: ./.github/workflows/ci.yml
+  prepare:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    env:
+      VERSION: ${{ inputs.version }}
+    outputs:
+      release-id: ${{ steps.release.outputs.id }}
+    steps:
+      - name: Release from main only
+        if: github.ref != 'refs/heads/main'
+        run: |
+          echo "::error::Run this workflow from main (got ${GITHUB_REF})."
+          exit 1
+
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Windows installers (MSI) only take numeric versions, so no pre-releases.
+      - name: Validate the version
+        run: |
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Invalid version '$VERSION': expected X.Y.Z"
+            exit 1
+          fi
+          if git ls-remote --exit-code --tags origin "refs/tags/v$VERSION" >/dev/null; then
+            echo "::error::Tag v$VERSION already exists."
+            exit 1
+          fi
+
+      - name: Require green CI on main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sha=$(git rev-parse HEAD)
+          conclusion=$(gh run list --workflow ci.yml --branch main --commit "$sha" \
+            --event push --limit 1 --json status,conclusion \
+            --jq '.[0] | if . == null then "missing" elif .status != "completed" then .status else .conclusion end')
+          if [ "$conclusion" != "success" ]; then
+            echo "::error::CI on $sha is '$conclusion', not 'success'."
+            exit 1
+          fi
+
+      - name: Bump the version
+        run: python scripts/bump_version.py "$VERSION"
+
+      - name: Commit, tag and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "chore: release v$VERSION"
+          git tag -a "v$VERSION" -m "Release v$VERSION"
+          git push --atomic origin HEAD:main "v$VERSION"
+
+      - name: Create the draft GitHub Release
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # The release notes are the version's section of the changelog.
+          awk -v v="$VERSION" '
+            $0 ~ "^## v?" v "( |$)" { found = 1; next }
+            found && /^## / { exit }
+            found { print }
+          ' CHANGELOG.md > notes.md
+          id=$(gh api "repos/$GITHUB_REPOSITORY/releases" \
+            -f tag_name="v$VERSION" -f name="Polemic v$VERSION" \
+            -F body=@notes.md -F draft=true --jq .id)
+          echo "id=$id" >> "$GITHUB_OUTPUT"
 
   build:
     name: ${{ matrix.os }}
-    needs: test
+    needs: prepare
+    permissions:
+      contents: write
     strategy:
       fail-fast: false
       matrix:
@@ -31,22 +120,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set app version from tag
-        shell: bash
-        run: |
-          version="${GITHUB_REF_NAME#v}"
-          if ! [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "::error::Tag $GITHUB_REF_NAME is not of the form vX.Y.Z"
-            exit 1
-          fi
-          node -e '
-            const fs = require("fs");
-            const path = "src-tauri/tauri.conf.json";
-            const conf = JSON.parse(fs.readFileSync(path, "utf8"));
-            conf.version = process.argv[1];
-            fs.writeFileSync(path, JSON.stringify(conf, null, 2) + "\n");
-          ' "$version"
+        with:
+          ref: v${{ inputs.version }}
 
       # Signs and notarizes the macOS builds once the APPLE_* secrets exist;
       # without them the builds stay unsigned. Exported only when set, since
@@ -142,9 +217,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: ${{ github.ref_name }}
-          releaseName: "Polemic ${{ github.ref_name }}"
-          releaseBody: "See the assets to download and install the version for your platform."
-          releaseDraft: true
-          prerelease: false
+          releaseId: ${{ needs.prepare.outputs.release-id }}
           args: ${{ matrix.args }}
