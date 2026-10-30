@@ -761,11 +761,40 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   margin-right: 0.25em;
 }
 
+/* `%` comments: a muted mono line with a % sigil. A comment eats its
+   line end, so what follows starts on a new line — except at the end
+   of a paragraph (ProseMirror's trailing separator follows the atom). */
 .visual-editor .vis-comment {
   color: var(--muted-foreground);
-  font-style: italic;
   font-family: var(--font-mono);
-  font-size: 0.9em;
+  font-size: 0.85em;
+  border-radius: 4px;
+  cursor: default;
+}
+.visual-editor .vis-comment::after {
+  content: "\A";
+  white-space: pre;
+}
+.visual-editor .vis-comment:last-child::after,
+.visual-editor .vis-comment:has(+ .ProseMirror-separator)::after {
+  content: none;
+}
+.visual-editor .vis-comment-line {
+  font-style: italic;
+  white-space: pre-wrap;
+}
+.visual-editor .vis-comment-sigil {
+  font-style: normal;
+  font-weight: 600;
+  margin-right: 0.4em;
+  opacity: 0.7;
+}
+.visual-editor .vis-comment .vis-raw-edit {
+  display: inline-block;
+  min-width: 6rem;
+  padding: 0 0.35rem;
+  line-height: 1.45em;
+  border-radius: 4px;
 }
 
 /* Math nodes: rendered by KaTeX; the raw source shows on selection

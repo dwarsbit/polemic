@@ -14,7 +14,7 @@ import { openSearchPanel } from "@codemirror/search";
 import { stex } from "@codemirror/legacy-modes/mode/stex";
 import { linter, lintGutter, setDiagnostics, type Diagnostic } from "@codemirror/lint";
 import { EditorView, basicSetup } from "codemirror";
-import { isolateHistory, redo, undo } from "@codemirror/commands";
+import { isolateHistory, redo, toggleComment, undo } from "@codemirror/commands";
 import { keymap, Decoration } from "@codemirror/view";
 import type { DecorationSet } from "@codemirror/view";
 import { latexAutocompletion } from "@/lib/completion";
@@ -758,6 +758,14 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
                       }
                     },
                   },
+                  {
+                    id: "toggle-line-comment",
+                    text: "Toggle Line Comment",
+                    action: () => {
+                      view.focus();
+                      toggleComment(view);
+                    },
+                  },
                   "separator",
                   ...(hasTableAt(view, pos)
                     ? [
@@ -857,10 +865,13 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     // cursor. Multi-line snippets are blocks: fresh lines, never
     // landed mid-line.
     setTableAtCursorHandler(() => editTableAt(view, view.state.selection.main.head));
-    // Serve the Find and the Citation/Reference menu items.
+    // Serve the Find, Toggle Line Comment, and Citation/Reference
+    // menu items.
     setEditorCommandHandler((command) => {
       view.focus();
-      return command === "find" ? openSearchPanel(view) : startCompletion(view);
+      if (command === "find") return openSearchPanel(view);
+      if (command === "toggle-comment") return toggleComment(view);
+      return startCompletion(view);
     });
     setInsertHandler((text, cursorOffset) => {
       const range = view.state.selection.main;

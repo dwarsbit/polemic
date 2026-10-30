@@ -11,7 +11,6 @@
 import {
   Extension,
   InputRule,
-  Mark,
   Node,
   mergeAttributes,
   textblockTypeInputRule,
@@ -1610,17 +1609,57 @@ const TexHardBreak = HardBreak.extend({
   },
 });
 
-const CommentMark = Mark.create({
-  name: "comment",
-  // Comments are content, not formatting: keep them across node
-  // splits and out of "clear formatting".
-  keepOnSplit: true,
-  clearable: false,
-  parseHTML() {
-    return [{ tag: "span.vis-comment" }];
+/** The comment body as the preview shows it: the text after the `%`. */
+function commentText(src: string): string {
+  return src.replace(/^%+\s?/, "");
+}
+
+/** The comment preview: a muted `%` line; empty comments read "%". */
+function commentPreview(src: string): HTMLElement {
+  const el = document.createElement("span");
+  el.className = "vis-comment-line";
+  const sigil = document.createElement("span");
+  sigil.className = "vis-comment-sigil";
+  sigil.textContent = "%";
+  const text = document.createElement("span");
+  text.textContent = commentText(src);
+  el.replaceChildren(sigil, text);
+  return el;
+}
+
+/**
+ * A `%` comment: an atom, not editable text, so typing or Enter can
+ * never turn commented-out text into live LaTeX, and two comment
+ * lines never merge. Selecting it opens the raw line for editing.
+ */
+const TexComment = Node.create({
+  name: "texComment",
+  inline: true,
+  group: "inline",
+  atom: true,
+  addAttributes() {
+    return { src: { default: "%" } };
   },
-  renderHTML() {
-    return ["span", { class: "vis-comment" }, 0];
+  parseHTML() {
+    return [{ tag: "vis-comment" }];
+  },
+  renderHTML({ HTMLAttributes }) {
+    return ["vis-comment", mergeAttributes(HTMLAttributes)];
+  },
+  addNodeView() {
+    return ({ editor, node, getPos }: NodeViewRendererProps) =>
+      new EditableRawView(editor, node, getPos, {
+        className: "vis-comment",
+        editText: (src) => src,
+        // One line, still a comment: a newline would end it and a
+        // missing % would make the rest live LaTeX.
+        buildSrc: (_old, text) => {
+          const line = text.replace(/\s*\n\s*/g, " ").trimEnd();
+          return line.startsWith("%") ? line : `% ${line}`.trimEnd();
+        },
+        editOnSelect: true,
+        preview: commentPreview,
+      });
   },
 });
 
@@ -2008,7 +2047,7 @@ export const visualTexExtensions = [
   HeadingCaret,
   TexListItem,
   TexHardBreak,
-  CommentMark,
+  TexComment,
   Preamble,
   TitleBlock,
   MathInline,

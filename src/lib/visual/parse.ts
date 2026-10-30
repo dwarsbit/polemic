@@ -565,9 +565,9 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
       const end = nl === -1 ? c.src.length : nl;
       flush();
       nodes.push({
-        type: "text",
-        text: c.src.slice(i, end),
-        marks: [...marks, { type: "comment" }],
+        type: "texComment",
+        attrs: { src: c.src.slice(i, end) },
+        ...(marks.length > 0 ? { marks } : {}),
       });
       c.pos = nl === -1 || blankAhead(c.src, nl) ? end : nl + 1;
       continue;

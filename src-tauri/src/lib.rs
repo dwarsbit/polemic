@@ -2072,10 +2072,11 @@ const PROJECT_MENU_ITEMS: [&str; 30] = [
 
 /// Project items beyond the fixed-size list above (kept separate so the
 /// array length stays readable).
-const PROJECT_MENU_ITEMS_MORE: [&str; 3] = ["sources", "take_snapshot", "commit"];
+const PROJECT_MENU_ITEMS_MORE: [&str; 4] =
+    ["sources", "take_snapshot", "commit", "toggle_comment"];
 
 /// Menu item id → the frontend event it emits.
-const MENU_EVENTS: [(&str, &str); 41] = [
+const MENU_EVENTS: [(&str, &str); 42] = [
     ("new_project", "menu://new-project"),
     ("open_project", "menu://open-project"),
     ("save", "menu://save"),
@@ -2087,6 +2088,7 @@ const MENU_EVENTS: [(&str, &str); 41] = [
     ("search", "menu://toggle-search"),
     ("format", "menu://format"),
     ("add_comment", "menu://add-comment"),
+    ("toggle_comment", "menu://toggle-comment"),
     ("insert_table", "menu://insert-table"),
     ("wrap_figure", "menu://wrap-figure"),
     ("insert_tikz", "menu://insert-tikz"),
@@ -2220,6 +2222,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     let search = item("search", "Find in Project…", Some("CmdOrCtrl+Shift+F"))?;
     let format = item("format", "Format Document", Some("Shift+Alt+F"))?;
     let add_comment = item("add_comment", "Add Comment", Some("CmdOrCtrl+Alt+C"))?;
+    let toggle_comment = item("toggle_comment", "Toggle Line Comment", Some("CmdOrCtrl+/"))?;
 
     // Insert
     let insert_table = item("insert_table", "Table…", Some("CmdOrCtrl+Shift+T"))?;
@@ -2232,8 +2235,8 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     let insert_display_math = item("insert_display_math", "Display Math", None)?;
 
     // View
-    let face_visual = check("face_visual", "Visual", false, Some("CmdOrCtrl+Alt+1"))?;
-    let face_code = check("face_code", "Code", true, Some("CmdOrCtrl+Alt+2"))?;
+    let face_code = check("face_code", "Code", true, Some("CmdOrCtrl+Alt+1"))?;
+    let face_visual = check("face_visual", "Visual", false, Some("CmdOrCtrl+Alt+2"))?;
     let toggle_sidebar = check("toggle_sidebar", "Navigator", true, Some("CmdOrCtrl+Alt+B"))?;
     let toggle_preview = check("toggle_preview", "PDF Preview", true, Some("CmdOrCtrl+Shift+P"))?;
     let toggle_right = check("toggle_right", "Properties", false, Some("CmdOrCtrl+J"))?;
@@ -2254,7 +2257,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     // App and Help
     let settings = item("settings", "Settings…", Some("CmdOrCtrl+,"))?;
     let help = item("help", "Polemic Help", None)?;
-    let shortcuts = item("shortcuts", "Keyboard Shortcuts", Some("CmdOrCtrl+/"))?;
+    let shortcuts = item("shortcuts", "Keyboard Shortcuts", Some("CmdOrCtrl+Alt+/"))?;
     let report_issue = item("report_issue", "Report an Issue…", None)?;
     let about = item("about", "About Polemic", None)?;
 
@@ -2293,6 +2296,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
         .item(&search)
         .separator()
         .item(&format)
+        .item(&toggle_comment)
         .item(&add_comment);
     let insert_menu = SubmenuBuilder::new(handle, "Insert")
         .item(&insert_table)
@@ -2307,8 +2311,8 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
         .item(&insert_display_math)
         .build()?;
     let view_menu = SubmenuBuilder::new(handle, "View")
-        .item(&face_visual)
         .item(&face_code)
+        .item(&face_visual)
         .separator()
         .item(&toggle_sidebar)
         .item(&toggle_preview)

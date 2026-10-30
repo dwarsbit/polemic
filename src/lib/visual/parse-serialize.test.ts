@@ -149,10 +149,10 @@ describe("parseTex", () => {
     });
   });
 
-  it("parses comments as comment marks", () => {
+  it("parses comments as comment nodes", () => {
     const doc = parseTex(ARTICLE);
     const blob = JSON.stringify(doc);
-    expect(blob).toContain('"comment"');
+    expect(blob).toContain('"texComment"');
     expect(blob).toContain("% A full-line comment");
     expect(blob).toContain("% note");
   });
@@ -441,6 +441,14 @@ describe("serializeTex", () => {
   it("round-trips non-breaking tildes", () => {
     const { once } = roundTrip("Fig.~1 shows it.\n");
     expect(once).toContain("Fig.~1");
+  });
+
+  it("ends the paragraph at a blank line after a comment", () => {
+    const doc = parseTex("% one\n% two\n\nNext para.\n");
+    expect(doc.content.map((b) => b.type)).toEqual(["paragraph", "paragraph"]);
+    const { once, twice } = roundTrip("% one\n% two\n\nNext para.\n");
+    expect(once).toBe("% one\n% two\n\nNext para.\n");
+    expect(twice).toBe(once);
   });
 
   it("round-trips comment runs without losing lines", () => {

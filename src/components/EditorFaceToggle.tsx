@@ -10,10 +10,10 @@ export function hasEditorFace(path: string | null): boolean {
 }
 
 /**
- * The Visual/Code toggle in the window header: the active file's face
- * in the editor column. Visual is the rendered or managed form — the
- * References card for .bib files, the coming rich text mode for .tex —
- * Code is the raw text. Remembered per file kind; styled like the
+ * The Code/Visual toggle in the window header: the active file's face
+ * in the editor column. Code is the raw text; Visual is the rendered
+ * or managed form — the References card for .bib files, the rich text
+ * mode for .tex. Remembered per file kind; styled like the
  * workspace switch next to it.
  */
 export function EditorFaceToggle() {
@@ -32,8 +32,8 @@ export function EditorFaceToggle() {
   const mode: EditorFace = locked ? "code" : isBib ? bibMode : texMode;
   const setMode = isBib ? setBibMode : setTexMode;
   const faces: { id: EditorFace; label: string }[] = [
-    { id: "visual", label: "Visual" },
     { id: "code", label: "Code" },
+    { id: "visual", label: "Visual" },
   ];
 
   return (

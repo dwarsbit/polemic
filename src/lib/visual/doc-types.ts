@@ -13,7 +13,6 @@ export type MarkType =
   | "italic"
   | "code"
   | "underline"
-  | "comment"
   | "insertion"
   | "deletion"
   | "changeHighlight";
@@ -86,6 +85,16 @@ export interface FootnoteNode extends Marked {
   attrs: { src: string };
 }
 
+/** A `%` comment, verbatim from the `%` to the end of the line (the
+ *  newline it consumes is not part of `src`). Unlike other atoms it
+ *  keeps the formatting marks of the group it sits in, so a comment
+ *  inside `\textbf{…}` does not split the group. */
+export interface TexCommentNode {
+  type: "texComment";
+  attrs: { src: string };
+  marks?: Mark[];
+}
+
 /** An unmodelled inline construct (`\LaTeX`, ...), verbatim. */
 export interface RawInlineNode extends Marked {
   type: "rawTexInline";
@@ -100,6 +109,7 @@ export type Inline =
   | RefNode
   | LabelNode
   | FootnoteNode
+  | TexCommentNode
   | RawInlineNode;
 
 /**

@@ -40,12 +40,11 @@ function escapeText(t: string): string {
 
 function serializeNode(node: Inline): string {
   switch (node.type) {
-    case "text": {
-      const isComment = node.marks?.some((m) => m.type === "comment") ?? false;
-      // Comment content is raw, and the newline it consumed returns.
-      if (isComment) return node.text + "\n";
+    case "text":
       return escapeText(node.text);
-    }
+    case "texComment":
+      // The newline the comment consumed returns.
+      return node.attrs.src + "\n";
     case "hardBreak":
     case "mathInline":
     case "cite":
@@ -57,7 +56,7 @@ function serializeNode(node: Inline): string {
   }
 }
 
-const isFormat = (m: Mark) => m.type !== "comment" && !CHANGE_MARKS.has(m.type);
+const isFormat = (m: Mark) => !CHANGE_MARKS.has(m.type);
 
 const formatCmd = (m: Mark) => m.attrs?.cmd ?? FORMAT_DEFAULTS[m.type];
 

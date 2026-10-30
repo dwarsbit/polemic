@@ -17,7 +17,7 @@ const SHORTCUTS: { group: string; items: [string, string][] }[] = [
     items: [
       ["Mod+P", "Command palette"],
       ["Mod+,", "Settings"],
-      ["Mod+/", "Keyboard shortcuts"],
+      ["Mod+Alt+/", "Keyboard shortcuts"],
       ["Mod+O", "Open project"],
       ["Mod+Shift+W", "Close project"],
     ],
@@ -37,6 +37,7 @@ const SHORTCUTS: { group: string; items: [string, string][] }[] = [
       ["Mod+F", "Find in file"],
       ["Mod+Shift+F", "Find in project"],
       ["Shift+Alt+F", "Format document"],
+      ["Mod+/", "Comment out the line (%)"],
       ["Mod+Alt+C", "Add comment"],
       ["Mod+C", "Copy the line (nothing selected)"],
       ["Mod+X", "Cut the line (nothing selected)"],
@@ -60,8 +61,8 @@ const SHORTCUTS: { group: string; items: [string, string][] }[] = [
   {
     group: "View",
     items: [
-      ["Mod+Alt+1", "Visual"],
-      ["Mod+Alt+2", "Code"],
+      ["Mod+Alt+1", "Code"],
+      ["Mod+Alt+2", "Visual"],
       ["Mod+Alt+B", "Navigator"],
       ["Mod+Shift+P", "PDF preview"],
       ["Mod+J", "Properties"],
