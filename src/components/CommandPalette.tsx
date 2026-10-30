@@ -17,6 +17,7 @@ import {
   Package,
   PanelLeft,
   PanelRight,
+  Percent,
   Play,
   Save,
   ScrollText,
@@ -36,7 +37,7 @@ import { insertTikzSnippet, TIKZ_SNIPPETS } from "@/lib/tikz-snippets";
 import { addCommentAtCursor, addFileComment } from "@/lib/editor-comments";
 import { runPanelCommand } from "@/lib/panel-commands";
 import { fuzzyRank, type FuzzyItem } from "@/lib/fuzzy";
-import { insertWithCompletion } from "@/lib/editor-commands";
+import { insertWithCompletion, runEditorCommand } from "@/lib/editor-commands";
 import { insertAtCursor } from "@/lib/editor-insert";
 import { formatShortcut } from "@/lib/platform";
 import { openProjectDialog, revealBuildFolder, type FileEntry } from "@/lib/tauri";
@@ -115,7 +116,7 @@ export function CommandPalette() {
         id: "shortcuts",
         title: "Keyboard shortcuts",
         icon: Keyboard,
-        shortcut: formatShortcut("Mod+/"),
+        shortcut: formatShortcut("Mod+Alt+/"),
         run: () => useDialogsStore.getState().setShortcutsOpen(true),
       },
       {
@@ -171,6 +172,14 @@ export function CommandPalette() {
         title: "Reveal build folder",
         icon: FolderOpen,
         run: () => void revealBuildFolder(project.path),
+      },
+      {
+        id: "toggle-line-comment",
+        title: "Toggle line comment",
+        icon: Percent,
+        shortcut: formatShortcut("Mod+/"),
+        keywords: "comment out uncomment percent code",
+        run: () => runEditorCommand("toggle-comment"),
       },
       {
         id: "add-comment",

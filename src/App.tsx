@@ -273,6 +273,7 @@ function App() {
           ["menu://toggle-search", () => runPanelCommand("toggle-search")],
           ["menu://format", () => formatDocument()],
           ["menu://add-comment", () => addCommentAtCursor()],
+          ["menu://toggle-comment", () => runEditorCommand("toggle-comment")],
           // Insert
           ["menu://insert-table", () => insertOrEditTable()],
           ["menu://wrap-figure", () => wrapFigure()],
@@ -341,7 +342,7 @@ function App() {
 
   // Cmd/Ctrl+P opens the palette in the browser; in the desktop app the
   // OS menu accelerator intercepts the key before the webview sees it.
-  // The same applies to the Visual/Code shortcuts (Cmd/Ctrl+Alt+1, 2).
+  // The same applies to the Code/Visual shortcuts (Cmd/Ctrl+Alt+1, 2).
   useEffect(() => {
     if (isTauri()) return;
     const onKeyDown = (event: KeyboardEvent) => {
@@ -352,7 +353,7 @@ function App() {
       if ((event.metaKey || event.ctrlKey) && event.altKey) {
         if (event.code === "Digit1" || event.code === "Digit2") {
           event.preventDefault();
-          setActiveFace(event.code === "Digit1" ? "visual" : "code");
+          setActiveFace(event.code === "Digit1" ? "code" : "visual");
         }
       }
     };

@@ -2,11 +2,12 @@ import { insertAtCursor } from "@/lib/editor-insert";
 
 /**
  * Commands the native menu sends to the code editor: open its find
- * panel, or open autocomplete at the cursor. The code face registers
+ * panel, open autocomplete at the cursor, or toggle a `%` comment on
+ * the selected lines. The code face registers
  * the handler while it is mounted; with no handler (the visual face,
  * the projects view) the commands are no-ops.
  */
-export type EditorCommand = "find" | "complete";
+export type EditorCommand = "find" | "complete" | "toggle-comment";
 
 let handler: ((command: EditorCommand) => boolean) | null = null;
 

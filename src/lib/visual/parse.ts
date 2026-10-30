@@ -526,11 +526,16 @@ function parseInlineRun(c: Cursor, marks: Mark[], opts?: RunOpts): Inline[] {
       const end = nl === -1 ? c.src.length : nl;
       flush();
       nodes.push({
-        type: "text",
-        text: c.src.slice(i, end),
-        marks: [...marks, { type: "comment" }],
+        type: "texComment",
+        attrs: { src: c.src.slice(i, end) },
+        ...(marks.length > 0 ? { marks } : {}),
       });
       c.pos = nl === -1 ? c.src.length : nl + 1;
+      // The comment ate its line end: a blank line right after it is
+      // a paragraph break, which the whitespace scan would miss.
+      if (opts?.inGroup !== true && /^[ \t]*(?:\n|$)/.test(c.src.slice(c.pos))) {
+        return nodes;
+      }
       continue;
     }
 

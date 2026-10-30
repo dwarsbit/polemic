@@ -131,4 +131,15 @@ describe("editor round-trip", () => {
     expect(out).not.toContain("\\draw (0,0)");
     editor.destroy();
   });
+
+  it("keeps consecutive comment lines apart through the editor", () => {
+    const tex = "\\documentclass{article}\n\\begin{document}\n% one\n% two\nText % trailing\nmore.\n\\end{document}\n";
+    const out = throughEditor(tex);
+    expect(out).toContain("% one\n% two\nText % trailing\nmore.");
+  });
+
+  it("keeps a comment inside a formatting group whole through the editor", () => {
+    const tex = "\\documentclass{article}\n\\begin{document}\nText \\textbf{bold % c\n rest}\n\\end{document}\n";
+    expect(throughEditor(tex)).toContain("Text \\textbf{bold % c\n rest}");
+  });
 });

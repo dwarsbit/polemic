@@ -43,7 +43,7 @@ function applyMarks(text: string, marks: Mark[]): string {
   let out = text;
   for (let i = marks.length - 1; i >= 0; i--) {
     const mark = marks[i];
-    if (mark.type === "comment" || CHANGE_MARKS.has(mark.type)) continue;
+    if (CHANGE_MARKS.has(mark.type)) continue;
     const cmd = mark.attrs?.cmd ?? FORMAT_DEFAULTS[mark.type];
     out = `\\${cmd}{${out}}`;
   }
@@ -52,12 +52,11 @@ function applyMarks(text: string, marks: Mark[]): string {
 
 function serializeNode(node: Inline): string {
   switch (node.type) {
-    case "text": {
-      const isComment = node.marks?.some((m) => m.type === "comment") ?? false;
-      // Comment content is raw, and the newline it consumed returns.
-      if (isComment) return node.text + "\n";
+    case "text":
       return applyMarks(escapeText(node.text), node.marks ?? []);
-    }
+    case "texComment":
+      // The newline the comment consumed returns.
+      return node.attrs.src + "\n";
     case "hardBreak":
     case "mathInline":
     case "cite":
@@ -100,13 +99,11 @@ const without = (node: Inline, mark: Mark): Inline => {
   return { ...node, marks } as Inline;
 };
 
-/** The outermost formatting mark of a text node (bold, italic, …). */
+/** The outermost formatting mark of a text node (bold, italic, …), or
+ *  of a comment inside a formatted group. */
 function formatMarkOf(node: Inline): Mark | null {
-  if (node.type !== "text") return null;
-  return (
-    (node.marks ?? []).find((m) => m.type !== "comment" && !CHANGE_MARKS.has(m.type)) ??
-    null
-  );
+  if (node.type !== "text" && node.type !== "texComment") return null;
+  return (node.marks ?? []).find((m) => !CHANGE_MARKS.has(m.type)) ?? null;
 }
 
 const sameFormat = (a: Mark, b: Mark) =>
@@ -418,8 +415,9 @@ export function serializeBlock(block: Block, indent = 0): string {
       return `\\${block.attrs.cmd}${opt}{${title}}${serializeInline(labels)}`;
     }
     case "paragraph":
-      // Trailing spaces before a paragraph break carry no meaning.
-      return serializeInline(block.content).replace(/[ \t]+$/, "");
+      // Trailing spaces before a paragraph break carry no meaning (nor
+      // does the line end of a closing comment: the break adds its own).
+      return serializeInline(block.content).replace(/[ \t\n]+$/, "");
     case "mathBlock":
     case "figureBlock":
     case "rawTexBlock":
