@@ -36,6 +36,13 @@ describe("fragmentToContent", () => {
     expect(content[0]?.type).toBe("bulletList");
   });
 
+  it("unwraps a fragment that starts with a format command", () => {
+    expect(fragmentToContent("\\textbf{x} y")).toEqual([
+      { type: "text", text: "x", marks: [{ type: "bold", attrs: { cmd: "textbf" } }] },
+      { type: "text", text: " y" },
+    ]);
+  });
+
   it("parses mixed fragments as multiple blocks", () => {
     const content = fragmentToContent(
       "Intro \\emph{word}.\n\n\\begin{tikzpicture}\n\\end{tikzpicture}",

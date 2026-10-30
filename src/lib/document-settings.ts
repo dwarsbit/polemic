@@ -10,6 +10,7 @@ import { applyEdits, showSuggestionsInPdf, suggestionsShownInPdf } from "./chang
 import { splitPreamble } from "./visual/parse";
 import { preambleText } from "./visual/serialize";
 import type { PreambleAttrs } from "./visual/doc-types";
+import { findDocumentBegin } from "@/lib/document-markers";
 
 /** Option tokens the settings UI owns; the rest stay verbatim. */
 const FONT_SIZES = ["10pt", "11pt", "12pt"];
@@ -71,7 +72,7 @@ function innerOf(src: string | null): string {
  * `\documentclass` (nothing to configure).
  */
 export function readDocumentSettings(content: string): DocumentSettings | null {
-  const beginIdx = content.indexOf("\\begin{document}");
+  const beginIdx = findDocumentBegin(content);
   if (beginIdx === -1) return null;
   const attrs = splitPreamble(content.slice(0, beginIdx));
   if (attrs.documentclassSrc === null) return null;
@@ -99,7 +100,7 @@ export function applyDocumentSettings(
   content: string,
   next: Omit<DocumentSettings, "packageCount">,
 ): string | null {
-  const beginIdx = content.indexOf("\\begin{document}");
+  const beginIdx = findDocumentBegin(content);
   if (beginIdx === -1) return null;
   const attrs: PreambleAttrs = splitPreamble(content.slice(0, beginIdx));
   if (attrs.documentclassSrc === null) return null;

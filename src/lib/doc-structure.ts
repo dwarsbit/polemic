@@ -4,6 +4,8 @@
  * in the main file (recursively, in source order).
  */
 
+import { findDocumentEnd } from "@/lib/document-markers";
+
 /** Strip comments (unescaped %) from a line of LaTeX source. */
 function stripComment(line: string): string {
   let result = "";
@@ -193,8 +195,9 @@ function isIncludeLine(line: string, path: string): boolean {
  */
 export function insertInclude(content: string, spec: string): string {
   const lines = content.split("\n");
-  let insertAt = lines.findIndex((line) => line.includes("\\end{document}"));
-  if (insertAt === -1) insertAt = lines.length;
+  const end = findDocumentEnd(content);
+  let insertAt =
+    end === -1 ? lines.length : content.slice(0, end).split("\n").length - 1;
   for (let i = lines.length - 1; i >= 0; i--) {
     if (/\\(?:input|include)\s*\{/.test(stripComment(lines[i]))) {
       insertAt = i + 1;

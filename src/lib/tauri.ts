@@ -79,8 +79,13 @@ export interface Settings {
   /** The author's initials, the suggestion id; null derives them. */
   authorInitials: string | null;
   /** Accounts for private HTTPS remotes; the tokens stay Rust-side. */
-  gitAccounts: { id: string; host: string; username: string }[];
+  gitAccounts: { id: string; host: string; username: string; name?: string }[];
+  /** Where compiles run; null means on this computer. */
+  compileProvider: CompileProvider | null;
 }
+
+/** On this computer, or on the Polemic account's server (Professional). */
+export type CompileProvider = "local" | "polemic";
 
 /** Grammar checking: built-in Harper (English), LanguageTool on the
  *  Polemic account's server (Professional), or the user's own LanguageTool. */
@@ -238,6 +243,37 @@ export interface CompileOutcome {
 
 export type TexEngine = "pdflatex" | "xelatex" | "lualatex";
 
+/** Why a compile failed (the Rust `CompileError`). */
+export interface CompileError {
+  kind:
+    | "noTex"
+    | "signedOut"
+    | "planRequired"
+    | "disabled"
+    | "tooLarge"
+    | "rateLimited"
+    | "unavailable"
+    | "superseded"
+    | "cancelled"
+    | "failed";
+  message: string;
+  /** Seconds, for "rateLimited". */
+  retryAfter: number | null;
+}
+
+/** Whether compiling with Polemic works for the account (Settings). */
+export type CloudCompileStatus =
+  "available" | "signedOut" | "planRequired" | "disabled" | "unknown";
+
+export function cloudCompileStatus(): Promise<CloudCompileStatus> {
+  return invoke<CloudCompileStatus>("cloud_compile_status");
+}
+
+/** Stops a compile with Polemic that is still running. */
+export function cancelCompile(): Promise<void> {
+  return invoke<void>("cancel_compile");
+}
+
 /** Per-project settings in `.polemic/project.json`. */
 export interface ProjectConfig {
   /** null or "auto": magic comment, then a preamble guess. */
@@ -357,6 +393,10 @@ export function updatePreferences(prefs: EditorPreferences): Promise<Settings> {
 
 export function setVersionControl(value: "git" | "snapshots"): Promise<Settings> {
   return invoke<Settings>("set_version_control", { value });
+}
+
+export function setCompileProvider(provider: CompileProvider): Promise<Settings> {
+  return invoke<Settings>("set_compile_provider", { provider });
 }
 
 /** A native context menu entry, shown by the show_context_menu command. */
@@ -780,6 +820,8 @@ export interface GitAccountView {
   id: string;
   host: string;
   username: string;
+  /** Who signed in, when the username does not say (GitLab's "oauth2"). */
+  name: string | null;
   hasToken: boolean;
 }
 
@@ -809,12 +851,20 @@ export function gitAccountRemove(id: string): Promise<GitAccountView[]> {
   return invoke<GitAccountView[]>("git_account_remove", { id });
 }
 
-/** Whether this build can sign in to GitHub (it has an OAuth client ID). */
-export function githubSignInAvailable(): Promise<boolean> {
-  return invoke<boolean>("github_sign_in_available");
+/** The git hosts Polemic signs in to and publishes on. */
+export type Hosting = "github" | "gitlab";
+
+export const HOSTING_NAMES: Record<Hosting, string> = {
+  github: "GitHub",
+  gitlab: "GitLab",
+};
+
+/** Whether this build can sign in to the host (it has a client ID). */
+export function signInAvailable(provider: Hosting): Promise<boolean> {
+  return invoke<boolean>("hosting_sign_in_available", { provider });
 }
 
-export interface GithubSignIn {
+export interface SignIn {
   /** The code to type at verificationUri. */
   userCode: string;
   verificationUri: string;
@@ -823,26 +873,32 @@ export interface GithubSignIn {
 }
 
 /** Start the device flow: the code, with the browser opened at its page. */
-export function githubSignInStart(): Promise<GithubSignIn> {
-  return invoke<GithubSignIn>("github_sign_in_start");
+export function signInStart(provider: Hosting): Promise<SignIn> {
+  return invoke<SignIn>("hosting_sign_in_start", { provider });
 }
 
-/** Wait for the code to be entered; the accounts, with GitHub's added. */
-export function githubSignInFinish(): Promise<GitAccountView[]> {
-  return invoke<GitAccountView[]>("github_sign_in_finish");
+/** Wait for the code to be entered; the accounts, with the host's added. */
+export function signInFinish(provider: Hosting): Promise<GitAccountView[]> {
+  return invoke<GitAccountView[]>("hosting_sign_in_finish", { provider });
 }
 
-export function githubSignInCancel(): Promise<void> {
-  return invoke<void>("github_sign_in_cancel");
+export function signInCancel(): Promise<void> {
+  return invoke<void>("hosting_sign_in_cancel");
 }
 
-/** Create a GitHub repository for the project, set it as origin, push. */
-export function githubPublish(
+/** Create a repository on the host for the project, set it as origin, push. */
+export function publishTo(
+  provider: Hosting,
   projectDir: string,
   name: string,
   isPrivate: boolean,
 ): Promise<string> {
-  return invoke<string>("github_publish", { projectDir, name, private: isPrivate });
+  return invoke<string>("hosting_publish", {
+    provider,
+    projectDir,
+    name,
+    private: isPrivate,
+  });
 }
 
 /** The repository name a project suggests: letters, digits, -, _ and . only. */

@@ -142,4 +142,10 @@ describe("editor round-trip", () => {
     const tex = "\\documentclass{article}\n\\begin{document}\nText \\textbf{bold % c\n rest}\n\\end{document}\n";
     expect(throughEditor(tex)).toContain("Text \\textbf{bold % c\n rest}");
   });
+
+  it("keeps atoms inside a format mark in one group", () => {
+    const tex =
+      "See \\textbf{a {\\itshape b} \\cite{k} $x$ c} and \\emph{as in \\ref{r}}.\n";
+    expect(throughEditor(tex)).toBe(tex);
+  });
 });

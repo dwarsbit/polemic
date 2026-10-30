@@ -7,7 +7,7 @@
 
 use std::collections::BTreeMap;
 
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
 use crate::secrets::{OsStore, Store};
 use crate::settings::GitAccount;
@@ -21,7 +21,74 @@ pub struct GitAccountView {
     pub id: String,
     pub host: String,
     pub username: String,
+    /// Who signed in, when the username does not say.
+    pub name: Option<String>,
     pub has_token: bool,
+}
+
+/// A token that expires and is renewed with its refresh token (GitLab).
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct OAuthToken {
+    pub access_token: String,
+    pub refresh_token: String,
+    /// Unix seconds.
+    pub expires_at: u64,
+}
+
+/// What the store keeps for an account.
+#[derive(Clone, Debug, PartialEq)]
+pub enum Secret {
+    /// A token that does not expire (a personal access token, GitHub's).
+    Token(String),
+    OAuth(OAuthToken),
+}
+
+impl Secret {
+    pub fn access_token(&self) -> &str {
+        match self {
+            Secret::Token(token) => token,
+            Secret::OAuth(oauth) => &oauth.access_token,
+        }
+    }
+}
+
+/// Stored values: a plain token, or this prefix and an OAuthToken's JSON.
+const OAUTH_PREFIX: &str = "oauth:";
+
+fn decode(raw: String) -> Secret {
+    raw.strip_prefix(OAUTH_PREFIX)
+        .and_then(|json| serde_json::from_str(json).ok())
+        .map(Secret::OAuth)
+        .unwrap_or(Secret::Token(raw))
+}
+
+fn encode(secret: &Secret) -> Result<String, String> {
+    Ok(match secret {
+        Secret::Token(token) => token.clone(),
+        Secret::OAuth(oauth) => {
+            format!("{OAUTH_PREFIX}{}", serde_json::to_string(oauth).map_err(|e| e.to_string())?)
+        }
+    })
+}
+
+/// Renew this many seconds before the token expires.
+const REFRESH_MARGIN: u64 = 300;
+
+/// The refresh token, when the access token expires within the margin.
+pub fn due_for_refresh(secret: &Secret, now: u64) -> Option<&str> {
+    match secret {
+        Secret::OAuth(oauth) if oauth.expires_at <= now + REFRESH_MARGIN => {
+            Some(&oauth.refresh_token)
+        }
+        _ => None,
+    }
+}
+
+pub fn now_secs() -> u64 {
+    std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map(|d| d.as_secs())
+        .unwrap_or(0)
 }
 
 type Tokens = BTreeMap<String, String>;
@@ -43,9 +110,9 @@ fn write(store: &impl Store, tokens: &Tokens) -> Result<(), String> {
     store.set(&json)
 }
 
-pub fn set_token_with(store: &impl Store, id: &str, token: &str) -> Result<(), String> {
+pub fn set_secret_with(store: &impl Store, id: &str, secret: &Secret) -> Result<(), String> {
     let mut map = tokens(store);
-    map.insert(id.to_string(), token.to_string());
+    map.insert(id.to_string(), encode(secret)?);
     write(store, &map)
         .map_err(|e| format!("Could not save the token in the system's credential store: {e}"))
 }
@@ -58,9 +125,9 @@ pub fn remove_token_with(store: &impl Store, id: &str) -> Result<(), String> {
     write(store, &map).map_err(|e| format!("Could not update the credential store: {e}"))
 }
 
-/// The token of one account.
-pub fn token_with(store: &impl Store, id: &str) -> Option<String> {
-    tokens(store).remove(id)
+/// What the store keeps for one account.
+pub fn secret_with(store: &impl Store, id: &str) -> Option<Secret> {
+    tokens(store).remove(id).map(decode)
 }
 
 pub fn views_with(accounts: &[GitAccount], store: &impl Store) -> Vec<GitAccountView> {
@@ -71,6 +138,7 @@ pub fn views_with(accounts: &[GitAccount], store: &impl Store) -> Vec<GitAccount
             id: account.id.clone(),
             host: account.host.clone(),
             username: account.username.clone(),
+            name: account.name.clone(),
             has_token: map.contains_key(&account.id),
         })
         .collect()
@@ -126,21 +194,6 @@ pub fn account_for<'a>(accounts: &'a [GitAccount], remote_url: &str) -> Option<&
     }
 }
 
-/// What git's credential prompt gets for a remote: (username, token).
-pub fn credentials_with(
-    accounts: &[GitAccount],
-    remote_url: &str,
-    store: &impl Store,
-) -> Option<(String, String)> {
-    let account = account_for(accounts, remote_url)?;
-    let token = tokens(store).remove(&account.id)?;
-    Some((account.username.clone(), token))
-}
-
-pub fn credentials_for(accounts: &[GitAccount], remote_url: &str) -> Option<(String, String)> {
-    credentials_with(accounts, remote_url, &STORE)
-}
-
 /// A fresh account id.
 pub fn new_id() -> Result<String, String> {
     let mut buf = [0u8; 8];
@@ -171,7 +224,35 @@ mod tests {
     }
 
     fn account(id: &str, host: &str, username: &str) -> GitAccount {
-        GitAccount { id: id.into(), host: host.into(), username: username.into() }
+        GitAccount { id: id.into(), host: host.into(), username: username.into(), name: None }
+    }
+
+    #[test]
+    fn keeps_refreshable_tokens_beside_plain_ones() {
+        let store = MemoryStore::default();
+        let oauth = OAuthToken {
+            access_token: "a".into(),
+            refresh_token: "r".into(),
+            expires_at: 1_000,
+        };
+        set_secret_with(&store, "gl", &Secret::OAuth(oauth.clone())).unwrap();
+        set_secret_with(&store, "gh", &Secret::Token("plain".into())).unwrap();
+        assert_eq!(secret_with(&store, "gl"), Some(Secret::OAuth(oauth)));
+        assert_eq!(secret_with(&store, "gh"), Some(Secret::Token("plain".into())));
+        // Fetch, pull and push see the access token either way.
+        assert_eq!(secret_with(&store, "gl").unwrap().access_token(), "a");
+        assert_eq!(secret_with(&store, "gh").unwrap().access_token(), "plain");
+    }
+
+    #[test]
+    fn refreshes_shortly_before_expiry_only() {
+        let oauth = |expires_at| {
+            Secret::OAuth(OAuthToken { access_token: "a".into(), refresh_token: "r".into(), expires_at })
+        };
+        assert_eq!(due_for_refresh(&oauth(10_000), 1_000), None);
+        assert_eq!(due_for_refresh(&oauth(1_200), 1_000), Some("r"));
+        assert_eq!(due_for_refresh(&oauth(500), 1_000), Some("r"));
+        assert_eq!(due_for_refresh(&Secret::Token("t".into()), u64::MAX / 2), None);
     }
 
     #[test]
@@ -212,17 +293,18 @@ mod tests {
     fn tokens_come_and_go_through_the_store() {
         let store = MemoryStore::default();
         let accounts = vec![account("1", "github.com", "ada"), account("2", "gitlab.com", "ada")];
-        assert_eq!(credentials_with(&accounts, "https://github.com/x/y.git", &store), None);
-        set_token_with(&store, "1", "ghp_secret").unwrap();
-        set_token_with(&store, "2", "glpat-secret").unwrap();
-        assert_eq!(
-            credentials_with(&accounts, "https://github.com/x/y.git", &store),
-            Some(("ada".into(), "ghp_secret".into()))
-        );
+        let github_token = |store: &MemoryStore| {
+            let account = account_for(&accounts, "https://github.com/x/y.git")?;
+            secret_with(store, &account.id).map(|s| s.access_token().to_string())
+        };
+        assert_eq!(github_token(&store), None);
+        set_secret_with(&store, "1", &Secret::Token("ghp_secret".into())).unwrap();
+        set_secret_with(&store, "2", &Secret::Token("glpat-secret".into())).unwrap();
+        assert_eq!(github_token(&store).as_deref(), Some("ghp_secret"));
         let views = views_with(&accounts, &store);
         assert!(views.iter().all(|v| v.has_token));
         remove_token_with(&store, "1").unwrap();
-        assert_eq!(credentials_with(&accounts, "https://github.com/x/y.git", &store), None);
+        assert_eq!(github_token(&store), None);
         assert_eq!(views_with(&accounts, &store)[0].has_token, false);
         remove_token_with(&store, "2").unwrap();
         assert!(store.get().unwrap().is_none(), "the credential goes with the last token");

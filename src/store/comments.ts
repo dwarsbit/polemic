@@ -5,7 +5,7 @@ import { useProjectStore } from "@/store/project";
 interface CommentsState {
   comments: Comment[];
   loaded: boolean;
-  /** Load the current project's comments from .polemic/comments.json. */
+  /** Load the current project's comments from .polemic/comments/. */
   load: () => Promise<void>;
   add: (comment: {
     file: string;
@@ -26,7 +26,7 @@ interface CommentsState {
 /** The tail of the save queue: saves run one at a time, in call order. */
 let saving: Promise<void> = Promise.resolve();
 
-/** Persist the whole list (comments.json is small). Queued behind the
+/** Persist the whole list (one small file per comment). Queued behind the
  *  saves before it, so an older list never lands on disk last. */
 function persist(comments: Comment[]): Promise<void> {
   const { project } = useProjectStore.getState();
@@ -38,7 +38,7 @@ function persist(comments: Comment[]): Promise<void> {
 
 /** The load in flight, if any. Changes wait for it, so they apply on top
  *  of the loaded list rather than being overwritten by it, and their save
- *  does not replace comments.json with a list missing what it held. */
+ *  does not drop comments the list was missing. */
 let loading: Promise<void> | null = null;
 let loads = 0;
 

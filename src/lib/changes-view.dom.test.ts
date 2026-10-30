@@ -178,6 +178,15 @@ describe("suggest mode", () => {
     expect(text(v)).toContain("The new model.");
   });
 
+  it("edits the preamble directly past a commented \\begin{document}", () => {
+    const doc =
+      "% \\begin{document} comes later\n\\documentclass{article}\n" +
+      "\\begin{document}\nThe model.\n\\end{document}\n";
+    const v = suggesting(doc, doc.indexOf("{article}") + 1);
+    typeText(v, "x");
+    expect(v.state.doc.toString()).toBe(doc.replace("{article}", "{xarticle}"));
+  });
+
   it("backspaces into one deletion and undoes per typing burst", () => {
     const v = suggesting("The model.", "The model".length);
     deleteCharBackward(v);

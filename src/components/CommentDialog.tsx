@@ -149,7 +149,7 @@ function CommentForm({
 const noteText = (text: string) => text.replace(/\r?\n/g, " ").trim();
 
 /** A suggestion's note: written into the markup (`comment=`), its
- *  replies following it in comments.json. */
+ *  replies following it in .polemic/comments. */
 function NoteForm({
   target,
   onClose,
