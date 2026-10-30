@@ -37,6 +37,7 @@ import {
 } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
 import { useSettingsStore } from "@/store/settings";
+import { useCommentsStore } from "@/store/comments";
 
 const link = "underline underline-offset-2 hover:text-foreground";
 
@@ -168,6 +169,8 @@ function ShareBody() {
           setStep,
         );
         setLatest(snapshot);
+        // A publish pulls reviewers' comments into the folder first.
+        void useCommentsStore.getState().load();
         await refresh();
       } finally {
         setStep(null);

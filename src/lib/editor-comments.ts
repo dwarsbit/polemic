@@ -9,6 +9,8 @@ export type CommentTarget =
       anchor: Comment["anchor"];
       /** A reply to the suggestion note with this key. */
       suggestion?: string;
+      /** A reply to the comment with this id. */
+      replyTo?: string;
     }
   | { kind: "edit"; id: string }
   | {

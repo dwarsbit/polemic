@@ -184,6 +184,16 @@ export interface Comment {
   /** A reply to a suggestion's note: the note's key (see
    *  lib/suggestion-notes), so the thread follows the suggestion. */
   suggestion?: string | null;
+  /** Who wrote it on a review page; absent for the project's own. */
+  author?: CommentAuthor;
+  /** The comment this one answers. */
+  replyTo?: string;
+}
+
+export interface CommentAuthor {
+  name: string;
+  /** False for a name the reviewer typed, which nobody checked. */
+  verified: boolean;
 }
 
 export interface TemplateInfo {
@@ -1064,6 +1074,22 @@ export function shareCreateLink(
 
 export function shareDeleteLink(projectDir: string, linkId: string): Promise<void> {
   return invoke("share_delete_link", { projectDir, linkId });
+}
+
+/** The comment ids the folder holds, and those it has held while shared. */
+export function shareCommentState(
+  projectDir: string,
+): Promise<{ seen: string[]; onDisk: string[] }> {
+  return invoke("share_comment_state", { projectDir });
+}
+
+/** Writes comments the folder lacks; marks them and `seen` as held. */
+export function shareSaveComments(
+  projectDir: string,
+  comments: Comment[],
+  seen: string[],
+): Promise<string[]> {
+  return invoke<string[]>("share_save_comments", { projectDir, comments, seen });
 }
 
 /** Deletes the server copy and its links; the folder is not touched. */

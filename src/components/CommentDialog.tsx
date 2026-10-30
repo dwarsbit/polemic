@@ -20,6 +20,7 @@ import { useCommentsStore } from "@/store/comments";
 
 function anchorLabel(target: Exclude<CommentTarget, { kind: "note" }>): string {
   if (target.kind === "new" && target.suggestion) return "a suggestion's note";
+  if (target.kind === "new" && target.replyTo) return "a comment";
   if (target.kind === "edit") {
     const comment = useCommentsStore
       .getState()
@@ -69,6 +70,7 @@ function CommentForm({
           text: text.trim(),
           anchor: target.anchor,
           suggestion: target.suggestion ?? null,
+          replyTo: target.replyTo ?? null,
         });
       }
       onClose();
@@ -249,7 +251,7 @@ export function CommentDialog({
                 : "Edit suggestion note"
               : target?.kind === "edit"
                 ? "Edit comment"
-                : target?.suggestion
+                : target?.suggestion || target?.replyTo
                   ? "Reply"
                   : "New comment"}
           </DialogTitle>

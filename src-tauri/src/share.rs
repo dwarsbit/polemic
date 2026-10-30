@@ -14,7 +14,7 @@
 //! `@polemic/contracts` ("Projects", "The document over HTTP").
 
 use serde::{Deserialize, Serialize};
-use std::collections::{HashMap, HashSet};
+use std::collections::{BTreeSet, HashMap, HashSet};
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::sync::Mutex;
@@ -244,6 +244,12 @@ pub struct ShareLink {
     pub server: String,
     pub project_id: String,
     pub name: String,
+    /// Comment ids this folder has held: published from it or pulled
+    /// into it. A server comment file outside this set is a reviewer's,
+    /// not pulled yet; one inside it that the folder lacks was deleted
+    /// here, so it is not pulled again and the next publish removes it.
+    #[serde(default, skip_serializing_if = "BTreeSet::is_empty")]
+    pub seen_comments: BTreeSet<String>,
 }
 
 #[derive(Serialize, Deserialize, Default)]
@@ -287,6 +293,33 @@ pub fn set_link_in(file: &Path, dir: &Path, link: Option<ShareLink>) -> Result<(
     if let Some(parent) = file.parent() {
         fs::create_dir_all(parent)
             .map_err(|e| format!("could not create {}: {e}", parent.display()))?;
+    }
+    let json = serde_json::to_vec_pretty(&links).map_err(|e| e.to_string())?;
+    crate::files::write_atomic(file, &json)
+        .map_err(|e| format!("could not save the share link: {e}"))
+}
+
+/// Adds comment ids to the folder's link (see ShareLink::seen_comments).
+pub fn see_comments_in(
+    file: &Path,
+    dir: &Path,
+    server: &str,
+    ids: impl IntoIterator<Item = String>,
+) -> Result<(), String> {
+    let _guard = LINKS_LOCK.lock().map_err(|e| e.to_string())?;
+    let mut links = read_links(file);
+    let key = dir.to_string_lossy().to_string();
+    let Some(link) = links
+        .links
+        .get_mut(&key)
+        .filter(|link| link.server == server)
+    else {
+        return Ok(());
+    };
+    let before = link.seen_comments.len();
+    link.seen_comments.extend(ids);
+    if link.seen_comments.len() == before {
+        return Ok(());
     }
     let json = serde_json::to_vec_pretty(&links).map_err(|e| e.to_string())?;
     crate::files::write_atomic(file, &json)
@@ -800,6 +833,7 @@ pub async fn share_create(
         server: cx.server.clone(),
         project_id: project.id,
         name: project.name,
+        seen_comments: BTreeSet::new(),
     };
     set_link_in(&cx.links, &cx.dir, Some(link.clone()))?;
     Ok(link)
@@ -903,6 +937,49 @@ pub async fn share_delete_link(
     let cx = context(&app, &project_dir)?;
     let id = cx.link()?.project_id;
     cx.check(cx.session()?.delete_link(&id, &link_id).await)
+}
+
+/// What the folder holds and has held of the project's comments.
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CommentState {
+    pub seen: Vec<String>,
+    pub on_disk: Vec<String>,
+}
+
+#[tauri::command]
+pub fn share_comment_state(
+    app: tauri::AppHandle,
+    project_dir: String,
+) -> Result<CommentState, ShareError> {
+    let cx = context(&app, &project_dir)?;
+    let link = cx.link()?;
+    Ok(CommentState {
+        seen: link.seen_comments.into_iter().collect(),
+        on_disk: crate::comments::ids_on_disk(&cx.dir),
+    })
+}
+
+/// Writes reviewers' comments that the folder lacks (never over a file
+/// that is there) and adds them and `seen` to the comments the folder
+/// has held; returns the ids written.
+#[tauri::command]
+pub fn share_save_comments(
+    app: tauri::AppHandle,
+    project_dir: String,
+    comments: Vec<crate::comments::Comment>,
+    seen: Vec<String>,
+) -> Result<Vec<String>, ShareError> {
+    let cx = context(&app, &project_dir)?;
+    cx.link()?;
+    let written = crate::comments::add_new(&cx.dir, &comments)?;
+    see_comments_in(
+        &cx.links,
+        &cx.dir,
+        &cx.server,
+        seen.into_iter().chain(written.iter().cloned()),
+    )?;
+    Ok(written)
 }
 
 /// Deletes the server copy (document, assets, snapshots and review
@@ -1043,6 +1120,7 @@ mod tests {
             server: "https://app.test".into(),
             project_id: "p".repeat(22),
             name: "Thesis".into(),
+            seen_comments: BTreeSet::new(),
         };
         set_link_in(&file, a, Some(link.clone())).unwrap();
         assert_eq!(link_in(&file, a, "https://app.test"), Some(link.clone()));
@@ -1052,6 +1130,40 @@ mod tests {
         assert_eq!(link_in(&file, a, "https://app.test"), Some(link));
         set_link_in(&file, a, None).unwrap();
         assert_eq!(link_in(&file, a, "https://app.test"), None);
+        fs::remove_dir_all(&data).unwrap();
+    }
+
+    #[test]
+    fn remembers_the_comments_a_folder_has_held() {
+        let data = temp_project("seen");
+        let file = links_file(&data);
+        let a = Path::new("/projects/a");
+        // No link yet: nothing to remember them by.
+        see_comments_in(&file, a, "https://app.test", ["x".to_string()]).unwrap();
+        assert_eq!(link_in(&file, a, "https://app.test"), None);
+        let link = ShareLink {
+            server: "https://app.test".into(),
+            project_id: "p".repeat(22),
+            name: "Thesis".into(),
+            seen_comments: BTreeSet::new(),
+        };
+        set_link_in(&file, a, Some(link)).unwrap();
+        let ids = |list: &[&str]| list.iter().map(|id| id.to_string()).collect::<Vec<_>>();
+        see_comments_in(&file, a, "https://app.test", ids(&["b", "a"])).unwrap();
+        see_comments_in(&file, a, "https://other.test", ids(&["z"])).unwrap();
+        see_comments_in(&file, a, "https://app.test", ids(&["a", "c"])).unwrap();
+        let seen = link_in(&file, a, "https://app.test").unwrap().seen_comments;
+        assert_eq!(seen.into_iter().collect::<Vec<_>>(), ids(&["a", "b", "c"]));
+        // Links written before this field read as having seen none.
+        fs::write(
+            &file,
+            r#"{"links":{"/projects/a":{"server":"https://app.test","projectId":"pppppppppppppppppppppp","name":"T"}}}"#,
+        )
+        .unwrap();
+        assert!(link_in(&file, a, "https://app.test")
+            .unwrap()
+            .seen_comments
+            .is_empty());
         fs::remove_dir_all(&data).unwrap();
     }
 

@@ -34,6 +34,9 @@ vi.mock("@/lib/tauri", () => ({
     return server.status.link;
   }),
   shareSync: vi.fn(async () => ({ update: emptyUpdate(), stateVector: "AA==" })),
+  shareCommentState: vi.fn(async () => ({ seen: [], onDisk: [] })),
+  shareSaveComments: vi.fn(async () => []),
+  listComments: vi.fn(async () => []),
   shareUploadAssets: vi.fn(async () => {}),
   sharePush: vi.fn(async () => {}),
   sharePublish: vi.fn(async (_dir: string, main: string | null) => {
