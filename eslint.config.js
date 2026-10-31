@@ -20,7 +20,6 @@ export default tseslint.config(
       "src-tauri/**",
       "node_modules/**",
       "components.json",
-      "website/**",
     ],
   },
 );

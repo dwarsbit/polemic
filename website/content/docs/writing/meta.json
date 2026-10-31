@@ -1,5 +1,0 @@
-{
-  "title": "Editor",
-  "defaultOpen": true,
-  "pages": ["code-editor", "visual-editor", "shortcuts"]
-}

@@ -4,6 +4,8 @@ An open source, local-first LaTeX editor. Write LaTeX with a code editor and
 live PDF preview, compiled on your own machine with your own TeX distribution.
 Think of it as a lightweight, desktop Overleaf alternative.
 
+Downloads and documentation: [polemicapp.com](https://polemicapp.com).
+
 ## Status
 
 Pre-alpha. Working today: projects and templates, a code editor and a
