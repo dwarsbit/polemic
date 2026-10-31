@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124" width="1024" height="1024">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#412c42"/><stop offset="1" stop-color="#3c1a26"/></linearGradient>
+<linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.35"/><stop offset="0.4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<filter id="shadow" x="-10%" y="-10%" width="120%" height="125%"><feDropShadow dx="0" dy="1.2" stdDeviation="0.6" flood-color="#000" flood-opacity="0.3"/></filter>
+<clipPath id="clip"><rect x="12" y="12" width="100" height="100" rx="23.33"/></clipPath>
+<filter id="grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="4.2" numOctaves="2" seed="7" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="saturate" values="0" result="g"/><feComponentTransfer in="g" result="c"><feFuncR type="linear" slope="0.8" intercept="0.09999999999999998"/><feFuncG type="linear" slope="0.8" intercept="0.09999999999999998"/><feFuncB type="linear" slope="0.8" intercept="0.09999999999999998"/><feFuncA type="table" tableValues="1 1"/></feComponentTransfer><feComposite in="c" in2="SourceGraphic" operator="in" result="ci"/><feBlend in="ci" in2="SourceGraphic" mode="overlay"/></filter>
+</defs>
+<rect x="12" y="12" width="100" height="100" rx="23.33" fill="url(#bg)" filter="url(#shadow)"/>
+<rect x="12" y="12" width="100" height="100" rx="23.33" fill="url(#bg)" filter="url(#grain)"/>
+<g clip-path="url(#clip)" style="isolation:isolate"><g transform="translate(12 12)"><polygon points="136.76,227.98 162.48,212.55 -43.33,-130.44 -69.05,-115.01" fill="oklch(88% 0.035 325)" style="mix-blend-mode:screen" opacity="0.75" /><rect x="52.00" y="-10.00" width="22.00" height="130.00" rx="0.00" fill="oklch(12% 0.025 325)" style="mix-blend-mode:multiply" opacity="0.55" /></g></g>
+<rect x="12" y="12" width="100" height="100" rx="23.33" fill="none" stroke="url(#hl)" stroke-width="1" clip-path="url(#clip)"/>
+</svg>
