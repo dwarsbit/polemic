@@ -453,3 +453,114 @@ tr:last-child td img{{height:150px}}
 
 if __name__ == "__main__":
     main()
+
+
+# ---------------------------------------------------------------- mauve icons
+# Tints from polemic-website/app/global.css (mauve scale) and the purple
+# wallpaper gradient in components/elements/wallpaper.tsx, with the same
+# feTurbulence grain the site uses.
+
+MAUVE = {
+    50: "oklch(98.5% 0 0)",
+    100: "oklch(96% 0.003 325.6)",
+    200: "oklch(92.2% 0.005 325.62)",
+    300: "oklch(86.5% 0.012 325.68)",
+    400: "oklch(71.1% 0.019 323.02)",
+    500: "oklch(54.2% 0.034 322.5)",
+    600: "oklch(43.5% 0.029 321.78)",
+    700: "oklch(36.4% 0.029 323.89)",
+    800: "oklch(26.3% 0.024 320.12)",
+    900: "oklch(21.2% 0.019 322.12)",
+    950: "oklch(14.5% 0.008 326)",
+}
+
+ICON_BACKGROUNDS = [
+    # name, top colour, bottom colour, slash, caret
+    ("wallpaper-purple", "#7b627d", "#8f6976", "#FFFFFF", PINK),
+    ("wallpaper-purple-dark", "#412c42", "#3c1a26", "#FFFFFF", PINK),
+    ("mauve-500-600", MAUVE[500], MAUVE[600], "#FFFFFF", PINK),
+    ("mauve-600-800", MAUVE[600], MAUVE[800], "#FFFFFF", PINK),
+    ("mauve-800-950", MAUVE[800], MAUVE[950], "#FFFFFF", PINK),
+    ("mauve-900-950", MAUVE[900], MAUVE[950], MAUVE[100], PINK),
+    ("mauve-200-300-light", MAUVE[200], MAUVE[300], MAUVE[950], PINK),
+    ("mauve-500-600-muted-caret", MAUVE[500], MAUVE[600], "#FFFFFF", MAUVE[300]),
+]
+
+
+def grain_filter(fid: str, freq: float, amount: float) -> str:
+    """Zero-bias monochrome grain blended over the source with 'overlay'.
+
+    Noise is centred on 50% grey (overlay-neutral) and scaled by `amount`,
+    so it textures without shifting the overall brightness.
+    """
+    slope = amount
+    intercept = 0.5 - 0.5 * slope
+    return (
+        f'<filter id="{fid}" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">'
+        f'<feTurbulence type="fractalNoise" baseFrequency="{freq}" numOctaves="2" seed="7" stitchTiles="stitch" result="n"/>'
+        '<feColorMatrix in="n" type="saturate" values="0" result="g"/>'
+        '<feComponentTransfer in="g" result="c">'
+        f'<feFuncR type="linear" slope="{slope}" intercept="{intercept:.4f}"/>'
+        f'<feFuncG type="linear" slope="{slope}" intercept="{intercept:.4f}"/>'
+        f'<feFuncB type="linear" slope="{slope}" intercept="{intercept:.4f}"/>'
+        '<feFuncA type="table" tableValues="1 1"/>'
+        "</feComponentTransfer>"
+        '<feComposite in="c" in2="SourceGraphic" operator="in" result="ci"/>'
+        '<feBlend in="ci" in2="SourceGraphic" mode="overlay"/>'
+        "</filter>"
+    )
+
+
+def icon_svg(top: str, bottom: str, slash: str, caret: str, grain: float = 0.8, freq: float = 0.5) -> str:
+    """1024 canvas in the macOS layout of assets/app-icon.svg: tile 824, rx 185.4."""
+    s = 8.24
+    x = y = 100
+    body = [
+        '<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">'
+        f'<stop offset="0" stop-color="{top}"/><stop offset="1" stop-color="{bottom}"/></linearGradient>',
+        grain_filter("grain", freq, grain),
+        '<filter id="tileShadow" x="-10%" y="-10%" width="120%" height="125%">'
+        '<feDropShadow dx="0" dy="10" stdDeviation="5" flood-color="#000000" flood-opacity="0.3"/></filter>',
+        '<linearGradient id="highlight" x1="0" y1="0" x2="0" y2="1">'
+        '<stop offset="0" stop-color="#FFFFFF" stop-opacity="0.35"/><stop offset="0.4" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>',
+        f'<rect id="tile" x="{x}" y="{y}" width="824" height="824" rx="185.4"/>',
+        '<clipPath id="tileClip"><use href="#tile"/></clipPath>',
+    ]
+    defs = "".join(body)
+    content = (
+        '<use href="#tile" fill="url(#bg)" filter="url(#tileShadow)"/>'
+        '<g clip-path="url(#tileClip)"><use href="#tile" fill="url(#bg)" filter="url(#grain)"/></g>'
+        '<use href="#tile" fill="none" stroke="url(#highlight)" stroke-width="8" clip-path="url(#tileClip)"/>'
+        f'<path d="{slash_path(x, y, s)}" fill="none" stroke="{slash}" stroke-width="{SLASH_W * s:.1f}" stroke-linecap="round"/>'
+        f"{cursor_rect(x, y, s, caret)}"
+    )
+    return svg(1024, 1024, [defs], content)
+
+
+def write_icons() -> None:
+    cells = []
+    for name, top, bottom, slash, caret in ICON_BACKGROUNDS:
+        fname = f"icon-{name}.svg"
+        (OUT / fname).write_text(icon_svg(top, bottom, slash, caret))
+        cells.append(
+            f'<div class="cell"><img src="{fname}" style="width:256px"><div class="small">'
+            f'<img src="{fname}" style="width:128px"><img src="{fname}" style="width:64px"><img src="{fname}" style="width:32px"></div>'
+            f"<p>{name}</p></div>"
+        )
+    html = f"""<!doctype html><meta charset="utf-8"><title>Polemic icon: mauve backgrounds</title>
+<style>
+body{{margin:0;padding:24px;background:#F3F2F4;font:13px/1.4 Inter,system-ui,sans-serif;color:#333}}
+.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}}
+.cell{{background:#fff;border-radius:12px;padding:12px;text-align:center}}
+.small{{display:flex;align-items:flex-end;justify-content:center;gap:12px;margin-top:4px}}
+p{{margin:8px 0 0;font-weight:600}}
+</style>
+<h1 style="font-size:16px;margin:0 0 12px">Polemic icon — mauve tints with grain</h1>
+<div class="grid">{''.join(cells)}</div>
+"""
+    (OUT / "icon-mauve-sheet.html").write_text(html)
+    print(f"wrote {len(ICON_BACKGROUNDS)} icons")
+
+
+if __name__ == "__main__":
+    write_icons()
