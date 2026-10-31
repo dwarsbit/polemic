@@ -23,3 +23,10 @@ Treatments
 - `color`, `color-dark`: brand gradient, pink cursor, for light and dark backgrounds.
 - `gray`, `gray-dark`: zinc greys in place of the gradient.
 - `mono-black`, `mono-white`, `mono-indigo`: one colour only; slash and cursor are knocked out of the tile.
+
+Icon backgrounds (`icon-*.svg`, `icon-mauve-sheet.html`)
+
+1024px icons in the macOS layout of `assets/app-icon.svg`, with the tile filled by
+a vertical gradient in the mauve tints from `polemic-website/app/global.css` (or the
+site's purple wallpaper colours) and a fine overlay grain, tuned to the grain level of
+the site's wallpaper component.
