@@ -30,3 +30,10 @@ Icon backgrounds (`icon-*.svg`, `icon-mauve-sheet.html`)
 a vertical gradient in the mauve tints from `polemic-website/app/global.css` (or the
 site's purple wallpaper colours) and a fine overlay grain, tuned to the grain level of
 the site's wallpaper component.
+
+Ink marks (`ink-*.svg`, `ink-sheet.html`)
+
+Alternatives to the slash and caret, drawn as ink on the textured mauve tiles:
+brush strokes, a wet-ink bleed, a drip, a splat, a drop, a nib, a spill and an
+Instrument Serif italic P. The serif P needs the website's font, fetched with
+`npm pack @fontsource/instrument-serif` and converted to TTF (see `FONTS` in the script).
