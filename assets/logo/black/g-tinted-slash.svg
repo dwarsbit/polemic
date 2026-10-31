@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124" width="1024" height="1024">
+<defs><clipPath id="clip"><rect width="100" height="100" rx="16.0"/></clipPath><filter id="shadow" x="-10%" y="-10%" width="120%" height="125%"><feDropShadow dx="0" dy="1.2" stdDeviation="0.6" flood-color="#000" flood-opacity="0.3"/></filter></defs>
+<g transform="translate(12 12)">
+<rect width="100" height="100" rx="16.0" fill="oklch(14.5% 0.008 326)" filter="url(#shadow)"/>
+<g clip-path="url(#clip)"><path d="M34.40 24.00 L65.60 76.00" stroke="oklch(78% 0.055 325)" stroke-width="10.0" stroke-linecap="round" fill="none"/></g>
+</g></svg>
