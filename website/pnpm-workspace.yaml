@@ -1,3 +1,0 @@
-# The website is its own pnpm workspace, separate from the desktop app at the repo root.
-packages:
-  - .

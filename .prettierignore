@@ -2,7 +2,3 @@ dist
 src-tauri
 node_modules
 pnpm-lock.yaml
-website/.next
-website/out
-website/.source
-website/pnpm-lock.yaml
