@@ -95,8 +95,10 @@ def text_path(text: str, key: str, size: float, tracking: float = 0.0) -> Text:
 TILE_R = 23.33
 SLASH = (29.375, 23.75, 60.625, 75.83)  # x1 y1 x2 y2 (centre line)
 SLASH_W = 10.0
-CURSOR = (70.2, 44.58, 5.42, 31.25)  # x y w h
-CURSOR_R = 2.71
+# Caret: option D from caret-sheet.html. 80% of the slash's vertical extent
+# (round caps included, 18.75..80.83), bottom-aligned with it, weight 7.
+CURSOR = (70.2, 31.17, 7.0, 49.67)  # x y w h
+CURSOR_R = 3.5
 
 GRADIENT = ("#4F46E5", "#7C3AED", "#C026D3")
 PINK = "#EC4899"
