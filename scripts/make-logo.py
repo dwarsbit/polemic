@@ -564,3 +564,271 @@ p{{margin:8px 0 0;font-weight:600}}
 
 if __name__ == "__main__":
     write_icons()
+
+
+# ---------------------------------------------------------------- ink marks
+# Alternatives to the slash + caret, drawn as ink on the mauve tiles.
+# Instrument Serif comes from the website (npm pack @fontsource/instrument-serif).
+
+import math
+import random
+
+FONTS["instrument-italic"] = "/tmp/instr/package/files/instrument-serif-latin-400-italic.ttf"
+FONTS["instrument"] = "/tmp/instr/package/files/instrument-serif-latin-400-normal.ttf"
+
+INK_DARK = "oklch(14.5% 0.008 326)"  # mauve-950
+INK_LIGHT = "oklch(96% 0.003 325.6)"  # mauve-100
+
+
+def rough_filter(fid: str, s: float, scale: float = 1.4, freq: float = 0.018) -> str:
+    """Ragged ink edge: displace the shape with low-frequency noise."""
+    return (
+        f'<filter id="{fid}" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">'
+        f'<feTurbulence type="fractalNoise" baseFrequency="{freq / s * 8.24:.4f}" numOctaves="3" seed="3" result="n"/>'
+        f'<feDisplacementMap in="SourceGraphic" in2="n" scale="{scale * s:.2f}" xChannelSelector="R" yChannelSelector="G"/>'
+        "</filter>"
+    )
+
+
+def bleed_filter(fid: str, s: float) -> str:
+    """Wet ink soaking into paper: swell, blur, re-threshold, then roughen."""
+    return (
+        f'<filter id="{fid}" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">'
+        f'<feMorphology in="SourceGraphic" operator="dilate" radius="{0.25 * s:.2f}" result="d"/>'
+        f'<feGaussianBlur in="d" stdDeviation="{0.9 * s:.2f}" result="b"/>'
+        '<feComponentTransfer in="b" result="t"><feFuncA type="table" tableValues="0 0 0.2 1 1"/></feComponentTransfer>'
+        f'<feTurbulence type="fractalNoise" baseFrequency="{0.03 / s * 8.24:.4f}" numOctaves="3" seed="5" result="n"/>'
+        f'<feDisplacementMap in="t" in2="n" scale="{2.2 * s:.2f}" xChannelSelector="R" yChannelSelector="G"/>'
+        "</filter>"
+    )
+
+
+def goo_filter(fid: str, s: float) -> str:
+    """Blur + alpha contrast: merges circles into one organic blob."""
+    return (
+        f'<filter id="{fid}" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">'
+        f'<feGaussianBlur in="SourceGraphic" stdDeviation="{1.6 * s:.2f}" result="b"/>'
+        '<feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" result="g"/>'
+        f'<feTurbulence type="fractalNoise" baseFrequency="{0.02 / s * 8.24:.4f}" numOctaves="2" seed="9" result="n"/>'
+        f'<feDisplacementMap in="g" in2="n" scale="{1.5 * s:.2f}" xChannelSelector="R" yChannelSelector="G"/>'
+        "</filter>"
+    )
+
+
+def brush_stroke_path(x, y, s, p0, p1, w0, bow=1.5, taper=0.55, swell=0.15):
+    """Closed outline of a brush stroke from p0 to p1 (tile units): round
+    loaded start, slight swell, tapering to a point, slightly bowed."""
+    (x0, y0), (x1, y1) = p0, p1
+    dx, dy = x1 - x0, y1 - y0
+    length = math.hypot(dx, dy)
+    ux, uy = dx / length, dy / length
+    nx, ny = -uy, ux
+    n = 36
+    left, right = [], []
+    for i in range(n + 1):
+        t = i / n
+        cx = x0 + dx * t + nx * bow * math.sin(math.pi * t)
+        cy = y0 + dy * t + ny * bow * math.sin(math.pi * t)
+        h = w0 / 2 * (1 - t) ** taper * (1 - swell + swell * min(1.0, t / 0.2))
+        left.append((cx + nx * h, cy + ny * h))
+        right.append((cx - nx * h, cy - ny * h))
+    r = w0 / 2 * (1 - swell)
+    cap = []
+    for i in range(1, 12):
+        a = math.pi * i / 12
+        cap.append((x0 - nx * r * math.cos(a) - ux * r * math.sin(a), y0 - ny * r * math.cos(a) - uy * r * math.sin(a)))
+    pts = left + right[::-1] + cap
+    return " ".join(f"{'M' if i == 0 else 'L'}{x + px * s:.2f} {y + py * s:.2f}" for i, (px, py) in enumerate(pts)) + " Z"
+
+
+def splatter(x, y, s, cx, cy, ink, seed, n=7, spread=9.0, size=1.0):
+    rnd = random.Random(seed)
+    out = []
+    for _ in range(n):
+        a = rnd.uniform(0, 2 * math.pi)
+        d = rnd.uniform(3, spread)
+        r = rnd.uniform(0.8, 2.6) * size * (1 - d / (spread * 1.8))
+        out.append(f'<circle cx="{x + (cx + math.cos(a) * d) * s:.2f}" cy="{y + (cy + math.sin(a) * d) * s:.2f}" r="{max(r, 0.5) * s:.2f}" fill="{ink}"/>')
+    return "".join(out)
+
+
+def mark_brush(x, y, s, defs, ink, accent):
+    fid = uid("rough"); defs.append(rough_filter(fid, s))
+    d = brush_stroke_path(x, y, s, (31, 23), (64, 80), 16)
+    return f'<g filter="url(#{fid})"><path d="{d}" fill="{ink}"/>{splatter(x, y, s, 62, 78, ink, 1, n=5, spread=11, size=0.9)}</g>'
+
+
+def mark_brush_pair(x, y, s, defs, ink, accent):
+    """The icon's slash and caret, both as brush strokes."""
+    fid = uid("rough"); defs.append(rough_filter(fid, s))
+    d = brush_stroke_path(x, y, s, (28, 23), (60, 80), 16)
+    c = brush_stroke_path(x, y, s, (73.5, 33), (72, 74), 9.5, bow=0.6, taper=0.45)
+    return f'<g filter="url(#{fid})"><path d="{d}" fill="{ink}"/><path d="{c}" fill="{accent}"/></g>'
+
+
+def mark_brush_dot(x, y, s, defs, ink, accent):
+    fid = uid("rough"); defs.append(rough_filter(fid, s))
+    d = brush_stroke_path(x, y, s, (27, 23), (59, 80), 16)
+    dot = f'<circle cx="{x + 73 * s:.2f}" cy="{y + 72 * s:.2f}" r="{6.5 * s:.2f}" fill="{accent}"/>'
+    return f'<g filter="url(#{fid})"><path d="{d}" fill="{ink}"/>{dot}</g>'
+
+
+def mark_bleed(x, y, s, defs, ink, accent):
+    fid = uid("bleed"); defs.append(bleed_filter(fid, s))
+    return (
+        f'<g filter="url(#{fid})">'
+        f'<path d="{slash_path(x, y, s)}" stroke="{ink}" stroke-width="{SLASH_W * s:.2f}" stroke-linecap="round" fill="none"/>'
+        f"{cursor_rect(x, y, s, accent)}</g>"
+    )
+
+
+def mark_drip(x, y, s, defs, ink, accent):
+    """Brush slash, and ink running down from the top edge where the caret was."""
+    fid = uid("rough"); defs.append(rough_filter(fid, s, scale=1.0))
+    d = brush_stroke_path(x, y, s, (27, 23), (59, 80), 16)
+    cx = 72
+    drip = (
+        f'<path d="M{x + (cx - 4) * s:.2f} {y - 2 * s:.2f} L{x + (cx + 4) * s:.2f} {y - 2 * s:.2f} '
+        f'C{x + (cx + 4) * s:.2f} {y + 22 * s:.2f} {x + (cx + 2.2) * s:.2f} {y + 40 * s:.2f} {x + (cx + 2.4) * s:.2f} {y + 58 * s:.2f} '
+        f'A{6.2 * s:.2f} {6.2 * s:.2f} 0 1 1 {x + (cx - 2.4) * s:.2f} {y + 58 * s:.2f} '
+        f'C{x + (cx - 2.2) * s:.2f} {y + 40 * s:.2f} {x + (cx - 4) * s:.2f} {y + 22 * s:.2f} {x + (cx - 4) * s:.2f} {y - 2 * s:.2f} Z" fill="{accent}"/>'
+    )
+    return f'<g filter="url(#{fid})"><path d="{d}" fill="{ink}"/>{drip}</g>'
+
+
+def mark_splat(x, y, s, defs, ink, accent):
+    fid = uid("rough"); defs.append(rough_filter(fid, s, scale=1.2))
+    gid = uid("goo"); defs.append(goo_filter(gid, s))
+    d = brush_stroke_path(x, y, s, (27, 19), (55, 66), 14, taper=0.3)
+    rnd = random.Random(4)
+    blobs = [f'<circle cx="{x + 58 * s:.2f}" cy="{y + 72 * s:.2f}" r="{10.5 * s:.2f}" fill="{ink}"/>']
+    for _ in range(12):
+        a = rnd.uniform(0, 2 * math.pi); dd = rnd.uniform(7, 17)
+        blobs.append(f'<circle cx="{x + (58 + math.cos(a) * dd) * s:.2f}" cy="{y + (72 + math.sin(a) * dd * 0.75) * s:.2f}" r="{rnd.uniform(1.6, 4.6) * s:.2f}" fill="{ink}"/>')
+    return (
+        f'<g filter="url(#{fid})"><path d="{d}" fill="{ink}"/></g>'
+        f'<g filter="url(#{gid})">{"".join(blobs)}</g>'
+        f'{splatter(x, y, s, 70, 68, accent, 11, n=7, spread=16, size=1.1)}'
+    )
+
+
+def mark_drop(x, y, s, defs, ink, accent):
+    fid = uid("rough"); defs.append(rough_filter(fid, s, scale=0.6))
+    d = (
+        f'M{x + 50 * s:.2f} {y + 20 * s:.2f} '
+        f'C{x + 50 * s:.2f} {y + 20 * s:.2f} {x + 29 * s:.2f} {y + 49 * s:.2f} {x + 29 * s:.2f} {y + 61 * s:.2f} '
+        f'A{21 * s:.2f} {21 * s:.2f} 0 0 0 {x + 71 * s:.2f} {y + 61 * s:.2f} '
+        f'C{x + 71 * s:.2f} {y + 49 * s:.2f} {x + 50 * s:.2f} {y + 20 * s:.2f} {x + 50 * s:.2f} {y + 20 * s:.2f} Z'
+    )
+    hl = f'<ellipse cx="{x + 41 * s:.2f}" cy="{y + 64 * s:.2f}" rx="{3.2 * s:.2f}" ry="{5.5 * s:.2f}" transform="rotate(25 {x + 41 * s:.2f} {y + 64 * s:.2f})" fill="{accent}"/>'
+    return f'<g filter="url(#{fid})"><path d="{d}" fill="{ink}"/></g>{hl}'
+
+
+def mark_nib(x, y, s, defs, ink, accent):
+    cx, cy = x + 50 * s, y + 50 * s
+    k = s * 0.92
+    return (
+        f'<g transform="translate({cx:.2f} {cy:.2f}) rotate(-31) scale({k:.3f})">'
+        f'<path d="M0 34 L-12 8 C-15 2 -16 -8 -14 -20 C-13 -30 -8 -34 0 -34 C8 -34 13 -30 14 -20 C16 -8 15 2 12 8 Z" fill="{ink}"/>'
+        f'<circle cx="0" cy="4" r="3.4" fill="{accent}"/>'
+        f'<path d="M0 4 L0 31" stroke="{accent}" stroke-width="1.8" stroke-linecap="round"/>'
+        "</g>"
+    )
+
+
+def mark_spill(x, y, s, defs, ink, accent):
+    """One organic ink spill with a few satellite drops."""
+    gid = uid("goo"); defs.append(goo_filter(gid, s))
+    rnd = random.Random(31)
+    blobs = []
+    for _ in range(9):
+        a = rnd.uniform(0, 2 * math.pi); dd = rnd.uniform(0, 12)
+        blobs.append(f'<circle cx="{x + (49 + math.cos(a) * dd) * s:.2f}" cy="{y + (50 + math.sin(a) * dd) * s:.2f}" r="{rnd.uniform(9, 17) * s:.2f}" fill="{ink}"/>')
+    hl = f'<ellipse cx="{x + 41 * s:.2f}" cy="{y + 42 * s:.2f}" rx="{3 * s:.2f}" ry="{5 * s:.2f}" transform="rotate(35 {x + 41 * s:.2f} {y + 42 * s:.2f})" fill="{accent}"/>'
+    return f'<g filter="url(#{gid})">{"".join(blobs)}</g>{splatter(x, y, s, 72, 70, ink, 5, n=5, spread=12, size=1.2)}{hl}'
+
+
+def mark_serif_p(x, y, s, defs, ink, accent):
+    fid = uid("rough"); defs.append(rough_filter(fid, s, scale=1.1))
+    txt = text_path("P", "instrument-italic", 78 * s)
+    tx = x + (50 * s) - txt.width / 2 - 2 * s
+    ty = y + 50 * s + txt.cap / 2
+    return (
+        f'<g filter="url(#{fid})"><path transform="translate({tx:.2f} {ty:.2f})" d="{txt.d}" fill="{ink}"/></g>'
+        f'{splatter(x, y, s, 69, 72, accent, 8, n=5, spread=10, size=1.4)}'
+    )
+
+
+INK_MARKS = {
+    "brush": mark_brush,
+    "brush-pair": mark_brush_pair,
+    "brush-dot": mark_brush_dot,
+    "bleed": mark_bleed,
+    "drip": mark_drip,
+    "splat": mark_splat,
+    "drop": mark_drop,
+    "nib": mark_nib,
+    "spill": mark_spill,
+    "serif-p": mark_serif_p,
+}
+
+INK_TILES = [
+    # name, top, bottom, ink, accent
+    ("purple-dark-ink", "#7b627d", "#8f6976", INK_DARK, PINK),
+    ("purple-light-ink", "#7b627d", "#8f6976", INK_LIGHT, PINK),
+    ("dark-light-ink", MAUVE[800], MAUVE[950], INK_LIGHT, PINK),
+    ("light-dark-ink", MAUVE[200], MAUVE[300], INK_DARK, PINK),
+]
+
+
+def ink_icon_svg(top: str, bottom: str, mark, ink: str, accent: str, grain: float = 0.8, freq: float = 0.5) -> str:
+    s = 8.24
+    x = y = 100
+    defs = [
+        '<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">'
+        f'<stop offset="0" stop-color="{top}"/><stop offset="1" stop-color="{bottom}"/></linearGradient>',
+        grain_filter("grain", freq, grain),
+        '<filter id="tileShadow" x="-10%" y="-10%" width="120%" height="125%">'
+        '<feDropShadow dx="0" dy="10" stdDeviation="5" flood-color="#000000" flood-opacity="0.3"/></filter>',
+        '<linearGradient id="highlight" x1="0" y1="0" x2="0" y2="1">'
+        '<stop offset="0" stop-color="#FFFFFF" stop-opacity="0.35"/><stop offset="0.4" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>',
+        f'<rect id="tile" x="{x}" y="{y}" width="824" height="824" rx="185.4"/>',
+        '<clipPath id="tileClip"><use href="#tile"/></clipPath>',
+    ]
+    body = mark(x, y, s, defs, ink, accent)
+    content = (
+        '<use href="#tile" fill="url(#bg)" filter="url(#tileShadow)"/>'
+        '<g clip-path="url(#tileClip)"><use href="#tile" fill="url(#bg)" filter="url(#grain)"/></g>'
+        '<use href="#tile" fill="none" stroke="url(#highlight)" stroke-width="8" clip-path="url(#tileClip)"/>'
+        f'<g clip-path="url(#tileClip)">{body}</g>'
+    )
+    return svg(1024, 1024, defs, content)
+
+
+def write_ink_icons() -> None:
+    rows = []
+    for tname, top, bottom, ink, accent in INK_TILES:
+        cells = []
+        for mname, fn in INK_MARKS.items():
+            fname = f"ink-{mname}-{tname}.svg"
+            (OUT / fname).write_text(ink_icon_svg(top, bottom, fn, ink, accent))
+            cells.append(f'<td><img src="{fname}" style="width:200px"><div class="small"><img src="{fname}" style="width:64px"><img src="{fname}" style="width:32px"></div></td>')
+        rows.append(f"<tr><th>{tname}</th>{''.join(cells)}</tr>")
+    head = "".join(f"<th>{m}</th>" for m in INK_MARKS)
+    html = f"""<!doctype html><meta charset="utf-8"><title>Polemic icon: ink marks</title>
+<style>
+body{{margin:0;padding:24px;background:#F3F2F4;font:13px/1.4 Inter,system-ui,sans-serif;color:#333}}
+table{{border-collapse:separate;border-spacing:8px}}
+th{{font-weight:600;text-align:left;white-space:nowrap}}
+td{{background:#fff;border-radius:12px;padding:10px;text-align:center;vertical-align:top}}
+.small{{display:flex;align-items:flex-end;justify-content:center;gap:10px;margin-top:4px}}
+</style>
+<h1 style="font-size:16px;margin:0 0 12px">Polemic icon — ink marks</h1>
+<table><tr><th></th>{head}</tr>{''.join(rows)}</table>
+"""
+    (OUT / "ink-sheet.html").write_text(html)
+    print(f"wrote {len(INK_TILES) * len(INK_MARKS)} ink icons")
+
+
+if __name__ == "__main__":
+    write_ink_icons()
