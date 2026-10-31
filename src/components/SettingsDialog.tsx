@@ -176,26 +176,26 @@ function ThemeTile({
         className={cn(
           "relative h-16 w-full overflow-hidden rounded-md border",
           id === "light" && "bg-white",
-          dark && "bg-neutral-900",
+          dark && "bg-mauve-900",
           id === "system" && "bg-[linear-gradient(135deg,white_50%,#171717_50%)]",
         )}
       >
         <div
           className={cn(
             "absolute top-2 left-2 h-2 w-10 rounded-sm",
-            dark ? "bg-neutral-600" : "bg-neutral-300",
+            dark ? "bg-mauve-600" : "bg-mauve-300",
           )}
         />
         <div
           className={cn(
             "absolute top-6 left-2 h-1.5 w-16 rounded-sm",
-            dark ? "bg-neutral-700" : "bg-neutral-200",
+            dark ? "bg-mauve-700" : "bg-mauve-200",
           )}
         />
         <div
           className={cn(
             "absolute top-9 left-2 h-1.5 w-12 rounded-sm",
-            dark ? "bg-neutral-700" : "bg-neutral-200",
+            dark ? "bg-mauve-700" : "bg-mauve-200",
           )}
         />
         {active && (

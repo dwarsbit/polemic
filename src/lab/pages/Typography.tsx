@@ -216,18 +216,18 @@ export function TypographyPage() {
 
       <LabSection
         title="Color roles"
-        note="The mist gray scale carries all surfaces and text. Indigo is the only tint: focus rings, text selection, selected rows and pills. One hue per status meaning, as tokens, so panels stop mixing amber-400/500/600/700 and orange."
+        note="The mauve gray scale carries all surfaces and text. Plum is the only tint: focus rings, text selection, selected rows and pills. One hue per status meaning, as tokens, so panels stop mixing amber-400/500/600/700 and orange."
       >
         <div className="grid grid-cols-4 gap-3">
           <Swatch name="Foreground" className="bg-foreground" />
           <Swatch name="Muted foreground" className="bg-muted-foreground" />
           <Swatch name="Border" className="bg-border" />
           <Swatch name="Muted / accent" className="bg-muted" />
-          <Swatch name="Tint" className="bg-tint" text="indigo-500 · ring, selection" />
+          <Swatch name="Tint" className="bg-tint" text="plum-500 · ring, selection" />
           <Swatch
             name="Tint soft"
             className="bg-tint-soft"
-            text="indigo 10% · pills, selected rows"
+            text="plum 10% · pills, selected rows"
           />
           <Swatch name="Success" className="bg-success" text="emerald-600 / 400" />
           <Swatch name="Warning" className="bg-warning" text="amber-600 / 400" />
@@ -267,13 +267,13 @@ export function TypographyPage() {
         </div>
       </LabSection>
 
-      <LabSection title="Mist scale" note="Tailwind's mist, 50 to 950.">
+      <LabSection title="Mauve scale" note="Tailwind's mauve, 50 to 950.">
         <div className="grid grid-cols-11 gap-1">
           {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((step) => (
             <div key={step} className="flex flex-col items-center gap-1">
               <div
                 className="h-10 w-full rounded-md border"
-                style={{ background: `var(--color-mist-${step})` }}
+                style={{ background: `var(--color-mauve-${step})` }}
               />
               <span className="text-2xs text-muted-foreground">{step}</span>
             </div>

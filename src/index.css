@@ -49,7 +49,7 @@
   --color-background: var(--background);
   --color-primary-fill: var(--primary-fill);
   --color-primary-edge: var(--primary-edge);
-  /* The one tint (indigo): focus rings, text selection, selected rows,
+  /* The one tint (plum): focus rings, text selection, selected rows,
      pills. Soft and edge are its translucent fill and border. */
   --color-tint: var(--tint);
   --color-tint-foreground: var(--tint-foreground);
@@ -72,55 +72,58 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Design tokens: shadcn semantic tokens on Tailwind's mist gray scale
-   (a cool gray, hue ~200-225), a near-black primary, and indigo as the
-   only tint. The comments name the Tailwind step each value is. */
+/* Design tokens: shadcn semantic tokens on Tailwind's mauve gray scale
+   (a warm purple gray, hue ~320-326), a near-black primary, and plum as
+   the only tint. Plum is not a Tailwind color: it is the dusty purple
+   #816682 (oklch 54.7% 0.054 325) at the mauve hue, with more chroma so
+   it reads as an accent against the grays. Its steps (200-700) match
+   indigo's lightness. The comments name the Tailwind step each value is. */
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(14.8% 0.004 228.8); /* mist-950 */
+  --foreground: oklch(14.5% 0.008 326); /* mauve-950 */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(14.8% 0.004 228.8);
+  --card-foreground: oklch(14.5% 0.008 326);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(14.8% 0.004 228.8);
-  --primary: oklch(21.8% 0.008 223.9); /* mist-900 */
-  --primary-foreground: oklch(98.7% 0.002 197.1); /* mist-50 */
+  --popover-foreground: oklch(14.5% 0.008 326);
+  --primary: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  --primary-foreground: oklch(98.5% 0 0); /* mauve-50 */
   /* The primary button: a fill two steps lighter than --primary, with
      a --primary hairline edge. */
-  --primary-fill: oklch(37.8% 0.015 216); /* mist-700 */
-  --primary-edge: oklch(21.8% 0.008 223.9); /* mist-900 */
-  --secondary: oklch(96.3% 0.002 197.1); /* mist-100 */
-  --secondary-foreground: oklch(21.8% 0.008 223.9);
-  --muted: oklch(96.3% 0.002 197.1);
-  --muted-foreground: oklch(56% 0.021 213.5); /* mist-500 */
-  --accent: oklch(96.3% 0.002 197.1);
-  --accent-foreground: oklch(21.8% 0.008 223.9);
+  --primary-fill: oklch(36.4% 0.029 323.89); /* mauve-700 */
+  --primary-edge: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  --secondary: oklch(96% 0.003 325.6); /* mauve-100 */
+  --secondary-foreground: oklch(21.2% 0.019 322.12);
+  --muted: oklch(96% 0.003 325.6);
+  --muted-foreground: oklch(54.2% 0.034 322.5); /* mauve-500 */
+  --accent: oklch(96% 0.003 325.6);
+  --accent-foreground: oklch(21.2% 0.019 322.12);
   --destructive: oklch(57.7% 0.245 27.325); /* red-600 */
-  --border: oklch(92.5% 0.005 214.3); /* mist-200 */
-  --input: oklch(92.5% 0.005 214.3);
-  --ring: oklch(58.5% 0.233 277.117); /* indigo-500 */
-  --selection: oklch(87% 0.065 274.039); /* indigo-200 */
-  --tint: oklch(58.5% 0.233 277.117); /* indigo-500 */
-  --tint-foreground: oklch(45.7% 0.24 277.023); /* indigo-700 */
-  --tint-soft: oklch(58.5% 0.233 277.117 / 10%);
-  --tint-edge: oklch(58.5% 0.233 277.117 / 25%);
+  --border: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --input: oklch(92.2% 0.005 325.62);
+  --ring: oklch(58.5% 0.16 325); /* plum-500 */
+  --selection: oklch(87% 0.06 325); /* plum-200 */
+  --tint: oklch(58.5% 0.16 325); /* plum-500 */
+  --tint-foreground: oklch(45.7% 0.15 325); /* plum-700 */
+  --tint-soft: oklch(58.5% 0.16 325 / 10%);
+  --tint-edge: oklch(58.5% 0.16 325 / 25%);
   --success: oklch(59.6% 0.145 163.225); /* emerald-600 */
   --warning: oklch(66.6% 0.179 58.318); /* amber-600 */
   --info: oklch(58.8% 0.158 241.966); /* sky-600 */
-  --chart-1: oklch(87.2% 0.007 219.6); /* mist-300 */
-  --chart-2: oklch(56% 0.021 213.5); /* mist-500 */
-  --chart-3: oklch(45% 0.017 213.2); /* mist-600 */
-  --chart-4: oklch(37.8% 0.015 216); /* mist-700 */
-  --chart-5: oklch(27.5% 0.011 216.9); /* mist-800 */
+  --chart-1: oklch(86.5% 0.012 325.68); /* mauve-300 */
+  --chart-2: oklch(54.2% 0.034 322.5); /* mauve-500 */
+  --chart-3: oklch(43.5% 0.029 321.78); /* mauve-600 */
+  --chart-4: oklch(36.4% 0.029 323.89); /* mauve-700 */
+  --chart-5: oklch(26.3% 0.024 320.12); /* mauve-800 */
   --radius: 0.45rem;
   /* The window backdrop behind the floating cards. */
-  --sidebar: oklch(98.7% 0.002 197.1); /* mist-50 */
-  --sidebar-foreground: oklch(14.8% 0.004 228.8);
-  --sidebar-primary: oklch(21.8% 0.008 223.9);
-  --sidebar-primary-foreground: oklch(98.7% 0.002 197.1);
-  --sidebar-accent: oklch(96.3% 0.002 197.1);
-  --sidebar-accent-foreground: oklch(21.8% 0.008 223.9);
-  --sidebar-border: oklch(92.5% 0.005 214.3);
-  --sidebar-ring: oklch(58.5% 0.233 277.117);
+  --sidebar: oklch(98.5% 0 0); /* mauve-50 */
+  --sidebar-foreground: oklch(14.5% 0.008 326);
+  --sidebar-primary: oklch(21.2% 0.019 322.12);
+  --sidebar-primary-foreground: oklch(98.5% 0 0);
+  --sidebar-accent: oklch(96% 0.003 325.6);
+  --sidebar-accent-foreground: oklch(21.2% 0.019 322.12);
+  --sidebar-border: oklch(92.2% 0.005 325.62);
+  --sidebar-ring: oklch(58.5% 0.16 325);
 }
 
 /* macOS vibrancy: the chrome (header, rails, status bar) is fully
@@ -130,55 +133,55 @@
    light mode while the blur stays subtly visible. The content surfaces
    (editor, preview, panels, dialogs) are opaque cards for readability. */
 html.mac body {
-  background-color: oklch(98.7% 0.002 197.1 / 85%); /* mist-50 */
+  background-color: oklch(98.5% 0 0 / 85%); /* mauve-50 */
 }
 
 html.mac.dark body {
-  background-color: oklch(14.8% 0.004 228.8 / 80%); /* mist-950 */
+  background-color: oklch(14.5% 0.008 326 / 80%); /* mauve-950 */
 }
 
 .dark {
-  --background: oklch(14.8% 0.004 228.8); /* mist-950 */
-  --foreground: oklch(98.7% 0.002 197.1); /* mist-50 */
-  --card: oklch(21.8% 0.008 223.9); /* mist-900 */
-  --card-foreground: oklch(98.7% 0.002 197.1);
-  --popover: oklch(21.8% 0.008 223.9);
-  --popover-foreground: oklch(98.7% 0.002 197.1);
-  --primary: oklch(92.5% 0.005 214.3); /* mist-200 */
-  --primary-foreground: oklch(21.8% 0.008 223.9);
-  --primary-fill: oklch(92.5% 0.005 214.3);
-  --primary-edge: oklch(92.5% 0.005 214.3);
-  --secondary: oklch(27.5% 0.011 216.9); /* mist-800 */
-  --secondary-foreground: oklch(98.7% 0.002 197.1);
-  --muted: oklch(27.5% 0.011 216.9);
-  --muted-foreground: oklch(72.3% 0.014 214.4); /* mist-400 */
-  --accent: oklch(27.5% 0.011 216.9);
-  --accent-foreground: oklch(98.7% 0.002 197.1);
+  --background: oklch(14.5% 0.008 326); /* mauve-950 */
+  --foreground: oklch(98.5% 0 0); /* mauve-50 */
+  --card: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  --card-foreground: oklch(98.5% 0 0);
+  --popover: oklch(21.2% 0.019 322.12);
+  --popover-foreground: oklch(98.5% 0 0);
+  --primary: oklch(92.2% 0.005 325.62); /* mauve-200 */
+  --primary-foreground: oklch(21.2% 0.019 322.12);
+  --primary-fill: oklch(92.2% 0.005 325.62);
+  --primary-edge: oklch(92.2% 0.005 325.62);
+  --secondary: oklch(26.3% 0.024 320.12); /* mauve-800 */
+  --secondary-foreground: oklch(98.5% 0 0);
+  --muted: oklch(26.3% 0.024 320.12);
+  --muted-foreground: oklch(71.1% 0.019 323.02); /* mauve-400 */
+  --accent: oklch(26.3% 0.024 320.12);
+  --accent-foreground: oklch(98.5% 0 0);
   --destructive: oklch(70.4% 0.191 22.216); /* red-400 */
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(67.3% 0.182 276.935); /* indigo-400 */
-  --selection: oklch(58.5% 0.233 277.117 / 40%);
-  --tint: oklch(67.3% 0.182 276.935); /* indigo-400 */
-  --tint-foreground: oklch(78.5% 0.115 274.713); /* indigo-300 */
-  --tint-soft: oklch(67.3% 0.182 276.935 / 15%);
-  --tint-edge: oklch(67.3% 0.182 276.935 / 30%);
+  --ring: oklch(67.3% 0.14 325); /* plum-400 */
+  --selection: oklch(58.5% 0.16 325 / 40%);
+  --tint: oklch(67.3% 0.14 325); /* plum-400 */
+  --tint-foreground: oklch(78.5% 0.1 325); /* plum-300 */
+  --tint-soft: oklch(67.3% 0.14 325 / 15%);
+  --tint-edge: oklch(67.3% 0.14 325 / 30%);
   --success: oklch(76.5% 0.177 163.223); /* emerald-400 */
   --warning: oklch(82.8% 0.189 84.429); /* amber-400 */
   --info: oklch(74.6% 0.16 232.661); /* sky-400 */
-  --chart-1: oklch(87.2% 0.007 219.6);
-  --chart-2: oklch(56% 0.021 213.5);
-  --chart-3: oklch(45% 0.017 213.2);
-  --chart-4: oklch(37.8% 0.015 216);
-  --chart-5: oklch(27.5% 0.011 216.9);
-  --sidebar: oklch(14.8% 0.004 228.8); /* mist-950 */
-  --sidebar-foreground: oklch(98.7% 0.002 197.1);
-  --sidebar-primary: oklch(67.3% 0.182 276.935);
-  --sidebar-primary-foreground: oklch(98.7% 0.002 197.1);
-  --sidebar-accent: oklch(27.5% 0.011 216.9);
-  --sidebar-accent-foreground: oklch(98.7% 0.002 197.1);
+  --chart-1: oklch(86.5% 0.012 325.68);
+  --chart-2: oklch(54.2% 0.034 322.5);
+  --chart-3: oklch(43.5% 0.029 321.78);
+  --chart-4: oklch(36.4% 0.029 323.89);
+  --chart-5: oklch(26.3% 0.024 320.12);
+  --sidebar: oklch(14.5% 0.008 326); /* mauve-950 */
+  --sidebar-foreground: oklch(98.5% 0 0);
+  --sidebar-primary: oklch(67.3% 0.14 325);
+  --sidebar-primary-foreground: oklch(98.5% 0 0);
+  --sidebar-accent: oklch(26.3% 0.024 320.12);
+  --sidebar-accent-foreground: oklch(98.5% 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(67.3% 0.182 276.935);
+  --sidebar-ring: oklch(67.3% 0.14 325);
 }
 
 @layer base {
@@ -941,13 +944,13 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   vertical-align: baseline;
   border-radius: 4px;
 }
-/* Focused raw editor: the border turns indigo — no outline rings. */
+/* Focused raw editor: the border turns plum — no outline rings. */
 .visual-editor .vis-raw-edit:focus {
   border-color: var(--tint-edge);
 }
 
 /* Node selection (atoms show their raw editor on selection): a quiet
-   indigo tint instead of a ring. */
+   plum tint instead of a ring. */
 .visual-editor .vis-selected {
   border-radius: 4px;
   background: var(--tint-soft);
