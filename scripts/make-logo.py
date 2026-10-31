@@ -140,11 +140,11 @@ def slash_path(x: float, y: float, s: float) -> str:
     return f"M{x + x1 * s:.2f} {y + y1 * s:.2f} L{x + x2 * s:.2f} {y + y2 * s:.2f}"
 
 
-def cursor_rect(x: float, y: float, s: float, fill: str) -> str:
-    cx, cy, cw, ch = CURSOR
+def cursor_rect(x: float, y: float, s: float, fill: str, cursor=None) -> str:
+    cx, cy, cw, ch = cursor or CURSOR
     return (
         f'<rect x="{x + cx * s:.2f}" y="{y + cy * s:.2f}" width="{cw * s:.2f}" '
-        f'height="{ch * s:.2f}" rx="{CURSOR_R * s:.2f}" fill="{fill}"/>'
+        f'height="{ch * s:.2f}" rx="{cw * s / 2:.2f}" fill="{fill}"/>'
     )
 
 
@@ -190,7 +190,7 @@ def outline_mark(t: Treatment, x: float, y: float, s: float, stroke_w: float) ->
     )
 
 
-def bare_mark(t: Treatment, x: float, y: float, s: float, defs: list[str]) -> str:
+def bare_mark(t: Treatment, x: float, y: float, s: float, defs: list[str], cursor=None) -> str:
     """Slash + cursor without the tile, same geometry as on the tile."""
     x1, y1, x2, y2 = SLASH
     if t.slash_bare == "gradient":
@@ -206,7 +206,7 @@ def bare_mark(t: Treatment, x: float, y: float, s: float, defs: list[str]) -> st
         stroke = t.slash_bare
     return (
         f'<path d="{slash_path(x, y, s)}" stroke="{stroke}" stroke-width="{SLASH_W * s:.2f}" stroke-linecap="round" fill="none"/>'
-        f"{cursor_rect(x, y, s, t.cursor_bare)}"
+        f"{cursor_rect(x, y, s, t.cursor_bare, cursor)}"
     )
 
 
