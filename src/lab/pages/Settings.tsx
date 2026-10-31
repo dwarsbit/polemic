@@ -41,7 +41,7 @@ export const SETTINGS_NOTES = [
   "Page intro: each page opens with its title and one line saying what lives here, so a targeted open (Sources… from the menu) lands with context.",
   "Rows: label 14px medium, description 12px muted, controls right-aligned in a fixed 176px column so switches, selects and toggle groups line up down the page. Rows are 56px minimum.",
   "Cards: titled cards have the title inside the card at 14px medium, not a muted strip. The first card of a page is titled too, so nothing is untitled.",
-  "Theme: three preview tiles (Light, Dark, System) with a indigo ring on the selected one, instead of a three-way toggle.",
+  "Theme: three preview tiles (Light, Dark, System) with a plum ring on the selected one, instead of a three-way toggle.",
   "Copy: sentence case everywhere; descriptions say what happens, not how it is implemented; no trailing periods on one-word labels; shortcuts in parentheses after the description.",
 ];
 
@@ -91,26 +91,26 @@ function ThemeTile({
       <div
         className={cn(
           "relative h-16 w-full overflow-hidden rounded-md border",
-          dark ? "bg-neutral-900" : "bg-white",
+          dark ? "bg-mauve-900" : "bg-white",
           id === "system" && "bg-[linear-gradient(135deg,white_50%,#171717_50%)]",
         )}
       >
         <div
           className={cn(
             "absolute top-2 left-2 h-2 w-10 rounded-sm",
-            dark ? "bg-neutral-600" : "bg-neutral-300",
+            dark ? "bg-mauve-600" : "bg-mauve-300",
           )}
         />
         <div
           className={cn(
             "absolute top-6 left-2 h-1.5 w-16 rounded-sm",
-            dark ? "bg-neutral-700" : "bg-neutral-200",
+            dark ? "bg-mauve-700" : "bg-mauve-200",
           )}
         />
         <div
           className={cn(
             "absolute top-9 left-2 h-1.5 w-12 rounded-sm",
-            dark ? "bg-neutral-700" : "bg-neutral-200",
+            dark ? "bg-mauve-700" : "bg-mauve-200",
           )}
         />
         {active && (
