@@ -162,17 +162,11 @@ export function ProjectsView() {
   }
 
   return (
-    <div className="flex h-full items-center justify-center text-foreground">
-      <div className="w-full max-w-lg rounded-xl border bg-card p-6 shadow-xs">
-        <div className="flex flex-col items-center gap-1.5">
-          <h1 className="mb-2">
-            <PolemicLogoVertical className="h-24 w-auto" />
-          </h1>
-          <p className="text-center text-sm text-muted-foreground">
-            Local-first LaTeX editing, compiled on your machine.
-          </p>
-        </div>
-        <Separator className="my-4" />
+    <div className="wallpaper-plum flex h-full flex-col items-center overflow-y-auto px-4 py-10 text-foreground">
+      <h1 className="mt-auto mb-6 shrink-0 text-white">
+        <PolemicLogoVertical icon="white" className="h-24 w-auto" />
+      </h1>
+      <div className="mb-auto w-full max-w-lg shrink-0 rounded-xl border bg-card p-6 shadow-lg">
         <div className="flex gap-2">
           <Input
             autoFocus

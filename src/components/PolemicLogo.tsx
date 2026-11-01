@@ -1,15 +1,43 @@
-import tile from "../../assets/logo/polemic-logo-flat.svg";
+import plumTile from "../../assets/logo/polemic-logo-flat.svg";
+import whiteIcon from "../../assets/logo/app-icon-white.svg";
 
 /**
  * App icon + name, vertical: the plum app icon centred above "Polemic" in
  * Nunito Bold (outlined). The name is drawn in currentColor, so set its colour
  * with a text class. Same geometry as assets/logo/polemic-lockup-icon-vertical.svg
  * (scripts/make-lockup.py).
+ *
+ * `icon="white"` swaps in the white app icon for plum grounds. That file keeps
+ * the 1024px macOS canvas around its 824px tile, so it is drawn larger and
+ * offset by the margin to put the tile in the same box.
  */
-export function PolemicLogoVertical({ className }: { className?: string }) {
+export function PolemicLogoVertical({
+  className,
+  icon = "plum",
+}: {
+  className?: string;
+  icon?: "plum" | "white";
+}) {
+  const scale = 248.2 / 824;
   return (
-    <svg viewBox="0 0 372.3 373.3" className={className} role="img" aria-label="Polemic">
-      <image href={tile} x={62.05} y={0} width={248.2} height={248.2} />
+    <svg
+      viewBox="0 0 372.3 373.3"
+      className={className}
+      role="img"
+      aria-label="Polemic"
+      overflow="visible"
+    >
+      {icon === "white" ? (
+        <image
+          href={whiteIcon}
+          x={62.05 - 100 * scale}
+          y={-100 * scale}
+          width={1024 * scale}
+          height={1024 * scale}
+        />
+      ) : (
+        <image href={plumTile} x={62.05} y={0} width={248.2} height={248.2} />
+      )}
       <path
         transform="translate(0 373.3)"
         fill="currentColor"

@@ -1251,3 +1251,30 @@ svg.vis-title-icon {
   color: var(--foreground);
   background: var(--accent);
 }
+
+/* Plum wallpaper behind the start screen: the website's `purple` wallpaper
+   (polemic-website components/wallpaper.tsx), a vertical gradient around
+   plum #816682 with a grey noise overlay in mix-blend-overlay. Keep the
+   gradient stops and noise identical to the website. */
+.wallpaper-plum {
+  position: relative;
+  isolation: isolate;
+  background-image: linear-gradient(to bottom, #8b718c, #745a76);
+}
+.dark .wallpaper-plum {
+  background-image: linear-gradient(to bottom, #412c42, #3c1a26);
+}
+.wallpaper-plum::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+  background-position: center;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='1.4' numOctaves='1' seed='2' stitchTiles='stitch' result='n'/%3E%3CfeComponentTransfer result='g'%3E%3CfeFuncR type='linear' slope='4' intercept='1'/%3E%3CfeFuncG type='linear' slope='4' intercept='1'/%3E%3CfeFuncB type='linear' slope='4' intercept='1'/%3E%3C/feComponentTransfer%3E%3CfeColorMatrix type='saturate' values='0' in='g'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.dark .wallpaper-plum::before {
+  opacity: 0.25;
+}
