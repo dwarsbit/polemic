@@ -745,7 +745,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
                 void showNativeContextMenu([
                   {
                     id: "add-comment",
-                    text: "Add Comment",
+                    text: "Add comment",
                     action: addCommentAtCursor,
                   },
                   {
