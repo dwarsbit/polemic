@@ -53,10 +53,28 @@ VARIANTS = {
 }
 
 
-def main() -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
+# Rounded faces for options A and C, to echo the round caps of the slash.
+# From the website's npm registry: npm pack @fontsource/<name>, then the
+# latin .woff converted to TTF with fontTools (TTFont(p).flavor=None; save);
+# M PLUS Rounded has an OS/2 v1 table: set version 4 and cap/x height from H/x.
+RF = "/tmp/fonts/ttf"
+ROUNDED = {
+    "nunito": f"{RF}/nunito-800.ttf",
+    "mplus-rounded": f"{RF}/mplus-700.ttf",
+    "quicksand": f"{RF}/quicksand-700.ttf",
+    "varela-round": f"{RF}/varela-400.ttf",
+}
+for key, path in ROUNDED.items():
+    ml.FONTS[key] = path
+ROUNDED_VARIANTS = {}
+for key in ROUNDED:
+    ROUNDED_VARIANTS[f"a-{key}"] = (key, 0.04, 1.45, 0.38)
+    ROUNDED_VARIANTS[f"c-{key}"] = (key, 0.14, 1.45, 0.42)
+
+
+def write(variants: dict, sheet: str, title: str) -> None:
     cards = []
-    for name, args in VARIANTS.items():
+    for name, args in variants.items():
         (OUT / f"{name}.svg").write_text(lockup(*args))
         (OUT / f"{name}-white.svg").write_text(lockup(*args, color="#FFFFFF"))
         cards.append(
@@ -64,14 +82,21 @@ def main() -> None:
             f'<img src="{name}.svg" style="height:28px"></div>'
             f'<div class="row dark"><img src="{name}-white.svg" style="height:56px"></div><p>{name}</p></div>'
         )
-    (OUT / "sheet.html").write_text(
+    (OUT / sheet).write_text(
         "<!doctype html><meta charset=utf-8><style>body{margin:0;padding:24px;background:#F3F2F4;"
         "font:13px/1.4 Inter,system-ui,sans-serif;color:#333}.g{display:grid;grid-template-columns:1fr 1fr;gap:16px}"
         ".c{background:#fff;border-radius:12px;padding:28px}.row{display:flex;gap:40px;align-items:center;padding:12px}"
         ".dark{background:#0C090C;border-radius:8px;margin-top:12px}p{margin:12px 0 0;font-weight:600}</style>"
-        '<h1 style="font-size:16px;margin:0 0 12px">Polemic logo — mark + POLEMIC, black tint</h1>'
+        f'<h1 style="font-size:16px;margin:0 0 12px">{title}</h1>'
         f'<div class="g">{"".join(cards)}</div>'
     )
+
+
+
+def main() -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    write(VARIANTS, "sheet.html", "Polemic logo — mark + POLEMIC, black tint")
+    write(ROUNDED_VARIANTS, "sheet-rounded.html", "Polemic logo — options A and C in rounded faces")
 
 
 if __name__ == "__main__":
