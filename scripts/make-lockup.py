@@ -1,13 +1,13 @@
 """Polemic logo lockup: the outlined mark (assets/logo/polemic-mark.svg) next to
-"POLEMIC" in Varela Round caps with wide tracking, both in the black tint
-(mauve 950, oklch(14.5% 0.008 326) = #0C090C). Varela Round's round stroke
-ends echo the round caps of the slash.
+"Polemic" in Nunito Bold, both in the black tint (mauve 950,
+oklch(14.5% 0.008 326) = #0C090C). Nunito's rounded terminals echo the round
+caps of the slash; its Bold stem is close to the mark's stroke.
 
 Writes assets/logo/polemic-lockup.svg and polemic-lockup-white.svg, text
 converted to outlines so no font is needed to display them.
 
 Run with: uv run --with fonttools --with uharfbuzz scripts/make-lockup.py
-Needs npm on PATH: Varela Round (OFL) is fetched from @fontsource/varela-round.
+Needs npm on PATH: Nunito (OFL) is fetched from @fontsource/nunito.
 """
 
 from __future__ import annotations
@@ -33,20 +33,20 @@ CACHE = Path("/tmp/polemic-fonts")
 # Mark geometry on a 100 grid (polemic-mark.svg): stroke 8, centred on the edge.
 MARK = '<rect x="4" y="4" width="92" height="92" rx="14"/><path d="M35.33 25.54 L64.67 74.46"/>'
 
-TRACKING = 0.14  # em
+TRACKING = 0.01  # em
 MARK_TO_CAP = 1.45  # mark height / cap height
-GAP = 0.42  # space between mark and text, in mark heights
+GAP = 0.32  # space between mark and text, in mark heights
 
 
-def varela_round() -> Path:
-    """Fetch Varela Round from npm and convert the latin WOFF to TTF (HarfBuzz needs sfnt)."""
-    ttf = CACHE / "varela-round-400.ttf"
+def nunito() -> Path:
+    """Fetch Nunito Bold from npm and convert the latin WOFF to TTF (HarfBuzz needs sfnt)."""
+    ttf = CACHE / "nunito-700.ttf"
     if not ttf.exists():
         CACHE.mkdir(parents=True, exist_ok=True)
         name = subprocess.run(
-            ["npm", "pack", "-q", "@fontsource/varela-round@5"], cwd=CACHE, check=True, capture_output=True, text=True
+            ["npm", "pack", "-q", "@fontsource/nunito@5"], cwd=CACHE, check=True, capture_output=True, text=True
         ).stdout.split()[-1]
-        member = "package/files/varela-round-latin-400-normal.woff"
+        member = "package/files/nunito-latin-700-normal.woff"
         with tarfile.open(CACHE / name) as tar:
             data = tar.extractfile(member)
             font = TTFont(data)
@@ -56,7 +56,7 @@ def varela_round() -> Path:
 
 
 def lockup(color: str) -> str:
-    t = ml.text_path("POLEMIC", "varela-round", 100.0, TRACKING)
+    t = ml.text_path("Polemic", "nunito-bold", 100.0, TRACKING)
     m = t.cap * MARK_TO_CAP
     tx = m * (1 + GAP)
     base = m / 2 + t.cap / 2  # cap height centred on the mark
@@ -72,7 +72,7 @@ def lockup(color: str) -> str:
 
 
 def main() -> None:
-    ml.FONTS["varela-round"] = str(varela_round())
+    ml.FONTS["nunito-bold"] = str(nunito())
     (OUT / "polemic-lockup.svg").write_text(lockup(INK))
     (OUT / "polemic-lockup-white.svg").write_text(lockup("#FFFFFF"))
 
