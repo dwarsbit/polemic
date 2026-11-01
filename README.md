@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/logo/polemic-lockup-white.svg">
-    <img src="assets/logo/polemic-lockup.svg" alt="Polemic" height="56">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo/polemic-lockup-icon-vertical-white.svg">
+    <img src="assets/logo/polemic-lockup-icon-vertical.svg" alt="Polemic" height="120">
   </picture>
 </p>
 
