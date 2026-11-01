@@ -90,6 +90,10 @@ draft once the assets look right.
 macOS and Windows builds are signed once the signing secrets are set;
 see [docs/signing.md](./docs/signing.md) for the setup.
 
+## Writing
+
+All public text (interface text, docs, release notes) follows [CONTENT.md](CONTENT.md): US English, sentence case, no serial comma, no full stop on headings. The rules come from the Polemic design system; change them there first.
+
 ## License
 
 [MIT](./LICENSE)
