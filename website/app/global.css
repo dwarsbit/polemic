@@ -91,11 +91,12 @@
   --chart-4: oklch(0.364 0.029 323.89);
   --chart-5: oklch(0.263 0.024 320.12);
   --radius: 0.45rem;
-  /* Logo gradient (assets/polemic-logo.svg). */
-  --brand-from: #4f46e5;
-  --brand-via: #7c3aed;
-  --brand-to: #c026d3;
-  --brand-mark: #ec4899;
+  /* Brand plum, from the app icon (assets/app-icon.svg): a light-to-dark ramp
+     around #816682 for gradients, and the mark's white. */
+  --brand-from: #9d82a0;
+  --brand-via: #816682;
+  --brand-to: #5f4862;
+  --brand-mark: #ffffff;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0.008 326);
   --sidebar-primary: oklch(0.212 0.019 322.12);
