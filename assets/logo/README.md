@@ -49,4 +49,4 @@ White app icon (`app-icon-white.svg`, `app-icon-white.png`)
 
 The app icon inverted for plum grounds, where the plum icon disappears: a white
 tile (faint gradient to mauve-100, the wallpaper grain at 6%) with the mark in
-plum (#816682). Same macOS grid as `assets/app-icon-no-shadow.svg`, no shadow.
+the black tint (mauve-950, #0C090C). Same macOS grid as `assets/app-icon-no-shadow.svg`, no shadow.

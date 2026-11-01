@@ -3,8 +3,8 @@
        icon would disappear). Same macOS grid as assets/app-icon-no-shadow.svg:
        824px tile in a 1024px canvas, corner radius 185.4, no shadow. White
        ground with a faint diagonal gradient to mauve-100 and the website's
-       wallpaper grain; the mark from assets/logo/polemic-mark.svg in plum
-       (#816682), at 62% of the tile. -->
+       wallpaper grain; the mark from assets/logo/polemic-mark.svg in the black tint
+       (mauve-950, #0C090C), at 62% of the tile. -->
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#FFFFFF"/>
@@ -43,9 +43,9 @@
   </g>
   <use href="#tile" fill="none" stroke="url(#highlight)" stroke-width="8" clip-path="url(#tileClip)"/>
 
-  <!-- the mark: multiplied in plum, so the grain shows through faintly and
+  <!-- the mark: multiplied in the black tint, so the grain shows through faintly and
        it sits in the surface rather than on it -->
-  <g style="isolation:isolate"><g style="mix-blend-mode:multiply" transform="translate(256.6 256.6) scale(5.1088)" fill="none" stroke="#816682" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+  <g style="isolation:isolate"><g style="mix-blend-mode:multiply" transform="translate(256.6 256.6) scale(5.1088)" fill="none" stroke="#0C090C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
     <rect x="4" y="4" width="92" height="92" rx="14"/>
     <path d="M35.33 25.54 L64.67 74.46"/>
   </g></g>
