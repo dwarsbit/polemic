@@ -48,6 +48,10 @@ Plain, precise and calm, for researchers and students who write papers.
 | Write | Not | Note |
 | --- | --- | --- |
 | Polemic | POLEMIC, polemic | Title case everywhere, the logo included |
+| mark | symbol, glyph | The outlined square with the slash, on its own |
+| logo | wordmark, lockup | The mark next to "Polemic" |
+| app icon | tile, favicon | The plum tile with the mark: dock, taskbar, browser tab |
+| app icon and name | lockup | The app icon with "Polemic", horizontal or vertical |
 | Polemic Professional | Pro, Premium, paid plan | The plan's name; "the Professional plan" in running text |
 | LaTeX, TeX, BibTeX, biblatex, XeLaTeX, LuaLaTeX, pdfLaTeX | Latex, latex, LATEX, Bibtex | Always this casing, also in headings |
 | TeX distribution | TeX install | TeX Live, MacTeX, MiKTeX by name |

@@ -3,8 +3,10 @@
 oklch(14.5% 0.008 326) = #0C090C). Nunito's rounded terminals echo the round
 caps of the slash; its Bold stem is close to the mark's stroke.
 
-Writes assets/logo/polemic-lockup.svg and polemic-lockup-white.svg, text
-converted to outlines so no font is needed to display them.
+Writes assets/logo/polemic-lockup(-white).svg (mark + name) and
+polemic-lockup-icon-{horizontal,vertical}(-white).svg (the plum app icon from
+polemic-logo-flat.svg + name), text converted to outlines so no font is
+needed to display them.
 
 Run with: uv run --with fonttools --with uharfbuzz scripts/make-lockup.py
 Needs npm on PATH: Nunito (OFL) is fetched from @fontsource/nunito.
@@ -13,6 +15,7 @@ Needs npm on PATH: Nunito (OFL) is fetched from @fontsource/nunito.
 from __future__ import annotations
 
 import importlib.util
+import re
 import subprocess
 import sys
 import tarfile
@@ -71,10 +74,55 @@ def lockup(color: str) -> str:
     )
 
 
+TILE_SRC = OUT / "polemic-logo-flat.svg"  # the full-bleed plum app icon, 100 x 100
+
+
+def tile(x: float, y: float, size: float) -> str:
+    """The plum tile from polemic-logo-flat.svg, nested at (x, y), size x size."""
+    src = TILE_SRC.read_text()
+    inner = re.sub(r"<!--.*?-->", "", src[src.index(">", src.index("<svg")) + 1 : src.rindex("</svg>")], flags=re.S)
+    return f'<svg x="{x:.2f}" y="{y:.2f}" width="{size:.2f}" height="{size:.2f}" viewBox="0 0 100 100">{inner.strip()}</svg>\n'
+
+
+def tile_lockup_h(color: str) -> str:
+    """App icon + name side by side: tile 1.6 x cap height, cap centred on it."""
+    t = ml.text_path("Polemic", "nunito-bold", 100.0, TRACKING)
+    m = t.cap * 1.6
+    tx = m * 1.28
+    w, h = tx + t.width, m
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:.2f} {h:.2f}" width="{w:.0f}" height="{h:.0f}">\n'
+        "<title>Polemic</title>\n"
+        + tile(0, 0, m)
+        + f'<path transform="translate({tx:.2f} {m / 2 + t.cap / 2:.2f})" fill="{color}" d="{t.d}"/>\n'
+        "</svg>\n"
+    )
+
+
+def tile_lockup_v(color: str) -> str:
+    """App icon above the name, centred: name as wide as 1.5 x the tile."""
+    t = ml.text_path("Polemic", "nunito-bold", 100.0, TRACKING)
+    m = t.width / 1.5
+    gap = m * 0.22
+    w = t.width
+    h = m + gap + t.cap
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:.2f} {h:.2f}" width="{w:.0f}" height="{h:.0f}">\n'
+        "<title>Polemic</title>\n"
+        + tile((w - m) / 2, 0, m)
+        + f'<path transform="translate(0 {h:.2f})" fill="{color}" d="{t.d}"/>\n'
+        "</svg>\n"
+    )
+
+
 def main() -> None:
     ml.FONTS["nunito-bold"] = str(nunito())
     (OUT / "polemic-lockup.svg").write_text(lockup(INK))
     (OUT / "polemic-lockup-white.svg").write_text(lockup("#FFFFFF"))
+    (OUT / "polemic-lockup-icon-horizontal.svg").write_text(tile_lockup_h(INK))
+    (OUT / "polemic-lockup-icon-horizontal-white.svg").write_text(tile_lockup_h("#FFFFFF"))
+    (OUT / "polemic-lockup-icon-vertical.svg").write_text(tile_lockup_v(INK))
+    (OUT / "polemic-lockup-icon-vertical-white.svg").write_text(tile_lockup_v("#FFFFFF"))
 
 
 if __name__ == "__main__":
