@@ -53,6 +53,7 @@ Plain, precise and calm, for researchers and students who write papers.
 | app icon | tile, favicon | The plum tile with the mark: dock, taskbar, browser tab |
 | app icon and name | lockup | The app icon with "Polemic", horizontal or vertical |
 | Polemic Professional | Pro, Premium, paid plan | The plan's name; "the Professional plan" in running text |
+| online services | hosted services, cloud services | What Polemic Professional adds: review links, grammar checking, cloud compile |
 | LaTeX, TeX, BibTeX, biblatex, XeLaTeX, LuaLaTeX, pdfLaTeX | Latex, latex, LATEX, Bibtex | Always this casing, also in headings |
 | TeX distribution | TeX install | TeX Live, MacTeX, MiKTeX by name |
 | Git | git | `git` in code font only for the command |
@@ -61,7 +62,7 @@ Plain, precise and calm, for researchers and students who write papers.
 | open source (noun), open-source (adjective) | Open-Source, opensource | "Polemic is open source", "an open-source editor" |
 | project | workspace, document folder | A folder with your `.tex` and `.bib` files |
 | snapshot | backup, version | Polemic's built-in history |
-| review link | share link | The hosted link a reviewer opens |
+| review link | share link | The link a reviewer opens in the browser |
 | comment | note, annotation | |
 | sign in, sign out (verbs), sign-in (noun) | log in, login | |
 | email | e-mail | |
@@ -100,7 +101,7 @@ Add a row whenever a new name comes up. Use one term per concept in every surfac
 **Marketing pages**
 
 - A headline is a short claim about what the reader can do ("Write LaTeX on your own machine"); the subheadline backs it with concrete facts.
-- Every claim is true for the current release. Features that are not released yet say "Coming soon"; hosted features name their plan (Polemic Professional).
+- Every claim is true for the current release. Features that are not released yet say "Coming soon"; online services name their plan (Polemic Professional).
 - Competitors (Overleaf, TeXstudio) are named only on Compare and in the FAQ, factually and without digs.
 - No lorem ipsum or "Placeholder copy" in anything that ships: a section waits until its copy exists.
 
