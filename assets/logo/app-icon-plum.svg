@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Polemic app icon on the macOS grid: 824px tile in a 1024px canvas,
+       corner radius 185.4, the standard neutral Dock shadow. Plum ground
+       (#816682) with a subtle diagonal gradient and grain; the mark from
+       assets/logo/polemic-mark.svg in white, at 62% of the tile. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8B718C"/>
+      <stop offset="0.5" stop-color="#816682"/>
+      <stop offset="1" stop-color="#745A76"/>
+    </linearGradient>
+    <linearGradient id="highlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="0.4" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="tileShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="10" stdDeviation="5" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="2" seed="7" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0" result="g"/>
+      <feComponentTransfer in="g" result="c">
+        <feFuncR type="linear" slope="0.6" intercept="0.2"/>
+        <feFuncG type="linear" slope="0.6" intercept="0.2"/>
+        <feFuncB type="linear" slope="0.6" intercept="0.2"/>
+        <feFuncA type="table" tableValues="1 1"/>
+      </feComponentTransfer>
+      <feComposite in="c" in2="SourceGraphic" operator="in" result="ci"/>
+      <feBlend in="ci" in2="SourceGraphic" mode="overlay"/>
+    </filter>
+    <rect id="tile" x="100" y="100" width="824" height="824" rx="185.4"/>
+    <clipPath id="tileClip"><use href="#tile"/></clipPath>
+  </defs>
+
+  <use href="#tile" fill="url(#bg)" filter="url(#tileShadow)"/>
+  <g clip-path="url(#tileClip)"><use href="#tile" fill="url(#bg)" filter="url(#grain)"/></g>
+  <use href="#tile" fill="none" stroke="url(#highlight)" stroke-width="8" clip-path="url(#tileClip)"/>
+
+  <!-- the mark -->
+  <g transform="translate(256.6 256.6) scale(5.1088)" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="4" width="92" height="92" rx="14"/>
+    <path d="M35.33 25.54 L64.67 74.46"/>
+  </g>
+</svg>
