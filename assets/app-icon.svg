@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
   <!-- Polemic app icon on the macOS grid: 824px tile in a 1024px canvas,
-       corner radius 185.4, the standard neutral Dock shadow. Plum ground
+       corner radius 185.4, a soft Big Sur-style Dock shadow. Plum ground
        (#816682) with a subtle diagonal gradient and the website's wallpaper grain; the mark from
        assets/logo/polemic-mark.svg in white, at 62% of the tile. -->
   <defs>
@@ -13,8 +13,8 @@
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.28"/>
       <stop offset="0.4" stop-color="#FFFFFF" stop-opacity="0"/>
     </linearGradient>
-    <filter id="tileShadow" x="-10%" y="-10%" width="120%" height="125%">
-      <feDropShadow dx="0" dy="10" stdDeviation="5" flood-color="#000000" flood-opacity="0.3"/>
+    <filter id="tileShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#000000" flood-opacity="0.28"/>
     </filter>
     <!-- The website's wallpaper grain, verbatim (components/elements/wallpaper.tsx):
          the 250px tile at 2x (500 here, as it renders on a retina screen), turbulence pushed to white, so the grain lives in the
