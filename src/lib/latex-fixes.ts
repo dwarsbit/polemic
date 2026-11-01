@@ -150,7 +150,7 @@ function fixUndefinedControlSequence(
   if (at === -1) return null;
   const from = (line?.from ?? 0) + at;
   return {
-    title: `\\${cmd} is not a command — did you mean \\${suggestion}?`,
+    title: `Change \\${cmd} to \\${suggestion}`,
     edits: [{ from, to: from + cmd.length + 1, insert: "\\" + suggestion }],
   };
 }
@@ -267,7 +267,7 @@ function fixMismatchedEnd(issue: CompileIssue, ctx: FixContext): TexFix | null {
   if (at === -1) return null;
   const nameFrom = at + 5;
   return {
-    title: `\\end{${end}} should be \\end{${begin}}`,
+    title: `Change \\end{${end}} to \\end{${begin}}`,
     edits: [{ from: nameFrom, to: nameFrom + end.length, insert: begin }],
   };
 }
@@ -312,7 +312,7 @@ function fixUndefinedReference(issue: CompileIssue, ctx: FixContext): TexFix | n
   const labels = extractLabelPositions(ctx.doc).map((pos) => pos.name);
   if (labels.includes(name)) {
     return {
-      title: `\\label{${name}} exists — recompile to settle cross-references`,
+      title: `Recompile to settle cross-references (\\label{${name}} exists)`,
       edits: [],
       action: "recompile",
     };
@@ -327,7 +327,7 @@ function fixUndefinedReference(issue: CompileIssue, ctx: FixContext): TexFix | n
       insert: suggestion,
     }));
   if (edits.length === 0) return null;
-  return { title: `The label is ${suggestion} — fix the reference`, edits };
+  return { title: `Change the reference to ${suggestion}`, edits };
 }
 
 function fixUndefinedCitation(issue: CompileIssue, ctx: FixContext): TexFix | null {
@@ -336,7 +336,7 @@ function fixUndefinedCitation(issue: CompileIssue, ctx: FixContext): TexFix | nu
   if (key === null || ctx.bibKeys.length === 0) return null;
   if (ctx.bibKeys.includes(key)) {
     return {
-      title: `${key} is in the bibliography — recompile to pick it up`,
+      title: `Recompile to pick up ${key} from the bibliography`,
       edits: [],
       action: "recompile",
     };
@@ -347,7 +347,7 @@ function fixUndefinedCitation(issue: CompileIssue, ctx: FixContext): TexFix | nu
     .filter((cite) => cite.key === key)
     .map((cite) => ({ from: cite.from, to: cite.to, insert: suggestion }));
   if (edits.length === 0) return null;
-  return { title: `The bibliography key is ${suggestion} — fix the citation`, edits };
+  return { title: `Change the citation key to ${suggestion}`, edits };
 }
 
 function fixRerun(): TexFix {

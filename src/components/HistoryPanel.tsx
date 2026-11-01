@@ -23,7 +23,7 @@ function CommitRow({ commit }: { commit: GitCommit }) {
   return (
     <li
       className="rounded px-2 py-1 hover:bg-accent"
-      title={`${new Date(commit.timestampMillis).toLocaleString()} — ${commit.hash}`}
+      title={`${new Date(commit.timestampMillis).toLocaleString()} · ${commit.hash}`}
     >
       <p className="flex items-baseline gap-1.5">
         <span className="shrink-0 font-mono text-2xs text-muted-foreground">

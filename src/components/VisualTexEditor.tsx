@@ -238,10 +238,10 @@ function VisualToolbar({ editor }: { editor: Editor }) {
           <DropdownMenuSeparator />
           <DropdownMenuLabel>Inline &amp; floats</DropdownMenuLabel>
           <DropdownMenuItem onSelect={toggle(insertFootnote)}>
-            Footnote — \footnote
+            Footnote (\footnote)
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={toggle(insertDisplayMath)}>
-            Display math — \[…\]
+            Display math (\[…\])
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={toggle(() => insertAtCursor(FIGURE_SCAFFOLD))}>
             Figure
@@ -337,7 +337,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
         <Button
           variant={active?.code ? "secondary" : "ghost"}
           size="icon-sm"
-          title="Monospace — \\texttt"
+          title="Monospace (\\texttt)"
           onClick={toggle(() => editor.chain().toggleCode().run())}
         >
           <Type className="size-4" />
@@ -367,7 +367,7 @@ function VisualToolbar({ editor }: { editor: Editor }) {
         <Button
           variant="ghost"
           size="icon-sm"
-          title="Inline math — $…$ (or just type it)"
+          title="Inline math ($…$, or type it directly)"
           onClick={() => {
             editor
               .chain()
@@ -697,8 +697,8 @@ export function VisualTexEditor() {
       <VisualToolbar editor={editor} />
       {(rawCount ?? 0) > 0 && (
         <p className="shrink-0 border-b bg-accent/40 px-3 py-1 text-xs text-muted-foreground">
-          Some constructs are shown as raw LaTeX — edit them in place with a
-          double-click, or switch to Code.
+          Some constructs are shown as raw LaTeX. Double-click to edit them
+          in place, or switch to Code.
         </p>
       )}
       {missingMaketitle === true && (

@@ -144,12 +144,12 @@ export function EditorToolbar() {
           <DropdownMenuSeparator />
           <DropdownMenuLabel>Inline &amp; floats</DropdownMenuLabel>
           <DropdownMenuItem onSelect={() => insertAtCursor("\\footnote{}", 11)}>
-            Footnote — \footnote
+            Footnote (\footnote)
           </DropdownMenuItem>
           <DropdownMenuItem
             onSelect={() => insertAtCursor("\\[\n  \n\\]", "\\[\n  ".length)}
           >
-            Display math — \[…\]
+            Display math (\[…\])
           </DropdownMenuItem>
           <DropdownMenuItem
             onSelect={() =>

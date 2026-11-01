@@ -83,7 +83,7 @@ export function AiFixDialog() {
             {issue.file !== null && (
               <span>
                 {" "}
-                — {issue.file}
+                in {issue.file}
                 {issue.line !== null ? `:${issue.line}` : ""}
               </span>
             )}
@@ -93,7 +93,7 @@ export function AiFixDialog() {
           <ScrollArea className="h-full rounded border p-2">
             {!configured && (
               <p className="p-2 text-xs text-warning">
-                No AI provider is configured — set one up in Settings → AI.
+                No AI provider is configured. Set one up in Settings → AI.
               </p>
             )}
             {configured && state.kind === "loading" && (
