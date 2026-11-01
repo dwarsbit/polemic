@@ -187,8 +187,9 @@ export function TopBar() {
         {showProjectControls && (
           <ButtonGroup>
             <Button
-              variant={autoCompile ? "secondary" : "outline"}
+              variant="outline"
               size="icon-sm"
+              className="relative"
               aria-pressed={autoCompile}
               onClick={toggleAutoCompile}
               title={`Auto-compile on save (${autoCompile ? "on" : "off"})`}
@@ -198,8 +199,15 @@ export function TopBar() {
                   autoCompile ? "text-tint-foreground" : "text-muted-foreground"
                 }
               />
+              {autoCompile && (
+                <span
+                  aria-hidden
+                  className="absolute top-0.5 right-0.5 size-1.5 rounded-full bg-success"
+                />
+              )}
             </Button>
             <Button
+              variant="outline"
               size="sm"
               title={`Compile (${modKey}Shift+R)`}
               onClick={() => void compileNow()}
