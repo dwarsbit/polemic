@@ -41,8 +41,8 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "shortDescription": "Local-first LaTeX editor",
-    "longDescription": "Polemic is an open source, local-first LaTeX editor. Write LaTeX with a code editor and live PDF preview, compiled on your own machine with your own TeX distribution.",
+    "shortDescription": "A modern LaTeX editor",
+    "longDescription": "Polemic is a modern, open-source LaTeX editor. Write, compile and revise with a code editor, a live PDF preview and comments, compiled with your own TeX distribution.",
     "copyright": "Copyright (c) 2026 Leon"
   }
 }
