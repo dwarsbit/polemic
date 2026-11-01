@@ -1,16 +1,24 @@
-"""Polemic logo: the outlined mark (assets/logo/polemic-mark.svg) next to
-"POLEMIC" in caps, both in the black tint (mauve 950, oklch(14.5% 0.008 326)).
+"""Polemic logo lockup: the outlined mark (assets/logo/polemic-mark.svg) next to
+"POLEMIC" in Varela Round caps with wide tracking, both in the black tint
+(mauve 950, oklch(14.5% 0.008 326) = #0C090C). Varela Round's round stroke
+ends echo the round caps of the slash.
 
-Writes assets/logo/lockup/*.svg (text as outlines) and a preview sheet.
+Writes assets/logo/polemic-lockup.svg and polemic-lockup-white.svg, text
+converted to outlines so no font is needed to display them.
 
 Run with: uv run --with fonttools --with uharfbuzz scripts/make-lockup.py
+Needs npm on PATH: Varela Round (OFL) is fetched from @fontsource/varela-round.
 """
 
 from __future__ import annotations
 
 import importlib.util
+import subprocess
 import sys
+import tarfile
 from pathlib import Path
+
+from fontTools.ttLib import TTFont
 
 ROOT = Path(__file__).resolve().parent.parent
 spec = importlib.util.spec_from_file_location("make_logo", ROOT / "scripts" / "make-logo.py")
@@ -18,85 +26,55 @@ ml = importlib.util.module_from_spec(spec)
 sys.modules["make_logo"] = ml
 spec.loader.exec_module(ml)
 
-OUT = ROOT / "assets" / "logo" / "lockup"
+OUT = ROOT / "assets" / "logo"
 INK = "#0C090C"  # oklch(14.5% 0.008 326), mauve 950
+CACHE = Path("/tmp/polemic-fonts")
 
 # Mark geometry on a 100 grid (polemic-mark.svg): stroke 8, centred on the edge.
 MARK = '<rect x="4" y="4" width="92" height="92" rx="14"/><path d="M35.33 25.54 L64.67 74.46"/>'
 
+TRACKING = 0.14  # em
+MARK_TO_CAP = 1.45  # mark height / cap height
+GAP = 0.42  # space between mark and text, in mark heights
 
-def lockup(font: str, tracking: float, mark_to_cap: float, gap: float, color: str = INK) -> str:
-    """Mark height = mark_to_cap x cap height; gap in mark heights."""
-    size = 100.0
-    t = ml.text_path("POLEMIC", font, size, tracking)
-    m = t.cap * mark_to_cap
-    s = m / 100
-    pad = 0.0
-    tx = m + gap * m
-    # Centre the cap height on the mark.
-    base = m / 2 + t.cap / 2
+
+def varela_round() -> Path:
+    """Fetch Varela Round from npm and convert the latin WOFF to TTF (HarfBuzz needs sfnt)."""
+    ttf = CACHE / "varela-round-400.ttf"
+    if not ttf.exists():
+        CACHE.mkdir(parents=True, exist_ok=True)
+        name = subprocess.run(
+            ["npm", "pack", "-q", "@fontsource/varela-round@5"], cwd=CACHE, check=True, capture_output=True, text=True
+        ).stdout.split()[-1]
+        member = "package/files/varela-round-latin-400-normal.woff"
+        with tarfile.open(CACHE / name) as tar:
+            data = tar.extractfile(member)
+            font = TTFont(data)
+        font.flavor = None
+        font.save(ttf)
+    return ttf
+
+
+def lockup(color: str) -> str:
+    t = ml.text_path("POLEMIC", "varela-round", 100.0, TRACKING)
+    m = t.cap * MARK_TO_CAP
+    tx = m * (1 + GAP)
+    base = m / 2 + t.cap / 2  # cap height centred on the mark
     w, h = tx + t.width, m
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:.2f} {h:.2f}" width="{w:.0f}" height="{h:.0f}">\n'
-        f'<g transform="scale({s:.5f})" fill="none" stroke="{color}" stroke-width="8" '
+        f"<title>Polemic</title>\n"
+        f'<g transform="scale({m / 100:.5f})" fill="none" stroke="{color}" stroke-width="8" '
         f'stroke-linecap="round" stroke-linejoin="round">{MARK}</g>\n'
         f'<path transform="translate({tx:.2f} {base:.2f})" fill="{color}" d="{t.d}"/>\n'
         "</svg>\n"
     )
 
 
-VARIANTS = {
-    "a-semibold": ("inter-display-semibold", 0.04, 1.45, 0.38),
-    "b-medium": ("inter-display-medium", 0.06, 1.45, 0.38),
-    "c-semibold-wide": ("inter-display-semibold", 0.14, 1.45, 0.42),
-    "d-semibold-cap": ("inter-display-semibold", 0.04, 1.0, 0.32),
-}
-
-
-# Rounded faces for options A and C, to echo the round caps of the slash.
-# From the website's npm registry: npm pack @fontsource/<name>, then the
-# latin .woff converted to TTF with fontTools (TTFont(p).flavor=None; save);
-# M PLUS Rounded has an OS/2 v1 table: set version 4 and cap/x height from H/x.
-RF = "/tmp/fonts/ttf"
-ROUNDED = {
-    "nunito": f"{RF}/nunito-800.ttf",
-    "mplus-rounded": f"{RF}/mplus-700.ttf",
-    "quicksand": f"{RF}/quicksand-700.ttf",
-    "varela-round": f"{RF}/varela-400.ttf",
-}
-for key, path in ROUNDED.items():
-    ml.FONTS[key] = path
-ROUNDED_VARIANTS = {}
-for key in ROUNDED:
-    ROUNDED_VARIANTS[f"a-{key}"] = (key, 0.04, 1.45, 0.38)
-    ROUNDED_VARIANTS[f"c-{key}"] = (key, 0.14, 1.45, 0.42)
-
-
-def write(variants: dict, sheet: str, title: str) -> None:
-    cards = []
-    for name, args in variants.items():
-        (OUT / f"{name}.svg").write_text(lockup(*args))
-        (OUT / f"{name}-white.svg").write_text(lockup(*args, color="#FFFFFF"))
-        cards.append(
-            f'<div class="c"><div class="row"><img src="{name}.svg" style="height:56px">'
-            f'<img src="{name}.svg" style="height:28px"></div>'
-            f'<div class="row dark"><img src="{name}-white.svg" style="height:56px"></div><p>{name}</p></div>'
-        )
-    (OUT / sheet).write_text(
-        "<!doctype html><meta charset=utf-8><style>body{margin:0;padding:24px;background:#F3F2F4;"
-        "font:13px/1.4 Inter,system-ui,sans-serif;color:#333}.g{display:grid;grid-template-columns:1fr 1fr;gap:16px}"
-        ".c{background:#fff;border-radius:12px;padding:28px}.row{display:flex;gap:40px;align-items:center;padding:12px}"
-        ".dark{background:#0C090C;border-radius:8px;margin-top:12px}p{margin:12px 0 0;font-weight:600}</style>"
-        f'<h1 style="font-size:16px;margin:0 0 12px">{title}</h1>'
-        f'<div class="g">{"".join(cards)}</div>'
-    )
-
-
-
 def main() -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
-    write(VARIANTS, "sheet.html", "Polemic logo — mark + POLEMIC, black tint")
-    write(ROUNDED_VARIANTS, "sheet-rounded.html", "Polemic logo — options A and C in rounded faces")
+    ml.FONTS["varela-round"] = str(varela_round())
+    (OUT / "polemic-lockup.svg").write_text(lockup(INK))
+    (OUT / "polemic-lockup-white.svg").write_text(lockup("#FFFFFF"))
 
 
 if __name__ == "__main__":
