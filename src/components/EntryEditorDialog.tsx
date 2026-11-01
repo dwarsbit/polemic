@@ -241,8 +241,8 @@ export function EntryEditorDialog({
           )}
           {missing.length > 0 && (
             <p className="text-xs text-warning">
-              Missing for {typeLabel(draft.type)}: {missing.join(", ")} — a warning
-              only, saving works.
+              Missing for {typeLabel(draft.type)}: {missing.join(", ")}. This is only a
+              warning; you can still save.
             </p>
           )}
           <CitationPreview

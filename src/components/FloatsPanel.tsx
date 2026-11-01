@@ -218,7 +218,7 @@ export function FloatsPanel() {
                         key={`${float.file}:${float.line}`}
                         type="button"
                         className="flex w-full items-start gap-2 rounded py-1 pr-1 pl-6 text-left hover:bg-accent"
-                        title={`${float.env} — ${float.file}:${float.line}`}
+                        title={`${float.env} in ${float.file}:${float.line}`}
                         onClick={() => goTo(float.file, float.line)}
                       >
                         {kind === "figure" && (

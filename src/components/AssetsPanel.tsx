@@ -369,7 +369,7 @@ export function AssetsPanel() {
                     "group flex flex-col gap-1 rounded-lg border p-1.5 text-left transition-colors hover:bg-accent",
                     selected === path && "ring-2 ring-inset ring-primary",
                   )}
-                  title={`${path} — double-click to insert, drag into the editor for a figure`}
+                  title={`${path} (double-click to insert, or drag into the editor for a figure)`}
                   onClick={() => {
                     if (wasDragged()) return;
                     setSelected((prev) => (prev === path ? null : path));

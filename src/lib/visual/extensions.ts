@@ -575,7 +575,7 @@ class EnvBlockView implements NodeView {
     pill.textContent = empty ? "+" : `(${value})`;
     pill.title = empty
       ? "Add a title (the [..] after \\begin{env})"
-      : "Title — click to edit (the [..] after \\begin{env})";
+      : "Title: click to edit (the [..] after \\begin{env})";
     pill.addEventListener("click", () => {
       if (this.editingOpt) return;
       this.editingOpt = true;
@@ -925,7 +925,7 @@ function metaPill(
   const pill = document.createElement("button");
   pill.type = "button";
   pill.className = `vis-title-pill${isTitle ? " vis-title-edit" : ""}`;
-  pill.title = `${label} — click to edit (stored as \\${META_CMDS[key]})`;
+  pill.title = `${label}: click to edit (stored as \\${META_CMDS[key]})`;
   if (!enabled) {
     pill.disabled = true;
     pill.title = "The file has no preamble to store this in";
@@ -1371,7 +1371,7 @@ class HeadingView implements NodeView {
     if (node.attrs.level !== this.node.attrs.level) return false; // recreate as h{level}
     if (node.attrs.cmd !== this.node.attrs.cmd) {
       this.node = node;
-      this.chip.title = `${headingLabel(node.attrs.cmd)} — click to change the heading level`;
+      this.chip.title = `${headingLabel(node.attrs.cmd)}: click to change the heading level`;
       return true;
     }
     this.node = node;
@@ -1388,7 +1388,7 @@ class HeadingView implements NodeView {
     chip.type = "button";
     chip.className = "vis-heading-chip";
     const label = headingLabel(this.node.attrs.cmd);
-    chip.title = `${label} — click to change the heading level`;
+    chip.title = `${label}: click to change the heading level`;
     chip.append(svgIcon(PILCROW_ICON, "vis-heading-chip-icon"));
     chip.addEventListener("mousedown", (event) => event.preventDefault());
     chip.addEventListener("click", (event) => {
@@ -1398,7 +1398,7 @@ class HeadingView implements NodeView {
       const items: NativeMenuEntry[] = [
         ...HEADING_KINDS.map((kind) => ({
           id: kind.cmd,
-          text: `${kind.label}${kind.cmd === current ? " — current" : ""}`,
+          text: `${kind.label}${kind.cmd === current ? " (current)" : ""}`,
           action: () => setHeadingKind(this.editor, kind),
         })),
         "separator" as const,
@@ -1543,7 +1543,7 @@ class ListItemView implements NodeView {
     chip.textContent = empty ? "+" : `(${value})`;
     chip.title = empty
       ? "Add a label (the [..] after \\item)"
-      : "Label — click to edit (the [..] after \\item)";
+      : "Label: click to edit (the [..] after \\item)";
     chip.addEventListener("mousedown", (event) => event.preventDefault());
     chip.addEventListener("click", () => {
       if (this.editing) return;
