@@ -1,3 +1,4 @@
+import { cn } from "cn";
 import { useState } from "react";
 import { ChevronDown, Eye, FolderOpen, Loader2, Pencil, Play, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -199,12 +200,15 @@ export function TopBar() {
                   autoCompile ? "text-tint-foreground" : "text-muted-foreground"
                 }
               />
-              {autoCompile && (
-                <span
-                  aria-hidden
-                  className="absolute top-0.5 right-0.5 size-1.5 rounded-full bg-success"
-                />
-              )}
+              <span
+                aria-hidden
+                className={cn(
+                  "absolute top-[3px] right-[3px] size-1.5 rounded-full ring-2",
+                  autoCompile
+                    ? "bg-success ring-success/30"
+                    : "bg-muted-foreground/50 ring-muted-foreground/20",
+                )}
+              />
             </Button>
             <Button
               variant="outline"
