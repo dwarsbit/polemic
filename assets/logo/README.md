@@ -5,9 +5,9 @@ Four variants, each with a `-white` version for dark grounds.
 | Variant | File | Use |
 | --- | --- | --- |
 | Mark | `polemic-mark.svg` | One color. Print, small sizes, anywhere the app icon's detail doesn't hold up |
-| Logo (mark and name) | `polemic-lockup.svg` | Same as the mark, when the name is needed |
+| Logo (mark and name) | `polemic-lockup.svg` | Same as the mark, when the name is needed; website header |
 | App icon | `polemic-logo-flat.svg`, `../app-icon.svg` | Dock, favicon |
-| App icon and name, horizontal | `polemic-lockup-icon-horizontal.svg` | Website header |
+| App icon and name, horizontal | `polemic-lockup-icon-horizontal.svg` | Where the app icon and name sit on one line |
 | App icon and name, vertical | `polemic-lockup-icon-vertical.svg` | Editor start screen (`src/components/PolemicLogo.tsx`), READMEs |
 
 ## Logo explorations
