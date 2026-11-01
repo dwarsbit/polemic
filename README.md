@@ -7,8 +7,8 @@
 
 # Polemic
 
-An open source, local-first LaTeX editor. Write LaTeX with a code editor and
-live PDF preview, compiled on your own machine with your own TeX distribution.
+A modern, open-source LaTeX editing experience. Write, compile and revise with a
+code editor and live PDF preview, compiled with your own TeX distribution.
 Think of it as a lightweight, desktop Overleaf alternative.
 
 ## Status

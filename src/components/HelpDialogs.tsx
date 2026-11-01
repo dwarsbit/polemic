@@ -157,8 +157,8 @@ export function AboutDialog({
           <DialogTitle>Polemic</DialogTitle>
         </DialogHeader>
         <p className="text-sm text-muted-foreground">
-          A local-first, open source LaTeX editor. Your documents stay on your machine
-          and compile with your own TeX distribution.
+          A modern LaTeX editing experience. Write, compile and revise with a live PDF
+          preview and comments.
         </p>
         <p className="text-sm">
           Version <span className="font-mono">{version ?? "unknown"}</span>
