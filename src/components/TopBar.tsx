@@ -1,3 +1,4 @@
+import { cn } from "cn";
 import { useState } from "react";
 import { ChevronDown, Eye, FolderOpen, Loader2, Pencil, Play, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -187,8 +188,9 @@ export function TopBar() {
         {showProjectControls && (
           <ButtonGroup>
             <Button
-              variant={autoCompile ? "secondary" : "outline"}
+              variant="outline"
               size="icon-sm"
+              className="relative"
               aria-pressed={autoCompile}
               onClick={toggleAutoCompile}
               title={`Auto-compile on save (${autoCompile ? "on" : "off"})`}
@@ -198,8 +200,18 @@ export function TopBar() {
                   autoCompile ? "text-tint-foreground" : "text-muted-foreground"
                 }
               />
+              <span
+                aria-hidden
+                className={cn(
+                  "absolute top-[3px] right-[3px] size-1.5 rounded-full ring-2",
+                  autoCompile
+                    ? "bg-success ring-success/30"
+                    : "bg-muted-foreground/50 ring-muted-foreground/20",
+                )}
+              />
             </Button>
             <Button
+              variant="outline"
               size="sm"
               title={`Compile (${modKey}Shift+R)`}
               onClick={() => void compileNow()}

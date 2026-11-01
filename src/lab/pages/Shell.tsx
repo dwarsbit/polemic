@@ -414,15 +414,25 @@ function Header({
         </Button>
         <ButtonGroup>
           <Button
-            variant={auto ? "secondary" : "outline"}
+            variant="outline"
             size="icon-sm"
+            className="relative"
             title={auto ? "Auto-compile on save: on" : "Auto-compile on save: off"}
             aria-pressed={auto}
             onClick={() => setAuto((v) => !v)}
           >
             <Zap className={cn(auto && "text-tint-foreground")} />
+            <span
+              aria-hidden
+              className={cn(
+                "absolute top-[3px] right-[3px] size-1.5 rounded-full ring-2",
+                auto
+                  ? "bg-success ring-success/30"
+                  : "bg-muted-foreground/50 ring-muted-foreground/20",
+              )}
+            />
           </Button>
-          <Button size="sm">
+          <Button variant="outline" size="sm">
             <Play /> Compile
           </Button>
         </ButtonGroup>
