@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo/polemic-lockup-white.svg">
+    <img src="assets/logo/polemic-lockup.svg" alt="Polemic" height="56">
+  </picture>
+</p>
+
 # Polemic
 
 An open source, local-first LaTeX editor. Write LaTeX with a code editor and
