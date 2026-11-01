@@ -201,6 +201,7 @@ export function ProjectsView() {
             }}
           />
           <Button
+            size="lg"
             variant={name.trim() === "" ? "secondary" : "default"}
             onClick={() => void handleCreate()}
             disabled={busy || name.trim() === ""}
