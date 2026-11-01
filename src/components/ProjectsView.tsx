@@ -162,8 +162,8 @@ export function ProjectsView() {
   }
 
   return (
-    <div className="wallpaper-plum flex h-full flex-col items-center overflow-y-auto px-4 py-10 text-foreground">
-      <h1 className="mt-auto mb-6 shrink-0 text-white">
+    <div className="wallpaper-plum flex h-full flex-col items-center overflow-y-auto px-4 pt-10 pb-16 text-foreground">
+      <h1 className="mt-auto mb-10 shrink-0 text-white">
         <PolemicLogoVertical icon="white" className="h-24 w-auto" />
       </h1>
       <div className="mb-auto w-full max-w-lg shrink-0 rounded-xl border bg-card p-6 shadow-lg">
