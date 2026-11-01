@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
-import { FolderOpen, GitBranch, Pencil, Pin, PinOff, Plus, Trash2 } from "lucide-react";
+import {
+  ChevronDown,
+  FolderOpen,
+  GitBranch,
+  Pencil,
+  Pin,
+  PinOff,
+  Plus,
+  Trash2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -8,6 +17,13 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { TemplateArt } from "@/components/TemplateArt";
@@ -28,6 +44,10 @@ import {
 import { cn } from "@/lib/utils";
 import { PolemicLogoVertical } from "@/components/PolemicLogo";
 import { useProjectStore } from "@/store/project";
+
+/** Journal and conference templates share one tile with a menu, so the
+ *  grid keeps the general-purpose templates up front. */
+const PUBLISHER_TEMPLATES = ["acm", "ieee", "lncs", "elsevier"];
 
 type ActionDialog =
   | { kind: "none" }
@@ -161,18 +181,15 @@ export function ProjectsView() {
     }
   }
 
+  const publisherTemplates = templates.filter((t) => PUBLISHER_TEMPLATES.includes(t.id));
+  const selectedPublisher = publisherTemplates.find((t) => t.id === templateId);
+
   return (
-    <div className="flex h-full items-center justify-center text-foreground">
-      <div className="w-full max-w-lg rounded-xl border bg-card p-6 shadow-xs">
-        <div className="flex flex-col items-center gap-1.5">
-          <h1 className="mb-2">
-            <PolemicLogoVertical className="h-24 w-auto" />
-          </h1>
-          <p className="text-center text-sm text-muted-foreground">
-            Local-first LaTeX editing, compiled on your machine.
-          </p>
-        </div>
-        <Separator className="my-4" />
+    <div className="wallpaper-plum flex h-full flex-col items-center overflow-y-auto px-4 pt-10 pb-16 text-foreground">
+      <h1 className="mt-auto mb-10 shrink-0 text-white">
+        <PolemicLogoVertical icon="white" className="h-24 w-auto" />
+      </h1>
+      <div className="mb-auto w-full max-w-lg shrink-0 rounded-xl border bg-card p-6 shadow-lg">
         <div className="flex gap-2">
           <Input
             autoFocus
@@ -196,23 +213,53 @@ export function ProjectsView() {
           <div className="mt-2">
             <p className="mb-1.5 text-xs font-medium">Template</p>
             <div className="grid grid-cols-3 gap-1.5">
-              {templates.map((template) => (
-                <button
-                  key={template.id}
-                  type="button"
-                  title={template.description}
-                  className={cn(
-                    "flex flex-col items-center gap-1 rounded-md border px-2 py-2.5 text-xs transition-colors",
-                    templateId === template.id
-                      ? "border-tint bg-tint-soft font-medium"
-                      : "hover:bg-accent",
-                  )}
-                  onClick={() => setTemplateId(template.id)}
-                >
-                  <TemplateArt id={template.id} />
-                  {template.name}
-                </button>
-              ))}
+              {templates
+                .filter((t) => !PUBLISHER_TEMPLATES.includes(t.id))
+                .map((template) => (
+                  <button
+                    key={template.id}
+                    type="button"
+                    title={template.description}
+                    className={templateTile(templateId === template.id)}
+                    onClick={() => setTemplateId(template.id)}
+                  >
+                    <TemplateArt id={template.id} />
+                    {template.name}
+                  </button>
+                ))}
+              {publisherTemplates.length > 0 && (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button
+                      type="button"
+                      title={selectedPublisher?.description}
+                      className={templateTile(selectedPublisher !== undefined)}
+                    >
+                      <TemplateArt id={selectedPublisher?.id ?? publisherTemplates[0].id} />
+                      <span className="flex items-center gap-0.5">
+                        {selectedPublisher?.name ?? "Publisher"}
+                        <ChevronDown className="size-3 opacity-60" />
+                      </span>
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-64">
+                    <DropdownMenuRadioGroup
+                      value={selectedPublisher?.id ?? ""}
+                      onValueChange={setTemplateId}
+                    >
+                      {publisherTemplates.map((template) => (
+                        <DropdownMenuRadioItem
+                          key={template.id}
+                          value={template.id}
+                          title={template.description}
+                        >
+                          {template.name}
+                        </DropdownMenuRadioItem>
+                      ))}
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
             </div>
             {missingPackages.length > 0 && (
               <p className="mt-2 text-xs text-warning">
@@ -401,5 +448,12 @@ export function ProjectsView() {
         </DialogContent>
       </Dialog>
     </div>
+  );
+}
+
+function templateTile(selected: boolean): string {
+  return cn(
+    "flex flex-col items-center gap-1 rounded-md border px-2 py-2.5 text-xs transition-colors",
+    selected ? "border-tint bg-tint-soft font-medium" : "hover:bg-accent",
   );
 }
