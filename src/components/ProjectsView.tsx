@@ -185,7 +185,7 @@ export function ProjectsView() {
   const selectedPublisher = publisherTemplates.find((t) => t.id === templateId);
 
   return (
-    <div className="wallpaper-plum flex h-full flex-col items-center overflow-y-auto px-4 pt-10 pb-16 text-foreground">
+    <div className="flex h-full flex-col items-center overflow-y-auto px-4 pt-10 pb-16 text-foreground">
       <h1 className="mt-auto mb-10 shrink-0 text-white">
         <PolemicLogoVertical icon="white" className="h-24 w-auto" />
       </h1>
@@ -201,6 +201,7 @@ export function ProjectsView() {
             }}
           />
           <Button
+            size="lg"
             variant={name.trim() === "" ? "secondary" : "default"}
             onClick={() => void handleCreate()}
             disabled={busy || name.trim() === ""}
