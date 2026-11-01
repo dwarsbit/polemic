@@ -2211,30 +2211,30 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     };
 
     // File
-    let new_project = item("new_project", "New Project…", Some("CmdOrCtrl+N"))?;
-    let open_project = item("open_project", "Open Project…", Some("CmdOrCtrl+O"))?;
+    let new_project = item("new_project", "New project…", Some("CmdOrCtrl+N"))?;
+    let open_project = item("open_project", "Open project…", Some("CmdOrCtrl+O"))?;
     let save = item("save", "Save", Some("CmdOrCtrl+S"))?;
     let compile = item("compile", "Compile", Some("CmdOrCtrl+Shift+R"))?;
     let export_pdf = item("export_pdf", "Export PDF…", Some("CmdOrCtrl+E"))?;
-    let reveal_build = item("reveal_build", "Reveal Build Folder", Some("CmdOrCtrl+Shift+E"))?;
-    let close_project = item("close_project", "Close Project", Some("CmdOrCtrl+Shift+W"))?;
+    let reveal_build = item("reveal_build", "Reveal build folder", Some("CmdOrCtrl+Shift+E"))?;
+    let close_project = item("close_project", "Close project", Some("CmdOrCtrl+Shift+W"))?;
 
     // Edit (after the predefined clipboard items)
-    let find_in_file = item("find_in_file", "Find in File", Some("CmdOrCtrl+F"))?;
-    let search = item("search", "Find in Project…", Some("CmdOrCtrl+Shift+F"))?;
-    let format = item("format", "Format Document", Some("Shift+Alt+F"))?;
-    let add_comment = item("add_comment", "Add Comment", Some("CmdOrCtrl+Alt+C"))?;
-    let toggle_comment = item("toggle_comment", "Toggle Line Comment", Some("CmdOrCtrl+/"))?;
+    let find_in_file = item("find_in_file", "Find in file", Some("CmdOrCtrl+F"))?;
+    let search = item("search", "Find in project…", Some("CmdOrCtrl+Shift+F"))?;
+    let format = item("format", "Format document", Some("Shift+Alt+F"))?;
+    let add_comment = item("add_comment", "Add comment", Some("CmdOrCtrl+Alt+C"))?;
+    let toggle_comment = item("toggle_comment", "Toggle line comment", Some("CmdOrCtrl+/"))?;
 
     // Insert
     let insert_table = item("insert_table", "Table…", Some("CmdOrCtrl+Shift+T"))?;
-    let wrap_figure = item("wrap_figure", "Figure from Image…", Some("CmdOrCtrl+Alt+G"))?;
-    let insert_tikz = item("insert_tikz", "TikZ Picture…", Some("CmdOrCtrl+Alt+T"))?;
-    let insert_csv = item("insert_csv", "Table or Plot from CSV…", None)?;
+    let wrap_figure = item("wrap_figure", "Figure from image…", Some("CmdOrCtrl+Alt+G"))?;
+    let insert_tikz = item("insert_tikz", "TikZ picture…", Some("CmdOrCtrl+Alt+T"))?;
+    let insert_csv = item("insert_csv", "Table or plot from CSV…", None)?;
     let insert_citation = item("insert_citation", "Citation…", Some("CmdOrCtrl+Shift+C"))?;
     let insert_reference = item("insert_reference", "Reference…", None)?;
     let insert_footnote = item("insert_footnote", "Footnote", None)?;
-    let insert_display_math = item("insert_display_math", "Display Math", None)?;
+    let insert_display_math = item("insert_display_math", "Display math", None)?;
 
     // View
     let face_code = check("face_code", "Code", true, Some("CmdOrCtrl+Alt+1"))?;
@@ -2244,30 +2244,30 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     let toggle_right = check("toggle_right", "Properties", false, Some("CmdOrCtrl+J"))?;
     let issues = check("issues", "Issues", true, Some("CmdOrCtrl+Shift+M"))?;
     let log = check("log", "Compile Log", false, None)?;
-    let palette = item("command_palette", "Command Palette…", Some("CmdOrCtrl+P"))?;
-    let zoom_reset = item("zoom_reset", "Actual Size", Some("CmdOrCtrl+0"))?;
-    let zoom_in = item("zoom_in", "Zoom In", Some("CmdOrCtrl+="))?;
-    let zoom_out = item("zoom_out", "Zoom Out", Some("CmdOrCtrl+-"))?;
+    let palette = item("command_palette", "Command palette…", Some("CmdOrCtrl+P"))?;
+    let zoom_reset = item("zoom_reset", "Actual size", Some("CmdOrCtrl+0"))?;
+    let zoom_in = item("zoom_in", "Zoom in", Some("CmdOrCtrl+="))?;
+    let zoom_out = item("zoom_out", "Zoom out", Some("CmdOrCtrl+-"))?;
 
     // Project
     let packages = item("packages", "Packages…", Some("CmdOrCtrl+Alt+P"))?;
-    let document_settings = item("document_settings", "Document Settings…", None)?;
-    let sources = item("sources", "Bibliography Sources…", None)?;
-    let take_snapshot = item("take_snapshot", "Take Snapshot", None)?;
+    let document_settings = item("document_settings", "Document settings…", None)?;
+    let sources = item("sources", "Bibliography sources…", None)?;
+    let take_snapshot = item("take_snapshot", "Take snapshot", None)?;
     let commit = item("commit", "Commit…", Some("CmdOrCtrl+K"))?;
-    let share = item("share", "Share for Review…", None)?;
+    let share = item("share", "Share for review…", None)?;
 
     // App and Help
     let settings = item("settings", "Settings…", Some("CmdOrCtrl+,"))?;
-    let help = item("help", "Polemic Help", None)?;
-    let shortcuts = item("shortcuts", "Keyboard Shortcuts", Some("CmdOrCtrl+Alt+/"))?;
-    let report_issue = item("report_issue", "Report an Issue…", None)?;
+    let help = item("help", "Polemic help", None)?;
+    let shortcuts = item("shortcuts", "Keyboard shortcuts", Some("CmdOrCtrl+Alt+/"))?;
+    let report_issue = item("report_issue", "Report an issue…", None)?;
     let about = item("about", "About Polemic", None)?;
 
     // The Develop menu: tools that only exist in dev builds. The whole
     // submenu is compiled out in release, so the menu item never ships.
     #[cfg(debug_assertions)]
-    let component_gallery = item("component_gallery", "Component Gallery", None)?;
+    let component_gallery = item("component_gallery", "Component gallery", None)?;
     #[cfg(debug_assertions)]
     let develop_menu = SubmenuBuilder::new(handle, "Develop")
         .item(&component_gallery)
