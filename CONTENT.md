@@ -29,7 +29,7 @@ Plain, precise and calm, for researchers and students who write papers.
 
 - **Sentence case everywhere**: page titles, headings, nav, docs titles, buttons, menu items, dialog titles, tabs, table headers. "Download for macOS", "New file", "Compile and preview".
 - Proper names keep their own case: LaTeX, BibTeX, Git, GitHub, Zotero, macOS, Polemic Professional.
-- The only all-caps text is the logo.
+- Nothing is set in all caps, the logo included: it reads "Polemic".
 
 ## Punctuation
 
@@ -47,7 +47,7 @@ Plain, precise and calm, for researchers and students who write papers.
 
 | Write | Not | Note |
 | --- | --- | --- |
-| Polemic | POLEMIC, polemic | All-caps only inside the logo |
+| Polemic | POLEMIC, polemic | Title case everywhere, the logo included |
 | Polemic Professional | Pro, Premium, paid plan | The plan's name; "the Professional plan" in running text |
 | LaTeX, TeX, BibTeX, biblatex, XeLaTeX, LuaLaTeX, pdfLaTeX | Latex, latex, LATEX, Bibtex | Always this casing, also in headings |
 | TeX distribution | TeX install | TeX Live, MacTeX, MiKTeX by name |
