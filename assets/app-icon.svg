@@ -1,32 +1,53 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
-  <!-- Dock-icoon op het macOS-raster: tegel van 824px in een canvas van 1024px,
-       hoekradius 185,4 en de standaard neutrale schaduw van macOS-apps.
-       In de app zelf gebruiken we assets/polemic-logo.svg. -->
+  <!-- Polemic app icon on the macOS grid: 824px tile in a 1024px canvas,
+       corner radius 185.4, the standard neutral Dock shadow. Plum ground
+       (#816682) with a subtle diagonal gradient and the website's wallpaper grain; the mark from
+       assets/logo/polemic-mark.svg in white, at 62% of the tile. -->
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4F46E5"/>
-      <stop offset="55%" stop-color="#7C3AED"/>
-      <stop offset="100%" stop-color="#C026D3"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8B718C"/>
+      <stop offset="0.5" stop-color="#816682"/>
+      <stop offset="1" stop-color="#745A76"/>
+    </linearGradient>
+    <linearGradient id="highlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="0.4" stop-color="#FFFFFF" stop-opacity="0"/>
     </linearGradient>
     <filter id="tileShadow" x="-10%" y="-10%" width="120%" height="125%">
       <feDropShadow dx="0" dy="10" stdDeviation="5" flood-color="#000000" flood-opacity="0.3"/>
     </filter>
-    <linearGradient id="highlight" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.35"/>
-      <stop offset="0.4" stop-color="#FFFFFF" stop-opacity="0"/>
-    </linearGradient>
+    <!-- The website's wallpaper grain, verbatim (components/elements/wallpaper.tsx):
+         the 250px tile at 2x (500 here, as it renders on a retina screen), turbulence pushed to white, so the grain lives in the
+         alpha channel; laid over the ground at 30% with overlay, as on the site. -->
+    <pattern id="grain" patternUnits="userSpaceOnUse" width="500" height="500">
+      <svg width="500" height="500" viewBox="0 0 100 100">
+        <filter id="n">
+          <feTurbulence type="turbulence" baseFrequency="1.4" numOctaves="1" seed="2" stitchTiles="stitch" result="n"/>
+          <feComponentTransfer result="g">
+            <feFuncR type="linear" slope="4" intercept="1"/>
+            <feFuncG type="linear" slope="4" intercept="1"/>
+            <feFuncB type="linear" slope="4" intercept="1"/>
+          </feComponentTransfer>
+          <feColorMatrix type="saturate" values="0" in="g"/>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#n)"/>
+      </svg>
+    </pattern>
     <rect id="tile" x="100" y="100" width="824" height="824" rx="185.4"/>
     <clipPath id="tileClip"><use href="#tile"/></clipPath>
   </defs>
 
-  <!-- App-icon achtergrond -->
   <use href="#tile" fill="url(#bg)" filter="url(#tileShadow)"/>
-  <!-- Lichtrand aan de bovenkant, naar onderen vervagend -->
+  <g clip-path="url(#tileClip)" style="isolation:isolate">
+    <use href="#tile" fill="url(#bg)"/>
+    <use href="#tile" fill="url(#grain)" style="mix-blend-mode:overlay" opacity="0.3"/>
+  </g>
   <use href="#tile" fill="none" stroke="url(#highlight)" stroke-width="8" clip-path="url(#tileClip)"/>
 
-  <!-- Backslash: elk LaTeX-commando begint hiermee -->
-  <path d="M342 295.7 L599.6 724.9" fill="none" stroke="#FFFFFF" stroke-width="82.4" stroke-linecap="round"/>
-
-  <!-- Tekstcursor, als net getypt -->
-  <rect x="678.5" y="467.4" width="44.6" height="257.5" rx="22.3" fill="#EC4899"/>
+  <!-- the mark: screened at 86% so the ground's gradient and grain show
+       through faintly and it sits in the surface rather than on it -->
+  <g style="isolation:isolate"><g style="mix-blend-mode:screen" opacity="0.86" transform="translate(256.6 256.6) scale(5.1088)" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="4" width="92" height="92" rx="14"/>
+    <path d="M35.33 25.54 L64.67 74.46"/>
+  </g></g>
 </svg>
