@@ -180,7 +180,7 @@ export async function requestAiFix(
   ai: AiSettings,
 ): Promise<AiFixResult> {
   if (ai.baseUrl === null || ai.apiKey === null || ai.model === null) {
-    return { error: "The AI provider is not configured — see Settings → AI." };
+    return { error: "The AI provider is not configured. Set one up in Settings → AI." };
   }
   let content: string;
   try {

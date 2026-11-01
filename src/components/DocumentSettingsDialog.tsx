@@ -338,17 +338,17 @@ export function DocumentSettingsDialog({
               <Input
                 value={draft.title}
                 onChange={(e) => set("title", e.target.value)}
-                placeholder="Title — \title{…}"
+                placeholder="Title (\title{…})"
               />
               <Input
                 value={draft.author}
                 onChange={(e) => set("author", e.target.value)}
-                placeholder="Author — \author{…}"
+                placeholder="Author (\author{…})"
               />
               <Input
                 value={draft.date}
                 onChange={(e) => set("date", e.target.value)}
-                placeholder="Date — \date{…}"
+                placeholder="Date (\date{…})"
               />
             </div>
             <button

@@ -79,7 +79,7 @@ export function ZoteroCloudDialog({
         <div className="space-y-3">
           <p className="text-xs text-muted-foreground">
             A Zotero cloud source searches your library at zotero.org. Create a key at
-            zotero.org/settings/keys with library read access, then paste it below — the
+            zotero.org/settings/keys with library read access, then paste it below. The
             user ID is filled in automatically.
           </p>
           <div>

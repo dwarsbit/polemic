@@ -316,7 +316,7 @@ export function SettingsDialog({
       label: "General",
       icon: SlidersHorizontal,
       intro:
-        "Startup, where projects live, your name on suggestions, and version control.",
+        "Startup, where projects live, your name on suggestions and version control.",
       cards: [
         {
           title: "Projects",
@@ -506,7 +506,7 @@ export function SettingsDialog({
       id: "appearance",
       label: "Appearance",
       icon: Palette,
-      intro: "Theme, editor font, and the text cursor.",
+      intro: "Theme, editor font and the text cursor.",
       cards: [
         {
           title: "Theme",

@@ -132,7 +132,7 @@ describe("heading level chip", () => {
       ".vis-heading-chip",
     ) as HTMLButtonElement | null;
     expect(chip?.querySelector("svg")).not.toBeNull();
-    expect(chip?.title).toBe("Section — click to change the heading level");
+    expect(chip?.title).toBe("Section: click to change the heading level");
     const heading = editor.view.dom.querySelector("h3.vis-heading");
     expect(heading).not.toBeNull();
     expect(heading!.className).toContain("vis-has-caret");
@@ -147,7 +147,7 @@ describe("heading level chip", () => {
     const chip = editor.view.dom.querySelector(
       ".vis-heading-chip",
     ) as HTMLButtonElement | null;
-    expect(chip?.title).toBe("Subsection — click to change the heading level");
+    expect(chip?.title).toBe("Subsection: click to change the heading level");
     editor.destroy();
   });
 });

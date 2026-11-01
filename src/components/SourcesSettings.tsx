@@ -75,14 +75,14 @@ function sourceSubtitle(
   if (source.kind === "zotero-app") {
     if (status === "checking") return "Checking…";
     if (status === "ok") return "Connected";
-    return "Not detected — enable “Allow other applications…” in Zotero's settings";
+    return "Not detected. Enable “Allow other applications…” in Zotero's settings.";
   }
   const configured =
     (source.userId ?? "").length > 0 && (source.apiKey ?? "").length > 0;
   if (!configured) return "Not connected";
   if (status === "checking") return `Checking · User ${source.userId}`;
   if (status === "ok") return `Connected · User ${source.userId}`;
-  return "Key rejected — check the API key";
+  return "Key rejected. Check the API key.";
 }
 
 /** Probe a Zotero connection: app server reachability, or key
@@ -346,7 +346,7 @@ export function SourcesSettingsCard() {
           </DropdownMenuContent>
         </DropdownMenu>
         <p className="text-xs text-muted-foreground">
-          Referenced in place — nothing is copied into your projects.
+          Referenced in place: nothing is copied into your projects.
         </p>
       </div>
 
