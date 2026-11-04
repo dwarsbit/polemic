@@ -259,6 +259,75 @@ fn output_with_timeout(
     })
 }
 
+/// Rules for the tools latexmk does not know by itself: makeglossaries
+/// for the glossaries package, makeindex for nomencl. Perl that latexmk
+/// runs with -e; the Polemic server runs the same rules
+/// (apps/compile/src/latexmk.ts).
+const LATEXMK_RULES: &str = concat!(
+    "add_cus_dep('glo', 'gls', 0, 'makeglossaries'); ",
+    "add_cus_dep('acn', 'acr', 0, 'makeglossaries'); ",
+    "sub makeglossaries { my ($base, $path) = fileparse($_[0]); pushd $path; ",
+    "my $r = system('makeglossaries', $base); popd; return $r; } ",
+    "add_cus_dep('nlo', 'nls', 0, 'makenomenclature'); ",
+    "sub makenomenclature { return system('makeindex', '-s', 'nomencl.ist', ",
+    "'-o', \"$_[0].nls\", \"$_[0].nlo\"); }",
+);
+
+/// A kpathsea search path that looks in the project, then in the main
+/// file's folder, then wherever the variable pointed before (a trailing
+/// separator stands for the default path). A main file in a subfolder
+/// can then \input, \bibliography and \includegraphics relative to
+/// itself, as it does in editors that compile from its folder.
+fn search_path(var: &str, main_dir: &std::path::Path) -> String {
+    let sep = if cfg!(windows) { ';' } else { ':' };
+    let existing = std::env::var(var).unwrap_or_default();
+    format!(".{sep}{}{sep}{existing}", main_dir.display())
+}
+
+/// Makes build/ and the folders inside it that TeX will write to: the
+/// .aux of an \include{chapters/intro} goes to build/chapters/, and TeX
+/// cannot make folders. One is made for every project folder that holds
+/// a .tex file (and, for a main file in a subfolder, its path relative
+/// to that subfolder too).
+fn prepare_build_dir(dir: &std::path::Path, main_tex: &str) -> std::io::Result<()> {
+    let build = dir.join("build");
+    fs::create_dir_all(&build)?;
+    let main_dir = std::path::Path::new(main_tex).parent().unwrap_or(std::path::Path::new(""));
+    let mut folders = Vec::new();
+    let mut pending = vec![std::path::PathBuf::new()];
+    while let Some(rel) = pending.pop() {
+        if folders.len() >= 1000 {
+            break;
+        }
+        let Ok(entries) = fs::read_dir(dir.join(&rel)) else { continue };
+        let mut has_tex = false;
+        for entry in entries.flatten() {
+            let name = entry.file_name().to_string_lossy().to_string();
+            let child = rel.join(&name);
+            let child_str = child.to_string_lossy().replace('\\', "/");
+            if entry.file_type().is_ok_and(|t| t.is_dir()) {
+                if !excludes::is_always_excluded(&child_str) && !name.starts_with('.') {
+                    pending.push(child);
+                }
+            } else if name.ends_with(".tex") {
+                has_tex = true;
+            }
+        }
+        if has_tex && !rel.as_os_str().is_empty() {
+            folders.push(rel);
+        }
+    }
+    for rel in folders {
+        fs::create_dir_all(build.join(&rel))?;
+        if let Ok(from_main) = rel.strip_prefix(main_dir) {
+            if !from_main.as_os_str().is_empty() {
+                fs::create_dir_all(build.join(from_main))?;
+            }
+        }
+    }
+    Ok(())
+}
+
 /// The compile command for a project. -norc: an rc file inside the
 /// project is Perl that came with the project and must never run; the
 /// user's own rc files are passed back explicitly.
@@ -268,7 +337,15 @@ fn latexmk_command(dir: &std::path::Path, main_tex: &str, engine: profile::Engin
     for rc in trusted_latexmk_rc_files() {
         command.arg("-r").arg(rc);
     }
+    let main_dir = std::path::Path::new(main_tex).parent().unwrap_or(std::path::Path::new(""));
+    if !main_dir.as_os_str().is_empty() {
+        for var in ["TEXINPUTS", "BIBINPUTS", "BSTINPUTS"] {
+            command.env(var, search_path(var, main_dir));
+        }
+    }
     command
+        .arg("-e")
+        .arg(LATEXMK_RULES)
         .arg(engine.latexmk_flag())
         .args([
             "-interaction=nonstopmode",
@@ -277,7 +354,13 @@ fn latexmk_command(dir: &std::path::Path, main_tex: &str, engine: profile::Engin
             "-outdir=build",
         ])
         .arg(main_tex)
-        .current_dir(dir);
+        .current_dir(dir)
+        // One message per line in the .log, however long: the issues
+        // panel then sees whole messages and their line numbers, which
+        // TeX would otherwise wrap at 79 characters.
+        .env("max_print_line", "10000")
+        .env("error_line", "254")
+        .env("half_error_line", "238");
     command
 }
 
@@ -1178,6 +1261,8 @@ async fn compile_project(
     }
     tauri::async_runtime::spawn_blocking(move || {
         let started = std::time::SystemTime::now();
+        prepare_build_dir(&dir, &main_tex)
+            .map_err(|e| format!("could not create build/: {e}"))?;
         let output = output_with_timeout(latexmk_command(&dir, &main_tex, engine), COMPILE_TIMEOUT).map_err(|e| match e {
             RunError::Spawn(e) => cloud_compile::CompileError::new(
                 cloud_compile::CompileErrorKind::NoTex,
@@ -2712,6 +2797,42 @@ mod tests {
             assert!(output.status.success());
             assert!(dir.join("build/main.pdf").is_file());
         }
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    /// Needs latexmk and pdflatex on PATH; skipped otherwise.
+    #[test]
+    fn compiles_includes_from_subfolders_and_a_main_file_in_one() {
+        let have = |tool: &str| Command::new(tool).arg("--version").output().is_ok();
+        if !have("latexmk") || !have("pdflatex") {
+            return;
+        }
+        let dir = std::env::temp_dir().join(format!("polemic-subdirs-{}", std::process::id()));
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(dir.join("src/chapters")).unwrap();
+        fs::create_dir_all(dir.join("src/figures")).unwrap();
+        // \include writes src/chapters/intro.aux into build/; the main file
+        // in src/ reads chapters/intro relative to itself.
+        fs::write(
+            dir.join("src/thesis.tex"),
+            "\\documentclass{book}\\begin{document}\\include{chapters/intro}\\end{document}\n",
+        )
+        .unwrap();
+        fs::write(dir.join("src/chapters/intro.tex"), "\\chapter{Intro}\n").unwrap();
+        fs::write(dir.join("src/figures/note.tex"), "").unwrap();
+        prepare_build_dir(&dir, "src/thesis.tex").unwrap();
+        assert!(dir.join("build/src/chapters").is_dir());
+        assert!(dir.join("build/chapters").is_dir());
+        assert!(dir.join("build/figures").is_dir());
+        let output = output_with_timeout(
+            latexmk_command(&dir, "src/thesis.tex", profile::Engine::Pdflatex),
+            COMPILE_TIMEOUT,
+        )
+        .ok()
+        .unwrap();
+        assert!(output.status.success(), "{}", String::from_utf8_lossy(&output.stdout));
+        assert!(dir.join("build/thesis.pdf").is_file());
+        assert!(dir.join("build/chapters/intro.aux").is_file());
         let _ = fs::remove_dir_all(&dir);
     }
 

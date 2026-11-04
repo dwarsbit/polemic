@@ -313,3 +313,22 @@ describe("closing the project", () => {
     expect(disk.get("main.tex")).toBe("one");
   });
 });
+
+describe("choosing the main file", () => {
+  it("prefers the .tex file with a \\documentclass over a chapter listed first", async () => {
+    const other = folder("/r");
+    other.clear();
+    other.set("chapters/intro.tex", "\\chapter{Intro}");
+    other.set("thesis.tex", "% a comment\n\\documentclass{book}\n\\begin{document}\\end{document}");
+    await useProjectStore.getState().openProject("/r");
+    expect(useProjectStore.getState().mainFile).toBe("thesis.tex");
+  });
+
+  it("falls back to the first .tex file when none has a \\documentclass", async () => {
+    const other = folder("/s");
+    other.clear();
+    other.set("notes.tex", "just notes");
+    await useProjectStore.getState().openProject("/s");
+    expect(useProjectStore.getState().mainFile).toBe("notes.tex");
+  });
+});
