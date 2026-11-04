@@ -92,29 +92,122 @@ fn warning_line(message: &str) -> Option<u32> {
     }
 }
 
-/// TeX breaks every log line after this many characters (texmf.cnf's
-/// max_print_line).
-const MAX_PRINT_LINE: usize = 79;
+/// What Polemic cannot do about an error, when the message alone
+/// does not say.
+fn error_hint(message: &str) -> Option<String> {
+    if message.contains("-shell-escape") {
+        return Some(
+            "Polemic compiles without shell escape, so packages that run other programs \
+             (minted, the TikZ externalization library) don't work. The listings package \
+             highlights code without it."
+                .into(),
+        );
+    }
+    None
+}
 
-/// The log line at `start` with the lines TeX wrapped it onto joined
-/// back, and the index of the first line after it. A line TeX wrapped
-/// is exactly `MAX_PRINT_LINE` long. A warning that merely ends there is
-/// followed by an empty line, an error by its context block.
-fn unwrapped_line(lines: &[&str], start: usize) -> (String, usize) {
-    let starts_something_else = |l: &str| {
-        l.starts_with("l.") || l.starts_with('<') || l.starts_with('!') || l.starts_with("./")
-    };
-    let mut text = lines[start].to_string();
-    let mut last = lines[start];
-    let mut i = start + 1;
-    // pdfTeX counts bytes, XeTeX and LuaTeX count characters.
-    while (last.len() == MAX_PRINT_LINE || last.chars().count() == MAX_PRINT_LINE)
-        && i < lines.len()
-        && !lines[i].is_empty()
-        && !starts_something_else(lines[i])
-    {
-        text.push_str(lines[i]);
-        last = lines[i];
+/// The files TeX has open, read from the `(./chapters/intro.tex` and
+/// `)` it prints while compiling. Parentheses that open no file (a
+/// message's "(or package)") are counted so their `)` closes nothing.
+struct FileStack {
+    /// Each open file, and whether it is a project file (`./…`,
+    /// outside build/) rather than one from the TeX distribution.
+    open: Vec<(String, bool)>,
+    other_parens: usize,
+}
+
+impl FileStack {
+    fn new() -> Self {
+        FileStack { open: Vec::new(), other_parens: 0 }
+    }
+
+    /// The project file TeX is reading, if the innermost open file is one.
+    fn current_project_file(&self) -> Option<String> {
+        match self.open.last() {
+            Some((file, true)) => Some(file.clone()),
+            _ => None,
+        }
+    }
+
+    /// Is TeX reading a file from the distribution (a .sty, a .cls)?
+    fn in_package_file(&self) -> bool {
+        matches!(self.open.last(), Some((_, false)))
+    }
+
+    fn read(&mut self, line: &str) {
+        let bytes = line.as_bytes();
+        let mut i = 0;
+        while i < bytes.len() {
+            match bytes[i] {
+                b'(' => {
+                    let rest = &line[i + 1..];
+                    let token: &str = rest
+                        .split(|c: char| c.is_whitespace() || c == ')' || c == '(')
+                        .next()
+                        .unwrap_or("");
+                    if looks_like_path(token) {
+                        let project = token.starts_with("./") && !token.starts_with("./build/");
+                        let file = token.strip_prefix("./").unwrap_or(token).to_string();
+                        self.open.push((file, project));
+                        i += 1 + token.len();
+                        continue;
+                    }
+                    self.other_parens += 1;
+                }
+                b')' => {
+                    if self.other_parens > 0 {
+                        self.other_parens -= 1;
+                    } else {
+                        self.open.pop();
+                    }
+                }
+                _ => {}
+            }
+            i += 1;
+        }
+    }
+}
+
+/// A file name as TeX prints it when it opens the file.
+fn looks_like_path(token: &str) -> bool {
+    if token.is_empty() {
+        return false;
+    }
+    let drive = token.len() > 2
+        && token.as_bytes()[0].is_ascii_alphabetic()
+        && token.as_bytes()[1] == b':'
+        && (token.as_bytes()[2] == b'/' || token.as_bytes()[2] == b'\\');
+    token.starts_with("./")
+        || token.starts_with("../")
+        || token.starts_with('/')
+        || drive
+        || (token.contains('/') && token.rsplit('/').next().is_some_and(|name| name.contains('.')))
+}
+
+/// The lines a message continues on: `(pkg)   …` lines, as LaTeX and
+/// its packages print them, and for warnings any indented line. Returns
+/// the text to append and the index of the first unconsumed line.
+fn continuation(lines: &[&str], start: usize, indented_too: bool) -> (String, usize) {
+    let mut text = String::new();
+    let mut i = start;
+    while i < lines.len() {
+        let line = lines[i];
+        let paren = line
+            .strip_prefix('(')
+            .and_then(|rest| rest.split_once(')'))
+            .filter(|(name, rest)| {
+                !name.is_empty()
+                    && name.chars().all(|c| c.is_alphanumeric() || c == '-' || c == '_' || c == '.')
+                    && rest.starts_with(' ')
+            })
+            .map(|(_, rest)| rest.trim());
+        let part = match paren {
+            Some(rest) => rest,
+            None if indented_too && line.starts_with(' ') && !line.trim().is_empty() => line.trim(),
+            None => break,
+        };
+        text.push(' ');
+        text.push_str(part);
         i += 1;
     }
     (text, i)
@@ -140,42 +233,55 @@ fn is_unresolved_reference_warning(issue: &CompileIssue) -> bool {
 pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
     let lines: Vec<&str> = log_text.lines().map(|l| l.trim_end()).collect();
     let mut issues: Vec<CompileIssue> = Vec::new();
+    let mut seen = std::collections::HashSet::new();
+    let mut files = FileStack::new();
     let mut i = 0;
     while i < lines.len() {
-        if lines[i].is_empty() {
+        let line = lines[i];
+        if line.is_empty() {
             i += 1;
             continue;
         }
-        let (joined, after) = unwrapped_line(&lines, i);
-        let line = joined.as_str();
         let mut issue = None;
+        let mut next = i + 1;
         if let Some((file, line_no, message)) = parse_file_line_error(line) {
+            let (more, consumed) = continuation(&lines, next, false);
+            next = consumed;
             issue = Some(CompileIssue {
                 severity: "error".into(),
                 file: Some(file),
                 line: Some(line_no),
-                message,
+                message: format!("{message}{more}"),
                 detail: Vec::new(),
                 hint: None,
             });
         } else if let Some(rest) = line.strip_prefix('!') {
+            let (more, consumed) = continuation(&lines, next, false);
+            next = consumed;
             issue = Some(CompileIssue {
                 severity: "error".into(),
                 file: None,
                 line: None,
-                message: rest.trim().to_string(),
+                message: format!("{}{more}", rest.trim()),
                 detail: Vec::new(),
                 hint: None,
             });
         } else {
             let is_latex_warning = line.starts_with("LaTeX") && line.contains("Warning:");
-            let is_package_warning = line.starts_with("Package ") && line.contains(" Warning:");
+            let is_package_warning = (line.starts_with("Package ") || line.starts_with("Class "))
+                && line.contains(" Warning:");
             if is_latex_warning || is_package_warning {
-                let message = line.trim_end_matches('.');
+                let (more, consumed) = continuation(&lines, next, true);
+                next = consumed;
+                let message = format!("{line}{more}");
+                let message = message.trim_end_matches('.');
+                // A line number inside a package's own file leads
+                // nowhere in the project.
+                let line_no = warning_line(message).filter(|_| !files.in_package_file());
                 issue = Some(CompileIssue {
                     severity: "warning".into(),
-                    file: None,
-                    line: warning_line(message),
+                    file: files.current_project_file(),
+                    line: line_no,
                     message: message.to_string(),
                     detail: Vec::new(),
                     hint: None,
@@ -183,7 +289,6 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
             }
         }
         if let Some(mut issue) = issue {
-            let mut next = after;
             if issue.severity == "error" {
                 let (detail, consumed) = detail_from(&lines, next);
                 if !detail.is_empty() {
@@ -195,21 +300,23 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
                     issue.detail = detail;
                 }
                 next = consumed.max(next);
+                issue.hint = error_hint(&issue.message);
             }
-            // A caption or heading is typeset more than once, and so is
-            // reported more than once.
-            let repeated = issues.iter().any(|seen| {
-                seen.severity == issue.severity
-                    && seen.file == issue.file
-                    && seen.line == issue.line
-                    && seen.message == issue.message
-            });
-            if !repeated {
+            // The same message at the same place, again (a font that
+            // is missing on every page), says nothing new; one without
+            // a line has no place, so the file does not count.
+            let file = issue.line.and(issue.file.clone());
+            let key = (issue.severity.clone(), file, issue.line, issue.message.clone());
+            if seen.insert(key) {
                 issues.push(issue);
+            }
+            for consumed in &lines[i..next] {
+                files.read(consumed);
             }
             i = next;
             continue;
         }
+        files.read(line);
         i += 1;
     }
     if issues.iter().any(|issue| issue.severity == "error") {
@@ -455,6 +562,53 @@ Random log line
     }
 
     #[test]
+    fn attributes_warnings_to_the_file_tex_is_reading() {
+        let log = "(./main.tex (./chapters/intro.tex\nLaTeX Warning: Reference `fig:1' on page 1 undefined on input line 4.\n) (/usr/share/texlive/caption.sty\nPackage caption Warning: Unknown document class (or package),\n(caption)                standard defaults will be used.\n)\nLaTeX Warning: There were undefined references.\n)\n";
+        let issues = parse_issues(log);
+        assert_eq!(issues.len(), 3);
+        assert_eq!(issues[0].file.as_deref(), Some("chapters/intro.tex"));
+        assert_eq!(issues[0].line, Some(4));
+        // Inside caption.sty: the "(or package)" closes no file, and
+        // the message continues on the (caption) line.
+        assert_eq!(issues[1].file, None);
+        assert_eq!(
+            issues[1].message,
+            "Package caption Warning: Unknown document class (or package), standard defaults will be used"
+        );
+        assert_eq!(issues[2].file.as_deref(), Some("main.tex"));
+    }
+
+    #[test]
+    fn drops_line_numbers_inside_package_files() {
+        let log = "(./main.tex (/usr/share/texlive/fancyhdr.sty\nPackage fancyhdr Warning: \\headheight is too small on input line 12.\n))\n";
+        let issues = parse_issues(log);
+        assert_eq!(issues.len(), 1);
+        assert_eq!(issues[0].line, None);
+    }
+
+    #[test]
+    fn joins_continued_messages_and_hints_at_shell_escape() {
+        let log = "(./main.tex\n./main.tex:6: Package minted Error: You must invoke LaTeX with the\n(minted)                -shell-escape flag.\nLaTeX Warning: Unused global option(s):\n    [margin=0mm].\n\n)\n";
+        let issues = parse_issues(log);
+        assert_eq!(issues.len(), 2);
+        assert_eq!(
+            issues[0].message,
+            "Package minted Error: You must invoke LaTeX with the -shell-escape flag."
+        );
+        assert!(issues[0].hint.as_deref().unwrap().contains("shell escape"));
+        assert_eq!(issues[1].message, "LaTeX Warning: Unused global option(s): [margin=0mm]");
+    }
+
+    #[test]
+    fn reports_a_repeated_issue_once() {
+        let log = "(./main.tex\n./main.tex:6: Font TU/Fira/m/n/10=\"Fira\" not loadable.\n./main.tex:6: Font TU/Fira/m/n/10=\"Fira\" not loadable.\n(./a.tex\nPackage fancyhdr Warning: \\headheight is too small.\n) (./b.tex\nPackage fancyhdr Warning: \\headheight is too small.\n))\n";
+        let issues = parse_issues(log);
+        assert_eq!(issues.len(), 2);
+        assert_eq!(issues[0].severity, "error");
+        assert_eq!(issues[1].severity, "warning");
+    }
+
+    #[test]
     fn captures_error_context_blocks() {
         let log = r#"! Undefined control sequence.
 l.12 \frrac
@@ -476,47 +630,11 @@ LaTeX Warning: Float too large for page by 12.0pt on input line 9.
     }
 
     #[test]
-    fn joins_messages_tex_wrapped_at_79_characters() {
-        let log = "./sections/introduction.tex:52: Package siunitx Error: Invalid number '512 x 51
-2'.
-
-For immediate help type H <return>.
-./main.tex:88: LaTeX Error: \\begin{figure} on input line 46 ended by \\end{docum
-ent}.
-l.88 \\end{document}
-";
-        let issues = parse_issues(log);
-        assert_eq!(issues.len(), 2);
-        assert_eq!(issues[0].message, "Package siunitx Error: Invalid number '512 x 512'.");
-        assert_eq!(
-            issues[1].message,
-            "LaTeX Error: \\begin{figure} on input line 46 ended by \\end{document}."
-        );
-        assert_eq!(issues[1].detail[0], "l.88 \\end{document}");
-    }
-
-    #[test]
-    fn keeps_a_message_that_ends_at_79_characters_apart_from_its_context() {
-        let message = format!("./main.tex:7: {}", "x".repeat(65));
-        assert_eq!(message.len(), 79);
-        let log = format!("{message}\nl.7 \\foo\n");
-        let issues = parse_issues(&log);
-        assert_eq!(issues.len(), 1);
-        assert_eq!(issues[0].message, "x".repeat(65));
-        assert_eq!(issues[0].detail, vec!["l.7 \\foo"]);
-    }
-
-    #[test]
-    fn reports_a_repeated_error_once() {
-        let log = "./main.tex:3: Undefined control sequence.\n./main.tex:3: Undefined control sequence.\n";
-        assert_eq!(parse_issues(log).len(), 1);
-    }
-
-    #[test]
     fn drops_unresolved_references_when_the_run_has_errors() {
         let log = "LaTeX Warning: Citation 'otsu1979' on page 2 undefined on input line 8.
 LaTeX Warning: Reference `sec:methods' on page 2 undefined on input line 33.
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+
 ./main.tex:9: Undefined control sequence.
 LaTeX Warning: There were undefined references.
 LaTeX Warning: Empty bibliography on input line 83.
