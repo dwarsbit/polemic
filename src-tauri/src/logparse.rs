@@ -92,16 +92,62 @@ fn warning_line(message: &str) -> Option<u32> {
     }
 }
 
+/// TeX breaks every log line after this many characters (texmf.cnf's
+/// max_print_line).
+const MAX_PRINT_LINE: usize = 79;
+
+/// The log line at `start` with the lines TeX wrapped it onto joined
+/// back, and the index of the first line after it. A line TeX wrapped
+/// is exactly `MAX_PRINT_LINE` long. A warning that merely ends there is
+/// followed by an empty line, an error by its context block.
+fn unwrapped_line(lines: &[&str], start: usize) -> (String, usize) {
+    let starts_something_else = |l: &str| {
+        l.starts_with("l.") || l.starts_with('<') || l.starts_with('!') || l.starts_with("./")
+    };
+    let mut text = lines[start].to_string();
+    let mut last = lines[start];
+    let mut i = start + 1;
+    // pdfTeX counts bytes, XeTeX and LuaTeX count characters.
+    while (last.len() == MAX_PRINT_LINE || last.chars().count() == MAX_PRINT_LINE)
+        && i < lines.len()
+        && !lines[i].is_empty()
+        && !starts_something_else(lines[i])
+    {
+        text.push_str(lines[i]);
+        last = lines[i];
+        i += 1;
+    }
+    (text, i)
+}
+
+/// Warnings about citations and cross-references that are only missing
+/// because the run stopped early: latexmk runs the bibliography tool and
+/// the extra passes that resolve them only after a run without errors.
+fn is_unresolved_reference_warning(issue: &CompileIssue) -> bool {
+    let m = issue.message.as_str();
+    m.starts_with("LaTeX Warning: Citation ")
+        || m.starts_with("LaTeX Warning: Reference ")
+        || m.starts_with("LaTeX Warning: There were undefined references")
+        || m.starts_with("LaTeX Warning: Label(s) may have changed")
+        || m.starts_with("LaTeX Warning: Empty bibliography")
+        || m.starts_with("Package rerunfilecheck Warning: File ")
+        || m.starts_with("Package natbib Warning: Citation ")
+        || m.starts_with("Package natbib Warning: There were undefined citations")
+        || m.starts_with("Package biblatex Warning: Please (re)run")
+        || m.starts_with("Package biblatex Warning: Please rerun LaTeX")
+}
+
 pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
     let lines: Vec<&str> = log_text.lines().map(|l| l.trim_end()).collect();
-    let mut issues = Vec::new();
+    let mut issues: Vec<CompileIssue> = Vec::new();
     let mut i = 0;
     while i < lines.len() {
-        let line = lines[i];
-        if line.is_empty() {
+        if lines[i].is_empty() {
             i += 1;
             continue;
         }
+        let (joined, after) = unwrapped_line(&lines, i);
+        let line = joined.as_str();
         let mut issue = None;
         if let Some((file, line_no, message)) = parse_file_line_error(line) {
             issue = Some(CompileIssue {
@@ -137,7 +183,7 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
             }
         }
         if let Some(mut issue) = issue {
-            let mut next = i + 1;
+            let mut next = after;
             if issue.severity == "error" {
                 let (detail, consumed) = detail_from(&lines, next);
                 if !detail.is_empty() {
@@ -150,12 +196,27 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
                 }
                 next = consumed.max(next);
             }
-            issues.push(issue);
+            // A caption or heading is typeset more than once, and so is
+            // reported more than once.
+            let repeated = issues.iter().any(|seen| {
+                seen.severity == issue.severity
+                    && seen.file == issue.file
+                    && seen.line == issue.line
+                    && seen.message == issue.message
+            });
+            if !repeated {
+                issues.push(issue);
+            }
             i = next;
             continue;
         }
         i += 1;
     }
+    if issues.iter().any(|issue| issue.severity == "error") {
+        issues.retain(|issue| !is_unresolved_reference_warning(issue));
+    }
+    // Errors first: they stop the compile, and warnings often follow from them.
+    issues.sort_by_key(|issue| issue.severity != "error");
     issues
 }
 
@@ -376,7 +437,7 @@ mod tests {
     fn parses_file_line_errors_and_warnings() {
         let log = r#"./main.tex:3: Undefined control sequence.
 ./chapters/intro.tex:12: LaTeX Error: File `missing.png' not found.
-LaTeX Warning: Reference `fig:1' on page 1 undefined on input line 4.
+LaTeX Warning: Float too large for page by 3.0pt on input line 4.
 Package hyperref Warning: Token not allowed in a PDF string
 Random log line
 "#;
@@ -401,7 +462,7 @@ l.12 \frrac
 ! Missing $ inserted.
 <inserted text>
 l.5 ...x_1
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: Float too large for page by 12.0pt on input line 9.
 "#;
         let issues = parse_issues(log);
         assert_eq!(issues.len(), 3);
@@ -411,7 +472,65 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
         assert_eq!(issues[1].line, Some(5));
         assert_eq!(issues[1].detail[0], "l.5 ...x_1");
         assert_eq!(issues[2].detail.len(), 0);
-        assert_eq!(issues[2].line, None);
+        assert_eq!(issues[2].line, Some(9));
+    }
+
+    #[test]
+    fn joins_messages_tex_wrapped_at_79_characters() {
+        let log = "./sections/introduction.tex:52: Package siunitx Error: Invalid number '512 x 51
+2'.
+
+For immediate help type H <return>.
+./main.tex:88: LaTeX Error: \\begin{figure} on input line 46 ended by \\end{docum
+ent}.
+l.88 \\end{document}
+";
+        let issues = parse_issues(log);
+        assert_eq!(issues.len(), 2);
+        assert_eq!(issues[0].message, "Package siunitx Error: Invalid number '512 x 512'.");
+        assert_eq!(
+            issues[1].message,
+            "LaTeX Error: \\begin{figure} on input line 46 ended by \\end{document}."
+        );
+        assert_eq!(issues[1].detail[0], "l.88 \\end{document}");
+    }
+
+    #[test]
+    fn keeps_a_message_that_ends_at_79_characters_apart_from_its_context() {
+        let message = format!("./main.tex:7: {}", "x".repeat(65));
+        assert_eq!(message.len(), 79);
+        let log = format!("{message}\nl.7 \\foo\n");
+        let issues = parse_issues(&log);
+        assert_eq!(issues.len(), 1);
+        assert_eq!(issues[0].message, "x".repeat(65));
+        assert_eq!(issues[0].detail, vec!["l.7 \\foo"]);
+    }
+
+    #[test]
+    fn reports_a_repeated_error_once() {
+        let log = "./main.tex:3: Undefined control sequence.\n./main.tex:3: Undefined control sequence.\n";
+        assert_eq!(parse_issues(log).len(), 1);
+    }
+
+    #[test]
+    fn drops_unresolved_references_when_the_run_has_errors() {
+        let log = "LaTeX Warning: Citation 'otsu1979' on page 2 undefined on input line 8.
+LaTeX Warning: Reference `sec:methods' on page 2 undefined on input line 33.
+Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+./main.tex:9: Undefined control sequence.
+LaTeX Warning: There were undefined references.
+LaTeX Warning: Empty bibliography on input line 83.
+";
+        let issues = parse_issues(log);
+        assert_eq!(issues.len(), 2);
+        assert_eq!(issues[0].severity, "error");
+        assert!(issues[1].message.contains("csquotes"));
+    }
+
+    #[test]
+    fn keeps_unresolved_references_when_the_run_has_no_errors() {
+        let log = "LaTeX Warning: Citation 'otsu1979' on page 2 undefined on input line 8.\n";
+        assert_eq!(parse_issues(log).len(), 1);
     }
 
     #[test]
