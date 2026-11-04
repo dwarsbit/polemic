@@ -90,13 +90,32 @@ function findFile(entries: api.FileEntry[], path: string): boolean {
   );
 }
 
-function firstTex(entries: api.FileEntry[]): string | null {
-  for (const entry of entries) {
-    if (!entry.isDir && entry.path.endsWith(".tex")) return entry.path;
-    const nested = firstTex(entry.children);
-    if (nested) return nested;
+/** Every .tex file, the ones nearest the project root first. */
+function texFiles(entries: api.FileEntry[]): string[] {
+  const here = entries.filter((e) => !e.isDir && e.path.endsWith(".tex")).map((e) => e.path);
+  const nested = entries.filter((e) => e.isDir).flatMap((e) => texFiles(e.children));
+  return [...here, ...nested];
+}
+
+/** How many .tex files are read to find the main one. */
+const MAIN_FILE_CANDIDATES = 50;
+
+/**
+ * The main file of a project without main.tex: the first .tex file (nearest
+ * the root, then by name) with a \documentclass, which rules out the
+ * chapters, else the first .tex file at all.
+ */
+async function detectMainFile(dir: string, entries: api.FileEntry[]): Promise<string | null> {
+  const candidates = texFiles(entries);
+  for (const path of candidates.slice(0, MAIN_FILE_CANDIDATES)) {
+    try {
+      const text = await api.readProjectFile(dir, path);
+      if (/^[^%\n]*\\documentclass/m.test(text)) return path;
+    } catch {
+      // Unreadable: not a main file.
+    }
   }
-  return null;
+  return candidates[0] ?? null;
 }
 
 function isInside(parentPath: string, childPath: string): boolean {
@@ -380,7 +399,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
           ? storedMain
           : findFile(files, "main.tex")
             ? "main.tex"
-            : firstTex(files);
+            : await detectMainFile(info.path, files);
       const storedOpen = (settings.openFiles[info.path] ?? []).filter((f) =>
         findFile(files, f),
       );
