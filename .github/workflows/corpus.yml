@@ -1,0 +1,93 @@
+name: Corpus test
+
+# Compiles the next batch of real LaTeX projects (tools/corpus/catalog.json) through Polemic's
+# compile service and with plain latexmk, and commits the results and logs to the
+# corpus-results branch. Pull requests that change the runner try a small batch without
+# committing it.
+
+on:
+  schedule:
+    - cron: "17 */5 * * *"
+  workflow_dispatch:
+    inputs:
+      size:
+        description: Projects in this batch
+        default: "100"
+  pull_request:
+    paths:
+      - tools/corpus/**
+      - .github/workflows/corpus.yml
+
+concurrency:
+  group: corpus-test
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    env:
+      SIZE: ${{ github.event_name == 'pull_request' && '6' || inputs.size || '100' }}
+      HAS_TOKEN: ${{ secrets.POLEMIC_SERVER_TOKEN != '' }}
+    steps:
+      - name: Check for the server token
+        if: env.HAS_TOKEN != 'true'
+        run: echo "::notice::POLEMIC_SERVER_TOKEN is not set (for example on a fork); skipping."
+      - uses: actions/checkout@v4
+        if: env.HAS_TOKEN == 'true'
+      - uses: actions/checkout@v4
+        if: env.HAS_TOKEN == 'true'
+        with:
+          repository: dwarsbit/polemic-server
+          token: ${{ secrets.POLEMIC_SERVER_TOKEN }}
+          path: server
+      # The compile image is TeX Live's full scheme, about 5 GB unpacked.
+      - name: Free disk space
+        if: env.HAS_TOKEN == 'true'
+        run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+      - name: Build the compile image
+        if: env.HAS_TOKEN == 'true'
+        run: docker build -q -f server/apps/compile/Dockerfile -t polemic-compile server
+      - name: Start the compile service
+        if: env.HAS_TOKEN == 'true'
+        run: |
+          docker run -d --name compile --init -p 127.0.0.1:8080:8080 \
+            --tmpfs /jobs:size=6g,mode=0711 --tmpfs /tmp:size=512m,mode=1777 \
+            -e COMPILE_SLOTS=2 polemic-compile
+          for i in $(seq 60); do curl -fs http://127.0.0.1:8080/health && break; sleep 2; done
+      - name: Build the editor probe
+        if: env.HAS_TOKEN == 'true'
+        run: cargo build --release --locked --manifest-path tools/corpus/probe/Cargo.toml
+      - name: Get the results branch
+        if: env.HAS_TOKEN == 'true'
+        run: |
+          if git ls-remote --exit-code origin corpus-results >/dev/null; then
+            git fetch --depth 1 origin corpus-results
+            git worktree add results FETCH_HEAD
+          else
+            git worktree add --orphan -b corpus-results results
+          fi
+      - name: Compile the batch
+        if: env.HAS_TOKEN == 'true'
+        run: node tools/corpus/run-batch.mjs --results results --size "$SIZE"
+      - name: Compile service log
+        if: always() && env.HAS_TOKEN == 'true'
+        run: docker logs compile 2>&1 | tail -n 200
+      - name: Commit the results
+        if: env.HAS_TOKEN == 'true' && github.event_name != 'pull_request'
+        working-directory: results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Corpus batch $(jq -r .batches state.json)"
+          git push origin HEAD:corpus-results
+      - name: Keep the results of a trial batch
+        if: env.HAS_TOKEN == 'true' && github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: corpus-trial
+          path: results
