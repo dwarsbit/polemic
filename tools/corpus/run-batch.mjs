@@ -268,6 +268,7 @@ async function runProject(entry, workRoot, logsDir) {
     const baseEngine = entry.engineFrom && entry.engineFrom !== "inferred" ? entry.engine : entry.engine ?? engine;
     const b = await baseline(copy, baseMain, baseEngine);
     meta.baseline = { main: baseMain, engine: baseEngine, ok: b.ok, exit: b.exit, timedOut: b.timedOut, durationMs: b.durationMs };
+    if (!b.ok) meta.baseline.tail = b.output.trim().split("\n").slice(-8).join("\n");
     await writeFile(join(logs, "baseline-latexmk.txt.gz"), gz(b.output));
     if (b.log) await writeFile(join(logs, "baseline.log.gz"), gz(b.log));
 
@@ -365,6 +366,9 @@ await Promise.all(
       const meta = await runProject(entry, workRoot, join(RESULTS, "logs"));
       results.push(meta);
       console.log(`${String(results.length).padStart(3)} ${meta.outcome.padEnd(20)} ${entry.source.padEnd(7)} ${entry.name}`);
+      const why = meta.error ?? meta.polemic?.error ?? (meta.polemic?.status !== "success" ? meta.firstError : null);
+      if (why) console.log(`      Polemic: ${why.replace(/\s+/g, " ").slice(0, 300)}`);
+      if (meta.baseline?.tail) console.log(meta.baseline.tail.replace(/^/gm, "      latexmk: "));
     }
   }),
 );
