@@ -1,13 +1,14 @@
 name: Corpus test
 
-# Compiles the next batch of real LaTeX projects (tools/corpus/catalog.json) through Polemic's
+# Compiles real LaTeX projects (tools/corpus/catalog.json) through Polemic's
 # compile service and with plain latexmk, and commits the results and logs to the
 # corpus-results branch. Pull requests that change the runner try a small batch without
 # committing it.
 
 on:
   schedule:
-    - cron: "17 */5 * * *"
+    # Once a week, the whole catalog; a batch that runs out of time goes on at the next run.
+    - cron: "17 2 * * 1"
   workflow_dispatch:
     inputs:
       size:
@@ -30,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 330
     env:
-      SIZE: ${{ github.event_name == 'pull_request' && '6' || inputs.size || '100' }}
+      SIZE: ${{ github.event_name == 'pull_request' && '6' || inputs.size || '1000' }}
       HAS_TOKEN: ${{ secrets.POLEMIC_SERVER_TOKEN != '' }}
     steps:
       - name: Check for the server token

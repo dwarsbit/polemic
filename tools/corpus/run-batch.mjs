@@ -336,8 +336,12 @@ async function summarize(results) {
   for (const f of (await readdir(dir)).sort()) {
     for (const line of (await readFile(join(dir, f), "utf8")).split("\n")) if (line) all.push({ batch: f.slice(0, 4), ...JSON.parse(line) });
   }
+  // Each project counts once, with its latest result.
+  const latest = [...new Map(all.map((r) => [r.id, r])).values()];
+  all.length = 0;
+  all.push(...latest);
   const count = (key) => all.reduce((m, r) => ((m[r[key]] = (m[r[key]] ?? 0) + 1), m), {});
-  const lines = ["# Corpus test", "", `${all.length} projects in ${new Set(all.map((r) => r.batch)).size} batches.`, ""];
+  const lines = ["# Corpus test", "", `${all.length} projects, each with its latest result.`, ""];
   lines.push("| Outcome | Projects |", "| --- | ---: |");
   for (const [k, v] of Object.entries(count("outcome")).sort((a, b) => b[1] - a[1])) lines.push(`| ${OUTCOMES[k] ?? k} | ${v} |`);
   const table = (title, rows) => {
@@ -361,11 +365,9 @@ await mkdir(join(RESULTS, "batches"), { recursive: true });
 await mkdir(join(RESULTS, "logs"), { recursive: true });
 await mkdir(join(tmpdir(), "corpus-cache"), { recursive: true });
 const state = await readJson(join(RESULTS, "state.json"), { next: 0, batches: 0 });
+// After the last project, start over, so each pass checks the whole catalog against the latest Polemic.
+if (state.next >= catalog.length) state.next = 0;
 const todo = catalog.slice(state.next, state.next + SIZE);
-if (!todo.length) {
-  console.log("Every project in the catalog has been tested.");
-  process.exit(0);
-}
 const batch = String(state.batches + 1).padStart(4, "0");
 console.log(`Batch ${batch}: projects ${state.next + 1}–${state.next + todo.length} of ${catalog.length}`);
 
