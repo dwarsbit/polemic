@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* global process, console, setTimeout, fetch, AbortSignal, Buffer */
 // Compiles the next batch of the LaTeX corpus (catalog.json) twice: through Polemic's compile
 // service, as a user's cloud compile would, and with plain latexmk in the same TeX Live as a
 // baseline. Keeps every log, the issues the editor would show, and a result per project.
@@ -180,7 +181,7 @@ async function baseline(root, main, engine) {
   const file = basename(main);
   const started = Date.now();
   let code = 0;
-  let output = "";
+  let output;
   try {
     const r = await sh(
       "docker",
