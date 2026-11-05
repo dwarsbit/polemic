@@ -17,12 +17,13 @@ The workflow requires exactly one unreleased heading and a numeric version
 changelog heading, commits to `main` and pushes the tag `vX.Y.Z`. It then
 builds for macOS (Apple Silicon and Intel), Linux and Windows and attaches
 the installers to a draft GitHub release, with the changelog section as
-notes. Publish the draft once the assets look right.
+notes. Once every build has succeeded, it publishes the release as the
+latest one.
 
-If a build fails or the run is cancelled after the push, the workflow rolls
-the release back: it deletes the draft release and the tag, reverts the
-release commit on `main` (the changelog heading is unreleased again) and
-runs CI on the revert. Fix the cause, then run the **Release** workflow
+If a build or the publish fails, or the run is cancelled after the push,
+the workflow rolls the release back: it deletes the draft release and the
+tag, reverts the release commit on `main` (the changelog heading is
+unreleased again) and runs CI on the revert. Fix the cause, then run the **Release** workflow
 again from the start; re-running only the failed jobs does not work once
 the tag is gone.
 
