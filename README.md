@@ -57,7 +57,10 @@ project and every feature below.
 - **Live PDF with SyncTeX**: the PDF updates next to your source. Go from
   the PDF to the LaTeX and back.
 - **Fixes for compile errors**: one-click fixes for common errors. For the
-  rest, an optional AI quickfix suggests a change you can review first.
+  rest, ask the assistant.
+- **Assistant** (optional, your own AI provider): a chat that reads your
+  project and helps with LaTeX errors, packages, tables and layout. You
+  review every change.
 - **Cloud compile** (Polemic Professional): compile online, with no TeX
   distribution to install.
 

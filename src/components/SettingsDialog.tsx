@@ -954,7 +954,7 @@ export function SettingsDialog({
       label: "Assistant",
       icon: Sparkles,
       intro:
-        "An optional AI provider for compile errors the built-in fixes cannot handle.",
+        "An optional AI provider for the assistant: help with LaTeX errors, packages, tables and layout.",
       cards: [
         {
           title: "Provider",
@@ -963,7 +963,7 @@ export function SettingsDialog({
               id: "ai-provider",
               label: "AI provider",
               description:
-                "Any OpenAI-compatible endpoint, used by Ask AI in the issues list.",
+                "Any OpenAI-compatible endpoint that supports tool calls, used by the assistant and Ask AI in the issues list.",
               keywords: "ai fix error llm openai mistral api key model assistant",
               control: null,
             },

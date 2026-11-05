@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useSettingsStore } from "@/store/settings";
 
-/** The AI quickfix section of the settings dialog: any
+/** The assistant section of the settings dialog: any
  *  OpenAI-compatible chat-completions endpoint. */
 export function AiSettingsSection() {
   const setAi = useSettingsStore((s) => s.setAi);

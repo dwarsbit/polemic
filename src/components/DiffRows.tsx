@@ -1,8 +1,15 @@
 import type { DiffRow } from "@/lib/diff";
 import { cn } from "cn";
 
-/** Renders unified diff rows (lines + collapsed gaps) in a mono font. */
-export function DiffRows({ rows }: { rows: DiffRow[] }) {
+/** Renders unified diff rows (lines + collapsed gaps) in a mono font.
+ *  `numbers` false drops the line-number columns (narrow panels). */
+export function DiffRows({
+  rows,
+  numbers = true,
+}: {
+  rows: DiffRow[];
+  numbers?: boolean;
+}) {
   return (
     <div className="font-mono text-xs leading-5">
       {rows.map((row, index) =>
@@ -19,12 +26,16 @@ export function DiffRows({ rows }: { rows: DiffRow[] }) {
               row.line.type === "remove" && "bg-destructive/10",
             )}
           >
-            <span className="w-8 shrink-0 text-right text-muted-foreground tabular-nums">
-              {row.line.oldLine ?? ""}
-            </span>
-            <span className="w-8 shrink-0 text-right text-muted-foreground tabular-nums">
-              {row.line.newLine ?? ""}
-            </span>
+            {numbers && (
+              <>
+                <span className="w-8 shrink-0 text-right text-muted-foreground tabular-nums">
+                  {row.line.oldLine ?? ""}
+                </span>
+                <span className="w-8 shrink-0 text-right text-muted-foreground tabular-nums">
+                  {row.line.newLine ?? ""}
+                </span>
+              </>
+            )}
             <span className="w-3 shrink-0 text-muted-foreground">
               {row.line.type === "add" ? "+" : row.line.type === "remove" ? "−" : ""}
             </span>

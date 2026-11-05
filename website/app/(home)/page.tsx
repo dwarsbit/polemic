@@ -77,10 +77,10 @@ const FEATURES = [
   },
   {
     icon: Sparkles,
-    title: "Optional AI quickfix",
+    title: "Optional assistant",
     description:
-      "For the rest, ask any OpenAI-compatible model, local ones included. You review the diff.",
-    href: "/docs/ai-quickfix",
+      "For the rest, ask an assistant that reads your project. Use any OpenAI-compatible model, local ones included. You review every change.",
+    href: "/docs/assistant",
   },
 ];
 

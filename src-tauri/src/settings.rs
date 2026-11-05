@@ -120,8 +120,12 @@ pub struct Settings {
     pub bib_editor_mode: Option<String>,
     /// Opt-in: DOI/arXiv import may contact doi.org. Off unless true.
     pub online_lookup: Option<bool>,
-    /// The AI quickfix provider, configured in settings.
+    /// The AI provider (quickfix and assistant), configured in settings.
     pub ai: Option<AiSettings>,
+    /// Projects (paths) where the assistant may compile on its own.
+    pub assistant_compile_projects: Vec<String>,
+    /// The assistant's mode: "latex" (default), "prose" or "both".
+    pub assistant_mode: Option<String>,
     pub grammar: GrammarSettings,
     pub user_words: Vec<String>,
     /// The Polemic server for the Professional account; None means

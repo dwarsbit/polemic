@@ -6,8 +6,10 @@ import {
   History,
   Info,
   MessageSquare,
+  Sparkles,
 } from "lucide-react";
 import { Group, Panel, Separator, usePanelRef } from "react-resizable-panels";
+import { AssistantPanel } from "@/components/AssistantPanel";
 import { CommentDialog } from "@/components/CommentDialog";
 import { CommentsPanel } from "@/components/CommentsPanel";
 import { IncludeBreadcrumbs } from "@/components/IncludeBreadcrumbs";
@@ -33,6 +35,7 @@ import { VisualTexEditor } from "@/components/VisualTexEditor";
 import { setMenuCheckSource, syncMenuChecks } from "@/lib/menu-checks";
 import { setPanelCommandHandler } from "@/lib/panel-commands";
 import { setCommentDialogHandler, type CommentTarget } from "@/lib/editor-comments";
+import { useAssistantStore } from "@/store/assistant";
 import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
 import { useReviewCommentPull } from "@/hooks/useReviewCommentPull";
@@ -52,7 +55,12 @@ const HANDLE_X = "w-2 rounded bg-transparent hover:bg-primary/20";
 const HANDLE_Y = "h-2 w-full rounded bg-transparent hover:bg-primary/20";
 
 type RightTab =
-  "version-control" | "history" | "comments" | "suggestions" | "properties";
+  | "version-control"
+  | "history"
+  | "comments"
+  | "suggestions"
+  | "assistant"
+  | "properties";
 
 function pickLayout(
   all: Record<string, number> | null,
@@ -86,6 +94,11 @@ export function EditorView() {
   const [rightTab, setRightTab] = useState<RightTab>("version-control");
   const [issuesTool, setIssuesTool] = useState<IssuesTool>("issues");
   const activeFile = useProjectStore((s) => s.activeFile);
+  const projectPath = useProjectStore((s) => s.project?.path ?? null);
+  // The assistant's conversation belongs to one project.
+  useEffect(() => {
+    useAssistantStore.getState().syncProject(projectPath);
+  }, [projectPath]);
   // .bib files edit through their own two-faced editor.
   const activeFileIsBib = activeFile !== null && activeFile.endsWith(".bib");
   const activeFileIsTex = activeFile !== null && activeFile.endsWith(".tex");
@@ -110,6 +123,7 @@ export function EditorView() {
       : []),
     { id: "comments" as const, label: "Comments", icon: MessageSquare },
     { id: "suggestions" as const, label: "Suggestions", icon: FileDiff },
+    { id: "assistant" as const, label: "Assistant", icon: Sparkles },
     { id: "properties" as const, label: "Properties", icon: Info },
   ];
 
@@ -210,6 +224,10 @@ export function EditorView() {
       setRightTab("version-control");
       if (!propertiesOpen) propertiesRef.current?.expand();
     });
+    setPanelCommandHandler("show-assistant", () => {
+      setRightTab("assistant");
+      if (!propertiesOpen) propertiesRef.current?.expand();
+    });
     return () => {
       setPanelCommandHandler("toggle-sidebar", null);
       setPanelCommandHandler("toggle-preview", null);
@@ -219,6 +237,7 @@ export function EditorView() {
       setPanelCommandHandler("toggle-log", null);
       setPanelCommandHandler("show-bibliography", null);
       setPanelCommandHandler("show-version-control", null);
+      setPanelCommandHandler("show-assistant", null);
     };
   });
 
@@ -330,6 +349,8 @@ export function EditorView() {
                           <CommentsPanel />
                         ) : rightTab === "suggestions" ? (
                           <SuggestionsPanel />
+                        ) : rightTab === "assistant" ? (
+                          <AssistantPanel />
                         ) : rightTab === "properties" ? (
                           <PropertiesPanel />
                         ) : rightTab === "history" && versionControl === "git" ? (
