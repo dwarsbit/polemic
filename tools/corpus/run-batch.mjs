@@ -137,7 +137,7 @@ async function polemicCompile(root, files, main, engine, work) {
   await writeFile(list, files.join("\0"));
   const request = join(work, "request.tar");
   // The editor uploads what a link inside the project points to, so links go as files.
-  await sh("tar", ["--format=pax", "--dereference", "--null", "-cf", request, "-C", root, "-T", list]);
+  await sh("tar", ["--format=pax", "--dereference", "--hard-dereference", "--null", "-cf", request, "-C", root, "-T", list]);
   const url = `${SERVICE}/jobs?main=${encodeURIComponent(main)}&engine=${engine}`;
   for (let attempt = 0; ; attempt++) {
     const res = await fetch(url, {
