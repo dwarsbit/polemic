@@ -4,8 +4,9 @@ name: Release
 # CHANGELOG.md: sets the version everywhere, commits to main and pushes
 # the tag vX.Y.Z, creates a draft GitHub Release with the version's
 # changelog section as notes, then builds the installers for every
-# platform and attaches them to it. Publish the draft by hand once the
-# assets look right. If any step fails after the push, the rollback job
+# platform and attaches them to it. Once every build has succeeded, the
+# publish job publishes the release as the latest one, not a draft or a
+# pre-release. If any step fails after the push, the rollback job
 # deletes the draft and the tag and reverts the release commit, so the
 # workflow can run again once the cause is fixed. Pushes use GITHUB_TOKEN,
 # so they do not trigger other workflows: anything a release needs runs as
@@ -211,13 +212,29 @@ jobs:
           releaseId: ${{ needs.prepare.outputs.release-id }}
           args: ${{ matrix.args }}
 
+  # The release stays a draft while the builds upload to it, so nobody
+  # downloads a half-finished release; it is published once all succeed.
+  publish:
+    needs: [prepare, build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Publish the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_ID: ${{ needs.prepare.outputs.release-id }}
+        run: |
+          gh api -X PATCH "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID" \
+            -F draft=false -F prerelease=false -f make_latest=true --silent
+
   # Undoes a release that failed or was cancelled after its commit and tag
   # were pushed: deletes the draft GitHub Release (with any installers
   # already attached) and the tag, and reverts the release commit on main
   # so the changelog heading is unreleased again. Its pushes trigger no
   # workflows, so it starts CI on the revert for the next release.
   rollback:
-    needs: [prepare, build]
+    needs: [prepare, build, publish]
     if: (failure() || cancelled()) && needs.prepare.outputs.commit != ''
     runs-on: ubuntu-latest
     permissions:
