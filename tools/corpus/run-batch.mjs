@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* global process, console, setTimeout, fetch, AbortSignal, Buffer */
+/* global process, console, setTimeout, clearTimeout, fetch, AbortSignal, Buffer */
 // Compiles the next batch of the LaTeX corpus (catalog.json) twice: through Polemic's compile
 // service, as a user's cloud compile would, and with plain latexmk in the same TeX Live as a
 // baseline. Keeps every log, the issues the editor would show, and a result per project.
@@ -183,22 +183,27 @@ async function baseline(root, main, engine) {
   const started = Date.now();
   let code = 0;
   let output;
+  // The image's own `timeout` exits 125 at once, so the limit is a docker kill.
+  const name = `corpus-baseline-${process.pid}-${Math.random().toString(36).slice(2, 8)}`;
+  let timedOut = false;
+  const timer = setTimeout(() => {
+    timedOut = true;
+    sh("docker", ["kill", name]).catch(() => {});
+  }, TIMEOUT_S * 1000);
   try {
-    const r = await sh(
-      "docker",
-      [
-        "run", "--rm", "--network", "none", "--user", `${process.getuid()}:${process.getgid()}`,
-        "-e", "HOME=/tmp", "-e", "TEXMFVAR=/cache/texmf-var",
-        "-v", `${root}:/w`, "-v", `${join(tmpdir(), "corpus-cache")}:/cache`,
-        "-w", `/w/${dir}`, "--entrypoint", "timeout", IMAGE,
-        String(TIMEOUT_S), "latexmk", flag, "-interaction=nonstopmode", "-shell-escape", "-f", file,
-      ],
-      { timeout: (TIMEOUT_S + 60) * 1000 },
-    );
+    const r = await sh("docker", [
+      "run", "--rm", "--name", name, "--network", "none", "--user", `${process.getuid()}:${process.getgid()}`,
+      "-e", "HOME=/tmp", "-e", "TEXMFVAR=/cache/texmf-var",
+      "-v", `${root}:/w`, "-v", `${join(tmpdir(), "corpus-cache")}:/cache`,
+      "-w", `/w/${dir}`, "--entrypoint", "latexmk", IMAGE,
+      flag, "-interaction=nonstopmode", "-shell-escape", "-f", file,
+    ]);
     output = r.stdout + r.stderr;
   } catch (err) {
     code = typeof err.code === "number" ? err.code : 1;
     output = `${err.stdout ?? ""}${err.stderr ?? ""}` || String(err.message ?? err);
+  } finally {
+    clearTimeout(timer);
   }
   const stem = file.replace(/\.tex$/, "");
   // latexmk writes next to the main file unless the project's latexmkrc sets an out_dir.
@@ -206,13 +211,15 @@ async function baseline(root, main, engine) {
   let pdf = null;
   let log = null;
   for (const c of candidates) {
-    if (!pdf && existsSync(join(c, `${stem}.pdf`))) pdf = join(c, `${stem}.pdf`);
+    // A PDF the project ships doesn't count: only one written by this run.
+    const made = await stat(join(c, `${stem}.pdf`)).catch(() => null);
+    if (!pdf && made && made.mtimeMs >= started) pdf = join(c, `${stem}.pdf`);
     if (!log && existsSync(join(c, `${stem}.log`))) log = join(c, `${stem}.log`);
   }
   return {
     ok: code === 0 && pdf !== null,
     exit: code,
-    timedOut: code === 124,
+    timedOut,
     pdf: pdf !== null,
     durationMs: Date.now() - started,
     output,
