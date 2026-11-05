@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.18.0 (unreleased)
+
+### Added
+
+- Assistant: a chat in the right sidebar that helps with LaTeX errors, packages, tables, floats, math and layout. It reads your project, proposes changes you review as diffs and, once you allow it, compiles to check a fix. A menu picks what it helps with: LaTeX, your text or both. In LaTeX mode, a change that edits your words shows a warning. Right-click in the editor to ask about the selection.
+
+### Changed
+
+- **Ask AI** on an issue now opens the assistant with that error, so you can follow up on the fix. The assistant needs a model that supports tool calls.
+
 ## 0.17.0 (2026-11-05)
 
 ### Fixed

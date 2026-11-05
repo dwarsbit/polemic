@@ -1,0 +1,66 @@
+---
+title: Assistant
+description: Get help with LaTeX errors, packages, tables and layout from an AI model you choose.
+---
+
+The assistant is a chat beside your document. It reads your project, checks the compile
+issues and proposes changes as diffs. Nothing is written to a file until you apply a
+change. It is off until you set up an AI provider.
+
+## Set up a provider
+
+Open **Settings → Assistant** and enter:
+
+- **Base URL** of an OpenAI-compatible API, for example `https://api.mistral.ai/v1`.
+- **Model** name. Pick a model that supports tool calls.
+- **API key**, if the provider needs one.
+
+Polemic calls `<base URL>/chat/completions`.
+
+## Ask a question
+
+Open **Assistant** in the right sidebar and type your question, for example “This table
+runs into the margin. How do I make it fit?”. You can also:
+
+- right-click in the editor and choose **Ask the assistant about the selection**, to send
+  the selected lines with your question;
+- choose **Ask AI** on an issue in the issues list, to ask for a fix for that error.
+
+While it works, the assistant shows what it does, such as the files it reads. Choose
+**Stop** to end it.
+
+## Review changes
+
+Each proposed change shows as a diff with **Apply** and **Discard**. An applied change
+lands in the editor and undoes like any other edit.
+
+## Choose what it helps with
+
+The menu at the top of the panel sets the mode:
+
+- **LaTeX**: syntax, errors, packages, tables, floats, math and layout. It leaves your
+  text alone, and a change that edits your words shows a warning.
+- **Prose**: wording, clarity and structure of your text.
+- **Both**: LaTeX and your text.
+
+## Compiling
+
+To check a fix, the assistant can compile your project. The first time, it asks for your
+permission for that project. It saves your open files before it compiles. To take the
+permission back, turn off **Allow compiling** in the panel's menu.
+
+## Local models
+
+You can run a model on your own machine with Ollama, LM Studio or llama.cpp and point
+the base URL at it, for example `http://localhost:11434/v1`. Then nothing leaves your
+computer.
+
+<Callout type="warn" title="HTTPS only">
+  Remote base URLs must use `https`. Plain `http` is accepted only for `localhost`.
+</Callout>
+
+## What is sent
+
+The assistant sends your question and the parts of your project it reads (files, compile
+issues) to the provider you set up. The API key is stored in your system's credential
+store and sent only to that provider.

@@ -547,8 +547,14 @@ fn update_preferences(
     sources: Option<Vec<SourceDef>>,
     author_name: Option<String>,
     author_initials: Option<String>,
+    assistant_mode: Option<String>,
 ) -> Result<Settings, String> {
     settings::update(&app, |s| {
+        if let Some(mode) = assistant_mode {
+            if matches!(mode.as_str(), "latex" | "prose" | "both") {
+                s.assistant_mode = Some(mode);
+            }
+        }
         if let Some(name) = author_name {
             let name = name.trim().to_string();
             s.author_name = (!name.is_empty()).then_some(name);
@@ -678,6 +684,22 @@ fn update_ai_settings(
             api_key,
             model,
         });
+        s.clone()
+    })
+}
+
+/// Allow or revoke the assistant compiling on its own in a project.
+#[tauri::command]
+fn set_assistant_compile(
+    app: tauri::AppHandle,
+    project_path: String,
+    allowed: bool,
+) -> Result<Settings, String> {
+    settings::update(&app, |s| {
+        s.assistant_compile_projects.retain(|p| p != &project_path);
+        if allowed {
+            s.assistant_compile_projects.push(project_path);
+        }
         s.clone()
     })
 }
@@ -2637,6 +2659,7 @@ pub fn run() {    tauri::Builder::default()
             app.manage(std::sync::Mutex::new(spell_state));
             app.manage(MenuState(std::sync::Mutex::new(None)));
             app.manage(HarperState(std::sync::Mutex::new(None)));
+            app.manage(ai::AiRequests::default());
             build_app_menu(app)?;
             Ok(())
         })
@@ -2748,7 +2771,9 @@ pub fn run() {    tauri::Builder::default()
             show_context_menu,
             list_comments,
             save_comments,
-            ai::ai_chat,
+            ai::ai_agent_turn,
+            ai::ai_cancel,
+            set_assistant_compile,
             update_ai_settings,
             get_project_config,
             save_project_config

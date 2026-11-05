@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import type { CompileIssue } from "@/lib/tauri";
 import { fixIssue, planIssueFixes } from "@/lib/fix-issue";
 import type { TexFix } from "@/lib/latex-fixes";
-import { useDialogsStore } from "@/store/dialogs";
+import { askAboutIssue } from "@/lib/assistant/entry";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
@@ -90,7 +90,7 @@ export function IssuesPanel({
   }
 
   /** The AI fallback: open the issue's file and hand the issue to
-   *  the fix dialog, which previews the proposed change. */
+   *  the assistant, which proposes a change to review. */
   async function onAiFix(issue: CompileIssue) {
     setFixNote(null);
     const { activeFile, mainFile, openFile } = useProjectStore.getState();
@@ -101,7 +101,7 @@ export function IssuesPanel({
       usePreviewStore.setState({ error: String(e) });
       return;
     }
-    useDialogsStore.getState().setAiFixIssue(issue);
+    askAboutIssue(issue);
   }
 
   return (
@@ -185,7 +185,7 @@ export function IssuesPanel({
                       variant="ghost"
                       size="sm"
                       className="h-5 shrink-0 gap-1 px-1.5 text-2xs text-muted-foreground opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
-                      title="Ask the AI assistant for a fix, with a preview"
+                      title="Ask the assistant for a fix"
                       onClick={(e) => {
                         e.stopPropagation();
                         void onAiFix(issue);

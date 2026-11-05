@@ -79,3 +79,22 @@ export function setHistoryHandler(h: HistoryHandler | null) {
 export function runEditorHistory(direction: "undo" | "redo"): boolean {
   return historyHandler?.(direction) ?? false;
 }
+
+/** Where the cursor is in the source editor, and what is selected. */
+export interface CursorInfo {
+  /** 1-based line of the cursor. */
+  line: number;
+  selection: { fromLine: number; toLine: number; text: string } | null;
+}
+
+let cursorReader: (() => CursorInfo | null) | null = null;
+
+/** Called by the editor component to report its cursor. */
+export function setCursorReader(reader: (() => CursorInfo | null) | null) {
+  cursorReader = reader;
+}
+
+/** The source editor's cursor and selection; null when not mounted. */
+export function readCursor(): CursorInfo | null {
+  return cursorReader?.() ?? null;
+}

@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import type { TableGrid } from "@/lib/table-grid";
-import type { CompileIssue } from "@/lib/tauri";
 
 /** A table open in the grid editor, and where its edit goes. */
 export interface TableGridRequest {
@@ -20,8 +19,6 @@ interface DialogsState {
   shareOpen: boolean;
   /** Dev builds only: the Component Gallery screen (Develop menu). */
   galleryOpen: boolean;
-  /** The issue the AI quickfix dialog is working on; null = closed. */
-  aiFixIssue: CompileIssue | null;
   /** The table in the grid editor; null = closed. */
   tableGrid: TableGridRequest | null;
   /** The CSV import assistant: the data file to start from (null:
@@ -35,7 +32,6 @@ interface DialogsState {
   setDocumentSettingsOpen: (open: boolean) => void;
   setShareOpen: (open: boolean) => void;
   setGalleryOpen: (open: boolean) => void;
-  setAiFixIssue: (issue: CompileIssue | null) => void;
   setTableGrid: (request: TableGridRequest | null) => void;
   setCsvImport: (request: { path: string | null } | null) => void;
 }
@@ -49,7 +45,6 @@ export const useDialogsStore = create<DialogsState>((set) => ({
   documentSettingsOpen: false,
   shareOpen: false,
   galleryOpen: false,
-  aiFixIssue: null,
   tableGrid: null,
   csvImport: null,
   setShortcutsOpen: (open) => set({ shortcutsOpen: open }),
@@ -60,7 +55,6 @@ export const useDialogsStore = create<DialogsState>((set) => ({
   setDocumentSettingsOpen: (open) => set({ documentSettingsOpen: open }),
   setShareOpen: (open) => set({ shareOpen: open }),
   setGalleryOpen: (open) => set({ galleryOpen: open }),
-  setAiFixIssue: (issue) => set({ aiFixIssue: issue }),
   setTableGrid: (request) => set({ tableGrid: request }),
   setCsvImport: (request) => set({ csvImport: request }),
 }));

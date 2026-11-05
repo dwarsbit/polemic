@@ -1,4 +1,4 @@
-import { invoke } from "@tauri-apps/api/core";
+import { Channel, invoke } from "@tauri-apps/api/core";
 import type { FolderEntry } from "@/lib/project-doc";
 import type { PublishedSnapshot } from "@/lib/share";
 
@@ -71,8 +71,12 @@ export interface Settings {
   bibEditorMode: string | null;
   /** Opt-in: DOI/arXiv import may contact doi.org. */
   onlineLookup: boolean | null;
-  /** The AI quickfix provider; null until configured. */
+  /** The AI provider (quickfix and assistant); null until configured. */
   ai: AiSettings | null;
+  /** Projects (paths) where the assistant may compile on its own. */
+  assistantCompileProjects: string[];
+  /** "latex", "prose" or "both"; null means "latex". */
+  assistantMode: string | null;
   grammar: GrammarSettings;
   /** The Polemic server for the account; null means app.polemicapp.com. */
   accountServer: string | null;
@@ -130,15 +134,15 @@ export interface GrammarRule {
   description: string;
 }
 
-/** An OpenAI-compatible chat-completions endpoint for the AI
- *  quickfix, configured in settings. */
+/** An OpenAI-compatible chat-completions endpoint for the
+ *  assistant, configured in settings. */
 export interface AiSettings {
   baseUrl: string | null;
   apiKey: string | null;
   model: string | null;
 }
 
-/** Save the AI quickfix provider; replaces the whole block. */
+/** Save the AI provider; replaces the whole block. */
 export function updateAiSettings(
   baseUrl: string | null,
   apiKey: string | null,
@@ -147,16 +151,58 @@ export function updateAiSettings(
   return invoke<Settings>("update_ai_settings", { baseUrl, apiKey, model });
 }
 
-/** One chat completion against the configured provider; returns the
- *  assistant message's content. */
-export function aiChat(args: {
-  baseUrl: string;
-  apiKey: string;
-  model: string;
-  system: string;
-  user: string;
-}): Promise<string> {
-  return invoke<string>("ai_chat", { args });
+/** A chat message in the OpenAI shape, as the assistant sends it. */
+export type AgentMessage =
+  | { role: "system" | "user"; content: string }
+  | { role: "assistant"; content: string; tool_calls?: AgentToolCall[] }
+  | { role: "tool"; tool_call_id: string; content: string };
+
+export interface AgentToolCall {
+  id: string;
+  type: "function";
+  function: { name: string; arguments: string };
+}
+
+/** A tool the model may call, in the OpenAI shape. */
+export interface AgentToolSpec {
+  type: "function";
+  function: { name: string; description: string; parameters: object };
+}
+
+/** Streamed while a turn runs. */
+export type AgentEvent = { kind: "text"; delta: string };
+
+/** One assistant turn: streams the reply text to `onText` and resolves
+ *  with the complete assistant message. Rejects with "cancelled" after
+ *  `aiCancel(requestId)`. */
+export function aiAgentTurn(
+  args: {
+    baseUrl: string;
+    apiKey: string;
+    model: string;
+    messages: AgentMessage[];
+    tools: AgentToolSpec[];
+    requestId: number;
+  },
+  onText: (delta: string) => void,
+): Promise<Extract<AgentMessage, { role: "assistant" }>> {
+  const onEvent = new Channel<AgentEvent>();
+  onEvent.onmessage = (event) => {
+    if (event.kind === "text") onText(event.delta);
+  };
+  return invoke("ai_agent_turn", { args, onEvent });
+}
+
+export function aiCancel(requestId: number): Promise<void> {
+  return invoke<void>("ai_cancel", { requestId });
+}
+
+/** Allow (or revoke) the assistant compiling on its own in a project. */
+export function setAssistantCompile(
+  projectPath: string,
+  allowed: boolean,
+): Promise<Settings> {
+  return invoke<Settings>("set_assistant_compile", { projectPath, allowed });
 }
 
 export interface ProjectInfo {
@@ -393,6 +439,7 @@ export interface EditorPreferences {
   authorName?: string;
   /** Empty clears it. */
   authorInitials?: string;
+  assistantMode?: "latex" | "prose" | "both";
 }
 
 export function updatePreferences(prefs: EditorPreferences): Promise<Settings> {

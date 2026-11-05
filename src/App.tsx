@@ -2,7 +2,6 @@ import { ask } from "@tauri-apps/plugin-dialog";
 import { insertOrEditTable } from "@/lib/editor-table";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { AiFixDialog } from "@/components/AiFixDialog";
 import { CommandPalette } from "@/components/CommandPalette";
 import { ComponentGallery } from "@/components/ComponentGallery";
 import { TableDialog } from "@/components/TableDialog";
@@ -405,7 +404,6 @@ function App() {
       />
       {hasProject && <ShareDialog open={shareOpen} onOpenChange={setShareOpen} />}
       {paletteOpen && <CommandPalette />}
-      <AiFixDialog />
     </QueryClientProvider>
   );
 }

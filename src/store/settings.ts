@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import {
+  setAssistantCompile,
   setCompileProvider as persistCompileProvider,
   setPanelLayout,
   setSpellcheckLanguage as persistSpellcheckLanguage,
@@ -14,6 +15,10 @@ import {
 } from "@/lib/tauri";
 import { applyTheme, type ThemePreference } from "@/lib/theme";
 import { usePreviewStore } from "@/store/preview";
+
+/** What the assistant helps with: LaTeX only (prose changes are
+ *  flagged), prose only, or both. */
+export type AssistantMode = "latex" | "prose" | "both";
 
 const DEFAULT_GRAMMAR: GrammarSettings = {
   enabled: null,
@@ -57,8 +62,11 @@ interface SettingsState {
   settingsSection: string | null;
   projectsRoot: string | null;
   panelLayout: Record<string, number> | null;
-  /** The AI quickfix provider; null until configured. */
+  /** The AI provider (quickfix and assistant); null until configured. */
   ai: AiSettings | null;
+  /** Projects (paths) where the assistant may compile on its own. */
+  assistantCompileProjects: string[];
+  assistantMode: AssistantMode;
   grammar: GrammarSettings;
   hydrate: (settings: Settings) => void;
   setTheme: (theme: ThemePreference) => Promise<void>;
@@ -88,8 +96,11 @@ interface SettingsState {
   clearSettingsSection: () => void;
   setProjectsRoot: (root: string | null) => void;
   persistPanelLayout: (layout: Record<string, number>) => void;
-  /** Save the AI quickfix provider settings. */
+  /** Save the AI provider settings. */
   setAi: (ai: AiSettings) => Promise<void>;
+  setAssistantMode: (mode: AssistantMode) => Promise<void>;
+  /** Allow or revoke the assistant compiling on its own in a project. */
+  setAssistantCompile: (projectPath: string, allowed: boolean) => Promise<void>;
   /** Persist first: the backend rejects unsafe LanguageTool URLs. */
   setGrammar: (grammar: GrammarSettings) => Promise<void>;
 }
@@ -129,6 +140,8 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   projectsRoot: null,
   panelLayout: null,
   ai: null,
+  assistantCompileProjects: [],
+  assistantMode: "latex",
   grammar: DEFAULT_GRAMMAR,
   hydrate: (settings) =>
     set({
@@ -165,6 +178,11 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       projectsRoot: settings.projectsRoot,
       panelLayout: settings.panelLayout,
       ai: settings.ai,
+      assistantCompileProjects: settings.assistantCompileProjects ?? [],
+      assistantMode:
+        settings.assistantMode === "prose" || settings.assistantMode === "both"
+          ? settings.assistantMode
+          : "latex",
       grammar: { ...DEFAULT_GRAMMAR, ...settings.grammar },
     }),
   setTheme: async (theme) => {
@@ -272,6 +290,14 @@ export const useSettingsStore = create<SettingsState>((set) => ({
     // Persist first: the backend rejects unsafe base URLs.
     await updateAiSettings(ai.baseUrl, ai.apiKey, ai.model);
     set({ ai });
+  },
+  setAssistantMode: async (mode) => {
+    set({ assistantMode: mode });
+    await updatePreferences({ assistantMode: mode });
+  },
+  setAssistantCompile: async (projectPath, allowed) => {
+    const saved = await setAssistantCompile(projectPath, allowed);
+    set({ assistantCompileProjects: saved.assistantCompileProjects ?? [] });
   },
   setGrammar: async (grammar) => {
     const saved = await updateGrammarSettings(grammar);

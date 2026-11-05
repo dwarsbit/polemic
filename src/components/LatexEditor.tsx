@@ -84,8 +84,10 @@ import { setRemoveUsepackageHandler } from "@/lib/editor-preamble";
 import {
   flushQueuedEditsForView,
   setApplyEditsHandler,
+  setCursorReader,
   setHistoryHandler,
 } from "@/lib/editor-edits";
+import { askAboutSelection } from "@/lib/assistant/entry";
 import { planUsepackageRemoval } from "@/lib/packages";
 import {
   assetDropText,
@@ -759,6 +761,13 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
                     },
                   },
                   {
+                    id: "ask-assistant",
+                    text: view.state.selection.main.empty
+                      ? "Ask the assistant"
+                      : "Ask the assistant about the selection",
+                    action: () => askAboutSelection(),
+                  },
+                  {
                     id: "toggle-line-comment",
                     text: "Toggle Line Comment",
                     action: () => {
@@ -1070,6 +1079,21 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       if (hidden) useEditorStore.getState().loadContent(view.state.doc.toString());
       return true;
     });
+    setCursorReader(() => {
+      if (!visibleRef.current) return null;
+      const { doc, selection } = view.state;
+      const main = selection.main;
+      const line = doc.lineAt(main.head).number;
+      if (main.empty) return { line, selection: null };
+      return {
+        line,
+        selection: {
+          fromLine: doc.lineAt(main.from).number,
+          toLine: doc.lineAt(main.to).number,
+          text: doc.sliceString(main.from, main.to),
+        },
+      };
+    });
     // A "Fix this" click may have queued edits while another face or
     // file was active; apply them now that the view is live.
     flushQueuedEditsForView();
@@ -1149,6 +1173,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       setRemoveUsepackageHandler(null);
       setApplyEditsHandler(null);
       setHistoryHandler(null);
+      setCursorReader(null);
       if (docMetaTimer !== undefined) clearTimeout(docMetaTimer);
       indicator.remove();
       unlistenDrag?.();
