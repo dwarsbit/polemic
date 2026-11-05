@@ -5,15 +5,14 @@ name: Corpus test
 # corpus-results branch. Pull requests that change the runner try a small batch without
 # committing it.
 
+# Runs by hand only: a full pass takes about 3.5 hours, so run it after a change to the
+# compile path, not on a schedule. A batch that runs out of time goes on at the next run.
 on:
-  schedule:
-    # Once a week, the whole catalog; a batch that runs out of time goes on at the next run.
-    - cron: "17 2 * * 1"
   workflow_dispatch:
     inputs:
       size:
         description: Projects in this batch
-        default: "100"
+        default: "1000"
   pull_request:
     paths:
       - tools/corpus/**
