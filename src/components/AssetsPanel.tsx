@@ -36,6 +36,7 @@ import {
   resolveGraphicsRef,
 } from "@/lib/graphics-refs";
 import { showNativeContextMenu } from "@/lib/native-menu";
+import { features } from "@/lib/target";
 import { importAssets, readAsset, readProjectFile, type FileEntry } from "@/lib/tauri";
 import { useAssetsStore } from "@/store/assets";
 
@@ -280,14 +281,16 @@ export function AssetsPanel() {
         label="Assets"
 
         actions={
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            title="Import assets (copies files into assets/)"
-            onClick={() => void importFiles()}
-          >
-            <Plus className="size-4" />
-          </Button>
+          features.localFiles && (
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              title="Import assets (copies files into assets/)"
+              onClick={() => void importFiles()}
+            >
+              <Plus className="size-4" />
+            </Button>
+          )
         }
       />
       <div className="flex shrink-0 items-center gap-1.5 p-2">

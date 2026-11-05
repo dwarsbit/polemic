@@ -46,7 +46,16 @@ import { useDialogsStore } from "@/store/dialogs";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
+import { features } from "@/lib/target";
 import { cn } from "cn";
+
+/** Commands for desktop features the browser build leaves out. */
+const HIDDEN_COMMANDS = new Set([
+  ...(features.localFiles ? [] : ["open-project", "reveal-build"]),
+  ...(features.referenceSources ? [] : ["sources"]),
+  ...(features.desktopAccount ? [] : ["account"]),
+  ...(features.versionControl ? [] : ["commit", "snapshot"]),
+]);
 
 interface Command {
   id: string;
@@ -365,7 +374,9 @@ export function CommandPalette() {
   }, [files, project]);
 
   const results = useMemo(() => {
-    const all = [...commands, ...fileCommands];
+    const all = [...commands, ...fileCommands].filter(
+      (command) => !HIDDEN_COMMANDS.has(command.id),
+    );
     if (!query.trim()) return all.map((item) => ({ item, score: 0, indices: [] }));
     return fuzzyRank(
       query,

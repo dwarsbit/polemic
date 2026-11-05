@@ -56,6 +56,7 @@ import { EDITOR_FONTS } from "@/lib/editor-fonts";
 import { SYNTAX_THEMES } from "@/lib/editor-themes";
 import { fuzzyMatch } from "@/lib/fuzzy";
 import { initialsOf, resolveVersionControl, useSettingsStore } from "@/store/settings";
+import { features } from "@/lib/target";
 import { cn } from "cn";
 
 const THEMES: { id: ThemePreference; label: string; icon: typeof Sun }[] = [
@@ -93,6 +94,8 @@ interface RowDef {
   control: ReactNode;
   /** Optional content under the row (e.g. the chosen folder path). */
   after?: ReactNode;
+  /** Left out of this build (a desktop feature in the browser). */
+  hidden?: boolean;
 }
 
 /** A titled card of rows, or of a custom body (the TeX status list).
@@ -101,6 +104,7 @@ interface CardDef {
   title: string;
   rows: RowDef[];
   content?: ReactNode;
+  hidden?: boolean;
 }
 
 /** A page in the left menu: its icon, a one-line intro, and cards. */
@@ -110,6 +114,7 @@ interface SectionDef {
   intro: string;
   icon: typeof Palette;
   cards: CardDef[];
+  hidden?: boolean;
 }
 
 function RowView({ row }: { row: RowDef }) {
@@ -300,13 +305,14 @@ export function SettingsDialog({
     }
   }
 
-  const sections: SectionDef[] = [
+  const allSections: SectionDef[] = [
     {
       id: "general",
       label: "General",
       icon: SlidersHorizontal,
-      intro:
-        "Startup, where projects live, your name on suggestions and version control.",
+      intro: features.localFiles
+        ? "Startup, where projects live, your name on suggestions and version control."
+        : "Startup and your name on suggestions.",
       cards: [
         {
           title: "Projects",
@@ -325,6 +331,7 @@ export function SettingsDialog({
             },
             {
               id: "projects-root",
+              hidden: !features.localFiles,
               label: "Projects folder",
               description:
                 "New projects are created here. Existing projects stay where they are.",
@@ -409,6 +416,7 @@ export function SettingsDialog({
         },
         {
           title: "Version control",
+          hidden: !features.versionControl,
           rows: [
             {
               id: "version-control",
@@ -447,6 +455,7 @@ export function SettingsDialog({
     },
     {
       id: "account",
+      hidden: !features.desktopAccount,
       label: "Account",
       icon: UserRound,
       intro: "Sign in to a Polemic server. Local features never need an account.",
@@ -470,6 +479,7 @@ export function SettingsDialog({
     },
     {
       id: "git",
+      hidden: !features.versionControl,
       label: "Git",
       icon: GitBranch,
       intro:
@@ -741,6 +751,7 @@ export function SettingsDialog({
     },
     {
       id: "writing",
+      hidden: !features.writingAids,
       label: "Writing",
       icon: SpellCheck,
       intro: "Spelling and grammar checks, in both the code and the visual editor.",
@@ -865,6 +876,7 @@ export function SettingsDialog({
     },
     {
       id: "tex",
+      hidden: !features.localTex,
       label: "Compile",
       icon: Package,
       intro:
@@ -908,6 +920,7 @@ export function SettingsDialog({
       cards: [
         {
           title: "Sources",
+          hidden: !features.referenceSources,
           rows: [
             {
               id: "sources",
@@ -943,6 +956,7 @@ export function SettingsDialog({
     },
     {
       id: "ai",
+      hidden: !features.assistant,
       label: "Assistant",
       icon: Sparkles,
       intro:
@@ -964,6 +978,14 @@ export function SettingsDialog({
       ],
     },
   ];
+  const sections = allSections
+    .filter((s) => !s.hidden)
+    .map((s) => ({
+      ...s,
+      cards: s.cards
+        .filter((card) => !card.hidden)
+        .map((card) => ({ ...card, rows: card.rows.filter((row) => !row.hidden) })),
+    }));
 
   // A targeted open (e.g. the Sources… menu item) lands on its section
   // until the user navigates.
