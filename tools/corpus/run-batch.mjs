@@ -268,7 +268,7 @@ async function runProject(entry, workRoot, logsDir) {
     }
     meta.main = main;
     if (entry.main && entry.main !== main) meta.catalogMain = entry.main;
-    const engine = (await sh(PROBE, ["engine", join(dl.root, main)])).stdout.trim();
+    const engine = (await sh(PROBE, ["engine", dl.root, main])).stdout.trim();
     meta.engine = engine;
     if (entry.engine && entry.engine !== engine) meta.detectedEngine = `${entry.engine} (${entry.engineFrom})`;
 

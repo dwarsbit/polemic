@@ -29,6 +29,24 @@ fn parse_file_line_error(line: &str) -> Option<(String, u32, String)> {
     Some((file.to_string(), line_no, message.to_string()))
 }
 
+/// An error raised inside a file of the TeX distribution, as
+/// -file-line-error prints it: `/usr/…/fontspec.sty:100: Fatal Package
+/// fontspec Error: …`. Returns the message; the place is the package's,
+/// not the project's. TeX's closing `==> Fatal error occurred` adds
+/// nothing and is left out.
+fn parse_package_file_error(line: &str) -> Option<String> {
+    let drive = line.len() > 2 && line.as_bytes()[0].is_ascii_alphabetic() && line.as_bytes()[1] == b':';
+    if !line.starts_with('/') && !drive {
+        return None;
+    }
+    let from = if drive { 2 } else { 0 };
+    let idx = from + line[from..].find(": ")?;
+    let (_, num) = line[..idx].rsplit_once(':')?;
+    num.parse::<u32>().ok()?;
+    let message = line[idx + 2..].trim();
+    (!message.is_empty() && !message.starts_with("==>")).then(|| message.to_string())
+}
+
 /// The context line TeX prints after an error: `l.12 ...` with the
 /// source line up to the point where the error occurred.
 fn context_line_no(detail_line: &str) -> Option<u32> {
@@ -127,6 +145,12 @@ impl FileStack {
             Some((file, true)) => Some(file.clone()),
             _ => None,
         }
+    }
+
+    /// The innermost project file TeX has open: the one that loaded the
+    /// package TeX is reading.
+    fn innermost_project_file(&self) -> Option<String> {
+        self.open.iter().rev().find(|(_, project)| *project).map(|(file, _)| file.clone())
     }
 
     /// Is TeX reading a file from the distribution (a .sty, a .cls)?
@@ -244,6 +268,8 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
         }
         let mut issue = None;
         let mut next = i + 1;
+        // The l.N line after an error in a package counts that package's lines.
+        let mut in_package = false;
         if let Some((file, line_no, message)) = parse_file_line_error(line) {
             let (more, consumed) = continuation(&lines, next, false);
             next = consumed;
@@ -251,6 +277,18 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
                 severity: "error".into(),
                 file: Some(file),
                 line: Some(line_no),
+                message: format!("{message}{more}"),
+                detail: Vec::new(),
+                hint: None,
+            });
+        } else if let Some(message) = parse_package_file_error(line) {
+            let (more, consumed) = continuation(&lines, next, false);
+            next = consumed;
+            in_package = true;
+            issue = Some(CompileIssue {
+                severity: "error".into(),
+                file: files.innermost_project_file(),
+                line: None,
                 message: format!("{message}{more}"),
                 detail: Vec::new(),
                 hint: None,
@@ -292,7 +330,7 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
             if issue.severity == "error" {
                 let (detail, consumed) = detail_from(&lines, next);
                 if !detail.is_empty() {
-                    if issue.line.is_none() {
+                    if issue.line.is_none() && !in_package {
                         if let Some(n) = context_line_no(&detail[0]) {
                             issue.line = Some(n);
                         }
@@ -538,6 +576,27 @@ mod tests {
         add_font_hints(&mut issues);
         assert!(issues[0].hint.as_deref().unwrap().contains("font file"));
         assert_eq!(issues[1].hint, None);
+    }
+
+    #[test]
+    fn reports_errors_raised_inside_packages() {
+        let log = "(./main.tex\nLaTeX2e <2025-11-01>\n(/usr/local/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty\n/usr/local/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty:100: Fatal Package fontspec Error: The fontspec package requires either XeTeX or\n(fontspec)                      LuaTeX.\n\nType <return> to continue.\n ...                                              \n                                                  \nl.100 \\msg_fatal:nn {fontspec} {cannot-use-pdftex}\n\n/usr/local/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty:100:  ==> Fatal error occurred, no output PDF file produced!\n";
+        let issues = parse_issues(log);
+        assert_eq!(issues.len(), 1);
+        assert_eq!(issues[0].severity, "error");
+        assert_eq!(issues[0].file.as_deref(), Some("main.tex"));
+        assert_eq!(issues[0].line, None);
+        assert!(issues[0].message.starts_with("Fatal Package fontspec Error: The fontspec package requires either XeTeX or"));
+        assert!(issues[0].message.contains("LuaTeX."));
+    }
+
+    #[test]
+    fn reports_package_errors_on_windows_paths() {
+        let log = "C:/texlive/2026/texmf-dist/tex/latex/eolang/eolang.sty:162: I can't write on file `_eolang/paper-phi.pl'.\n";
+        let issues = parse_issues(log);
+        assert_eq!(issues.len(), 1);
+        assert_eq!(issues[0].file, None);
+        assert_eq!(issues[0].message, "I can't write on file `_eolang/paper-phi.pl'.");
     }
 
     #[test]

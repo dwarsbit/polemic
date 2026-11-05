@@ -12,6 +12,11 @@
 - The assistant's question field is now one card: the context chips sit on top, the field grows as you type, and the mode picker, the model in use and the send button sit below. Click the model name to open the settings.
 - The assistant settings now start from a provider: Mistral, OpenAI, Anthropic, Ollama, LM Studio or a custom OpenAI-compatible endpoint. Each one fills in its address, asks for a key only when it needs one and lists the models you can pick, with **Load models** to fetch them from the provider. Local providers run without a key.
 
+### Fixed
+
+- Errors raised inside a package, such as fontspec saying it needs XeLaTeX or LuaLaTeX, now show in the issues list. Before, these compiles failed with no error to show.
+- Automatic engine choice picks XeLaTeX or LuaLaTeX for more projects: those whose own class or style files load fontspec, Chinese and Japanese documents (ctex, xeCJK, luatexja), and projects whose latexmkrc names the engine.
+
 ## 0.17.0 (2026-11-05)
 
 ### Fixed

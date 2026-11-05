@@ -3,7 +3,7 @@
 //! from the editor's own sources, so the test checks what users get.
 //!
 //!   corpus-probe files <project-dir>      JSON list of the paths a compile sends
-//!   corpus-probe engine <main-file>       pdflatex, xelatex or lualatex
+//!   corpus-probe engine <project-dir> <main>  pdflatex, xelatex or lualatex
 //!   corpus-probe issues <log> <latexmk-output> [blg]
 //!                                         JSON list of issues, as the editor shows them
 
@@ -95,8 +95,20 @@ fn main() {
             out.sort();
             println!("{}", serde_json::to_string(&out).unwrap());
         }
-        Some("engine") if args.len() == 2 => {
-            let engine = profile::resolve(&profile::ProjectConfig::default(), &read(&args[1]));
+        Some("engine") if args.len() == 3 => {
+            // As compile_project: project files by their path from the root, never outside it.
+            let root = fs::canonicalize(&args[1]).expect("project folder");
+            let in_project = |rel: &str| {
+                let path = fs::canonicalize(root.join(rel)).ok()?;
+                path.starts_with(&root).then(|| fs::read_to_string(path).ok()).flatten()
+            };
+            let main = args[2].as_str();
+            let engine = profile::resolve_in_project(
+                &profile::ProjectConfig::default(),
+                main,
+                &read(root.join(main).to_str().unwrap()),
+                &in_project,
+            );
             println!("{}", engine.name());
         }
         Some("issues") if args.len() == 3 || args.len() == 4 => {
@@ -111,7 +123,7 @@ fn main() {
             println!("{}", serde_json::to_string(&issues).unwrap());
         }
         _ => {
-            eprintln!("usage: corpus-probe files <dir> | engine <main.tex> | issues <log> <latexmk-output> [blg]");
+            eprintln!("usage: corpus-probe files <dir> | engine <dir> <main.tex> | issues <log> <latexmk-output> [blg]");
             std::process::exit(2);
         }
     }
