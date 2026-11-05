@@ -9,11 +9,14 @@ change. It is off until you set up an AI provider.
 
 ## Set up a provider
 
-Open **Settings → Assistant** and enter:
+Open **Settings → Assistant** and choose a provider:
 
-- **Base URL** of an OpenAI-compatible API, for example `https://api.mistral.ai/v1`.
-- **Model** name. Pick a model that supports tool calls.
-- **API key**, if the provider needs one.
+- **Mistral**, **OpenAI** or **Anthropic**: paste an API key from your account with them.
+  Polemic loads the models your key can use; pick one that supports tool calls.
+- **Ollama** or **LM Studio**: a model on your own machine, with no key. Polemic lists
+  the models you have pulled.
+- **Custom**: any other OpenAI-compatible API. Enter its base URL up to `/v1`, a key if it
+  needs one, and the model name.
 
 Polemic calls `<base URL>/chat/completions`.
 
@@ -51,9 +54,9 @@ permission back, turn off **Allow compiling** in the panel's menu.
 
 ## Local models
 
-You can run a model on your own machine with Ollama, LM Studio or llama.cpp and point
-the base URL at it, for example `http://localhost:11434/v1`. Then nothing leaves your
-computer.
+Choose **Ollama** or **LM Studio** as the provider to run a model on your own machine.
+Then nothing leaves your computer. For another local server, choose **Custom** and point
+the base URL at it, for example `http://localhost:8080/v1`.
 
 <Callout type="warn" title="HTTPS only">
   Remote base URLs must use `https`. Plain `http` is accepted only for `localhost`.
@@ -64,3 +67,6 @@ computer.
 The assistant sends your question and the parts of your project it reads (files, compile
 issues) to the provider you set up. The API key is stored in your system's credential
 store and sent only to that provider.
+
+The mode picker and the model sit under the question field: the model name opens the
+settings.

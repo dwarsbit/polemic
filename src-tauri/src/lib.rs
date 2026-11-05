@@ -667,10 +667,11 @@ async fn pick_bib_source(app: tauri::AppHandle, folder: bool) -> Result<Option<S
     .map(Some)
 }
 
-/// Configure the AI quickfix provider; replaces the whole block.
+/// Configure the assistant's AI provider; replaces the whole block.
 #[tauri::command]
 fn update_ai_settings(
     app: tauri::AppHandle,
+    provider: Option<String>,
     base_url: Option<String>,
     api_key: Option<String>,
     model: Option<String>,
@@ -680,6 +681,7 @@ fn update_ai_settings(
     }
     settings::update(&app, |s| {
         s.ai = Some(settings::AiSettings {
+            provider,
             base_url,
             api_key,
             model,
@@ -2773,6 +2775,7 @@ pub fn run() {    tauri::Builder::default()
             save_comments,
             ai::ai_agent_turn,
             ai::ai_cancel,
+            ai::ai_list_models,
             set_assistant_compile,
             update_ai_settings,
             get_project_config,

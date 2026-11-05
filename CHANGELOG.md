@@ -9,6 +9,8 @@
 ### Changed
 
 - **Ask AI** on an issue now opens the assistant with that error, so you can follow up on the fix. The assistant needs a model that supports tool calls.
+- The assistant's question field is now one card: the context chips sit on top, the field grows as you type, and the mode picker, the model in use and the send button sit below. Click the model name to open the settings.
+- The assistant settings now start from a provider: Mistral, OpenAI, Anthropic, Ollama, LM Studio or a custom OpenAI-compatible endpoint. Each one fills in its address, asks for a key only when it needs one and lists the models you can pick, with **Load models** to fetch them from the provider. Local providers run without a key.
 
 ## 0.17.0 (2026-11-05)
 
