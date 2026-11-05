@@ -19,5 +19,12 @@ builds for macOS (Apple Silicon and Intel), Linux and Windows and attaches
 the installers to a draft GitHub release, with the changelog section as
 notes. Publish the draft once the assets look right.
 
+If a build fails or the run is cancelled after the push, the workflow rolls
+the release back: it deletes the draft release and the tag, reverts the
+release commit on `main` (the changelog heading is unreleased again) and
+runs CI on the revert. Fix the cause, then run the **Release** workflow
+again from the start; re-running only the failed jobs does not work once
+the tag is gone.
+
 macOS and Windows builds are signed once the signing secrets are set;
 see [Code signing](signing.md) for the setup.
