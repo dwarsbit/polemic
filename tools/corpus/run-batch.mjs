@@ -136,7 +136,8 @@ async function polemicCompile(root, files, main, engine, work) {
   const list = join(work, "files.txt");
   await writeFile(list, files.join("\0"));
   const request = join(work, "request.tar");
-  await sh("tar", ["--format=pax", "--null", "-cf", request, "-C", root, "-T", list]);
+  // The editor uploads what a link inside the project points to, so links go as files.
+  await sh("tar", ["--format=pax", "--dereference", "--null", "-cf", request, "-C", root, "-T", list]);
   const url = `${SERVICE}/jobs?main=${encodeURIComponent(main)}&engine=${engine}`;
   for (let attempt = 0; ; attempt++) {
     const res = await fetch(url, {
@@ -197,7 +198,7 @@ async function baseline(root, main, engine) {
     output = r.stdout + r.stderr;
   } catch (err) {
     code = typeof err.code === "number" ? err.code : 1;
-    output = `${err.stdout ?? ""}${err.stderr ?? ""}`;
+    output = `${err.stdout ?? ""}${err.stderr ?? ""}` || String(err.message ?? err);
   }
   const stem = file.replace(/\.tex$/, "");
   // latexmk writes next to the main file unless the project's latexmkrc sets an out_dir.
@@ -268,7 +269,7 @@ async function runProject(entry, workRoot, logsDir) {
     const baseEngine = entry.engineFrom && entry.engineFrom !== "inferred" ? entry.engine : entry.engine ?? engine;
     const b = await baseline(copy, baseMain, baseEngine);
     meta.baseline = { main: baseMain, engine: baseEngine, ok: b.ok, exit: b.exit, timedOut: b.timedOut, durationMs: b.durationMs };
-    if (!b.ok) meta.baseline.tail = b.output.trim().split("\n").slice(-8).join("\n");
+    if (!b.ok) meta.baseline.tail = `exit ${b.exit}, PDF ${b.pdf ? "found" : "not found"}\n${b.output.trim().split("\n").slice(-8).join("\n")}`;
     await writeFile(join(logs, "baseline-latexmk.txt.gz"), gz(b.output));
     if (b.log) await writeFile(join(logs, "baseline.log.gz"), gz(b.log));
 
