@@ -58,6 +58,16 @@ jobs:
             --tmpfs /jobs:size=6g,mode=0711 --tmpfs /tmp:size=512m,mode=1777 \
             -e COMPILE_SLOTS=2 polemic-compile
           for i in $(seq 60); do curl -fs http://127.0.0.1:8080/health && break; sleep 2; done
+      - name: Debug the baseline container
+        if: env.HAS_TOKEN == 'true' && github.event_name == 'pull_request'
+        run: |
+          set -x
+          mkdir -p /tmp/dbg && printf '%s\n' '\documentclass{article}\begin{document}Hi\end{document}' > /tmp/dbg/t.tex
+          docker run --rm --entrypoint latexmk polemic-compile -v; echo "exit $?"
+          docker run --rm --entrypoint timeout polemic-compile 20 latexmk -v; echo "exit $?"
+          docker run --rm --user "$(id -u):$(id -g)" -e HOME=/tmp --entrypoint timeout polemic-compile 20 latexmk -v; echo "exit $?"
+          docker run --rm --network none --user "$(id -u):$(id -g)" -e HOME=/tmp -v /tmp/dbg:/w -w /w/ --entrypoint timeout polemic-compile 60 latexmk -pdf -interaction=nonstopmode t.tex; echo "exit $?"
+          ls -la /tmp/dbg
       - name: Build the editor probe
         if: env.HAS_TOKEN == 'true'
         run: cargo build --release --locked --manifest-path tools/corpus/probe/Cargo.toml
