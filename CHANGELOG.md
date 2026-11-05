@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.17.0 (unreleased)
+
+### Fixed
+
+- The Windows installer is now signed, so Windows no longer warns that it comes from an unknown publisher.
+
 ## 0.16.0 (2026-11-05)
 
 ### Added

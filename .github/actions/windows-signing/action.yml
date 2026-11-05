@@ -1,0 +1,94 @@
+name: Configure Windows signing
+description: >
+  Sets up Azure Artifact Signing (formerly Trusted Signing) for the Tauri
+  bundler, then signs a test file so a bad secret or a missing Azure role
+  fails here with signtool's own error, instead of as a bare "failed to
+  run" after the full build. Without AZURE_CLIENT_ID the build stays
+  unsigned. The sign command is added to tauri.conf.json here rather than
+  committed, so local Windows builds don't need Azure access.
+
+inputs:
+  client-id:
+    required: false
+  client-secret:
+    required: false
+  tenant-id:
+    required: false
+  endpoint:
+    required: false
+  account:
+    required: false
+  certificate-profile:
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        AZURE_CLIENT_ID: ${{ inputs.client-id }}
+        AZURE_CLIENT_SECRET: ${{ inputs.client-secret }}
+        AZURE_TENANT_ID: ${{ inputs.tenant-id }}
+        AZURE_ARTIFACT_SIGNING_ENDPOINT: ${{ inputs.endpoint }}
+        AZURE_ARTIFACT_SIGNING_ACCOUNT: ${{ inputs.account }}
+        AZURE_ARTIFACT_SIGNING_CERTIFICATE_PROFILE: ${{ inputs.certificate-profile }}
+        # Keeps Git Bash from rewriting signtool's /options as paths.
+        MSYS_NO_PATHCONV: "1"
+      run: |
+        if [ -z "$AZURE_CLIENT_ID" ]; then
+          echo "::warning::AZURE_CLIENT_ID not set; Windows build will be unsigned"
+          exit 0
+        fi
+        for name in AZURE_CLIENT_ID AZURE_CLIENT_SECRET AZURE_TENANT_ID AZURE_ARTIFACT_SIGNING_ENDPOINT AZURE_ARTIFACT_SIGNING_ACCOUNT AZURE_ARTIFACT_SIGNING_CERTIFICATE_PROFILE; do
+          if [ -z "${!name}" ]; then
+            echo "::error::$name secret is missing"
+            exit 1
+          fi
+        done
+        # The signing client authenticates with these (Azure SDK
+        # EnvironmentCredential), also during the Tauri build.
+        for name in AZURE_CLIENT_ID AZURE_CLIENT_SECRET AZURE_TENANT_ID; do
+          echo "$name=${!name}" >> "$GITHUB_ENV"
+        done
+
+        signtool="$(cygpath -w "$(ls "/c/Program Files (x86)/Windows Kits/10/bin/"10.*/x64/signtool.exe | sort -V | tail -n 1)")"
+
+        # Microsoft's signing client: a signtool plugin (dlib) plus a file
+        # naming the account and certificate profile.
+        dir="$RUNNER_TEMP/artifact-signing"
+        mkdir -p "$dir"
+        curl -fsSL -o "$dir/client.zip" \
+          https://www.nuget.org/api/v2/package/Microsoft.ArtifactSigning.Client/1.0.128
+        pwsh -NoProfile -Command "Expand-Archive -LiteralPath '$(cygpath -w "$dir/client.zip")' -DestinationPath '$(cygpath -w "$dir/client")'"
+        dlib="$(cygpath -w "$dir/client/bin/x64/Azure.CodeSigning.Dlib.dll")"
+        metadata="$(cygpath -w "$dir/metadata.json")"
+        node -e '
+          require("fs").writeFileSync(process.argv[1], JSON.stringify({
+            Endpoint: process.env.AZURE_ARTIFACT_SIGNING_ENDPOINT,
+            CodeSigningAccountName: process.env.AZURE_ARTIFACT_SIGNING_ACCOUNT,
+            CertificateProfileName: process.env.AZURE_ARTIFACT_SIGNING_CERTIFICATE_PROFILE,
+          }));
+        ' "$metadata"
+
+        sign_args=(sign /v /fd SHA256 /tr http://timestamp.acs.microsoft.com /td SHA256 /dlib "$dlib" /dmdf "$metadata" /d Polemic)
+
+        # Sign and verify a tiny test program.
+        echo 'fn main() {}' > "$dir/signing_check.rs"
+        rustc -o "$dir/signing_check.exe" "$dir/signing_check.rs"
+        test_file="$(cygpath -w "$dir/signing_check.exe")"
+        if ! "$signtool" "${sign_args[@]}" "$test_file"; then
+          echo "::error::Test signing failed; see the output above. Check the AZURE_* secrets and docs/signing.md."
+          exit 1
+        fi
+        "$signtool" verify /pa "$test_file"
+
+        node -e '
+          const fs = require("fs");
+          const path = "src-tauri/tauri.conf.json";
+          const conf = JSON.parse(fs.readFileSync(path, "utf8"));
+          conf.bundle.windows = {
+            ...conf.bundle.windows,
+            signCommand: { cmd: process.argv[1], args: [...process.argv.slice(2), "%1"] },
+          };
+          fs.writeFileSync(path, JSON.stringify(conf, null, 2) + "\n");
+        ' "$signtool" "${sign_args[@]}"

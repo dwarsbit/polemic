@@ -1,0 +1,32 @@
+name: Windows signing check
+
+# Checks the Azure Artifact Signing secrets by signing a test file, without
+# building or releasing. Takes a few minutes; run it after changing any
+# AZURE_* secret or Azure role. Also runs on pull requests that change the
+# signing setup.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - .github/actions/windows-signing/**
+      - .github/workflows/windows-signing.yml
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sign a test file
+        uses: ./.github/actions/windows-signing
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          endpoint: ${{ secrets.AZURE_ARTIFACT_SIGNING_ENDPOINT }}
+          account: ${{ secrets.AZURE_ARTIFACT_SIGNING_ACCOUNT }}
+          certificate-profile: ${{ secrets.AZURE_ARTIFACT_SIGNING_CERTIFICATE_PROFILE }}
