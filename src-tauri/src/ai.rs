@@ -44,6 +44,68 @@ pub fn check_service_url(base_url: &str, what: &str) -> Result<(), String> {
     }
 }
 
+/// The key travels as a bearer token; a model on this machine (Ollama,
+/// LM Studio) has none, and gets no header.
+fn authorized(request: reqwest::RequestBuilder, api_key: &str) -> reqwest::RequestBuilder {
+    if api_key.trim().is_empty() {
+        request
+    } else {
+        request.bearer_auth(api_key.trim())
+    }
+}
+
+/// The error a provider sends with a failed status, or the status alone.
+fn provider_error(status: reqwest::StatusCode, text: &str) -> String {
+    let body: Value = serde_json::from_str(text).unwrap_or(Value::Null);
+    let detail = body["error"]["message"]
+        .as_str()
+        .or_else(|| body["message"].as_str())
+        .unwrap_or("no further detail");
+    format!("the provider returned {status}: {detail}")
+}
+
+/// The models a provider offers (`GET /models`), as the webview's
+/// model picker lists them. Doubles as the connection check in
+/// settings: an unreachable server or a refused key fails here.
+#[tauri::command]
+pub async fn ai_list_models(base_url: String, api_key: String) -> Result<Vec<String>, String> {
+    check_base_url(&base_url)?;
+    let url = format!("{}/models", base_url.trim().trim_end_matches('/'));
+    let response = authorized(reqwest::Client::new().get(&url), &api_key)
+        .send()
+        .await
+        .map_err(|e| format!("the provider could not be reached: {e}"))?;
+    let status = response.status();
+    let text = response
+        .text()
+        .await
+        .map_err(|e| format!("the provider's reply could not be read: {e}"))?;
+    if !status.is_success() {
+        return Err(provider_error(status, &text));
+    }
+    let body: Value = serde_json::from_str(&text)
+        .map_err(|_| "the provider's reply was not a list of models".to_string())?;
+    Ok(model_ids(&body))
+}
+
+/// Model ids out of a `/models` reply: OpenAI's `{data: [{id}]}`, or a
+/// bare list.
+pub fn model_ids(body: &Value) -> Vec<String> {
+    let list = body["data"].as_array().or_else(|| body.as_array());
+    let mut ids: Vec<String> = list
+        .map(|items| {
+            items
+                .iter()
+                .filter_map(|item| item["id"].as_str().or_else(|| item.as_str()))
+                .map(str::to_string)
+                .collect()
+        })
+        .unwrap_or_default();
+    ids.sort();
+    ids.dedup();
+    ids
+}
+
 /// Assistant turns in flight, by the id the webview gave them, so
 /// `ai_cancel` can stop one.
 #[derive(Default)]
@@ -215,9 +277,7 @@ async fn run_turn(args: &AiAgentArgs, on_event: &Channel<AgentEvent>) -> Result<
     if !args.tools.is_empty() {
         body["tools"] = Value::Array(args.tools.clone());
     }
-    let mut response = reqwest::Client::new()
-        .post(&url)
-        .bearer_auth(&args.api_key)
+    let mut response = authorized(reqwest::Client::new().post(&url), &args.api_key)
         .json(&body)
         .send()
         .await
@@ -233,14 +293,10 @@ async fn run_turn(args: &AiAgentArgs, on_event: &Channel<AgentEvent>) -> Result<
             .text()
             .await
             .map_err(|e| format!("the AI response could not be read: {e}"))?;
-        let body: Value = serde_json::from_str(&text).unwrap_or(Value::Null);
         if !status.is_success() {
-            let detail = body["error"]["message"]
-                .as_str()
-                .or_else(|| body["message"].as_str())
-                .unwrap_or("no further detail");
-            return Err(format!("the provider returned {status}: {detail}"));
+            return Err(provider_error(status, &text));
         }
+        let body: Value = serde_json::from_str(&text).unwrap_or(Value::Null);
         let message = message_from_completion(&body)?;
         if let Some(text) = message["content"].as_str().filter(|t| !t.is_empty()) {
             let _ = on_event.send(AgentEvent::Text {
@@ -309,6 +365,14 @@ mod tests {
         assert!(check_base_url("https://key@api.mistral.ai/v1").is_err());
         assert!(check_base_url("http://localhost.evil.com").is_err());
         assert!(check_base_url("https://").is_err());
+    }
+
+    #[test]
+    fn reads_model_ids_from_a_models_reply() {
+        let openai = json!({"object": "list", "data": [{"id": "b"}, {"id": "a"}, {"id": "a"}]});
+        assert_eq!(model_ids(&openai), vec!["a", "b"]);
+        assert_eq!(model_ids(&json!(["x"])), vec!["x"]);
+        assert!(model_ids(&json!({"models": []})).is_empty());
     }
 
     #[test]

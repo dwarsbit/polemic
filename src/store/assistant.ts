@@ -7,6 +7,7 @@ import {
   type AskContext,
 } from "@/lib/assistant/agent";
 import { planReplacements } from "@/lib/assistant/edits";
+import { aiConfigured } from "@/lib/ai-providers";
 import type {
   AssistantHost,
   CompileResult,
@@ -174,7 +175,7 @@ export const useAssistantStore = create<AssistantState>((set, get) => {
       const question = text.trim();
       if (question === "" || get().running) return;
       const { ai, assistantMode } = useSettingsStore.getState();
-      if (!ai?.baseUrl || !ai.apiKey || !ai.model) {
+      if (!aiConfigured(ai) || ai === null) {
         push({
           kind: "error",
           text: "No AI provider is set up. Add one in Settings → Assistant.",
@@ -227,7 +228,7 @@ export const useAssistantStore = create<AssistantState>((set, get) => {
         return aiAgentTurn(
           {
             baseUrl: ai.baseUrl!,
-            apiKey: ai.apiKey!,
+            apiKey: ai.apiKey ?? "",
             model: ai.model!,
             messages,
             tools,

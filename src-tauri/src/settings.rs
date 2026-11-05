@@ -36,6 +36,11 @@ pub struct SourceDef {
 #[derive(Serialize, Deserialize, Clone, Debug, Default)]
 #[serde(rename_all = "camelCase")]
 pub struct AiSettings {
+    /// The preset the settings came from ("mistral", "openai",
+    /// "anthropic", "ollama", "lmstudio", "custom"); None for settings
+    /// saved before presets existed. The webview infers one by URL.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub provider: Option<String>,
     /// Base URL of an OpenAI-compatible chat-completions API,
     /// e.g. https://api.mistral.ai/v1.
     pub base_url: Option<String>,

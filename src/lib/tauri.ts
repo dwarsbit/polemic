@@ -137,18 +137,28 @@ export interface GrammarRule {
 /** An OpenAI-compatible chat-completions endpoint for the
  *  assistant, configured in settings. */
 export interface AiSettings {
+  /** The preset ("mistral", "ollama", "custom", …); null before
+   *  presets existed. See `providerOf`. */
+  provider: string | null;
   baseUrl: string | null;
   apiKey: string | null;
   model: string | null;
 }
 
 /** Save the AI provider; replaces the whole block. */
-export function updateAiSettings(
-  baseUrl: string | null,
-  apiKey: string | null,
-  model: string | null,
-): Promise<Settings> {
-  return invoke<Settings>("update_ai_settings", { baseUrl, apiKey, model });
+export function updateAiSettings(ai: AiSettings): Promise<Settings> {
+  return invoke<Settings>("update_ai_settings", {
+    provider: ai.provider,
+    baseUrl: ai.baseUrl,
+    apiKey: ai.apiKey,
+    model: ai.model,
+  });
+}
+
+/** The models a provider offers, for the model picker in settings.
+ *  Rejects when the server cannot be reached or refuses the key. */
+export function aiListModels(baseUrl: string, apiKey: string): Promise<string[]> {
+  return invoke<string[]>("ai_list_models", { baseUrl, apiKey });
 }
 
 /** A chat message in the OpenAI shape, as the assistant sends it. */

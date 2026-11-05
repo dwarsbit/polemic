@@ -568,26 +568,35 @@ function useSections(): Section[] {
       label: "Assistant",
       icon: Sparkles,
       intro:
-        "An optional AI provider for compile errors the built-in fixes cannot handle.",
+        "An optional AI model for the assistant: help with LaTeX errors, packages, tables and layout. Use your own account with a provider, or a model on this computer.",
       cards: [
         {
-          title: "Provider",
+          title: "Provider and model",
           rows: [
             {
-              id: "endpoint",
-              label: "Endpoint",
-              description: "Any OpenAI-compatible API.",
+              id: "provider",
+              label: "Provider",
+              description:
+                "Your questions and the files the assistant reads go to api.mistral.ai.",
               control: (
-                <Input
-                  className="h-8 w-44 text-xs"
-                  placeholder="https://api.mistral.ai/v1"
+                <SelectControl
+                  value="Mistral"
+                  options={[
+                    "Mistral",
+                    "OpenAI",
+                    "Anthropic",
+                    "Ollama",
+                    "LM Studio",
+                    "Custom",
+                  ]}
                 />
               ),
             },
             {
               id: "key",
               label: "API key",
-              description: "Stored in your system keychain.",
+              description:
+                "Stored on this machine and sent only to api.mistral.ai. Get a key",
               control: (
                 <Input
                   type="password"
@@ -600,10 +609,17 @@ function useSections(): Section[] {
             {
               id: "model",
               label: "Model",
+              description:
+                "Mistral lists 42 models. Pick one that supports tool calls. Load again",
               control: (
-                <Input
-                  className="h-8 w-44 text-xs"
-                  placeholder="mistral-large-latest"
+                <SelectControl
+                  value="mistral-large-latest"
+                  options={[
+                    "mistral-large-latest",
+                    "mistral-medium-latest",
+                    "mistral-small-latest",
+                    "Other…",
+                  ]}
                 />
               ),
             },

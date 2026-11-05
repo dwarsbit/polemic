@@ -288,7 +288,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   },
   setAi: async (ai) => {
     // Persist first: the backend rejects unsafe base URLs.
-    await updateAiSettings(ai.baseUrl, ai.apiKey, ai.model);
+    await updateAiSettings(ai);
     set({ ai });
   },
   setAssistantMode: async (mode) => {

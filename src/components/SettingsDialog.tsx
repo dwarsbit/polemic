@@ -23,6 +23,7 @@ import { AiSettingsSection } from "@/components/AiSettingsSection";
 import { CompileSettingsSection } from "@/components/CompileSettingsSection";
 import { GitAccountsSection } from "@/components/GitAccountsSection";
 import { GrammarSettingsSection } from "@/components/GrammarSettingsSection";
+import { SettingsRow } from "@/components/SettingsRow";
 import { SourcesSettingsCard } from "@/components/SourcesSettings";
 import { TexStatusSection } from "@/components/TexStatus";
 import {
@@ -113,20 +114,9 @@ interface SectionDef {
 
 function RowView({ row }: { row: RowDef }) {
   return (
-    <div className="py-3 first:pt-1 last:pb-1">
-      <div className="flex min-h-8 items-center justify-between gap-6">
-        <div className="min-w-0">
-          <p className="text-sm font-medium">{row.label}</p>
-          {row.description && (
-            <p className="mt-0.5 text-xs text-muted-foreground">{row.description}</p>
-          )}
-        </div>
-        {row.control !== null && (
-          <div className="flex w-44 shrink-0 justify-end">{row.control}</div>
-        )}
-      </div>
+    <SettingsRow label={row.label} description={row.description} control={row.control}>
       {row.after}
-    </div>
+    </SettingsRow>
   );
 }
 
@@ -877,7 +867,8 @@ export function SettingsDialog({
       id: "tex",
       label: "Compile",
       icon: Package,
-      intro: "Where documents compile, and the TeX tools Polemic found on this computer.",
+      intro:
+        "Where documents compile, and the TeX tools Polemic found on this computer.",
       cards: [
         {
           title: "Where to compile",
@@ -887,7 +878,8 @@ export function SettingsDialog({
               label: "Where to compile",
               description:
                 "On this computer with your TeX distribution, or with Polemic (Professional) without installing TeX.",
-              keywords: "cloud server polemic professional compile remote online tex live",
+              keywords:
+                "cloud server polemic professional compile remote online tex live",
               control: null,
             },
           ],
@@ -954,17 +946,16 @@ export function SettingsDialog({
       label: "Assistant",
       icon: Sparkles,
       intro:
-        "An optional AI provider for the assistant: help with LaTeX errors, packages, tables and layout.",
+        "An optional AI model for the assistant: help with LaTeX errors, packages, tables and layout. Use your own account with a provider, or a model on this computer.",
       cards: [
         {
-          title: "Provider",
+          title: "Provider and model",
           rows: [
             {
               id: "ai-provider",
-              label: "AI provider",
-              description:
-                "Any OpenAI-compatible endpoint that supports tool calls, used by the assistant and Ask AI in the issues list.",
-              keywords: "ai fix error llm openai mistral api key model assistant",
+              label: "Provider",
+              keywords:
+                "ai llm assistant provider mistral openai anthropic claude ollama lm studio local custom endpoint base url api key model",
               control: null,
             },
           ],

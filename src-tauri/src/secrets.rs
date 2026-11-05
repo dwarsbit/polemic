@@ -216,6 +216,7 @@ mod tests {
     fn with_keys() -> Settings {
         Settings {
             ai: Some(AiSettings {
+                provider: None,
                 base_url: Some("https://api.example.com/v1".into()),
                 api_key: Some("sk-ai".into()),
                 model: Some("m".into()),

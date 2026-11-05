@@ -1,10 +1,11 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
+  ArrowUp,
+  ChevronDown,
   CircleAlert,
   FileDiff,
   Loader2,
   MoreHorizontal,
-  Send,
   Sparkles,
   Square,
   TriangleAlert,
@@ -18,17 +19,12 @@ import {
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
+import { aiConfigured, providerOf } from "@/lib/ai-providers";
 import { describeProseChange } from "@/lib/assistant/edits";
 import { collapseContext, lineDiff } from "@/lib/diff";
 import { useAssistantStore, type ChatItem } from "@/store/assistant";
@@ -36,15 +32,48 @@ import { useProjectStore } from "@/store/project";
 import { useSettingsStore, type AssistantMode } from "@/store/settings";
 import { cn } from "cn";
 
-const MODES: { value: AssistantMode; label: string; title: string }[] = [
-  {
-    value: "latex",
-    label: "LaTeX",
-    title: "Help with LaTeX; changes to your text are flagged",
-  },
-  { value: "prose", label: "Prose", title: "Help with your text" },
-  { value: "both", label: "Both", title: "Help with LaTeX and your text" },
+const MODES: { value: AssistantMode; label: string; hint: string }[] = [
+  { value: "latex", label: "LaTeX", hint: "Changes to your text are flagged" },
+  { value: "prose", label: "Prose", hint: "Help with your text" },
+  { value: "both", label: "Both", hint: "LaTeX and your text" },
 ];
+
+/** The composer's mode picker: what the assistant helps with. */
+function ModeMenu({ mode }: { mode: AssistantMode }) {
+  const current = MODES.find((m) => m.value === mode) ?? MODES[0];
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="ghost"
+          size="xs"
+          className="gap-1 px-1.5 text-2xs font-medium text-muted-foreground"
+          title="What the assistant helps with"
+        >
+          {current.label}
+          <ChevronDown className="size-3 opacity-60" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="start">
+        <DropdownMenuRadioGroup
+          value={mode}
+          onValueChange={(value) =>
+            void useSettingsStore.getState().setAssistantMode(value as AssistantMode)
+          }
+        >
+          {MODES.map((m) => (
+            <DropdownMenuRadioItem key={m.value} value={m.value}>
+              <span className="flex flex-col">
+                <span>{m.label}</span>
+                <span className="text-2xs text-muted-foreground">{m.hint}</span>
+              </span>
+            </DropdownMenuRadioItem>
+          ))}
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
 
 /** Inline `code` and **bold** in a line of the reply. */
 function Inline({ text }: { text: string }) {
@@ -196,7 +225,8 @@ export function AssistantPanel() {
   const compileRequest = useAssistantStore((s) => s.compileRequest);
   const mode = useSettingsStore((s) => s.assistantMode);
   const ai = useSettingsStore((s) => s.ai);
-  const configured = Boolean(ai?.baseUrl && ai.apiKey && ai.model);
+  const configured = aiConfigured(ai);
+  const provider = providerOf(ai);
   const projectPath = useProjectStore((s) => s.project?.path ?? null);
   const compileAllowed = useSettingsStore(
     (s) => projectPath !== null && s.assistantCompileProjects.includes(projectPath),
@@ -215,6 +245,14 @@ export function AssistantPanel() {
   useEffect(() => {
     if (context.selection !== null) inputRef.current?.focus();
   }, [context.selection]);
+
+  // The field grows with the draft, up to a few lines, then scrolls.
+  useLayoutEffect(() => {
+    const el = inputRef.current;
+    if (!el) return;
+    el.style.height = "0px";
+    el.style.height = `${Math.min(el.scrollHeight, 160)}px`;
+  }, [draft]);
 
   function send() {
     const text = draft.trim();
@@ -253,28 +291,6 @@ export function AssistantPanel() {
         label="Assistant"
         actions={
           <>
-            <Select
-              value={mode}
-              onValueChange={(value) =>
-                void useSettingsStore
-                  .getState()
-                  .setAssistantMode(value as AssistantMode)
-              }
-            >
-              <SelectTrigger
-                className="h-6 w-[78px] px-2 text-2xs"
-                title="What the assistant helps with"
-              >
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {MODES.map((m) => (
-                  <SelectItem key={m.value} value={m.value} title={m.title}>
-                    {m.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -310,7 +326,7 @@ export function AssistantPanel() {
                 <DropdownMenuItem
                   onSelect={() => useSettingsStore.getState().openSettings("ai")}
                 >
-                  AI provider…
+                  Assistant settings…
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -370,35 +386,45 @@ export function AssistantPanel() {
           </p>
         )}
       </div>
-      <div className="shrink-0 border-t p-2">
-        {chips.length > 0 && (
-          <div className="mb-1.5 flex flex-wrap gap-1">
-            {chips.map((chip) => (
-              <span
-                key={chip.key}
-                className="flex max-w-full items-center gap-1 rounded bg-muted py-0.5 pr-0.5 pl-1.5 text-2xs"
-              >
-                <span className="truncate">{chip.label}</span>
-                <button
-                  type="button"
-                  className="rounded p-0.5 text-muted-foreground hover:bg-accent hover:text-foreground"
-                  title="Remove"
-                  onClick={chip.remove}
+      <div className="shrink-0 p-2 pt-1">
+        <div
+          className={cn(
+            "rounded-xl border bg-card shadow-xs transition-[border-color,box-shadow]",
+            "focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/30",
+          )}
+        >
+          {chips.length > 0 && (
+            <div className="flex flex-wrap gap-1 px-2 pt-2">
+              {chips.map((chip) => (
+                <span
+                  key={chip.key}
+                  className="flex max-w-full items-center gap-1 rounded-md bg-muted py-0.5 pr-0.5 pl-1.5 text-2xs"
                 >
-                  <X className="size-3" />
-                </button>
-              </span>
-            ))}
-          </div>
-        )}
-        <div className="flex items-end gap-1.5">
-          <Textarea
+                  <span className="truncate">{chip.label}</span>
+                  <button
+                    type="button"
+                    className="rounded p-0.5 text-muted-foreground hover:bg-accent hover:text-foreground"
+                    title="Remove"
+                    onClick={chip.remove}
+                  >
+                    <X className="size-3" />
+                  </button>
+                </span>
+              ))}
+            </div>
+          )}
+          <textarea
             ref={inputRef}
             value={draft}
-            rows={2}
+            rows={1}
             disabled={!configured}
-            placeholder="How do I make this table fit the page?"
-            className="max-h-40 min-h-9 rounded-lg text-xs md:text-xs"
+            aria-label="Ask the assistant"
+            placeholder={
+              configured
+                ? "How do I make this table fit the page?"
+                : "Set up a provider to ask"
+            }
+            className="block max-h-40 w-full resize-none bg-transparent px-3 pt-2.5 pb-1 text-xs leading-5 outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed"
             onChange={(e) => setDraft(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
@@ -407,27 +433,43 @@ export function AssistantPanel() {
               }
             }}
           />
-          {running ? (
-            <Button
-              variant="outline"
-              size="icon"
-              className="size-8 shrink-0"
-              title="Stop"
-              onClick={() => useAssistantStore.getState().stop()}
+          <div className="flex items-center gap-1 px-1.5 pb-1.5">
+            <ModeMenu mode={mode} />
+            <div className="min-w-0 flex-1" />
+            <button
+              type="button"
+              className="min-w-0 truncate rounded-md px-1.5 py-0.5 text-2xs text-muted-foreground hover:bg-muted hover:text-foreground"
+              title={
+                configured
+                  ? `${ai?.model} on ${provider?.name}. Change in settings`
+                  : "Open assistant settings"
+              }
+              onClick={() => useSettingsStore.getState().openSettings("ai")}
             >
-              <Square className="size-3.5" />
-            </Button>
-          ) : (
-            <Button
-              size="icon"
-              className="size-8 shrink-0"
-              title="Send (Enter)"
-              disabled={!configured || draft.trim() === ""}
-              onClick={send}
-            >
-              <Send className="size-3.5" />
-            </Button>
-          )}
+              {configured ? ai?.model : "Set up a provider…"}
+            </button>
+            {running ? (
+              <Button
+                variant="outline"
+                size="icon-xs"
+                className="shrink-0 rounded-full"
+                title="Stop"
+                onClick={() => useAssistantStore.getState().stop()}
+              >
+                <Square className="size-3" />
+              </Button>
+            ) : (
+              <Button
+                size="icon-xs"
+                className="shrink-0 rounded-full"
+                title="Send (Enter)"
+                disabled={!configured || draft.trim() === ""}
+                onClick={send}
+              >
+                <ArrowUp className="size-3.5" />
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </div>
