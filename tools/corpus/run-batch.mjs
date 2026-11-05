@@ -298,6 +298,8 @@ async function runProject(entry, workRoot, logsDir) {
         meta.warnings = issues.length - meta.errors;
         meta.firstError = issues.find((i) => i.severity === "error")?.message?.slice(0, 300);
       }
+      // A failure without a parsed error leaves the editor with nothing to show.
+      if (status !== "success" && !meta.firstError) meta.polemic.tail = p.result.output.trim().split("\n").slice(-8).join("\n");
     }
     meta.outcome = outcomeOf(p, b);
     return meta;
@@ -376,6 +378,7 @@ await Promise.all(
       console.log(`${String(results.length).padStart(3)} ${meta.outcome.padEnd(20)} ${entry.source.padEnd(7)} ${entry.name}`);
       const why = meta.error ?? meta.polemic?.error ?? (meta.polemic?.status !== "success" ? meta.firstError : null);
       if (why) console.log(`      Polemic: ${why.replace(/\s+/g, " ").slice(0, 300)}`);
+      if (meta.polemic?.tail) console.log(meta.polemic.tail.replace(/^/gm, "      Polemic latexmk: "));
       if (meta.baseline?.tail) console.log(meta.baseline.tail.replace(/^/gm, "      latexmk: "));
     }
   }),
