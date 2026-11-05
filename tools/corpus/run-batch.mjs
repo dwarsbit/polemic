@@ -32,6 +32,9 @@ const SERVICE = option("service", "http://127.0.0.1:8080");
 const IMAGE = option("image", "polemic-compile");
 const PROBE = option("probe", join(here, "probe/target/release/corpus-probe"));
 const WORKERS = Number(option("workers", "2"));
+// Stop taking new projects after this many minutes, so a large batch ends before the job's time limit.
+const MINUTES = Number(option("minutes", "0"));
+const deadline = MINUTES > 0 ? Date.now() + MINUTES * 60_000 : Infinity;
 const TIMEOUT_S = 240; // the compile service's own limit
 const UA = "polemic-corpus-test (https://github.com/dwarsbit/polemic)";
 if (!RESULTS) {
@@ -371,7 +374,7 @@ const results = [];
 let index = 0;
 await Promise.all(
   Array.from({ length: WORKERS }, async () => {
-    while (index < todo.length) {
+    while (index < todo.length && Date.now() < deadline) {
       const entry = todo[index++];
       const meta = await runProject(entry, workRoot, join(RESULTS, "logs"));
       results.push(meta);
@@ -383,8 +386,10 @@ await Promise.all(
     }
   }),
 );
+// Projects are taken in order and each one taken finishes, so the first `index` are done.
+if (index < todo.length) console.log(`Stopped after ${MINUTES} minutes; the next batch goes on from project ${state.next + index + 1}.`);
 results.sort((a, b) => todo.findIndex((e) => e.id === a.id) - todo.findIndex((e) => e.id === b.id));
 await writeFile(join(RESULTS, "batches", `${batch}.jsonl`), results.map((r) => JSON.stringify(r)).join("\n") + "\n");
-await writeFile(join(RESULTS, "state.json"), JSON.stringify({ next: state.next + todo.length, batches: state.batches + 1 }, null, 1) + "\n");
+await writeFile(join(RESULTS, "state.json"), JSON.stringify({ next: state.next + index, batches: state.batches + 1 }, null, 1) + "\n");
 await summarize(RESULTS);
 await rm(workRoot, { recursive: true, force: true }).catch(() => {});

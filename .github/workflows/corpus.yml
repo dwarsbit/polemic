@@ -72,7 +72,7 @@ jobs:
           fi
       - name: Compile the batch
         if: env.HAS_TOKEN == 'true'
-        run: node tools/corpus/run-batch.mjs --results results --size "$SIZE"
+        run: node tools/corpus/run-batch.mjs --results results --size "$SIZE" --minutes 290
       - name: Compile service log
         if: always() && env.HAS_TOKEN == 'true'
         run: docker logs compile 2>&1 | tail -n 200
