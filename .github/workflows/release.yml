@@ -1,7 +1,8 @@
 name: Release
 
-# Releases a new version: sets the version everywhere, commits to main and
-# pushes the tag vX.Y.Z, creates a draft GitHub Release with the version's
+# Releases the version of the "## X.Y.Z (unreleased)" heading in
+# CHANGELOG.md: sets the version everywhere, commits to main and pushes
+# the tag vX.Y.Z, creates a draft GitHub Release with the version's
 # changelog section as notes, then builds the installers for every
 # platform and attaches them to it. Publish the draft by hand once the
 # assets look right. Pushes use GITHUB_TOKEN, so they do not trigger
@@ -9,11 +10,6 @@ name: Release
 
 on:
   workflow_dispatch:
-    inputs:
-      version:
-        description: "Version to release (X.Y.Z, without the v)"
-        required: true
-        type: string
 
 concurrency:
   group: release
@@ -28,9 +24,8 @@ jobs:
     permissions:
       contents: write
       actions: read
-    env:
-      VERSION: ${{ inputs.version }}
     outputs:
+      version: ${{ steps.version.outputs.version }}
       release-id: ${{ steps.release.outputs.id }}
     steps:
       - name: Release from main only
@@ -46,6 +41,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Read the version from the changelog
+        id: version
+        run: |
+          versions=$(sed -nE 's/^## (.+) \(unreleased\)$/\1/p' CHANGELOG.md)
+          if [ -z "$versions" ]; then
+            echo "::error::CHANGELOG.md has no '## X.Y.Z (unreleased)' heading."
+            exit 1
+          fi
+          if [ "$(echo "$versions" | wc -l)" -ne 1 ]; then
+            echo "::error::CHANGELOG.md has more than one unreleased version: $(echo $versions)"
+            exit 1
+          fi
+          echo "VERSION=$versions" >> "$GITHUB_ENV"
+          echo "version=$versions" >> "$GITHUB_OUTPUT"
+          echo "Releasing $versions"
 
       # Windows installers (MSI) only take numeric versions, so no pre-releases.
       - name: Validate the version
@@ -121,7 +132,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: v${{ inputs.version }}
+          ref: v${{ needs.prepare.outputs.version }}
 
       # Signs and notarizes the macOS builds once the APPLE_* secrets exist;
       # without them the builds stay unsigned. Exported only when set, since
