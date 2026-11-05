@@ -1,0 +1,31 @@
+{
+ "id": 422,
+ "source": "GitHub",
+ "name": "anaungurean/Graph-Algorithms",
+ "url": "https://github.com/anaungurean/Graph-Algorithms",
+ "type": "Homework",
+ "version": "9896a026a0eb8fe00a68ce9b8af1eea1a07d4e83",
+ "files": 16,
+ "main": "Tema_1/BodnarGFlorinaAlina_A4_UngureanSAnaMaria_A4_Tema1.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Tema_1/BodnarGFlorinaAlina_A4_UngureanSAnaMaria_A4_Tema1.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 675,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'BodnarGFlorinaAlina_A4_UngureanSAnaMaria_A4_Tema1.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'BodnarGFlorinaAlina_A4_UngureanSAnaMaria_A4_Tema1.log' and/or above output for details\n\nLatexmk: Missing input file 'fphw.cls' message in .log file:\n  ! LaTeX Error: File `fphw.cls' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 189,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `fphw.cls' not found.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,32 @@
+{
+ "id": 87,
+ "source": "GitHub",
+ "name": "Template-Latex/Template-Tesis",
+ "url": "https://github.com/Template-Latex/Template-Tesis",
+ "type": "Thesis",
+ "version": "ea8b354617693c43e46da161d3de5df8aeee0e00",
+ "files": 61,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5007
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4651,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

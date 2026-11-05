@@ -1,0 +1,33 @@
+{
+ "id": 262,
+ "source": "GitHub",
+ "name": "phonism/LLMNotes",
+ "url": "https://github.com/phonism/LLMNotes",
+ "type": "Notes",
+ "version": "8e2a90010f597a204ec7f36819150e1ce3eab3d9",
+ "files": 181,
+ "main": "blogs/_figures/preamble.tex",
+ "catalogMain": "notes/RL/main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "notes/RL/main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 106387,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 强 (U+5F3A) in font [lmroman12-bold]:mapping=tex-\n  Missing character: There is no 强 (U+5F3A) in font [lmroman12-bold]:mapping=tex-text;!\n  Missing character: There is no 化 (U+5316) in font [lmroman12-bold]:mapping=tex-\n  Missing character: There is no 化 (U+5316) in font [lmroman12-bold]:mapping=tex-text;!\n  Missing character: There is no 学 (U+5B66) in font [lmroman12-bold]:mapping=tex-\n  Missing character: There is no 学 (U+5B66) in font [lmroman12-bold]:mapping=tex-text;!\n  Missing character: There is no 习 (U+4E60) in font [lmroman12-bold]:mapping=tex-\n And 58551 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 706,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 1,
+ "firstError": "Emergency stop.",
+ "outcome": "both-fail"
+}

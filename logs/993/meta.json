@@ -1,0 +1,31 @@
+{
+ "id": 993,
+ "source": "CTAN",
+ "name": "beamertheme-arguelles",
+ "url": "https://ctan.org/pkg/beamertheme-arguelles",
+ "type": "Slides",
+ "version": "2.6.0",
+ "files": 11,
+ "main": "demo-arguelles.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "demo-arguelles.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3152
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2580,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

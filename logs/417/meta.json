@@ -1,0 +1,33 @@
+{
+ "id": 417,
+ "source": "GitHub",
+ "name": "harvard-ml-courses/cs281-f17-homework",
+ "url": "https://github.com/harvard-ml-courses/cs281-f17-homework",
+ "type": "Homework",
+ "version": "c1cef94481de5188b1bfb4b6d4ab9d808fccaae3",
+ "files": 44,
+ "main": "project/example.tex",
+ "catalogMain": "T2/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "T2/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1903
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1558,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

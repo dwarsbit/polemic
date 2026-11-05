@@ -1,0 +1,34 @@
+{
+ "id": 382,
+ "source": "GitHub",
+ "name": "ungdev/ScribUTT",
+ "url": "https://github.com/ungdev/ScribUTT",
+ "type": "Report",
+ "version": "91c504f0310bc8f9e31a068bdac7e21e8d54e700",
+ "files": 49,
+ "main": "rapportUTT.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (latexmkrc)",
+ "baseline": {
+  "main": "rapportUTT.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 19313,
+  "tail": "exit 12, PDF found\nxdvipdfmx:warning: Object @page. already defined.\n][16\nxdvipdfmx:warning: Object @page. already defined.\n]\n479015 bytes written\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Missing character: There is no ≡ (\"2261) in font ec-lmr10!\n  Missing character: There is no φ (\"3C6) in font ec-lmr10!"
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 10972,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "baseline-only-fail"
+}

@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "mnras_template.tex",
+  "line": 114,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <5.5> not available size <5> substituted on input line 114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "mnras_template.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.5pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

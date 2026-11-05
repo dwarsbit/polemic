@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `mtpro2.sty' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "YangThesis.cls",
+  "line": 68,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package etex Warning: Extended allocation already in use. etex.sty code will not be used. To force etex package to load, add \\RequirePackage{etex} at the start of the document",
+  "detail": [],
+  "hint": null
+ }
+]

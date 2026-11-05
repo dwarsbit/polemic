@@ -1,0 +1,82 @@
+[
+ {
+  "severity": "error",
+  "file": "poster/poster.tex",
+  "line": 158,
+  "message": "Package pdftex.def Error: File `figures/rl-intro-diagram-eps-converted-to.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "poster/poster.tex",
+  "line": 182,
+  "message": "Package pdftex.def Error: File `figures/atari-environment-example-eps-converted-to.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "poster/poster.tex",
+  "line": 184,
+  "message": "Package pdftex.def Error: File `figures/sokoban-eps-converted-to.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "poster/poster.tex",
+  "line": 284,
+  "message": "Package pdftex.def Error: File `figures/td_lambda_50-eps-converted-to.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "poster/poster.tex",
+  "line": 286,
+  "message": "Package pdftex.def Error: File `figures/td_gamma_50-eps-converted-to.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: inputting `fleqn.clo' instead of obsolete `fleqn.sty'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster/poster.tex",
+  "line": 159,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 159",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster/poster.tex",
+  "line": 185,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 185",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster/poster.tex",
+  "line": 242,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 242",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster/poster.tex",
+  "line": 288,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 288",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 334,
+ "source": "GitHub",
+ "name": "jeandeaual/rirekisho",
+ "url": "https://github.com/jeandeaual/rirekisho",
+ "type": "CV",
+ "version": "96ccd2cd4b7da6624fbe9a2e0f509bfb829b1ce1",
+ "files": 13,
+ "main": "rirekisho.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "rirekisho.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 22220,
+  "tail": "exit 12, PDF not found\nCollected error summary (may duplicate other messages):\n  lualatex: Command for 'lualatex' gave return code 1\n      Refer to 'build/rirekisho.log' and/or above output for details\n\ntput: No value for $TERM and no -T specified\nLatexmk: Missing input file 'rireki-style/rireki.sty' message in .log file:\n  ! LaTeX Error: File `rireki-style/rireki.sty' not found.\nFailure to make 'build/rirekisho.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 22420,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 2,
+ "firstError": "LaTeX Error: File `rireki-style/rireki.sty' not found.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 193,
+ "source": "GitHub",
+ "name": "hasecilu/UPIITA-LaTeX-formats",
+ "url": "https://github.com/hasecilu/UPIITA-LaTeX-formats",
+ "type": "Slides",
+ "version": "d3a397399d468de1d56e2c7a70bde10a22f6077f",
+ "files": 128,
+ "main": "IPN-themed_dodecahedron_calendar/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "IPN-themed_dodecahedron_calendar/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5597
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5191,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,32 @@
+{
+ "id": 223,
+ "source": "GitHub",
+ "name": "ibis-project/talks",
+ "url": "https://github.com/ibis-project/talks",
+ "type": "Slides",
+ "version": "258cc49736dcf35e0073e0a137c07c08c07be1b4",
+ "files": 4,
+ "main": "kdd-2024/ibis-hands-on-tutorial-KDD.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "kdd-2024/ibis-hands-on-tutorial-KDD.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3328
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2746,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 9,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "error",
+  "file": "asmejour-template.tex",
+  "line": 449,
+  "message": "LaTeX Error: The value expansion ' \\omega \\cdot U' is unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "asmejour-template.tex",
+  "line": 451,
+  "message": "LaTeX template Error: Unknown template keys \"Math in a Section Heading={}\".",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "asmejour-template.tex",
+  "line": 451,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 451",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "asmejour-template.tex",
+  "line": null,
+  "message": "LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (1 not 7). Rerun to correct this",
+  "detail": [],
+  "hint": null
+ }
+]

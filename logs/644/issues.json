@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "ToArxiv.tex",
+  "line": 835,
+  "message": "Package amsmath Warning: Foreign command \\over; \\frac or \\genfrac should be used instead on input line 835",
+  "detail": [],
+  "hint": null
+ }
+]

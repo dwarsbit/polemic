@@ -1,0 +1,32 @@
+{
+ "id": 341,
+ "source": "GitHub",
+ "name": "ARPeeketi/claude-resume-kit",
+ "url": "https://github.com/ARPeeketi/claude-resume-kit",
+ "type": "CV",
+ "version": "69930e9de21d5595f9b8c9427adc9c51a9fcbc0e",
+ "files": 44,
+ "main": "resume_builder/templates/coverletter_template.tex",
+ "catalogMain": "resume_builder/templates/cv_template.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "resume_builder/templates/cv_template.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1513,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'cv_template.fls'\nLatexmk: Examining 'cv_template.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'cv_template.log' and/or above output for details\n\nFailure to make 'cv_template.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 799,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 22,
+ "warnings": 0,
+ "firstError": "Missing number, treated as zero.",
+ "outcome": "both-fail"
+}

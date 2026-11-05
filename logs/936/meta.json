@@ -1,0 +1,32 @@
+{
+ "id": 936,
+ "source": "CTAN",
+ "name": "komacv",
+ "url": "https://ctan.org/pkg/komacv",
+ "type": "CV",
+ "version": "1.1.2",
+ "files": 10,
+ "main": "examples/komacv_example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "examples/komacv_example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 10519
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 6524,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

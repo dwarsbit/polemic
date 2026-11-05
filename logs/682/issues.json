@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "template.tex",
+  "line": 53,
+  "message": "Package microtype Warning: Unable to apply patch `footnote' on input line 53",
+  "detail": [],
+  "hint": null
+ }
+]

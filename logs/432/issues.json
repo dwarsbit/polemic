@@ -1,0 +1,442 @@
+[
+ {
+  "severity": "error",
+  "file": "pieces/form00_header.tex",
+  "line": 39,
+  "message": "LaTeX Error: Command \\section undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 5,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"A7.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 5,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"98.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 式 (U+5F0F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 5,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 5,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 5,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 5,
+  "message": "Missing = inserted for \\ifnum.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 5,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 5,
+  "message": "You can't use a prefix with `begin-group character {'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 6,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"A0.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 6,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"94.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 究 (U+7A76)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 種 (U+7A2E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 目 (U+76EE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 6,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 6,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 6,
+  "message": "Missing = inserted for \\ifnum.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 6,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 6,
+  "message": "You can't use a prefix with `begin-group character {'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 7,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"A0.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 7,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"94.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 7,
+  "message": "LaTeX Error: Unicode character 究 (U+7A76)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 7,
+  "message": "LaTeX Error: Unicode character 種 (U+7A2E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 7,
+  "message": "LaTeX Error: Unicode character 目 (U+76EE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 7,
+  "message": "LaTeX Error: Unicode character 後 (U+5F8C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 7,
+  "message": "LaTeX Error: Unicode character 半 (U+534A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 7,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 7,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 7,
+  "message": "Missing = inserted for \\ifnum.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 7,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 7,
+  "message": "You can't use a prefix with `begin-group character {'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 8,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"A0.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 8,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"94.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 8,
+  "message": "LaTeX Error: Unicode character 究 (U+7A76)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 8,
+  "message": "LaTeX Error: Unicode character 種 (U+7A2E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 8,
+  "message": "LaTeX Error: Unicode character 別 (U+5225)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 8,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 8,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 8,
+  "message": "Missing = inserted for \\ifnum.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 8,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 8,
+  "message": "You can't use a prefix with `begin-group character {'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"A0.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"94.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": "LaTeX Error: Unicode character 究 (U+7A76)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": "LaTeX Error: Unicode character 種 (U+7A2E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": "LaTeX Error: Unicode character 目 (U+76EE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": "Missing = inserted for \\ifnum.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": "You can't use a prefix with `begin-group character {'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": "LaTeX Error: Unicode character 別 (U+5225)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pieces/form04_dc_header.tex",
+  "line": 9,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

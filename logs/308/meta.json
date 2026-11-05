@@ -1,0 +1,32 @@
+{
+ "id": 308,
+ "source": "GitHub",
+ "name": "kq7m3x/kaonotes",
+ "url": "https://github.com/kq7m3x/kaonotes",
+ "type": "Book",
+ "version": "906dcf85086871f21d90a7a69eb56b91d858f8b0",
+ "files": 20,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 54939,
+  "tail": "exit 12, PDF found\n  Missing character: There is no   (U+0020) in font Noto Serif TC/OT!\n  Missing character: There is no   (U+0020) in font Noto Serif TC/OT!\n  Missing character: There is no   (U+0020) in font Noto Serif TC/OT:script=hani;\n  Missing character: There is no   (U+0020) in font Noto Serif TC/OT:script=hani;language=dflt;!\n  Missing character: There is no   (U+0020) in font Noto Serif TC/OT:script=hani;\n  Missing character: There is no   (U+0020) in font Noto Serif TC/OT:script=hani;language=dflt;!\n  Missing character: There is no 線 (U+7DDA) in font Libertinus Sans Bold/OT:langu\n And 231 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 17253,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 17,
+ "warnings": 9,
+ "firstError": "Package fontspec Error: The font \"Liberation Mono\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

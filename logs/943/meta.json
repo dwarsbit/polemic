@@ -1,0 +1,32 @@
+{
+ "id": 943,
+ "source": "CTAN",
+ "name": "biblatex-cv",
+ "url": "https://ctan.org/pkg/biblatex-cv",
+ "type": "CV",
+ "version": "0.01",
+ "files": 11,
+ "main": "doc/biblatex-cv.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "doc/biblatex-cv.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 69881,
+  "tail": "exit 12, PDF found\n  Missing character: There is no b (\"62) in font nullfont!\n  Missing character: There is no i (\"69) in font nullfont!\n  Missing character: There is no b (\"62) in font nullfont!\n  Missing character: There is no l (\"6C) in font nullfont!\n  Missing character: There is no a (\"61) in font nullfont!\n  Missing character: There is no t (\"74) in font nullfont!\n  Missing character: There is no e (\"65) in font nullfont!\n And 3698 more --- see log file 'biblatex-cv.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 15661,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 192,
+ "warnings": 9,
+ "firstError": "Package fontspec Error: The font \"Courier New\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

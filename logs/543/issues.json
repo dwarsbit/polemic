@@ -1,0 +1,1098 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package etex Warning: Extended allocation already in use. etex.sty code will not be used. To force etex package to load, add \\RequirePackage{etex} at the start of the document",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package caption Warning: Unknown document class (or package), standard defaults will be used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 139,
+  "message": "Class aa Warning: Around 353 words in the abstract instead of 300 (max). You should rewrite your abstract on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 156,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 156",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 173,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 173",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 182,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 182",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 222,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 222",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 224,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 282,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 282",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 286,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 286",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 305,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 305",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 336,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 336",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 345,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 345",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 354,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 354",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 354,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\gtrsim' on input line 354",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 380,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 380",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_new.tex",
+  "line": 389,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 389",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 340",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 402",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 598",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 646",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 671",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 691",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 732",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Suppressing link with empty target on input line 767",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `1974ITAC...19..667A' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2024ApJ...969L..18A' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2020ApJ...903...34A' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Arnaud1996' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2018Natur.553..473B' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Bertola22' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Berton2025' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Bianchi2009' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Borrelli2026' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2025arXiv251102902B' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `1979ApJ...228..939C' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2018MNRAS.478.1649C' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Cruise25' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Dadina08' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2013MNRAS.431.2441D' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2014ApJ...790..145D' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2018ApJ...854...97D' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2025A&A...702A.114D' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2023MNRAS.523.1399D' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Duras2020' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Eilers2020' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Eilers_2023' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Fabian2015' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2009Natur.459..540F' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2023ARA&A..61..373F' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Farina2022' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `1985ApJ...293..192F' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Gehrels1986' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Guainazzi2006' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `1991ApJ...380L..51H' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `1993ApJ...413..507H' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `1994ApJ...432L..95H' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `1997ApJ...476..620H' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `HI4PI2016' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2020ARA&A..58...27I' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Jiang_2007' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Jin2026' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2016A&A...587A.151K' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Kammoun2023' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Kammoun2017' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2017MNRAS.468.3489K' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Kelly_2007' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2025FrASS..1130392L' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Lanzuisi19' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Lanzuisi2024' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2022A&A...657A..57L' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2020MNRAS.499.6053L' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2021ApJ...910..103L' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Loiacono2024' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Luo_2015' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Lusso2010' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Lusso2016' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Marinucci2022' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `marshall2023' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Martocchia2017' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `massey1951kolmogorov' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Mazzucchelli2023' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2017ApJ...849...91M' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2022ApJS..261....5M' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2003MNRAS.341.1051M' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2018A&A...614A.121N' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2017A&A...603A.128N' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Nardini2019' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Onoue2020' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2026arXiv260318156P' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Petrucci2001' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Petrucci2000' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Piconcelli2005' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `sksurv' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2019MNRAS.484.5142P' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Reed2019' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Reeves2021' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Ricci_2018' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Ricci2017' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `RossCross2020' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Saccheo2025' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2025A&A...695A..23S' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2019A&A...631A.120S' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2011ApJS..194...45S' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Shen2019' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2017MNRAS.466.3161S' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `1980A&A....86..121S' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `1984MNRAS.209..175S' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2018A&A...614A..37T' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Tortosa2026' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Tortosa2023' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Tortosa22' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Tortosa2024' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2025arXiv250907064T' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2023A&A...677A.111T' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Trinca2022' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2024A&A...689A.220T' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2023ApJ...946L..45T' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2016MNRAS.457.3356V' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2009ApJ...699..800V' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2006ApJ...641..689V' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Vignali03' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Vito2019' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2010A&ARv..18..279V' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `1979ApJ...230..274W' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2020ApJ...896...23W' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Wang_2021' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Wang2018' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2007ApJ...657.1026W' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Wu2015' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2022ApJ...924L..25Y' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Yang2021' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2023ApJ...951L...5Y' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2020ApJ...897L..14Y' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Zappacosta2020' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Zappacosta2023' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `2012MNRAS.422..129Z' multiply defined",
+  "detail": [],
+  "hint": null
+ }
+]

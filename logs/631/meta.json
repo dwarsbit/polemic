@@ -1,0 +1,33 @@
+{
+ "id": 631,
+ "source": "arXiv",
+ "name": "arXiv:2611.04125",
+ "url": "https://arxiv.org/abs/2611.04125",
+ "type": "Paper",
+ "version": "2611.04125",
+ "files": 7,
+ "main": "main_1102.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main_1102.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1390,
+  "tail": "exit 12, PDF found\nLatexmk: Getting log file 'main_1102.log'\nLatexmk: Examining 'main_1102.fls'\nLatexmk: Examining 'main_1102.log'\nLatexmk: Log file says output to 'main_1102.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main_1102.log' and/or above output for details"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 613,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "Extra }, or forgotten $.",
+ "outcome": "both-fail"
+}

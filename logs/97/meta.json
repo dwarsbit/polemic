@@ -1,0 +1,32 @@
+{
+ "id": 97,
+ "source": "GitHub",
+ "name": "opencompl/paper-template",
+ "url": "https://github.com/opencompl/paper-template",
+ "type": "Paper",
+ "version": "bfed7b90ffa06133da40c2848b7dd04385534fd0",
+ "files": 42,
+ "main": "paper.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "paper.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 6083
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5426,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 9,
+ "outcome": "both-ok"
+}

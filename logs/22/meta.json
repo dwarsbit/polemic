@@ -1,0 +1,32 @@
+{
+ "id": 22,
+ "source": "GitHub",
+ "name": "KernelA/xelatex-gost-bac",
+ "url": "https://github.com/KernelA/xelatex-gost-bac",
+ "type": "Thesis",
+ "version": "b5b531c575a2dad17687aa5ddf812361d16de550",
+ "files": 10,
+ "main": "Src/Example.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "Src/Example.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 120304,
+  "tail": "exit 12, PDF found\n  Missing character: There is no П (\"41F) in font nullfont!\n  Missing character: There is no р (\"440) in font nullfont!\n  Missing character: There is no и (\"438) in font nullfont!\n  Missing character: There is no л (\"43B) in font nullfont!\n  Missing character: There is no о (\"43E) in font nullfont!\n  Missing character: There is no ж (\"436) in font nullfont!\n  Missing character: There is no е (\"435) in font nullfont!\n And 2264 more --- see log file 'Example.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 224,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/Example.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

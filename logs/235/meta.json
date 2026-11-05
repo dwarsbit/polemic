@@ -1,0 +1,31 @@
+{
+ "id": 235,
+ "source": "GitHub",
+ "name": "MaxMelching/gwbar",
+ "url": "https://github.com/MaxMelching/gwbar",
+ "type": "Slides",
+ "version": "df48277d4a7c5b69974b2c64fbb7a4b5c5ddbe74",
+ "files": 62,
+ "main": "examples/alignment_example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "examples/alignment_example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2332
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2060,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

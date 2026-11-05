@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1300,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 1300",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 2313,
+  "message": "LaTeX Warning: Float too large for page by 1.06921pt on input line 2313",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 2570,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 2570",
+  "detail": [],
+  "hint": null
+ }
+]

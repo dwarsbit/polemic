@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\@arrayparboxrestore  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "document.tex",
+  "line": 39,
+  "message": "LaTeX Font Warning: Font shape `T1/cmtt/m/n' in size <12.44> not available size <12> substituted on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "document.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.44pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

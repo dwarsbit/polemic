@@ -1,0 +1,810 @@
+[
+ {
+  "severity": "error",
+  "file": "whu-proposal.cls",
+  "line": 242,
+  "message": "Package fontspec Error: The font \"Times New Roman\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "whu-proposal.cls",
+  "line": 242,
+  "message": "Font TU/TimesNewRoman(0)/m/n/10.53937=\"Times New Roman\" at 10.53937pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "whu-proposal-main.tex",
+  "line": 63,
+  "message": "Font TU/TimesNewRoman(0)/m/n/24.09=\"Times New Roman\" at 24.09pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "whu-proposal-main.tex",
+  "line": 63,
+  "message": "Font TU/TimesNewRoman(0)/m/n/16.06=\"Times New Roman\" at 16.06pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "whu-proposal-main.tex",
+  "line": 63,
+  "message": "Font TU/TimesNewRoman(0)/m/n/7=\"Times New Roman\" at 7.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "whu-proposal-main.tex",
+  "line": 63,
+  "message": "Font TU/TimesNewRoman(0)/m/n/5=\"Times New Roman\" at 5.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "whu-proposal-main.tex",
+  "line": 63,
+  "message": "Font TU/TimesNewRoman(0)/m/n/12.045=\"Times New Roman\" at 12.045pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "whu-proposal-main.tex",
+  "line": 63,
+  "message": "Font TU/TimesNewRoman(0)/m/n/12=\"Times New Roman\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/motivation.tex",
+  "line": 3,
+  "message": "Font TU/TimesNewRoman(0)/b/n/12.045=\"Times New Roman\" at 12.045pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/motivation.tex",
+  "line": 5,
+  "message": "Font TU/TimesNewRoman(0)/m/n/8=\"Times New Roman\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/motivation.tex",
+  "line": 5,
+  "message": "Font TU/TimesNewRoman(0)/m/n/6=\"Times New Roman\" at 6.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/motivation.tex",
+  "line": 7,
+  "message": "Font TU/TimesNewRoman(0)/b/n/8=\"Times New Roman\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character w).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character u).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 9,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character w).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character u).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 14,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character w).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character u).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 19,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character w).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character u).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 23,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 28,
+  "message": "Font TU/TimesNewRoman(0)/m/it/12=\"Times New Roman\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character w).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character u).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 37,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 39,
+  "message": "Font TU/TimesNewRoman(0)/m/n/9.03374=\"Times New Roman\" at 9.03374pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body/usage.tex",
+  "line": 41,
+  "message": "Font TU/TimesNewRoman(0)/b/n/12=\"Times New Roman\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "whu-proposal-main.tex",
+  "line": 63,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/b/n' undefined using `TU/TimesNewRoman(0)/m/n' instead on input line 63",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "whu-proposal-main.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "body/motivation.tex",
+  "line": 9,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/m/it' undefined using `TU/TimesNewRoman(0)/m/n' instead on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "whu-proposal-main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "whu-proposal-main.tex",
+  "line": 82,
+  "message": "Package lastpage Warning: Rerun to get the references right on input line 82",
+  "detail": [],
+  "hint": null
+ }
+]

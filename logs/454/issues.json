@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "error",
+  "file": "SZZ_Master_Kit/szz_guide.tex",
+  "line": 20,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "SZZ_Master_Kit/szz_guide.tex",
+  "line": 22,
+  "message": "TeX capacity exceeded, sorry [input stack size=10000].",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `l3keys2e', but the package provides `\\relax '",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU//m/n' undefined using `TU/lmr/m/n' instead on input line 485",
+  "detail": [],
+  "hint": null
+ }
+]

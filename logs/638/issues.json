@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "error",
+  "file": "ism04.tex",
+  "line": 61,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ }
+]

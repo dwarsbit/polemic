@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `nasa-latex-docs.cls' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "support/document/main.tex",
+  "line": 3,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "support/document/main.tex",
+  "line": 3,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

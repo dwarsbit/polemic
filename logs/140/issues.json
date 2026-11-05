@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_template.config.tex",
+  "line": 127,
+  "message": "Package minitoc Warning: W0010 No file thesis_template.config.toc. MINITOCS NOT PREPARED on input line 127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tracklang Warning: No `datatool' support for dialect `ngerman'  on input line 9924",
+  "detail": [],
+  "hint": null
+ }
+]

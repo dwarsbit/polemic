@@ -1,0 +1,31 @@
+{
+ "id": 21,
+ "source": "GitHub",
+ "name": "kmiya/naist-thesis-tmpl",
+ "url": "https://github.com/kmiya/naist-thesis-tmpl",
+ "type": "Thesis",
+ "version": "11ace11893149f25da2380c41b01fa8439e9a077",
+ "files": 18,
+ "main": "mthesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "mthesis.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1822,
+  "tail": "exit 12, PDF not found\n  ! LaTeX Error: Unicode character 修 (U+4FEE)\n  ! LaTeX Error: Unicode character 士 (U+58EB)\n  ! LaTeX Error: Unicode character 論 (U+8AD6)\n  ! LaTeX Error: Unicode character 文 (U+6587)\n  ! LaTeX Error: Unicode character ポ (U+30DD)\n  ! LaTeX Error: Unicode character ラ (U+30E9)\n  ! LaTeX Error: Unicode character ー (U+30FC)\n And 265 more --- see log file 'mthesis.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 590,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 234,
+ "warnings": 3,
+ "firstError": "LaTeX Error: No counter 'section' defined.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 329,
+ "source": "GitHub",
+ "name": "matchy233/chi-cv-template",
+ "url": "https://github.com/matchy233/chi-cv-template",
+ "type": "CV",
+ "version": "252e47e14ed31211a911799a4f40e3d1685ffea2",
+ "files": 14,
+ "main": "resume.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "resume.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 30468
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 29922,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

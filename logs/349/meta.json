@@ -1,0 +1,31 @@
+{
+ "id": 349,
+ "source": "GitHub",
+ "name": "depressiveRobot/friggeri-cv-a4",
+ "url": "https://github.com/depressiveRobot/friggeri-cv-a4",
+ "type": "CV",
+ "version": "aa029260665b96a636f3f3d9663aca75414c4ba0",
+ "files": 16,
+ "main": "cv.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "cv.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 13897
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 210,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/cv.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "polemic-only-fail"
+}

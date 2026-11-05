@@ -1,0 +1,10 @@
+{
+ "id": 905,
+ "source": "CTAN",
+ "name": "sjtutex",
+ "url": "https://ctan.org/pkg/sjtutex",
+ "type": "Thesis",
+ "version": "2.3.1",
+ "files": 14,
+ "outcome": "no-tex"
+}

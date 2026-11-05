@@ -1,0 +1,10 @@
+{
+ "id": 888,
+ "source": "CTAN",
+ "name": "frontespizio",
+ "url": "https://ctan.org/pkg/frontespizio",
+ "type": "Thesis",
+ "version": "1.4a",
+ "files": 4,
+ "outcome": "no-tex"
+}

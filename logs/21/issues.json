@@ -1,0 +1,1916 @@
+[
+ {
+  "severity": "error",
+  "file": "tex/setting.tex",
+  "line": 52,
+  "message": "LaTeX Error: No counter 'section' defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/setting.tex",
+  "line": 53,
+  "message": "LaTeX Error: No counter 'section' defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/setting.tex",
+  "line": 54,
+  "message": "LaTeX Error: No counter 'section' defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/setting.tex",
+  "line": 55,
+  "message": "LaTeX Error: No counter 'section' defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/setting.tex",
+  "line": 56,
+  "message": "LaTeX Error: No counter 'section' defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/setting.tex",
+  "line": 127,
+  "message": "LaTeX Error: Command \\section undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/setting.tex",
+  "line": 139,
+  "message": "LaTeX Error: Command \\subsection undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/setting.tex",
+  "line": 194,
+  "message": "LaTeX Error: Command \\thefigure undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "mthesis.tex",
+  "line": 7,
+  "message": "LaTeX Error: The font size command \\normalsize is not defined:",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 1,
+  "message": "LaTeX Error: Command \\thepage undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 4,
+  "message": "LaTeX Error: The font size command \\normalsize is not defined:",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 8,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.8  \\Large",
+   "           \\bfseries\\jdoctitle"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 8,
+  "message": "LaTeX Error: Unicode character 修 (U+4FEE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 8,
+  "message": "LaTeX Error: Unicode character 士 (U+58EB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 8,
+  "message": "LaTeX Error: Unicode character 論 (U+8AD6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 8,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 12,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.12  \\Large",
+   "            \\bfseries\\jtitle"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 12,
+  "message": "LaTeX Error: Unicode character ポ (U+30DD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 12,
+  "message": "LaTeX Error: Unicode character ラ (U+30E9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 12,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 12,
+  "message": "LaTeX Error: Unicode character ノ (U+30CE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 12,
+  "message": "LaTeX Error: Unicode character の (U+306E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 12,
+  "message": "LaTeX Error: Unicode character 広 (U+5E83)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 12,
+  "message": "LaTeX Error: Unicode character 場 (U+5834)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 16,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.16  \\Large",
+   "            \\jauthor"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 宮 (U+5BAE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 沢 (U+6CA2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 賢 (U+8CE2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 治 (U+6CBB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 20,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 奈 (U+5948)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 良 (U+826F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 先 (U+5148)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 端 (U+7AEF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 科 (U+79D1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 学 (U+5B66)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 技 (U+6280)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 術 (U+8853)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 大 (U+5927)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 院 (U+9662)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 24,
+  "message": "LaTeX Error: There's no line here to end.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 情 (U+60C5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 報 (U+5831)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 科 (U+79D1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 学 (U+5B66)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 研 (U+7814)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 究 (U+7A76)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 専 (U+5C02)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/titlepage.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 攻 (U+653B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "mthesis.tex",
+  "line": 9,
+  "message": "LaTeX Error: The font size command \\normalsize is not defined:",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 本 (U+672C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 論 (U+8AD6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character は (U+306F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 奈 (U+5948)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 良 (U+826F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 先 (U+5148)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 端 (U+7AEF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 科 (U+79D1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 学 (U+5B66)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 技 (U+6280)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 術 (U+8853)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 大 (U+5927)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 院 (U+9662)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 情 (U+60C5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 報 (U+5831)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 研 (U+7814)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 究 (U+7A76)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 修 (U+4FEE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 士 (U+58EB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character （ (U+FF08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 工 (U+5DE5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 学 (U+5B66)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character ） (U+FF09)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 授 (U+6388)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 与 (U+4E0E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character の (U+306E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 要 (U+8981)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 件 (U+4EF6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character と (U+3068)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character し (U+3057)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character て (U+3066)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 提 (U+63D0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 出 (U+51FA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character た (U+305F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 論 (U+8AD6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character で (U+3067)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character あ (U+3042)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character る (U+308B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unicode character ． (U+FF0E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 宮 (U+5BAE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 沢 (U+6CA2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 賢 (U+8CE2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 治 (U+6CBB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 12,
+  "message": "LaTeX Error: Environment table undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 15,
+  "message": "LaTeX Error: Unicode character 審 (U+5BE9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 15,
+  "message": "LaTeX Error: Unicode character 査 (U+67FB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 15,
+  "message": "LaTeX Error: Unicode character 委 (U+59D4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 15,
+  "message": "LaTeX Error: Unicode character 員 (U+54E1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 15,
+  "message": "LaTeX Error: Unicode character ： (U+FF1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 関 (U+95A2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 豊 (U+8C4A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 太 (U+592A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 郎 (U+90CE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 教 (U+6559)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 授 (U+6388)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character （ (U+FF08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 主 (U+4E3B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 指 (U+6307)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 導 (U+5C0E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character 員 (U+54E1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 16,
+  "message": "LaTeX Error: Unicode character ） (U+FF09)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unicode character 早 (U+65E9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unicode character 坂 (U+5742)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unicode character 一 (U+4E00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unicode character 郎 (U+90CE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unicode character 教 (U+6559)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unicode character 授 (U+6388)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unicode character （ (U+FF08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unicode character 副 (U+526F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unicode character 指 (U+6307)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unicode character 導 (U+5C0E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unicode character 員 (U+54E1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unicode character ） (U+FF09)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/cmember.tex",
+  "line": 20,
+  "message": "LaTeX Error: \\begin{center} on input line 4 ended by \\end{table}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "mthesis.tex",
+  "line": 10,
+  "message": "LaTeX Error: The font size command \\normalsize is not defined:",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 3,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.3  \\Large",
+   "           \\bfseries \\jtitle \\footnote[1]{奈良先端科学技術大学院�..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 3,
+  "message": "LaTeX Error: Unicode character ポ (U+30DD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 3,
+  "message": "LaTeX Error: Unicode character ラ (U+30E9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 3,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 3,
+  "message": "LaTeX Error: Unicode character ノ (U+30CE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 3,
+  "message": "LaTeX Error: Unicode character の (U+306E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 3,
+  "message": "LaTeX Error: Unicode character 広 (U+5E83)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 3,
+  "message": "LaTeX Error: Unicode character 場 (U+5834)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 奈 (U+5948)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 良 (U+826F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 先 (U+5148)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 端 (U+7AEF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 科 (U+79D1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 学 (U+5B66)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 技 (U+6280)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 術 (U+8853)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 大 (U+5927)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 院 (U+9662)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 情 (U+60C5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 報 (U+5831)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 研 (U+7814)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 究 (U+7A76)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 専 (U+5C02)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 攻 (U+653B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 修 (U+4FEE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 士 (U+58EB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 論 (U+8AD6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 11,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.11  \\large",
+   "            \\jauthor"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 11,
+  "message": "LaTeX Error: Unicode character 宮 (U+5BAE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 11,
+  "message": "LaTeX Error: Unicode character 沢 (U+6CA2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 11,
+  "message": "LaTeX Error: Unicode character 賢 (U+8CE2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 11,
+  "message": "LaTeX Error: Unicode character 治 (U+6CBB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 18,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.18  \\textgt",
+   "             {内容梗概}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 内 (U+5185)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 容 (U+5BB9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 梗 (U+6897)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 概 (U+6982)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character そ (U+305D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character の (U+306E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character こ (U+3053)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character ろ (U+308D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character わ (U+308F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character た (U+305F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character く (U+304F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character し (U+3057)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character は (U+306F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 、 (U+3001)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character モ (U+30E2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character リ (U+30EA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character オ (U+30AA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 市 (U+5E02)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 博 (U+535A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 物 (U+7269)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 局 (U+5C40)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 勤 (U+52E4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character め (U+3081)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character て (U+3066)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 居 (U+5C45)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character り (U+308A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character ま (U+307E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 十 (U+5341)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 八 (U+516B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 等 (U+7B49)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 官 (U+5B98)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character で (U+3067)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character か (U+304B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character ら (U+3089)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 役 (U+5F79)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 所 (U+6240)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character な (U+306A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character も (U+3082)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character ず (U+305A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character う (U+3046)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character っ (U+3063)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character と (U+3068)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 下 (U+4E0B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 方 (U+65B9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 俸 (U+4FF8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 給 (U+7D66)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character （ (U+FF08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character ほ (U+307B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character き (U+304D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character ゅ (U+3085)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character ） (U+FF09)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character ん (U+3093)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character が (U+304C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 受 (U+53D7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 持 (U+6301)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character ち (U+3061)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 標 (U+6A19)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 本 (U+672C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 採 (U+63A1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 集 (U+96C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character や (U+3084)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 整 (U+6574)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 理 (U+7406)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 生 (U+751F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character れ (U+308C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 付 (U+4ED8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 好 (U+597D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/class_setting/jabstract.tex",
+  "line": 23,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tocbibind Warning: I don't recognize any sectional divisions. I hope you have used the `other' option otherwise I'll ignore the package on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `pdfpagelabels' is turned off because \\thepage is undefined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "mthesis.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Height of page (\\paperheight) is invalid (0.0pt), using 11in",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,33 @@
+{
+ "id": 195,
+ "source": "GitHub",
+ "name": "Shinmera/talks",
+ "url": "https://github.com/Shinmera/talks",
+ "type": "Slides",
+ "version": "43ebafd94d3aefd54f3d17967ac06fea01758fdc",
+ "files": 283,
+ "main": "els2015-qtools/slides.tex",
+ "catalogMain": "els2017-radiance/paper.tex",
+ "engine": "xelatex",
+ "detectedEngine": "pdflatex (inferred)",
+ "baseline": {
+  "main": "els2017-radiance/paper.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5033
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 15193,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 56,
+ "warnings": 5,
+ "firstError": "Package fontspec Error: The font \"Equity Text A\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "polemic-only-fail"
+}

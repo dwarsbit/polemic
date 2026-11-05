@@ -1,0 +1,32 @@
+{
+ "id": 115,
+ "source": "GitHub",
+ "name": "Ruzim/NSFC-application-template-latex",
+ "url": "https://github.com/Ruzim/NSFC-application-template-latex",
+ "type": "Paper",
+ "version": "be13f110f65c3ba95b3b9897748af8f4679a3a02",
+ "files": 12,
+ "main": "nsfc-temp.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "nsfc-temp.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4153
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3139,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

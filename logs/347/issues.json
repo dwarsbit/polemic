@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "error",
+  "file": "Sandaru_Jayasekara_CV.tex",
+  "line": 13,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Sandaru_Jayasekara_CV.tex",
+  "line": 13,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Sandaru_Jayasekara_CV.tex",
+  "line": 13,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Sandaru_Jayasekara_CV.tex",
+  "line": 16,
+  "message": "I can't find file `.fd'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Sandaru_Jayasekara_CV.tex",
+  "line": 16,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Sandaru_Jayasekara_CV.tex",
+  "line": 16,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

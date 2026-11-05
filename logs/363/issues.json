@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <26.37> not available Font shape `OT1/cmss/m/sl' tried instead on input line 17",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined using `OMS/cmsy/m/n' instead for symbol `textbackslash' on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined using `OMS/cmsy/m/n' instead for symbol `textbackslash' on input line 90",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

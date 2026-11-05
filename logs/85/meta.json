@@ -1,0 +1,33 @@
+{
+ "id": 85,
+ "source": "GitHub",
+ "name": "gallandarakhneorg/tex-upmethodology",
+ "url": "https://github.com/gallandarakhneorg/tex-upmethodology",
+ "type": "Thesis",
+ "version": "501ca8d017237d3ed6831738ed3747c4b92fb051",
+ "files": 38,
+ "main": "doc/upmethodology-doc.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/upmethodology-doc.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 9691,
+  "tail": "exit 12, PDF found\n  Label `fig:example:firstsubfigure' multiply defined\n  Label `sub@fig:example:firstsubfigure' multiply defined\n  Label `fig:example:firstsubfigure' multiply defined\n  Label `sub@fig:example:firstsubfigure' multiply defined\n  Label `def:Label of the definition' multiply defined\n  Label `def:Label of the definition' multiply defined\n  name{Hfootnote.6} has been referenced but does not exist, replaced by a fixed one\n And 5 more --- see log file 'upmethodology-doc.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 3339,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 27,
+ "warnings": 63,
+ "firstError": "LaTeX Error: File `arakhne_org_logo' not found.",
+ "outcome": "both-fail"
+}

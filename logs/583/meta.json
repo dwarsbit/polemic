@@ -1,0 +1,32 @@
+{
+ "id": 583,
+ "source": "arXiv",
+ "name": "arXiv:2610.39871",
+ "url": "https://arxiv.org/abs/2610.39871",
+ "type": "Paper",
+ "version": "2610.39871",
+ "files": 4,
+ "main": "threshold_nearly_integrated.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "threshold_nearly_integrated.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5424
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4166,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 13,
+ "outcome": "both-ok"
+}

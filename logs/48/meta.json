@@ -1,0 +1,32 @@
+{
+ "id": 48,
+ "source": "GitHub",
+ "name": "pantuza/master-thesis",
+ "url": "https://github.com/pantuza/master-thesis",
+ "type": "Thesis",
+ "version": "6c2ffe1cfa5c85bfef6e91c75c08276d813c4e5e",
+ "files": 199,
+ "main": "presentation/src/presentation.tex",
+ "catalogMain": "thesis/src/thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "thesis/src/thesis.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 432,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'thesis.log' and/or above output for details\n\nLatexmk: Missing input file 'template/ppgccufmg.cls' message in .log file:\n  ! LaTeX Error: File `template/ppgccufmg.cls' not found.\nFailure to make 'thesis.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 607,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 1,
+ "firstError": "LaTeX Error: File `beamerthemetud.sty' not found.",
+ "outcome": "both-fail"
+}

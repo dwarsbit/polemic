@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "aucklandthesis.cls",
+  "line": 74,
+  "message": "Class memoir Warning: As of 2018, \\fixpdflayout\\ is no longer used on input line 74",
+  "detail": [],
+  "hint": null
+ }
+]

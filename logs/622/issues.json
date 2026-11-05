@@ -1,0 +1,418 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 39,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <5.5> not available size <5> substituted on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 39,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <5.5> not available size <5> substituted on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 39,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <5.5> not available size <5> substituted on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `gerrard1969competition' on page 1 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `spatstat' on page 1 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `harkness1983ants' on page 1 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `myllymaki2024discussion' on page 1 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 46,
+  "message": "Package natbib Warning: Citation `Goreaud2003' on page 1 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 46,
+  "message": "Package natbib Warning: Citation `diggle2013statistical' on page 1 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `lotwick1982' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `dixon2013' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `MRKVICKA2021100430' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 50,
+  "message": "Package natbib Warning: Citation `MRKVICKA2021100430' on page 2 undefined on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 54,
+  "message": "Package natbib Warning: Citation `JIMENEZGAMERO20093957' on page 2 undefined on input line 54",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 68,
+  "message": "Package natbib Warning: Citation `zeng2025' on page 3 undefined on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 68,
+  "message": "Package natbib Warning: Citation `JIMENEZGAMERO20093957' on page 3 undefined on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 75,
+  "message": "Package natbib Warning: Citation `JIMENEZGAMERO20093957' on page 3 undefined on input line 75",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 75,
+  "message": "Package natbib Warning: Citation `zeng2025' on page 3 undefined on input line 75",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `JIMENEZGAMERO20093957' on page 3 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 110,
+  "message": "Package natbib Warning: Citation `zeng2025' on page 5 undefined on input line 110",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `kankainen1998consistent' on page 5 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `MEINTANIS20081884' on page 5 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `FAN2017189' on page 5 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 116,
+  "message": "Package natbib Warning: Citation `zeng2025' on page 5 undefined on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 125,
+  "message": "Package natbib Warning: Citation `Hanisch1979' on page 5 undefined on input line 125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 125,
+  "message": "Package natbib Warning: Citation `dixon2013' on page 5 undefined on input line 125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 128,
+  "message": "Package natbib Warning: Citation `dixon2013' on page 5 undefined on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 129,
+  "message": "Package natbib Warning: Citation `lotwick1982' on page 5 undefined on input line 129",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 129,
+  "message": "Package natbib Warning: Citation `dixon2013' on page 5 undefined on input line 129",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 131,
+  "message": "Package natbib Warning: Citation `zeng2025' on page 5 undefined on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 174,
+  "message": "Package natbib Warning: Citation `jeong2025extendingmercersexpansionindefinite' on page 7 undefined on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 208,
+  "message": "Package natbib Warning: Citation `Koroljuk1994' on page 8 undefined on input line 208",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 210,
+  "message": "Package natbib Warning: Citation `gil-pelaez' on page 8 undefined on input line 210",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 210,
+  "message": "Package natbib Warning: Citation `OOURA1999229' on page 8 undefined on input line 210",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 255,
+  "message": "Package natbib Warning: Citation `Witsenhausen1975' on page 10 undefined on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 255,
+  "message": "Package natbib Warning: Citation `Rnyi1959OnMO' on page 10 undefined on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 354,
+  "message": "Package natbib Warning: Citation `MRKVICKA2021100430' on page 13 undefined on input line 354",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 421,
+  "message": "Package natbib Warning: Citation `spatstat' on page 15 undefined on input line 421",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 432,
+  "message": "Package natbib Warning: Citation `envelope2017' on page 15 undefined on input line 432",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 448,
+  "message": "Package natbib Warning: Citation `harkness1983ants' on page 16 undefined on input line 448",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 448,
+  "message": "Package natbib Warning: Citation `spatstat' on page 16 undefined on input line 448",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 453,
+  "message": "Package natbib Warning: Citation `spatstat' on page 16 undefined on input line 453",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 457,
+  "message": "Package natbib Warning: Citation `harkness1983ants' on page 16 undefined on input line 457",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 459,
+  "message": "Package natbib Warning: Citation `harkness1983ants' on page 17 undefined on input line 459",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 526,
+  "message": "Package natbib Warning: Citation `tao2024' on page 19 undefined on input line 526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 530,
+  "message": "Package natbib Warning: Citation `tao2024' on page 19 undefined on input line 530",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 558,
+  "message": "Package natbib Warning: Citation `Witsenhausen1975' on page 21 undefined on input line 558",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 558,
+  "message": "Package natbib Warning: Citation `Asoodeh2015' on page 21 undefined on input line 558",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 653,
+  "message": "Package natbib Warning: Citation `JENISH200986' on page 23 undefined on input line 653",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 674,
+  "message": "Package natbib Warning: Citation `arcones1994limit' on page 23 undefined on input line 674",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 1.97499pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package kvoptions-patch Warning: kvoptions-patch is not compatible with LaTeX 2026-11-01 Loading is aborted on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [columns=3]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (2.84544pt): Make it at least 9.49998pt, for example: \\setlength{\\headheight}{9.49998pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-6.65454pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\footskip is too small (2.84544pt): Make it at least 2.85002pt, for example: \\setlength{\\footskip}{2.85002pt}",
+  "detail": [],
+  "hint": null
+ }
+]

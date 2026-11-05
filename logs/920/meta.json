@@ -1,0 +1,32 @@
+{
+ "id": 920,
+ "source": "CTAN",
+ "name": "unbtex",
+ "url": "https://ctan.org/pkg/unbtex",
+ "type": "Thesis",
+ "version": "1.6.6",
+ "files": 33,
+ "main": "doc/unbtex-example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/unbtex-example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12741
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 8695,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

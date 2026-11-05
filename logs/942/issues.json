@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "argetabelle-example.tex",
+  "line": null,
+  "message": "LaTeX Warning: Achtung die Datei config.inc ist nicht lesbar",
+  "detail": [],
+  "hint": null
+ }
+]

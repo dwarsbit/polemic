@@ -1,0 +1,202 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package caption Warning: Unknown document class (or package), standard defaults will be used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 43,
+  "message": "Package natbib Warning: Citation `Goodfellow-et-al-2016' on page 1 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 43,
+  "message": "Package natbib Warning: Citation `Howard2017MobileNets' on page 1 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 43,
+  "message": "Package natbib Warning: Citation `Zhang2017ShuffleNet' on page 1 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 45,
+  "message": "Package natbib Warning: Citation `Hinton2012Improving' on page 1 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 45,
+  "message": "Package natbib Warning: Citation `Breiman1996Bagging' on page 1 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 45,
+  "message": "Package natbib Warning: Citation `Srivastava2014Dropout' on page 1 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 45,
+  "message": "Package natbib Warning: Citation `Wardefarley2014An' on page 1 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 45,
+  "message": "Package natbib Warning: Citation `Pham2014Dropout' on page 1 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 45,
+  "message": "Package natbib Warning: Citation `Goodfellow2013Maxout' on page 1 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 47,
+  "message": "Package natbib Warning: Citation `Lecun1998Gradient' on page 1 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 47,
+  "message": "Package natbib Warning: Citation `Krizhevsky2009Learning' on page 1 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 47,
+  "message": "Package natbib Warning: Citation `Netzer2011Reading' on page 1 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `Srivastava2014Dropout' on page 1 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `Bouthillier2015Dropout' on page 1 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `Shakibi2013Predicting' on page 1 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 105,
+  "message": "Package natbib Warning: Citation `Goodfellow2013Maxout' on page 2 undefined on input line 105",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 118,
+  "message": "Package natbib Warning: Citation `Glorot2012Deep' on page 2 undefined on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 179,
+  "message": "Package natbib Warning: Citation `Lecun1998Gradient' on page 3 undefined on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 179,
+  "message": "Package natbib Warning: Citation `Krizhevsky2009Learning' on page 3 undefined on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 179,
+  "message": "Package natbib Warning: Citation `Netzer2011Reading' on page 3 undefined on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 189,
+  "message": "Package natbib Warning: Citation `Springenberg2014Striving' on page 3 undefined on input line 189",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 191,
+  "message": "Package natbib Warning: Citation `Kingma2014Adam' on page 3 undefined on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

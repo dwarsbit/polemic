@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "warning",
+  "file": "thesis_main.tex",
+  "line": 37,
+  "message": "Class scrartcl Warning: Usage of package `fancyhdr' together with a KOMA-Script class is not recommended. I'd suggest to use package `scrlayer' or `scrlayer-scrpage', because they support KOMA-Script classes. With `fancyhdr' several features of class `scrartcl' like options `headsepline', `footsepline' or command `\\MakeMarkcase' and the commands `\\setkomafont' and `\\addtokomafont' for the page style elements need explicite user intervention to work. Nevertheless, using requested package `fancyhdr' on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tracklang Warning: No `datatool' support for dialect `ngerman'  on input line 9924",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: The following entry could not be found in the database: Balzert.2008 Please verify the spelling and rerun LaTeX afterwards",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "kapitel/kapitel_1/kapitel_1.tex",
+  "line": 3,
+  "message": "LaTeX Warning: Citation 'Balzert.2008' on page 2 undefined on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "kapitel/kapitel_1/kapitel_1.tex",
+  "line": 4,
+  "message": "LaTeX Warning: Citation 'Balzert.2008' on page 2 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "kapitel/kapitel_1/kapitel_1.tex",
+  "line": 5,
+  "message": "LaTeX Warning: Citation 'Balzert.2008' on page 2 undefined on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "kapitel/kapitel_2/kapitel_2.tex",
+  "line": null,
+  "message": "Class scrartcl Warning: Usage of \\@startsection detected. Note, the sectioning of scrartcl does neither use nor support the usage of \\@startsection command. This means, that none of the KOMA-Script features for headings is available for the heading on line 193. If you need additional sectioning commands, you should define them using \\DeclareNewSectionCommand instead",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "kapitel/kapitel_2/kapitel_2.tex",
+  "line": null,
+  "message": "Class scrartcl Warning: Usage of \\@startsection detected. Note, the sectioning of scrartcl does neither use nor support the usage of \\@startsection command. This means, that none of the KOMA-Script features for headings is available for the heading on line 196. If you need additional sectioning commands, you should define them using \\DeclareNewSectionCommand instead",
+  "detail": [],
+  "hint": null
+ }
+]

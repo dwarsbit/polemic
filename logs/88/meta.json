@@ -1,0 +1,32 @@
+{
+ "id": 88,
+ "source": "GitHub",
+ "name": "glouppe/phd-thesis",
+ "url": "https://github.com/glouppe/phd-thesis",
+ "type": "Thesis",
+ "version": "fed6c2ecdcecb1d3dcb9e07fc83f89e836f24fad",
+ "files": 186,
+ "main": "slides/slides.tex",
+ "catalogMain": "tex/thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "tex/thesis.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1325,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'thesis.log' and/or above output for details\n\nLatexmk: Missing input file 'scrpage2.sty' message in .log file:\n  ! LaTeX Error: File `scrpage2.sty' not found.\nFailure to make 'thesis.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 808,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 5,
+ "warnings": 1,
+ "firstError": "Package minted Error: You must invoke LaTeX with the -shell-escape flag.",
+ "outcome": "both-fail"
+}

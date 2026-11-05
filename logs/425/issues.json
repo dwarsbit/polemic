@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package scrlayer-scrpage Warning: replacing deprecated \\clearscrheadfoot by \\clearpairofpagestyles on input line 149",
+  "detail": [],
+  "hint": null
+ }
+]

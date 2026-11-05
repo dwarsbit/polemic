@@ -1,0 +1,33 @@
+{
+ "id": 378,
+ "source": "GitHub",
+ "name": "davidstutz/gcpr2015-superpixels",
+ "url": "https://github.com/davidstutz/gcpr2015-superpixels",
+ "type": "Poster",
+ "version": "31c569d535268f070e9d2dd16649c0bed9abfd4c",
+ "files": 306,
+ "main": "paper/guide.tex",
+ "catalogMain": "paper/paper.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "paper/paper.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 14772
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 593,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 1,
+ "firstError": "LaTeX Error: File `eijkel2' not found.",
+ "outcome": "polemic-only-fail"
+}

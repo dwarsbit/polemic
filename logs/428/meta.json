@@ -1,0 +1,31 @@
+{
+ "id": 428,
+ "source": "GitHub",
+ "name": "gtrdp/template-proposal-skripsi",
+ "url": "https://github.com/gtrdp/template-proposal-skripsi",
+ "type": "Proposal",
+ "version": "cbd5619535fb696b6378a489437b2bcb0fe8e3c4",
+ "files": 14,
+ "main": "guntur-proposal-skripsi.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "guntur-proposal-skripsi.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1796
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1425,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

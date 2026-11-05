@@ -1,0 +1,31 @@
+{
+ "id": 410,
+ "source": "GitHub",
+ "name": "williamdemeo/Math700Homework",
+ "url": "https://github.com/williamdemeo/Math700Homework",
+ "type": "Homework",
+ "version": "741caf74f8de0dcb27dd0a706fec8147618ebc43",
+ "files": 26,
+ "main": "tex/FinalExam.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "tex/FinalExam.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2029
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1587,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

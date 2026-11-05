@@ -1,0 +1,33 @@
+{
+ "id": 371,
+ "source": "GitHub",
+ "name": "M4a1x/betterposterv2",
+ "url": "https://github.com/M4a1x/betterposterv2",
+ "type": "Poster",
+ "version": "4a6d331f269bca46e2b07ece3958f721d8ba6b9d",
+ "files": 6,
+ "main": "poster.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "poster.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 14881,
+  "tail": "exit 12, PDF not found\nLatexmk: Log file says no output from latex\nLatexmk: For rule 'xelatex', no output was made\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'poster.log' and/or above output for details\n\nFailure to make 'poster.xdv'"
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3328,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 18,
+ "outcome": "baseline-only-fail"
+}

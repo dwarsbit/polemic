@@ -1,0 +1,32 @@
+{
+ "id": 300,
+ "source": "GitHub",
+ "name": "gecrooks/fieldguide",
+ "url": "https://github.com/gecrooks/fieldguide",
+ "type": "Book",
+ "version": "8f63e80ee1e0015d392d8a76670b37905a5fcb36",
+ "files": 114,
+ "main": "FieldGuide.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "FieldGuide.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 16285
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 15895,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

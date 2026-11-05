@@ -1,0 +1,82 @@
+[
+ {
+  "severity": "error",
+  "file": "text_to_speech.tex",
+  "line": 405,
+  "message": "Improper alphabetic constant.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "text_to_speech.tex",
+  "line": 405,
+  "message": "Missing = inserted for \\ifnum.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "text_to_speech.tex",
+  "line": 405,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "text_to_speech.tex",
+  "line": 405,
+  "message": "Bad character code (-80).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "text_to_speech.tex",
+  "line": 433,
+  "message": "Improper alphabetic constant.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "text_to_speech.tex",
+  "line": 433,
+  "message": "Missing = inserted for \\ifnum.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "text_to_speech.tex",
+  "line": 433,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "text_to_speech.tex",
+  "line": 433,
+  "message": "Bad character code (-80).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "text_to_speech.tex",
+  "line": 433,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "text_to_speech.tex",
+  "line": 25,
+  "message": "Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 25",
+  "detail": [],
+  "hint": null
+ }
+]

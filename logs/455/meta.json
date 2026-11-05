@@ -1,0 +1,33 @@
+{
+ "id": 455,
+ "source": "GitHub",
+ "name": "zxl19/MathType-Cheatsheet",
+ "url": "https://github.com/zxl19/MathType-Cheatsheet",
+ "type": "Cheat sheet",
+ "version": "cc9d1ccafba979deed24d2aaf49916b74e60bfd7",
+ "files": 6,
+ "main": "cheatsheet.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "cheatsheet.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2916
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1058,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 122,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Unicode character 快 (U+5FEB)",
+ "outcome": "polemic-only-fail"
+}

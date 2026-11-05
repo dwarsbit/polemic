@@ -1,0 +1,33 @@
+{
+ "id": 1,
+ "source": "GitHub",
+ "name": "latextemplates/uni-stuttgart-dissertation-template",
+ "url": "https://github.com/latextemplates/uni-stuttgart-dissertation-template",
+ "type": "Thesis",
+ "version": "d017eb4cb08e82f0ed994a8a78fe8222dba3363c",
+ "files": 100,
+ "main": "thesis-example-basic-listings-en.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "thesis-example-basic-listings-en.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 57797,
+  "tail": "exit 12, PDF found\nStopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\nLatexmk: Using biber to make bibliography file(s).\ntput: No value for $TERM and no -T specified\nfatal: not a git repository (or any parent up to mount point /)\nStopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  (pdf backend): unreferenced destination with name 'Hfootnote.336'"
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 67567,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 17,
+ "outcome": "baseline-only-fail"
+}

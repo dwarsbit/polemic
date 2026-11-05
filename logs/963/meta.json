@@ -1,0 +1,32 @@
+{
+ "id": 963,
+ "source": "CTAN",
+ "name": "lni",
+ "url": "https://ctan.org/pkg/lni",
+ "type": "Paper",
+ "version": "2.0",
+ "files": 10,
+ "main": "lni-author-template.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "lni-author-template.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 9606
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4985,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

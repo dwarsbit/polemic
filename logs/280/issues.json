@@ -1,0 +1,130 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file unihei59): Font unihei59 at 1325 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 422",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\begingroup' on input line 422",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\endgroup' on input line 422",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@@over' on input line 422",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 453",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\begingroup' on input line 453",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\infty' on input line 453",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\endgroup' on input line 453",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@@over' on input line 453",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "LinearAlgebra/Determinant.tex",
+  "line": 15,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 15",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MathematicalStatistics/StatisticsAndSamplingDistribution.tex",
+  "line": 155,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MathematicalStatistics/StatisticsAndSamplingDistribution.tex",
+  "line": 155,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\chi' on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MathematicalStatistics/StatisticsAndSamplingDistribution.tex",
+  "line": 155,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MathematicalStatistics/StatisticsAndSamplingDistribution.tex",
+  "line": 188,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 188",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MathematicalStatistics/StatisticsAndSamplingDistribution.tex",
+  "line": 220,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 220",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 633,
+ "source": "arXiv",
+ "name": "arXiv:2611.03869",
+ "url": "https://arxiv.org/abs/2611.03869",
+ "type": "Paper",
+ "version": "2611.03869",
+ "files": 12,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 51202,
+  "tail": "exit 12, PDF found\n                                                  \nTranscript written on mfput.log.\ngrep: Menlo.log: No such file or directory\nmktextfm: `mf-nowin -progname=mf \\mode:=ljfour; mag:=1; ; nonstopmode; input Menlo' failed to make Menlo.tfm.\nLatexmk: Using bibtex to make bibliography file(s).\nmain.xdv -> main.pdf\n[1][2][3][4][5][6]\n142931 bytes written"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 16549,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 7,
+ "firstError": "Package fontspec Error: The font \"Latin Modern Mono\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "documentation/biblatex-manuscripts-philology-example.tex",
+  "line": 15,
+  "message": "LaTeX Font Warning: Font shape `TU/LinuxLibertineO(0)/m/sc' undefined using `TU/LinuxLibertineO(0)/m/n' instead on input line 15",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/biblatex-manuscripts-philology-example.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

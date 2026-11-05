@@ -1,0 +1,32 @@
+{
+ "id": 242,
+ "source": "GitHub",
+ "name": "RobertoBochet/nc-notes",
+ "url": "https://github.com/RobertoBochet/nc-notes",
+ "type": "Notes",
+ "version": "61fc19e20347674bb42b58a3c4a073b6018ebd3b",
+ "files": 13,
+ "main": "src/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "src/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 13447
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 9065,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 31,
+ "outcome": "both-ok"
+}

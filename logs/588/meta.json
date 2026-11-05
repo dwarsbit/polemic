@@ -1,0 +1,31 @@
+{
+ "id": 588,
+ "source": "arXiv",
+ "name": "arXiv:2611.04984",
+ "url": "https://arxiv.org/abs/2611.04984",
+ "type": "Paper",
+ "version": "2611.04984",
+ "files": 11,
+ "main": "SrMn2Ge2_Manuscript.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "SrMn2Ge2_Manuscript.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 21185
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 20297,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 10,
+ "outcome": "both-ok"
+}

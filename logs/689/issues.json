@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "ol.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `ol', but the package provides `Template/ol'",
+  "detail": [],
+  "hint": null
+ }
+]

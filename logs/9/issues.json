@@ -1,0 +1,90 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: Name 'brazil' is deprecated. Use 'brazilian' instead. Reported on input line 4478",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fei.cls",
+  "line": 458,
+  "message": "Class memoir Warning: \\settocpreprocessor is marked deprecated and will be removed in 2026, the problem it tried to solve (see manual, section 9.2.3), has been fixed in the kernel, and the feature is no longer needed. on input line 458",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package pdfx Warning: Setting all color commands to rgb,",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fei.cls",
+  "line": 625,
+  "message": "Package hyperref Warning: Option `pdftex' has already been used, setting the option has no effect on input line 625",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tracklang Warning: No `datatool' support for dialect `brazil'  on input line 9924",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fei-template-sublist.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [acronym,sublist]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fei-template-sublist.tex",
+  "line": null,
+  "message": "Package imakeidx Warning: Remember to run (pdf)latex again after calling `texindy fei-template-sublist.idx'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fei-template-sublist.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fei-template-sublist.tex",
+  "line": null,
+  "message": "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fei-template-sublist.tex",
+  "line": null,
+  "message": "Package rerunfilecheck Warning: File `fei-template-sublist.out' has changed. Rerun to get outlines right or use package `bookmark'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fei-template-sublist.tex",
+  "line": null,
+  "message": "Package biblatex Warning: Please rerun LaTeX. Page breaks have changed",
+  "detail": [],
+  "hint": null
+ }
+]

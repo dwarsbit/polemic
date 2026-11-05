@@ -1,0 +1,32 @@
+{
+ "id": 127,
+ "source": "GitHub",
+ "name": "c834606877/ECNU-Paper-Template",
+ "url": "https://github.com/c834606877/ECNU-Paper-Template",
+ "type": "Paper",
+ "version": "1edb37c2b6e075a4a5e3d4df9b1386246e7b5984",
+ "files": 11,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 58546,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 2 (\"32) in font nullfont!\n  Missing character: There is no 0 (\"30) in font nullfont!\n  Missing character: There is no 2 (\"32) in font nullfont!\n  Missing character: There is no 0 (\"30) in font nullfont!\n  Missing character: There is no 1 (\"31) in font nullfont!\n  Missing character: There is no 0 (\"30) in font nullfont!\n  Missing character: There is no 2 (\"32) in font nullfont!\n And 1760 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1703,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 26,
+ "warnings": 7,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

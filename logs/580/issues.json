@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "warning",
+  "file": "sections/03_model.tex",
+  "line": 47,
+  "message": "LaTeX Warning: cref reference format for label type `assumption' undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/04_identification.tex",
+  "line": 18,
+  "message": "LaTeX Warning: cref reference format for label type `assumption' undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/04_identification.tex",
+  "line": 40,
+  "message": "LaTeX Warning: cref reference format for label type `assumption' undefined on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/05_minimax.tex",
+  "line": 11,
+  "message": "LaTeX Warning: cref reference format for label type `assumption' undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/05_minimax.tex",
+  "line": 38,
+  "message": "LaTeX Warning: cref reference format for label type `assumption' undefined on input line 38",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/06_conventional.tex",
+  "line": 11,
+  "message": "LaTeX Warning: cref reference format for label type `assumption' undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/07_honest.tex",
+  "line": 23,
+  "message": "LaTeX Warning: cref reference format for label type `assumption' undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/07_honest.tex",
+  "line": 41,
+  "message": "LaTeX Warning: cref reference format for label type `assumption' undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

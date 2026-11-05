@@ -1,0 +1,31 @@
+{
+ "id": 144,
+ "source": "GitHub",
+ "name": "muktapalshikar/getwriting",
+ "url": "https://github.com/muktapalshikar/getwriting",
+ "type": "Paper",
+ "version": "6051e54e2b724fb2563c8aaabde512039307bd9b",
+ "files": 13,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3846
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 195,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/main.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "polemic-only-fail"
+}

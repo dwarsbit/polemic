@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `beamerthemefibeamer.sty' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/bs/standard-lualatex.tex",
+  "line": 10,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/bs/standard-lualatex.tex",
+  "line": 10,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

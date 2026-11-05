@@ -1,0 +1,482 @@
+[
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 61,
+  "message": "LaTeX Error: Command \\c@lemma already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 63,
+  "message": "LaTeX Error: Command \\c@claim already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 64,
+  "message": "LaTeX Error: Command \\c@proposition already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 65,
+  "message": "LaTeX Error: Command \\c@fact already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 66,
+  "message": "LaTeX Error: Command \\c@corollary already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 67,
+  "message": "LaTeX Error: Command \\c@conjecture already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 68,
+  "message": "LaTeX Error: Command \\c@question already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 69,
+  "message": "LaTeX Error: Command \\c@answer already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 70,
+  "message": "LaTeX Error: Command \\c@hypothesis already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 71,
+  "message": "LaTeX Error: Command \\c@exercise already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 75,
+  "message": "LaTeX Error: Command \\c@definition already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 77,
+  "message": "LaTeX Error: Command \\c@remark already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 78,
+  "message": "LaTeX Error: Command \\c@notation already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 79,
+  "message": "LaTeX Error: Command \\c@observation already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 80,
+  "message": "LaTeX Error: Command \\c@example already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 82,
+  "message": "LaTeX Error: Command \\c@examples already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nag Warning: Required ruleset -l2tabu, and it wasn't there",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 292,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 292",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 299,
+  "message": "LaTeX Font Warning: Font shape `U/stmry/b/n' undefined using `U/stmry/m/n' instead on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "intro.tex",
+  "line": 18,
+  "message": "LaTeX Warning: Hyper reference `bhfn:1' on page 3 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "intro.tex",
+  "line": 30,
+  "message": "LaTeX Warning: Hyper reference `bhfn:2' on page 4 undefined on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "intro.tex",
+  "line": 82,
+  "message": "LaTeX Warning: Hyper reference `bhfn:3' on page 5 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "intro.tex",
+  "line": 88,
+  "message": "LaTeX Warning: Hyper reference `bhfn:4' on page 5 undefined on input line 88",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "intro.tex",
+  "line": 90,
+  "message": "LaTeX Warning: Hyper reference `bhfn:5' on page 5 undefined on input line 90",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "relatedwork.tex",
+  "line": 30,
+  "message": "LaTeX Warning: Hyper reference `bhfn:6' on page 8 undefined on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "relatedwork.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Hyper reference `bhfn:7' on page 8 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "relatedwork.tex",
+  "line": 45,
+  "message": "LaTeX Warning: Hyper reference `bhfn:8' on page 9 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "techov.tex",
+  "line": 3,
+  "message": "LaTeX Warning: Hyper reference `bhfn:9' on page 10 undefined on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "techov.tex",
+  "line": 13,
+  "message": "LaTeX Warning: Hyper reference `bhfn:10' on page 10 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "techov.tex",
+  "line": 68,
+  "message": "LaTeX Warning: Hyper reference `bhfn:11' on page 12 undefined on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "techov.tex",
+  "line": 104,
+  "message": "LaTeX Warning: Hyper reference `bhfn:12' on page 14 undefined on input line 104",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "prelims.tex",
+  "line": 40,
+  "message": "LaTeX Warning: Hyper reference `bhfn:13' on page 18 undefined on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "prelims.tex",
+  "line": 40,
+  "message": "LaTeX Warning: Hyper reference `bhfn:14' on page 18 undefined on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "imaginary-rooted.tex",
+  "line": 1,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "imaginary-rooted.tex",
+  "line": 1,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "imaginary-rooted.tex",
+  "line": 1,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "imaginary-rooted.tex",
+  "line": 7,
+  "message": "LaTeX Warning: Hyper reference `bhfn:15' on page 22 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "imaginary-rooted.tex",
+  "line": 11,
+  "message": "LaTeX Warning: Hyper reference `bhfn:16' on page 22 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "imaginary-rooted.tex",
+  "line": 36,
+  "message": "LaTeX Warning: Hyper reference `bhfn:17' on page 23 undefined on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "root-behavior.tex",
+  "line": 1,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "root-behavior.tex",
+  "line": 177,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 177",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "syk.tex",
+  "line": 1,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "syk.tex",
+  "line": 451,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 451",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "syk.tex",
+  "line": 609,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 609",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 1,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 4,
+  "message": "LaTeX Warning: Hyper reference `bhfn:18' on page 48 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 4,
+  "message": "LaTeX Warning: Hyper reference `bhfn:19' on page 48 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 6,
+  "message": "LaTeX Warning: Hyper reference `bhfn:20' on page 48 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 6,
+  "message": "LaTeX Warning: Hyper reference `bhfn:21' on page 48 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 92,
+  "message": "LaTeX Warning: Hyper reference `bhfn:22' on page 51 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 115,
+  "message": "LaTeX Warning: Hyper reference `bhfn:23' on page 52 undefined on input line 115",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 180,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 180",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 197,
+  "message": "LaTeX Warning: Hyper reference `bhfn:24' on page 54 undefined on input line 197",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 204,
+  "message": "LaTeX Warning: Hyper reference `bhfn:25' on page 54 undefined on input line 204",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 220,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 299,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 315,
+  "message": "LaTeX Warning: Hyper reference `bhfn:26' on page 59 undefined on input line 315",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 317,
+  "message": "LaTeX Warning: Hyper reference `bhfn:27' on page 59 undefined on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "qdeformed.tex",
+  "line": 361,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

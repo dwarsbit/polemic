@@ -1,0 +1,202 @@
+[
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 29,
+  "message": "Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 37,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@textsuperscript' on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 37,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\colorbox' on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@textsuperscript' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\colorbox' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 58,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@textsuperscript' on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 58,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\colorbox' on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 81,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@textsuperscript' on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 81,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\colorbox' on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 93,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@textsuperscript' on input line 93",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 93,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\colorbox' on input line 93",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 108,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@textsuperscript' on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 108,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\colorbox' on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 122,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@textsuperscript' on input line 122",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 122,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\colorbox' on input line 122",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 137,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@textsuperscript' on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 137,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\colorbox' on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 156,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@textsuperscript' on input line 156",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 156,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\colorbox' on input line 156",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 187,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@textsuperscript' on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 187,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\colorbox' on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 209,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@textsuperscript' on input line 209",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 209,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\colorbox' on input line 209",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 239,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@textsuperscript' on input line 239",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Pyroboros.tex",
+  "line": 239,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\colorbox' on input line 239",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,10 @@
+{
+ "id": 948,
+ "source": "CTAN",
+ "name": "acmart",
+ "url": "https://ctan.org/pkg/acmart",
+ "type": "Paper",
+ "version": "2.21",
+ "files": 38,
+ "outcome": "no-tex"
+}

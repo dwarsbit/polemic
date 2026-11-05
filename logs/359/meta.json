@@ -1,0 +1,31 @@
+{
+ "id": 359,
+ "source": "GitHub",
+ "name": "jkjaer/aauLatexTemplates",
+ "url": "https://github.com/jkjaer/aauLatexTemplates",
+ "type": "Poster",
+ "version": "74323cdaa6322e84463f0fd15f565b81b3fff042",
+ "files": 108,
+ "main": "aauPoster/aauposter.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "aauPoster/aauposter.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2760
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1670,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 9,
+ "outcome": "both-ok"
+}

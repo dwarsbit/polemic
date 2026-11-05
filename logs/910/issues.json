@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "error",
+  "file": "examples/DEMO-TUDaAnnouncement.tex",
+  "line": 84,
+  "message": "LaTeX Error: File `tuda_logo' not found.",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 946,
+ "source": "CTAN",
+ "name": "aastex",
+ "url": "https://ctan.org/pkg/aastex",
+ "type": "Paper",
+ "version": "7.0.1",
+ "files": 8,
+ "main": "aastex701-sample.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "aastex701-sample.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 7552
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 7066,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

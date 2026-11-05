@@ -1,0 +1,32 @@
+{
+ "id": 218,
+ "source": "GitHub",
+ "name": "gquittet/HEH-Beamer",
+ "url": "https://github.com/gquittet/HEH-Beamer",
+ "type": "Slides",
+ "version": "b54c190dfb87d41ee051d029c51301d5faaf3663",
+ "files": 24,
+ "main": "presentation.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "presentation.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4226,
+  "tail": "exit 12, PDF found\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'presentation.log' and/or above output for details\n\nLatexmk: Missing input file 'presentation.nav' message in .log file:\n  No file presentation.nav.\npresentation.xdv -> presentation.pdf\n[1][2]\n176576 bytes written"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 509,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/presentation.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-fail"
+}

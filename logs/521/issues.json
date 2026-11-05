@@ -1,0 +1,58 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `pagecolor' is not available anymore",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package caption Warning: Unknown document class (or package), standard defaults will be used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "bouncing_singularity_AdSCFT.tex",
+  "line": 969,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 969",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "bouncing_singularity_AdSCFT.tex",
+  "line": 1552,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1552",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "bouncing_singularity_AdSCFT.tex",
+  "line": 1641,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1641",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "bouncing_singularity_AdSCFT.tex",
+  "line": 2595,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 2595",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "bouncing_singularity_AdSCFT.tex",
+  "line": 2595,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 2595",
+  "detail": [],
+  "hint": null
+ }
+]

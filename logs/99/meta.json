@@ -1,0 +1,31 @@
+{
+ "id": 99,
+ "source": "GitHub",
+ "name": "ElegantLaTeX/ElegantPaper",
+ "url": "https://github.com/ElegantLaTeX/ElegantPaper",
+ "type": "Paper",
+ "version": "40275032d6e3073e658038de30a98e1b4785f052",
+ "files": 10,
+ "main": "elegantpaper-cn.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "elegantpaper-cn.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 13260
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2184,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "Undefined control sequence.",
+ "outcome": "polemic-only-fail"
+}

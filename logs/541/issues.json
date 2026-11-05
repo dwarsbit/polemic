@@ -1,0 +1,274 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package etex Warning: Extended allocation already in use. etex.sty code will not be used. To force etex package to load, add \\RequirePackage{etex} at the start of the document",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `A3' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 187,
+  "message": "Class aa Warning: Around 312 words in the abstract instead of 300 (max). You should rewrite your abstract on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 528,
+  "message": "LaTeX Warning: File `CHEMICO-fwhm-plots-ions-O.eps' not found on input line 528",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 529,
+  "message": "LaTeX Warning: File `CHEMICO-fwhm-plots-ions-N.eps' not found on input line 529",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 530,
+  "message": "LaTeX Warning: File `CHEMICO-fwhm-plots-ions-S.eps' not found on input line 530",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 541,
+  "message": "LaTeX Warning: File `CHEMICO-tex-plots-ions-O.eps' not found on input line 541",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 542,
+  "message": "LaTeX Warning: File `CHEMICO-tex-plots-ions-N.eps' not found on input line 542",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 543,
+  "message": "LaTeX Warning: File `CHEMICO-tex-plots-ions-S.eps' not found on input line 543",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 639,
+  "message": "LaTeX Warning: No positions in optional float specifier. Default added (so using `tbp') on input line 639",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 702,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 702",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 702,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 702",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 702,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 702",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 761,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 761",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 761,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 761",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 761,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 761",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 776,
+  "message": "LaTeX Warning: File `CHEMICO-abb-plots-ions-O.eps' not found on input line 776",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 777,
+  "message": "LaTeX Warning: File `CHEMICO-abb-plots-ions-N.eps' not found on input line 777",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 778,
+  "message": "LaTeX Warning: File `CHEMICO-abb-plots-ions-S.eps' not found on input line 778",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 807,
+  "message": "LaTeX Warning: File `Proton-affinity-plot.eps' not found on input line 807",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 861,
+  "message": "LaTeX Warning: No positions in optional float specifier. Default added (so using `tbp') on input line 861",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 1580,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1580",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 1580,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\zeta' on input line 1580",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 1580,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\begingroup' on input line 1580",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 1580,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\let' on input line 1580",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 1580,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\<let>-command' on input line 1580",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 1580,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\NAT@ctype' on input line 1580",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 1580,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\z@' on input line 1580",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 1580,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 1580",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 1734,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1734",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 1734,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 1734",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": 1734,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\zeta' on input line 1734",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CHEMICO-II.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were multiply-defined labels",
+  "detail": [],
+  "hint": null
+ }
+]

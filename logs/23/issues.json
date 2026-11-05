@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "error",
+  "file": "Bibliography.tex",
+  "line": 7,
+  "message": "Package keyval Error: maxnames undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Siks.tex",
+  "line": 359,
+  "message": "LaTeX Error: Unicode character � (U+FFFD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Siks.tex",
+  "line": 365,
+  "message": "LaTeX Error: Unicode character � (U+FFFD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package geometry Warning: Over-specification in `h'-direction. `width' (364.19536pt) is ignored",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package geometry Warning: Over-specification in `v'-direction. `height' (554.82874pt) is ignored",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package mathdesign Warning: No font specified on input line 175",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: 'firstinits' option is deprecated. Please use 'giveninits' instead",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Main-thesis.tex",
+  "line": null,
+  "message": "Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,9 @@
+{
+ "id": 982,
+ "source": "CTAN",
+ "name": "rwth-ci",
+ "url": "https://ctan.org/pkg/rwth-ci",
+ "type": "Poster",
+ "outcome": "download-failed",
+ "error": "fetch failed"
+}

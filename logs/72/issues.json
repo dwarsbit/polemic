@@ -1,0 +1,202 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: No Cyrillic font encoding has been loaded so far. A font encoding should be declared before babel. Default `T2A' encoding will be loaded  on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [senior,etd,a4]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 113,
+  "message": "Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \\pgfplotsset{compat=1.18} into your preamble. on input line 113",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 119,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRS' on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 119,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 119,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 119,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 119,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrr' on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 119,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrzh' on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 119,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 119,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrn' on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 119,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRS' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrp' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrs' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrl' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrr' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyru' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrery' on input line 1",
+  "detail": [],
+  "hint": null
+ }
+]

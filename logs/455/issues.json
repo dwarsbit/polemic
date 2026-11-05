@@ -1,0 +1,978 @@
+[
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 68,
+  "message": "LaTeX Error: Unicode character 快 (U+5FEB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 68,
+  "message": "LaTeX Error: Unicode character 捷 (U+6377)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 68,
+  "message": "LaTeX Error: Unicode character 键 (U+952E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 68,
+  "message": "LaTeX Error: Unicode character 速 (U+901F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 68,
+  "message": "LaTeX Error: Unicode character 查 (U+67E5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 68,
+  "message": "LaTeX Error: Unicode character 表 (U+8868)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 数 (U+6570)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 学 (U+5B66)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 符 (U+7B26)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 号 (U+53F7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 快 (U+5FEB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 捷 (U+6377)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 键 (U+952E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 分 (U+5206)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 式 (U+5F0F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 斜 (U+659C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 杠 (U+6760)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 根 (U+6839)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 次 (U+6B21)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 上 (U+4E0A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 下 (U+4E0B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 标 (U+6807)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 括 (U+62EC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 小 (U+5C0F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 中 (U+4E2D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 大 (U+5927)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 导 (U+5BFC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 与 (U+4E0E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 积 (U+79EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 单 (U+5355)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 撇 (U+6487)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 一 (U+4E00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 阶 (U+9636)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 双 (U+53CC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 二 (U+4E8C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 定 (U+5B9A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 偏 (U+504F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 不 (U+4E0D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 等 (U+7B49)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 于 (U+4E8E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 117,
+  "message": "LaTeX Error: Unicode character 恒 (U+6052)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 上 (U+4E0A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 横 (U+6A2A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 线 (U+7EBF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 与 (U+4E0E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 矢 (U+77E2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 量 (U+91CF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 箭 (U+7BAD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 头 (U+5934)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 求 (U+6C42)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 和 (U+548C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 连 (U+8FDE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 乘 (U+4E58)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 符 (U+7B26)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 号 (U+53F7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 希 (U+5E0C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 腊 (U+814A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 字 (U+5B57)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 母 (U+6BCD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 小 (U+5C0F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 写 (U+5199)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 大 (U+5927)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 其 (U+5176)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 它 (U+5B83)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 快 (U+5FEB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 捷 (U+6377)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 键 (U+952E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 放 (U+653E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 或 (U+6216)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 缩 (U+7F29)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 尺 (U+5C3A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 寸 (U+5BF8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 移 (U+79FB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 动 (U+52A8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 公 (U+516C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 式 (U+5F0F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 选 (U+9009)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 中 (U+4E2D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 方 (U+65B9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 向 (U+5411)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 元 (U+5143)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 素 (U+7D20)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 间 (U+95F4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 跳 (U+8DF3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 转 (U+8F6C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 下 (U+4E0B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 一 (U+4E00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 步 (U+6B65)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 换 (U+6362)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 171,
+  "message": "LaTeX Error: Unicode character 行 (U+884C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 本 (U+672C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 加 (U+52A0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 粗 (U+7C97)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 选 (U+9009)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 中 (U+4E2D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 方 (U+65B9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 向 (U+5411)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 键 (U+952E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 输 (U+8F93)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 入 (U+5165)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 空 (U+7A7A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 格 (U+683C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 增 (U+589E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 取 (U+53D6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 菜 (U+83DC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 单 (U+5355)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 或 (U+6216)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 工 (U+5DE5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 具 (U+5177)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 条 (U+6761)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 进 (U+8FDB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 第 (U+7B2C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 一 (U+4E00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 行 (U+884C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 二 (U+4E8C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 三 (U+4E09)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 四 (U+56DB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 五 (U+4E94)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 参 (U+53C2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheatsheet.tex",
+  "line": 237,
+  "message": "LaTeX Error: Unicode character 考 (U+8003)",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,34 @@
+{
+ "id": 59,
+ "source": "GitHub",
+ "name": "upb-lea/thesis_latex_template",
+ "url": "https://github.com/upb-lea/thesis_latex_template",
+ "type": "Thesis",
+ "version": "8e0ce3ba5fc950ab0240584f82bd1096e06c08ae",
+ "files": 28,
+ "main": "LEA_Thesis_Template/main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (latexmkrc)",
+ "baseline": {
+  "main": "LEA_Thesis_Template/main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 26369
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 11210,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 2,
+ "warnings": 2,
+ "firstError": "LaTeX Error: File `Logos/UPB_Logo_ENG_coloured_CMYK' not found.",
+ "outcome": "polemic-only-fail"
+}

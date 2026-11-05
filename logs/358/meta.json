@@ -1,0 +1,32 @@
+{
+ "id": 358,
+ "source": "GitHub",
+ "name": "yaoshanliang/XJTLU-Beamer-Template",
+ "url": "https://github.com/yaoshanliang/XJTLU-Beamer-Template",
+ "type": "Poster",
+ "version": "befec6e5c8a484e9b7cadd552542a64fc722daca",
+ "files": 29,
+ "main": "document.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "document.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 14056
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 9522,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-ok"
+}

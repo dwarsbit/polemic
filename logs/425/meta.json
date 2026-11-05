@@ -1,0 +1,31 @@
+{
+ "id": 425,
+ "source": "GitHub",
+ "name": "fsrmatheinfo/mluexercise",
+ "url": "https://github.com/fsrmatheinfo/mluexercise",
+ "type": "Homework",
+ "version": "34fa892a04c118cbc2d1abe41c090461ba28b208",
+ "files": 10,
+ "main": "exercise-english.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "exercise-english.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3433
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3012,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

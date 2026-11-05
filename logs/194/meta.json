@@ -1,0 +1,31 @@
+{
+ "id": 194,
+ "source": "GitHub",
+ "name": "iamkashz/reporting-template",
+ "url": "https://github.com/iamkashz/reporting-template",
+ "type": "Slides",
+ "version": "45b29c9cc1deae424a40edc6edbb24e090193e4b",
+ "files": 8,
+ "main": "eisvogel_backup/eisvogel.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "eisvogel_backup/eisvogel.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 654,
+  "tail": "exit 12, PDF not found\nwarning: kpathsea: $if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls: Unrecognized variable construct `$$'.\nwarning: kpathsea: $if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls: Unrecognized variable construct `$$'.\nwarning: kpathsea: $if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls: Unrecognized variable construct `$$'.\nwarning: kpathsea: $if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls: Unrecognized variable construct `$$'.\nwarning: kpathsea: $if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls: Unrecognized variable construct `$.'.\nLatexmk: Missing input file '$if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls' message in .log file:\n  ! LaTeX Error: File `$if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls' not found.\nFailure to make 'eisvogel.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 296,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Missing \\begin{document}.",
+ "outcome": "both-fail"
+}

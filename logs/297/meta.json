@@ -1,0 +1,33 @@
+{
+ "id": 297,
+ "source": "GitHub",
+ "name": "neo954/sichuan-cookbook",
+ "url": "https://github.com/neo954/sichuan-cookbook",
+ "type": "Book",
+ "version": "f6eab2d05369d81b16cad816cdcfe37084baa0a4",
+ "files": 367,
+ "main": "latex/back-cover.tex",
+ "catalogMain": "latex/book-cover.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "latex/book-cover.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1050,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'book-cover.log' and/or above output for details\n\nLatexmk: Missing input file 'git-revision.tex' message in .log file:\n  ! LaTeX Error: File `git-revision.tex' not found.\nFailure to make 'book-cover.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 298,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/back-cover.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

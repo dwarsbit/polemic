@@ -1,0 +1,31 @@
+{
+ "id": 413,
+ "source": "GitHub",
+ "name": "datsuka-qwerty/School-Homework",
+ "url": "https://github.com/datsuka-qwerty/School-Homework",
+ "type": "Homework",
+ "version": "9ab5905290e6a9b2acefd8432223c1c4166d36b9",
+ "files": 29,
+ "main": "done/ネットワークアーキテクチャ/Week1/report.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1128,
+  "tail": "exit 12, PDF not found\n  ! LaTeX Error: Unicode character コ (U+30B3)\n  ! LaTeX Error: Unicode character ン (U+30F3)\n  ! LaTeX Error: Unicode character ピ (U+30D4)\n  ! LaTeX Error: Unicode character ュ (U+30E5)\n  ! LaTeX Error: Unicode character ー (U+30FC)\n  ! LaTeX Error: Unicode character タ (U+30BF)\n  ! LaTeX Error: Unicode character ア (U+30A2)\n And 254 more --- see log file 'report.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 471,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 235,
+ "warnings": 0,
+ "firstError": "LaTeX Error: No counter 'section' defined.",
+ "outcome": "both-fail"
+}

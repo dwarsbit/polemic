@@ -1,0 +1,33 @@
+{
+ "id": 261,
+ "source": "GitHub",
+ "name": "jespercockx/agda-lecture-notes",
+ "url": "https://github.com/jespercockx/agda-lecture-notes",
+ "type": "Notes",
+ "version": "05e8c88bcfc298ecc05098e18db9e1bc5a31ac15",
+ "files": 10,
+ "main": "agda.lagda.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "agda.lagda.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 6810,
+  "tail": "exit 12, PDF found\n No file agda.lagda.bbl.\nLatexmk: Missing input file 'agda.lagda.toc' message in .log file:\n  No file agda.lagda.toc.\nLatexmk: Missing bbl file 'agda.lagda.bbl' in following:\n No file agda.lagda.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2067,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 42,
+ "warnings": 33,
+ "firstError": "You can't use `macro parameter character #' in horizontal mode.",
+ "outcome": "both-fail"
+}

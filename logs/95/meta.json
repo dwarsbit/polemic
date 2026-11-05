@@ -1,0 +1,31 @@
+{
+ "id": 95,
+ "source": "GitHub",
+ "name": "rstudio/rticles",
+ "url": "https://github.com/rstudio/rticles",
+ "type": "Paper",
+ "version": "accdfa39225570a8ad9b786fbb3077060d1e12a5",
+ "files": 430,
+ "main": "inst/rmarkdown/templates/acm/resources/template.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "inst/rmarkdown/templates/acm/resources/template.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 435,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'template.log' and/or above output for details\n\nLatexmk: Missing input file 'acm_proc_article-sp.cls' message in .log file:\n  ! LaTeX Error: File `acm_proc_article-sp.cls' not found.\nFailure to make 'template.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 198,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `acm_proc_article-sp.cls' not found.",
+ "outcome": "both-fail"
+}

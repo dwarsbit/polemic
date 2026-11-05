@@ -1,0 +1,138 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: Name 'brazil' is deprecated. Use 'brazilian' instead. Reported on input line 4478",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 19,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <26> not available size <24.88> substituted on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 19,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <18.19992> not available size <17.28> substituted on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 19,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13> not available size <12> substituted on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 19,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <26> not available size <24.88> substituted on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 19,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <18.19992> not available size <17.28> substituted on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 19,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <13> not available size <12> substituted on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 19,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <26> not available size <24.88> substituted on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 19,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <18.19992> not available size <17.28> substituted on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 19,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <13> not available size <12> substituted on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 58,
+  "message": "LaTeX Warning: Reference `tab:sintaxe-agentsepak' on page 1 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 114,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <18> not available size <17.28> substituted on input line 114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 114,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <18> not available size <17.28> substituted on input line 114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 114,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <18> not available size <17.28> substituted on input line 114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 1.12pt have occurred",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

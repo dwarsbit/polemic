@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "warning",
+  "file": "src/thesis.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `src/thesis', but the document class provides `thesis'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3_chapters/0_introduction/introduction.tex",
+  "line": 119,
+  "message": "LaTeX Warning: Reference `sec: chap1 contributions' on page 10 undefined on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3_chapters/1_dummy_chapter/dummy.tex",
+  "line": 4,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3_chapters/1_dummy_chapter/dummy.tex",
+  "line": 11,
+  "message": "Package natbib Warning: Citation `Goebel2012' on page 14 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3_chapters/1_dummy_chapter/dummy.tex",
+  "line": 11,
+  "message": "Package natbib Warning: Citation `Goebel2012' on page 20 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "7_publications/publications.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "7_publications/publications.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "7_publications/publications.tex",
+  "line": null,
+  "message": "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right",
+  "detail": [],
+  "hint": null
+ }
+]

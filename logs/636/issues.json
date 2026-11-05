@@ -1,0 +1,1010 @@
+[
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 171,
+  "message": "Package natbib Warning: Citation `Snelson2012' on page 2 undefined on input line 171",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 171,
+  "message": "Package natbib Warning: Citation `Motro2003' on page 2 undefined on input line 171",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 171,
+  "message": "Package natbib Warning: Citation `Skelton2009book' on page 2 undefined on input line 171",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 174,
+  "message": "Package natbib Warning: Citation `Calladine1978' on page 2 undefined on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 174,
+  "message": "Package natbib Warning: Citation `PellegrinoCalladine1986' on page 2 undefined on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 175,
+  "message": "Package natbib Warning: Citation `AshwearEriksson2014' on page 2 undefined on input line 175",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 175,
+  "message": "Package natbib Warning: Citation `SychterzSmith2018' on page 2 undefined on input line 175",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 179,
+  "message": "Package natbib Warning: Citation `TibertPellegrino2003' on page 2 undefined on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 180,
+  "message": "Package natbib Warning: Citation `Murakami2001Part1' on page 2 undefined on input line 180",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 180,
+  "message": "Package natbib Warning: Citation `GoyalSkelton2019' on page 2 undefined on input line 180",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 183,
+  "message": "Package natbib Warning: Citation `Ljung1999' on page 2 undefined on input line 183",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 183,
+  "message": "Package natbib Warning: Citation `FriswellMottershead1995' on page 2 undefined on input line 183",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 183,
+  "message": "Package natbib Warning: Citation `FarrarWorden2013' on page 2 undefined on input line 183",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 205,
+  "message": "Package natbib Warning: Citation `DubeAngellier2013' on page 2 undefined on input line 205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 206,
+  "message": "Package natbib Warning: Citation `Malyszko2020Simplex' on page 2 undefined on input line 206",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 206,
+  "message": "Package natbib Warning: Citation `BelHadjAliSmith2010IJSS' on page 2 undefined on input line 206",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 207,
+  "message": "Package natbib Warning: Citation `AdamSmith2007' on page 2 undefined on input line 207",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 207,
+  "message": "Package natbib Warning: Citation `SychterzSmith2018' on page 2 undefined on input line 207",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 209,
+  "message": "Package natbib Warning: Citation `Aloui2019SensorPlacement' on page 2 undefined on input line 209",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 211,
+  "message": "Package natbib Warning: Citation `Tian2024GlobalCableForce' on page 2 undefined on input line 211",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 213,
+  "message": "Package natbib Warning: Citation `Prism2025JSV' on page 2 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 213,
+  "message": "Package natbib Warning: Citation `Aswal2021' on page 2 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 213,
+  "message": "Package natbib Warning: Citation `ChatziSmyth2009UKF' on page 2 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 216,
+  "message": "Package natbib Warning: Citation `BelHadjAli2010' on page 2 undefined on input line 216",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 217,
+  "message": "Package natbib Warning: Citation `OppenheimWilliams2001' on page 2 undefined on input line 217",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 223,
+  "message": "Package natbib Warning: Citation `Lagaris1998' on page 3 undefined on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 223,
+  "message": "Package natbib Warning: Citation `Raissi2019' on page 3 undefined on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 223,
+  "message": "Package natbib Warning: Citation `Karniadakis2021' on page 3 undefined on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 225,
+  "message": "Package natbib Warning: Citation `Haghighat2021SolidPINN' on page 3 undefined on input line 225",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 228,
+  "message": "Package natbib Warning: Citation `Guo2023PINNStructural' on page 3 undefined on input line 228",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 228,
+  "message": "Package natbib Warning: Citation `LiuMeidani2023JEM' on page 3 undefined on input line 228",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 228,
+  "message": "Package natbib Warning: Citation `AlAdlyKripakaran2024' on page 3 undefined on input line 228",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 230,
+  "message": "Package natbib Warning: Citation `Yang2021BPINN' on page 3 undefined on input line 230",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 230,
+  "message": "Package natbib Warning: Citation `Mahar2025MSSP' on page 3 undefined on input line 230",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 234,
+  "message": "Package natbib Warning: Citation `Trinh2022' on page 3 undefined on input line 234",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 235,
+  "message": "Package natbib Warning: Citation `Xu2025NAECON' on page 3 undefined on input line 235",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 237,
+  "message": "Package natbib Warning: Citation `WangZhuMiao2025' on page 3 undefined on input line 237",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 237,
+  "message": "Package natbib Warning: Citation `QinChen2026SymPINN' on page 3 undefined on input line 237",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 237,
+  "message": "Package natbib Warning: Citation `Song2025NLDyn' on page 3 undefined on input line 237",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 241,
+  "message": "Package natbib Warning: Citation `Wang2023Real2Sim' on page 3 undefined on input line 241",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 241,
+  "message": "Package natbib Warning: Citation `Chen2024GNN' on page 3 undefined on input line 241",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 245,
+  "message": "Package natbib Warning: Citation `Chatzis2017DUKF' on page 3 undefined on input line 245",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 248,
+  "message": "Package natbib Warning: Citation `Kong2024Saltation' on page 3 undefined on input line 248",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 249,
+  "message": "Package natbib Warning: Citation `Sahin2024Contact' on page 3 undefined on input line 249",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 251,
+  "message": "Package natbib Warning: Citation `Li2024Friction' on page 3 undefined on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 264,
+  "message": "Package natbib Warning: Citation `GoyalSkelton2019' on page 3 undefined on input line 264",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 285,
+  "message": "Package natbib Warning: Citation `Friswell1998Subset' on page 3 undefined on input line 285",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 285,
+  "message": "Package natbib Warning: Citation `Moored2009Clustered' on page 3 undefined on input line 285",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 308,
+  "message": "Package natbib Warning: Citation `GoyalSkelton2019' on page 3 undefined on input line 308",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 308,
+  "message": "Package natbib Warning: Citation `Tadikonda2019STEDY' on page 3 undefined on input line 308",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 370,
+  "message": "Package natbib Warning: Citation `OppenheimWilliams2001' on page 4 undefined on input line 370",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 376,
+  "message": "Package natbib Warning: Citation `OlivetoSivaselvan2011' on page 4 undefined on input line 376",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 376,
+  "message": "Package natbib Warning: Citation `Kan2018' on page 4 undefined on input line 376",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 398,
+  "message": "Package natbib Warning: Citation `Snelson2012' on page 4 undefined on input line 398",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 398,
+  "message": "Package natbib Warning: Citation `Motro2003' on page 4 undefined on input line 398",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 514,
+  "message": "Package natbib Warning: Citation `RaoSunLiu2021Elastodynamics' on page 6 undefined on input line 514",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 514,
+  "message": "Package natbib Warning: Citation `Lu2021HardConstraintPINN' on page 6 undefined on input line 514",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 577,
+  "message": "Package natbib Warning: Citation `KingmaBa2015' on page 8 undefined on input line 577",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 580,
+  "message": "Package natbib Warning: Citation `LoshchilovHutter2017' on page 8 undefined on input line 580",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 623,
+  "message": "Package natbib Warning: Citation `Sahin2024Contact' on page 9 undefined on input line 623",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 656,
+  "message": "Package natbib Warning: Citation `Udwadia1994' on page 9 undefined on input line 656",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 656,
+  "message": "Package natbib Warning: Citation `Kammer1991' on page 9 undefined on input line 656",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 713,
+  "message": "Package natbib Warning: Citation `Malyszko2020Simplex' on page 10 undefined on input line 713",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 718,
+  "message": "Package natbib Warning: Citation `BelHadjAliSmith2010IJSS' on page 10 undefined on input line 718",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 720,
+  "message": "Package natbib Warning: Citation `BelHadjAli2010' on page 10 undefined on input line 720",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 756,
+  "message": "Package natbib Warning: Citation `Friswell1998Subset' on page 11 undefined on input line 756",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 756,
+  "message": "Package natbib Warning: Citation `Shahverdi2009Clustering' on page 11 undefined on input line 756",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 759,
+  "message": "Package natbib Warning: Citation `Moored2009Clustered' on page 11 undefined on input line 759",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 789,
+  "message": "Package natbib Warning: Citation `Levenberg1944' on page 12 undefined on input line 789",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 789,
+  "message": "Package natbib Warning: Citation `Marquardt1963' on page 12 undefined on input line 789",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 793,
+  "message": "Package natbib Warning: Citation `JulierUhlmann1997UT' on page 12 undefined on input line 793",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 793,
+  "message": "Package natbib Warning: Citation `WanVanDerMerwe2000UKF' on page 12 undefined on input line 793",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 800,
+  "message": "Package natbib Warning: Citation `Prism2025JSV' on page 12 undefined on input line 800",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 896,
+  "message": "Package natbib Warning: Citation `BelHadjAli2010' on page 15 undefined on input line 896",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 899,
+  "message": "Package natbib Warning: Citation `BelHadjAliSmith2010IJSS' on page 15 undefined on input line 899",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1093,
+  "message": "Package natbib Warning: Citation `Aswal2021' on page 19 undefined on input line 1093",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1178,
+  "message": "Package natbib Warning: Citation `Prism2025JSV' on page 21 undefined on input line 1178",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1204,
+  "message": "Package natbib Warning: Citation `Prism2025JSV' on page 21 undefined on input line 1204",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1237,
+  "message": "Package natbib Warning: Citation `Wang2026Leg' on page 22 undefined on input line 1237",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1265,
+  "message": "Package natbib Warning: Citation `Wang2026Leg' on page 22 undefined on input line 1265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1276,
+  "message": "Package natbib Warning: Citation `Wang2026Leg' on page 22 undefined on input line 1276",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1309,
+  "message": "Package natbib Warning: Citation `Malyszko2020Simplex' on page 23 undefined on input line 1309",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1322,
+  "message": "Package natbib Warning: Citation `Malyszko2020Simplex' on page 24 undefined on input line 1322",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1326,
+  "message": "Package natbib Warning: Citation `Malyszko2020Simplex' on page 24 undefined on input line 1326",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1344,
+  "message": "Package natbib Warning: Citation `Malyszko2020Simplex' on page 25 undefined on input line 1344",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1368,
+  "message": "Package natbib Warning: Citation `Malyszko2020Simplex' on page 25 undefined on input line 1368",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1480,
+  "message": "Package natbib Warning: Citation `Xu2025NAECON' on page 28 undefined on input line 1480",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1481,
+  "message": "Package natbib Warning: Citation `QinChen2026SymPINN' on page 28 undefined on input line 1481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1481,
+  "message": "Package natbib Warning: Citation `Wang2023Real2Sim' on page 28 undefined on input line 1481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1481,
+  "message": "Package natbib Warning: Citation `Chen2024GNN' on page 28 undefined on input line 1481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1501,
+  "message": "Package natbib Warning: Citation `OppenheimWilliams2001' on page 29 undefined on input line 1501",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1503,
+  "message": "Package natbib Warning: Citation `Yuan2023CSD' on page 29 undefined on input line 1503",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1570,
+  "message": "Package natbib Warning: Citation `Malyszko2020Simplex' on page 30 undefined on input line 1570",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1618,
+  "message": "Package natbib Warning: Citation `Sahin2024Contact' on page 31 undefined on input line 1618",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "figs/tab_params_supp.tex",
+  "line": 10,
+  "message": "Package natbib Warning: Citation `Prism2025JSV' on page 31 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "figs/tab_params_supp.tex",
+  "line": 19,
+  "message": "Package natbib Warning: Citation `MaChen2022TsgFEM' on page 31 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "figs/tab_params_supp.tex",
+  "line": 20,
+  "message": "Package natbib Warning: Citation `MaChen2022TsgFEM' on page 31 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "figs/tab_params_supp.tex",
+  "line": 21,
+  "message": "Package natbib Warning: Citation `EN12385' on page 31 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "figs/tab_params_supp.tex",
+  "line": 21,
+  "message": "Package natbib Warning: Citation `ASTMA416' on page 31 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "figs/tab_params_supp.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `Carpentieri2014Parametric' on page 31 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1694,
+  "message": "Package natbib Warning: Citation `Calladine1978' on page 32 undefined on input line 1694",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1694,
+  "message": "Package natbib Warning: Citation `PellegrinoCalladine1986' on page 32 undefined on input line 1694",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1701,
+  "message": "Package natbib Warning: Citation `Connelly1998' on page 32 undefined on input line 1701",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1701,
+  "message": "Package natbib Warning: Citation `FernandezRuiz2022' on page 32 undefined on input line 1701",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1702,
+  "message": "Package natbib Warning: Citation `ZhangOhsakiJMPS2012' on page 32 undefined on input line 1702",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1775,
+  "message": "Package natbib Warning: Citation `Wang2026Leg' on page 32 undefined on input line 1775",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1816,
+  "message": "Package natbib Warning: Citation `ZhangOhsaki2015' on page 36 undefined on input line 1816",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1829,
+  "message": "Package natbib Warning: Citation `PellegrinoCalladine1986' on page 36 undefined on input line 1829",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1829,
+  "message": "Package natbib Warning: Citation `Calladine1978' on page 36 undefined on input line 1829",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1831,
+  "message": "Package natbib Warning: Citation `ZhangOhsaki2015' on page 36 undefined on input line 1831",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1840,
+  "message": "Package natbib Warning: Citation `ZhangOhsaki2015' on page 36 undefined on input line 1840",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1864,
+  "message": "Package natbib Warning: Citation `Carpentieri2014Parametric' on page 36 undefined on input line 1864",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1868,
+  "message": "Package natbib Warning: Citation `MaChen2022TsgFEM' on page 36 undefined on input line 1868",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1879,
+  "message": "Package natbib Warning: Citation `EN12385' on page 36 undefined on input line 1879",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1881,
+  "message": "Package natbib Warning: Citation `ASTMA416' on page 36 undefined on input line 1881",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 1903,
+  "message": "Package natbib Warning: Citation `ZhangOhsaki2015' on page 37 undefined on input line 1903",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 2035,
+  "message": "Package natbib Warning: Citation `Kammer1991' on page 40 undefined on input line 2035",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 2035,
+  "message": "Package natbib Warning: Citation `Papadimitriou2004' on page 40 undefined on input line 2035",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 2037,
+  "message": "Package natbib Warning: Citation `Moaveni2009Uncertainty' on page 40 undefined on input line 2037",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 2040,
+  "message": "Package natbib Warning: Citation `Bao2013Compressive' on page 40 undefined on input line 2040",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 2040,
+  "message": "Package natbib Warning: Citation `Zhang2024Missing' on page 40 undefined on input line 2040",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 2040,
+  "message": "Package natbib Warning: Citation `Ewins2000Modal' on page 40 undefined on input line 2040",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 2040,
+  "message": "Package natbib Warning: Citation `Raissi2019' on page 40 undefined on input line 2040",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 2040,
+  "message": "Package natbib Warning: Citation `Chen2021Scarce' on page 40 undefined on input line 2040",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": 2046,
+  "message": "Package natbib Warning: Citation `Moaveni2009Uncertainty' on page 40 undefined on input line 2046",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TensegrityPrestress_Preprint.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

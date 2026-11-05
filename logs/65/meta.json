@@ -1,0 +1,32 @@
+{
+ "id": 65,
+ "source": "GitHub",
+ "name": "binaricat/Dufe-Thesis-Latex",
+ "url": "https://github.com/binaricat/Dufe-Thesis-Latex",
+ "type": "Thesis",
+ "version": "f51c869780ff4a98bdf486be419bed10044baa05",
+ "files": 30,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (latexmkrc)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 255,
+  "timedOut": false,
+  "durationMs": 549,
+  "tail": "exit 255, PDF not found\nWide character in warn at /usr/bin/latexmk line 4809.\nLatexmk: Initialization file './latexmkrc' gave an error:\n     syntax error at (eval 9) line 2, near \"% 用法:\"\n     Execution of (eval 9) aborted due to compilation errors.\n\nLatexmk: Stopping because of problem with rc file"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 541,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/main.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-fail"
+}

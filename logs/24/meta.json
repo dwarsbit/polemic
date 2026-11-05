@@ -1,0 +1,32 @@
+{
+ "id": 24,
+ "source": "GitHub",
+ "name": "estamos/NTUA-ECE-Thesis-Template",
+ "url": "https://github.com/estamos/NTUA-ECE-Thesis-Template",
+ "type": "Thesis",
+ "version": "4f6c00c5d816c51440140fa334a4c1c08f3ee92b",
+ "files": 31,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 7405
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 7139,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 6,
+ "outcome": "both-ok"
+}

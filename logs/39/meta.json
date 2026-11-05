@@ -1,0 +1,31 @@
+{
+ "id": 39,
+ "source": "GitHub",
+ "name": "obster-y/XJTU-thesis",
+ "url": "https://github.com/obster-y/XJTU-thesis",
+ "type": "Thesis",
+ "version": "cc458b2abd7b7051aa6b2aff9cbef25406fda49c",
+ "files": 39,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 841,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'Build/main.fls'\nLatexmk: Examining 'Build/main.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'Build/main.log' and/or above output for details\n\nFailure to make 'Build/main.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 221,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "Emergency stop.",
+ "outcome": "both-fail"
+}

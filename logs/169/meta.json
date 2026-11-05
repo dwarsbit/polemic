@@ -1,0 +1,32 @@
+{
+ "id": 169,
+ "source": "GitHub",
+ "name": "klb2/review-response-template",
+ "url": "https://github.com/klb2/review-response-template",
+ "type": "Paper",
+ "version": "c445eedf93047579c810c4c25bd871bbbcda2890",
+ "files": 10,
+ "main": "review_response.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "review_response.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 13365
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 8246,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

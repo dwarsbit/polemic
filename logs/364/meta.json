@@ -1,0 +1,31 @@
+{
+ "id": 364,
+ "source": "GitHub",
+ "name": "ParsaMOBB/ut-poster",
+ "url": "https://github.com/ParsaMOBB/ut-poster",
+ "type": "Poster",
+ "version": "4c34242caf7d9cdbccad3ce317893f9e7d2d2a15",
+ "files": 25,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4932
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4205,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

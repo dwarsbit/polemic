@@ -1,0 +1,346 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package fixltx2e Warning: fixltx2e is not required with releases after 2015 All fixes are now in the LaTeX kernel. See the latexrelease package for details",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `Cupic' on page 2 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 45,
+  "message": "Package natbib Warning: Citation `WikiHeuristic' on page 2 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 47,
+  "message": "Package natbib Warning: Citation `Cupic' on page 2 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 50,
+  "message": "Package natbib Warning: Citation `WikiMetaheuristic' on page 2 undefined on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 54,
+  "message": "Package natbib Warning: Citation `WikiEvolutionary' on page 2 undefined on input line 54",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 56,
+  "message": "Package natbib Warning: Citation `Cupic' on page 2 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 71,
+  "message": "Package natbib Warning: Citation `WikiEvolutionary' on page 2 undefined on input line 71",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 74,
+  "message": "Package natbib Warning: Citation `WikiGenetic' on page 3 undefined on input line 74",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `Kuthan2007GeneticAI' on page 3 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `WikiFitness' on page 3 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 96,
+  "message": "Package natbib Warning: Citation `WikiFitnessApprox' on page 3 undefined on input line 96",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 98,
+  "message": "Package natbib Warning: Citation `WikiGeneRepres' on page 3 undefined on input line 98",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 99,
+  "message": "Package natbib Warning: Citation `Kuthan2007GeneticAI' on page 3 undefined on input line 99",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 99,
+  "message": "Package natbib Warning: Citation `Cupic' on page 3 undefined on input line 99",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 103,
+  "message": "Package natbib Warning: Citation `Cupic' on page 3 undefined on input line 103",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 107,
+  "message": "Package natbib Warning: Citation `Cupic' on page 4 undefined on input line 107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 124,
+  "message": "Package natbib Warning: Citation `GaPseudocode' on page 4 undefined on input line 124",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 156,
+  "message": "Package natbib Warning: Citation `WikiResidualSum' on page 5 undefined on input line 156",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 160,
+  "message": "LaTeX Warning: Reference `eq:RSS' on page 5 undefined on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 162,
+  "message": "LaTeX Warning: Reference `eq:RSS' on page 5 undefined on input line 162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 173,
+  "message": "LaTeX Warning: Reference `eq:RSS' on page 6 undefined on input line 173",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 205,
+  "message": "Package natbib Warning: Citation `Deap' on page 7 undefined on input line 205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 206,
+  "message": "Package natbib Warning: Citation `Matplotlib' on page 7 undefined on input line 206",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 207,
+  "message": "Package natbib Warning: Citation `Numpy' on page 7 undefined on input line 207",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 208,
+  "message": "Package natbib Warning: Citation `Sympy' on page 7 undefined on input line 208",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 267,
+  "message": "LaTeX Warning: Reference `ex:5' on page 8 undefined on input line 267",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 267,
+  "message": "LaTeX Warning: Reference `ex:6' on page 8 undefined on input line 267",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 268,
+  "message": "LaTeX Warning: Reference `ex:6' on page 8 undefined on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 268,
+  "message": "LaTeX Warning: Reference `ex:3' on page 8 undefined on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 272,
+  "message": "Package natbib Warning: Citation `Cupic' on page 9 undefined on input line 272",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 277,
+  "message": "Package natbib Warning: Citation `WikiMutation' on page 9 undefined on input line 277",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 287,
+  "message": "LaTeX Warning: Reference `eq:fitnessNeg' on page 9 undefined on input line 287",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 291,
+  "message": "LaTeX Warning: Reference `eq:fitnessInv' on page 9 undefined on input line 291",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 313,
+  "message": "LaTeX Warning: Reference `PrimjerDatoteke' on page 10 undefined on input line 313",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 317,
+  "message": "LaTeX Warning: Reference `Graph_GoodFreq' on page 10 undefined on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 328,
+  "message": "LaTeX Warning: Reference `Graph_HighFreq' on page 10 undefined on input line 328",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 337,
+  "message": "LaTeX Warning: Reference `Graph_2000' on page 11 undefined on input line 337",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": 349,
+  "message": "LaTeX Warning: Reference `Graph_Poly' on page 11 undefined on input line 349",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Paper/Seminar2019Mesaric_Luka.tex",
+  "line": null,
+  "message": "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right",
+  "detail": [],
+  "hint": null
+ }
+]

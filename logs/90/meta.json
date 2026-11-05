@@ -1,0 +1,33 @@
+{
+ "id": 90,
+ "source": "GitHub",
+ "name": "MGG1996/DissertationUESTC",
+ "url": "https://github.com/MGG1996/DissertationUESTC",
+ "type": "Thesis",
+ "version": "1b817a6a17ae056691eb7d05464ca0960470cd8d",
+ "files": 79,
+ "main": "tutorial.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "tutorial.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 13693,
+  "tail": "exit 12, PDF found\n  Reference `sub@fig: 见到姑姑嘻嘻' on page 7 undefined on input line 638\n  Reference `fig: 见到姑姑嘻嘻' on page 7 undefined on input line 638\n And 63 more --- see log file 'tutorial.log'\n----------------------\nThis message may duplicate earlier message.\nLatexmk: Failure in processing file 'tutorial.tex':\n   'xelatex' needed too many passes\n----------------------"
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 24816,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 9,
+ "outcome": "baseline-only-fail"
+}

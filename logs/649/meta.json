@@ -1,0 +1,31 @@
+{
+ "id": 649,
+ "source": "arXiv",
+ "name": "arXiv:hep-th/0503024",
+ "url": "https://arxiv.org/abs/hep-th/0503024",
+ "type": "Paper",
+ "version": "hep-th/0503024",
+ "files": 3,
+ "main": "hybridPRv2b.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "hybridPRv2b.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1512
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1180,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `$documentclass$.cls' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "inst/rmarkdown/templates/iqss/resources/template.tex",
+  "line": 4,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ }
+]

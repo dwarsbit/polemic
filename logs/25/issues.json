@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `hyperref' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package pdfx Warning: Setting all color commands to rgb,",
+  "detail": [],
+  "hint": null
+ }
+]

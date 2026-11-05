@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": "thesis-uestc.cls",
+  "line": 25,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis-uestc.cls",
+  "line": 25,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 450,
+ "source": "GitHub",
+ "name": "idiv-biodiversity/pandoc-cheat-sheet",
+ "url": "https://github.com/idiv-biodiversity/pandoc-cheat-sheet",
+ "type": "Cheat sheet",
+ "version": "835264d8fac452308fa0a5f4ca2b6aabc534a8c5",
+ "files": 6,
+ "main": "cheat-sheet.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "cheat-sheet.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4252,
+  "tail": "exit 12, PDF not found\n      Refer to 'cheat-sheet.log' and/or above output for details\n\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nLatexmk: Missing input file '$documentclass$.cls' message in .log file:\n  ! LaTeX Error: File `$documentclass$.cls' not found.\nFailure to make 'cheat-sheet.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 312,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Missing \\begin{document}.",
+ "outcome": "both-fail"
+}

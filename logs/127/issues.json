@@ -1,0 +1,275 @@
+[
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 48,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.48 \\setmainfont",
+   "                 {Times New Roman}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 48,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 57,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.57 \\setCJKfamilyfont",
+   "                      {STSong}{STZhongsong}\\newcommand{\\STSong}{\\CJKfamily{S..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Declaration.tex",
+  "line": 4,
+  "message": "Argument of \\HyPsd@GetTwoBytes has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Declaration.tex",
+  "line": 4,
+  "message": "Paragraph ended before \\HyPsd@GetTwoBytes was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Committee.tex",
+  "line": 4,
+  "message": "Argument of \\HyPsd@GetTwoBytes has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Committee.tex",
+  "line": 4,
+  "message": "Paragraph ended before \\HyPsd@GetTwoBytes was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract_chs.tex",
+  "line": 5,
+  "message": "Argument of \\HyPsd@GetTwoBytes has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract_chs.tex",
+  "line": 5,
+  "message": "Paragraph ended before \\HyPsd@GetTwoBytes was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract_chs.tex",
+  "line": 7,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract_chs.tex",
+  "line": 21,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.21 \\noindent{\\zihao{4}\\heiti",
+   "                               关键词:}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 235,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 241,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 248,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 262,
+  "message": "Argument of \\HyPsd@GetTwoBytes has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 262,
+  "message": "Paragraph ended before \\HyPsd@GetTwoBytes was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 269,
+  "message": "Argument of \\HyPsd@GetTwoBytes has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 269,
+  "message": "Paragraph ended before \\HyPsd@GetTwoBytes was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 285,
+  "message": "Argument of \\HyPsd@GetTwoBytes has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 285,
+  "message": "Paragraph ended before \\HyPsd@GetTwoBytes was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 303,
+  "message": "Argument of \\HyPsd@GetTwoBytes has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 303,
+  "message": "Paragraph ended before \\HyPsd@GetTwoBytes was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 329,
+  "message": "Argument of \\HyPsd@GetTwoBytes has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 329,
+  "message": "Paragraph ended before \\HyPsd@GetTwoBytes was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 351,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file unisong9a): Font unisong9a at 723 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 14.27963pt, for example: \\setlength{\\headheight}{14.27963pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-2.27963pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 192,
+  "message": "LaTeX Font Warning: Font shape `C70/STSong/m/n' undefined using `C70/song/m/n' instead on input line 192",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "abstract_chs.tex",
+  "line": 5,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\hskip 11.79393pt replaced by space on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 317,
+  "message": "Package amsmath Warning: Foreign command \\over; \\frac or \\genfrac should be used instead on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation(s) may have changed. Rerun to get citations correct",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

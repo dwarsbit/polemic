@@ -1,0 +1,31 @@
+{
+ "id": 979,
+ "source": "CTAN",
+ "name": "sciposter",
+ "url": "https://ctan.org/pkg/sciposter",
+ "type": "Poster",
+ "version": "1.18",
+ "files": 42,
+ "main": "sciposterexample/sciposter-example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "sciposterexample/sciposter-example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1159
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 783,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

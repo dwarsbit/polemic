@@ -1,0 +1,31 @@
+{
+ "id": 309,
+ "source": "GitHub",
+ "name": "qnighy/rust-compiler-walkthrough-ja",
+ "url": "https://github.com/qnighy/rust-compiler-walkthrough-ja",
+ "type": "Book",
+ "version": "cef7f5191eba3175fa53b9f726830c6cedf1c58b",
+ "files": 6,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4896,
+  "tail": "exit 12, PDF not found\n  ! LaTeX Error: Unicode character は (U+306F)\n  ! LaTeX Error: Unicode character じ (U+3058)\n  ! LaTeX Error: Unicode character め (U+3081)\n  ! LaTeX Error: Unicode character に (U+306B)\n  ! LaTeX Error: Unicode character コ (U+30B3)\n  ! LaTeX Error: Unicode character ン (U+30F3)\n  ! LaTeX Error: Unicode character パ (U+30D1)\n And 1607 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1398,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 1162,
+ "warnings": 3,
+ "firstError": "LaTeX Error: Font family `JY2+hmc' unknown.",
+ "outcome": "both-fail"
+}

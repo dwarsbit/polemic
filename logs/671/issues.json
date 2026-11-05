@@ -1,0 +1,450 @@
+[
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 190,
+  "message": "Package natbib Warning: Citation `The-Elements-of-Statistical-Learning-2009' on page 1 undefined on input line 190",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 201,
+  "message": "Package natbib Warning: Citation `birge1998' on page 1 undefined on input line 201",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 201,
+  "message": "Package natbib Warning: Citation `Nonparametric:Regression' on page 1 undefined on input line 201",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 201,
+  "message": "Package natbib Warning: Citation `Nature:Statistical' on page 1 undefined on input line 201",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 201,
+  "message": "Package natbib Warning: Citation `Oracle_inequality' on page 1 undefined on input line 201",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 201,
+  "message": "Package natbib Warning: Citation `ERM:COLT:17' on page 1 undefined on input line 201",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 203,
+  "message": "Package natbib Warning: Citation `Finance:Extreme' on page 1 undefined on input line 203",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 203,
+  "message": "Package natbib Warning: Citation `catoni2012' on page 1 undefined on input line 203",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 203,
+  "message": "Package natbib Warning: Citation `audibert2011' on page 1 undefined on input line 203",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 203,
+  "message": "Package natbib Warning: Citation `pmlr-v32-hsu14' on page 1 undefined on input line 203",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 203,
+  "message": "Package natbib Warning: Citation `brownlees2015' on page 1 undefined on input line 203",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 205,
+  "message": "Package natbib Warning: Citation `The-Elements-of-Statistical-Learning-2009' on page 2 undefined on input line 205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 205,
+  "message": "Package natbib Warning: Citation `Robust_regression' on page 2 undefined on input line 205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 205,
+  "message": "Package natbib Warning: Citation `audibert2011' on page 2 undefined on input line 205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 209,
+  "message": "Package natbib Warning: Citation `audibert2011' on page 2 undefined on input line 209",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 210,
+  "message": "Package natbib Warning: Citation `brownlees2015' on page 2 undefined on input line 210",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 213,
+  "message": "Package natbib Warning: Citation `Alquier:Lipschitz' on page 2 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 219,
+  "message": "Package natbib Warning: Citation `Heavy-Tailed:book' on page 2 undefined on input line 219",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 223,
+  "message": "Package natbib Warning: Citation `pmlr-v35-mendelson14' on page 2 undefined on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 223,
+  "message": "Package natbib Warning: Citation `Mendelson:2015:LWC' on page 2 undefined on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 223,
+  "message": "Package natbib Warning: Citation `NIPS2016_6104' on page 2 undefined on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 223,
+  "message": "Package natbib Warning: Citation `Alquier:Lipschitz' on page 2 undefined on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 226,
+  "message": "Package natbib Warning: Citation `catoni2012' on page 2 undefined on input line 226",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 234,
+  "message": "Package natbib Warning: Citation `catoni2012' on page 2 undefined on input line 234",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 236,
+  "message": "Package natbib Warning: Citation `audibert2011' on page 3 undefined on input line 236",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 236,
+  "message": "Package natbib Warning: Citation `catoni2012' on page 3 undefined on input line 236",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 245,
+  "message": "Package amsmath Warning: Cannot use `split' here; trying to recover with `aligned' on input line 245",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 247,
+  "message": "Package natbib Warning: Citation `audibert2011' on page 3 undefined on input line 247",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 253,
+  "message": "Package natbib Warning: Citation `brownlees2015' on page 3 undefined on input line 253",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 253,
+  "message": "Package natbib Warning: Citation `catoni2012' on page 3 undefined on input line 253",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 264,
+  "message": "Package amsmath Warning: Cannot use `split' here; trying to recover with `aligned' on input line 264",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 266,
+  "message": "Package natbib Warning: Citation `Chaining' on page 3 undefined on input line 266",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 266,
+  "message": "Package natbib Warning: Citation `brownlees2015' on page 3 undefined on input line 266",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 269,
+  "message": "Package natbib Warning: Citation `Problem_complexity' on page 3 undefined on input line 269",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 269,
+  "message": "Package natbib Warning: Citation `ALON1999137' on page 3 undefined on input line 269",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 269,
+  "message": "Package natbib Warning: Citation `6576820' on page 3 undefined on input line 269",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 269,
+  "message": "Package natbib Warning: Citation `minsker2015' on page 3 undefined on input line 269",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 269,
+  "message": "Package natbib Warning: Citation `pmlr-v32-hsu14' on page 3 undefined on input line 269",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 269,
+  "message": "Package natbib Warning: Citation `JMLR:v17:14-273' on page 3 undefined on input line 269",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 269,
+  "message": "Package natbib Warning: Citation `audibert2011' on page 3 undefined on input line 269",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 269,
+  "message": "Package natbib Warning: Citation `Heavy:Tailed' on page 3 undefined on input line 269",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 278,
+  "message": "Package natbib Warning: Citation `audibert2011' on page 4 undefined on input line 278",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 285,
+  "message": "Package natbib Warning: Citation `NIPS2015_5718' on page 4 undefined on input line 285",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 339,
+  "message": "Package natbib Warning: Citation `Math:learning' on page 5 undefined on input line 339",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 339,
+  "message": "Package natbib Warning: Citation `audibert2011' on page 5 undefined on input line 339",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 350,
+  "message": "Package natbib Warning: Citation `Convex:body:89' on page 5 undefined on input line 350",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 358,
+  "message": "Package natbib Warning: Citation `OneBit:Plan:LP' on page 5 undefined on input line 358",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 377,
+  "message": "Package natbib Warning: Citation `brownlees2015' on page 6 undefined on input line 377",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 445,
+  "message": "Package natbib Warning: Citation `Concentration_inequalities' on page 7 undefined on input line 445",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 505,
+  "message": "Package natbib Warning: Citation `Concentration_inequalities' on page 8 undefined on input line 505",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 526,
+  "message": "Package natbib Warning: Citation `Bousquet2004' on page 9 undefined on input line 526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 538,
+  "message": "Package natbib Warning: Citation `McDiarmid' on page 9 undefined on input line 538",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 569,
+  "message": "Package natbib Warning: Citation `Rademacher_Gaussian' on page 10 undefined on input line 569",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 596,
+  "message": "Package natbib Warning: Citation `Probability:Banach' on page 10 undefined on input line 596",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": 596,
+  "message": "Package natbib Warning: Citation `Generalization:Bayesian' on page 10 undefined on input line 596",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Regression_Arxiv_10.21.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

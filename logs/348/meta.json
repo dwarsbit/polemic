@@ -1,0 +1,32 @@
+{
+ "id": 348,
+ "source": "GitHub",
+ "name": "FesianXu/Potato-CV",
+ "url": "https://github.com/FesianXu/Potato-CV",
+ "type": "CV",
+ "version": "b520479d35c25644caa08e98d557d191d32153fd",
+ "files": 43,
+ "main": "awesome-cv-cn.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "awesome-cv-cn.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3909,
+  "tail": "exit 12, PDF found\n[1]\nxdvipdfmx:warning: Invalid glyph name component in \"_279\".\nxdvipdfmx:warning: Invalid glyph name component in \"_388\".\nxdvipdfmx:warning: Invalid glyph name component in \"_407\".\nxdvipdfmx:warning: Invalid glyph name component in \"_408\".\nxdvipdfmx:warning: Invalid glyph name component in \"_614\".\n\n121962 bytes written"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1099,
+  "outputs": [
+   "synctex",
+   "log"
+  ],
+  "tail": "      Refer to 'build/awesome-cv-cn.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-fail"
+}

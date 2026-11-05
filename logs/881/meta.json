@@ -1,0 +1,31 @@
+{
+ "id": 881,
+ "source": "CTAN",
+ "name": "cquthesis",
+ "url": "https://ctan.org/pkg/cquthesis",
+ "type": "Thesis",
+ "version": "1.50",
+ "files": 23,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 573,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'main.fls'\nLatexmk: Examining 'main.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main.log' and/or above output for details\n\nFailure to make 'main.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 319,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/main.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-fail"
+}

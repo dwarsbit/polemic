@@ -1,0 +1,32 @@
+{
+ "id": 237,
+ "source": "GitHub",
+ "name": "Hazegard/BeamerTheme",
+ "url": "https://github.com/Hazegard/BeamerTheme",
+ "type": "Slides",
+ "version": "e3c96b9b5572d23f5bada728dd8bbc436162e884",
+ "files": 34,
+ "main": "example.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "example.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 105663,
+  "tail": "exit 12, PDF found\nLatexmk: Using biber to make bibliography file(s).\nsh: 1: inkscape: not found\nLatexmk: Using biber to make bibliography file(s).\nsh: 1: inkscape: not found\nLatexmk: Using biber to make bibliography file(s).\nexample.xdv -> example.pdf\n[1][2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19]\n2923258 bytes written"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 619,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/example.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

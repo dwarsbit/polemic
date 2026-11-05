@@ -1,0 +1,618 @@
+[
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 198,
+  "message": "LaTeX Warning: Citation `Va00' on page 1 undefined on input line 198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 207,
+  "message": "LaTeX Warning: Citation `KM94' on page 1 undefined on input line 207",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 220,
+  "message": "LaTeX Warning: Citation `GM053' on page 1 undefined on input line 220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 224,
+  "message": "LaTeX Warning: Citation `Ga06' on page 1 undefined on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 232,
+  "message": "LaTeX Warning: Citation `CH98' on page 2 undefined on input line 232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 244,
+  "message": "LaTeX Warning: Citation `En12' on page 2 undefined on input line 244",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 244,
+  "message": "LaTeX Warning: Citation `Se21' on page 2 undefined on input line 244",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 264,
+  "message": "LaTeX Warning: Citation `SS04' on page 2 undefined on input line 264",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 294,
+  "message": "LaTeX Warning: Citation `Go' on page 2 undefined on input line 294",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 306,
+  "message": "LaTeX Warning: Citation `CLS11' on page 2 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 306,
+  "message": "LaTeX Warning: Citation `Fu93' on page 2 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 367,
+  "message": "LaTeX Warning: Citation `MS11' on page 3 undefined on input line 367",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 368,
+  "message": "LaTeX Warning: Citation `MR11' on page 3 undefined on input line 368",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 375,
+  "message": "LaTeX Warning: Citation `Ga06' on page 3 undefined on input line 375",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 566,
+  "message": "LaTeX Warning: Citation `DT11' on page 4 undefined on input line 566",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 711,
+  "message": "LaTeX Warning: Citation `Mi03' on page 6 undefined on input line 711",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 772,
+  "message": "LaTeX Warning: Citation `AB10' on page 7 undefined on input line 772",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 772,
+  "message": "LaTeX Warning: Citation `FB' on page 7 undefined on input line 772",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 772,
+  "message": "LaTeX Warning: Citation `CJM10' on page 7 undefined on input line 772",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 772,
+  "message": "LaTeX Warning: Citation `CJM11' on page 7 undefined on input line 772",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 772,
+  "message": "LaTeX Warning: Citation `FM' on page 7 undefined on input line 772",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 772,
+  "message": "LaTeX Warning: Citation `GM052' on page 7 undefined on input line 772",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 772,
+  "message": "LaTeX Warning: Citation `GM053' on page 7 undefined on input line 772",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 772,
+  "message": "LaTeX Warning: Citation `MR08' on page 7 undefined on input line 772",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 776,
+  "message": "LaTeX Warning: Citation `Mi03' on page 7 undefined on input line 776",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 827,
+  "message": "LaTeX Warning: Citation `FB' on page 7 undefined on input line 827",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 827,
+  "message": "LaTeX Warning: Citation `BM2' on page 7 undefined on input line 827",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 827,
+  "message": "LaTeX Warning: Citation `FM' on page 7 undefined on input line 827",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 841,
+  "message": "LaTeX Warning: Citation `Mi03' on page 8 undefined on input line 841",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 853,
+  "message": "LaTeX Warning: Citation `Mi03' on page 8 undefined on input line 853",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 874,
+  "message": "LaTeX Warning: Citation `GM052' on page 8 undefined on input line 874",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 923,
+  "message": "LaTeX Warning: Citation `Mi03' on page 8 undefined on input line 923",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 941,
+  "message": "LaTeX Warning: Citation `BGM10' on page 9 undefined on input line 941",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 941,
+  "message": "LaTeX Warning: Citation `GM052' on page 9 undefined on input line 941",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 941,
+  "message": "LaTeX Warning: Citation `GM053' on page 9 undefined on input line 941",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 950,
+  "message": "LaTeX Warning: Citation `St48' on page 9 undefined on input line 950",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 956,
+  "message": "LaTeX Warning: Citation `DI' on page 9 undefined on input line 956",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 959,
+  "message": "LaTeX Warning: Citation `Va' on page 9 undefined on input line 959",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 960,
+  "message": "LaTeX Warning: Citation `KP' on page 9 undefined on input line 960",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 962,
+  "message": "LaTeX Warning: Citation `FM' on page 9 undefined on input line 962",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 967,
+  "message": "LaTeX Warning: Citation `FM' on page 9 undefined on input line 967",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 980,
+  "message": "LaTeX Warning: Citation `FB' on page 9 undefined on input line 980",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 985,
+  "message": "LaTeX Warning: Citation `KP' on page 9 undefined on input line 985",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 992,
+  "message": "LaTeX Warning: Citation `BM1' on page 9 undefined on input line 992",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 992,
+  "message": "LaTeX Warning: Citation `BM2' on page 9 undefined on input line 992",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 994,
+  "message": "LaTeX Warning: Citation `FM' on page 9 undefined on input line 994",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 995,
+  "message": "LaTeX Warning: Citation `BM2' on page 9 undefined on input line 995",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 999,
+  "message": "LaTeX Warning: Citation `Tz10' on page 9 undefined on input line 999",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 999,
+  "message": "LaTeX Warning: Citation `Go' on page 9 undefined on input line 999",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1005,
+  "message": "LaTeX Warning: Citation `KST11' on page 9 undefined on input line 1005",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1005,
+  "message": "LaTeX Warning: Citation `PT10' on page 9 undefined on input line 1005",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1026,
+  "message": "LaTeX Warning: Citation `AB10' on page 9 undefined on input line 1026",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1073,
+  "message": "LaTeX Warning: Citation `Go' on page 10 undefined on input line 1073",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1095,
+  "message": "LaTeX Warning: Citation `AB10' on page 10 undefined on input line 1095",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1181,
+  "message": "LaTeX Warning: Citation `CJM11' on page 10 undefined on input line 1181",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1208,
+  "message": "LaTeX Warning: Citation `GJV05' on page 11 undefined on input line 1208",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1217,
+  "message": "LaTeX Warning: Citation `CJM10' on page 11 undefined on input line 1217",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1219,
+  "message": "LaTeX Warning: Citation `GJV05' on page 11 undefined on input line 1219",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1219,
+  "message": "LaTeX Warning: Citation `CJM11' on page 11 undefined on input line 1219",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1220,
+  "message": "LaTeX Warning: Command \\l invalid in math mode on input line 1220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1224,
+  "message": "LaTeX Warning: Citation `SSV08' on page 11 undefined on input line 1224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1229,
+  "message": "LaTeX Warning: Citation `CJM11' on page 11 undefined on input line 1229",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1232,
+  "message": "LaTeX Warning: Citation `GJV05' on page 11 undefined on input line 1232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1232,
+  "message": "LaTeX Warning: Citation `SSV08' on page 11 undefined on input line 1232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1234,
+  "message": "LaTeX Warning: Citation `CJM11' on page 11 undefined on input line 1234",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1244,
+  "message": "LaTeX Warning: Citation `CJM11' on page 11 undefined on input line 1244",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1279,
+  "message": "LaTeX Warning: Citation `So03' on page 11 undefined on input line 1279",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1279,
+  "message": "LaTeX Warning: Citation `IKS03' on page 11 undefined on input line 1279",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1279,
+  "message": "LaTeX Warning: Citation `IKS09' on page 11 undefined on input line 1279",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1279,
+  "message": "LaTeX Warning: Citation `Mi03' on page 11 undefined on input line 1279",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1292,
+  "message": "LaTeX Warning: Citation `We03' on page 12 undefined on input line 1292",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1302,
+  "message": "LaTeX Warning: Citation `We03' on page 12 undefined on input line 1302",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1312,
+  "message": "LaTeX Warning: Citation `IKS03' on page 12 undefined on input line 1312",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1317,
+  "message": "LaTeX Warning: Citation `Mi03' on page 12 undefined on input line 1317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1321,
+  "message": "LaTeX Warning: Citation `Mi03' on page 12 undefined on input line 1321",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": 1327,
+  "message": "LaTeX Warning: Citation `Mi03' on page 12 undefined on input line 1327",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Glasgow2.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

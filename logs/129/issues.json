@@ -1,0 +1,106 @@
+[
+ {
+  "severity": "error",
+  "file": "simplepaper.cls",
+  "line": 247,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "simplepaper.cls",
+  "line": 247,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/2-introduction.tex",
+  "line": 7,
+  "message": "Improper alphabetic constant.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/2-introduction.tex",
+  "line": 7,
+  "message": "Argument of \\lst@FillFixed@ has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/2-introduction.tex",
+  "line": 7,
+  "message": "Paragraph ended before \\lst@FillFixed@ was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/2-introduction.tex",
+  "line": 7,
+  "message": "Paragraph ended before \\CJK@230 was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/2-introduction.tex",
+  "line": 7,
+  "message": "Missing = inserted for \\ifnum.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/2-introduction.tex",
+  "line": 7,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/2-introduction.tex",
+  "line": 7,
+  "message": "Bad character code (-80).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/2-introduction.tex",
+  "line": 14,
+  "message": "Infinite glue shrinkage found in a paragraph.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/2-introduction.tex",
+  "line": 14,
+  "message": "LaTeX Error: \\begin{lstlisting} on input line 4 ended by \\end{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file unifs6b): Font unifs6b at 540 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": null,
+  "message": "Package biblatex Warning: Load 'inputenc' before biblatex",
+  "detail": [],
+  "hint": null
+ }
+]

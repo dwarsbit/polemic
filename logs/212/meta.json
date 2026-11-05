@@ -1,0 +1,31 @@
+{
+ "id": 212,
+ "source": "GitHub",
+ "name": "gshstexsociety/An-Introduction-to-LaTeX",
+ "url": "https://github.com/gshstexsociety/An-Introduction-to-LaTeX",
+ "type": "Slides",
+ "version": "aa4790fb5bf86f703e1313d7758ef6d1da52a475",
+ "files": 217,
+ "main": "An Introduction to LaTeX-ver2.0_beamer/GSHSLaTeXIntro_Contribution.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "An Introduction to LaTeX-ver2.0_beamer/GSHSLaTeXIntro_Contribution.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 6095
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5153,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 10,
+ "outcome": "both-ok"
+}

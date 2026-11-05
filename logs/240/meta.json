@@ -1,0 +1,31 @@
+{
+ "id": 240,
+ "source": "GitHub",
+ "name": "eddyem/comp_proc_measres",
+ "url": "https://github.com/eddyem/comp_proc_measres",
+ "type": "Slides",
+ "version": "5228c446b5287e48c90ca53efbb493ccbc2d833b",
+ "files": 211,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 9711
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 17455,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-ok"
+}

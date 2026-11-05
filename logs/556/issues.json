@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1376,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@ifnextchar' on input line 1376",
+  "detail": [],
+  "hint": null
+ }
+]

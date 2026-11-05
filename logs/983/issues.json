@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package bfhfonts.sty Warning: You are using pdfLaTeX. In case the official fonts have been installed on your system I can't use them. on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package bfh-ci Warning: I could not find the bfhlogo package",
+  "detail": [],
+  "hint": null
+ }
+]

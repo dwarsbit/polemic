@@ -1,0 +1,31 @@
+{
+ "id": 976,
+ "source": "CTAN",
+ "name": "a0poster",
+ "url": "https://ctan.org/pkg/a0poster",
+ "type": "Poster",
+ "version": "1.22b",
+ "files": 6,
+ "main": "a0_eng.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "a0_eng.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1190
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 577,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,33 @@
+{
+ "id": 316,
+ "source": "GitHub",
+ "name": "posquit0/Awesome-CV",
+ "url": "https://github.com/posquit0/Awesome-CV",
+ "type": "CV",
+ "version": "dfe863541ccc6ea624c48338a7ce550494530b31",
+ "files": 61,
+ "main": "examples/coverletter.tex",
+ "catalogMain": "examples/cv.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "examples/cv.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 10207,
+  "tail": "exit 12, PDF not found\n\ntput: No value for $TERM and no -T specified\nLatexmk: Missing input file 'examples/cv/education.tex' message in .log file:\n  ! LaTeX Error: File `examples/cv/education.tex' not found.\ntput: No value for $TERM and no -T specified\nLatexmk: Missing input file 'examples/cv/education.tex' message in .log file:\n  ! LaTeX Error: File `examples/cv/education.tex' not found.\nFailure to make 'cv.pdf'"
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 10060,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "baseline-only-fail"
+}

@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aastex701-sample.tex",
+  "line": null,
+  "message": "Class aastex701 Warning: Assuming \\noaffiliation for authors",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aastex701-sample.tex",
+  "line": 249,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 249",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aastex701-sample.tex",
+  "line": 344,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined using `OMS/cmsy/m/n' instead for symbol `textbraceleft' on input line 344",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aastex701-sample.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

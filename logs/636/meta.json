@@ -1,0 +1,31 @@
+{
+ "id": 636,
+ "source": "arXiv",
+ "name": "arXiv:2611.04007",
+ "url": "https://arxiv.org/abs/2611.04007",
+ "type": "Paper",
+ "version": "2611.04007",
+ "files": 27,
+ "main": "TensegrityPrestress_Preprint.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "TensegrityPrestress_Preprint.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5436
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3133,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 126,
+ "outcome": "both-ok"
+}

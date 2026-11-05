@@ -1,0 +1,82 @@
+[
+ {
+  "severity": "error",
+  "file": "hitgsrep.cls",
+  "line": 11,
+  "message": "Class hitgsrep Error: Please use: xelatex.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "report.tex",
+  "line": 24,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "report.tex",
+  "line": 24,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "report.tex",
+  "line": 24,
+  "message": "Argument of \\use_i:nn has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "report.tex",
+  "line": 24,
+  "message": "Paragraph ended before \\use_i:nn was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "report.tex",
+  "line": 24,
+  "message": "Argument of \\use_ii:nn has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "report.tex",
+  "line": 24,
+  "message": "Paragraph ended before \\use_ii:nn was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "report.tex",
+  "line": 24,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexart Warning: Option `fntef' is deprecated. `CJKfntef' package is loaded",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexart Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ }
+]

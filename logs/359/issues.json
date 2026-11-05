@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package pgf Warning: Snakes have been superseded by decorations. Please use the decoration libraries instead of the snakes library on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aauPoster/aauposter.tex",
+  "line": 128,
+  "message": "Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \\pgfplotsset{compat=1.18} into your preamble. on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aauPoster/aauposter.tex",
+  "line": 251,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aauPoster/aauposter.tex",
+  "line": 253,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 253",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aauPoster/aauposter.tex",
+  "line": 255,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aauPoster/aauposter.tex",
+  "line": 257,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 257",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aauPoster/aauposter.tex",
+  "line": 278,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 278",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aauPoster/aauposter.tex",
+  "line": 281,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aauPoster/aauposter.tex",
+  "line": 288,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 288",
+  "detail": [],
+  "hint": null
+ }
+]

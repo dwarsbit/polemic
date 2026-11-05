@@ -1,0 +1,82 @@
+[
+ {
+  "severity": "error",
+  "file": "geomposter-en.tex",
+  "line": 36,
+  "message": "Package fontspec Error: The font \"Consolas\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T2A/aer/m/n' undefined using `T2A/cmr/m/n' instead on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package inputenc Warning: inputenc package ignored with utf8 based engines",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "geomposter-en.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "geomposter-en.tex",
+  "line": 128,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <12.4416> not available size <12> substituted on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "geomposter-en.tex",
+  "line": 128,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <42.99> not available size <24.88> substituted on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "geomposter-en.tex",
+  "line": 128,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <30.09286> not available size <24.88> substituted on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "geomposter-en.tex",
+  "line": 128,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <21.495> not available size <20.74> substituted on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "geomposter-en.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 18.11pt have occurred",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "geomposter-en.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

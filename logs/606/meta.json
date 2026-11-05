@@ -1,0 +1,33 @@
+{
+ "id": 606,
+ "source": "arXiv",
+ "name": "arXiv:2611.05178",
+ "url": "https://arxiv.org/abs/2611.05178",
+ "type": "Paper",
+ "version": "2611.05178",
+ "files": 6,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3683,
+  "tail": "exit 12, PDF found\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main.log' and/or above output for details\n\nLatexmk: Missing bbl file 'main.bbl' in following:\n No file main.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1076,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 6,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Command \\c@lemma already defined.",
+ "outcome": "both-fail"
+}

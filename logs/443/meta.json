@@ -1,0 +1,33 @@
+{
+ "id": 443,
+ "source": "GitHub",
+ "name": "timjb/uni-spicker",
+ "url": "https://github.com/timjb/uni-spicker",
+ "type": "Cheat sheet",
+ "version": "a83775d55c1d74537f416c9edd1263322c5d3084",
+ "files": 68,
+ "main": "alg-fuer-np.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "alg-fuer-np.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2290,
+  "tail": "exit 12, PDF found\nLatexmk: Getting log file 'alg-fuer-np.log'\nLatexmk: Examining 'alg-fuer-np.fls'\nLatexmk: Examining 'alg-fuer-np.log'\nLatexmk: Log file says output to 'alg-fuer-np.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'alg-fuer-np.log' and/or above output for details"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1007,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 71,
+ "warnings": 124,
+ "firstError": "LaTeX Error: Command \\textprod already defined.",
+ "outcome": "both-fail"
+}

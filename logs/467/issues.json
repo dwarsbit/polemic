@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": "omnilatex.cls",
+  "line": 13,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "omnilatex.cls",
+  "line": 13,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

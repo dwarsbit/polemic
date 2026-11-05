@@ -1,0 +1,1283 @@
+[
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 28,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.28 \\xeCJKsetup",
+   "                {AutoFakeBold=true, AutoFakeSlant=true}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 28,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 29,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.29 \\setCJKmainfont",
+   "                    {DFKai-SB.ttf} % 中文字體"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 30,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.30 \\setmainfont",
+   "                 {Times New Roman} % 英文字體"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 資 (U+8CC7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 訊 (U+8A0A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 工 (U+5DE5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 程 (U+7A0B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 系 (U+7CFB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 碩 (U+78A9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 士 (U+58EB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 班 (U+73ED)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 10,
+  "message": "LaTeX Error: There's no line here to end.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 11,
+  "message": "LaTeX Error: Unicode character 碩 (U+78A9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 11,
+  "message": "LaTeX Error: Unicode character 士 (U+58EB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 11,
+  "message": "LaTeX Error: Unicode character 學 (U+5B78)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 11,
+  "message": "LaTeX Error: Unicode character 位 (U+4F4D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 11,
+  "message": "LaTeX Error: Unicode character 論 (U+8AD6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 11,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 11,
+  "message": "LaTeX Error: There's no line here to end.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 基 (U+57FA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 於 (U+65BC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 沙 (U+6C99)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 盒 (U+76D2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 系 (U+7CFB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 統 (U+7D71)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 之 (U+4E4B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 程 (U+7A0B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 式 (U+5F0F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 評 (U+8A55)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 測 (U+6E2C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 應 (U+61C9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 18,
+  "message": "LaTeX Error: There's no line here to end.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 研 (U+7814)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 究 (U+7A76)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 生 (U+751F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character ： (U+FF1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 黃 (U+9EC3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 漢 (U+6F22)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 23,
+  "message": "LaTeX Error: Unicode character 軒 (U+8ED2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 28,
+  "message": "LaTeX Error: Unicode character 指 (U+6307)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 28,
+  "message": "LaTeX Error: Unicode character 導 (U+5C0E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 28,
+  "message": "LaTeX Error: Unicode character 教 (U+6559)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 28,
+  "message": "LaTeX Error: Unicode character 授 (U+6388)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 28,
+  "message": "LaTeX Error: Unicode character ： (U+FF1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 28,
+  "message": "LaTeX Error: Unicode character 郭 (U+90ED)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 28,
+  "message": "LaTeX Error: Unicode character 忠 (U+5FE0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 28,
+  "message": "LaTeX Error: Unicode character 義 (U+7FA9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 28,
+  "message": "LaTeX Error: Unicode character 博 (U+535A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 28,
+  "message": "LaTeX Error: Unicode character 士 (U+58EB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 中 (U+4E2D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 華 (U+83EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 民 (U+6C11)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 國 (U+570B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 一 (U+4E00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 百 (U+767E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 十 (U+5341)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 二 (U+4E8C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 年 (U+5E74)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 七 (U+4E03)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/titlepage.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 月 (U+6708)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 摘 (U+6458)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 要 (U+8981)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "Argument of \\UTFviii@three@octets@combine has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "Paragraph ended before \\UTFviii@three@octets@combine was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"97.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"9C.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 鍵 (U+9375)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 詞 (U+8A5E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character ： (U+FF1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character （ (U+FF08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 請 (U+8ACB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 自 (U+81EA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 己 (U+5DF1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character 填 (U+586B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 5,
+  "message": "LaTeX Error: Unicode character ） (U+FF09)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 摘 (U+6458)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 要 (U+8981)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 為 (U+70BA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 論 (U+8AD6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 或 (U+6216)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 報 (U+5831)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 告 (U+544A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 精 (U+7CBE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 簡 (U+7C21)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 概 (U+6982)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 其 (U+5176)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 目 (U+76EE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 是 (U+662F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 透 (U+900F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 過 (U+904E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 短 (U+77ED)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 敘 (U+6558)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 述 (U+8FF0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 使 (U+4F7F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 讀 (U+8B80)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 者 (U+8005)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 大 (U+5927)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 致 (U+81F4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 瞭 (U+77AD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 解 (U+89E3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 整 (U+6574)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 篇 (U+7BC7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 內 (U+5167)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 容 (U+5BB9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 通 (U+901A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 常 (U+5E38)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 須 (U+9808)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 包 (U+5305)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 括 (U+62EC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 問 (U+554F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 題 (U+984C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 描 (U+63CF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 以 (U+4EE5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 及 (U+53CA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 所 (U+6240)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 得 (U+5F97)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 到 (U+5230)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 結 (U+7D50)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 果 (U+679C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 但 (U+4F46)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 不 (U+4E0D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 超 (U+8D85)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 字 (U+5B57)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 一 (U+4E00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 頁 (U+9801)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 原 (U+539F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 則 (U+5247)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 且 (U+4E14)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 有 (U+6709)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 參 (U+53C3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 考 (U+8003)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 獻 (U+737B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 引 (U+5F15)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 圖 (U+5716)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 表 (U+8868)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 等 (U+7B49)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 中 (U+4E2D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 撰 (U+64B0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 寫 (U+5BEB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 之 (U+4E4B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 除 (U+9664)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 外 (U+5916)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character ， (U+FF0C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 於 (U+65BC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 後 (U+5F8C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 另 (U+53E6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": "LaTeX Error: Unicode character 附 (U+9644)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "page/abstract.tex",
+  "line": 10,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ntut-report.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `ntut-report', but the document class provides `ntut_report'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package caption Warning: Unknown document class (or package), standard defaults will be used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package geometry Warning: Over-specification in `h'-direction. `width' (845.04684pt) is ignored",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package geometry Warning: Over-specification in `v'-direction. `height' (597.50787pt) is ignored",
+  "detail": [],
+  "hint": null
+ }
+]

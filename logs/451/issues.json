@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: No Cyrillic font encoding has been loaded so far. A font encoding should be declared before babel. Default `T2A' encoding will be loaded  on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "preamble.tex",
+  "line": null,
+  "message": "Package geometry Warning: Over-specification in `h'-direction. `width' (430.00462pt) is ignored",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "preamble.tex",
+  "line": null,
+  "message": "Package geometry Warning: Over-specification in `v'-direction. `height' (556.47656pt) is ignored",
+  "detail": [],
+  "hint": null
+ }
+]

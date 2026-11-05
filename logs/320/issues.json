@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": "Template_CV.tex",
+  "line": 58,
+  "message": "Package hyperref Warning: Option `bookmarks' has already been used, setting the option has no effect on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Template_CV.tex",
+  "line": 58,
+  "message": "Package hyperref Warning: Option `pdfpagelabels' has already been used, setting the option has no effect on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Template_CV.tex",
+  "line": 139,
+  "message": "Package microtype Warning: Redefining noligatures set `no ligatures' on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Template_CV.tex",
+  "line": null,
+  "message": "Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended",
+  "detail": [],
+  "hint": null
+ }
+]

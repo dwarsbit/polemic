@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package aliascnt Warning: The package is obsolete. Check the documentation. on input line 62",
+  "detail": [],
+  "hint": null
+ }
+]

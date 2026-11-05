@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "error",
+  "file": "Frontiers_Corrigendum_LaTeX/frontiers_Corrigendum.tex",
+  "line": 72,
+  "message": "Package pdftex.def Error: File `./logo1-eps-converted-to.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Frontiers_Corrigendum_LaTeX/frontiers_Corrigendum.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [utf8]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Frontiers_Corrigendum_LaTeX/frontiers_Corrigendum.tex",
+  "line": 57,
+  "message": "Package microtype Warning: Unable to apply patch `footnote' on input line 57",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Frontiers_Corrigendum_LaTeX/frontiers_Corrigendum.tex",
+  "line": 72,
+  "message": "LaTeX Warning: File `./logo1.eps' not found on input line 72",
+  "detail": [],
+  "hint": null
+ }
+]

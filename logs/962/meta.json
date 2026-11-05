@@ -1,0 +1,31 @@
+{
+ "id": 962,
+ "source": "CTAN",
+ "name": "llncs",
+ "url": "https://ctan.org/pkg/llncs",
+ "type": "Paper",
+ "version": "2.26",
+ "files": 6,
+ "main": "llncsdoc.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "llncsdoc.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 432,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'llncsdoc.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'llncsdoc.log' and/or above output for details\n\nLatexmk: Missing input file 'llncsdoc.sty' message in .log file:\n  ! LaTeX Error: File `llncsdoc.sty' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 212,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 1,
+ "firstError": "LaTeX Error: File `llncsdoc.sty' not found.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,714 @@
+[
+ {
+  "severity": "warning",
+  "file": "tex/tufte-book.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `tex/tufte-book', but the document class provides `tufte-book'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ifplatform Warning: shell escape is disabled, so I can only detect \\ifwindows",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sfnotes.tex",
+  "line": 152,
+  "message": "Package microtype Warning: Unable to apply patch `footnote' on input line 152",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 19 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 20 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 29 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 35 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 36 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 37 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 38 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 39 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 40 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 41 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter3.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 51 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter3.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 52 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter3.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 56 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter3.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 58 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sfnotes.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 63 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter4.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 65 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter4.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 70 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter4.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 73 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter4.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 75 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "problems/probset1.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 77 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "problems/probset1.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 78 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter5.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 79 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter5.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 80 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter5.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 81 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter5.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 82 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter5.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 86 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter5.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 88 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter6.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 91 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter6.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 99 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter7.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 109 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter7.tex",
+  "line": 168,
+  "message": "LaTeX Font Warning: Font shape `T1/pplj/m/scit' undefined using `T1/pplj/m/sc' instead on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter7.tex",
+  "line": 221,
+  "message": "LaTeX Font Warning: Font shape `T1/pplj/m/scit' undefined using `T1/pplj/m/sc' instead on input line 221",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter7.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 119 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter7.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 121 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter8.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 127 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter8.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 128 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter8.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 134 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter8.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 135 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter8.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 137 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter9.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 147 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter9.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 148 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter9.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 149 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter9.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 150 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter9.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 151 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter10.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 163 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter11.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 179 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter11.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 183 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter11.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 184 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter11.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 185 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter12.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 191 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter13.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 211 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter13.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 213 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter14.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 225 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter15.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 235 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter15.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 239 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter15.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 240 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter15.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 241 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter15.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 242 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter16.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 255 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter16.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 263 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter17.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 267 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter17.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 269 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter17.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 272 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter17.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 282 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "problems/probset4.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 286 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter18.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 289 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter19.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 305 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter19.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 306 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter19.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 307 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter19.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 310 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter19.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 314 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter19.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 315 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter19.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 316 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter19.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 317 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter20.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 319 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter20.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 320 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter20.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 321 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter20.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 323 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter20.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 324 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter21.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 331 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter21.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 338 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "problems/probsol1.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 355 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "problems/probsol3.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 370 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "problems/probsol4.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 379 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "problems/probsol5.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 386 moved",
+  "detail": [],
+  "hint": null
+ }
+]

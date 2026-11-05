@@ -1,0 +1,31 @@
+{
+ "id": 315,
+ "source": "GitHub",
+ "name": "KokunoYumeto/sga-es",
+ "url": "https://github.com/KokunoYumeto/sga-es",
+ "type": "Book",
+ "version": "7dc251a38e267e58165596694afcb1f3bdc3aed9",
+ "files": 227,
+ "main": "sources/SGA1/sga1_es.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "sources/SGA1/sga1_es.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 17293
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 18230,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 11,
+ "outcome": "both-ok"
+}

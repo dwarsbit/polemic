@@ -1,0 +1,32 @@
+{
+ "id": 971,
+ "source": "CTAN",
+ "name": "asaetr",
+ "url": "https://ctan.org/pkg/asaetr",
+ "type": "Paper",
+ "version": "1.0a",
+ "files": 10,
+ "main": "asaetr.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "asaetr.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2681
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2286,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

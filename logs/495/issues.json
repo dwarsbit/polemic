@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "sections/appendix_tao_table2.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ }
+]

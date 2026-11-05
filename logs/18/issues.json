@@ -1,0 +1,138 @@
+[
+ {
+  "severity": "error",
+  "file": "inc/preamble.tex",
+  "line": 19,
+  "message": "Package fontspec Error: The font \"Times New Roman\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "inc/preamble.tex",
+  "line": 19,
+  "message": "Font TU/TimesNewRoman(0)/m/n/14.4=\"Times New Roman\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "inc/preamble.tex",
+  "line": 21,
+  "message": "Package fontspec Error: The font \"Times New Roman\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 10,
+  "message": "Font TU/TimesNewRoman(1)/m/n/14.4=\"Times New Roman\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 16,
+  "message": "Missing \\endcsname inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "inc/2-literature.tex",
+  "line": 31,
+  "message": "Font TU/TimesNewRoman(1)/b/n/14.4=\"Times New Roman\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "inc/3-analyze.tex",
+  "line": 110,
+  "message": "Font TU/TimesNewRoman(0)/m/n/10=\"Times New Roman\" at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "inc/3-analyze.tex",
+  "line": 110,
+  "message": "Font TU/TimesNewRoman(0)/m/n/7=\"Times New Roman\" at 7.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "inc/5-adminguide.tex",
+  "line": 44,
+  "message": "Font TU/TimesNewRoman(1)/m/n/12=\"Times New Roman\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "inc/0-intro.tex",
+  "line": 1,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\uppercase' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "inc/2-literature.tex",
+  "line": 14,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(1)/b/n' undefined using `TU/TimesNewRoman(1)/m/n' instead on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "inc/0-conclusion.tex",
+  "line": 1,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\uppercase' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "inc/0-bibliography.tex",
+  "line": 3,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\uppercase' on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "inc/a-app.tex",
+  "line": 7,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\uppercase' on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "inc/b-app.tex",
+  "line": 1,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\uppercase' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

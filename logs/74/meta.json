@@ -1,0 +1,30 @@
+{
+ "id": 74,
+ "source": "GitHub",
+ "name": "garrettj403/ThesisPlots",
+ "url": "https://github.com/garrettj403/ThesisPlots",
+ "type": "Thesis",
+ "version": "3453afbd329ad5930bf99c48168748c76785d4da",
+ "files": 14,
+ "main": "examples/tex/document.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "examples/tex/document.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1998
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 585,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 4,
+ "warnings": 2,
+ "firstError": "Package pdftex.def Error: File `../figures/fig1.pdf' not found: using draft setting.",
+ "outcome": "polemic-only-fail"
+}

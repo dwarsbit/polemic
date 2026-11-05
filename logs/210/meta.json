@@ -1,0 +1,31 @@
+{
+ "id": 210,
+ "source": "GitHub",
+ "name": "tinyclub/markdown-lab",
+ "url": "https://github.com/tinyclub/markdown-lab",
+ "type": "Slides",
+ "version": "486aacb41f567703ea9ebbcd0f53144e54ec9e30",
+ "files": 32,
+ "main": "article/templates/default.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "article/templates/default.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1434,
+  "tail": "exit 12, PDF not found\n      Refer to 'default.log' and/or above output for details\n\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nLatexmk: Missing input file '$documentclass$.cls' message in .log file:\n  ! LaTeX Error: File `$documentclass$.cls' not found.\nFailure to make 'default.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 297,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Missing \\begin{document}.",
+ "outcome": "both-fail"
+}

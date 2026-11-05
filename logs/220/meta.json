@@ -1,0 +1,30 @@
+{
+ "id": 220,
+ "source": "GitHub",
+ "name": "LogCreative/presenter",
+ "url": "https://github.com/LogCreative/presenter",
+ "type": "Slides",
+ "version": "d17118710213a27a236550374c3f64de2acdd3d2",
+ "files": 70,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1190
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 196,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `presenter.cls' not found.",
+ "outcome": "polemic-only-fail"
+}

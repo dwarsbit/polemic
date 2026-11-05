@@ -1,0 +1,33 @@
+{
+ "id": 7,
+ "source": "GitHub",
+ "name": "saidziani/MastersThesis",
+ "url": "https://github.com/saidziani/MastersThesis",
+ "type": "Thesis",
+ "version": "b1570198c39a611f07856ba27237e4a3f8e2a275",
+ "files": 82,
+ "main": "main.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 54679,
+  "tail": "exit 12, PDF found\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Label `result-boltzman' multiply defined\n  Label `categ-sum' multiply defined\n  Citation `McKinsey' on page 9 undefined on input line 126\n  Citation `Awad' on page 19 undefined on input line 340\n  Citation `IITF' on page 19 undefined on input line 346\n  Citation `bibid' on page 70 undefined on input line 169\n  (pdf backend): unreferenced destination with name 'Hfootnote.12'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 28811,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 5,
+ "warnings": 3,
+ "firstError": "Package pdfpages Error: Cannot find file `cover/cover.pdf'.",
+ "outcome": "both-fail"
+}

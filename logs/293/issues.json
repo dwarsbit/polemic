@@ -1,0 +1,360 @@
+[
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 4,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.4 \\defaultfontfeatures",
+   "                        {Path=fonts/} % 定义默认的字体存放位置路径"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 4,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 5,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5 \\setCJKmainfont",
+   "                   [BoldFont={FZheiti_GBK.TTF},ItalicFont={FZBWKSK.TTF},Slan..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 5,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 5,
+  "message": "Extra }, or forgotten $.",
+  "detail": [
+   "l.5 \\setCJKmainfont[BoldFont={FZheiti_GBK.TTF}",
+   "                                              ,ItalicFont={FZBWKSK.TTF},Slan..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 6,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.6 \\setCJKsansfont",
+   "                   [BoldFont={HYShuFang_75W.ttf},ItalicFont={FZBWKSK.TTF},Sl..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 7,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.7 \\setCJKmonofont",
+   "                   {FZfangsong_GBK.TTF}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 8,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.8 \\newCJKfontfamily",
+   "                     [kaishu]\\kaishu{FZkaiti_GBK.TTF}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 9,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.9 \\newCJKfontfamily",
+   "                     [shufang]\\shufang{HYShuFang_75W.ttf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 11,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.11 \\setmainfont",
+   "                 ["
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 39,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.39 \\setsansfont",
+   "                 ["
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 52,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.52 \\setmonofont",
+   "                 ["
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 236,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 249,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 252,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 259,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 272,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 451,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "stys/beautybook-cnsettings.sty",
+  "line": 455,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 20,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 21,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 269,
+  "message": "LaTeX Error: Environment theorem undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 289,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{theorem}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 526,
+  "message": "LaTeX Error: Environment theorem undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 552,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{theorem}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 569,
+  "message": "LaTeX Error: Environment problem undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 571,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{problem}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 796,
+  "message": "LaTeX Error: Environment theorem undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 802,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{theorem}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 826,
+  "message": "LaTeX Error: Environment lemma undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 830,
+  "message": "LaTeX Error: \\begin{Proof} on input line 803 ended by \\end{lemma}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 854,
+  "message": "LaTeX Error: Environment corollary undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 856,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{corollary}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 869,
+  "message": "LaTeX Error: Environment theorem undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 873,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{theorem}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 881,
+  "message": "LaTeX Error: Environment theorem undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cnnotes.tex",
+  "line": 883,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{theorem}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file unisong6d): Font unisong6d at 864 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexbook Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cnnotes.tex",
+  "line": 95,
+  "message": "LaTeX Font Warning: Font shape `C70/rm/m/sc' undefined using `C70/rm/m/n' instead on input line 95",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

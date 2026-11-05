@@ -1,0 +1,90 @@
+[
+ {
+  "severity": "error",
+  "file": "02-main/ch2_analysis.tex",
+  "line": 17,
+  "message": "LaTeX Error: Unknown float option `H'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "02-main/ch2_analysis.tex",
+  "line": 37,
+  "message": "LaTeX Error: Unknown float option `H'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "02-main/ch2_analysis.tex",
+  "line": 44,
+  "message": "LaTeX Error: Unknown float option `H'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tracklang Warning: No `datatool' support for dialect `french'  on input line 9924",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": null,
+  "message": "Package minitoc(hints) Warning: W0099",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": null,
+  "message": "Package minitoc(hints) Warning: W0030",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": null,
+  "message": "Package minitoc(hints) Warning: W0023",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": null,
+  "message": "Package minitoc(hints) Warning: W0028",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "02-main/ch2_analysis.tex",
+  "line": 40,
+  "message": "LaTeX Font Warning: Font shape `T1/cmbr/b/it' undefined using `T1/cmbr/b/n' instead on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": null,
+  "message": "Package minitoc(hints) Warning: W0024",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

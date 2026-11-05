@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": "latex/papers.tex",
+  "line": 317,
+  "message": "Package natbib Warning: Citation `Li91b' on page 1 undefined on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex/papers.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 13.59999pt, for example: \\setlength{\\headheight}{13.59999pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-1.59999pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex/papers.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

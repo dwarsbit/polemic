@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "error",
+  "file": "LEA_Thesis_Template/main.tex",
+  "line": 41,
+  "message": "LaTeX Error: File `Logos/UPB_Logo_ENG_coloured_CMYK' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "LEA_Thesis_Template/main.tex",
+  "line": 41,
+  "message": "Package pdftex.def Error: File `Logos/EIM_eng.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "LEA_Thesis_Template/main.tex",
+  "line": 41,
+  "message": "LaTeX Warning: File `Logos/EIM_eng.pdf' not found on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: File `fig/inkscape/Inkscape_Symbols_All.pdf' not found on input line 45",
+  "detail": [],
+  "hint": null
+ }
+]

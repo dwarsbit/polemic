@@ -1,0 +1,32 @@
+{
+ "id": 168,
+ "source": "GitHub",
+ "name": "Luzkan/CandidateGithubProfiler",
+ "url": "https://github.com/Luzkan/CandidateGithubProfiler",
+ "type": "Paper",
+ "version": "832d963f5d2cf69bad1fdbf7c438e99779e5fe40",
+ "files": 79,
+ "main": "paper/activities.tex",
+ "catalogMain": "paper/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "paper/main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 6038,
+  "tail": "exit 12, PDF found\n No file main.bbl.\nLatexmk: Missing bbl file 'main.bbl' in following:\n No file main.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nIndex style file svind.ist not found.\nUsage: makeindex [-ilqrcgLT] [-s sty] [-o ind] [-t log] [-p num] [idx0 idx1 ...]\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 186,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `svmult.cls' not found.",
+ "outcome": "both-fail"
+}

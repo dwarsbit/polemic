@@ -1,0 +1,34 @@
+{
+ "id": 47,
+ "source": "GitHub",
+ "name": "keurcien/manuscript",
+ "url": "https://github.com/keurcien/manuscript",
+ "type": "Thesis",
+ "version": "5b49ad85beb51a38b084751beff96fae69f47e72",
+ "files": 21,
+ "main": "index/template.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "index/template.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2719,
+  "tail": "exit 12, PDF found\nxdvipdfmx:warning: Unparsed material at end of special ignored.\n\nCurrent input buffer is -->rawpostscript % Reed College LaTeX Thesis Class 20...<--\n][2][3\nxdvipdfmx:warning: Object @page.1 already defined.\nxdvipdfmx:fatal: Image inclusion failed. Could not find file: figure/template.png\n\nNo output PDF file written."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 859,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 10,
+ "warnings": 12,
+ "firstError": "LaTeX Error: Missing \\begin{document}.",
+ "outcome": "both-fail"
+}

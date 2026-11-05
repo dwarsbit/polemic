@@ -1,0 +1,33 @@
+{
+ "id": 103,
+ "source": "GitHub",
+ "name": "SakuraPuare/SAM-YOLO_latex",
+ "url": "https://github.com/SakuraPuare/SAM-YOLO_latex",
+ "type": "Paper",
+ "version": "765fb6b47734331eaf2061d6742a581bebb12fb9",
+ "files": 26,
+ "main": "aic_template.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (inferred)",
+ "baseline": {
+  "main": "aic_template.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 6684
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4124,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 6,
+ "outcome": "both-ok"
+}

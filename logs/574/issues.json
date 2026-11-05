@@ -1,0 +1,178 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underbar  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underline  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 959,
+  "message": "LaTeX Warning: Float too large for page by 26.70612pt on input line 959",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1056,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\hbox' on input line 1056",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1056,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathsurround' on input line 1056",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1056,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\z@' on input line 1056",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1056,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\unskip' on input line 1056",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1056,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@@italiccorr' on input line 1056",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\setbox' on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\z@' on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\hbox' on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\dimen@' on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\wd' on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern -0.55736pt removed on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\copy' on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 24.88pt replaced by space on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 0.27867pt removed on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\raise' on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\ex@' on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\box' on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1179,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\delta' on input line 1179",
+  "detail": [],
+  "hint": null
+ }
+]

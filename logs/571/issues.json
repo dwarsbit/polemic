@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "main-stab-arxiv.tex",
+  "line": 529,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 529",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-stab-arxiv.tex",
+  "line": 566,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 566",
+  "detail": [],
+  "hint": null
+ }
+]

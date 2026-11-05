@@ -1,0 +1,180 @@
+[
+ {
+  "severity": "error",
+  "file": "index/template.tex",
+  "line": 117,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "index/template.tex",
+  "line": 162,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "index/template.tex",
+  "line": 165,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "index/template.tex",
+  "line": 186,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "index/template.tex",
+  "line": 202,
+  "message": "Package pdftex.def Error: File `figure/template.png' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "index/template.tex",
+  "line": 202,
+  "message": "Package pdftex.def Error: File `figure/logo-comue.png' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "index/template.tex",
+  "line": 222,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "index/template.tex",
+  "line": 222,
+  "message": "Package calc Error: `$' invalid at this point.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "index/template.tex",
+  "line": 222,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "index/template.tex",
+  "line": 224,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [
+   "l.224   }"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `ugathesis', but the document class provides `reedthesis'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package fixltx2e Warning: fixltx2e is not required with releases after 2015 All fixes are now in the LaTeX kernel. See the latexrelease package for details",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underbar  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underline  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "index/template.tex",
+  "line": 202,
+  "message": "LaTeX Warning: File `figure/template.png' not found on input line 202",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "index/template.tex",
+  "line": 202,
+  "message": "LaTeX Warning: File `figure/logo-comue.png' not found on input line 202",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "index/template.tex",
+  "line": 202,
+  "message": "LaTeX Font Warning: Font shape `T1/CM/m/n' undefined using `T1/cmr/m/n' instead on input line 202",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "index/template.tex",
+  "line": 202,
+  "message": "LaTeX Font Warning: Font shape `U/lasy/m/n' in size <18> not available size <17.28> substituted on input line 202",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "index/template.tex",
+  "line": 202,
+  "message": "LaTeX Font Warning: Font shape `U/lasy/m/n' in size <12.59995> not available size <12> substituted on input line 202",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "index/template.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 14.49998pt, for example: \\setlength{\\headheight}{14.49998pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-2.49998pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.72pt have occurred",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

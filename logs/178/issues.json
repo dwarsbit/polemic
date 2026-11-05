@@ -1,0 +1,58 @@
+[
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 17,
+  "message": "Package iexec Error: You must run TeX processor with --shell-escape option.",
+  "detail": [],
+  "hint": "Polemic compiles without shell escape, so packages that run other programs (minted, the TikZ externalization library) don't work. The listings package highlights code without it."
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 18,
+  "message": "Package iexec Error: You must run TeX processor with --shell-escape option.",
+  "detail": [],
+  "hint": "Polemic compiles without shell escape, so packages that run other programs (minted, the TikZ externalization library) don't work. The listings package highlights code without it."
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 20,
+  "message": "Package svg Error: File `cactus.svg' is missing.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 40,
+  "message": "Package pdftex.def Error: File `face-1024x1024.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 15,
+  "message": "Package microtype Warning: Unable to apply patch `footnote' on input line 15",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 40,
+  "message": "LaTeX Warning: File `face-1024x1024.jpg' not found on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 162,
+  "message": "Package lastpage Warning: Rerun to get the references right on input line 162",
+  "detail": [],
+  "hint": null
+ }
+]

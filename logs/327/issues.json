@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package pdfx Warning: Setting all color commands to rgb,",
+  "detail": [],
+  "hint": null
+ }
+]

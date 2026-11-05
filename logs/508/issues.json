@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "MNisse-Top_Max_Vol_Amoebas_20261102.tex",
+  "line": 657,
+  "message": "Package amsmath Warning: Bracket group [H_i\\cap H_j,H_i\\cap H_k;H_i\\cap H_{m'},H_i\\cap H_m] at formula start! It could be a misspelled positional argument. If it belongs to the formula add a \\relax in front to hide it on input line 657",
+  "detail": [],
+  "hint": null
+ }
+]

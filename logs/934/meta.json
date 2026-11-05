@@ -1,0 +1,9 @@
+{
+ "id": 934,
+ "source": "CTAN",
+ "name": "curve",
+ "url": "https://ctan.org/pkg/curve",
+ "type": "CV",
+ "outcome": "download-failed",
+ "error": "fetch failed"
+}

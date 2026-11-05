@@ -1,0 +1,32 @@
+{
+ "id": 155,
+ "source": "GitHub",
+ "name": "GeeLaw/ahbtr",
+ "url": "https://github.com/GeeLaw/ahbtr",
+ "type": "Paper",
+ "version": "4fc902165d2e699e643d3b402d378a487e0d9a17",
+ "files": 81,
+ "main": "paper/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "paper/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 13700
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 8366,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 8,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "warning",
+  "file": "2017/2017-08-24-go-hep-acat/paper/go-hep-acat-2017.tex",
+  "line": 11,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <18.06749> not available size <17.28> substituted on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2017/2017-08-24-go-hep-acat/paper/go-hep-acat-2017.tex",
+  "line": 11,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <18.06749> not available size <17.28> substituted on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2017/2017-08-24-go-hep-acat/paper/go-hep-acat-2017.tex",
+  "line": 11,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <18.06749> not available size <17.28> substituted on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2017/2017-08-24-go-hep-acat/paper/go-hep-acat-2017.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2017/2017-08-24-go-hep-acat/paper/go-hep-acat-2017.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.78749pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

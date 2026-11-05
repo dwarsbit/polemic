@@ -1,0 +1,32 @@
+{
+ "id": 335,
+ "source": "GitHub",
+ "name": "gsilano/EuropeCV",
+ "url": "https://github.com/gsilano/EuropeCV",
+ "type": "CV",
+ "version": "e0230b8df26d01b2a0502de1f1b7cc683f506822",
+ "files": 81,
+ "main": "europecv.tex",
+ "catalogMain": "templates/cv_template_academic_en.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "templates/cv_template_academic_en.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1400
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1225,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,33 @@
+{
+ "id": 77,
+ "source": "GitHub",
+ "name": "kenohori/thesis",
+ "url": "https://github.com/kenohori/thesis",
+ "type": "Thesis",
+ "version": "31c026184ba535a491d6a3981c29dd897cba84b5",
+ "files": 312,
+ "main": "propositions.tex",
+ "catalogMain": "thesis.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 137,
+  "timedOut": true,
+  "durationMs": 240227,
+  "tail": "exit 137, PDF not found\n\nkpathsea: Running mktextfm Feijoa-Display\n/usr/local/texlive/2026/texmf-dist/web2c/mktexnam: Could not map source abbreviation F for Feijoa-Display.\n/usr/local/texlive/2026/texmf-dist/web2c/mktexnam: Need to update /usr/local/texlive/2026/texmf-dist/fonts/map/fontname/special.map?\nmktextfm: Running mf-nowin -progname=mf \\mode:=ljfour; mag:=1; ; nonstopmode; input Feijoa-Display\nThis is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)\n\nkpathsea: Running mktexmf Feijoa-Display"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 114332,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 12,
+ "warnings": 1,
+ "firstError": "Package fontspec Error: The font \"Feijoa\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

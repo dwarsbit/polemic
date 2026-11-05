@@ -1,0 +1,31 @@
+{
+ "id": 105,
+ "source": "GitHub",
+ "name": "emroch/BeaconStuffing",
+ "url": "https://github.com/emroch/BeaconStuffing",
+ "type": "Paper",
+ "version": "9da79789b56d6c4161d08230a4391ee6f8504a7e",
+ "files": 12,
+ "main": "paper/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "paper/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1945
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1682,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

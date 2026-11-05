@@ -1,0 +1,32 @@
+{
+ "id": 332,
+ "source": "GitHub",
+ "name": "thehale/expressive-resume",
+ "url": "https://github.com/thehale/expressive-resume",
+ "type": "CV",
+ "version": "ab38272f5f4fe465c1e8615248d3992ad4e306ca",
+ "files": 27,
+ "main": "src/coverletter.tex",
+ "catalogMain": "src/resume.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "src/resume.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1462
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1219,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-ok"
+}

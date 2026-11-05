@@ -1,0 +1,31 @@
+{
+ "id": 479,
+ "source": "GitHub",
+ "name": "ayaka-notes/201-english",
+ "url": "https://github.com/ayaka-notes/201-english",
+ "type": "Exam",
+ "version": "fdc86c6163275f873b8b007afb9ca3a25101357d",
+ "files": 81,
+ "main": "201.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "201.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3236,
+  "tail": "exit 12, PDF not found\nsh: 1: inkscape: not found\n\npdflatex: Not writing to 1/.aux (openout_any = p; no extended check).\nLatexmk: Missing input file '1/.aux' message in .log file:\n  No file 1/.aux.\nLatexmk: There were problems writing to '.aux' in directory '1/'.\n      !! This is not a safe file or directory to write to.\nFailure to make '201.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 866,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 8,
+ "warnings": 0,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

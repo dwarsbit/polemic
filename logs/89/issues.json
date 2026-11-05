@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package fixltx2e Warning: fixltx2e is not required with releases after 2015 All fixes are now in the LaTeX kernel. See the latexrelease package for details",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/latex-base/dissertation.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU/ppl/b/n' undefined using `TU/lmr/m/n' instead on input line 2",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Eigen1971' on page v undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Knuth1968' on page v undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/latex-base/dissertation.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/latex-base/dissertation.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/latex-base/dissertation.tex",
+  "line": null,
+  "message": "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/latex-base/dissertation.tex",
+  "line": null,
+  "message": "Package rerunfilecheck Warning: File `dissertation.out' has changed. Rerun to get outlines right or use package `bookmark'",
+  "detail": [],
+  "hint": null
+ }
+]

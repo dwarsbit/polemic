@@ -1,0 +1,31 @@
+{
+ "id": 142,
+ "source": "GitHub",
+ "name": "zold-io/papers",
+ "url": "https://github.com/zold-io/papers",
+ "type": "Paper",
+ "version": "d21e4a91262d7e1de70dd7b6e44ebff490755d9a",
+ "files": 70,
+ "main": "tex/arc-deck.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "tex/arc-deck.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2347
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2073,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,1568 @@
+[
+ {
+  "severity": "error",
+  "file": "cheat-sheet.cls",
+  "line": 251,
+  "message": "LaTeX Error: Command \\textprod already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cheat-sheet.cls",
+  "line": 254,
+  "message": "LaTeX Error: Command \\textsum already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 376,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 376,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 445,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 445,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 450,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 450,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 456,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 456,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 479,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 479,
+  "message": "Double subscript.",
+  "detail": [
+   "l.479 ...f) \\coloneqq \\max_{1 \\leq i \\leq p} \\sum_",
+   "                                                  {j \\in f^{-1}(i)} l_j. \\]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 498,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 498,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 499,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 499,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 514,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 514,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 674,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 674,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 685,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 685,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 688,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 688,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 688,
+  "message": "Double subscript.",
+  "detail": [
+   "l.688 ...(x) \\leq \\sum_{S \\in \\mathcal{C}^*} \\sum_",
+   "                                                  {x \\in S} w(x) \\leq \\size{..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 789,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 789,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1022,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1022,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1023,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1023,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1043,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1043,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1049,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1049,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1050,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1050,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1079,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1079,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1080,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1080,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1081,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1081,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1082,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1082,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1083,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1083,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1087,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1087,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1088,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1088,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1712,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1712,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1732,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1732,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1734,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1734,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1741,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1741,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1809,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1809,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1811,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1811,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1819,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1819,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1821,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1821,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1826,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1826,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1836,
+  "message": "LaTeX Error: Command \\textsum unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alg-fuer-np.tex",
+  "line": 1836,
+  "message": "Limit controls must follow a math operator.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 84,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 84",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 84,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 84",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 151,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 151",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 151,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 151",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 240,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 240",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 240,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 240",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 316,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 316",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 316,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 316",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 363,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 363,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathop' on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 363,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathcode' on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 363,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathchardef' on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 363,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\std@minus' on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 363,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 363,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 1.8887pt removed on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 363,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathgroup' on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 363,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\symoperators' on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 363,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@ifnextchar' on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alg-fuer-np.tex",
+  "line": 376,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 376",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 445,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 445",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 450,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 450",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 456,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 456",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 479,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 479",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 498,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 498",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 499,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 499",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 514,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 514",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 586,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 586",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 586,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathop' on input line 586",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 586,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathcode' on input line 586",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 586,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathchardef' on input line 586",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 586,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\std@minus' on input line 586",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 586,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 586",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 586,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 1.8887pt removed on input line 586",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 586,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathgroup' on input line 586",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 586,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\symoperators' on input line 586",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 586,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@ifnextchar' on input line 586",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 591,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 591",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 591,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 591",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 617,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 617",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 617,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 617",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 641,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 641",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 641,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 641",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 663,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 663",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 663,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 663",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 674,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 674",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 685,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 685",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 688,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 688",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 704,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 704",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 704,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 704",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 751,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 751",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 751,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 751",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 751,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 751",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 751,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\Delta' on input line 751",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 789,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 789",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 813,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 813",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 813,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 813",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 852,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 852",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 852,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 852",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 895,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 895",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 895,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 895",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 943,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 943",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 943,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 943",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1008,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1008",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1008,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1008",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1022,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1022",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1023,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1023",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1034,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1034",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1034,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1034",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1043,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1043",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1049,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1049",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1050,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1050",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1059,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1059",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1059,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1059",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1079,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1079",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1080,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1080",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1081,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1081",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1082,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1082",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1083,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1083",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1087,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1087",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1088,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1088",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1093,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1093",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1093,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1093",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1129,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1129",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1129,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1129",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1136,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1136",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1136,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1136",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1167,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1167",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1167,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1167",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1241,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1241",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1241,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1241",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1343,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1343",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1343,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1343",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1433,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1433",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1433,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1433",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1514,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1514",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1514,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1514",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1525,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1525",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1525,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1525",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1565,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1565",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1565,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1565",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1648,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1648",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1648,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1648",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1677,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1677",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1677,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1677",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1701,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1701",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1701,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1701",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1712,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1712",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1723,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1723",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1723,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1723",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1732,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1732",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1734,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1734",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1741,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1741",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1778,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1778",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1778,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1778",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1809,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1809",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1811,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1811",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1819,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1819",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1821,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1821",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1826,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1826",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1836,
+  "message": "LaTeX Warning: Command \\textsum invalid in math mode on input line 1836",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1846,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1846",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1846,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1846",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1929,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 1929",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 1929,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 4.25006pt replaced by space on input line 1929",
+  "detail": [],
+  "hint": null
+ }
+]

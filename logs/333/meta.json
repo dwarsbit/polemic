@@ -1,0 +1,32 @@
+{
+ "id": 333,
+ "source": "GitHub",
+ "name": "arepina/CV-Russian",
+ "url": "https://github.com/arepina/CV-Russian",
+ "type": "CV",
+ "version": "61770c607f68059db06e7d338b6b49ed28ac3c05",
+ "files": 29,
+ "main": "resume_cv.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "resume_cv.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2459,
+  "tail": "exit 12, PDF found\n   actual output file 'resume_cv.pdf',\n   and the expected output 'resume_cv.xdv'.\nLatexmk: ===For rule 'xelatex', the extensions differ between the\n   actual output file 'resume_cv.xdv',\n   and the expected output 'resume_cv.pdf'.\nresume_cv.xdv -> resume_cv.pdf\n[1][2]\n46077 bytes written"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1037,
+  "outputs": [
+   "synctex",
+   "log"
+  ],
+  "tail": "      Refer to 'build/resume_cv.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-fail"
+}

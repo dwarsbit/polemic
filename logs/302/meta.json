@@ -1,0 +1,31 @@
+{
+ "id": 302,
+ "source": "GitHub",
+ "name": "verri/dsp-book",
+ "url": "https://github.com/verri/dsp-book",
+ "type": "Book",
+ "version": "5e232d0e6f8aad8e2f1c4ee56b131788ef664aa0",
+ "files": 58,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 82216
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 335,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/main.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "polemic-only-fail"
+}

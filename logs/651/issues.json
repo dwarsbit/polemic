@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `xypic', but the package provides `xy'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "1206.0076.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were multiply-defined labels",
+  "detail": [],
+  "hint": null
+ }
+]

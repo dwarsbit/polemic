@@ -1,0 +1,31 @@
+{
+ "id": 163,
+ "source": "GitHub",
+ "name": "apmalinsky/LaTeX-Projects",
+ "url": "https://github.com/apmalinsky/LaTeX-Projects",
+ "type": "Paper",
+ "version": "02d347ae55bc0ccbf0e19e7f09608415be438b4a",
+ "files": 48,
+ "main": "A-Survey-of-Graph-Mining/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "A-Survey-of-Graph-Mining/main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 525,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main.log' and/or above output for details\n\nLatexmk: Missing input file 'ieeeconf.cls' message in .log file:\n  ! LaTeX Error: File `ieeeconf.cls' not found.\nFailure to make 'main.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 199,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `ieeeconf.cls' not found.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,10 @@
+{
+ "id": 900,
+ "source": "CTAN",
+ "name": "njuthesis",
+ "url": "https://ctan.org/pkg/njuthesis",
+ "type": "Thesis",
+ "version": "1.5.1",
+ "files": 9,
+ "outcome": "no-tex"
+}

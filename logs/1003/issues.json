@@ -1,0 +1,90 @@
+[
+ {
+  "severity": "error",
+  "file": "contrib/gyom.tex",
+  "line": 5,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contrib/gyom.tex",
+  "line": 7,
+  "message": "LaTeX Error: Unknown graphics extension: .ps.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contrib/gyom.tex",
+  "line": 15,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `a4paper' is no longer used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contrib/gyom.tex",
+  "line": 5,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <22> not available size <20.74> substituted on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contrib/gyom.tex",
+  "line": 5,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <15.39993> not available size <14.4> substituted on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contrib/gyom.tex",
+  "line": 5,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <22> not available size <20.74> substituted on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contrib/gyom.tex",
+  "line": 5,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <15.39993> not available size <14.4> substituted on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contrib/gyom.tex",
+  "line": 5,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <22> not available size <20.74> substituted on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contrib/gyom.tex",
+  "line": 5,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <15.39993> not available size <14.4> substituted on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contrib/gyom.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 1.26pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

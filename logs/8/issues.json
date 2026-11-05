@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "error",
+  "file": "snu-cse-bsc-thesis.cls",
+  "line": 38,
+  "message": "Class snu-cse-bsc-thesis Error: This class only supports XeLaTeX and LuaLaTeX..",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example-en.tex",
+  "line": 29,
+  "message": "Improper alphabetic constant.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example-en.tex",
+  "line": 29,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"B4.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example-en.tex",
+  "line": 29,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"AC.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example-en.tex",
+  "line": 29,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"B8.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example-en.tex",
+  "line": 29,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <24> not available size <24.88> substituted on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example-en.tex",
+  "line": 29,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <18> not available size <17.28> substituted on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example-en.tex",
+  "line": 29,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <20> not available size <20.74> substituted on input line 29",
+  "detail": [],
+  "hint": null
+ }
+]

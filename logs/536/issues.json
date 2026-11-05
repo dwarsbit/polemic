@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 167,
+  "message": "Package longtable Warning: Column widths have changed in table I on input line 167",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 235,
+  "message": "LaTeX Warning: Command \\textendash invalid in math mode on input line 235",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package longtable Warning: Table widths have changed. Rerun LaTeX",
+  "detail": [],
+  "hint": null
+ }
+]

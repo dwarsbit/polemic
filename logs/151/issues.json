@@ -1,0 +1,58 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package eufrak Warning: The eufrak package is redundant if the amsfonts package is used on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper/main_conference.tex",
+  "line": 111,
+  "message": "LaTeX Font Warning: Font shape `OT1/fvm/m/n' undefined using `OT1/cmr/m/n' instead on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper/main_conference.tex",
+  "line": 117,
+  "message": "LaTeX Font Warning: Font shape `OT1/fvm/m/it' undefined using `OT1/fvm/m/n' instead on input line 117",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper/main_conference.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper/main_conference.tex",
+  "line": 713,
+  "message": "LaTeX Font Warning: Font shape `OT1/fvm/b/n' undefined using `OT1/fvm/m/n' instead on input line 713",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper/main_conference.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 10,
+ "source": "GitHub",
+ "name": "Haixing-Hu/nju-thesis",
+ "url": "https://github.com/Haixing-Hu/nju-thesis",
+ "type": "Thesis",
+ "version": "04387c17e758a89dbb140ca0c34fa72696954ac3",
+ "files": 43,
+ "main": "longtitle-sample.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "longtitle-sample.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 124154,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 分 (\"5206) in font nullfont!\n  Missing character: There is no 类 (\"7C7B) in font nullfont!\n  Missing character: There is no 号 (\"53F7) in font nullfont!\n  Missing character: There is no 0 (\"30) in font nullfont!\n  Missing character: There is no 1 (\"31) in font nullfont!\n  Missing character: There is no 7 (\"37) in font nullfont!\n  Missing character: There is no 5 (\"35) in font nullfont!\n And 1118 more --- see log file 'longtitle-sample.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 199,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 1,
+ "firstError": "Emergency stop.",
+ "outcome": "both-fail"
+}

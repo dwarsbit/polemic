@@ -1,0 +1,32 @@
+{
+ "id": 189,
+ "source": "GitHub",
+ "name": "GuangLun2000/FZU-latex-template",
+ "url": "https://github.com/GuangLun2000/FZU-latex-template",
+ "type": "Slides",
+ "version": "6b64be867de5f2f242779a487c550d5fed09eeb7",
+ "files": 54,
+ "main": "FZU-Beamer-Theme-230130/slide.tex",
+ "catalogMain": "FZU-Cover-Letter-230404/main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "FZU-Cover-Letter-230404/main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2317
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2095,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 2,
+ "firstError": "Undefined control sequence.",
+ "outcome": "polemic-only-fail"
+}

@@ -1,0 +1,260 @@
+[
+ {
+  "severity": "error",
+  "file": "loom.cls",
+  "line": 43,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "loom.cls",
+  "line": 43,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "loom.cls",
+  "line": 44,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.44 \\newfontfamily",
+   "                   \\strandfont{Avenir Next}      % the informal \"intuition v..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "loom.cls",
+  "line": 45,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.45 \\newfontfamily",
+   "                   \\labelfont{Avenir Next Condensed}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "loom.cls",
+  "line": 46,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.46 \\setmonofont",
+   "                 {Menlo}[Scale=0.86]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "loom.cls",
+  "line": 51,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "loom.cls",
+  "line": 51,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "loom.cls",
+  "line": 52,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.52   \\setCJKsansfont",
+   "                      {PingFang SC}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "loom.cls",
+  "line": 53,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.53   \\setCJKmonofont",
+   "                      {PingFang SC}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "loom.cls",
+  "line": 54,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.54   \\xeCJKsetup",
+   "                  {CJKmath=true}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 21,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 23,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 24,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 26,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 31,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 32,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 36,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 46,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 48,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 53,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 57,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 61,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 64,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 74,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 78,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template/main.tex",
+  "line": 79,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package mathtools Warning: For best results, please load mathtools *before* unicode-math on input line 127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template/main.tex",
+  "line": 21,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <32> not available size <24.88> substituted on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template/main.tex",
+  "line": 23,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <15> not available size <14.4> substituted on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template/main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 7.12pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 130,
+ "source": "GitHub",
+ "name": "sckott/textmine",
+ "url": "https://github.com/sckott/textmine",
+ "type": "Paper",
+ "version": "e6e8a1325e27ea9a3b9ec61eb35acb1facd19938",
+ "files": 20,
+ "main": "manuscript.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "manuscript.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2715,
+  "tail": "exit 12, PDF found\nmanuscript.xdv -> manuscript.pdf\n[1][2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23]\n139044 bytes written\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Hyper reference `c1' on page 1 undefined on input line 142\n  Reference `c1' on page 1 undefined on input line 142\n  Hyper reference `cstar' on page 1 undefined on input line 142\n  Reference `cstar' on page 1 undefined on input line 142"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 950,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 8,
+ "firstError": "Missing number, treated as zero.",
+ "outcome": "both-fail"
+}

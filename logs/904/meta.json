@@ -1,0 +1,31 @@
+{
+ "id": 904,
+ "source": "CTAN",
+ "name": "sapthesis",
+ "url": "https://ctan.org/pkg/sapthesis",
+ "type": "Thesis",
+ "version": "5.1",
+ "files": 7,
+ "main": "sapthesis-doc.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "sapthesis-doc.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2033
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1754,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

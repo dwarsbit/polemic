@@ -1,0 +1,1898 @@
+[
+ {
+  "severity": "warning",
+  "file": "sections/00-cover.tex",
+  "line": 30,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <5.5> not available size <5> substituted on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/00-cover.tex",
+  "line": 30,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <5.5> not available size <5> substituted on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/00-cover.tex",
+  "line": 30,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <5.5> not available size <5> substituted on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/00-cover.tex",
+  "line": 30,
+  "message": "LaTeX Font Warning: Font shape `U/wasy/m/n' in size <5.5> not available size <5> substituted on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/00-map.tex",
+  "line": 10,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/01-introduction.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `licklider1960symbiosis' on page 5 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/01-introduction.tex",
+  "line": 9,
+  "message": "Package natbib Warning: Citation `openai2023gpt4' on page 5 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/01-introduction.tex",
+  "line": 9,
+  "message": "Package natbib Warning: Citation `yang2024sweagent' on page 5 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/01-introduction.tex",
+  "line": 9,
+  "message": "Package natbib Warning: Citation `anthropic2024computeruse' on page 5 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/01-introduction.tex",
+  "line": 32,
+  "message": "Package natbib Warning: Citation `geminirobotics2025' on page 5 undefined on input line 32",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/01-introduction.tex",
+  "line": 32,
+  "message": "Package natbib Warning: Citation `nvidia2025cosmos' on page 5 undefined on input line 32",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/01-introduction.tex",
+  "line": 81,
+  "message": "Package natbib Warning: Citation `techcrunch2025cluely' on page 6 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/01-introduction.tex",
+  "line": 81,
+  "message": "Package natbib Warning: Citation `bloomberg2025gaokao' on page 6 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/01-introduction.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `pew2022enhancement' on page 6 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/01-introduction.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `faber2016unacceptable' on page 6 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 18,
+  "message": "Package natbib Warning: Citation `meta2026muse' on page 8 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 18,
+  "message": "Package natbib Warning: Citation `gigazine2026grokbot' on page 8 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 18,
+  "message": "Package natbib Warning: Citation `openai2026dots' on page 8 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 51,
+  "message": "Package natbib Warning: Citation `licklider1960symbiosis' on page 8 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 51,
+  "message": "Package natbib Warning: Citation `engelbart1962augmenting' on page 8 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 51,
+  "message": "Package natbib Warning: Citation `clark1998extended' on page 8 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 51,
+  "message": "Package natbib Warning: Citation `weiser1991computer' on page 8 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 51,
+  "message": "Package natbib Warning: Citation `starner1997augmented' on page 8 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 51,
+  "message": "Package natbib Warning: Citation `mann1997wearable' on page 8 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 51,
+  "message": "Package natbib Warning: Citation `bush1945think' on page 8 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 51,
+  "message": "Package natbib Warning: Citation `gemmell2006mylifebits' on page 8 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 51,
+  "message": "Package natbib Warning: Citation `hodges2006sensecam' on page 8 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `grauman2022ego4d' on page 8 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `yang2025egolife' on page 8 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `horvitz1999mixed' on page 8 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `amershi2019guidelines' on page 8 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `nahumshani2018jitai' on page 8 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `collins2024machines' on page 8 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/02-where-we-stand.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `hua2025context' on page 8 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `bush1945think' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `gemmell2006mylifebits' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `hodges2006sensecam' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `licklider1960symbiosis' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `engelbart1962augmenting' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `weiser1991computer' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `starner1997augmented' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `mann1997wearable' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `clark1998extended' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `horvitz1999mixed' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `amershi2019guidelines' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `nahumshani2018jitai' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `grauman2022ego4d' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `engel2023project' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `yang2025egolife' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `collins2024machines' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `hua2025context' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `meta2026muse' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab02_lineage.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `openai2026dots' on page 9 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 19,
+  "message": "Package natbib Warning: Citation `vaswani2017attention' on page 10 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 19,
+  "message": "Package natbib Warning: Citation `brown2020language' on page 10 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 19,
+  "message": "Package natbib Warning: Citation `kaplan2020scaling' on page 10 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 19,
+  "message": "Package natbib Warning: Citation `hoffmann2022training' on page 10 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 20,
+  "message": "Package natbib Warning: Citation `ouyang2022training' on page 10 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 20,
+  "message": "Package natbib Warning: Citation `openai2023gpt4' on page 10 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 20,
+  "message": "Package natbib Warning: Citation `touvron2023llama2' on page 10 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 21,
+  "message": "Package natbib Warning: Citation `wei2022chain' on page 10 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 21,
+  "message": "Package natbib Warning: Citation `openai2024o1systemcard' on page 10 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 21,
+  "message": "Package natbib Warning: Citation `guo2025deepseekr1' on page 10 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 23,
+  "message": "Package natbib Warning: Citation `radford2021learning' on page 10 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 23,
+  "message": "Package natbib Warning: Citation `alayrac2022flamingo' on page 10 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 23,
+  "message": "Package natbib Warning: Citation `liu2023visual' on page 10 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 23,
+  "message": "Package natbib Warning: Citation `openai2024gpt4osystemcard' on page 10 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 23,
+  "message": "Package natbib Warning: Citation `geminiteam2024gemini15' on page 10 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 23,
+  "message": "Package natbib Warning: Citation `wu2024nextgpt' on page 10 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 23,
+  "message": "Package natbib Warning: Citation `xu2025qwen25omni' on page 10 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 23,
+  "message": "Package natbib Warning: Citation `defossez2024moshi' on page 10 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 34,
+  "message": "Package natbib Warning: Citation `yao2023react' on page 10 undefined on input line 34",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 34,
+  "message": "Package natbib Warning: Citation `schick2023toolformer' on page 10 undefined on input line 34",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 34,
+  "message": "Package natbib Warning: Citation `shinn2023reflexion' on page 10 undefined on input line 34",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 34,
+  "message": "Package natbib Warning: Citation `wang2024voyager' on page 10 undefined on input line 34",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 35,
+  "message": "Package natbib Warning: Citation `park2023generative' on page 10 undefined on input line 35",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 35,
+  "message": "Package natbib Warning: Citation `sumers2024coala' on page 10 undefined on input line 35",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 36,
+  "message": "Package natbib Warning: Citation `schluntz2024building' on page 10 undefined on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 36,
+  "message": "Package natbib Warning: Citation `yang2024sweagent' on page 10 undefined on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 36,
+  "message": "Package natbib Warning: Citation `anthropic2024computeruse' on page 10 undefined on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 36,
+  "message": "Package natbib Warning: Citation `openai2025operator' on page 10 undefined on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 36,
+  "message": "Package natbib Warning: Citation `anthropic2024mcp' on page 10 undefined on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 36,
+  "message": "Package natbib Warning: Citation `anthropic2025claudecode' on page 10 undefined on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 36,
+  "message": "Package natbib Warning: Citation `openai2025codexcli' on page 10 undefined on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 37,
+  "message": "Package natbib Warning: Citation `meta2026muse' on page 10 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 37,
+  "message": "Package natbib Warning: Citation `meta2026musegadgetsdk' on page 10 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 37,
+  "message": "Package natbib Warning: Citation `openai2026dots' on page 10 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 38,
+  "message": "Package natbib Warning: Citation `zhou2024webarena' on page 10 undefined on input line 38",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 38,
+  "message": "Package natbib Warning: Citation `xie2024osworld' on page 10 undefined on input line 38",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 38,
+  "message": "Package natbib Warning: Citation `jimenez2024swebench' on page 10 undefined on input line 38",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 38,
+  "message": "Package natbib Warning: Citation `yao2025taubench' on page 10 undefined on input line 38",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 38,
+  "message": "Package natbib Warning: Citation `mialon2024gaia' on page 10 undefined on input line 38",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `lewis2020retrieval' on page 11 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `packer2023memgpt' on page 11 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `park2023generative' on page 11 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `zhong2024memorybank' on page 11 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `xu2025amem' on page 11 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `chhikara2025mem0' on page 11 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `lin2025sleeptime' on page 11 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 50,
+  "message": "Package natbib Warning: Citation `maharana2024locomo' on page 11 undefined on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 50,
+  "message": "Package natbib Warning: Citation `wu2025longmemeval' on page 11 undefined on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 51,
+  "message": "Package natbib Warning: Citation `hua2025context' on page 11 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `salemi2024lamp' on page 11 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `hu2022lora' on page 11 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `sun2020test' on page 11 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `sun2025learning' on page 11 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `behrouz2025titans' on page 11 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `ha2018world' on page 11 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `hafner2020dream' on page 11 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `hafner2025mastering' on page 11 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 60,
+  "message": "Package natbib Warning: Citation `lecun2022path' on page 11 undefined on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 60,
+  "message": "Package natbib Warning: Citation `assran2025vjepa2' on page 11 undefined on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 61,
+  "message": "Package natbib Warning: Citation `bruce2024genie' on page 11 undefined on input line 61",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 61,
+  "message": "Package natbib Warning: Citation `parkerholder2025genie3' on page 11 undefined on input line 61",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 61,
+  "message": "Package natbib Warning: Citation `brooks2024video' on page 11 undefined on input line 61",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 61,
+  "message": "Package natbib Warning: Citation `nvidia2025cosmos' on page 11 undefined on input line 61",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `grauman2022ego4d' on page 11 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `engel2023project' on page 11 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `meta2025ariagen2' on page 11 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `yang2025egolife' on page 11 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 64,
+  "message": "Package natbib Warning: Citation `kosinski2024evaluating' on page 11 undefined on input line 64",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 64,
+  "message": "Package natbib Warning: Citation `ullman2023large' on page 11 undefined on input line 64",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 64,
+  "message": "Package natbib Warning: Citation `strachan2024testing' on page 11 undefined on input line 64",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 65,
+  "message": "Package natbib Warning: Citation `park2024simulation' on page 11 undefined on input line 65",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `fei2026mental' on page 11 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 73,
+  "message": "Package natbib Warning: Citation `meta2023raybanmeta' on page 12 undefined on input line 73",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 73,
+  "message": "Package natbib Warning: Citation `meta2024orion' on page 12 undefined on input line 73",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 73,
+  "message": "Package natbib Warning: Citation `meta2025raybandisplay' on page 12 undefined on input line 73",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 73,
+  "message": "Package natbib Warning: Citation `evenrealities2024g1' on page 12 undefined on input line 73",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 73,
+  "message": "Package natbib Warning: Citation `engel2023project' on page 12 undefined on input line 73",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 74,
+  "message": "Package natbib Warning: Citation `mehta2024limitless' on page 12 undefined on input line 74",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 74,
+  "message": "Package natbib Warning: Citation `silberling2025bee' on page 12 undefined on input line 74",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 74,
+  "message": "Package natbib Warning: Citation `plaud2024notepin' on page 12 undefined on input line 74",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 74,
+  "message": "Package natbib Warning: Citation `kaifosh2025generic' on page 12 undefined on input line 74",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `kapur2018alterego' on page 12 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `levy2025brain' on page 12 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `willett2023speech' on page 12 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `card2024speech' on page 12 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 77,
+  "message": "Package natbib Warning: Citation `gunter2024apple' on page 12 undefined on input line 77",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/03-technical-foundations.tex",
+  "line": 78,
+  "message": "Package natbib Warning: Citation `zeff2025humane' on page 12 undefined on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/04-conceptual-foundations.tex",
+  "line": 36,
+  "message": "Package natbib Warning: Citation `clark1998extended' on page 13 undefined on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/05-sensing-interacting.tex",
+  "line": 20,
+  "message": "Package natbib Warning: Citation `kaifosh2025generic' on page 17 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/05-sensing-interacting.tex",
+  "line": 20,
+  "message": "Package natbib Warning: Citation `kaongoen2023ear' on page 17 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/05-sensing-interacting.tex",
+  "line": 20,
+  "message": "Package natbib Warning: Citation `willett2023speech' on page 17 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/05-sensing-interacting.tex",
+  "line": 20,
+  "message": "Package natbib Warning: Citation `card2024speech' on page 17 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/05-sensing-interacting.tex",
+  "line": 57,
+  "message": "Package natbib Warning: Citation `kapur2018alterego' on page 17 undefined on input line 57",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/05-sensing-interacting.tex",
+  "line": 78,
+  "message": "Package natbib Warning: Citation `zeff2025humane' on page 18 undefined on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/06-context-knowledge.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `hua2025context' on page 20 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/06-context-knowledge.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `lin2025sleeptime' on page 20 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/06-context-knowledge.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `xu2025amem' on page 20 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/06-context-knowledge.tex",
+  "line": 64,
+  "message": "Package natbib Warning: Citation `gemmell2006mylifebits' on page 21 undefined on input line 64",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/07-understanding.tex",
+  "line": 13,
+  "message": "Package natbib Warning: Citation `fei2026mental' on page 23 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/07-understanding.tex",
+  "line": 23,
+  "message": "Package natbib Warning: Citation `park2024simulation' on page 23 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/07-understanding.tex",
+  "line": 42,
+  "message": "Package natbib Warning: Citation `hong2000multicultural' on page 23 undefined on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/07-understanding.tex",
+  "line": 42,
+  "message": "Package natbib Warning: Citation `ramirezesparza2006bilinguals' on page 23 undefined on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/07-understanding.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `park2024simulation' on page 25 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/07-understanding.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `fei2026mental' on page 25 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/07-understanding.tex",
+  "line": 106,
+  "message": "Package natbib Warning: Citation `clark1991grounding' on page 26 undefined on input line 106",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/07-understanding.tex",
+  "line": 108,
+  "message": "Package natbib Warning: Citation `collins2024machines' on page 26 undefined on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/08-living-alongside.tex",
+  "line": 8,
+  "message": "Package natbib Warning: Citation `defossez2024moshi' on page 26 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/08-living-alongside.tex",
+  "line": 11,
+  "message": "Package natbib Warning: Citation `licklider1960symbiosis' on page 26 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/08-living-alongside.tex",
+  "line": 54,
+  "message": "Package natbib Warning: Citation `nahumshani2018jitai' on page 27 undefined on input line 54",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/08-living-alongside.tex",
+  "line": 55,
+  "message": "Package natbib Warning: Citation `iqbal2007disruption' on page 27 undefined on input line 55",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/08-living-alongside.tex",
+  "line": 55,
+  "message": "Package natbib Warning: Citation `horvitz1999mixed' on page 27 undefined on input line 55",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/08-living-alongside.tex",
+  "line": 65,
+  "message": "Package natbib Warning: Citation `bucinca2021trust' on page 27 undefined on input line 65",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `xie2024osworld' on page 29 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `zhou2024webarena' on page 29 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `yao2025taubench' on page 29 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 51,
+  "message": "Package natbib Warning: Citation `reicherts2025think' on page 29 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `risko2016offloading' on page 30 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 97,
+  "message": "Package natbib Warning: Citation `fitzpatrick2017woebot' on page 31 undefined on input line 97",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 97,
+  "message": "Package natbib Warning: Citation `heinz2025therabot' on page 31 undefined on input line 97",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 101,
+  "message": "Package natbib Warning: Citation `nahumshani2018jitai' on page 31 undefined on input line 101",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 103,
+  "message": "Package natbib Warning: Citation `maples2024loneliness' on page 31 undefined on input line 103",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 103,
+  "message": "Package natbib Warning: Citation `fang2025psychosocial' on page 31 undefined on input line 103",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 118,
+  "message": "Package natbib Warning: Citation `kosinski2024evaluating' on page 31 undefined on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 118,
+  "message": "Package natbib Warning: Citation `ullman2023large' on page 31 undefined on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 118,
+  "message": "Package natbib Warning: Citation `strachan2024testing' on page 31 undefined on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 130,
+  "message": "Package natbib Warning: Citation `ramirezesparza2006bilinguals' on page 31 undefined on input line 130",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09-ladder.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `berry2007sensecam' on page 31 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/10-growing.tex",
+  "line": 37,
+  "message": "Package natbib Warning: Citation `perdomo2020performative' on page 33 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/10-growing.tex",
+  "line": 47,
+  "message": "Package natbib Warning: Citation `kaifosh2025generic' on page 34 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/10-growing.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `sun2020test' on page 34 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/10-growing.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `sun2025learning' on page 34 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/10-growing.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `behrouz2025titans' on page 34 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/10-growing.tex",
+  "line": 65,
+  "message": "Package natbib Warning: Citation `wang2024voyager' on page 35 undefined on input line 65",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/10-growing.tex",
+  "line": 90,
+  "message": "Package natbib Warning: Citation `bastani2025guardrails' on page 35 undefined on input line 90",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/10-growing.tex",
+  "line": 90,
+  "message": "Package natbib Warning: Citation `shen2026skill' on page 35 undefined on input line 90",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/10-growing.tex",
+  "line": 91,
+  "message": "Package natbib Warning: Citation `bainbridge1983ironies' on page 35 undefined on input line 91",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/12-trust.tex",
+  "line": 55,
+  "message": "Package natbib Warning: Citation `yuste2017four' on page 38 undefined on input line 55",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/12-trust.tex",
+  "line": 64,
+  "message": "Package natbib Warning: Citation `calpenal632' on page 38 undefined on input line 64",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/12-trust.tex",
+  "line": 64,
+  "message": "Package natbib Warning: Citation `bipa2008' on page 38 undefined on input line 64",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/12-trust.tex",
+  "line": 64,
+  "message": "Package natbib Warning: Citation `gdpr2016' on page 38 undefined on input line 64",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/12-trust.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `nissenbaum2004contextual' on page 38 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/12-trust.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `denning2014situ' on page 38 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/13-whom-it-serves.tex",
+  "line": 45,
+  "message": "Package natbib Warning: Citation `bloom19842sigma' on page 40 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/13-whom-it-serves.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `berry2007sensecam' on page 41 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/13-whom-it-serves.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `bemyeyes2023bemyai' on page 41 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/13-whom-it-serves.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `microsoft2017seeingai' on page 41 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/13-whom-it-serves.tex",
+  "line": 71,
+  "message": "Package natbib Warning: Citation `heinz2025therabot' on page 42 undefined on input line 71",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 15,
+  "message": "Package natbib Warning: Citation `pew2022enhancement' on page 44 undefined on input line 15",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 21,
+  "message": "Package natbib Warning: Citation `sparrow2011google' on page 44 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 21,
+  "message": "Package natbib Warning: Citation `camerer2018replicability' on page 44 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 21,
+  "message": "Package natbib Warning: Citation `dahmani2020gps' on page 44 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 21,
+  "message": "Package natbib Warning: Citation `lee2025critical' on page 44 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 21,
+  "message": "Package natbib Warning: Citation `kosmyna2025brain' on page 44 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 23,
+  "message": "Package natbib Warning: Citation `salvi2025persuasion' on page 44 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 24,
+  "message": "Package natbib Warning: Citation `sharma2024sycophancy' on page 44 undefined on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 25,
+  "message": "Package natbib Warning: Citation `chan2024false' on page 44 undefined on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 42,
+  "message": "Package natbib Warning: Citation `pew2022enhancement' on page 45 undefined on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 43,
+  "message": "Package natbib Warning: Citation `faber2016unacceptable' on page 45 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `greely2008towards' on page 45 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `bostrom2009cognitive' on page 45 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `sandel2007case' on page 45 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 67,
+  "message": "Package natbib Warning: Citation `media4042024ixray' on page 46 undefined on input line 67",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 67,
+  "message": "Package natbib Warning: Citation `euaiact2024' on page 46 undefined on input line 67",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `bipa2008' on page 46 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `chile2021neurorights' on page 46 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `colorado2024neural' on page 46 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `unesco2025neurotech' on page 46 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `ienca2017towards' on page 46 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 103,
+  "message": "Package natbib Warning: Citation `doshi2024generative' on page 46 undefined on input line 103",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/15-risks.tex",
+  "line": 111,
+  "message": "Package natbib Warning: Citation `iea2025energy' on page 47 undefined on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tables/tab18_contested.tex",
+  "line": 25,
+  "message": "Package natbib Warning: Citation `euaiact2024' on page 47 undefined on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/16-governance.tex",
+  "line": 19,
+  "message": "Package natbib Warning: Citation `chesscom2022niemann' on page 48 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/16-governance.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `gdpr2016' on page 49 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/16-governance.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `lessig1999code' on page 49 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/17-agenda.tex",
+  "line": 14,
+  "message": "Package natbib Warning: Citation `vaccaro2024combinations' on page 49 undefined on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/17-agenda.tex",
+  "line": 31,
+  "message": "Package natbib Warning: Citation `maharana2024locomo' on page 50 undefined on input line 31",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/17-agenda.tex",
+  "line": 31,
+  "message": "Package natbib Warning: Citation `wu2025longmemeval' on page 50 undefined on input line 31",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/17-agenda.tex",
+  "line": 31,
+  "message": "Package natbib Warning: Citation `salemi2024lamp' on page 50 undefined on input line 31",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/17-agenda.tex",
+  "line": 31,
+  "message": "Package natbib Warning: Citation `yang2025egolife' on page 50 undefined on input line 31",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/17-agenda.tex",
+  "line": 31,
+  "message": "Package natbib Warning: Citation `xie2024osworld' on page 50 undefined on input line 31",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/17-agenda.tex",
+  "line": 32,
+  "message": "Package natbib Warning: Citation `park2023generative' on page 50 undefined on input line 32",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/17-agenda.tex",
+  "line": 33,
+  "message": "Package natbib Warning: Citation `lillie2011nof1' on page 50 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.5pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

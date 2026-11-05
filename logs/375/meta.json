@@ -1,0 +1,33 @@
+{
+ "id": 375,
+ "source": "GitHub",
+ "name": "thomwiggers/radboud-poster",
+ "url": "https://github.com/thomwiggers/radboud-poster",
+ "type": "Poster",
+ "version": "5dba80f46b19ce72e4ff8d028638526702145e70",
+ "files": 13,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12264,
+  "tail": "exit 0, PDF not found\n\nLatexmk: Missing bbl file 'latex.out/main.bbl' in following:\n No file main.bbl.\nLatexmk: Missing input file 'main.nav' message in .log file:\n  No file main.nav.\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: Using biber to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 7621,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "baseline-only-fail"
+}

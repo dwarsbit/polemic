@@ -1,0 +1,31 @@
+{
+ "id": 264,
+ "source": "GitHub",
+ "name": "IAS-Uni-Siegen/EMD_course",
+ "url": "https://github.com/IAS-Uni-Siegen/EMD_course",
+ "type": "Notes",
+ "version": "8ffb11f1f3ec6f20d76af58f68e55edfa32395d9",
+ "files": 585,
+ "main": "exercise/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "exercise/main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1229,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main.log' and/or above output for details\n\nLatexmk: Missing input file '../course_template/exerciseClass.cls' message in .log file:\n  ! LaTeX Error: File `../course_template/exerciseClass.cls' not found.\nFailure to make 'main.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 189,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `../course_template/exerciseClass.cls' not found.",
+ "outcome": "both-fail"
+}

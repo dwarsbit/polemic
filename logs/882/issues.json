@@ -1,0 +1,1618 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hypdoc Warning: hyperref has been loaded before with option 'hyperindex' enabled. The index will not work properly. on input line 65",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 66,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRS' on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 66,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 66,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 66,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 66,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrr' on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 66,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrzh' on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 66,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 66,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrn' on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 66,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 68,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRV' on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 68,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrv' on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 68,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 68,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 68,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrn' on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 68,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 79,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRS' on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 79,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 79,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 79,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrv' on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 79,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 79,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrs' on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 79,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 79,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 79,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrn' on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 79,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 79,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrr' on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 79,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrm' on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 89,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRO' on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 89,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrp' on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 89,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrc' on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 89,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 89,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 89,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrl' on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 89,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 89,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrs' on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRSH' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrb' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrl' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrn' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrery' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyru' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrm' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 168,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrv' on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRS' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrs' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrm' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrb' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrr' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyru' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrn' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 174,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrv' on input line 174",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 191,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRK' on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 191,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 191,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 191,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrl' on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 191,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 191,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrg' on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 224,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRP' on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 224,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 224,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 224,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 224,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 224,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 224,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrl' on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 224,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrg' on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRP' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrl' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrg' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrp' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrs' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrr' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 251,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrc' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRP' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrl' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrg' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrp' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrs' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrr' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 303,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrc' on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 347,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRS' on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 347,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 347,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 347,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrl' on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 347,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 347,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 347,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrn' on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 347,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyru' on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 347,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrv' on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 373,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRO' on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 373,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrf' on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 373,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 373,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrr' on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 373,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrm' on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 373,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrl' on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 373,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 373,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrn' on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 373,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 373,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrb' on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 373,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrg' on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 373,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRA' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrv' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrr' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrf' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrery' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrn' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrs' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrh' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrc' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 423,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrishrt' on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 425,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRO' on input line 425",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 425,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrb' on input line 425",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 425,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrshch' on input line 425",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 425,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 425",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 425,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrishrt' on input line 425",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 425,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 425",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 425,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 425",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 425,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 425",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 425,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrs' on input line 425",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRS' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrp' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrs' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrr' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrb' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 438,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrn' on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRP' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrp' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrs' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrr' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrn' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyru' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrch' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrg' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 481,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrya' on input line 481",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\CYRN' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyra' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrs' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrt' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrr' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyro' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrishrt' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrk' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrp' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyre' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrd' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrn' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrery' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrb' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrv' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyri' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrya' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrc' on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/manual.tex",
+  "line": 491,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrh' on input line 491",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,98 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `pagecolor' is not available anymore",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package caption Warning: Unknown document class (or package), standard defaults will be used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 363,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 498,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 498",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 498,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\sim' on input line 498",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 785,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 785",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 930,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 930",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 930,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\to' on input line 930",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 930,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 930",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 930,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\Delta' on input line 930",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 930,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 930",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 930,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\sigma' on input line 930",
+  "detail": [],
+  "hint": null
+ }
+]

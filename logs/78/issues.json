@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": "chapters/demo-basic.tex",
+  "line": 194,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/demo-basic.tex",
+  "line": 194,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ }
+]

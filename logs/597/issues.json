@@ -1,0 +1,690 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class revtex4-2 Warning: No type size specified, using default 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 106,
+  "message": "Package natbib Warning: Citation `Nielsen:1980rz' on page 1 undefined on input line 106",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 106,
+  "message": "Package natbib Warning: Citation `Nielsen:1981xu' on page 1 undefined on input line 106",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 106,
+  "message": "Package natbib Warning: Citation `Nielsen:1981hk' on page 1 undefined on input line 106",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 106,
+  "message": "Package natbib Warning: Citation `Friedan:1982nk' on page 1 undefined on input line 106",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 106,
+  "message": "Package natbib Warning: Citation `Shamir:1993bi' on page 1 undefined on input line 106",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 107,
+  "message": "Package natbib Warning: Citation `Fidkowski:2023sif' on page 1 undefined on input line 107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 107,
+  "message": "Package natbib Warning: Citation `Kapustin:2024rrm' on page 1 undefined on input line 107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 107,
+  "message": "Package natbib Warning: Citation `Liu:2026atf' on page 1 undefined on input line 107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 107,
+  "message": "Package natbib Warning: Citation `Karsten:1980wd' on page 1 undefined on input line 107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 107,
+  "message": "Package natbib Warning: Citation `Karsten:1981gd' on page 1 undefined on input line 107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 107,
+  "message": "Package natbib Warning: Citation `Baig:2026zgb' on page 1 undefined on input line 107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 111,
+  "message": "Package natbib Warning: Citation `Jones:2026gmd' on page 1 undefined on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 111,
+  "message": "Package natbib Warning: Citation `Hellerman:2021fla' on page 1 undefined on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 111,
+  "message": "Package natbib Warning: Citation `Nielsen:1981xu' on page 1 undefined on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 111,
+  "message": "Package natbib Warning: Citation `Gioia:2025bhl' on page 1 undefined on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Cheng:2022sgb' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Fazza:2022fss' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Seifnashri:2026ema' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Lu:2026jnq' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Lu:2026itw' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `2026arXiv260802722D' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Thorngren:2026ydw' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Fidkowski:2025rsq' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Gross:1990ub' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Sulejmanpasic:2019ytl' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Gorantla:2021svj' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Berkowitz:2023pnz' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Baig:2026zgb' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `DeMarco:2017gcb' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Demarco:2018fuw' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `Chen:2019mjw' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `DeMarco:2023hoh' on page 1 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 119,
+  "message": "Package natbib Warning: Citation `Jones:2026gmd' on page 2 undefined on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 125,
+  "message": "Package natbib Warning: Citation `Hasenfratz:1993sp' on page 2 undefined on input line 125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 125,
+  "message": "Package natbib Warning: Citation `Bietenholz:1995cy' on page 2 undefined on input line 125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 125,
+  "message": "Package natbib Warning: Citation `Bietenholz:1995kr' on page 2 undefined on input line 125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 125,
+  "message": "Package natbib Warning: Citation `Bietenholz:1996qc' on page 2 undefined on input line 125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 160,
+  "message": "Package amsmath Warning: Foreign command \\over; \\frac or \\genfrac should be used instead on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 408,
+  "message": "Package natbib Warning: Citation `Doplicher:1984zz' on page 4 undefined on input line 408",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 408,
+  "message": "Package natbib Warning: Citation `Buchholz:1986bg' on page 4 undefined on input line 408",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 408,
+  "message": "Package natbib Warning: Citation `Buchholz:1986dy' on page 4 undefined on input line 408",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 408,
+  "message": "Package natbib Warning: Citation `Fewster:2016mzz' on page 4 undefined on input line 408",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 419,
+  "message": "Package natbib Warning: Citation `Shamir:1993zy' on page 4 undefined on input line 419",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 420,
+  "message": "Package natbib Warning: Citation `Kaplan:1992bt' on page 4 undefined on input line 420",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 453,
+  "message": "Package natbib Warning: Citation `peschel2003calculation' on page 5 undefined on input line 453",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 493,
+  "message": "Package natbib Warning: Citation `holzhey1994geometric' on page 5 undefined on input line 493",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 493,
+  "message": "Package natbib Warning: Citation `Calabrese:2004eu' on page 5 undefined on input line 493",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 518,
+  "message": "Package natbib Warning: Citation `Lu:2026itw' on page 5 undefined on input line 518",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 518,
+  "message": "Package natbib Warning: Citation `2026arXiv260802722D' on page 5 undefined on input line 518",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 520,
+  "message": "Package natbib Warning: Citation `Chatterjee:2024gje' on page 5 undefined on input line 520",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 520,
+  "message": "Package natbib Warning: Citation `Vernier:2018han' on page 5 undefined on input line 520",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 520,
+  "message": "Package natbib Warning: Citation `Pace:2024oys' on page 5 undefined on input line 520",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 521,
+  "message": "Package natbib Warning: Citation `Creutz:2001wp' on page 5 undefined on input line 521",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 521,
+  "message": "Package natbib Warning: Citation `Chatterjee:2024gje' on page 5 undefined on input line 521",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 521,
+  "message": "Package natbib Warning: Citation `Lew-Smith:2026jqb' on page 5 undefined on input line 521",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 612,
+  "message": "Package natbib Warning: Citation `Schwinger:1959xd' on page 6 undefined on input line 612",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 619,
+  "message": "Package natbib Warning: Citation `Schwinger:1962tp' on page 6 undefined on input line 619",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 666,
+  "message": "Package natbib Warning: Citation `Banks:1975gq' on page 7 undefined on input line 666",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 733,
+  "message": "Package natbib Warning: Citation `Banks:1975gq' on page 7 undefined on input line 733",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 733,
+  "message": "Package natbib Warning: Citation `Crewther:1979ka' on page 7 undefined on input line 733",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 733,
+  "message": "Package natbib Warning: Citation `Cichy:2012rw' on page 7 undefined on input line 733",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 733,
+  "message": "Package natbib Warning: Citation `Dempsey:2022nys' on page 7 undefined on input line 733",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 771,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix] on input line 771",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 818,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 818",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 818,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 818",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 821,
+  "message": "Package natbib Warning: Citation `Kitaev:2000nmw' on page 8 undefined on input line 821",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 821,
+  "message": "Package natbib Warning: Citation `Seiberg:2023cdc' on page 8 undefined on input line 821",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 821,
+  "message": "Package natbib Warning: Citation `Seiberg:2025zqx' on page 8 undefined on input line 821",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 821,
+  "message": "Package natbib Warning: Citation `2019arXiv190205957J' on page 8 undefined on input line 821",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 821,
+  "message": "Package natbib Warning: Citation `wilburZ2action' on page 8 undefined on input line 821",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 833,
+  "message": "Package natbib Warning: Citation `Jones:2026gmd' on page 9 undefined on input line 833",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 836,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 836",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 875,
+  "message": "Package natbib Warning: Citation `Jones:2026gmd' on page 9 undefined on input line 875",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 876,
+  "message": "Package natbib Warning: Citation `Thorngren:2026ydw' on page 9 undefined on input line 876",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 876,
+  "message": "Package natbib Warning: Citation `Gioia:2026wdl' on page 9 undefined on input line 876",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 894,
+  "message": "Package natbib Warning: Citation `PhysRevD.26.468' on page 9 undefined on input line 894",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 894,
+  "message": "Package natbib Warning: Citation `Zakharov:2026nly' on page 9 undefined on input line 894",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 897,
+  "message": "Package natbib Warning: Citation `Nielsen:1980rz' on page 9 undefined on input line 897",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 897,
+  "message": "Package natbib Warning: Citation `Nielsen:1981xu' on page 9 undefined on input line 897",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 897,
+  "message": "Package natbib Warning: Citation `Nielsen:1981hk' on page 9 undefined on input line 897",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 972,
+  "message": "Package natbib Warning: Citation `Kitaev:2000nmw' on page 10 undefined on input line 972",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 1001,
+  "message": "Package natbib Warning: Citation `peschel2003calculation' on page 10 undefined on input line 1001",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": 1032,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix] on input line 1032",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "QFTLatticeDirac.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

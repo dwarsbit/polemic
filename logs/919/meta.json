@@ -1,0 +1,9 @@
+{
+ "id": 919,
+ "source": "CTAN",
+ "name": "unam-thesis",
+ "url": "https://ctan.org/pkg/unam-thesis",
+ "type": "Thesis",
+ "outcome": "download-failed",
+ "error": "fetch failed"
+}

@@ -1,0 +1,32 @@
+{
+ "id": 86,
+ "source": "GitHub",
+ "name": "abntex/biblatex-abnt",
+ "url": "https://github.com/abntex/biblatex-abnt",
+ "type": "Thesis",
+ "version": "7bb8d39d86b8de638af38433247503072619286d",
+ "files": 43,
+ "main": "doc/biblatex-abnt.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/biblatex-abnt.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 14540
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 10419,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

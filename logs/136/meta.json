@@ -1,0 +1,31 @@
+{
+ "id": 136,
+ "source": "GitHub",
+ "name": "TexNAK/Science-Paper-Template",
+ "url": "https://github.com/TexNAK/Science-Paper-Template",
+ "type": "Paper",
+ "version": "caa505265cab7b2699a6402a53b3d10a14829395",
+ "files": 38,
+ "main": ".template/tex/template.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": ".template/tex/template.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 529,
+  "tail": "exit 12, PDF not found\n      Refer to 'template.log' and/or above output for details\n\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nLatexmk: Missing input file '$documentclass$.cls' message in .log file:\n  ! LaTeX Error: File `$documentclass$.cls' not found.\nFailure to make 'template.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 284,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Missing \\begin{document}.",
+ "outcome": "both-fail"
+}

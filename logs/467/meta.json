@@ -1,0 +1,31 @@
+{
+ "id": 467,
+ "source": "GitHub",
+ "name": "WyattAu/OmniLaTeX-coverletter",
+ "url": "https://github.com/WyattAu/OmniLaTeX-coverletter",
+ "type": "Letter",
+ "version": "ced7f38364696636db2cb74140c7631e7511268d",
+ "files": 178,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (latexmkrc)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 24717
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 201,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "Emergency stop.",
+ "outcome": "polemic-only-fail"
+}

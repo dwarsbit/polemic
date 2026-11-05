@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": "njuthesis.cls",
+  "line": 67,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "njuthesis.cls",
+  "line": 67,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "njuthesis.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `njuthesis', but the document class provides `njuthesis.cls'",
+  "detail": [],
+  "hint": null
+ }
+]

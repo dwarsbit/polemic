@@ -1,0 +1,226 @@
+[
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 17,
+  "message": "Package fontspec Error: The font \"NewComputerModernMono10\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 18,
+  "message": "Package fontspec Error: The font \"NewComputerModernMath\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 18,
+  "message": "Font TU/NewComputerModernMath(0)/m/n/10=NewComputerModernMath/OT at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 18,
+  "message": "Font TU/NewComputerModernMath(1)/m/n/10=NewComputerModernMath/OT at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 19,
+  "message": "Package fontspec Error: The font \"NewComputerModern10\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 32,
+  "message": "Font TU/NewComputerModernMono10(0)/m/n/17.28=NewComputerModernMono10 at 17.28pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 42,
+  "message": "Font TU/NewComputerModernMono10(0)/m/n/10=NewComputerModernMono10 at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 103,
+  "message": "LaTeX Error: Environment codebox undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 104,
+  "message": "LaTeX Error: Can be used only in preamble.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 105,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{codebox}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 114,
+  "message": "LaTeX Error: Environment codebox undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 115,
+  "message": "LaTeX Error: Can be used only in preamble.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 117,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{codebox}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 124,
+  "message": "LaTeX Error: Environment codebox undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 126,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{codebox}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 137,
+  "message": "LaTeX Error: Environment codebox undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 146,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{codebox}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 171,
+  "message": "LaTeX Error: Environment codebox undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 172,
+  "message": "LaTeX Error: Can be used only in preamble.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 173,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{codebox}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 195,
+  "message": "LaTeX Error: Environment codebox undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 220,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{codebox}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 274,
+  "message": "LaTeX Error: Environment codebox undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 275,
+  "message": "Font TU/NewComputerModernMono10(0)/m/n/7=NewComputerModernMono10 at 7.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tidyres-doc.tex",
+  "line": 276,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{codebox}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tidyres-doc.tex",
+  "line": null,
+  "message": "Package unicode-math Warning: The first font loaded by unicode-math must be an OpenType Math font (with script=math). If you simply want ‘the default’ before loading supplementary fonts over the top for certain ranges, use: \\setmathfont{latinmodern-math.otf}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tidyres-doc.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tidyres-doc.tex",
+  "line": null,
+  "message": "LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (1 not 7). Rerun to correct this",
+  "detail": [],
+  "hint": null
+ }
+]

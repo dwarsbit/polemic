@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "error",
+  "file": "1206.1435.tex",
+  "line": 1076,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"A7.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "1206.1435.tex",
+  "line": 2213,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"8E.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "1206.1435.tex",
+  "line": 2213,
+  "message": "LaTeX Error: Invalid UTF-8 byte sequence (�2).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "1206.1435.tex",
+  "line": 2302,
+  "message": "LaTeX Error: Invalid UTF-8 byte sequence (�6).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "1206.1435.tex",
+  "line": 2312,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"88.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "1206.1435.tex",
+  "line": 2363,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"8E.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "1206.1435.tex",
+  "line": 521,
+  "message": "Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \\pgfplotsset{compat=1.18} into your preamble. on input line 521",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "1206.1435.tex",
+  "line": 1763,
+  "message": "Package amsfonts Warning: Obsolete command \\Bbb; \\mathbb should be used instead on input line 1763",
+  "detail": [],
+  "hint": null
+ }
+]

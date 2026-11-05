@@ -1,0 +1,32 @@
+{
+ "id": 388,
+ "source": "GitHub",
+ "name": "AutomatexDev/automatex2",
+ "url": "https://github.com/AutomatexDev/automatex2",
+ "type": "Report",
+ "version": "ded65af0aec2e60c0727d8e12021f9043478d5c5",
+ "files": 16,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5070
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3952,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

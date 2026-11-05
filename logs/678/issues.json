@@ -1,0 +1,450 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package caption Warning: Unknown document class (or package), standard defaults will be used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `levin1998ecosystems' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `norberg2004biodiversity' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `levorato2014group' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `athanasiadis2004agent' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 15,
+  "message": "Package natbib Warning: Citation `amin2005toward' on page 1 undefined on input line 15",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 15,
+  "message": "Package natbib Warning: Citation `farmer2012economics' on page 1 undefined on input line 15",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 15,
+  "message": "Package natbib Warning: Citation `foster2005simplistic' on page 1 undefined on input line 15",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 17,
+  "message": "Package natbib Warning: Citation `zadeh1973fuzzy' on page 1 undefined on input line 17",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 18,
+  "message": "Package natbib Warning: Citation `pastor2015epidemic' on page 1 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 18,
+  "message": "Package natbib Warning: Citation `hart2016graph' on page 1 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 18,
+  "message": "Package natbib Warning: Citation `wu2004rough' on page 1 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 18,
+  "message": "Package natbib Warning: Citation `amor2006percolation' on page 1 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `auray1982fuzzy' on page 1 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 22,
+  "message": "Package natbib Warning: Citation `liu2015complex' on page 1 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 25,
+  "message": "Package natbib Warning: Citation `ahat2009pollution' on page 1 undefined on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 25,
+  "message": "Package natbib Warning: Citation `van2013efficient' on page 1 undefined on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 25,
+  "message": "Package natbib Warning: Citation `bui2014gesture' on page 1 undefined on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 31,
+  "message": "Package natbib Warning: Citation `bui2015multi' on page 2 undefined on input line 31",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 42,
+  "message": "Package natbib Warning: Citation `galindo2014pretopological' on page 2 undefined on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `dalud2009closed' on page 2 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `cleuziou2015learning' on page 2 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `cleuziou2015learning' on page 2 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 87,
+  "message": "Package natbib Warning: Citation `dietterich1997solving' on page 2 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 87,
+  "message": "Package natbib Warning: Citation `zhou2004multi' on page 2 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 93,
+  "message": "Package natbib Warning: Citation `cleuziou2015learning' on page 3 undefined on input line 93",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pretopology.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `brissaud2011basics' on page 3 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pretopology.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `meziane1997satellite' on page 3 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pretopology.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `bonnevay2009pretopological' on page 3 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pretopology.tex",
+  "line": 7,
+  "message": "Package natbib Warning: Citation `DBLP:conf/icpr/FrelicotL98' on page 3 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pretopology.tex",
+  "line": 7,
+  "message": "Package natbib Warning: Citation `DBLP:journals/siu/AhatABJD10' on page 3 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pretopology.tex",
+  "line": 8,
+  "message": "Package natbib Warning: Citation `DBLP:conf/incos/LeTNP13' on page 3 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pretopology.tex",
+  "line": 9,
+  "message": "Package natbib Warning: Citation `DBLP:conf/rivf/AmorLL07' on page 3 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pretopology.tex",
+  "line": 9,
+  "message": "Package natbib Warning: Citation `DBLP:conf/complex/AhatABLC09' on page 3 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pretopology.tex",
+  "line": 116,
+  "message": "Package natbib Warning: Citation `DBLP:journals/isci/LargeronB02' on page 4 undefined on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pretopology.tex",
+  "line": 116,
+  "message": "Package natbib Warning: Citation `cleuziou2015learning' on page 4 undefined on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pseudoclosure.tex",
+  "line": 9,
+  "message": "Package natbib Warning: Citation `bui2015multi' on page 5 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pseudoclosure.tex",
+  "line": 24,
+  "message": "Package natbib Warning: Citation `cleuziou2015learning' on page 5 undefined on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pseudoclosure.tex",
+  "line": 26,
+  "message": "Package natbib Warning: Citation `cleuziou2015learning' on page 5 undefined on input line 26",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pseudoclosure.tex",
+  "line": 30,
+  "message": "Package natbib Warning: Citation `cleuziou2015learning' on page 5 undefined on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pseudoclosure.tex",
+  "line": 30,
+  "message": "Package natbib Warning: Citation `DBLP:journals/isci/LargeronB02' on page 5 undefined on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pseudoclosure.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `cleuziou2015learning' on page 5 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "pseudoclosure.tex",
+  "line": 54,
+  "message": "Package natbib Warning: Citation `bui2015multi' on page 5 undefined on input line 54",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodologies.tex",
+  "line": 3,
+  "message": "Package natbib Warning: Citation `cleuziou2015learning' on page 10 undefined on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodologies.tex",
+  "line": 13,
+  "message": "Package natbib Warning: Citation `cleuziou2015learning' on page 11 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodologies.tex",
+  "line": 63,
+  "message": "Package natbib Warning: Citation `cleuziou2015learning' on page 11 undefined on input line 63",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodologies.tex",
+  "line": 285,
+  "message": "Package natbib Warning: Citation `DBLP:journals/ai/DietterichLL97' on page 16 undefined on input line 285",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "multiinstance.tex",
+  "line": 3,
+  "message": "Package natbib Warning: Citation `DBLP:journals/ai/DietterichLL97' on page 16 undefined on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "multiinstance.tex",
+  "line": 3,
+  "message": "Package natbib Warning: Citation `DBLP:journals/ker/FouldsF10' on page 16 undefined on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "multiinstance.tex",
+  "line": 5,
+  "message": "Package natbib Warning: Citation `DBLP:conf/ai/ChevaleyreZ01' on page 16 undefined on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "multiinstance.tex",
+  "line": 1026,
+  "message": "Package natbib Warning: Citation `DBLP:conf/icml/BlockeelPS05' on page 28 undefined on input line 1026",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "multiinstance.tex",
+  "line": 1030,
+  "message": "Package natbib Warning: Citation `DBLP:conf/icml/BlockeelPS05' on page 28 undefined on input line 1030",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "expe.tex",
+  "line": 14,
+  "message": "Package natbib Warning: Citation `DBLP:conf/rivf/AmorLL07' on page 29 undefined on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "expe.tex",
+  "line": 122,
+  "message": "LaTeX Warning: Float too large for page by 24.46356pt on input line 122",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "conclusion.tex",
+  "line": 3,
+  "message": "Package natbib Warning: Citation `cleuziou2015learning' on page 31 undefined on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ms.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 183,
+ "source": "GitHub",
+ "name": "sjtug/SJTUBeamer",
+ "url": "https://github.com/sjtug/SJTUBeamer",
+ "type": "Slides",
+ "version": "525aa1dfd8eed1955e55c2897ed0c84aaab8f7a4",
+ "files": 165,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 159429
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 154166,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 260,
+ "source": "GitHub",
+ "name": "ArcturusZhang/Classical-Mechanics-Lecture-Notes",
+ "url": "https://github.com/ArcturusZhang/Classical-Mechanics-Lecture-Notes",
+ "type": "Notes",
+ "version": "be5984bb37bc55b0558d74904a9c1dc9f4dcd362",
+ "files": 22,
+ "main": "CM_chs.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "CM_chs.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 40077
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1023,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 14,
+ "warnings": 6,
+ "firstError": "Undefined control sequence.",
+ "outcome": "polemic-only-fail"
+}

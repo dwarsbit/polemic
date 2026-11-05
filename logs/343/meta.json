@@ -1,0 +1,31 @@
+{
+ "id": 343,
+ "source": "GitHub",
+ "name": "fky2015/resume-ng",
+ "url": "https://github.com/fky2015/resume-ng",
+ "type": "CV",
+ "version": "8fb52d64342171d0e3c3ec166495e31fc25271c2",
+ "files": 9,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2442
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1953,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

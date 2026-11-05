@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": "elegantbook.cls",
+  "line": 221,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook.cls",
+  "line": 221,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "assets/pre.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unknown option `space' for package `xeCJK'.",
+  "detail": [],
+  "hint": null
+ }
+]

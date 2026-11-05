@@ -1,0 +1,31 @@
+{
+ "id": 37,
+ "source": "GitHub",
+ "name": "ejhumphrey/dl4mir-dissertation",
+ "url": "https://github.com/ejhumphrey/dl4mir-dissertation",
+ "type": "Thesis",
+ "version": "dc55ae22f49b63e1ee815fca6c800e4456fedf81",
+ "files": 148,
+ "main": "src/abstract.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "src/abstract.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1964
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1399,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

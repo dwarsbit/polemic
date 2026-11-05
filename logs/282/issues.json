@@ -1,0 +1,120 @@
+[
+ {
+  "severity": "error",
+  "file": "elegantbook.cls",
+  "line": 219,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook.cls",
+  "line": 219,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook-cn.tex",
+  "line": 211,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.211 ...信息内容。比如需要显示{\\kaishu",
+   "                                                   User Name：111520}，则..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook-cn.tex",
+  "line": 242,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.242 ...默认是以数字显示，也即{\\kaishu",
+   "                                                   第 1 章}，{\\kaishu 第..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook-cn.tex",
+  "line": 279,
+  "message": "Improper alphabetic constant.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook-cn.tex",
+  "line": 279,
+  "message": "Missing = inserted for \\ifnum.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook-cn.tex",
+  "line": 279,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook-cn.tex",
+  "line": 279,
+  "message": "Bad character code (-80).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook-cn.tex",
+  "line": 281,
+  "message": "Improper alphabetic constant.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook-cn.tex",
+  "line": 281,
+  "message": "Missing = inserted for \\ifnum.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook-cn.tex",
+  "line": 281,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook-cn.tex",
+  "line": 281,
+  "message": "Bad character code (-80).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantbook-cn.tex",
+  "line": 281,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "elegantbook-cn.tex",
+  "line": 30,
+  "message": "Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 30",
+  "detail": [],
+  "hint": null
+ }
+]

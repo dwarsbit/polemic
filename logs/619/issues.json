@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 242,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 244,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 244,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 244,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "biom.cls",
+  "line": 1922,
+  "message": "LaTeX Warning: Command `\\thetheorem' already defined -- not changed on input line 1922",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 738,
+  "message": "LaTeX Warning: Float too large for page by 26.0297pt on input line 738",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,154 @@
+[
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 8,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 58,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 65,
+  "message": "LaTeX Error: Unicode character 俗 (U+4FD7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 65,
+  "message": "LaTeX Error: Unicode character 字 (U+5B57)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 65,
+  "message": "LaTeX Error: Unicode character 誤 (U+8AA4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 65,
+  "message": "LaTeX Error: Unicode character 訛 (U+8A1B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 66,
+  "message": "LaTeX Error: Unicode character 六 (U+516D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 66,
+  "message": "LaTeX Error: Unicode character 書 (U+66F8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 71,
+  "message": "LaTeX Error: Unicode character 新 (U+65B0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 71,
+  "message": "LaTeX Error: Unicode character 字 (U+5B57)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 89,
+  "message": "LaTeX Error: Unicode character 正 (U+6B63)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 89,
+  "message": "LaTeX Error: Unicode character 字 (U+5B57)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 90,
+  "message": "LaTeX Error: Unicode character 六 (U+516D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 90,
+  "message": "LaTeX Error: Unicode character 書 (U+66F8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 93,
+  "message": "LaTeX Error: Unicode character 親 (U+89AA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 93,
+  "message": "LaTeX Error: Unicode character 字 (U+5B57)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 94,
+  "message": "LaTeX Error: Unicode character 六 (U+516D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/flow_chart.tex",
+  "line": 94,
+  "message": "LaTeX Error: Unicode character 書 (U+66F8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/flow_chart.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [a3paper]",
+  "detail": [],
+  "hint": null
+ }
+]

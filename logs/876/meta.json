@@ -1,0 +1,32 @@
+{
+ "id": 876,
+ "source": "CTAN",
+ "name": "arsclassica",
+ "url": "https://ctan.org/pkg/arsclassica",
+ "type": "Thesis",
+ "version": "",
+ "files": 19,
+ "main": "ArsClassica.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ArsClassica.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12519
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 7798,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 14,
+ "outcome": "both-ok"
+}

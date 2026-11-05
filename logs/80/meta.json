@@ -1,0 +1,31 @@
+{
+ "id": 80,
+ "source": "GitHub",
+ "name": "glederrey/EPFL_thesis_template",
+ "url": "https://github.com/glederrey/EPFL_thesis_template",
+ "type": "Thesis",
+ "version": "23fd1d916bcf1bad4e38d4ac312201aadb85ef26",
+ "files": 39,
+ "main": "settings/settings_epfl_template.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "settings/settings_epfl_template.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1242,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'settings_epfl_template.fls'\nLatexmk: Examining 'settings_epfl_template.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'settings_epfl_template.log' and/or above output for details\n\nFailure to make 'settings_epfl_template.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 699,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "Emergency stop.",
+ "outcome": "both-fail"
+}

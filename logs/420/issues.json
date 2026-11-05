@@ -1,0 +1,148 @@
+[
+ {
+  "severity": "error",
+  "file": "cpp.cls",
+  "line": 10,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cpp.cls",
+  "line": 10,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cpp.cls",
+  "line": 12,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.12 \\setCJKmainfont",
+   "                    [BoldFont=FZHei-B01S, ItalicFont=FZKai-Z03S,Mapping=full..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cpp.cls",
+  "line": 12,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cpp.cls",
+  "line": 13,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.13 \\setCJKmonofont",
+   "                    [Mapping=fullwidth-stop]{FZKai-Z03S}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cpp.cls",
+  "line": 15,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.15 \\setCJKfamilyfont",
+   "                      {kai}[Mapping=fullwidth-stop]{FZKai-Z03S}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cpp.cls",
+  "line": 15,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cpp.cls",
+  "line": 16,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.16 \\setCJKfamilyfont",
+   "                      {hei}[Mapping=fullwidth-stop]{FZHei-B01S}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cpp.cls",
+  "line": 17,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.17 \\setCJKfamilyfont",
+   "                      {cuhei}[Mapping=fullwidth-stop]{FZDaHei-B02S}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cpp.cls",
+  "line": 18,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.18 \\setCJKfamilyfont",
+   "                      {songhei}[Mapping=fullwidth-stop]{FZSongHei-B07S}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cpp.cls",
+  "line": 21,
+  "message": "LaTeX Error: Command \\heiti undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file unisong30): Font unisong30 at 600 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexart Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cpp.tex",
+  "line": 14,
+  "message": "LaTeX Font Warning: Font shape `C70/cuhei/m/n' undefined using `C70/song/m/n' instead on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cpp.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cpp.tex",
+  "line": 26,
+  "message": "Package lastpage Warning: Rerun to get the references right on input line 26",
+  "detail": [],
+  "hint": null
+ }
+]

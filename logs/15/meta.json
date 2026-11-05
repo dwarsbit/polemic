@@ -1,0 +1,32 @@
+{
+ "id": 15,
+ "source": "GitHub",
+ "name": "amunn/msu-thesis",
+ "url": "https://github.com/amunn/msu-thesis",
+ "type": "Thesis",
+ "version": "2675eaeae67aa2ed96874330f18279b0ec814680",
+ "files": 70,
+ "main": "docs/msu-thesis.tex",
+ "engine": "xelatex",
+ "detectedEngine": "lualatex (magic comment)",
+ "baseline": {
+  "main": "docs/msu-thesis.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4865
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1996,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

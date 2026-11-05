@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 178,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 178",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 178,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 178",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 520,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 520",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 520,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 520",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 520,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 520",
+  "detail": [],
+  "hint": null
+ }
+]

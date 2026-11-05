@@ -1,0 +1,31 @@
+{
+ "id": 113,
+ "source": "GitHub",
+ "name": "wtsnjp/texlive-ja",
+ "url": "https://github.com/wtsnjp/texlive-ja",
+ "type": "Paper",
+ "version": "b57f56a33ddf47c1f99169d2a335066a5232add5",
+ "files": 9,
+ "main": "texlive-ja.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "texlive-ja.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 675,
+  "tail": "exit 12, PDF not found\n  Missing character: There is no [ in font nullfont!\n  Missing character: There is no 2 in font nullfont!\n  Missing character: There is no 0 in font nullfont!\n  Missing character: There is no 1 in font nullfont!\n  Missing character: There is no 8 in font nullfont!\n  Missing character: There is no / in font nullfont!\n  Missing character: There is no 0 in font nullfont!\n And 184 more --- see log file 'texlive-ja.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 280,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 147,
+ "warnings": 0,
+ "firstError": "LaTeX Error: This file needs format `pLaTeX2e'",
+ "outcome": "both-fail"
+}

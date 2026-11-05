@@ -1,0 +1,32 @@
+{
+ "id": 114,
+ "source": "GitHub",
+ "name": "lou-heraut/INRAE_template",
+ "url": "https://github.com/lou-heraut/INRAE_template",
+ "type": "Paper",
+ "version": "e6a88e2277539046d5c76cb9adb577f394d4bc9d",
+ "files": 18,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 8499,
+  "tail": "exit 12, PDF found\n  Missing character: There is no C (\"43) in font nullfont!\n  Missing character: There is no h (\"68) in font nullfont!\n  Missing character: There is no a (\"61) in font nullfont!\n  Missing character: There is no p (\"70) in font nullfont!\n  Missing character: There is no i (\"69) in font nullfont!\n  Missing character: There is no t (\"74) in font nullfont!\n  Missing character: There is no r (\"72) in font nullfont!\n And 11 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 606,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/main.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-fail"
+}

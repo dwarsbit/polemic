@@ -1,0 +1,32 @@
+{
+ "id": 374,
+ "source": "GitHub",
+ "name": "kirillbobyrev/TD-Gamma",
+ "url": "https://github.com/kirillbobyrev/TD-Gamma",
+ "type": "Poster",
+ "version": "28b6964b4fe09283d604d5a4255e0a8534a17ccb",
+ "files": 30,
+ "main": "poster/poster.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "poster/poster.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12409
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1453,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 5,
+ "warnings": 5,
+ "firstError": "Package pdftex.def Error: File `figures/rl-intro-diagram-eps-converted-to.pdf' not found: using draft setting.",
+ "outcome": "polemic-only-fail"
+}

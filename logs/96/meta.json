@@ -1,0 +1,32 @@
+{
+ "id": 96,
+ "source": "GitHub",
+ "name": "khannurien/thesis-manuscript",
+ "url": "https://github.com/khannurien/thesis-manuscript",
+ "type": "Paper",
+ "version": "41c0e9c9dd8679c724ed3f0d9582c6f18dd2068f",
+ "files": 214,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 85824
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 67783,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 10,
+ "outcome": "both-ok"
+}

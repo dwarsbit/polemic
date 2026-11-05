@@ -1,0 +1,394 @@
+[
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `yao2023react' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `shinn2023reflexion' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `yao2022webshop' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `yang2024finrobot' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `hong2023metagpt' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `boiko2023emergent' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `qu2025tool' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `toolllm' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `yao2024tau' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `shridhar2020alfworld' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `gorilla' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `li2023api' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `tang2023toolalpaca' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/introduction/opening-camera.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `huang2024planning' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/dataset/positioning-camera.tex",
+  "line": 1,
+  "message": "Package natbib Warning: Citation `yao2024tau' on page 2 undefined on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/dataset/positioning-camera.tex",
+  "line": 1,
+  "message": "Package natbib Warning: Citation `shridhar2020alfworld' on page 2 undefined on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/dataset/positioning-camera.tex",
+  "line": 1,
+  "message": "Package natbib Warning: Citation `trivedi2024appworld' on page 2 undefined on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/dataset/positioning-camera.tex",
+  "line": 1,
+  "message": "Package natbib Warning: Citation `toolllm' on page 2 undefined on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/dataset/positioning-camera.tex",
+  "line": 1,
+  "message": "Package natbib Warning: Citation `huang2023metatool' on page 2 undefined on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/dataset/positioning-camera.tex",
+  "line": 1,
+  "message": "Package natbib Warning: Citation `tang2023toolalpaca' on page 2 undefined on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/dataset/positioning-camera.tex",
+  "line": 1,
+  "message": "Package natbib Warning: Citation `gorilla' on page 2 undefined on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/dataset/positioning-camera.tex",
+  "line": 1,
+  "message": "Package natbib Warning: Citation `li2023api' on page 2 undefined on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/dataset/positioning-camera.tex",
+  "line": 1,
+  "message": "Package natbib Warning: Citation `huang2024planning' on page 2 undefined on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `trajectbench' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `toolathlon' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `toolllm' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `gorilla' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `huang2024planning' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `yao2024tau' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `tau2bench' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `trivedi2024appworld' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `acebench' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `hammerbench' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `toolsandbox' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `bfcl' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `sopbench' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `huang2023metatool' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-comparison-camera.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `li2023api' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/experiments/evaluation-camera.tex",
+  "line": 5,
+  "message": "Package natbib Warning: Citation `cohere2025embedv4' on page 4 undefined on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/experiments/evaluation-camera.tex",
+  "line": 7,
+  "message": "Package natbib Warning: Citation `kahneman2011thinking' on page 5 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/experiments/evaluation-camera.tex",
+  "line": 7,
+  "message": "Package natbib Warning: Citation `strandsdecider2026' on page 5 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/experiments/evaluation-camera.tex",
+  "line": 7,
+  "message": "Package natbib Warning: Citation `openjev2026' on page 5 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/experiments/evaluation-camera.tex",
+  "line": 7,
+  "message": "Package natbib Warning: Citation `agentdecision2026' on page 5 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "library/experiments/evaluation-camera.tex",
+  "line": 7,
+  "message": "Package natbib Warning: Citation `jevify2026' on page 5 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-checkpoints-camera.tex",
+  "line": 18,
+  "message": "Package natbib Warning: Citation `jevify2026' on page 15 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-checkpoints-camera.tex",
+  "line": 18,
+  "message": "Package natbib Warning: Citation `agentdecision2026' on page 15 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-checkpoints-camera.tex",
+  "line": 18,
+  "message": "Package natbib Warning: Citation `strandsdecider2026' on page 15 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-checkpoints-camera.tex",
+  "line": 18,
+  "message": "Package natbib Warning: Citation `openjev2026' on page 15 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/tab-categories-camera.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

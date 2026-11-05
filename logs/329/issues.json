@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "resume.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\footskip is too small (4.0pt): Make it at least 12.0pt, for example: \\setlength{\\footskip}{12.0pt}",
+  "detail": [],
+  "hint": null
+ }
+]

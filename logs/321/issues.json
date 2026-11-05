@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": "awesome-source-cv.cls",
+  "line": 120,
+  "message": "LaTeX cmd Error: Command '\\FA' already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "awesome-source-cv.cls",
+  "line": null,
+  "message": "Package fontspec Warning: Input mapping not supported in LuaTeX. Use \"Ligatures=TeX\" instead of \"Mapping=tex-text\"",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 392,
+ "source": "GitHub",
+ "name": "LittleYe233/hitsz-physics-ib-reports",
+ "url": "https://github.com/LittleYe233/hitsz-physics-ib-reports",
+ "type": "Report",
+ "version": "7c2d10351cf5e5dc732272e8cad549c4888ca81c",
+ "files": 16,
+ "main": "report-1.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "report-1.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4696,
+  "tail": "exit 12, PDF not found\nmktexpk: perhaps unisong5d is missing from the map file.\nkpathsea: Appending font creation commands to missfont.log.\n\nkpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 1+32/600 --dpi 632 unisong5d\nmktexpk: don't know how to create bitmap font for unisong5d.\nmktexpk: perhaps unisong5d is missing from the map file.\nkpathsea: Appending font creation commands to missfont.log.\nFailure to make 'report-1.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2073,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 6,
+ "warnings": 1,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,10 @@
+{
+ "id": 952,
+ "source": "CTAN",
+ "name": "apa7",
+ "url": "https://ctan.org/pkg/apa7",
+ "type": "Paper",
+ "version": "2.16",
+ "files": 7,
+ "outcome": "no-tex"
+}

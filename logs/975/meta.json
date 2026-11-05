@@ -1,0 +1,31 @@
+{
+ "id": 975,
+ "source": "CTAN",
+ "name": "dtk",
+ "url": "https://ctan.org/pkg/dtk",
+ "type": "Paper",
+ "version": "2.10g",
+ "files": 17,
+ "main": "dtk-ruecken.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "dtk-ruecken.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 700,
+  "tail": "exit 12, PDF not found\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'dtk-ruecken.log' and/or above output for details\n\nLatexmk: Missing input file 'dtk-ruecken.dat' message in .log file:\n  ! LaTeX Error: File `dtk-ruecken.dat' not found.\nLatexmk: Missing input file 'dtk-ruecken.dat' message in .log file:\n  ! LaTeX Error: File `dtk-ruecken.dat' not found.\nFailure to make 'dtk-ruecken.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 239,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `dtk-ruecken.dat' not found.",
+ "outcome": "both-fail"
+}

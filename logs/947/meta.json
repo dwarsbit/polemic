@@ -1,0 +1,32 @@
+{
+ "id": 947,
+ "source": "CTAN",
+ "name": "achemso",
+ "url": "https://ctan.org/pkg/achemso",
+ "type": "Paper",
+ "version": "3.14",
+ "files": 9,
+ "main": "achemso-demo.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "achemso-demo.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2863
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2404,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

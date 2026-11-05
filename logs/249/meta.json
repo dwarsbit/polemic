@@ -1,0 +1,33 @@
+{
+ "id": 249,
+ "source": "GitHub",
+ "name": "BlockstreamResearch/zk-book",
+ "url": "https://github.com/BlockstreamResearch/zk-book",
+ "type": "Notes",
+ "version": "0699ceb2a6a1e5cb83dd837254dbca869b557901",
+ "files": 317,
+ "main": "book.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "book.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 131797,
+  "tail": "exit 12, PDF found\nLatexmk: Missing bbl file 'book.bbl' in following:\n No file book.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Reference `prop:quotiening' on page 1 undefined on input line 246"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 35592,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 26,
+ "warnings": 45,
+ "firstError": "Extra }, or forgotten $.",
+ "outcome": "both-fail"
+}

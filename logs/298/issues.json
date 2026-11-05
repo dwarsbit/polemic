@@ -1,0 +1,162 @@
+[
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 82,
+  "message": "Package french3.ldf Warning: Figures' and tables' captions might look like `Figure 1:' in French instead of `Figure 1 :'. If this happens, to fix this issue switch to LuaLaTeX or XeLaTeX or try to add \\usepackage{caption} or ... leave it as it is; reported on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 109,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\<def>-command' on input line 109",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 109,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\thepart' on input line 109",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 109,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 109",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 109,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 5.0pt replaced by space on input line 109",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 109,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\noindent' on input line 109",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 49295,
+  "message": "Package amsmath Warning: Foreign command \\atopwithdelims; \\frac or \\genfrac should be used instead on input line 49295",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 157398,
+  "message": "Package multicol Warning: I moved some lines to the next page. Footnotes on page 1807 might be wrong on input line 157398",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 225588,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\<def>-command' on input line 225588",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 225588,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\thepart' on input line 225588",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 225588,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 225588",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 225588,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 5.0pt replaced by space on input line 225588",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 225588,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\noindent' on input line 225588",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 292127,
+  "message": "LaTeX Warning: Command \\' invalid in math mode on input line 292127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 365823,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\<def>-command' on input line 365823",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 365823,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\thepart' on input line 365823",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 365823,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 365823",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 365823,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 5.0pt replaced by space on input line 365823",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 365823,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\noindent' on input line 365823",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "line": 423187,
+  "message": "Package multicol Warning: I moved some lines to the next page. Footnotes on page 4768 might be wrong on input line 423187",
+  "detail": [],
+  "hint": null
+ }
+]

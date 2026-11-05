@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\@footnotemark  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package mhchem Warning: You did not specify a 'version' option for the mhchem package. Please write \\usepackage[version=4]{mhchem} in your preamble (or any lower number for compatibility mode), because you might get slightly different output with the same input in future versions",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "DissertUESTC.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKrmdefault' (FandolSong-Regular(0))",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "DissertUESTC.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKsfdefault' (FandolHei-Regular(0))",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "DissertUESTC.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `hwzs' (HuaWenZhongSong)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "DissertUESTC.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `hwxk' (HuaWenXingKai)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tutorial.tex",
+  "line": 6,
+  "message": "Package layouts Warning: Layout scale set to 0.5 on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tutorial.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (9.03374pt): Make it at least 12.64723pt, for example: \\setlength{\\headheight}{12.64723pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-3.6135pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tutorial.tex",
+  "line": null,
+  "message": "LaTeX Warning: `!h' float specifier changed to `!ht'",
+  "detail": [],
+  "hint": null
+ }
+]

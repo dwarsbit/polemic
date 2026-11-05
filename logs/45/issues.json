@@ -1,0 +1,314 @@
+[
+ {
+  "severity": "warning",
+  "file": "White_book.tex",
+  "line": 2,
+  "message": "LaTeX Warning: \\include should only be used after \\begin{document} on input line 2",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "White_book.tex",
+  "line": null,
+  "message": "Package minitoc(hints) Warning: W0099",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "White_book.tex",
+  "line": null,
+  "message": "Package minitoc(hints) Warning: W0030",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "White_book.tex",
+  "line": null,
+  "message": "Package minitoc(hints) Warning: W0023",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "White_book.tex",
+  "line": null,
+  "message": "Package minitoc(hints) Warning: W0028",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Preface.tex",
+  "line": 1,
+  "message": "LaTeX Font Warning: Font shape `T1/pplx/b/sc' undefined using `T1/pplx/b/n' instead on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Preface.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation 'Srivastava:2014:DSW:2627435.2670313' on page 5 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Preface.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation 'Ioffe2015' on page 5 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Preface.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation 'Lecun98gradient-basedlearning' on page 5 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Preface.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation 'DBLP:journals/corr/SimonyanZ14a' on page 5 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Preface.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation 'He2015' on page 5 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Preface.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation 'GravesA2016' on page 5 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Preface.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation 'Gers:2000:LFC:1121912.1121915' on page 5 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Introduction.tex",
+  "line": 7,
+  "message": "LaTeX Warning: Citation 'Rosenblatt58theperceptron:' on page 9 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1.tex",
+  "line": 561,
+  "message": "LaTeX Warning: Citation 'Srivastava:2014:DSW:2627435.2670313' on page 25 undefined on input line 561",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1.tex",
+  "line": 565,
+  "message": "LaTeX Warning: Citation 'Ioffe2015' on page 25 undefined on input line 565",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1.tex",
+  "line": 614,
+  "message": "LaTeX Warning: Citation 'LeCun:1998:EB:645754.668382' on page 26 undefined on input line 614",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1.tex",
+  "line": 738,
+  "message": "LaTeX Warning: Citation 'QIAN1999145' on page 30 undefined on input line 738",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1.tex",
+  "line": 750,
+  "message": "LaTeX Warning: Citation 'nesterov1983method' on page 30 undefined on input line 750",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1.tex",
+  "line": 762,
+  "message": "LaTeX Warning: Citation 'Duchi:2011:ASM:1953048.2021068' on page 30 undefined on input line 762",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1.tex",
+  "line": 786,
+  "message": "LaTeX Warning: Citation 'journals/corr/abs-1212-5701' on page 31 undefined on input line 786",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1.tex",
+  "line": 799,
+  "message": "LaTeX Warning: Citation 'Kingma2014' on page 32 undefined on input line 799",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1.tex",
+  "line": 963,
+  "message": "LaTeX Warning: Citation 'He2015' on page 35 undefined on input line 963",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1.tex",
+  "line": 1007,
+  "message": "LaTeX Warning: Citation 'citeulike:14070430' on page 37 undefined on input line 1007",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2.tex",
+  "line": 298,
+  "message": "LaTeX Warning: Citation 'Gu2015RecentAI' on page 51 undefined on input line 298",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2.tex",
+  "line": 302,
+  "message": "LaTeX Warning: Citation 'Lecun98gradient-basedlearning' on page 52 undefined on input line 302",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2.tex",
+  "line": 316,
+  "message": "LaTeX Warning: Citation 'NIPS2012_4824' on page 52 undefined on input line 316",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2.tex",
+  "line": 331,
+  "message": "LaTeX Warning: Citation 'DBLP:journals/corr/SimonyanZ14a' on page 53 undefined on input line 331",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2.tex",
+  "line": 346,
+  "message": "LaTeX Warning: Citation '43022' on page 53 undefined on input line 346",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2.tex",
+  "line": 388,
+  "message": "LaTeX Warning: Citation 'He2015' on page 54 undefined on input line 388",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2.tex",
+  "line": 1311,
+  "message": "LaTeX Warning: Citation 'HuangGLZLW' on page 72 undefined on input line 1311",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3.tex",
+  "line": 7,
+  "message": "LaTeX Warning: Citation 'GravesA2016' on page 78 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3.tex",
+  "line": 448,
+  "message": "LaTeX Warning: Citation 'Gers:2000:LFC:1121912.1121915' on page 84 undefined on input line 448",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "White_book.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Empty bibliography on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "White_book.tex",
+  "line": null,
+  "message": "Package minitoc(hints) Warning: W0024",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "White_book.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "White_book.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "White_book.tex",
+  "line": null,
+  "message": "Package biblatex Warning: Please (re)run BibTeX on the file(s): White_book and rerun LaTeX afterwards",
+  "detail": [],
+  "hint": null
+ }
+]

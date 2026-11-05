@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 91,
+  "message": "Package pdfpages Error: Cannot find file `cover/cover.pdf'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 91,
+  "message": "Package pdfpages Error: Cannot find file `1'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 91,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 91,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 91,
+  "message": "Package pdfpages Error: Page 1 of `\\AM@currentdocname ' does not exist.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tocloft Warning: \\@starttoc has already been redefined; \\cfttocprehook et al. not installed. on input line 1432",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 14.49998pt, for example: \\setlength{\\headheight}{14.49998pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-2.49998pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 15.21004pt, for example: \\setlength{\\headheight}{15.21004pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-3.21004pt}",
+  "detail": [],
+  "hint": null
+ }
+]

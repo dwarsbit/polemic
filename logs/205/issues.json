@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "error",
+  "file": "setup/preamble.tex",
+  "line": 154,
+  "message": "Package biblatex Error: '\\bibliographystyle' invalid for 'biblatex'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "setup/preamble.tex",
+  "line": 169,
+  "message": "Package hyperref Warning: Option `pdfpagelabels' has already been used, setting the option has no effect on input line 169",
+  "detail": [],
+  "hint": null
+ }
+]

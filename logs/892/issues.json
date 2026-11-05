@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "warning",
+  "file": "hepthesis.tex",
+  "line": 138,
+  "message": "LaTeX Warning: Citation `comment' on page 3 undefined on input line 138",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hepthesis.tex",
+  "line": 320,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmtt/bx/n' undefined using `OMS/cmsy/m/n' instead for symbol `textbraceleft' on input line 320",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hepthesis.tex",
+  "line": 359,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined using `OMS/cmsy/m/n' instead for symbol `textbraceleft' on input line 359",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

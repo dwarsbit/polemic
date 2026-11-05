@@ -1,0 +1,602 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package caption Warning: Unknown document class (or package), standard defaults will be used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 81,
+  "message": "LaTeX Warning: Citation `GoogleNIC' on page 1 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 81,
+  "message": "LaTeX Warning: Citation `Karpathy' on page 1 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 81,
+  "message": "LaTeX Warning: Citation `CapAttention' on page 1 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 81,
+  "message": "LaTeX Warning: Citation `Ranzato' on page 1 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 81,
+  "message": "LaTeX Warning: Citation `scst' on page 1 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 81,
+  "message": "LaTeX Warning: Citation `spider' on page 1 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 81,
+  "message": "LaTeX Warning: Citation `CIDEr' on page 1 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 81,
+  "message": "LaTeX Warning: Citation `BLEU' on page 1 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 81,
+  "message": "LaTeX Warning: Citation `anderson2016spice' on page 1 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 85,
+  "message": "LaTeX Warning: Citation `goodfellow2014generative' on page 1 undefined on input line 85",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `yu2016seqgan' on page 1 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `maligan' on page 1 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `HjelmJCCB17' on page 1 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `rajeswar2017adversarial' on page 1 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `bodai' on page 1 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `jang2016categorical' on page 1 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `Shetty' on page 1 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `Kusner2016GANSFS' on page 1 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 92,
+  "message": "LaTeX Warning: Citation `bodai' on page 1 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 92,
+  "message": "LaTeX Warning: Citation `Shetty' on page 1 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 92,
+  "message": "LaTeX Warning: Citation `caccia18' on page 1 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 110,
+  "message": "LaTeX Warning: Citation `sentinel' on page 2 undefined on input line 110",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 112,
+  "message": "LaTeX Warning: Citation `coattention' on page 2 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 117,
+  "message": "LaTeX Warning: Citation `CapAttention' on page 2 undefined on input line 117",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 117,
+  "message": "LaTeX Warning: Citation `scst' on page 2 undefined on input line 117",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 117,
+  "message": "LaTeX Warning: Citation `sentinel' on page 2 undefined on input line 117",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 118,
+  "message": "LaTeX Warning: Citation `sentinel' on page 2 undefined on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 121,
+  "message": "LaTeX Warning: Citation `sentinel' on page 2 undefined on input line 121",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 130,
+  "message": "LaTeX Warning: Citation `scst' on page 2 undefined on input line 130",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 131,
+  "message": "LaTeX Warning: Citation `sentinel' on page 2 undefined on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 136,
+  "message": "LaTeX Warning: Citation `scst' on page 2 undefined on input line 136",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 136,
+  "message": "LaTeX Warning: Citation `bodai' on page 2 undefined on input line 136",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 153,
+  "message": "LaTeX Warning: Citation `coattention' on page 2 undefined on input line 153",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 153,
+  "message": "LaTeX Warning: Citation `Cicero' on page 2 undefined on input line 153",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 158,
+  "message": "LaTeX Warning: Citation `bodai' on page 2 undefined on input line 158",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 163,
+  "message": "LaTeX Warning: Citation `bodai' on page 2 undefined on input line 163",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 175,
+  "message": "LaTeX Warning: Citation `coattention' on page 2 undefined on input line 175",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 185,
+  "message": "LaTeX Warning: Citation `bodai' on page 3 undefined on input line 185",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 185,
+  "message": "LaTeX Warning: Citation `Shetty' on page 3 undefined on input line 185",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 206,
+  "message": "LaTeX Warning: Citation `scst' on page 3 undefined on input line 206",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 207,
+  "message": "LaTeX Warning: Citation `jang2016categorical' on page 3 undefined on input line 207",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 209,
+  "message": "LaTeX Warning: Citation `scst' on page 3 undefined on input line 209",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 228,
+  "message": "LaTeX Warning: Citation `bodai' on page 4 undefined on input line 228",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 228,
+  "message": "LaTeX Warning: Citation `spider' on page 4 undefined on input line 228",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 230,
+  "message": "LaTeX Warning: Citation `bodai' on page 4 undefined on input line 230",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 230,
+  "message": "LaTeX Warning: Citation `spider' on page 4 undefined on input line 230",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 230,
+  "message": "LaTeX Warning: Citation `HjelmJCCB17' on page 4 undefined on input line 230",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 235,
+  "message": "LaTeX Warning: Citation `jang2016categorical' on page 4 undefined on input line 235",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 239,
+  "message": "LaTeX Warning: Citation `Shetty' on page 4 undefined on input line 239",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 239,
+  "message": "LaTeX Warning: Citation `Kusner2016GANSFS' on page 4 undefined on input line 239",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 305,
+  "message": "LaTeX Warning: Citation `bodai' on page 4 undefined on input line 305",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 313,
+  "message": "LaTeX Warning: Citation `bodai' on page 4 undefined on input line 313",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 313,
+  "message": "LaTeX Warning: Citation `Shetty' on page 4 undefined on input line 313",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 315,
+  "message": "LaTeX Warning: Citation `salimans2016improved' on page 4 undefined on input line 315",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 319,
+  "message": "LaTeX Warning: Citation `assymetric' on page 4 undefined on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 319,
+  "message": "LaTeX Warning: Citation `MSCOCO' on page 4 undefined on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 319,
+  "message": "LaTeX Warning: Citation `SBU' on page 4 undefined on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 319,
+  "message": "LaTeX Warning: Citation `he15deepresidual' on page 4 undefined on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 319,
+  "message": "LaTeX Warning: Citation `word2vec' on page 4 undefined on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 328,
+  "message": "LaTeX Warning: Citation `assymetric' on page 4 undefined on input line 328",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 332,
+  "message": "LaTeX Warning: Citation `Jinchoi_contextmodels' on page 4 undefined on input line 332",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 339,
+  "message": "LaTeX Warning: Citation `MSCOCO' on page 5 undefined on input line 339",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 339,
+  "message": "LaTeX Warning: Citation `Karpathy' on page 5 undefined on input line 339",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 341,
+  "message": "LaTeX Warning: Citation `he15deepresidual' on page 5 undefined on input line 341",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 365,
+  "message": "LaTeX Warning: Citation `bodai' on page 5 undefined on input line 365",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 448,
+  "message": "LaTeX Warning: Citation `bodai' on page 5 undefined on input line 448",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 451,
+  "message": "LaTeX Warning: Citation `bodai' on page 6 undefined on input line 451",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 477,
+  "message": "LaTeX Warning: Citation `anderson2016spice' on page 7 undefined on input line 477",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 477,
+  "message": "LaTeX Warning: Citation `bodai' on page 7 undefined on input line 477",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 623,
+  "message": "LaTeX Warning: Citation `assymetric' on page 10 undefined on input line 623",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 740,
+  "message": "LaTeX Warning: Citation `bodai' on page 11 undefined on input line 740",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 805,
+  "message": "LaTeX Warning: Citation `bodai' on page 11 undefined on input line 805",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": 820,
+  "message": "LaTeX Warning: Citation `bodai' on page 12 undefined on input line 820",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gan-caption-arxiv19-v3.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

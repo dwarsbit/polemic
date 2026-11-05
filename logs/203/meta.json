@@ -1,0 +1,31 @@
+{
+ "id": 203,
+ "source": "GitHub",
+ "name": "triffon/fp-slides",
+ "url": "https://github.com/triffon/fp-slides",
+ "type": "Slides",
+ "version": "c1c1c21517af029f44474d6c4b969893a695ef50",
+ "files": 27,
+ "main": "0.0-org.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "0.0-org.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 20648
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 17652,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

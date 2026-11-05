@@ -1,0 +1,10 @@
+{
+ "id": 954,
+ "source": "CTAN",
+ "name": "beilstein",
+ "url": "https://ctan.org/pkg/beilstein",
+ "type": "Paper",
+ "version": "2.1",
+ "files": 10,
+ "outcome": "no-tex"
+}

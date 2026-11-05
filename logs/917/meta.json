@@ -1,0 +1,9 @@
+{
+ "id": 917,
+ "source": "CTAN",
+ "name": "ulthese",
+ "url": "https://ctan.org/pkg/ulthese",
+ "type": "Thesis",
+ "outcome": "download-failed",
+ "error": "fetch failed"
+}

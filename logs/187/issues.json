@@ -1,0 +1,114 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/citation.tex",
+  "line": 10,
+  "message": "LaTeX Warning: Citation 'texbook' on page 14 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/citation.tex",
+  "line": 10,
+  "message": "LaTeX Warning: Citation 'latex2e' on page 14 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/citation.tex",
+  "line": 10,
+  "message": "LaTeX Warning: Citation 'latex:companion' on page 14 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/citation.tex",
+  "line": 10,
+  "message": "LaTeX Warning: Citation 'knuth:1984' on page 14 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/citation.tex",
+  "line": 10,
+  "message": "LaTeX Warning: Citation 'FosterEtAl:2003' on page 14 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/citation.tex",
+  "line": 10,
+  "message": "LaTeX Warning: Citation 'Alsolami:2012' on page 14 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/citation.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation 'texbook' on page 15 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/citation.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation 'latex:companion' on page 15 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/main.tex",
+  "line": 29,
+  "message": "LaTeX Warning: Empty bibliography on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/main.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/main.tex",
+  "line": null,
+  "message": "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/main.tex",
+  "line": null,
+  "message": "Package rerunfilecheck Warning: File `main.out' has changed. Rerun to get outlines right or use package `bookmark'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/01/main.tex",
+  "line": null,
+  "message": "Package biblatex Warning: Please (re)run BibTeX on the file(s): main and rerun LaTeX afterwards",
+  "detail": [],
+  "hint": null
+ }
+]

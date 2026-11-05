@@ -1,0 +1,146 @@
+[
+ {
+  "severity": "error",
+  "file": "shu-lab-report.cls",
+  "line": 156,
+  "message": "Package fontspec Error: The font \"FZShuSong-Z01\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.cls",
+  "line": 156,
+  "message": "Package fontspec Error: The font \"FZHei-B01\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.cls",
+  "line": 156,
+  "message": "Package fontspec Error: The font \"FZKai-Z03\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.cls",
+  "line": 357,
+  "message": "Package fontspec Error: The font \"Courier New\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.tex",
+  "line": 35,
+  "message": "Package fontspec Error: The font \"FZKai-Z03\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.tex",
+  "line": 35,
+  "message": "Package fontspec Error: The font \"FZHei-B01\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.tex",
+  "line": 35,
+  "message": "Font TU/FZKai-Z03(0)/b/n/24.88=FZHei-B01/OT at 24.88pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.tex",
+  "line": 45,
+  "message": "Font TU/FZShuSong-Z01(0)/m/n/17.28=FZShuSong-Z01/OT at 17.28pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.tex",
+  "line": 61,
+  "message": "Font TU/FZShuSong-Z01(0)/b/n/14.4=FZHei-B01/OT at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.tex",
+  "line": 67,
+  "message": "Font TU/FZShuSong-Z01(0)/b/n/12=FZHei-B01/OT at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.tex",
+  "line": 69,
+  "message": "Font TU/FZShuSong-Z01(0)/b/n/10=FZHei-B01/OT at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.tex",
+  "line": 73,
+  "message": "Font TU/FZShuSong-Z01(0)/m/n/10=FZShuSong-Z01/OT at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.tex",
+  "line": 84,
+  "message": "Font TU/CourierNew(0)/m/n/9=\"Courier New\" at 9.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.tex",
+  "line": 85,
+  "message": "Font TU/CourierNew(0)/m/n/8=\"Courier New\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "shu-lab-report.tex",
+  "line": 87,
+  "message": "Font TU/CourierNew(0)/m/it/9=\"Courier New\" at 9.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "shu-lab-report.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU/CourierNew(0)/m/it' undefined using `TU/CourierNew(0)/m/n' instead on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

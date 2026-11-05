@@ -1,0 +1,9 @@
+{
+ "id": 885,
+ "source": "CTAN",
+ "name": "fduthesis",
+ "url": "https://ctan.org/pkg/fduthesis",
+ "type": "Thesis",
+ "outcome": "download-failed",
+ "error": "fetch failed"
+}

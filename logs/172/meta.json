@@ -1,0 +1,33 @@
+{
+ "id": 172,
+ "source": "GitHub",
+ "name": "COPPE-UFRJ/CoppeTeX",
+ "url": "https://github.com/COPPE-UFRJ/CoppeTeX",
+ "type": "Slides",
+ "version": "919f13d6dc098570c3bf460e4e261d294c8de410",
+ "files": 324,
+ "main": "Beamer Template/coppebeamer.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (latexmkrc)",
+ "baseline": {
+  "main": "Beamer Template/coppebeamer.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 14279
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 7863,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

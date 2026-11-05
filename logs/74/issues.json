@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "error",
+  "file": "examples/tex/document.tex",
+  "line": 18,
+  "message": "Package pdftex.def Error: File `../figures/fig1.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `../figures/fig1.pgf' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "examples/tex/document.tex",
+  "line": 24,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "examples/tex/document.tex",
+  "line": 24,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "examples/tex/document.tex",
+  "line": 12,
+  "message": "Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \\pgfplotsset{compat=1.18} into your preamble. on input line 12",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "examples/tex/document.tex",
+  "line": 18,
+  "message": "LaTeX Warning: File `../figures/fig1.pdf' not found on input line 18",
+  "detail": [],
+  "hint": null
+ }
+]

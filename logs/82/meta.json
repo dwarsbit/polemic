@@ -1,0 +1,34 @@
+{
+ "id": 82,
+ "source": "GitHub",
+ "name": "sidcode/bits-pilani-thesis-template-latex",
+ "url": "https://github.com/sidcode/bits-pilani-thesis-template-latex",
+ "type": "Thesis",
+ "version": "c7e1ce124e8b9a4c5ea8030405c16a721223a88d",
+ "files": 29,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 5734,
+  "tail": "exit 12, PDF found\n  No file main.gls.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Missing input file 'main.gls' message in .log file:\n  No file main.gls.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Missing input file 'main.gls' message in .log file:\n  No file main.gls.\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2627,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 2,
+ "warnings": 1,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

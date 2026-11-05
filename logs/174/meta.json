@@ -1,0 +1,32 @@
+{
+ "id": 174,
+ "source": "GitHub",
+ "name": "Freed-Wu/internal-control-beamer",
+ "url": "https://github.com/Freed-Wu/internal-control-beamer",
+ "type": "Slides",
+ "version": "5cbb226a663e8e85b5f71ee8229332eb2e4dff87",
+ "files": 9,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 9306,
+  "tail": "exit 12, PDF not found\n  No file beamer.nav.\nLatexmk: Missing input file 'pgfornament-han/han31.pgf' message in .log file:\n  ! I can't find file `pgfornament-han/han31.pgf'.\nLatexmk: Missing input file 'beamer.nav' message in .log file:\n  No file beamer.nav.\nLatexmk: Missing input file 'pgfornament-han/han31.pgf' message in .log file:\n  ! I can't find file `pgfornament-han/han31.pgf'.\nFailure to make 'beamer.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 210,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "Emergency stop.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,34 @@
+{
+ "id": 275,
+ "source": "GitHub",
+ "name": "davtsang/TsangNotes",
+ "url": "https://github.com/davtsang/TsangNotes",
+ "type": "Notes",
+ "version": "3a3d5ac0d2681b46f4e404d6d780798fdc76e4ad",
+ "files": 32,
+ "main": "TsangNotes_Example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "TsangNotes_Example.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3718,
+  "tail": "exit 12, PDF found\nLatexmk: Missing bbl file 'TsangNotes_Example.bbl' in following:\n No file TsangNotes_Example.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nThis is makeindex, version 2.18 [TeX Live 2026] (kpathsea + Thai support).\nScanning input file TsangNotes_Example.idx...done (0 entries accepted, 0 rejected).\nNothing written in TsangNotes_Example.ind.\nTranscript written in TsangNotes_Example.ilg.\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1493,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ],
+  "tail": "  Reference `Ex1_3EoM' on page 7 undefined on input line 58\n  Reference `Fig:SimplePendulum' on page 8 undefined on input line 87\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 24,
+ "outcome": "both-fail"
+}

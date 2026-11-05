@@ -1,0 +1,1970 @@
+[
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": 119,
+  "message": "Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \\setlength {\\marginparwidth }{2cm} prior to loading the todonotes package. on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": 128,
+  "message": "LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined using `T1/lmr/bx/n' instead on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": 128,
+  "message": "Package spanish Warning: Replacing `T1/lmr/bx/sc' by faked small caps on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": 129,
+  "message": "Package spanish Warning: Replacing `T1/lmr/bx/sc' by faked small caps on input line 129",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": 130,
+  "message": "Package spanish Warning: Replacing `T1/lmr/bx/sc' by faked small caps on input line 130",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FrontMatter/Contents.tex",
+  "line": 2,
+  "message": "Package spanish Warning: Replacing `T1/lmr/bx/sc' by faked small caps on input line 2",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FrontMatter/Contents.tex",
+  "line": 3,
+  "message": "Package spanish Warning: Replacing `T1/lmr/bx/sc' by faked small caps on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FrontMatter/Contents.tex",
+  "line": 4,
+  "message": "Package spanish Warning: Replacing `T1/lmr/bx/sc' by faked small caps on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": 132,
+  "message": "Package spanish Warning: Replacing `T1/lmr/bx/sc' by faked small caps on input line 132",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 11,
+  "message": "LaTeX Warning: Citation `hey2020machinelearning' on page 1 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 11,
+  "message": "LaTeX Warning: Citation `dyrmishi2019decision' on page 1 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 11,
+  "message": "LaTeX Warning: Citation `radwa2019automated' on page 1 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 11,
+  "message": "LaTeX Warning: Citation `crisan2021fits' on page 1 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 13,
+  "message": "LaTeX Warning: Citation `thornton2013auto' on page 1 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 13,
+  "message": "LaTeX Warning: Citation `fuerer2015efficient' on page 1 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 13,
+  "message": "LaTeX Warning: Citation `olson2019tpot' on page 1 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 13,
+  "message": "LaTeX Warning: Citation `paszke2019pytorch' on page 1 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 13,
+  "message": "LaTeX Warning: Citation `chen2018autostacker' on page 1 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 13,
+  "message": "LaTeX Warning: Citation `swearingen2017atm' on page 1 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 15,
+  "message": "LaTeX Warning: Citation `hutter2019autmlbook' on page 1 undefined on input line 15",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 15,
+  "message": "LaTeX Warning: Citation `he2021automl' on page 1 undefined on input line 15",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 18,
+  "message": "LaTeX Warning: Citation `hutter2019autmlbook' on page 1 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation `dyrmishi2019decision' on page 1 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 24,
+  "message": "LaTeX Warning: Citation `crisan2021fits' on page 2 undefined on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 24,
+  "message": "LaTeX Warning: Citation `fuerer2015efficient' on page 2 undefined on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `fuerer2015efficient' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `maher2019smartml' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `drori2018alphad3m' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `yang2018oboe' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `zimmer2021auto' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `Feurer2020AutoSklearn2T' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 43,
+  "message": "LaTeX Warning: Citation `autogoal' on page 3 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 80,
+  "message": "LaTeX Warning: Reference `chapter:review' on page 4 undefined on input line 80",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 80,
+  "message": "LaTeX Warning: Reference `chapter:proposal' on page 4 undefined on input line 80",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Introduction.tex",
+  "line": 80,
+  "message": "LaTeX Warning: Reference `chapter:results' on page 4 undefined on input line 80",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 11,
+  "message": "LaTeX Warning: Reference `sec:metalearning' on page 5 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 11,
+  "message": "LaTeX Warning: Reference `sec:automl' on page 5 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 11,
+  "message": "LaTeX Warning: Reference `sec:metalearning-automl' on page 5 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 19,
+  "message": "LaTeX Warning: Citation `biggs1985role' on page 5 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 21,
+  "message": "LaTeX Warning: Citation `hospedales2021metalearning' on page 5 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 23,
+  "message": "LaTeX Warning: Citation `lemke2013metalearning' on page 5 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 31,
+  "message": "LaTeX Warning: Citation `lemke2013metalearning' on page 5 undefined on input line 31",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 34,
+  "message": "LaTeX Warning: Citation `vilalta2001perspective' on page 6 undefined on input line 34",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 35,
+  "message": "LaTeX Warning: Citation `giraud2008metalearning' on page 6 undefined on input line 35",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 36,
+  "message": "LaTeX Warning: Citation `bradzil2009metalearning' on page 6 undefined on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `vanschoren2010understanding' on page 6 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 42,
+  "message": "LaTeX Warning: Citation `hospedales2021metalearning' on page 6 undefined on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 53,
+  "message": "LaTeX Warning: Citation `hospedales2021metalearning' on page 6 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 60,
+  "message": "LaTeX Warning: Citation `hospedales2021metalearning' on page 7 undefined on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 62,
+  "message": "LaTeX Warning: Reference `sec:metalearning-automl' on page 7 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 73,
+  "message": "LaTeX Warning: Citation `bradzil2017metalearning' on page 7 undefined on input line 73",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 76,
+  "message": "LaTeX Warning: Reference `fig:adquisition' on page 8 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 89,
+  "message": "LaTeX Warning: Reference `fig:application' on page 8 undefined on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 91,
+  "message": "LaTeX Warning: Reference `fig:application' on page 8 undefined on input line 91",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 93,
+  "message": "LaTeX Warning: Reference `fig:application' on page 8 undefined on input line 93",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 93,
+  "message": "LaTeX Warning: Citation `bradzil2017metalearning' on page 8 undefined on input line 93",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 107,
+  "message": "LaTeX Warning: Citation `peng2020comprehensive' on page 9 undefined on input line 107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 107,
+  "message": "LaTeX Warning: Reference `sec:metalearning-automl' on page 9 undefined on input line 107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 109,
+  "message": "LaTeX Warning: Citation `peng2020comprehensive' on page 9 undefined on input line 109",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 127,
+  "message": "LaTeX Warning: Citation `hutter2019autmlbook' on page 9 undefined on input line 127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 134,
+  "message": "LaTeX Warning: Citation `he2021automl' on page 10 undefined on input line 134",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 136,
+  "message": "LaTeX Warning: Citation `he2021automl' on page 10 undefined on input line 136",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 142,
+  "message": "LaTeX Warning: Citation `zoph2017learning' on page 10 undefined on input line 142",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 142,
+  "message": "LaTeX Warning: Citation `witsuba2019nas' on page 10 undefined on input line 142",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 142,
+  "message": "LaTeX Warning: Citation `bischl2021hyperparameter' on page 10 undefined on input line 142",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 145,
+  "message": "LaTeX Warning: Citation `fuerer2015efficient' on page 10 undefined on input line 145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 145,
+  "message": "LaTeX Warning: Citation `olson2019tpot' on page 10 undefined on input line 145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 145,
+  "message": "LaTeX Warning: Citation `paszke2019pytorch' on page 10 undefined on input line 145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 145,
+  "message": "LaTeX Warning: Citation `chen2018autostacker' on page 10 undefined on input line 145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 145,
+  "message": "LaTeX Warning: Citation `swearingen2017atm' on page 10 undefined on input line 145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 145,
+  "message": "LaTeX Warning: Citation `web-mlpipe' on page 10 undefined on input line 145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 160,
+  "message": "LaTeX Warning: Citation `wolpert1995no' on page 10 undefined on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 160,
+  "message": "LaTeX Warning: Citation `thornton2013auto' on page 10 undefined on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 160,
+  "message": "LaTeX Warning: Citation `fuerer2019hyperparameter' on page 10 undefined on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 190,
+  "message": "LaTeX Warning: Citation `bischl2021hyperparameter' on page 12 undefined on input line 190",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 203,
+  "message": "LaTeX Warning: Citation `fuerer2019hyperparameter' on page 12 undefined on input line 203",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 234,
+  "message": "LaTeX Warning: Reference `cash' on page 12 undefined on input line 234",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 264,
+  "message": "LaTeX Warning: Citation `scikit-learn' on page 13 undefined on input line 264",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 266,
+  "message": "LaTeX Warning: Citation `bergstra2013hyperopt' on page 14 undefined on input line 266",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 268,
+  "message": "LaTeX Warning: Citation `wang2018rafiki' on page 14 undefined on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 270,
+  "message": "LaTeX Warning: Citation `wang2021flaml' on page 14 undefined on input line 270",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 270,
+  "message": "LaTeX Warning: Citation `wu2021frugal' on page 14 undefined on input line 270",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 299,
+  "message": "LaTeX Warning: Citation `rasmussen2005gaussian' on page 14 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 299,
+  "message": "LaTeX Warning: Citation `bischl2021hyperparameter' on page 14 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 301,
+  "message": "LaTeX Warning: Citation `hutter2011sequential' on page 15 undefined on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 331,
+  "message": "LaTeX Warning: Citation `thornton2013auto' on page 15 undefined on input line 331",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 331,
+  "message": "LaTeX Warning: Citation `hutter2011sequential' on page 15 undefined on input line 331",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 331,
+  "message": "LaTeX Warning: Citation `bergstra2011algorithms' on page 15 undefined on input line 331",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 333,
+  "message": "LaTeX Warning: Citation `bergstra2013hyperopt' on page 15 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 333,
+  "message": "LaTeX Warning: Citation `fuerer2015efficient' on page 15 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 333,
+  "message": "LaTeX Warning: Citation `fuerer2015initializing' on page 15 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 333,
+  "message": "LaTeX Warning: Citation `hutter2011sequential' on page 15 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 335,
+  "message": "LaTeX Warning: Citation `mendoza2016towards' on page 15 undefined on input line 335",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 335,
+  "message": "LaTeX Warning: Citation `lasagne' on page 15 undefined on input line 335",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 335,
+  "message": "LaTeX Warning: Citation `theano2016theano' on page 15 undefined on input line 335",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 337,
+  "message": "LaTeX Warning: Citation `jin2019auto' on page 16 undefined on input line 337",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 348,
+  "message": "LaTeX Warning: Citation `wu2019practical' on page 16 undefined on input line 348",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 354,
+  "message": "LaTeX Warning: Citation `zimmer2021auto' on page 16 undefined on input line 354",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 354,
+  "message": "LaTeX Warning: Citation `mendoza2016towards' on page 16 undefined on input line 354",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 354,
+  "message": "LaTeX Warning: Citation `falkner2018bohb' on page 16 undefined on input line 354",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 354,
+  "message": "LaTeX Warning: Citation `li2018hyperband' on page 16 undefined on input line 354",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 385,
+  "message": "LaTeX Warning: Citation `chen2018autostacker' on page 17 undefined on input line 385",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 385,
+  "message": "LaTeX Warning: Citation `wolpert1992stacked' on page 17 undefined on input line 385",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 385,
+  "message": "LaTeX Warning: Citation `breiman1996stacked' on page 17 undefined on input line 385",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 387,
+  "message": "LaTeX Warning: Citation `olson2019tpot' on page 17 undefined on input line 387",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 387,
+  "message": "LaTeX Warning: Citation `NSGA-II' on page 17 undefined on input line 387",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 389,
+  "message": "LaTeX Warning: Citation `de2017recipe' on page 17 undefined on input line 389",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 391,
+  "message": "LaTeX Warning: Citation `de2018automated' on page 18 undefined on input line 391",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 391,
+  "message": "LaTeX Warning: Citation `MEKA' on page 18 undefined on input line 391",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 397,
+  "message": "LaTeX Warning: Citation `autogoal' on page 18 undefined on input line 397",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 397,
+  "message": "LaTeX Warning: Citation `pge2015' on page 18 undefined on input line 397",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 415,
+  "message": "LaTeX Warning: Citation `drori2018alphad3m' on page 18 undefined on input line 415",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 415,
+  "message": "LaTeX Warning: Citation `alphazero' on page 18 undefined on input line 415",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 449,
+  "message": "LaTeX Warning: Citation `swearingen2017atm' on page 19 undefined on input line 449",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 449,
+  "message": "LaTeX Warning: Citation `snoek2012practical' on page 19 undefined on input line 449",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 451,
+  "message": "LaTeX Warning: Citation `shang2019democratizing' on page 19 undefined on input line 451",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 484,
+  "message": "LaTeX Warning: Citation `rakotoarison2019automated' on page 20 undefined on input line 484",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 486,
+  "message": "LaTeX Warning: Citation `rakotoarison2019automated' on page 20 undefined on input line 486",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 510,
+  "message": "LaTeX Warning: Citation `dai2020lower' on page 20 undefined on input line 510",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 516,
+  "message": "LaTeX Warning: Citation `maclaurin2015gradient' on page 20 undefined on input line 516",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 516,
+  "message": "LaTeX Warning: Citation `franceschi2017forward' on page 20 undefined on input line 516",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 518,
+  "message": "LaTeX Warning: Citation `OracleAutoML' on page 20 undefined on input line 518",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 538,
+  "message": "LaTeX Warning: Citation `yang2018oboe' on page 21 undefined on input line 538",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 566,
+  "message": "LaTeX Warning: Citation `vanschoren2018metalearning' on page 22 undefined on input line 566",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 566,
+  "message": "LaTeX Warning: Reference `subsec:mtl_automl_proprerties' on page 22 undefined on input line 566",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 566,
+  "message": "LaTeX Warning: Reference `subsec:mtl_automl_evaluations' on page 22 undefined on input line 566",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 580,
+  "message": "LaTeX Warning: Command \\textellipsis invalid in math mode on input line 580",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 602,
+  "message": "LaTeX Warning: Citation `Rivolli2018TowardsRE' on page 23 undefined on input line 602",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 602,
+  "message": "LaTeX Warning: Citation `bradzil2009metalearning' on page 23 undefined on input line 602",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 619,
+  "message": "LaTeX Warning: Citation `sun2013pairwise' on page 24 undefined on input line 619",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 623,
+  "message": "LaTeX Warning: Citation `Pinto2016TowardsAG' on page 24 undefined on input line 623",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 623,
+  "message": "LaTeX Warning: Citation `pinto2014framework' on page 24 undefined on input line 623",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 625,
+  "message": "LaTeX Warning: Citation `bilalli2017predictive' on page 24 undefined on input line 625",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 627,
+  "message": "LaTeX Warning: Citation `Rivolli2018TowardsRE' on page 24 undefined on input line 627",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 689,
+  "message": "LaTeX Warning: Citation `santos2004selection' on page 25 undefined on input line 689",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 689,
+  "message": "LaTeX Warning: Citation `bradzil2003ranking' on page 25 undefined on input line 689",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 691,
+  "message": "LaTeX Warning: Citation `todorovski2002ranking' on page 25 undefined on input line 691",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 691,
+  "message": "LaTeX Warning: Citation `tomaz2020oblique' on page 25 undefined on input line 691",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 693,
+  "message": "LaTeX Warning: Citation `sun2013pairwise' on page 25 undefined on input line 693",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 697,
+  "message": "LaTeX Warning: Citation `fuerer2015efficient' on page 25 undefined on input line 697",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 697,
+  "message": "LaTeX Warning: Citation `scikit-learn' on page 25 undefined on input line 697",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 699,
+  "message": "LaTeX Warning: Citation `vanschoren2018metalearning' on page 25 undefined on input line 699",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 706,
+  "message": "LaTeX Warning: Citation `shang2019democratizing' on page 25 undefined on input line 706",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 708,
+  "message": "LaTeX Warning: Citation `maher2019smartml' on page 26 undefined on input line 708",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 717,
+  "message": "LaTeX Warning: Citation `rakotoarison2019automated' on page 26 undefined on input line 717",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 725,
+  "message": "LaTeX Warning: Citation `atomic' on page 26 undefined on input line 725",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 725,
+  "message": "LaTeX Warning: Citation `xgboost' on page 26 undefined on input line 725",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 774,
+  "message": "LaTeX Warning: Citation `guerra2008predicting' on page 28 undefined on input line 774",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 776,
+  "message": "LaTeX Warning: Citation `reif2012automatic' on page 28 undefined on input line 776",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 804,
+  "message": "LaTeX Warning: Citation `rijn2018hyp' on page 28 undefined on input line 804",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 804,
+  "message": "LaTeX Warning: Citation `vanschoren2018metalearning' on page 28 undefined on input line 804",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 806,
+  "message": "LaTeX Warning: Citation `ridd2014using' on page 28 undefined on input line 806",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 806,
+  "message": "LaTeX Warning: Citation `rijn2018hyp' on page 28 undefined on input line 806",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 812,
+  "message": "LaTeX Warning: Citation `ridd2014using' on page 28 undefined on input line 812",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 814,
+  "message": "LaTeX Warning: Citation `sanders2017informing' on page 28 undefined on input line 814",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 869,
+  "message": "LaTeX Warning: Citation `leite2017selecting' on page 29 undefined on input line 869",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 869,
+  "message": "LaTeX Warning: Citation `abdulrahman2018speeding' on page 29 undefined on input line 869",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 869,
+  "message": "LaTeX Warning: Citation `abdulrahman2014measures' on page 29 undefined on input line 869",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 871,
+  "message": "LaTeX Warning: Citation `witsuba2015learning' on page 30 undefined on input line 871",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 879,
+  "message": "LaTeX Warning: Citation `zimmer2021auto' on page 30 undefined on input line 879",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 885,
+  "message": "LaTeX Warning: Citation `Feurer2020AutoSklearn2T' on page 30 undefined on input line 885",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 903,
+  "message": "LaTeX Warning: Citation `rijn2018hyp' on page 31 undefined on input line 903",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 905,
+  "message": "LaTeX Warning: Citation `witsuba2015hyper' on page 31 undefined on input line 905",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 909,
+  "message": "LaTeX Warning: Citation `mendoza2016towards' on page 31 undefined on input line 909",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 938,
+  "message": "LaTeX Warning: Citation `sun2013pairwise' on page 31 undefined on input line 938",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 940,
+  "message": "LaTeX Warning: Citation `leite2017selecting' on page 31 undefined on input line 940",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 942,
+  "message": "LaTeX Warning: Citation `yang2018oboe' on page 31 undefined on input line 942",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 946,
+  "message": "LaTeX Warning: Citation `fusi2018advances' on page 32 undefined on input line 946",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 948,
+  "message": "LaTeX Warning: Citation `activmetal' on page 32 undefined on input line 948",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 948,
+  "message": "LaTeX Warning: Citation `weimar2007cofirank' on page 32 undefined on input line 948",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 972,
+  "message": "LaTeX Warning: Citation `witsuba2015learning' on page 32 undefined on input line 972",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 972,
+  "message": "LaTeX Warning: Citation `witsuba2018scalable' on page 32 undefined on input line 972",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 975,
+  "message": "LaTeX Warning: Citation `bardenet2013hyper' on page 33 undefined on input line 975",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 975,
+  "message": "LaTeX Warning: Citation `yogatama2014efficient' on page 33 undefined on input line 975",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 977,
+  "message": "LaTeX Warning: Citation `schilling2015hyp' on page 33 undefined on input line 977",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 979,
+  "message": "LaTeX Warning: Citation `yang2020automl' on page 33 undefined on input line 979",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 979,
+  "message": "LaTeX Warning: Citation `borkowski1994optimal' on page 33 undefined on input line 979",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 979,
+  "message": "LaTeX Warning: Citation `makar2011teaching' on page 33 undefined on input line 979",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 984,
+  "message": "LaTeX Warning: Citation `vanschoren2018metalearning' on page 33 undefined on input line 984",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Background.tex",
+  "line": 986,
+  "message": "LaTeX Warning: Citation `pge2015' on page 33 undefined on input line 986",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 14,
+  "message": "LaTeX Warning: Citation `pge2015' on page 35 undefined on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 17,
+  "message": "LaTeX Warning: Reference `sec:proposal' on page 35 undefined on input line 17",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 17,
+  "message": "LaTeX Warning: Reference `sec:autogoal_imp' on page 35 undefined on input line 17",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 17,
+  "message": "LaTeX Warning: Reference `sub:adquisicion' on page 35 undefined on input line 17",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 17,
+  "message": "LaTeX Warning: Reference `sub:aplicacion' on page 35 undefined on input line 17",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 32,
+  "message": "LaTeX Warning: Reference `fig:system' on page 36 undefined on input line 32",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 57,
+  "message": "LaTeX Warning: Citation `castiello2005metadata' on page 36 undefined on input line 57",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 61,
+  "message": "LaTeX Warning: Reference `chapter:review' on page 37 undefined on input line 61",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 61,
+  "message": "LaTeX Warning: Citation `bradzil2009metalearning' on page 37 undefined on input line 61",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 71,
+  "message": "LaTeX Warning: Citation `castiello2005metadata' on page 37 undefined on input line 71",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 71,
+  "message": "LaTeX Warning: Citation `fuerer2015efficient' on page 37 undefined on input line 71",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 111,
+  "message": "LaTeX Warning: Citation `Rivolli2018TowardsRE' on page 40 undefined on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 113,
+  "message": "LaTeX Warning: Reference `tab:metafeat' on page 40 undefined on input line 113",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 158,
+  "message": "Package longtable Warning: Column widths have changed in table 2.1 on input line 158",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 165,
+  "message": "LaTeX Warning: Reference `alg:flows' on page 41 undefined on input line 165",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 218,
+  "message": "LaTeX Warning: Reference `alg:nn.proc' on page 43 undefined on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 246,
+  "message": "LaTeX Warning: Citation `fuerer2015efficient' on page 44 undefined on input line 246",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 246,
+  "message": "LaTeX Warning: Citation `sun2014MetaLearningAT' on page 44 undefined on input line 246",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 246,
+  "message": "LaTeX Warning: Citation `bradzil2009metalearning' on page 44 undefined on input line 246",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 269,
+  "message": "LaTeX Warning: Reference `alg:ranker.proc' on page 45 undefined on input line 269",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 301,
+  "message": "LaTeX Warning: Citation `xgboost' on page 45 undefined on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 301,
+  "message": "LaTeX Warning: Citation `rankml' on page 45 undefined on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 301,
+  "message": "LaTeX Warning: Citation `atomic' on page 45 undefined on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 307,
+  "message": "LaTeX Warning: Citation `burges2010from' on page 46 undefined on input line 307",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 328,
+  "message": "LaTeX Warning: Reference `chapter:review' on page 46 undefined on input line 328",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 328,
+  "message": "LaTeX Warning: Citation `fuerer2015efficient' on page 46 undefined on input line 328",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 330,
+  "message": "LaTeX Warning: Citation `autogoal' on page 46 undefined on input line 330",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 336,
+  "message": "LaTeX Warning: Citation `pge2015' on page 47 undefined on input line 336",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Proposal.tex",
+  "line": 338,
+  "message": "LaTeX Warning: Reference `fig:autogoal' on page 47 undefined on input line 338",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 5,
+  "message": "LaTeX Warning: Reference `sec:datasets' on page 49 undefined on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 5,
+  "message": "LaTeX Warning: Reference `sec:flujos' on page 49 undefined on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 5,
+  "message": "LaTeX Warning: Reference `sec:comparacion' on page 49 undefined on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 7,
+  "message": "LaTeX Warning: Reference `subsec:resultados' on page 49 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 7,
+  "message": "LaTeX Warning: Reference `sec:discusion' on page 49 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation `vanschoren2014openml' on page 49 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation `feurer2019openmlpy' on page 49 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 22,
+  "message": "LaTeX Warning: Reference `fig:datasets' on page 49 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 43,
+  "message": "LaTeX Warning: Citation `scikit-learn' on page 50 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 43,
+  "message": "LaTeX Warning: Citation `paszke2019pytorch' on page 50 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 43,
+  "message": "LaTeX Warning: Citation `chollet2015keras' on page 50 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 43,
+  "message": "LaTeX Warning: Citation `bird2009natural' on page 50 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 43,
+  "message": "LaTeX Warning: Citation `khosrovian2008gensim' on page 50 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 47,
+  "message": "LaTeX Warning: Reference `subsub:soluciones' on page 51 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 58,
+  "message": "LaTeX Warning: Reference `subsub:nn' on page 51 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 59,
+  "message": "LaTeX Warning: Reference `subsub:nn' on page 51 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 60,
+  "message": "LaTeX Warning: Reference `subsub:ranker' on page 51 undefined on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 63,
+  "message": "LaTeX Warning: Reference `subsub:ranker' on page 51 undefined on input line 63",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 64,
+  "message": "LaTeX Warning: Citation `xgboost' on page 51 undefined on input line 64",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 128,
+  "message": "LaTeX Warning: Reference `fig:failedpipelines' on page 52 undefined on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 146,
+  "message": "LaTeX Warning: Reference `fig:performance' on page 53 undefined on input line 146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 157,
+  "message": "LaTeX Warning: Reference `fig:bestfn' on page 54 undefined on input line 157",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 166,
+  "message": "LaTeX Warning: Reference `fig:zscore' on page 55 undefined on input line 166",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 168,
+  "message": "LaTeX Warning: Reference `fig:zscore' on page 55 undefined on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MainMatter/Results.tex",
+  "line": 201,
+  "message": "LaTeX Warning: Citation `gomes2012combining' on page 57 undefined on input line 201",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "BackMatter/Conclusions.tex",
+  "line": 12,
+  "message": "LaTeX Warning: Citation `miller2017quant' on page 58 undefined on input line 12",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "BackMatter/Conclusions.tex",
+  "line": 14,
+  "message": "LaTeX Warning: Citation `drozdal2020trust' on page 58 undefined on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "BackMatter/Conclusions.tex",
+  "line": 14,
+  "message": "LaTeX Warning: Citation `wang2019humanai' on page 58 undefined on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "BackMatter/Conclusions.tex",
+  "line": 14,
+  "message": "LaTeX Warning: Citation `crisan2021fits' on page 58 undefined on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "BackMatter/Conclusions.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation `pge2015' on page 58 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "BackMatter/Conclusions.tex",
+  "line": 28,
+  "message": "LaTeX Warning: Reference `chapter:results' on page 59 undefined on input line 28",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "BackMatter/Recomendations.tex",
+  "line": 7,
+  "message": "LaTeX Warning: Citation `rankml' on page 60 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": null,
+  "message": "Package longtable Warning: Table widths have changed. Rerun LaTeX",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": null,
+  "message": "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": null,
+  "message": "Package rerunfilecheck Warning: File `Thesis.out' has changed. Rerun to get outlines right or use package `bookmark'",
+  "detail": [],
+  "hint": null
+ }
+]

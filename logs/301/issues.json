@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ctex Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ }
+]

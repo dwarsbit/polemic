@@ -1,0 +1,178 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package etex Warning: Extended allocation already in use. etex.sty code will not be used. To force etex package to load, add \\RequirePackage{etex} at the start of the document",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "lecture_notes.tex",
+  "line": 50,
+  "message": "Class scrbook Warning: Usage of package `fancyhdr' together with a KOMA-Script class is not recommended. I'd suggest to use package `scrlayer' or `scrlayer-scrpage', because they support KOMA-Script classes. With `fancyhdr' several features of class `scrbook' like options `headsepline', `footsepline' or command `\\MakeMarkcase' and the commands `\\setkomafont' and `\\addtokomafont' for the page style elements need explicite user intervention to work. Nevertheless, using requested package `fancyhdr' on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `acro:FI@cref' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `acro:SCA@cref' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `acro:SBOX@cref' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `acro:ANF@cref' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `acro:ECC@cref' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `acro:CRT@cref' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `acro:DC@cref' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `acro:SPA@cref' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `acro:DPA@cref' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `acro:CPA@cref' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/asymmetric_crypto.tex",
+  "line": 13,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@ac' on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/acronyms.tex",
+  "line": 5,
+  "message": "LaTeX Warning: Hyper reference `acro:3DES' on page 49 undefined on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/acronyms.tex",
+  "line": 10,
+  "message": "LaTeX Warning: Hyper reference `acro:AES' on page 49 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/acronyms.tex",
+  "line": 38,
+  "message": "LaTeX Warning: Hyper reference `acro:CPU' on page 49 undefined on input line 38",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/acronyms.tex",
+  "line": 44,
+  "message": "LaTeX Warning: Hyper reference `acro:DES' on page 49 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/acronyms.tex",
+  "line": 72,
+  "message": "LaTeX Warning: Hyper reference `acro:EEPROM' on page 50 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/acronyms.tex",
+  "line": 168,
+  "message": "LaTeX Warning: Hyper reference `acro:PC' on page 51 undefined on input line 168",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/acronyms.tex",
+  "line": 198,
+  "message": "LaTeX Warning: Hyper reference `acro:RSA' on page 51 undefined on input line 198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "lecture_notes.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "lecture_notes.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were multiply-defined labels",
+  "detail": [],
+  "hint": null
+ }
+]

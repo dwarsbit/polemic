@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 2,
+  "message": "LaTeX Warning: \\include should only be used after \\begin{document} on input line 2",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tracklang Warning: No `datatool' support for dialect `spanish'  on input line 9924",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 14.49998pt, for example: \\setlength{\\headheight}{14.49998pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-2.49998pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 125,
+  "message": "Package biblatex Warning: No driver for 'standard'. Using fallback driver on input line 125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/apendiceEjemplos.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 14.61858pt, for example: \\setlength{\\headheight}{14.61858pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-2.61858pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package biblatex Warning: Please (re)run BibTeX on the file(s): main and rerun LaTeX afterwards",
+  "detail": [],
+  "hint": null
+ }
+]

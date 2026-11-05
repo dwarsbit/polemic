@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [lettersize]",
+  "detail": [],
+  "hint": null
+ }
+]

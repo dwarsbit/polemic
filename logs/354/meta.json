@@ -1,0 +1,32 @@
+{
+ "id": 354,
+ "source": "GitHub",
+ "name": "altinodantas/ufgtexposter",
+ "url": "https://github.com/altinodantas/ufgtexposter",
+ "type": "Poster",
+ "version": "e8ac61f6d0c66df93aff0776c592e1cfa7e17b4b",
+ "files": 17,
+ "main": "poster.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "poster.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3347
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2930,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

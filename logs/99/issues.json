@@ -1,0 +1,32 @@
+[
+ {
+  "severity": "error",
+  "file": "elegantpaper-cn.tex",
+  "line": 77,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.77 ...�荐使用方正字体。方正的{\\songti",
+   "                                                   方正书宋}、{\\heiti �..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "elegantpaper-cn.tex",
+  "line": 166,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.166 ...用于大型操作符，达到了 {\\heiti",
+   "                                                   最多 16 个数学字体..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file unisong85): Font unisong85 at 600 not found",
+  "detail": [],
+  "hint": null
+ }
+]

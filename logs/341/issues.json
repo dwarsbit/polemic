@@ -1,0 +1,180 @@
+[
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 23,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 23,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 23,
+  "message": "Package calc Error: `D' invalid at this point.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 23,
+  "message": "LaTeX Error: There's no line here to end.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 23,
+  "message": "Package calc Error: `C' invalid at this point.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 23,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 38,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 38,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 38,
+  "message": "Package calc Error: `Y' invalid at this point.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 38,
+  "message": "LaTeX Error: There's no line here to end.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 39,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 39,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 39,
+  "message": "Package calc Error: `Y' invalid at this point.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 39,
+  "message": "LaTeX Error: There's no line here to end.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 40,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 40,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 40,
+  "message": "Package calc Error: `Y' invalid at this point.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 40,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [
+   "l.40 [Your Current Institution]}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 43,
+  "message": "LaTeX Error: \\begin{minipage} on input line 23 ended by \\end{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resume_builder/templates/coverletter_template.tex",
+  "line": 43,
+  "message": "You can't use `\\end' in internal vertical mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `../harvardml', but the document class provides `harvardml'",
+  "detail": [],
+  "hint": null
+ }
+]

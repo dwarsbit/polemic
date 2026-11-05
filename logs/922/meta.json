@@ -1,0 +1,10 @@
+{
+ "id": 922,
+ "source": "CTAN",
+ "name": "uothesis",
+ "url": "https://ctan.org/pkg/uothesis",
+ "type": "Thesis",
+ "version": "2.5.6",
+ "files": 4,
+ "outcome": "no-tex"
+}

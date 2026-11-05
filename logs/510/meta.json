@@ -1,0 +1,33 @@
+{
+ "id": 510,
+ "source": "arXiv",
+ "name": "arXiv:2611.02320",
+ "url": "https://arxiv.org/abs/2611.02320",
+ "type": "Paper",
+ "version": "2611.02320",
+ "files": 4,
+ "main": "charp.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "charp.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 7325,
+  "tail": "exit 12, PDF found\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Failed to find one or more bibliography files in search path.\n====BUT force_mode is on, so I will continue. There may be problems ===\nLatexmk: Veto of running of 'bibtex charp' ($bibtex_use=1)\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Failed to find one or more bibliography files in search path.\n====BUT force_mode is on, so I will continue. There may be problems ===\nLatexmk: Veto of running of 'bibtex charp' ($bibtex_use=1)"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 3591,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 13,
+ "firstError": "LaTeX Error: Command \\c@proposition already defined.",
+ "outcome": "both-fail"
+}

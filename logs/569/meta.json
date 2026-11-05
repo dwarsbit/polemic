@@ -1,0 +1,32 @@
+{
+ "id": 569,
+ "source": "arXiv",
+ "name": "arXiv:2610.36463",
+ "url": "https://arxiv.org/abs/2610.36463",
+ "type": "Paper",
+ "version": "2610.36463",
+ "files": 9,
+ "main": "biomimetics-4559614-done.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "biomimetics-4559614-done.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 6475
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5875,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

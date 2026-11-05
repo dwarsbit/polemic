@@ -1,0 +1,31 @@
+{
+ "id": 441,
+ "source": "GitHub",
+ "name": "sumnerevans/mines-cheatsheets",
+ "url": "https://github.com/sumnerevans/mines-cheatsheets",
+ "type": "Cheat sheet",
+ "version": "c0fea7c67cb24d0f95d55f40c09c6115a3ebc3d3",
+ "files": 15,
+ "main": ".vim-template:.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": ".vim-template:.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 433,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to '.vim-template:.log' and/or above output for details\n\nLatexmk: Missing input file '../cheatsheet.cls' message in .log file:\n  ! LaTeX Error: File `../cheatsheet.cls' not found.\nFailure to make '.vim-template:.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 374,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 1,
+ "firstError": "File ended while scanning use of \\course.",
+ "outcome": "both-fail"
+}

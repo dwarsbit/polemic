@@ -1,0 +1,9 @@
+{
+ "id": 958,
+ "source": "CTAN",
+ "name": "jhep",
+ "url": "https://ctan.org/pkg/jhep",
+ "type": "Paper",
+ "outcome": "download-failed",
+ "error": "https://mirrors.ctan.org/macros/latex/contrib/jhep.zip answered 404"
+}

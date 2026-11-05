@@ -1,0 +1,34 @@
+{
+ "id": 685,
+ "source": "arXiv",
+ "name": "arXiv:2109.00963",
+ "url": "https://arxiv.org/abs/2109.00963",
+ "type": "Paper",
+ "version": "2109.00963",
+ "files": 13,
+ "main": "Main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 6562,
+  "tail": "exit 12, PDF found\nLatexmk: Found bibliography file(s):\n  ./sample.bib\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  bibtex Main: Bibtex errors: See file 'Main.blg'\n\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 5269,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ],
+  "tail": "  Citation `Cooper:18' on page 1 undefined on input line 38\n And 64 more --- see log file 'build/Main.log'\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 73,
+ "outcome": "both-fail"
+}

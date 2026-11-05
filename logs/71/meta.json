@@ -1,0 +1,33 @@
+{
+ "id": 71,
+ "source": "GitHub",
+ "name": "brews/phd-dissertation-manuscript-2017",
+ "url": "https://github.com/brews/phd-dissertation-manuscript-2017",
+ "type": "Thesis",
+ "version": "9b98d61e16113b5ae8733efd717bd303956cc4d6",
+ "files": 62,
+ "main": "dissertation.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "dissertation.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 5018,
+  "tail": "exit 12, PDF found\nLatexmk: Missing input file 'dissertation.toc' message in .log file:\n  No file dissertation.toc.\nLatexmk: Missing input file 'dissertation.lof' message in .log file:\n  No file dissertation.lof.\nLatexmk: Missing input file 'dissertation.lot' message in .log file:\n  No file dissertation.lot.\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  ! LaTeX Error: Unicode character   (U+202F)"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2126,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 2,
+ "firstError": "LaTeX Error: Unicode character   (U+202F)",
+ "outcome": "both-fail"
+}

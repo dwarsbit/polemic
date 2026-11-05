@@ -1,0 +1,58 @@
+[
+ {
+  "severity": "warning",
+  "file": "DerivedGodeauxV5.tex",
+  "line": 326,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 326",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "DerivedGodeauxV5.tex",
+  "line": 860,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 860",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "DerivedGodeauxV5.tex",
+  "line": 860,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 860",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "DerivedGodeauxV5.tex",
+  "line": 1470,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1470",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1611",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 1611",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\infty' on input line 1611",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 299,
+ "source": "GitHub",
+ "name": "coliva92/algorithms-notes",
+ "url": "https://github.com/coliva92/algorithms-notes",
+ "type": "Book",
+ "version": "35c59cf0a4b7aa34f1b543721824f42b25a40ce4",
+ "files": 25,
+ "main": "apuntes.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "apuntes.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3486,
+  "tail": "exit 12, PDF not found\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: Incomplete (and hence corrupt) bcf file 'apuntes.bcf'\nLatexmk: ========== Incomplete .bcf file 'apuntes.bcf'.\n  I'll rename the file to 'apuntes.bcf-SAVE-ERROR'.\n  I'll rename the bbl file to 'apuntes.bbl-SAVE-ERROR',\n  in case the incomplete bcf file was a result of error in\n  'pdflatex' caused by an error in the bbl file.\nFailure to make 'apuntes.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 963,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 2,
+ "firstError": "LaTeX Error: File `capitulos/mat-disc/logica.tex' not found.",
+ "outcome": "both-fail"
+}

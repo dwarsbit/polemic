@@ -1,0 +1,33 @@
+{
+ "id": 638,
+ "source": "arXiv",
+ "name": "arXiv:hep-th/0503002",
+ "url": "https://arxiv.org/abs/hep-th/0503002",
+ "type": "Paper",
+ "version": "hep-th/0503002",
+ "files": 7,
+ "main": "ism04.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ism04.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2270,
+  "tail": "exit 12, PDF found\n      Refer to 'ism04.log' and/or above output for details\n\nLatexmk: Important warning:\n  (\\end occurred inside a group at level 1)\nLatexmk: Important warning:\n  (\\end occurred inside a group at level 1)\nLatexmk: Important warning:\n  (\\end occurred inside a group at level 1)"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1086,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Loading a class or package in a group.",
+ "outcome": "both-fail"
+}

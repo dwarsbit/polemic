@@ -1,0 +1,31 @@
+{
+ "id": 318,
+ "source": "GitHub",
+ "name": "hijiangtao/resume",
+ "url": "https://github.com/hijiangtao/resume",
+ "type": "CV",
+ "version": "408f9ab0558f72174badb89a9d626bedb66040a3",
+ "files": 20,
+ "main": "resume-zh_CN.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "resume-zh_CN.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2168
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1634,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

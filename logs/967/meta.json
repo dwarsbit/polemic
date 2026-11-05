@@ -1,0 +1,31 @@
+{
+ "id": 967,
+ "source": "CTAN",
+ "name": "quantumarticle",
+ "url": "https://ctan.org/pkg/quantumarticle",
+ "type": "Paper",
+ "version": "6.1",
+ "files": 15,
+ "main": "quantum-bibliographystyle-demo.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "quantum-bibliographystyle-demo.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5985
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5888,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

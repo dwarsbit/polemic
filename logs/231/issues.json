@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "error",
+  "file": "aushangThemen.tex",
+  "line": 18,
+  "message": "Package pdftex.def Error: File `../fsrlogo.png' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "aushangThemen.tex",
+  "line": 22,
+  "message": "LaTeX Error: Command \\quotedblbase unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "aushangThemen.tex",
+  "line": 39,
+  "message": "LaTeX Error: Command \\quotedblbase unavailable in encoding OT1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aushangThemen.tex",
+  "line": 18,
+  "message": "LaTeX Warning: File `../fsrlogo.png' not found on input line 18",
+  "detail": [],
+  "hint": null
+ }
+]

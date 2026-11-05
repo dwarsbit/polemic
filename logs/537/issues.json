@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package etex Warning: Extended allocation already in use. etex.sty code will not be used. To force etex package to load, add \\RequirePackage{etex} at the start of the document",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Gaia4CoreShift.tex",
+  "line": 75,
+  "message": "Class aa Warning: Around 334 words in the abstract instead of 300 (max). You should rewrite your abstract on input line 75",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Gaia4CoreShift.tex",
+  "line": 123,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Gaia4CoreShift.tex",
+  "line": 123,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 1.66702pt removed on input line 123",
+  "detail": [],
+  "hint": null
+ }
+]

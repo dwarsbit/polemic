@@ -1,0 +1,31 @@
+{
+ "id": 641,
+ "source": "arXiv",
+ "name": "arXiv:hep-th/0503009",
+ "url": "https://arxiv.org/abs/hep-th/0503009",
+ "type": "Paper",
+ "version": "hep-th/0503009",
+ "files": 6,
+ "main": "duality.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "duality.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1902
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1220,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,33 @@
+{
+ "id": 23,
+ "source": "GitHub",
+ "name": "MMMPeeters1981/LaTeX_Thesis_Template",
+ "url": "https://github.com/MMMPeeters1981/LaTeX_Thesis_Template",
+ "type": "Thesis",
+ "version": "d4b1950ac83a4a74a02e71a37d5cab2aa87870dc",
+ "files": 21,
+ "main": "Main-thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Main-thesis.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4369,
+  "tail": "exit 12, PDF found\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Label `ch:reference' multiply defined\n  Label `sec:label' multiply defined\n  Citation 'Anonymous' on page 3 undefined on input line 36\n  Citation 'Anonymous' on page 7 undefined on input line 36\n  ! LaTeX Error: Unicode character � (U+FFFD)\n  ! LaTeX Error: Unicode character � (U+FFFD)"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1303,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 6,
+ "firstError": "Package keyval Error: maxnames undefined.",
+ "outcome": "both-fail"
+}

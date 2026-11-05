@@ -1,0 +1,32 @@
+{
+ "id": 257,
+ "source": "GitHub",
+ "name": "Tian42chen/Transcription-Malfunctioned",
+ "url": "https://github.com/Tian42chen/Transcription-Malfunctioned",
+ "type": "Notes",
+ "version": "7ebad6c2ed8c05c09e1019949b6f83abf949bd04",
+ "files": 1615,
+ "main": "Advanced Data Structure and Analysis of Algorithms/ADS.tex",
+ "catalogMain": "Introduction to Computer Vision/CV.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "Introduction to Computer Vision/CV.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 45517
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 4066,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 4,
+ "firstError": "pdfTeX error: pdflatex (file unisong76): Font unisong76 at 540 not found",
+ "outcome": "polemic-only-fail"
+}

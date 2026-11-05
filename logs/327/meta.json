@@ -1,0 +1,33 @@
+{
+ "id": 327,
+ "source": "GitHub",
+ "name": "liantze/AltaCV",
+ "url": "https://github.com/liantze/AltaCV",
+ "type": "CV",
+ "version": "91373530c55843533a4de12a29d28896f9b14c0d",
+ "files": 24,
+ "main": "mmayer.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "mmayer.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 14516
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 6349,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

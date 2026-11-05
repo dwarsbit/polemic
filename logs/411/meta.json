@@ -1,0 +1,35 @@
+{
+ "id": 411,
+ "source": "GitHub",
+ "name": "jopetty/Homework",
+ "url": "https://github.com/jopetty/Homework",
+ "type": "Homework",
+ "version": "0172eb63458b4c1fbdc87ca829894d6477ee2cc2",
+ "files": 12,
+ "main": "template.tex",
+ "catalogMain": "examples/main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "examples/main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 95948,
+  "tail": "exit 12, PDF found\n  Missing character: There is no - (\"2D) in font nullfont!\n  Missing character: There is no - (\"2D) in font nullfont!\n  Missing character: There is no - (\"2D) in font nullfont!\n  Missing character: There is no - (\"2D) in font nullfont!\n  Missing character: There is no - (\"2D) in font nullfont!\n  Missing character: There is no - (\"2D) in font nullfont!\n  Missing character: There is no - (\"2D) in font nullfont!\n And 1013 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 421,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 5,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Command \\c@exercise already defined.",
+ "outcome": "both-fail"
+}

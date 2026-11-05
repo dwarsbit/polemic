@@ -1,0 +1,31 @@
+{
+ "id": 950,
+ "source": "CTAN",
+ "name": "ametsoc",
+ "url": "https://ctan.org/pkg/ametsoc",
+ "type": "Paper",
+ "version": "4.3.2",
+ "files": 7,
+ "main": "template.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "template.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 928
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 704,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

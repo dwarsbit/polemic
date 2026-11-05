@@ -1,0 +1,31 @@
+{
+ "id": 211,
+ "source": "GitHub",
+ "name": "wormone/MySlides",
+ "url": "https://github.com/wormone/MySlides",
+ "type": "Slides",
+ "version": "a41f82d8db7f44c380925b657b7c89e9f88cb255",
+ "files": 19,
+ "main": "ryslidemess2rainTEST.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ryslidemess2rainTEST.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2234
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1795,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

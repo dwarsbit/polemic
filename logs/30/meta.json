@@ -1,0 +1,32 @@
+{
+ "id": 30,
+ "source": "GitHub",
+ "name": "TheNetAdmin/zjuthesis",
+ "url": "https://github.com/TheNetAdmin/zjuthesis",
+ "type": "Thesis",
+ "version": "a2c82cbc48c115b0163ba988c84aa754bc765f28",
+ "files": 181,
+ "main": "zjuthesis.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (latexmkrc)",
+ "baseline": {
+  "main": "zjuthesis.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 115524,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 涉 (\"6D89) in font nullfont!\n  Missing character: There is no 密 (\"5BC6) in font nullfont!\n  Missing character: There is no 论 (\"8BBA) in font nullfont!\n  Missing character: There is no 文 (\"6587) in font nullfont!\n  Missing character: There is no 公 (\"516C) in font nullfont!\n  Missing character: There is no 开 (\"5F00) in font nullfont!\n  Missing character: There is no 论 (\"8BBA) in font nullfont!\n And 1215 more --- see log file 'out/zjuthesis.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 357,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/zjuthesis.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

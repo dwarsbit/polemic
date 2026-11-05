@@ -1,0 +1,32 @@
+{
+ "id": 267,
+ "source": "GitHub",
+ "name": "S3gmentati0nFaultUni/Algoweb",
+ "url": "https://github.com/S3gmentati0nFaultUni/Algoweb",
+ "type": "Notes",
+ "version": "3ba832d1c4ecc315336ce7cd60e63cbb8f16e4bb",
+ "files": 19,
+ "main": "Algoweb.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Algoweb.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4339
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3938,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

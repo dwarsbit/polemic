@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "error",
+  "file": "tudapub/tests/latex_ref/DEMO-TUDaThesis.tex",
+  "line": 148,
+  "message": "LaTeX Error: File `tuda_logo' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tudapub/tests/latex_ref/DEMO-TUDaThesis.tex",
+  "line": 223,
+  "message": "Package pdftex.def Error: File `../img/opensource_logo.png' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package pdfx Warning: Setting all color commands to rgb,",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tuda-ci Warning: You use pdfa-mode in PDFTeX. This can lead to incompatiblities especially with older compiler versions. You should prefer using lualatex",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tudapub/tests/latex_ref/DEMO-TUDaThesis.tex",
+  "line": 223,
+  "message": "LaTeX Warning: File `../img/opensource_logo.png' not found on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tudapub/tests/latex_ref/DEMO-TUDaThesis.tex",
+  "line": null,
+  "message": "Package tudapub Warning: You did not provide a Label for key introduction. Either you need to recompile your document or add a label using \\IMRADlabel",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tudapub/tests/latex_ref/DEMO-TUDaThesis.tex",
+  "line": null,
+  "message": "Package tudapub Warning: You did not provide a Label for key methods. Either you need to recompile your document or add a label using \\IMRADlabel",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tudapub/tests/latex_ref/DEMO-TUDaThesis.tex",
+  "line": null,
+  "message": "Package tudapub Warning: You did not provide a Label for key results. Either you need to recompile your document or add a label using \\IMRADlabel",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tudapub/tests/latex_ref/DEMO-TUDaThesis.tex",
+  "line": null,
+  "message": "Package tudapub Warning: You did not provide a Label for key discussion. Either you need to recompile your document or add a label using \\IMRADlabel",
+  "detail": [],
+  "hint": null
+ }
+]

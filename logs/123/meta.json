@@ -1,0 +1,32 @@
+{
+ "id": 123,
+ "source": "GitHub",
+ "name": "b201lab/template-paper-ieee",
+ "url": "https://github.com/b201lab/template-paper-ieee",
+ "type": "Paper",
+ "version": "d85568d9f2fa449bbb6b597c6d1a77d11a25eff8",
+ "files": 16,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3029
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2173,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

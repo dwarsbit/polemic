@@ -1,0 +1,31 @@
+{
+ "id": 63,
+ "source": "GitHub",
+ "name": "mizzy/serverspec-thesis",
+ "url": "https://github.com/mizzy/serverspec-thesis",
+ "type": "Thesis",
+ "version": "d539119c8316829eeb35eda2d3cdf4c8df5da747",
+ "files": 89,
+ "main": "serverspec.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "serverspec.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1561,
+  "tail": "exit 12, PDF not found\n  ! Bad character code (41377).\n  ! LaTeX Error: Unicode character 付 (U+4ED8)\n  ! LaTeX Error: Unicode character 録 (U+9332)\n  ! LaTeX Error: Unicode character 受 (U+53D7)\n  ! LaTeX Error: Unicode character 付 (U+4ED8)\n  ! LaTeX Error: Unicode character 再 (U+518D)\n  ! LaTeX Error: Unicode character 受 (U+53D7)\n And 144 more --- see log file 'serverspec.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 588,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 303,
+ "warnings": 5,
+ "firstError": "LaTeX Error: Font family `JT1+gt' unknown.",
+ "outcome": "both-fail"
+}

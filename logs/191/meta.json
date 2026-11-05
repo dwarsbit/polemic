@@ -1,0 +1,34 @@
+{
+ "id": 191,
+ "source": "GitHub",
+ "name": "ceplan/template-slides",
+ "url": "https://github.com/ceplan/template-slides",
+ "type": "Slides",
+ "version": "250f698f4f15ca8e43b41f124dfaa072c9798022",
+ "files": 88,
+ "main": "beamer/template/sample.tex",
+ "catalogMain": "beamer/template/slides.tex",
+ "engine": "xelatex",
+ "detectedEngine": "pdflatex (inferred)",
+ "baseline": {
+  "main": "beamer/template/slides.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5973
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5922,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 6,
+ "outcome": "both-ok"
+}

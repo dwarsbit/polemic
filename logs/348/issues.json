@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "awesome-cv-cn.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "awesome-cv-cn.tex",
+  "line": null,
+  "message": "Package rerunfilecheck Warning: File `awesome-cv-cn.out' has changed. Rerun to get outlines right or use package `bookmark'",
+  "detail": [],
+  "hint": null
+ }
+]

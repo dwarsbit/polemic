@@ -1,0 +1,31 @@
+{
+ "id": 100,
+ "source": "GitHub",
+ "name": "tttamaki/C_drill",
+ "url": "https://github.com/tttamaki/C_drill",
+ "type": "Paper",
+ "version": "2a0cff143d71df41e0fc604abba37887d2a944cd",
+ "files": 151,
+ "main": "drill2005C.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "drill2005C.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3377,
+  "tail": "exit 12, PDF not found\n  Missing character: There is no z in font nullfont!\n  Missing character: There is no w in font nullfont!\n  ! LaTeX Error: Unicode character 言 (U+8A00)\n  ! LaTeX Error: Unicode character 語 (U+8A9E)\n  ! LaTeX Error: Unicode character 問 (U+554F)\n  ! LaTeX Error: Unicode character 題 (U+984C)\n  ! LaTeX Error: Unicode character 集 (U+96C6)\n And 2280 more --- see log file 'drill2005C.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1544,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 1632,
+ "warnings": 0,
+ "firstError": "Illegal unit of measure (pt inserted).",
+ "outcome": "both-fail"
+}

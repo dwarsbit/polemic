@@ -1,0 +1,32 @@
+{
+ "id": 421,
+ "source": "GitHub",
+ "name": "jhwilson/homework_builder",
+ "url": "https://github.com/jhwilson/homework_builder",
+ "type": "Homework",
+ "version": "fc77ba3df68fc823852cbb3981138d1f2ba75aa7",
+ "files": 10,
+ "main": "template.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "template.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 716,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'template.log' and/or above output for details\n\nLatexmk: Missing input file 'jhwgraphics.sty' message in .log file:\n  ! LaTeX Error: File `jhwgraphics.sty' not found.\nFailure to make 'template.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 305,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `jhwgraphics.sty' not found.",
+ "outcome": "both-fail"
+}

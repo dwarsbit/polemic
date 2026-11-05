@@ -1,0 +1,33 @@
+{
+ "id": 918,
+ "source": "CTAN",
+ "name": "umthesis",
+ "url": "https://ctan.org/pkg/umthesis",
+ "type": "Thesis",
+ "version": "0.2",
+ "files": 13,
+ "main": "example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4878,
+  "tail": "exit 12, PDF found\nLatexmk: Using bibtex to make bibliography file(s).\nThis is makeindex, version 2.18 [TeX Live 2026] (kpathsea + Thai support).\nScanning input file example.idx...done (0 entries accepted, 0 rejected).\nNothing written in example.ind.\nTranscript written in example.ilg.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1044,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 2,
+ "firstError": "LaTeX Error: Command \\bibpreamble already defined.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,32 @@
+{
+ "id": 331,
+ "source": "GitHub",
+ "name": "MCG-NKU/CVPR_Template",
+ "url": "https://github.com/MCG-NKU/CVPR_Template",
+ "type": "CV",
+ "version": "15c2d748f9da8c2aed1913acb15a9f104f3f5184",
+ "files": 6,
+ "main": "RebuttalTemplete.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "RebuttalTemplete.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2218
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1973,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

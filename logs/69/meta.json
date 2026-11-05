@@ -1,0 +1,31 @@
+{
+ "id": 69,
+ "source": "GitHub",
+ "name": "Jingxuan-Yang/YangThesis.HITSZ.Dissertation",
+ "url": "https://github.com/Jingxuan-Yang/YangThesis.HITSZ.Dissertation",
+ "type": "Thesis",
+ "version": "3c637e215e2b4b8b196987c18fd5f84667672bf0",
+ "files": 18,
+ "main": "templates.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "templates.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1185,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'templates.log' and/or above output for details\n\nLatexmk: Missing input file 'mtpro2.sty' message in .log file:\n  ! LaTeX Error: File `mtpro2.sty' not found.\nFailure to make 'templates.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 707,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 1,
+ "firstError": "LaTeX Error: File `mtpro2.sty' not found.",
+ "outcome": "both-fail"
+}

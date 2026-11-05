@@ -1,0 +1,234 @@
+[
+ {
+  "severity": "error",
+  "file": "manuscript.cls",
+  "line": 709,
+  "message": "Package fontspec Error: The font \"STXihei\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "manuscript.cls",
+  "line": 709,
+  "message": "Package fontspec Error: The font \"STHeiti\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "manuscript.cls",
+  "line": 709,
+  "message": "Package fontspec Error: The font \"STKaiti\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "示例.tex",
+  "line": 12,
+  "message": "Font TU/STXihei(0)/b/n/12=STHeiti/OT at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "示例.tex",
+  "line": 12,
+  "message": "Package fontspec Error: The font \"HanziPenSC-W5\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "示例.tex",
+  "line": 12,
+  "message": "Font TU/HanziPenSC-W5(0)/m/n/12=HanziPenSC-W5/OT at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "示例.tex",
+  "line": 12,
+  "message": "Cannot use \\XeTeXglyphbounds with ecrm1200; not a native platform font.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "示例.tex",
+  "line": 12,
+  "message": "Missing ) inserted for expression.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "示例.tex",
+  "line": 12,
+  "message": "You can't use `\\XeTeXcharglyph' in horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "示例.tex",
+  "line": 12,
+  "message": "Font TU/HanziPenSC-W5(0)/b/n/12=HanziPenSC-W5/OT at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "示例.tex",
+  "line": 12,
+  "message": "LaTeX Error: Control sequence",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "示例.tex",
+  "line": 12,
+  "message": "LaTeX Error: Control sequence \\c__xeCJK_xeCJK/HanziPenSC-W5(0)/b/n/12/quanjiao/dim/width/，/tl already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "示例.tex",
+  "line": 12,
+  "message": "LaTeX Error: Control sequence \\c__xeCJK_xeCJK/HanziPenSC-W5(0)/b/n/12/quanjiao/dim/dimen/，/tl already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.cls",
+  "line": 82,
+  "message": "Package hyperref Warning: Option `backref' has already been used, setting the option has no effect on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.cls",
+  "line": 82,
+  "message": "Package hyperref Warning: Option `pagebackref' has already been used, setting the option has no effect on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.cls",
+  "line": 82,
+  "message": "Package hyperref Warning: Option `hyperindex' has already been used, setting the option has no effect on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.cls",
+  "line": 82,
+  "message": "Package hyperref Warning: Option `bookmarks' has already been used, setting the option has no effect on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package mathtools Warning: For best results, please load mathtools *before* unicode-math on input line 127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: From babel-und.ini: Unknown language or deprecated name ('nil'). Falling back locale tag to 'und'. Reported on input line 4478",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ifplatform Warning: shell escape is disabled, so I can only detect \\ifwindows",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/KpRoman(1)/m/n' undefined using `T1/cmr/m/n' instead on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKrmdefault' (FandolSong-Regular(0))",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "示例.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [nclassical]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "示例.tex",
+  "line": null,
+  "message": "Package unicode-math Warning: Using \\overbracket and \\underbracket from `mathtools' package",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "示例.tex",
+  "line": null,
+  "message": "Package unicode-math Warning: I'm going to overwrite the following commands from the `mathtools' package:",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "示例.tex",
+  "line": 6,
+  "message": "Package kpfonts-otf Warning: kpfonts-otf provides all AMS symbols. Loading amssymb.sty is not advisable. Reported on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "示例.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "示例.tex",
+  "line": 12,
+  "message": "LaTeX Font Warning: Font shape `T1/KpRoman(1)/b/n' undefined using `T1/KpRoman(1)/m/n' instead on input line 12",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "示例.tex",
+  "line": 12,
+  "message": "LaTeX Font Warning: Font shape `TU/HanziPenSC-W5(0)/b/n' undefined using `TU/HanziPenSC-W5(0)/m/n' instead on input line 12",
+  "detail": [],
+  "hint": null
+ }
+]

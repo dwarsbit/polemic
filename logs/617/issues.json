@@ -1,0 +1,218 @@
+[
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 228,
+  "message": "Extended mathchar used as mathchar (14799947).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 231,
+  "message": "Extended mathchar used as mathchar (14799947).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 231,
+  "message": "Extended mathchar used as mathchar (14800637).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 235,
+  "message": "Extended mathchar used as mathchar (14799948).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 235,
+  "message": "Extended mathchar used as mathchar (14799947).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 235,
+  "message": "Extended mathchar used as mathchar (14800637).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 235,
+  "message": "Extended mathchar used as mathchar (14800662).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 236,
+  "message": "Extended mathchar used as mathchar (14799948).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 236,
+  "message": "Extended mathchar used as mathchar (14799947).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 236,
+  "message": "Extended mathchar used as mathchar (14800662).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 236,
+  "message": "Extended mathchar used as mathchar (14800637).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 245,
+  "message": "Extended mathchar used as mathchar (14800637).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 245,
+  "message": "Extended mathchar used as mathchar (14800636).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 246,
+  "message": "Extended mathchar used as mathchar (14800636).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 248,
+  "message": "Extended mathchar used as mathchar (14800636).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 248,
+  "message": "Extended mathchar used as mathchar (14800637).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 256,
+  "message": "Extended mathchar used as mathchar (14800637).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 256,
+  "message": "Extended mathchar used as mathchar (14799947).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 256,
+  "message": "Extended mathchar used as mathchar (14799948).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "manuscript_arxiv.tex",
+  "line": 257,
+  "message": "Extended mathchar used as mathchar (14800637).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript_arxiv.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript_arxiv.tex",
+  "line": 226,
+  "message": "LaTeX Warning: Hyper reference `Models' on page 4 undefined on input line 226",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript_arxiv.tex",
+  "line": 226,
+  "message": "LaTeX Warning: Hyper reference `Estimation Procedure' on page 4 undefined on input line 226",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript_arxiv.tex",
+  "line": 226,
+  "message": "LaTeX Warning: Hyper reference `Asymptotic Properties' on page 4 undefined on input line 226",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript_arxiv.tex",
+  "line": 226,
+  "message": "LaTeX Warning: Hyper reference `Simulation Study' on page 4 undefined on input line 226",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript_arxiv.tex",
+  "line": 226,
+  "message": "LaTeX Warning: Hyper reference `Real Data Analysis' on page 4 undefined on input line 226",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript_arxiv.tex",
+  "line": 226,
+  "message": "LaTeX Warning: Hyper reference `Conclusion' on page 4 undefined on input line 226",
+  "detail": [],
+  "hint": null
+ }
+]

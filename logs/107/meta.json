@@ -1,0 +1,34 @@
+{
+ "id": 107,
+ "source": "GitHub",
+ "name": "LMesaric/Seminar-FER-2019",
+ "url": "https://github.com/LMesaric/Seminar-FER-2019",
+ "type": "Paper",
+ "version": "4917f2f19ce7fed23ee707acf3e444a64498d091",
+ "files": 31,
+ "main": "Paper/Seminar2019Mesaric_Luka.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Paper/Seminar2019Mesaric_Luka.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2245,
+  "tail": "exit 12, PDF found\n\nLatexmk: Missing input file 'Seminar2019Mesaric_Luka.toc' message in .log file:\n  No file Seminar2019Mesaric_Luka.toc.\nLatexmk: Missing bbl file 'Seminar2019Mesaric_Luka.bbl' in following:\n No file Seminar2019Mesaric_Luka.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 708,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ],
+  "tail": "  Citation `WikiEvolutionary' on page 2 undefined on input line 71\n And 31 more --- see log file 'build/Seminar2019Mesaric_Luka.log'\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 43,
+ "outcome": "both-fail"
+}

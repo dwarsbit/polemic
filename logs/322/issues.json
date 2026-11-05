@@ -1,0 +1,122 @@
+[
+ {
+  "severity": "error",
+  "file": "src/dukang-doc.tex",
+  "line": 144,
+  "message": "Font TU/Adobe仿宋Std(0)/b/n/32=\"Adobe 黑体 Std/OT\" at 32.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/dukang-doc.tex",
+  "line": 144,
+  "message": "Package fontspec Error: The font \"Adobe 楷体 Std\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "src/dukang-doc.tex",
+  "line": 144,
+  "message": "Font TU/Inconsolata(0)/m/sc/7.6=Inconsolata at 7.6pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/dukang-doc.tex",
+  "line": 144,
+  "message": "Font TU/Adobe仿宋Std(0)/m/it/8=\"Adobe 楷体 Std/OT\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/dukang-doc.tex",
+  "line": 144,
+  "message": "Font TU/Adobe仿宋Std(0)/m/n/6.8=\"Adobe 仿宋 Std/OT\" at 6.8pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/dukang-doc.tex",
+  "line": 144,
+  "message": "Font TU/Adobe仿宋Std(0)/m/it/9=\"Adobe 楷体 Std/OT\" at 9.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package sourcesanspro Warning: This package has been replaced by `sourcesans'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package minted Warning: Package option \"final\" no longer has any effect with minted v3+ on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package lcg Warning: Using an already existing counter dk@random on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/dukang-doc.tex",
+  "line": 138,
+  "message": "Package layouts Warning: Layout scale set to 0.5 on input line 138",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU/Inconsolata(0)/b/n' undefined using `TU/Inconsolata(0)/m/n' instead on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU/Inconsolata(1)/b/n' undefined using `TU/Inconsolata(1)/m/n' instead on input line 32",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU/Inconsolata(0)/m/sl' undefined using `TU/Inconsolata(0)/m/n' instead on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU/Adobe黑体Std(0)/b/n' undefined using `TU/Adobe黑体Std(0)/m/n' instead on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU/Adobe黑体Std(0)/m/sl' undefined using `TU/Adobe黑体Std(0)/m/n' instead on input line 19",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 293,
+ "source": "GitHub",
+ "name": "BeautyLaTeX/Beautybook",
+ "url": "https://github.com/BeautyLaTeX/Beautybook",
+ "type": "Book",
+ "version": "6b44fd787be0ba00807393269d53411af713f8ff",
+ "files": 122,
+ "main": "cnnotes.tex",
+ "catalogMain": "Notes-for-Demailly-Book.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Notes-for-Demailly-Book.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 25519,
+  "tail": "exit 12, PDF not found\nkpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 1+303/600 --dpi 903 unihei60\nmktexpk: don't know how to create bitmap font for unihei60.\nmktexpk: perhaps unihei60 is missing from the map file.\nkpathsea: Appending font creation commands to missfont.log.\nLatexmk: Important warning:\n  (\\end occurred inside a group at level 1)\nLatexmk: Using biber to make bibliography file(s).\nFailure to make 'Notes-for-Demailly-Book.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 3884,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 38,
+ "warnings": 3,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

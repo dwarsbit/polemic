@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package sourcesanspro Warning: This package has been replaced by `sourcesans'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package sourceserifpro Warning: This package has been replaced by `sourceserif'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper/main.tex",
+  "line": 11,
+  "message": "LaTeX Font Warning: Font shape `C70/gkai/regular/n' undefined using `C70/gkai/m/n' instead on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 55",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.5> not available size <5> substituted on input line 55",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `U/stmry/m/n' in size <5.5> not available size <5> substituted on input line 55",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper/main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 1.64499pt have occurred",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper/main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

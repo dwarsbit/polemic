@@ -1,0 +1,32 @@
+{
+ "id": 72,
+ "source": "GitHub",
+ "name": "SweetVishnya/msu-thesis",
+ "url": "https://github.com/SweetVishnya/msu-thesis",
+ "type": "Thesis",
+ "version": "dea5350bd0c4cac6f72e1554421e31d9cb66787d",
+ "files": 9,
+ "main": "thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4004
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 8306,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 25,
+ "outcome": "both-ok"
+}

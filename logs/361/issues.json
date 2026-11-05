@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "summary_with_code_template.tex",
+  "line": 117,
+  "message": "Package xcolor Warning: Incompatible color definition on input line 117",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "summary_with_code_template.tex",
+  "line": null,
+  "message": "Package gensymb Warning: Not defining \\perthousand",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "summary_with_code_template.tex",
+  "line": null,
+  "message": "Package gensymb Warning: Not defining \\micro",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "summary_with_code_template.tex",
+  "line": 125,
+  "message": "Package xcolor Warning: Incompatible color definition on input line 125",
+  "detail": [],
+  "hint": null
+ }
+]

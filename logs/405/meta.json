@@ -1,0 +1,32 @@
+{
+ "id": 405,
+ "source": "GitHub",
+ "name": "AC17dollars/thapathali-report-latex-template",
+ "url": "https://github.com/AC17dollars/thapathali-report-latex-template",
+ "type": "Report",
+ "version": "9821d39192be61a308791d97c57f973424a33415",
+ "files": 19,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3653
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2977,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

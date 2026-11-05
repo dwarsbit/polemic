@@ -1,0 +1,146 @@
+[
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 34,
+  "message": "Font TU/FZShuSong-Z01(0)/m/n/17.28=FZShuSong-Z01/OT at 17.28pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 35,
+  "message": "Font TU/FZShuSong-Z01(0)/b/n/10=FZXiaoBiaoSong-B05/OT at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 36,
+  "message": "Font TU/FZShuSong-Z01(0)/m/n/10=FZShuSong-Z01/OT at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 36,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 36,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 36,
+  "message": "Missing \\endcsname inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 36,
+  "message": "Extra \\endcsname.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 36,
+  "message": "Improper alphabetic constant.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 37,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 39,
+  "message": "Font TU/FZShuSong-Z01(0)/b/n/14.4=FZXiaoBiaoSong-B05/OT at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 43,
+  "message": "Font TU/FZShuSong-Z01(0)/b/n/12=FZXiaoBiaoSong-B05/OT at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 45,
+  "message": "Font TU/FZShuSong-Z01(0)/m/n/10.95=FZShuSong-Z01/OT at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 45,
+  "message": "Cannot use \\XeTeXglyphbounds with ec-lmr10; not a native platform font.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 45,
+  "message": "Missing ) inserted for expression.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 45,
+  "message": "You can't use `\\XeTeXcharglyph' in horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": 45,
+  "message": "LaTeX Error: Control sequence",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": null,
+  "message": "Package geometry Warning: Over-specification in `h'-direction. `width' (460.72124pt) is ignored",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Lie/1104.1106/_IvLie.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ }
+]

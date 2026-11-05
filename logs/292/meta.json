@@ -1,0 +1,33 @@
+{
+ "id": 292,
+ "source": "GitHub",
+ "name": "pbloem/pca-book",
+ "url": "https://github.com/pbloem/pca-book",
+ "type": "Book",
+ "version": "8b6a8e9677d9ada8cc6cd0b7a282b6dd95a33710",
+ "files": 398,
+ "main": "book.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "book.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 33885,
+  "tail": "exit 12, PDF found\nsystem returned with code 32512\nThis is makeindex, version 2.18 [TeX Live 2026] (kpathsea + Thai support).\nScanning input file book.idx....done (279 entries accepted, 1 rejected).\nSorting entries.....done (2375 comparisons).\nGenerating output file book.ind....done (358 lines written, 3 warnings).\nOutput written in book.ind.\nTranscript written in book.ilg.\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 7496,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 6,
+ "warnings": 15,
+ "firstError": "Missing $ inserted.",
+ "outcome": "both-fail"
+}

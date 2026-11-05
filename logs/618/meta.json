@@ -1,0 +1,32 @@
+{
+ "id": 618,
+ "source": "arXiv",
+ "name": "arXiv:2610.40070",
+ "url": "https://arxiv.org/abs/2610.40070",
+ "type": "Paper",
+ "version": "2610.40070",
+ "files": 15,
+ "main": "multimargins_main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "multimargins_main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4453
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4534,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,48 @@
+[
+ {
+  "severity": "error",
+  "file": "homework/header.tex",
+  "line": 41,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.41 \\setmainfont",
+   "                 {Times New Roman}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "homework/header.tex",
+  "line": 41,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "homework/header.tex",
+  "line": 42,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.42 \\setmonofont",
+   "                 {Fira Code}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

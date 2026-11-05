@@ -1,0 +1,31 @@
+{
+ "id": 265,
+ "source": "GitHub",
+ "name": "v--/notebook",
+ "url": "https://github.com/v--/notebook",
+ "type": "Notes",
+ "version": "5a1ae6cc1abe744d092c459c76099f51e8321f63",
+ "files": 1349,
+ "main": "notebook.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "notebook.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 50460,
+  "tail": "exit 12, PDF not found\n  Hyper reference `con:metalogic' on page 3 undefined on input line 31\n  Reference `def:equation' on page 1 undefined on input line 34\n And 1508 more --- see log file 'notebook.log'\n----------------------\nThis message may duplicate earlier message.\nLatexmk: Failure in processing file 'notebook.tex':\n   'pdflatex' needed too many passes\n----------------------"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 10030,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 152,
+ "warnings": 855,
+ "firstError": "LaTeX Error: Command \\c@theorem already defined.",
+ "outcome": "both-fail"
+}

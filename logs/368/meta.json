@@ -1,0 +1,32 @@
+{
+ "id": 368,
+ "source": "GitHub",
+ "name": "armelsoubeiga/ufgtexposter-edt",
+ "url": "https://github.com/armelsoubeiga/ufgtexposter-edt",
+ "type": "Poster",
+ "version": "6e7813b04a8b53bf5071607771a9e2141206b522",
+ "files": 29,
+ "main": "poster.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "poster.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3028
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2662,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

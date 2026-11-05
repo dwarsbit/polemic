@@ -1,0 +1,32 @@
+{
+ "id": 416,
+ "source": "GitHub",
+ "name": "bandiaoz/MathHomework",
+ "url": "https://github.com/bandiaoz/MathHomework",
+ "type": "Homework",
+ "version": "9efad290b1379ea4190269741bbffdd061edce02",
+ "files": 139,
+ "main": "DeepLearning/Problem/problem.tex",
+ "catalogMain": "OptimizationMethod/paper-final/paper.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (magic comment)",
+ "baseline": {
+  "main": "OptimizationMethod/paper-final/paper.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 10944
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 187,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/problem.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "polemic-only-fail"
+}

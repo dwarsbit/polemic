@@ -1,0 +1,31 @@
+{
+ "id": 137,
+ "source": "GitHub",
+ "name": "smidm/springer-markdown-template",
+ "url": "https://github.com/smidm/springer-markdown-template",
+ "type": "Paper",
+ "version": "e518341808c42a6247d62d64070c8420df32db18",
+ "files": 23,
+ "main": "template.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "template.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1046
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 731,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

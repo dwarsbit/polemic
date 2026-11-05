@@ -1,0 +1,2394 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `ManningEtAl2008IR' on page 1 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `MikolovEtAl2013Word2Vec' on page 1 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `PenningtonEtAl2014GloVe' on page 1 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `VaswaniEtAl2017Transformer' on page 1 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `RumelhartEtAl1986Backprop' on page 6 undefined on input line 266",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `GoodfellowEtAl2016DeepLearning' on page 6 undefined on input line 266",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `BoydVandenberghe2004Convex' on page 9 undefined on input line 355",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `GoodfellowEtAl2016DeepLearning' on page 11 undefined on input line 516",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `SuttonBarto2018RL' on page 16 undefined on input line 659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `BengioEtAl2013Representation' on page 16 undefined on input line 669",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `DevlinEtAl2019BERT' on page 17 undefined on input line 672",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `HeEtAl2022MAE' on page 17 undefined on input line 672",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `BaevskiEtAl2020Wav2vec' on page 17 undefined on input line 672",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Cortes-and-Vapnik:1995' on page 20 undefined on input line 795",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Chen-and-Goodman:1999' on page 21 undefined on input line 811",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Mitchell:1997' on page 22 undefined on input line 849",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `RumelhartEtAl1986Backprop' on page 22 undefined on input line 861",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `KingmaBa2015Adam' on page 22 undefined on input line 861",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Collobert-and-Weston:2008AUA' on page 23 undefined on input line 892",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `OordEtAl2018CPC' on page 23 undefined on input line 904",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `ChenEtAl2020SimCLR' on page 23 undefined on input line 904",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `SutskeverEtAl2013Momentum' on page 24 undefined on input line 976",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `duchi-etal:2011adaptive' on page 24 undefined on input line 978",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Hinton:2018RMSProp' on page 24 undefined on input line 978",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `KingmaBa2015Adam' on page 24 undefined on input line 978",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Hastie-etal:2009' on page 25 undefined on input line 1028",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `GoodfellowEtAl2016DeepLearning' on page 27 undefined on input line 1089",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `PapineniEtAl2002BLEU' on page 28 undefined on input line 1105",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `McClave-and-Sincich-2006' on page 28 undefined on input line 1115",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Freedman-et-al-2007' on page 28 undefined on input line 1115",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Freedman:2009' on page 28 undefined on input line 1115",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `DrorEtAl2018Significance' on page 28 undefined on input line 1115",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Dror-et-al:2020' on page 28 undefined on input line 1115",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `hinton-etal:2012improving' on page 29 undefined on input line 1139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `SrivastavaEtAl2014Dropout' on page 29 undefined on input line 1139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `GoodfellowEtAl2016DeepLearning' on page 29 undefined on input line 1162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `prechelt1998early' on page 29 undefined on input line 1162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `SzegedyEtAl2016LabelSmoothing' on page 30 undefined on input line 1170",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `plaut-etal:1986experiments' on page 30 undefined on input line 1183",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Holmstrom-Koistinen:1992noise' on page 30 undefined on input line 1183",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `bishop:1995training' on page 30 undefined on input line 1183",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `graves-etal:2013speech' on page 30 undefined on input line 1183",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `neelakantan-etal:2015adding' on page 30 undefined on input line 1183",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `feng-etal:2021survey' on page 31 undefined on input line 1197",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `shorten-Khoshgoftaar:2019survey' on page 31 undefined on input line 1197",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `sennrich-etal:2016improving' on page 31 undefined on input line 1197",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Szegedy-etal:2014neural' on page 31 undefined on input line 1197",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Goodfellow-etal:2015Adversarial' on page 31 undefined on input line 1197",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Rosenblatt1958Perceptron' on page 31 undefined on input line 1205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `RumelhartEtAl1986Backprop' on page 32 undefined on input line 1232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `GoodfellowEtAl2016DeepLearning' on page 32 undefined on input line 1232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `bengio-etal:2000neural' on page 32 undefined on input line 1257",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `BengioEtAl2003NeuralLM' on page 32 undefined on input line 1257",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `BahdanauEtAl2015Attention' on page 34 undefined on input line 1270",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `graves-etal:2014neural' on page 34 undefined on input line 1285",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `luong-etal:2015effective' on page 34 undefined on input line 1285",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `chaudhari-etal:2021attentive' on page 34 undefined on input line 1285",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `VaswaniEtAl2017Transformer' on page 34 undefined on input line 1291",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `VaswaniEtAl2017Transformer' on page 36 undefined on input line 1351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `VaswaniEtAl2017Transformer' on page 37 undefined on input line 1374",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `cho-etal:2014learning' on page 37 undefined on input line 1408",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `SutskeverEtAl2014Seq2Seq' on page 37 undefined on input line 1408",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `BahdanauEtAl2015Attention' on page 37 undefined on input line 1408",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `HeEtAl2016ResNet' on page 39 undefined on input line 1475",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `BaEtAl2016LayerNorm' on page 39 undefined on input line 1475",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `VaswaniEtAl2017Transformer' on page 39 undefined on input line 1475",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `BengioEtAl2013Representation' on page 40 undefined on input line 1526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `harris:1954distributional' on page 41 undefined on input line 1578",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `firth:1957synopsis' on page 41 undefined on input line 1578",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `MikolovEtAl2013Word2Vec' on page 41 undefined on input line 1578",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `PenningtonEtAl2014GloVe' on page 41 undefined on input line 1578",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Kelly-Stone:1975senses' on page 41 undefined on input line 1578",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `ManningEtAl2008IR' on page 42 undefined on input line 1604",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `Jolliffe2002PCA' on page 43 undefined on input line 1621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `MikolovEtAl2013Word2Vec' on page 43 undefined on input line 1641",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `bengio-etal:2006greedy' on page 44 undefined on input line 1660",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `erhan-etal:2010does' on page 44 undefined on input line 1660",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `PanYang2010Transfer' on page 44 undefined on input line 1660",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `ChenEtAl2020SimCLR' on page 44 undefined on input line 1693",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `HeEtAl2022MAE' on page 44 undefined on input line 1693",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `BaevskiEtAl2020Wav2vec' on page 44 undefined on input line 1693",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `DevlinEtAl2019BERT' on page 46 undefined on input line 1701",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `RaffelEtAl2020T5' on page 46 undefined on input line 1701",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `BrownEtAl2020GPT3' on page 46 undefined on input line 1701",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `radford-etal:2018improving' on page 46 undefined on input line 1711",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `DevlinEtAl2019BERT' on page 47 undefined on input line 1732",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `LewisEtAl2020BART' on page 47 undefined on input line 1749",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `RaffelEtAl2020T5' on page 47 undefined on input line 1749",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `BrownEtAl2020GPT3' on page 47 undefined on input line 1753",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `bubeck-etal:2023sparks' on page 85 undefined on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `radford-etal:2019language' on page 89 undefined on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `brown-etal:2020language' on page 89 undefined on input line 117",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `dubey2024llama' on page 89 undefined on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `yang2025qwen3' on page 89 undefined on input line 122",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `gemmateam2025gemma3' on page 89 undefined on input line 126",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `liu2024deepseek' on page 89 undefined on input line 127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `mistral2025mistral3' on page 89 undefined on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `brown-etal:2020language' on page 89 undefined on input line 149",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `touvron-etal:2023llama' on page 89 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `dubey2024llama' on page 89 undefined on input line 151",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `liu2024deepseek' on page 89 undefined on input line 152",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `yang2025qwen3' on page 89 undefined on input line 153",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `penedo-etal:2023refinedweb' on page 90 undefined on input line 163",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `kaplan-etal:2020scaling' on page 91 undefined on input line 211",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `hoffmann-etal:2022training' on page 91 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `kaplan-etal:2020scaling' on page 92 undefined on input line 229",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `wei-etal:2022emergent' on page 92 undefined on input line 235",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `hestness-etal:2017deep' on page 92 undefined on input line 240",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `narayanan-etal:2021efficient' on page 92 undefined on input line 247",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `huang-etal:2019gpipe' on page 93 undefined on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `micikevicius-etal:2018mixed' on page 94 undefined on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `liu-etal:2023pre' on page 95 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `xie-etal:2022an' on page 97 undefined on input line 138",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `dai-etal:2023can' on page 97 undefined on input line 138",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `von-etal:2023transformers' on page 97 undefined on input line 138",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `akyurek-etal:2023what' on page 97 undefined on input line 138",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `garg-etal:2022can' on page 97 undefined on input line 138",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `kojima-etal:2022large' on page 98 undefined on input line 180",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `kojima-etal:2022large' on page 101 undefined on input line 403",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `chu-etal:2023survey' on page 101 undefined on input line 405",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `yu-etal:2023towards' on page 101 undefined on input line 405",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `zhang-etal:2023igniting' on page 101 undefined on input line 405",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `zhou-etal:2023large' on page 102 undefined on input line 429",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `li-liang:2021prefix' on page 103 undefined on input line 476",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `lester-etal:2021power' on page 103 undefined on input line 476",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `chevalier-etal:2023adapting' on page 103 undefined on input line 478",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `chung-etal:2022scaling' on page 105 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `zhou-etal:2023lima' on page 105 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `sanh-etal:2022multitask' on page 106 undefined on input line 83",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `wei-etal:2022finetuned' on page 106 undefined on input line 83",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `bach-etal:2022promptsource' on page 107 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `wang-etal:2022super' on page 107 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `mishra-etal:2022cross' on page 107 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `joshi-etal:2017triviaqa' on page 107 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `wang-etal:2023selfinstruct' on page 107 undefined on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `honovich-etal:2023unnatural' on page 107 undefined on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `longpre-etal:2023flan' on page 108 undefined on input line 220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `ouyang-etal:2022training' on page 108 undefined on input line 220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `taori-etal:2023alpaca' on page 108 undefined on input line 220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `chiang-etal:2023vicuna' on page 108 undefined on input line 220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `xu-etal:2024wizardlm' on page 108 undefined on input line 220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `chen-etal:2024self' on page 108 undefined on input line 220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `gunasekar-etal:2023textbooks' on page 108 undefined on input line 220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `allal-etal:2024cosmopedia' on page 108 undefined on input line 220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `charniak:1997statistical' on page 108 undefined on input line 222",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `sennrich-etal:2016improving' on page 108 undefined on input line 222",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `longpre-etal:2023flan' on page 111 undefined on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `zhou-etal:2023lima' on page 111 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `chen-etal:2024alpagasus' on page 111 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `houlsby-etal:2019adapter' on page 111 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `li-liang:2021prefix' on page 111 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `lester-etal:2021prompt' on page 111 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `hu-etal:2021lora' on page 112 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `dettmers-etal:2023qlora' on page 112 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `liu-etal:2024dora' on page 112 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Text page 115 contains only floats",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `bradley-and-terry:rank' on page 117 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `rafailov-etal:2024direct' on page 121 undefined on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `lee-etal:2023rlaif' on page 123 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `cui-etal:2024ultra' on page 123 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `dubois-etal:2024alpacafarm' on page 123 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `peirce1931:collected' on page 123 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `kahneman:2011thinking' on page 124 undefined on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `yao-etal:2024tree' on page 127 undefined on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `uesato-etal:2022solving' on page 128 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `lightman-etal:2024lets' on page 128 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `wang-etal:2024math' on page 129 undefined on input line 55",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `zheng-etal:2023judging' on page 129 undefined on input line 64",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `yao-etal:2023react' on page 131 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `shinn-etal:2023reflexion' on page 132 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `yao-etal:2023tree' on page 133 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `zhang-etal:2025:flow' on page 172 undefined on input line 2108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `yang-etal:2025text' on page 172 undefined on input line 2108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `esser-etal:2024scaling' on page 172 undefined on input line 2110",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `esser-etal:2024scaling' on page 172 undefined on input line 2114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `greenberg-etal:2025demystifying' on page 172 undefined on input line 2114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `yan-etal:2024perflow' on page 172 undefined on input line 2116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `saini-etal:2025rectified' on page 172 undefined on input line 2116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `radford-etal:2018improving' on page 188 undefined on input line 2684",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `gu-etal:2018non' on page 189 undefined on input line 2701",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `li-etal:2022diffusion' on page 191 undefined on input line 2748",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `strudel-etal:2022self' on page 191 undefined on input line 2748",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `gong-etal:2023diffuseq' on page 191 undefined on input line 2748",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `mikolov-etal:2013efficient' on page 192 undefined on input line 2756",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `mikolov-etal:2013distributed' on page 192 undefined on input line 2756",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `devlin-etal:2019bert' on page 192 undefined on input line 2756",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `brown-etal:2020language' on page 192 undefined on input line 2756",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `rombach-etal:2022high' on page 192 undefined on input line 2756",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `brown-etal:1993mathematics' on page 193 undefined on input line 2792",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `xiao-etal:2023survey' on page 193 undefined on input line 2792",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `li-etal:2025fixed' on page 193 undefined on input line 2796",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `yang-etal:2025diffusion' on page 193 undefined on input line 2796",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `li-etal:2022diffusion' on page 195 undefined on input line 2816",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `strudel-etal:2022self' on page 195 undefined on input line 2816",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `anderson:1982reverse' on page 196 undefined on input line 2851",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `austin-etal:2021structured' on page 198 undefined on input line 2869",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `austin-etal:2021structured' on page 199 undefined on input line 2919",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `sahoo-etal:2024simple' on page 201 undefined on input line 2948",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `nie-etal:2025large' on page 201 undefined on input line 2948",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `sahoo-etal:2024simple' on page 205 undefined on input line 3104",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `nie-etal:2025large' on page 205 undefined on input line 3104",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `zhang-etal:2025corrective' on page 205 undefined on input line 3114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `rutte-etal:2025generalized' on page 205 undefined on input line 3114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `devlin-etal:2019bert' on page 206 undefined on input line 3131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `clark-etal:2019electra' on page 206 undefined on input line 3137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `raffel-etal:2020exploring' on page 207 undefined on input line 3140",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `joshi-etal:2020spanbert' on page 207 undefined on input line 3140",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `gu-etal:2019levenshtein' on page 207 undefined on input line 3140",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `reid-etal:2022diffuser' on page 207 undefined on input line 3140",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `lewis-etal:2020bart' on page 207 undefined on input line 3142",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `zhu-etal:2020freelb' on page 207 undefined on input line 3144",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `tay-etal:2023ul2' on page 207 undefined on input line 3146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `jang-etal:2017categorical' on page 208 undefined on input line 3177",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `maddison-etal:2017the' on page 208 undefined on input line 3177",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `hoogeboom-etal:2021argmax' on page 208 undefined on input line 3181",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `lou-etal:2024discrete' on page 208 undefined on input line 3181",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `lee-etal:2018deterministic' on page 209 undefined on input line 3191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `ghazvininejad-etal:2019mask' on page 209 undefined on input line 3191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `koh-etal:2025conditional' on page 209 undefined on input line 3205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `zhang-etal:2025corrective' on page 209 undefined on input line 3205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `rutte-etal:2025generalized' on page 209 undefined on input line 3205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `gat-etal:2024discrete' on page 210 undefined on input line 3207",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `monsefi-etal:2025fs' on page 210 undefined on input line 3207",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `peebles-and-xie:2023scalable' on page 210 undefined on input line 3210",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `vaswani-etal:2017attention' on page 210 undefined on input line 3210",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `xiao-and-zhu:2023introduction' on page 210 undefined on input line 3210",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `ho-eatl:2020denoising' on page 210 undefined on input line 3212",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `salimans-and-ho:2022progressive' on page 210 undefined on input line 3212",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `gat-etal:2024discrete' on page 210 undefined on input line 3215",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `campbell-etal:2024generative' on page 210 undefined on input line 3215",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `shaul-etal:2025flow' on page 210 undefined on input line 3215",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `campbell-etal:2024generative' on page 212 undefined on input line 3292",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `gillespie:1977exact' on page 212 undefined on input line 3304",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `gillespie:2001approximate' on page 212 undefined on input line 3304",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `alexnet' on page 218 undefined on input line 156",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `vgg' on page 218 undefined on input line 156",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `resnet' on page 218 undefined on input line 156",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `vit' on page 218 undefined on input line 156",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `mae' on page 221 undefined on input line 263",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `beit' on page 221 undefined on input line 263",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `simclr' on page 221 undefined on input line 272",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `moco' on page 221 undefined on input line 272",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `dino' on page 221 undefined on input line 272",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `wav2vec2' on page 222 undefined on input line 279",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `hubert' on page 222 undefined on input line 281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `clip' on page 223 undefined on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `align' on page 223 undefined on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `siglip' on page 223 undefined on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `ye-etal-2022-cross' on page 224 undefined on input line 392",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `waco' on page 224 undefined on input line 398",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `clap' on page 224 undefined on input line 403",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `llava' on page 226 undefined on input line 486",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `blip2' on page 226 undefined on input line 487",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `flamingo' on page 226 undefined on input line 487",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `emu' on page 226 undefined on input line 488",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `flamingo' on page 228 undefined on input line 789",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `blip2' on page 228 undefined on input line 789",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `llava' on page 228 undefined on input line 789",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `clip' on page 229 undefined on input line 842",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `instructblip' on page 229 undefined on input line 842",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `qwenvl' on page 229 undefined on input line 842",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `qwenaudio' on page 231 undefined on input line 929",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `salmonn' on page 231 undefined on input line 929",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `speechgpt' on page 231 undefined on input line 934",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `whisper' on page 232 undefined on input line 1041",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `speechgpt' on page 232 undefined on input line 1043",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `qwenaudio' on page 232 undefined on input line 1044",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `salmonn' on page 232 undefined on input line 1045",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `speechgpt' on page 233 undefined on input line 1144",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `qwenaudio' on page 233 undefined on input line 1145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `salmonn' on page 233 undefined on input line 1145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `gan' on page 235 undefined on input line 1246",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `vae' on page 235 undefined on input line 1246",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `ddpm' on page 235 undefined on input line 1246",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `dalle' on page 236 undefined on input line 1270",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `glide' on page 236 undefined on input line 1270",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `dalle2' on page 236 undefined on input line 1270",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `imagen' on page 236 undefined on input line 1270",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `ldm' on page 236 undefined on input line 1270",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `cfg' on page 237 undefined on input line 1309",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `sdedit' on page 238 undefined on input line 1350",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `p2p' on page 238 undefined on input line 1350",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `ip2p' on page 238 undefined on input line 1351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `controlnet' on page 238 undefined on input line 1352",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `dreambooth' on page 238 undefined on input line 1352",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `tacotron2' on page 240 undefined on input line 1445",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `fastspeech2' on page 240 undefined on input line 1446",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `vits' on page 240 undefined on input line 1447",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `valle' on page 240 undefined on input line 1449",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `nist-synthetic' on page 240 undefined on input line 1457",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `audiogen' on page 241 undefined on input line 1557",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `audioldm' on page 241 undefined on input line 1558",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `makeanaudio' on page 241 undefined on input line 1559",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `makeanaudio2' on page 241 undefined on input line 1560",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `audit' on page 241 undefined on input line 1561",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `codi' on page 241 undefined on input line 1577",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation `codi' on page 242 undefined on input line 1666",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Empty `thebibliography' environment on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

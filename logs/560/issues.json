@@ -1,0 +1,762 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package caption Warning: Unknown document class (or package), standard defaults will be used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 130,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.43146> not available size <8> substituted on input line 130",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 130,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available size <6> substituted on input line 130",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `googlequantumaiandcollaboratorsQuantumErrorCorrection2025' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `wangDemonstrationLowoverheadQuantum2026' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `thamBreakevenDemonstrationQuantum2026' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `bluvsteinLogicalQuantumProcessor2024' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `takedaQuantumErrorCorrection2022' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `undsethWeightfourParityChecks2026' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `teamDigitallyControlledSilicon2026' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `fowlerSurfaceCodesPractical2012' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `breuckmannQuantumLowDensityParityCheck2021' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `tillichQuantumLDPCCodes2014' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `panteleevQuantumLDPCCodes2022' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `breuckmannBalancedProductQuantum2021' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `baspinQuantifyingNonlocalityHow2022' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 137,
+  "message": "Package natbib Warning: Citation `bravyiHighthresholdLowoverheadFaulttolerant2024' on page 1 undefined on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `bluvsteinLogicalQuantumProcessor2024' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `xuConstantoverheadFaulttolerantQuantum2024' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `cainShorsAlgorithmPossible2026' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `pinoDemonstrationTrappedionQuantum2021' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `durandauShuttlingBidimensionalSegmented2026' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `burkardSemiconductorSpinQubits2023' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `noiriShuttlingbasedTwoqubitLogic2022' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `struckSpinEPRpairSeparationConveyormode2024' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `xueSiSiGeQuBUS2024' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `vanriggelen-doelmanCoherentSpinQubit2024' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `desmetHighfidelitySinglespinShuttling2025' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `fosterDephasingErrorDynamics2024' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `matsumotoTwoqubitLogicTeleportation2026' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `caiLoopedPipelinesEnabling2023' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `patomakiPipelineQuantumProcessor2024' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `siegelQuantumSnakesPlane2026' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `chadwickCAbLECAREfficientlyScheduling2026' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `siegel2026nestultrahighrateqldpccodes' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 205,
+  "message": "Package natbib Warning: Citation `beerConveyormodeElectronShuttling2026' on page 3 undefined on input line 205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 218,
+  "message": "Package natbib Warning: Citation `drouetErrorCorrectionArray2026' on page 4 undefined on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 218,
+  "message": "Package natbib Warning: Citation `bultriniBattleCleanDirty2023' on page 4 undefined on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 235,
+  "message": "Package natbib Warning: Citation `QLDPCOrgQLDPC2026' on page 5 undefined on input line 235",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 235,
+  "message": "Package natbib Warning: Citation `MothquantumSQECRepo' on page 5 undefined on input line 235",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 254,
+  "message": "Package natbib Warning: Citation `struckSpinEPRpairSeparationConveyormode2024' on page 5 undefined on input line 254",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 254,
+  "message": "Package natbib Warning: Citation `xueSiSiGeQuBUS2024' on page 5 undefined on input line 254",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 254,
+  "message": "Package natbib Warning: Citation `volmerImpactLocalValley2026' on page 5 undefined on input line 254",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 254,
+  "message": "Package natbib Warning: Citation `desmetHighfidelitySinglespinShuttling2025' on page 5 undefined on input line 254",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 302,
+  "message": "Package natbib Warning: Citation `struckSpinEPRpairSeparationConveyormode2024' on page 7 undefined on input line 302",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 302,
+  "message": "Package natbib Warning: Citation `xueSiSiGeQuBUS2024' on page 7 undefined on input line 302",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 302,
+  "message": "Package natbib Warning: Citation `volmerImpactLocalValley2026' on page 7 undefined on input line 302",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 302,
+  "message": "Package natbib Warning: Citation `desmetHighfidelitySinglespinShuttling2025' on page 7 undefined on input line 302",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 304,
+  "message": "Package natbib Warning: Citation `beerConveyormodeElectronShuttling2026' on page 7 undefined on input line 304",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 304,
+  "message": "Package natbib Warning: Citation `undsethWeightfourParityChecks2026' on page 7 undefined on input line 304",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 306,
+  "message": "Package natbib Warning: Citation `undsethWeightfourParityChecks2026' on page 7 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 306,
+  "message": "Package natbib Warning: Citation `kunneSpinBusArchitectureScaling2024' on page 7 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 306,
+  "message": "Package natbib Warning: Citation `matsumotoTwoqubitLogicTeleportation2026' on page 7 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 306,
+  "message": "Package natbib Warning: Citation `desmetSpinQubitOperations2026' on page 7 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 310,
+  "message": "Package natbib Warning: Citation `xueQuantumLogicSpin2022' on page 7 undefined on input line 310",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 310,
+  "message": "Package natbib Warning: Citation `matsumotoTwoqubitLogicTeleportation2026' on page 7 undefined on input line 310",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 310,
+  "message": "Package natbib Warning: Citation `desmetSpinQubitOperations2026' on page 7 undefined on input line 310",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 314,
+  "message": "Package natbib Warning: Citation `beerConveyormodeElectronShuttling2026' on page 7 undefined on input line 314",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 314,
+  "message": "Package natbib Warning: Citation `xueSiSiGeQuBUS2024' on page 7 undefined on input line 314",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 319,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 319,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\Gamma' on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 372,
+  "message": "Package natbib Warning: Citation `kunneSpinBusArchitectureScaling2024' on page 8 undefined on input line 372",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 372,
+  "message": "Package natbib Warning: Citation `yenilenPerformanceSpinQubit2025' on page 8 undefined on input line 372",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 372,
+  "message": "Package natbib Warning: Citation `undsethWeightfourParityChecks2026' on page 8 undefined on input line 372",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 372,
+  "message": "Package natbib Warning: Citation `beerConveyormodeElectronShuttling2026' on page 8 undefined on input line 372",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 394,
+  "message": "Package natbib Warning: Citation `bravyiHighthresholdLowoverheadFaulttolerant2024' on page 9 undefined on input line 394",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 396,
+  "message": "Package natbib Warning: Citation `pooleArchitectureFastImplementation2025' on page 9 undefined on input line 396",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 398,
+  "message": "Package natbib Warning: Citation `pooleArchitectureFastImplementation2025' on page 9 undefined on input line 398",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 400,
+  "message": "Package natbib Warning: Citation `bravyiHighthresholdLowoverheadFaulttolerant2024' on page 9 undefined on input line 400",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 413,
+  "message": "Package natbib Warning: Citation `stanoReviewPerformanceMetrics2022' on page 9 undefined on input line 413",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 413,
+  "message": "Package natbib Warning: Citation `beerConveyormodeElectronShuttling2026' on page 9 undefined on input line 413",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 413,
+  "message": "Package natbib Warning: Citation `seidlerConveyormodeSingleelectronShuttling2022' on page 9 undefined on input line 413",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 413,
+  "message": "Package natbib Warning: Citation `kunneSpinBusArchitectureScaling2024' on page 9 undefined on input line 413",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 416,
+  "message": "Package natbib Warning: Citation `krzywdaCoherenceProtectionMobile2026' on page 9 undefined on input line 416",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 425,
+  "message": "Package natbib Warning: Citation `moncySurfaceCodeThresholdsQubit2026' on page 10 undefined on input line 425",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 445,
+  "message": "Package natbib Warning: Citation `langrockBlueprintScalableSpin2023' on page 10 undefined on input line 445",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 445,
+  "message": "Package natbib Warning: Citation `struckSpinEPRpairSeparationConveyormode2024' on page 10 undefined on input line 445",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 445,
+  "message": "Package natbib Warning: Citation `krzywdaCoherenceProtectionMobile2026' on page 10 undefined on input line 445",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 445,
+  "message": "Package natbib Warning: Citation `boscoHighFidelitySpinQubit2024' on page 10 undefined on input line 445",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 445,
+  "message": "Package natbib Warning: Citation `nguyenSuppressingSpinQubit2026' on page 10 undefined on input line 445",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 448,
+  "message": "LaTeX Warning: No positions in optional float specifier. Default added (so using `tbp') on input line 448",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 606,
+  "message": "Package natbib Warning: Citation `hagbergExploringNetworkStructure2008' on page 12 undefined on input line 606",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 628,
+  "message": "Package natbib Warning: Citation `chadwickCAbLECAREfficientlyScheduling2026' on page 13 undefined on input line 628",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 628,
+  "message": "Package natbib Warning: Citation `kunneSpinBusArchitectureScaling2024' on page 13 undefined on input line 628",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 628,
+  "message": "Package natbib Warning: Citation `siegel2026nestultrahighrateqldpccodes' on page 13 undefined on input line 628",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 630,
+  "message": "Package natbib Warning: Citation `zouLightSABRELightweightEnhanced2024' on page 13 undefined on input line 630",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 630,
+  "message": "Package natbib Warning: Citation `breuckmannQuantumLowDensityParityCheck2021' on page 13 undefined on input line 630",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 630,
+  "message": "Package natbib Warning: Citation `chadwickCAbLECAREfficientlyScheduling2026' on page 13 undefined on input line 630",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 646,
+  "message": "Package hyperref Warning: Difference (4) between bookmark levels is greater than one, level fixed on input line 646",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 657,
+  "message": "Package natbib Warning: Citation `MothquantumSQECRepo' on page 14 undefined on input line 657",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Spin_qubit_shuttling.tex",
+  "line": 660,
+  "message": "Package natbib Warning: Citation `MothquantumSQECRepo' on page 14 undefined on input line 660",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 713,
+  "message": "Package natbib Warning: Citation `moncySurfaceCodeThresholdsQubit2026' on page 15 undefined on input line 713",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 721,
+  "message": "Package natbib Warning: Citation `krzywdaCoherenceProtectionMobile2026' on page 15 undefined on input line 721",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.47939pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

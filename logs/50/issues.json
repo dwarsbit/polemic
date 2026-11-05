@@ -1,0 +1,362 @@
+[
+ {
+  "severity": "error",
+  "file": "SDUthesistemplate.tex",
+  "line": 26,
+  "message": "Package fontspec Error: The font \"SimSun\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "SDUthesistemplate.tex",
+  "line": 26,
+  "message": "Font TU/SimSun(1)/m/n/15.05624=SimSun/OT at 15.05624pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "SDUthesistemplate.tex",
+  "line": 26,
+  "message": "Package fontspec Error: The font \"SimHei\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "SDUthesistemplate.tex",
+  "line": 26,
+  "message": "Font TU/SimHei(0)/m/n/60=SimHei/OT at 60.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "SDUthesistemplate.tex",
+  "line": 26,
+  "message": "Font TU/SimHei(0)/b/n/60=SimHei/OT at 60.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "SDUthesistemplate.tex",
+  "line": 26,
+  "message": "Font TU/SimHei(0)/b/n/26.09749=SimHei/OT at 26.09749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "SDUthesistemplate.tex",
+  "line": 26,
+  "message": "Font TU/SimHei(0)/m/n/16.06=SimHei/OT at 16.06pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "SDUthesistemplate.tex",
+  "line": 26,
+  "message": "Font TU/SimSun(0)/b/n/16.06=SimHei/OT at 16.06pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "SDUthesistemplate.tex",
+  "line": 26,
+  "message": "Font TU/SimSun(0)/m/n/14.05249=SimSun/OT at 14.05249pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "SDUthesistemplate.tex",
+  "line": 29,
+  "message": "Font TU/SimSun(0)/m/n/10.53937=SimSun/OT at 10.53937pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/abstract.tex",
+  "line": 2,
+  "message": "Font TU/SimSun(0)/b/n/15.05624=SimHei/OT at 15.05624pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/abstract.tex",
+  "line": 4,
+  "message": "Package fontspec Error: The font \"FangSong\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "contents/abstract.tex",
+  "line": 4,
+  "message": "Font TU/SimSun(0)/m/n/12.045=SimSun/OT at 12.045pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/abstract.tex",
+  "line": 8,
+  "message": "Font TU/SimSun(0)/b/n/12.045=SimHei/OT at 12.045pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/ch1.tex",
+  "line": 5,
+  "message": "Font TU/SimSun(0)/b/n/14.05249=SimHei/OT at 14.05249pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/ch1.tex",
+  "line": 8,
+  "message": "Font TU/SimSun(0)/m/n/12=SimSun/OT at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/miscellaneous.tex",
+  "line": 12,
+  "message": "Font TU/SimHei(0)/m/n/14.4=SimHei/OT at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ctexcap Warning: Package `ctexcap' is deprecated. Please use package `ctex' with option `winfonts, noindent, nocap, UTF8, heading' instead:",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ctex Warning: Option `winfonts' is deprecated. Option `fontset=windows' is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ctex Warning: Option `noindent' is deprecated. The functionality has been removed.\\\\It's better to set the heading styles via `afterindent' option",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ctex Warning: Option `nocap' is deprecated. Option `scheme=plain' is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXoptions' is deprecated. \\ctexset { figurename={图},tablename={表},bibname={参考文献},contentsname={目\\quad {}{}录} } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXoptions' is deprecated. \\ctexset { today=small } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { chapter = { name={第,章} } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { chapter = { number={\\chinese {chapter}} } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { chapter = { format={\\centering } } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { chapter = { nameformat={\\bfseries \\zihao {3}} } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { chapter = { titleformat={\\bfseries \\zihao {3}} } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { chapter = { aftername={\\quad {}} } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { chapter = { beforeskip={10pt} } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { chapter = { afterskip={10pt} } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { section = { format={\\bfseries \\flushleft \\zihao {4}} } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { subsection = { format={\\bfseries \\flushleft \\zihao {-4}} } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { subsubsection = { format={\\flushleft \\zihao {-4}} } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { appendix = { name={附录~} } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sduthesis.cls",
+  "line": null,
+  "message": "Package ctex Warning: Command `\\CTEXsetup' is deprecated. \\ctexset { appendix = { number={\\Alph {chapter}} } } is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ccmap.sty",
+  "line": null,
+  "message": "Package ccmap Warning: not running PDFLaTeX - package not loaded",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SDUthesistemplate.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SDUthesistemplate.tex",
+  "line": 26,
+  "message": "LaTeX Font Warning: Font shape `TU/SimHei(0)/b/n' undefined using `TU/SimHei(0)/m/n' instead on input line 26",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SDUthesistemplate.tex",
+  "line": 26,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <15.05624> not available size <14.4> substituted on input line 26",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SDUthesistemplate.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 14.87228pt, for example: \\setlength{\\headheight}{14.87228pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-2.87228pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/abstract.tex",
+  "line": 2,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\hskip 12.0pt replaced by space on input line 2",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/acknowledgement.tex",
+  "line": 1,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\hskip 12.0pt replaced by space on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SDUthesistemplate.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.65625pt have occurred",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SDUthesistemplate.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

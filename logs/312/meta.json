@@ -1,0 +1,32 @@
+{
+ "id": 312,
+ "source": "GitHub",
+ "name": "sisl/tufte_algorithms_book",
+ "url": "https://github.com/sisl/tufte_algorithms_book",
+ "type": "Book",
+ "version": "8d1d744d70b2814a876edef0dfdf05ea654bef33",
+ "files": 26,
+ "main": "book.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (inferred)",
+ "baseline": {
+  "main": "book.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2162,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  lualatex: Command for 'lualatex' gave return code 1\n      Refer to 'book.log' and/or above output for details\n\ntput: No value for $TERM and no -T specified\nLatexmk: Missing input file 'juliaplots.sty/juliaplots.sty' message in .log file:\n  ! LaTeX Error: File `juliaplots.sty/juliaplots.sty' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 446,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/book.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-fail"
+}

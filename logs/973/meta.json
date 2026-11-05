@@ -1,0 +1,34 @@
+{
+ "id": 973,
+ "source": "CTAN",
+ "name": "philosophersimprint",
+ "url": "https://ctan.org/pkg/philosophersimprint",
+ "type": "Paper",
+ "version": "1.5",
+ "files": 8,
+ "main": "sample.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "sample.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2556,
+  "tail": "exit 12, PDF found\nCollected error summary (may duplicate other messages):\n  bibtex sample: Bibtex errors: See file 'sample.blg'\n\nLatexmk: Missing bbl file 'sample.bbl' in following:\n No file sample.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 821,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ],
+  "tail": "  Citation `NewSystems' on page 2 undefined on input line 87\n  Citation `ScholarsForum' on page 2 undefined on input line 87\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 13,
+ "outcome": "both-fail"
+}

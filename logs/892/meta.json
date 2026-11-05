@@ -1,0 +1,31 @@
+{
+ "id": 892,
+ "source": "CTAN",
+ "name": "hepthesis",
+ "url": "https://ctan.org/pkg/hepthesis",
+ "type": "Thesis",
+ "version": "1.5.2",
+ "files": 25,
+ "main": "hepthesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "hepthesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4725
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4376,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

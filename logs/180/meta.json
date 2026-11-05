@@ -1,0 +1,32 @@
+{
+ "id": 180,
+ "source": "GitHub",
+ "name": "vvp-cfd/beamer-template-kit",
+ "url": "https://github.com/vvp-cfd/beamer-template-kit",
+ "type": "Slides",
+ "version": "66cbc2c06902dd635012704a036b856809d9b2e4",
+ "files": 86,
+ "main": "Example.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "Example.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 8105,
+  "tail": "exit 12, PDF found\n  No file Example.toc.\nLatexmk: Missing input file 'Example.toc' message in .log file:\n  No file Example.toc.\nLatexmk: Missing input file 'Example.toc' message in .log file:\n  No file Example.toc.\nExample.xdv -> Example.pdf\n[1][2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20]\n1177679 bytes written"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 538,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/Example.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

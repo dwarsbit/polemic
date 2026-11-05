@@ -1,0 +1,258 @@
+[
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 84,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 1589,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 1590,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 1705,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/plot-va-1pl-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 1756,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/coef-item-va-1pl-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 1767,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/coef-person-va-1pl-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 1871,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/coef-item-va-2pl-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 1882,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/coef-person-va-2pl-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2017,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/me-va-mode-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2105,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/me-va-cov2-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2328,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/grm-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2386,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/va-person-scatter-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2497,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/coef-item-va-ord-2pl-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2539,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/me-va-ord-cov1-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2582,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/pcm-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2623,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/me-va-ord-cov2-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2662,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2663,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2744,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/pp-exg1-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2764,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/me-exg-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 2862,
+  "message": "LaTeX Error: File `Bayesian-IRT_files/figure-latex/me-drift-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Bayesian-IRT.tex",
+  "line": 3100,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "jss.cls",
+  "line": 466,
+  "message": "Package hyperref Warning: Option `hyperindex' has already been used, setting the option has no effect on input line 466",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Bayesian-IRT.tex",
+  "line": 185,
+  "message": "Package xcolor Warning: Incompatible color definition on input line 185",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Bayesian-IRT.tex",
+  "line": 371,
+  "message": "Package xcolor Warning: Incompatible color definition on input line 371",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Bayesian-IRT.tex",
+  "line": 579,
+  "message": "Package xcolor Warning: Incompatible color definition on input line 579",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Bayesian-IRT.tex",
+  "line": 871,
+  "message": "Package xcolor Warning: Incompatible color definition on input line 871",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Bayesian-IRT.tex",
+  "line": 1230,
+  "message": "Package xcolor Warning: Incompatible color definition on input line 1230",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Bayesian-IRT.tex",
+  "line": 2202,
+  "message": "Package xcolor Warning: Incompatible color definition on input line 2202",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Bayesian-IRT.tex",
+  "line": 2447,
+  "message": "Package xcolor Warning: Incompatible color definition on input line 2447",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Bayesian-IRT.tex",
+  "line": 2899,
+  "message": "Package xcolor Warning: Incompatible color definition on input line 2899",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Bayesian-IRT.tex",
+  "line": 3158,
+  "message": "Package xcolor Warning: Incompatible color definition on input line 3158",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": "XJTU-thesis.cls",
+  "line": 95,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "XJTU-thesis.cls",
+  "line": 95,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

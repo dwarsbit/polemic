@@ -1,0 +1,31 @@
+{
+ "id": 460,
+ "source": "GitHub",
+ "name": "EagleoutIce/latex-cv-maverick",
+ "url": "https://github.com/EagleoutIce/latex-cv-maverick",
+ "type": "Figures",
+ "version": "f4385e644f98e4be00125eb644aa0800b557af80",
+ "files": 9,
+ "main": "example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3752
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4248,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

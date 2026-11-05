@@ -1,0 +1,31 @@
+{
+ "id": 91,
+ "source": "GitHub",
+ "name": "tos-kamiya/latex_report_sample",
+ "url": "https://github.com/tos-kamiya/latex_report_sample",
+ "type": "Paper",
+ "version": "217687bfc4637b64c2d7a8b714869f95dd1d34d5",
+ "files": 6,
+ "main": "src/report_sample.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "src/report_sample.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 645,
+  "tail": "exit 12, PDF not found\n  ! LaTeX Error: Unicode character は (U+306F)\n  ! LaTeX Error: Unicode character じ (U+3058)\n  ! LaTeX Error: Unicode character め (U+3081)\n  ! LaTeX Error: Unicode character に (U+306B)\n  ! LaTeX Error: Unicode character こ (U+3053)\n  ! LaTeX Error: Unicode character の (U+306E)\n  ! LaTeX Error: Unicode character 文 (U+6587)\n And 88 more --- see log file 'report_sample.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 262,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 83,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Backend request inconsistent with engine: using 'pdftex' backend.",
+ "outcome": "both-fail"
+}

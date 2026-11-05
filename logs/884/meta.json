@@ -1,0 +1,32 @@
+{
+ "id": 884,
+ "source": "CTAN",
+ "name": "edmaths",
+ "url": "https://ctan.org/pkg/edmaths",
+ "type": "Thesis",
+ "version": "1.0.0",
+ "files": 8,
+ "main": "edmaths-example-report.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "edmaths-example-report.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2361
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2043,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

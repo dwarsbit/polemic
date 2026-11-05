@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": "jnuthesis.cls",
+  "line": 106,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "jnuthesis.cls",
+  "line": 106,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

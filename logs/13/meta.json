@@ -1,0 +1,31 @@
+{
+ "id": 13,
+ "source": "GitHub",
+ "name": "xnning/Dissertation",
+ "url": "https://github.com/xnning/Dissertation",
+ "type": "Thesis",
+ "version": "f27883bb220fe86711ea2a341b60973785492fc8",
+ "files": 67,
+ "main": "topmatter.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "topmatter.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 15445,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'topmatter.log' and/or above output for details\n\nLatexmk: Missing input file 'Gen/ott-rules.tex' message in .log file:\n  ! LaTeX Error: File `Gen/ott-rules.tex' not found.\nFailure to make 'topmatter.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1452,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 7,
+ "warnings": 4,
+ "firstError": "LaTeX Error: Command \\c@lemma already defined.",
+ "outcome": "both-fail"
+}

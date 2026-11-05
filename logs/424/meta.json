@@ -1,0 +1,31 @@
+{
+ "id": 424,
+ "source": "GitHub",
+ "name": "YZ-Cai/LatexHomeworkTemplate",
+ "url": "https://github.com/YZ-Cai/LatexHomeworkTemplate",
+ "type": "Homework",
+ "version": "2a23c981459133f5f3855e1fba66b91c4c4f1d5b",
+ "files": 18,
+ "main": "example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 5683,
+  "tail": "exit 12, PDF not found\nLatexmk: Using bibtex to make bibliography file(s).\n\nkpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 1+303/600 --dpi 903 unihei73\nmktexpk: don't know how to create bitmap font for unihei73.\nmktexpk: perhaps unihei73 is missing from the map file.\nkpathsea: Appending font creation commands to missfont.log.\nLatexmk: Using bibtex to make bibliography file(s).\nFailure to make 'example.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1736,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 2,
+ "firstError": "pdfTeX error: pdflatex (file unisong5e): Font unisong5e at 632 not found",
+ "outcome": "both-fail"
+}

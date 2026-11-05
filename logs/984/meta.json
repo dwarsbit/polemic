@@ -1,0 +1,31 @@
+{
+ "id": 984,
+ "source": "CTAN",
+ "name": "beamer",
+ "url": "https://ctan.org/pkg/beamer",
+ "type": "Slides",
+ "version": "3.78",
+ "files": 201,
+ "main": "doc/beamercolorthemeexample.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/beamercolorthemeexample.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1598
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1335,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

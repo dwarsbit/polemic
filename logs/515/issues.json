@@ -1,0 +1,122 @@
+[
+ {
+  "severity": "error",
+  "file": "Arxiv.tex",
+  "line": 58,
+  "message": "LaTeX Error: Command \\c@proposition already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Arxiv.tex",
+  "line": 59,
+  "message": "LaTeX Error: Command \\c@lemma already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Arxiv.tex",
+  "line": 60,
+  "message": "LaTeX Error: Command \\c@corollary already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Arxiv.tex",
+  "line": 61,
+  "message": "LaTeX Error: Command \\c@conjecture already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Arxiv.tex",
+  "line": 62,
+  "message": "LaTeX Error: Command \\c@definition already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Arxiv.tex",
+  "line": 65,
+  "message": "LaTeX Error: Command \\c@question already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Arxiv.tex",
+  "line": 66,
+  "message": "LaTeX Error: Command \\c@remark already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Arxiv.tex",
+  "line": 67,
+  "message": "LaTeX Error: Command \\c@example already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Arxiv.tex",
+  "line": 68,
+  "message": "LaTeX Error: Command \\c@discussion already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Arxiv.tex",
+  "line": 338,
+  "message": "Package amsmath Warning: Foreign command \\atopwithdelims; \\frac or \\genfrac should be used instead on input line 338",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Arxiv.tex",
+  "line": 382,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 382",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Arxiv.tex",
+  "line": 382,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\varepsilon' on input line 382",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Arxiv.tex",
+  "line": 382,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 382",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Arxiv.tex",
+  "line": 743,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 743",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Arxiv.tex",
+  "line": 743,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 743",
+  "detail": [],
+  "hint": null
+ }
+]

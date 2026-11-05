@@ -1,0 +1,32 @@
+{
+ "id": 295,
+ "source": "GitHub",
+ "name": "3rdJCG/intro-to-circuitikz",
+ "url": "https://github.com/3rdJCG/intro-to-circuitikz",
+ "type": "Book",
+ "version": "91921f0b0701b0deea9eaaf80114c1a90487fbd4",
+ "files": 26,
+ "main": "main.tex",
+ "catalogMain": "settings.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "settings.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1090,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'settings.fls'\nLatexmk: Examining 'settings.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'settings.log' and/or above output for details\n\nFailure to make 'settings.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 994,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 167,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Unknown option `noto' for package `pxchfon'.",
+ "outcome": "both-fail"
+}

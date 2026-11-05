@@ -1,0 +1,31 @@
+{
+ "id": 176,
+ "source": "GitHub",
+ "name": "SUSTech-CRA/latex-talk",
+ "url": "https://github.com/SUSTech-CRA/latex-talk",
+ "type": "Slides",
+ "version": "ddd4f5765d7e7ae4b576bd9bc6eee3eabdd0c043",
+ "files": 30,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 13058,
+  "tail": "exit 12, PDF not found\nLatexmk: Using biber to make bibliography file(s).\nFailure to make 'main.pdf'\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  ! Bad character code (-80).\n  ! Bad character code (-80).\n  ! Bad character code (-80).\n  ! Bad character code (-80).\n  ! Bad character code (-80)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2207,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 9,
+ "warnings": 2,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

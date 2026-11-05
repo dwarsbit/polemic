@@ -1,0 +1,82 @@
+[
+ {
+  "severity": "error",
+  "file": "aguplus.tex",
+  "line": 636,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "aguplus.tex",
+  "line": 636,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "aguplus.tex",
+  "line": 636,
+  "message": "LaTeX Error: Not allowed in LR mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "aguplus.tex",
+  "line": 636,
+  "message": "Missing \\endgroup inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "aguplus.tex",
+  "line": 636,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "aguplus.tex",
+  "line": 636,
+  "message": "LaTeX Error: Something's wrong--perhaps a missing \\item.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "aguplus.tex",
+  "line": 636,
+  "message": "Too many }'s.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "aguplus.tex",
+  "line": 636,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{planotable}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "aguplus.tex",
+  "line": 636,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation(s) may have changed. Rerun to get citations correct",
+  "detail": [],
+  "hint": null
+ }
+]

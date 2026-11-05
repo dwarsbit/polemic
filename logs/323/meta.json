@@ -1,0 +1,31 @@
+{
+ "id": 323,
+ "source": "GitHub",
+ "name": "xu-cheng/cv",
+ "url": "https://github.com/xu-cheng/cv",
+ "type": "CV",
+ "version": "ba6b1c6d8f83e0c396a9df3eba12fdf70093122c",
+ "files": 10,
+ "main": "cv.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (latexmkrc)",
+ "baseline": {
+  "main": "cv.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 17957
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 234,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/cv.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "polemic-only-fail"
+}

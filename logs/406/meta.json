@@ -1,0 +1,32 @@
+{
+ "id": 406,
+ "source": "GitHub",
+ "name": "cgsdfc/homework.latex",
+ "url": "https://github.com/cgsdfc/homework.latex",
+ "type": "Homework",
+ "version": "1f06d4547c097b8b6f0227e6ed161e79ec4ad4bb",
+ "files": 152,
+ "main": "computation/paper/paper.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (latexmkrc)",
+ "baseline": {
+  "main": "computation/paper/paper.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 27740,
+  "tail": "exit 12, PDF not found\n<*> \\mode:=ljfour; mag:=1; ; nonstopmode; input OT\n                                                  \nTranscript written on mfput.log.\ngrep: OT.log: No such file or directory\nmktextfm: `mf-nowin -progname=mf \\mode:=ljfour; mag:=1; ; nonstopmode; input OT' failed to make OT.tfm.\nLatexmk: Missing input file 'solarized-light.sty' message in .log file:\n  ! LaTeX Error: File `solarized-light.sty' not found.\nFailure to make 'paper.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 629,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `solarized-light.sty' not found.",
+ "outcome": "both-fail"
+}

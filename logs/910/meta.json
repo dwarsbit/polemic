@@ -1,0 +1,33 @@
+{
+ "id": 910,
+ "source": "CTAN",
+ "name": "tuda-ci",
+ "url": "https://ctan.org/pkg/tuda-ci",
+ "type": "Thesis",
+ "version": "4.08",
+ "files": 47,
+ "main": "examples/DEMO-TUDaAnnouncement.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "examples/DEMO-TUDaAnnouncement.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2850,
+  "tail": "exit 12, PDF found\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'DEMO-TUDaAnnouncement.log' and/or above output for details\n\nLatexmk: Missing input file 'tuda_logo' message in .log file:\n  ! LaTeX Error: File `tuda_logo' not found.\nLatexmk: Missing input file 'tuda_logo' message in .log file:\n  ! LaTeX Error: File `tuda_logo' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1365,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `tuda_logo' not found.",
+ "outcome": "both-fail"
+}

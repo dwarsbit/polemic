@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": "example.tex",
+  "line": 207,
+  "message": "LaTeX Error: Command \\bibpreamble already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package etex Warning: Extended allocation already in use. etex.sty code will not be used. To force etex package to load, add \\RequirePackage{etex} at the start of the document",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\addtocontents  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ }
+]

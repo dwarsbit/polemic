@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 53,
+  "message": "Package amsrefs Warning: Use of \\cites is recommended instead of \\cite for multiple cites 'Hu24,Heg24' on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 207,
+  "message": "Package amsrefs Warning: The form \\cite{...}*{...} is recommended instead of \\cite[...]{...} on input line 207",
+  "detail": [],
+  "hint": null
+ }
+]

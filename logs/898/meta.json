@@ -1,0 +1,32 @@
+{
+ "id": 898,
+ "source": "CTAN",
+ "name": "mitthesis",
+ "url": "https://ctan.org/pkg/mitthesis",
+ "type": "Thesis",
+ "version": "1.24",
+ "files": 76,
+ "main": "MIT-thesis-template/MIT-Thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "MIT-thesis-template/MIT-Thesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 30659
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 26202,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

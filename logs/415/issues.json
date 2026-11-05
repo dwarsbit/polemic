@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": "example.tex",
+  "line": null,
+  "message": "Package xeCJK Warning: Fandol is being set as the default font for CJK text. Please make sure it has been properly installed",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example.tex",
+  "line": 20,
+  "message": "LaTeX Font Warning: Font shape `TU/FandolSong-Regular(0)/m/sc' undefined using `TU/FandolSong-Regular(0)/m/n' instead on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

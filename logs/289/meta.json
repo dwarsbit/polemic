@@ -1,0 +1,32 @@
+{
+ "id": 289,
+ "source": "GitHub",
+ "name": "sergiokapone/ElMagProblems",
+ "url": "https://github.com/sergiokapone/ElMagProblems",
+ "type": "Book",
+ "version": "499282936847a50b7e47992a27411eafdc00657e",
+ "files": 57,
+ "main": "document.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "document.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 21741
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 16443,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

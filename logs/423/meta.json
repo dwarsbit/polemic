@@ -1,0 +1,31 @@
+{
+ "id": 423,
+ "source": "GitHub",
+ "name": "liblaf/60420024-Advanced-Numerical-Analysis",
+ "url": "https://github.com/liblaf/60420024-Advanced-Numerical-Analysis",
+ "type": "Homework",
+ "version": "fe7649212b1924776e1cf967cb5742ef4ad39f93",
+ "files": 12,
+ "main": "work/01-第一次/01-submit-第一次.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "work/01-第一次/01-submit-第一次.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 911,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining '01-submit-第一次.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to '01-submit-第一次.log' and/or above output for details\n\nLatexmk: Missing input file 'iwork.cls' message in .log file:\n  ! LaTeX Error: File `iwork.cls' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 208,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `iwork.cls' not found.",
+ "outcome": "both-fail"
+}

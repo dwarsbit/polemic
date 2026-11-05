@@ -1,0 +1,31 @@
+{
+ "id": 6,
+ "source": "GitHub",
+ "name": "bdebye/thesisuestc",
+ "url": "https://github.com/bdebye/thesisuestc",
+ "type": "Thesis",
+ "version": "a8a413a7e6951f10df6237531a3cbd7753e441ae",
+ "files": 30,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1340,
+  "tail": "exit 12, PDF not found\nLatexmk: Log file says no output from latex\nLatexmk: For rule 'pdflatex', no output was made\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main.log' and/or above output for details\n\nFailure to make 'main.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 220,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "Emergency stop.",
+ "outcome": "both-fail"
+}

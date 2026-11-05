@@ -1,0 +1,31 @@
+{
+ "id": 205,
+ "source": "GitHub",
+ "name": "CodeMaxx/blockchain-project-IPFS",
+ "url": "https://github.com/CodeMaxx/blockchain-project-IPFS",
+ "type": "Slides",
+ "version": "be896ec9fe70f8a9aec0b29f73d05dedb0607caa",
+ "files": 20,
+ "main": "setup/preamble.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "setup/preamble.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1310,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'preamble.fls'\nLatexmk: Examining 'preamble.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'preamble.log' and/or above output for details\n\nFailure to make 'preamble.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 786,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 2,
+ "firstError": "Package biblatex Error: '\\bibliographystyle' invalid for 'biblatex'.",
+ "outcome": "both-fail"
+}

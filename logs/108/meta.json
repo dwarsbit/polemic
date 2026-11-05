@@ -1,0 +1,31 @@
+{
+ "id": 108,
+ "source": "GitHub",
+ "name": "ArvitZ/AZ-Rezeptsammlung",
+ "url": "https://github.com/ArvitZ/AZ-Rezeptsammlung",
+ "type": "Paper",
+ "version": "bc414fd1657ef9fa9dcb3cff965ae368a67f07f7",
+ "files": 73,
+ "main": "LaTeX-Dateien/AZ-Rezeptbuch.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "LaTeX-Dateien/AZ-Rezeptbuch.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 7917
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 10599,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 6,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,82 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ExtSizes Warning: It is better to use one of the extsizes classes, if you can",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underbar  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underline  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SrMn2Ge2_Manuscript.tex",
+  "line": 110,
+  "message": "LaTeX Font Warning: Font shape `T1/cmss/b/n' undefined using `T1/cmss/m/n' instead on input line 110",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SrMn2Ge2_Manuscript.tex",
+  "line": 115,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 115",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SrMn2Ge2_Manuscript.tex",
+  "line": 116,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SrMn2Ge2_Manuscript.tex",
+  "line": 117,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 117",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SrMn2Ge2_Manuscript.tex",
+  "line": 118,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SrMn2Ge2_Manuscript.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

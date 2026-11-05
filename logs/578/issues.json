@@ -1,0 +1,58 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 354,
+  "message": "Class acmart Warning: A possible image without description on input line 354",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 682,
+  "message": "Class acmart Warning: A possible image without description on input line 682",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 695,
+  "message": "Class acmart Warning: A possible image without description on input line 695",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 704,
+  "message": "Class acmart Warning: A possible image without description on input line 704",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 713,
+  "message": "Class acmart Warning: A possible image without description on input line 713",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1383,
+  "message": "Class acmart Warning: A possible image without description on input line 1383",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Class acmart Warning: Some images may lack descriptions",
+  "detail": [],
+  "hint": null
+ }
+]

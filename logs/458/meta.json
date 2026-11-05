@@ -1,0 +1,34 @@
+{
+ "id": 458,
+ "source": "GitHub",
+ "name": "fruchart/tikz-optics",
+ "url": "https://github.com/fruchart/tikz-optics",
+ "type": "Figures",
+ "version": "6f54dbdccd0dddb02825394021f769eef1bce51b",
+ "files": 17,
+ "main": "doc/tikz-optics.en.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (inferred)",
+ "baseline": {
+  "main": "doc/tikz-optics.en.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 20738,
+  "tail": "exit 12, PDF found\n  Missing character: There is no = (U+003D) in font nullfont!\n  Missing character: There is no 5 (U+0035) in font nullfont!\n  Missing character: There is no = (U+003D) in font nullfont!\n  Missing character: There is no 5 (U+0035) in font nullfont!\n  Missing character: There is no = (U+003D) in font nullfont!\n  Missing character: There is no 2 (U+0032) in font nullfont!\n  Missing character: There is no = (U+003D) in font nullfont!\n And 39 more --- see log file 'tikz-optics.en.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 5173,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 31,
+ "warnings": 14,
+ "firstError": "LaTeX Error: Command \\warning already defined.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 446,
+ "source": "GitHub",
+ "name": "ma-mehralian/cheat_sheets",
+ "url": "https://github.com/ma-mehralian/cheat_sheets",
+ "type": "Cheat sheet",
+ "version": "448c9fd3cca740593ec206118dd07e40a4e790fd",
+ "files": 30,
+ "main": "3D vision/3d_vision.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "3D vision/3d_vision.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2339
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2071,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

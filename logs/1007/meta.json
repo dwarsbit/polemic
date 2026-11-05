@@ -1,0 +1,9 @@
+{
+ "id": 1007,
+ "source": "CTAN",
+ "name": "ppt-slides",
+ "url": "https://ctan.org/pkg/ppt-slides",
+ "type": "Slides",
+ "outcome": "download-failed",
+ "error": "fetch failed"
+}

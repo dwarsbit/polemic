@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample701.tex",
+  "line": 19,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample701.tex",
+  "line": 2359,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed) on input line 2359",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample701.tex",
+  "line": null,
+  "message": "Class aastex701 Warning: Deferred float stuck during \\clearpage processing",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample701.tex",
+  "line": 3095,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed) on input line 3095",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed) on input line 86",
+  "detail": [],
+  "hint": null
+ }
+]

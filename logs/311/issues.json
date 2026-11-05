@@ -1,0 +1,754 @@
+[
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 277,
+  "message": "Package siunitx Error: Invalid number '1+-2i'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 281,
+  "message": "Package siunitx Error: Invalid number '1.654 x 2.34 x 3.430'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 282,
+  "message": "Package siunitx Error: Invalid number '1 2 x 3 / 4'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 300,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 300,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 300,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 300,
+  "message": "Missing control sequence inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 300,
+  "message": "Improper `at' size (0.0pt), replaced by 10pt.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 303,
+  "message": "Package siunitx Error: Invalid number '1.2-3i e5'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 445,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 446,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 447,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 448,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 449,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 450,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 451,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 452,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 453,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 454,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 455,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 456,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 457,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 458,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 459,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 460,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 461,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 462,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 463,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part1.tex",
+  "line": 464,
+  "message": "Package siunitx Error: Found prefix part with no unit.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/appendix.tex",
+  "line": 646,
+  "message": "Dimension too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/appendix.tex",
+  "line": 646,
+  "message": "Use of \\__seq_put_left_aux:w doesn't match its definition.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `hyperref' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package soulutf8 Warning: This package is obsolete, use the soul package directly. on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package aliascnt Warning: The package is obsolete. Check the documentation. on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Sokolov' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Gaidaenko' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'vakbib1' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'confbib2' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Lermontov' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Management' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Borozda' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Marketing' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Constitution' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'FamilyCode' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Gost.7.0.53' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Razumovski' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Lagkueva' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Pokrovski' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Methodology' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Berestova' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Kriger' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Sirotko2' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Lukina2' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Encyclopedia2' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Nasirova2' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Article' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Book' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Booklet' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Conference' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Inbook' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Incollection' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Manual' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Mastersthesis' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Misc' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Phdthesis' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Proceedings' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Techreport' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Unpublished' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'medvedev2006jelektronnye' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'CEAT:CEAT581' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'doi:10.1080/01932691.2010.513279' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Gosele1999161' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Li2007StressAnalysis' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'Shoji199895' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'test:eisner-sample' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'test:eisner-sample-shorted' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'AB_patent_Pomerantz_1968' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'iofis_patent1960' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'patent2h' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'patent3h' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'patent2' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "dissertation.tex",
+  "line": null,
+  "message": "Package biblatex Warning: citation 'confbib1' was not found at all in the .bbl file, bibliography labels cannot be generated, please correct the citation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/part1.tex",
+  "line": 300,
+  "message": "LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <0> not available size <5> substituted on input line 300",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/part1.tex",
+  "line": 300,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0> not available size <5> substituted on input line 300",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/part1.tex",
+  "line": 300,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0> not available size <5> substituted on input line 300",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/part1.tex",
+  "line": 300,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0> not available size <5> substituted on input line 300",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/part1.tex",
+  "line": 300,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <0> not available size <5> substituted on input line 300",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/part3.tex",
+  "line": 264,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrdash' on input line 264",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/part3.tex",
+  "line": 271,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrdash' on input line 271",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/part3.tex",
+  "line": 275,
+  "message": "Package hyperref Warning: Glyph not defined in PU encoding, removing `\\cyrdash' on input line 275",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/references.tex",
+  "line": 6,
+  "message": "Package biblatex Warning: Keyword 'bibliofull' not found on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/appendix.tex",
+  "line": 646,
+  "message": "Package longtable Warning: Column widths have changed in table 17 on input line 646",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/part2.tex",
+  "line": null,
+  "message": "Package longtable Warning: Table widths have changed. Rerun LaTeX",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/part2.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 5.0pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,1034 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 312,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 1 undefined on input line 312",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 317,
+  "message": "LaTeX Warning: Citation `mele2025optimallearningquantumchannels' on page 1 undefined on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 317,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 1 undefined on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 327,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 2 undefined on input line 327",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 333,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 2 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 333,
+  "message": "LaTeX Warning: Citation `he2026query' on page 2 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 334,
+  "message": "LaTeX Warning: Citation `10.1145/2897518.2897544' on page 2 undefined on input line 334",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 334,
+  "message": "LaTeX Warning: Citation `mele2025optimallearningquantumchannels' on page 2 undefined on input line 334",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 334,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 2 undefined on input line 334",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 337,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 2 undefined on input line 337",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 361,
+  "message": "LaTeX Warning: Citation `mele2025optimallearningquantumchannels' on page 3 undefined on input line 361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 361,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 3 undefined on input line 361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 361,
+  "message": "LaTeX Warning: Citation `he2026query' on page 3 undefined on input line 361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 377,
+  "message": "LaTeX Warning: Citation `he2026query' on page 3 undefined on input line 377",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 378,
+  "message": "LaTeX Warning: Citation `mele2025optimallearningquantumchannels' on page 3 undefined on input line 378",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 378,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 3 undefined on input line 378",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 379,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 3 undefined on input line 379",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 380,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 3 undefined on input line 380",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 381,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 3 undefined on input line 381",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 397,
+  "message": "LaTeX Warning: Citation `10.1145/2897518.2897544' on page 3 undefined on input line 397",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 397,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 3 undefined on input line 397",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 417,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 4 undefined on input line 417",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 418,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 4 undefined on input line 418",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 420,
+  "message": "LaTeX Warning: Citation `10.1145/2897518.2897544' on page 4 undefined on input line 420",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 421,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 4 undefined on input line 421",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 423,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 4 undefined on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 427,
+  "message": "LaTeX Warning: Citation `10.1145/2897518.2897544' on page 4 undefined on input line 427",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 439,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 4 undefined on input line 439",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 455,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 4 undefined on input line 455",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 458,
+  "message": "LaTeX Warning: Citation `yoshida2025quantum' on page 4 undefined on input line 458",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 504,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 5 undefined on input line 504",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 506,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 5 undefined on input line 506",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 575,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 6 undefined on input line 575",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 575,
+  "message": "LaTeX Warning: Citation `hashimoto2010unitary' on page 6 undefined on input line 575",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 575,
+  "message": "LaTeX Warning: Citation `bavaresco2022unitary' on page 6 undefined on input line 575",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 575,
+  "message": "LaTeX Warning: Citation `haah2023query' on page 6 undefined on input line 575",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 629,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 7 undefined on input line 629",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 629,
+  "message": "LaTeX Warning: Citation `fyodorov2007colour' on page 7 undefined on input line 629",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 629,
+  "message": "LaTeX Warning: Citation `hua1963harmonic' on page 7 undefined on input line 629",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 629,
+  "message": "LaTeX Warning: Citation `bianchi2015fourier' on page 7 undefined on input line 629",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 643,
+  "message": "LaTeX Warning: Citation `chenoufkir2026incoherent' on page 7 undefined on input line 643",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 654,
+  "message": "LaTeX Warning: Citation `hayashi1998asymptotic' on page 8 undefined on input line 654",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 654,
+  "message": "LaTeX Warning: Citation `bruss1999optimal' on page 8 undefined on input line 654",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 654,
+  "message": "LaTeX Warning: Citation `Haah_2017' on page 8 undefined on input line 654",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 654,
+  "message": "LaTeX Warning: Citation `10.1145/2897518.2897544' on page 8 undefined on input line 654",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 654,
+  "message": "LaTeX Warning: Citation `GKKT20' on page 8 undefined on input line 654",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 655,
+  "message": "LaTeX Warning: Citation `scharnhorst2025optimal' on page 8 undefined on input line 655",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 655,
+  "message": "LaTeX Warning: Citation `pelecanos2025mixedstatetomographyreduces' on page 8 undefined on input line 655",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 659,
+  "message": "LaTeX Warning: Citation `yang2020optimal' on page 8 undefined on input line 659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 659,
+  "message": "LaTeX Warning: Citation `haah2023query' on page 8 undefined on input line 659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 659,
+  "message": "LaTeX Warning: Citation `he2026query' on page 8 undefined on input line 659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 659,
+  "message": "LaTeX Warning: Citation `scully2026nearoptimal' on page 8 undefined on input line 659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 659,
+  "message": "LaTeX Warning: Citation `chen2025quantum' on page 8 undefined on input line 659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 659,
+  "message": "LaTeX Warning: Citation `Girardi2025Dec' on page 8 undefined on input line 659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 659,
+  "message": "LaTeX Warning: Citation `yoshida2025random' on page 8 undefined on input line 659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 659,
+  "message": "LaTeX Warning: Citation `he2026optimal' on page 8 undefined on input line 659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 659,
+  "message": "LaTeX Warning: Citation `yoshida2025quantum' on page 8 undefined on input line 659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 662,
+  "message": "LaTeX Warning: Citation `chuang1997prescription' on page 8 undefined on input line 662",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 662,
+  "message": "LaTeX Warning: Citation `poyatos1997complete' on page 8 undefined on input line 662",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 662,
+  "message": "LaTeX Warning: Citation `leung2000towards' on page 8 undefined on input line 662",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 662,
+  "message": "LaTeX Warning: Citation `d2001quantum' on page 8 undefined on input line 662",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 663,
+  "message": "LaTeX Warning: Citation `mele2025optimallearningquantumchannels' on page 8 undefined on input line 663",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 663,
+  "message": "LaTeX Warning: Citation `chen2025quantum' on page 8 undefined on input line 663",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 665,
+  "message": "LaTeX Warning: Citation `oufkir2026improved' on page 8 undefined on input line 665",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 665,
+  "message": "LaTeX Warning: Citation `chen2026optimal' on page 8 undefined on input line 665",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 665,
+  "message": "LaTeX Warning: Citation `chen2025quantum' on page 8 undefined on input line 665",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 665,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 8 undefined on input line 665",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 667,
+  "message": "LaTeX Warning: Citation `surawy2022projected' on page 9 undefined on input line 667",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 667,
+  "message": "LaTeX Warning: Citation `Oufkir_2023' on page 9 undefined on input line 667",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 667,
+  "message": "LaTeX Warning: Citation `bravoprieto2026memory' on page 9 undefined on input line 667",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 667,
+  "message": "LaTeX Warning: Citation `chenoufkir2026incoherent' on page 9 undefined on input line 667",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 692,
+  "message": "LaTeX Warning: Citation `chenoufkir2026incoherent' on page 9 undefined on input line 692",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 718,
+  "message": "LaTeX Warning: Citation `choi1975completely' on page 10 undefined on input line 718",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 718,
+  "message": "LaTeX Warning: Citation `jamiolkowski1972linear' on page 10 undefined on input line 718",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 733,
+  "message": "LaTeX Warning: Citation `watrous2018theory' on page 10 undefined on input line 733",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 771,
+  "message": "LaTeX Warning: Citation `chiribella2008quantum' on page 11 undefined on input line 771",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 771,
+  "message": "LaTeX Warning: Citation `chiribella2009theoretical' on page 11 undefined on input line 771",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 773,
+  "message": "LaTeX Warning: Citation `chiribella2009theoretical' on page 11 undefined on input line 773",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 784,
+  "message": "LaTeX Warning: Citation `chiribella2008quantum' on page 11 undefined on input line 784",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 784,
+  "message": "LaTeX Warning: Citation `chiribella2009theoretical' on page 11 undefined on input line 784",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 806,
+  "message": "LaTeX Warning: Citation `chiribella2009theoretical' on page 11 undefined on input line 806",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 811,
+  "message": "LaTeX Warning: Citation `chiribella2009theoretical' on page 11 undefined on input line 811",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 811,
+  "message": "LaTeX Warning: Citation `bavaresco2021strict' on page 11 undefined on input line 811",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 811,
+  "message": "LaTeX Warning: Citation `bavaresco2022unitary' on page 11 undefined on input line 811",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 819,
+  "message": "LaTeX Warning: Citation `chiribella2009theoretical' on page 12 undefined on input line 819",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 819,
+  "message": "LaTeX Warning: Citation `bavaresco2022unitary' on page 12 undefined on input line 819",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 834,
+  "message": "LaTeX Warning: Citation `fulton2013representation' on page 12 undefined on input line 834",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 870,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 13 undefined on input line 870",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 881,
+  "message": "LaTeX Warning: Citation `yoshida2025quantum' on page 13 undefined on input line 881",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 881,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 13 undefined on input line 881",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 890,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 13 undefined on input line 890",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 894,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 13 undefined on input line 894",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 949,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 14 undefined on input line 949",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 953,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 953",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 954,
+  "message": "LaTeX Warning: Citation `yoshida2025quantum' on page 14 undefined on input line 954",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 954,
+  "message": "LaTeX Warning: Citation `yang2020optimal' on page 14 undefined on input line 954",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 975,
+  "message": "LaTeX Warning: Citation `chen2025inverse' on page 15 undefined on input line 975",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1027,
+  "message": "LaTeX Warning: Citation `yoshida2025quantum' on page 17 undefined on input line 1027",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1027,
+  "message": "LaTeX Warning: Citation `yang2020optimal' on page 17 undefined on input line 1027",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1201,
+  "message": "LaTeX Warning: cref reference format for label type `problem' undefined on input line 1201",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1203,
+  "message": "LaTeX Warning: cref reference format for label type `problem' undefined on input line 1203",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1312,
+  "message": "LaTeX Warning: Citation `etingof2011introduction' on page 23 undefined on input line 1312",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1430,
+  "message": "LaTeX Warning: Citation `chenoufkir2026incoherent' on page 24 undefined on input line 1430",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1439,
+  "message": "LaTeX Warning: Citation `chenoufkir2026incoherent' on page 25 undefined on input line 1439",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1526,
+  "message": "LaTeX Warning: Citation `Ver18' on page 26 undefined on input line 1526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1561,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 1561",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1589,
+  "message": "LaTeX Warning: Citation `Ver18' on page 26 undefined on input line 1589",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1602,
+  "message": "LaTeX Warning: Citation `boucheron2013concentration' on page 27 undefined on input line 1602",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1608,
+  "message": "LaTeX Warning: Citation `chenoufkir2026incoherent' on page 27 undefined on input line 1608",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1859,
+  "message": "LaTeX Warning: Citation `halmos1969subspaces' on page 30 undefined on input line 1859",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1861,
+  "message": "LaTeX Warning: Citation `bjorck1973angles' on page 30 undefined on input line 1861",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1875,
+  "message": "LaTeX Warning: Citation `hua1963harmonic' on page 30 undefined on input line 1875",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1876,
+  "message": "LaTeX Warning: Citation `neretin2015matrix' on page 30 undefined on input line 1876",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1900,
+  "message": "LaTeX Warning: Citation `watrous2018theory' on page 31 undefined on input line 1900",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1903,
+  "message": "LaTeX Warning: Citation `bianchi2015fourier' on page 31 undefined on input line 1903",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1908,
+  "message": "LaTeX Warning: Citation `blaschke1917affine' on page 31 undefined on input line 1908",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1909,
+  "message": "LaTeX Warning: Citation `santalo1949invariante' on page 31 undefined on input line 1909",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1931,
+  "message": "LaTeX Warning: Citation `fyodorov2007colour' on page 31 undefined on input line 1931",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1933,
+  "message": "LaTeX Warning: Citation `forrester2006conductance' on page 31 undefined on input line 1933",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 2057,
+  "message": "LaTeX Warning: cref reference format for label type `problem' undefined on input line 2057",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 2128,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 34 undefined on input line 2128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 2134,
+  "message": "LaTeX Warning: Citation `he2026query' on page 34 undefined on input line 2134",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 2134,
+  "message": "LaTeX Warning: Citation `yoshida2025quantum' on page 34 undefined on input line 2134",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 2135,
+  "message": "LaTeX Warning: Citation `mele2025optimallearningquantumchannels' on page 34 undefined on input line 2135",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 2135,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 34 undefined on input line 2135",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 2136,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 34 undefined on input line 2136",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 2150,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 34 undefined on input line 2150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 2301,
+  "message": "LaTeX Warning: Citation `chen2026quantum' on page 36 undefined on input line 2301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

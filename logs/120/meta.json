@@ -1,0 +1,31 @@
+{
+ "id": 120,
+ "source": "GitHub",
+ "name": "solaranamnesis/eugen-heinrich-schmitt",
+ "url": "https://github.com/solaranamnesis/eugen-heinrich-schmitt",
+ "type": "Paper",
+ "version": "6f761051aab4cd65fe7f2d76a5c3a796fba42d69",
+ "files": 15,
+ "main": "anarchie/full-text-dutch-atkinson.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "anarchie/full-text-dutch-atkinson.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1427
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1094,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-ok"
+}

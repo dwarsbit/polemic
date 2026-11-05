@@ -1,0 +1,33 @@
+{
+ "id": 389,
+ "source": "GitHub",
+ "name": "profi248/pentest-report",
+ "url": "https://github.com/profi248/pentest-report",
+ "type": "Report",
+ "version": "59a78c694e67f9d6afd2471df26f21b30672a028",
+ "files": 19,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4701,
+  "tail": "exit 12, PDF found\nLatexmk: Missing input file 'main.toc' message in .log file:\n  No file main.toc.\nLatexmk: Important warning:\n  (\\end occurred inside a group at level 5)\nLatexmk: Important warning:\n  (\\end occurred inside a group at level 5)\nLatexmk: Important warning:\n  (\\end occurred inside a group at level 5)"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1359,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 11,
+ "warnings": 1,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

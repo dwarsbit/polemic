@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tracklang Warning: No `datatool' support for dialect `spanish'  on input line 9924",
+  "detail": [],
+  "hint": null
+ }
+]

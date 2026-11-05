@@ -1,0 +1,162 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `Dissertation/images/tikz_scheme.tikz' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part2.tex",
+  "line": 74,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Dissertation/part2.tex",
+  "line": 74,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `hyperref' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package aliascnt Warning: The package is obsolete. Check the documentation. on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/characteristic.tex",
+  "line": 179,
+  "message": "Package biblatex Warning: Keyword 'biblioauthorvak' not found on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/characteristic.tex",
+  "line": 179,
+  "message": "Package biblatex Warning: Keyword 'biblioauthorwos' not found on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/characteristic.tex",
+  "line": 179,
+  "message": "Package biblatex Warning: Keyword 'biblioauthorscopus' not found on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/characteristic.tex",
+  "line": 179,
+  "message": "Package biblatex Warning: Keyword 'biblioauthorconf' not found on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/characteristic.tex",
+  "line": 179,
+  "message": "Package biblatex Warning: Keyword 'biblioauthorother' not found on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/characteristic.tex",
+  "line": 179,
+  "message": "Package biblatex Warning: Keyword 'biblioregistered' not found on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/characteristic.tex",
+  "line": 179,
+  "message": "Package biblatex Warning: Keyword 'biblioauthorpatent' not found on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/characteristic.tex",
+  "line": 179,
+  "message": "Package biblatex Warning: Keyword 'biblioauthorprogram' not found on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/characteristic.tex",
+  "line": 179,
+  "message": "Package biblatex Warning: Keyword 'biblioauthor' not found on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/introduction.tex",
+  "line": 20,
+  "message": "Package totcount Warning: Rerun to get correct total counts on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/introduction.tex",
+  "line": 22,
+  "message": "Package totcount Warning: Rerun to get correct total counts on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/introduction.tex",
+  "line": 29,
+  "message": "Package totcount Warning: Rerun to get correct total counts on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/introduction.tex",
+  "line": 30,
+  "message": "Package totcount Warning: Rerun to get correct total counts on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/introduction.tex",
+  "line": 31,
+  "message": "Package totcount Warning: Rerun to get correct total counts on input line 31",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Dissertation/introduction.tex",
+  "line": 33,
+  "message": "Package totcount Warning: Rerun to get correct total counts on input line 33",
+  "detail": [],
+  "hint": null
+ }
+]

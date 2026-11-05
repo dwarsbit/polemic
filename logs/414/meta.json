@@ -1,0 +1,31 @@
+{
+ "id": 414,
+ "source": "GitHub",
+ "name": "jondoesntgit/homework-template",
+ "url": "https://github.com/jondoesntgit/homework-template",
+ "type": "Homework",
+ "version": "ac99dbf374512caa801290b91b38d710955e64e5",
+ "files": 14,
+ "main": "sample.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "sample.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 6752
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5647,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

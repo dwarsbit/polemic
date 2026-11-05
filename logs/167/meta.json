@@ -1,0 +1,33 @@
+{
+ "id": 167,
+ "source": "GitHub",
+ "name": "epistularum/kanji-restoration",
+ "url": "https://github.com/epistularum/kanji-restoration",
+ "type": "Paper",
+ "version": "f92b80d49dd04100b4acc8eb768e41513de7a104",
+ "files": 50,
+ "main": "source/flow_chart.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (inferred)",
+ "baseline": {
+  "main": "source/flow_chart.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1797
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 658,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 18,
+ "warnings": 1,
+ "firstError": "Missing $ inserted.",
+ "outcome": "polemic-only-fail"
+}

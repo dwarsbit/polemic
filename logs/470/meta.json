@@ -1,0 +1,33 @@
+{
+ "id": 470,
+ "source": "GitHub",
+ "name": "jojomi/lualatex-brief",
+ "url": "https://github.com/jojomi/lualatex-brief",
+ "type": "Letter",
+ "version": "f06b254e92821e9511e403bc575ea6e7f4cee7c3",
+ "files": 7,
+ "main": "brief.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "brief.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 8818,
+  "tail": "exit 12, PDF found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  lualatex: Command for 'lualatex' gave return code 1\n      Refer to 'brief.log' and/or above output for details\n\ntput: No value for $TERM and no -T specified\ntput: No value for $TERM and no -T specified\ntput: No value for $TERM and no -T specified"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 4904,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 5,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

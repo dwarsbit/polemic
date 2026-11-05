@@ -1,0 +1,32 @@
+{
+ "id": 438,
+ "source": "GitHub",
+ "name": "shudezhang/neepu-proposal",
+ "url": "https://github.com/shudezhang/neepu-proposal",
+ "type": "Proposal",
+ "version": "74de78a9a0484248d6af55f67c91d476510268c4",
+ "files": 26,
+ "main": "Thesis.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "Thesis.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 237311,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 博 (U+535A) in font [XITS-Bold.otf]/OT:script=lat\n  Missing character: There is no 博 (U+535A) in font [XITS-Bold.otf]/OT:script=latn;language=dflt;mapping=tex-text;!\n  Missing character: There is no 士 (U+58EB) in font [XITS-Bold.otf]/OT:script=lat\n  Missing character: There is no 士 (U+58EB) in font [XITS-Bold.otf]/OT:script=latn;language=dflt;mapping=tex-text;!\n  Missing character: There is no 学 (U+5B66) in font [XITS-Bold.otf]/OT:script=lat\n  Missing character: There is no 学 (U+5B66) in font [XITS-Bold.otf]/OT:script=latn;language=dflt;mapping=tex-text;!\n  Missing character: There is no 位 (U+4F4D) in font [XITS-Bold.otf]/OT:script=lat\n And 1427 more --- see log file 'Thesis.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 80727,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 12,
+ "warnings": 11,
+ "firstError": "Package fontspec Error: The font \"SimSun\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,32 @@
+{
+ "id": 985,
+ "source": "CTAN",
+ "name": "beamertheme-metropolis",
+ "url": "https://ctan.org/pkg/beamertheme-metropolis",
+ "type": "Slides",
+ "version": "1.2",
+ "files": 14,
+ "main": "demo/demo.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "demo/demo.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 6178
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5897,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 9,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,33 @@
+{
+ "id": 296,
+ "source": "GitHub",
+ "name": "projeduc/edible-plants-book",
+ "url": "https://github.com/projeduc/edible-plants-book",
+ "type": "Book",
+ "version": "8db3174c373e61fa39824597cf69562de13599fd",
+ "files": 200,
+ "main": "edibleplants.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "edibleplants.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 10317,
+  "tail": "exit 12, PDF found\nLatexmk: Missing input file 'img/sa.png' message in .log file:\n  LaTeX Warning: File `img/sa.png' not found on input line 55.\nLatexmk: Missing input file 'edibleplants.toc' message in .log file:\n  No file edibleplants.toc.\nLatexmk: Missing input file 'img/by.png' message in .log file:\n  LaTeX Warning: File `img/by.png' not found on input line 52.\nLatexmk: Missing input file 'img/sa.png' message in .log file:\n  LaTeX Warning: File `img/sa.png' not found on input line 55."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 4582,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 10,
+ "firstError": "Package pdftex.def Error: File `img/by.png' not found: using draft setting.",
+ "outcome": "both-fail"
+}

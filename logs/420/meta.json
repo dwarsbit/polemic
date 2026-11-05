@@ -1,0 +1,32 @@
+{
+ "id": 420,
+ "source": "GitHub",
+ "name": "SXKDZ/homework-template",
+ "url": "https://github.com/SXKDZ/homework-template",
+ "type": "Homework",
+ "version": "5b3d73b7e8e39d56f5d10c26749e49b467a45def",
+ "files": 9,
+ "main": "cpp.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "cpp.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 183503,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 我 (U+6211) in font [lmroman17-regular]:mapping=t\n  Missing character: There is no 我 (U+6211) in font [lmroman17-regular]:mapping=tex-text;!\n  Missing character: There is no 是 (U+662F) in font [lmroman17-regular]:mapping=t\n  Missing character: There is no 是 (U+662F) in font [lmroman17-regular]:mapping=tex-text;!\n  Missing character: There is no 标 (U+6807) in font [lmroman17-regular]:mapping=t\n  Missing character: There is no 标 (U+6807) in font [lmroman17-regular]:mapping=tex-text;!\n  Missing character: There is no 题 (U+9898) in font [lmroman17-regular]:mapping=t\n And 67 more --- see log file 'cpp.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1582,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 12,
+ "warnings": 4,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

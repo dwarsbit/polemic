@@ -1,0 +1,298 @@
+[
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 27,
+  "message": "Package iexec Error: You must run TeX processor with --shell-escape option.",
+  "detail": [],
+  "hint": "Polemic compiles without shell escape, so packages that run other programs (minted, the TikZ externalization library) don't work. The listings package highlights code without it."
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 174,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.174 Len Bass et al., \\hs",
+   "                          {Software Architecture in Practice}\\\\[3pt]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 175,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.175 Paul Clements et al., \\hs",
+   "                               {Documenting Software Architectures: Views an..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 176,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.176 \\nospell{Karl Wiegers} et al., \\hs",
+   "                                        {Software Requirements}\\\\[3pt]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 177,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.177 {\\nospell{Alistair Cockburn}}, \\hs",
+   "                                        {Writing Effective Use Cases}\\\\[3pt]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 178,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.178 {\\nospell{Steve McConnell}}, \\hs",
+   "                                      {Software Estimation: Demystifying the..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 179,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.179 {Robert Martin}, \\hs",
+   "                          {Clean Architecture: A Craftsman's Guide to Softwa..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 180,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.180 {Steve McConnell}, \\hs",
+   "                            {Code Complete}\\\\[3pt]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 181,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.181 {Frederick Brooks Jr.}, \\hs",
+   "                                 {Mythical Man-Month, The: Essays on Softwar..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 182,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.182 {David Thomas et al.}, \\hs",
+   "                                {The Pragmatic Programmer: Your Journey To M..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 183,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.183 {Robert C. Martin}, \\hs",
+   "                             {Clean Code: A Handbook of Agile Software Craft..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 184,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.184 {\\nospell{Grady Booch} et al.}, \\hs",
+   "                                         {Object-Oriented Analysis and Desig..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 185,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.185 {\\nospell{Bjarne Stroustrup}}, \\hs",
+   "                                        {Programming: Principles and Practic..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 186,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.186 {\\nospell{Brett McLaughlin} et al.}, \\hs",
+   "                                              {Head First Object-Oriented An..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 187,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.187 {David West}, \\hs",
+   "                       {Object Thinking}\\\\[3pt]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 188,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.188 {Eric Evans}, \\hs",
+   "                       {Domain-Driven Design: Tackling Complexity in the Hea..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 189,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.189 {Yegor Bugayenko}, \\hs",
+   "                            {Code Ahead}\\\\[3pt]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 190,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.190 {Yegor Bugayenko}, \\hs",
+   "                            {Elegant Objects}\\\\[3pt]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 191,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.191 {Michael Feathers}, \\hs",
+   "                             {Working Effectively with Legacy Code}\\\\[3pt]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 192,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.192 {Martin Fowler}, \\hs",
+   "                          {Refactoring: Improving the Design of Existing Cod..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 193,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.193 {Erich Gamma et al.}, \\hs",
+   "                               {Design Patterns: Elements of Reusable Object..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 194,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.194 {Martin Fowler}, \\hs",
+   "                          {UML Distilled}\\\\[3pt]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 195,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.195 {\\nospell{Anneke Kleppe} et al.}, \\hs",
+   "                                           {MDA Explained: The Model Driven ..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 196,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.196 {\\nospell{Jez Humble} et al.}, \\hs",
+   "                                        {Continuous Delivery: Reliable Softw..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 197,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.197 {\\nospell{Michael T. Nygard}}, \\hs",
+   "                                        {Release It!: Design and Deploy Prod..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": null,
+  "message": "Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 23,
+  "message": "Package microtype Warning: Unable to apply patch `footnote' on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "00-syllabus/00-syllabus.tex",
+  "line": 407,
+  "message": "Package lastpage Warning: Rerun to get the references right on input line 407",
+  "detail": [],
+  "hint": null
+ }
+]

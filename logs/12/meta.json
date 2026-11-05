@@ -1,0 +1,34 @@
+{
+ "id": 12,
+ "source": "GitHub",
+ "name": "tuda-typst/tuda-typst-templates",
+ "url": "https://github.com/tuda-typst/tuda-typst-templates",
+ "type": "Thesis",
+ "version": "511d8f615fb60d41ad9441d4e905144bdce97013",
+ "files": 70,
+ "main": "tudapub/tests/latex_ref/DEMO-TUDaThesis.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (magic comment)",
+ "baseline": {
+  "main": "tudapub/tests/latex_ref/DEMO-TUDaThesis.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 22094,
+  "tail": "exit 12, PDF found\ntput: No value for $TERM and no -T specified\nLatexmk: Missing input file 'tuda_logo' message in .log file:\n  ! LaTeX Error: File `tuda_logo' not found.\nLatexmk: Using biber to make bibliography file(s).\ntput: No value for $TERM and no -T specified\nLatexmk: Missing input file 'tuda_logo' message in .log file:\n  ! LaTeX Error: File `tuda_logo' not found.\nLatexmk: Using biber to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1998,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 7,
+ "firstError": "LaTeX Error: File `tuda_logo' not found.",
+ "outcome": "both-fail"
+}

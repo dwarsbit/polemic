@@ -1,0 +1,31 @@
+{
+ "id": 361,
+ "source": "GitHub",
+ "name": "davidrzs/Latex-Course-Summary-Template",
+ "url": "https://github.com/davidrzs/Latex-Course-Summary-Template",
+ "type": "Poster",
+ "version": "05f0784f407578f82639255f111b8df5fdaab32f",
+ "files": 7,
+ "main": "summary_with_code_template.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "summary_with_code_template.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3416
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1291,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 448,
+ "source": "GitHub",
+ "name": "rudymatela/concise-cheat-sheets",
+ "url": "https://github.com/rudymatela/concise-cheat-sheets",
+ "type": "Cheat sheet",
+ "version": "87a5df288a83caf6d5bf6013e04d529a2b859f87",
+ "files": 17,
+ "main": "ctf-cs.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ctf-cs.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1612
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 734,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

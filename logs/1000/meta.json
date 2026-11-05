@@ -1,0 +1,9 @@
+{
+ "id": 1000,
+ "source": "CTAN",
+ "name": "cqubeamer",
+ "url": "https://ctan.org/pkg/cqubeamer",
+ "type": "Slides",
+ "outcome": "download-failed",
+ "error": "fetch failed"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 352,
+ "source": "GitHub",
+ "name": "hiyouga/AMP-Poster-Slides-LaTeX",
+ "url": "https://github.com/hiyouga/AMP-Poster-Slides-LaTeX",
+ "type": "Poster",
+ "version": "c1fd40aa5ef3216f17b4d27dc6e6092e3cc52e40",
+ "files": 57,
+ "main": "poster/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "poster/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 11270
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 8667,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

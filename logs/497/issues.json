@@ -1,0 +1,226 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 30,
+  "message": "Package natbib Warning: Citation `zheng2023judging' on page 1 undefined on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 30,
+  "message": "Package natbib Warning: Citation `verga2024replacing' on page 1 undefined on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 34,
+  "message": "Package natbib Warning: Citation `gera-etal-2025-justrank' on page 1 undefined on input line 34",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 34,
+  "message": "Package natbib Warning: Citation `gao-etal-2025-evaluating' on page 1 undefined on input line 34",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 34,
+  "message": "Package natbib Warning: Citation `chiang2024chatbot' on page 1 undefined on input line 34",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 34,
+  "message": "Package natbib Warning: Citation `arena140k' on page 1 undefined on input line 34",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `gera-etal-2025-justrank' on page 2 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `gao-etal-2025-evaluating' on page 2 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `brocai2026pair' on page 2 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 50,
+  "message": "Package natbib Warning: Citation `dorner2025limits' on page 2 undefined on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `verga2024replacing' on page 2 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `kohli2026nine' on page 2 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 54,
+  "message": "Package natbib Warning: Citation `panickssery2024llm' on page 2 undefined on input line 54",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 54,
+  "message": "Package natbib Warning: Citation `awuni2026who' on page 2 undefined on input line 54",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 54,
+  "message": "Package natbib Warning: Citation `arena2026judges' on page 2 undefined on input line 54",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 60,
+  "message": "Package natbib Warning: Citation `arena140k' on page 2 undefined on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `cohen1960coefficient' on page 3 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 78,
+  "message": "Package natbib Warning: Citation `bradley1952rank' on page 3 undefined on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 78,
+  "message": "Package natbib Warning: Citation `hunter2004mm' on page 3 undefined on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 78,
+  "message": "Package natbib Warning: Citation `kendall1938new' on page 3 undefined on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 95,
+  "message": "Package natbib Warning: Citation `holm1979simple' on page 3 undefined on input line 95",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 145,
+  "message": "Package natbib Warning: Citation `arena2026judges' on page 5 undefined on input line 145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 159,
+  "message": "Package natbib Warning: Citation `dorner2025limits' on page 5 undefined on input line 159",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 186,
+  "message": "Package natbib Warning: Citation `panickssery2024llm' on page 6 undefined on input line 186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 186,
+  "message": "Package natbib Warning: Citation `awuni2026who' on page 6 undefined on input line 186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 186,
+  "message": "Package natbib Warning: Citation `arena2026judges' on page 6 undefined on input line 186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

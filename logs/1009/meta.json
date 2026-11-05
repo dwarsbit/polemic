@@ -1,0 +1,10 @@
+{
+ "id": 1009,
+ "source": "CTAN",
+ "name": "clicks",
+ "url": "https://ctan.org/pkg/clicks",
+ "type": "Slides",
+ "version": "0.4.4",
+ "files": 6,
+ "outcome": "no-tex"
+}

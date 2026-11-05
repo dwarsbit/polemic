@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package typearea Warning: Deprecated option `DIV14' ignored, because `version=first' not set. Note: To avoid this warning and achieve the desired functionality, you should use the `DIV=14' option instead of the `DIV14' option, which has been deprecated for more than 20 years",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 152,
+  "message": "Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \\setlength {\\marginparwidth }{2cm} prior to loading the todonotes package. on input line 152",
+  "detail": [],
+  "hint": null
+ }
+]

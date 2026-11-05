@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `rireki-style/rireki.sty' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rirekisho.tex",
+  "line": 25,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rirekisho.tex",
+  "line": 25,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package luatexja-preset Warning: Japanese fonts will be scaled by 0.924715",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package luatexja-fontspec Warning: \\addjfontfeature(s) ignored; it cannot be used with a font that wasn't selected by luatexja-fontspec",
+  "detail": [],
+  "hint": null
+ }
+]

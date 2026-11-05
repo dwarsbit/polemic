@@ -1,0 +1,32 @@
+{
+ "id": 276,
+ "source": "GitHub",
+ "name": "pedro-villa/topologia-de-superficies",
+ "url": "https://github.com/pedro-villa/topologia-de-superficies",
+ "type": "Notes",
+ "version": "67d878f2caa27318e9236c7e3305579725f7054e",
+ "files": 37,
+ "main": "src/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "src/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 25676
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 20641,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-ok"
+}

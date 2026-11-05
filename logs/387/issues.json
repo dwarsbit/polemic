@@ -1,0 +1,560 @@
+[
+ {
+  "severity": "error",
+  "file": "report_form.sty",
+  "line": 16,
+  "message": "LaTeX Error: Command \\thesection undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "report_form.sty",
+  "line": 17,
+  "message": "LaTeX Error: Command \\thesubsection undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 20,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.20 \\section",
+   "             {概要}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 20,
+  "message": "LaTeX Error: Unicode character 概 (U+6982)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 20,
+  "message": "LaTeX Error: Unicode character 要 (U+8981)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 21,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.21 \\subsection",
+   "                {小項目}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 21,
+  "message": "LaTeX Error: Unicode character 小 (U+5C0F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 21,
+  "message": "LaTeX Error: Unicode character 項 (U+9805)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 21,
+  "message": "LaTeX Error: Unicode character 目 (U+76EE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 概 (U+6982)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 論 (U+8AD6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 　 (U+3000)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 課 (U+8AB2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 題 (U+984C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character レ (U+30EC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character ポ (U+30DD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character ト (U+30C8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Missing = inserted for \\ifdim.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Not allowed in LR mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Missing \\endgroup inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Missing \\cr inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Missing { inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 所 (U+6240)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 属 (U+5C5E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character ： (U+FF1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 学 (U+5B66)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 部 (U+90E8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 科 (U+79D1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 修 (U+4FEE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 番 (U+756A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 号 (U+53F7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 氏 (U+6C0F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 名 (U+540D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 提 (U+63D0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 出 (U+51FA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: Unicode character 日 (U+65E5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: \\begin{tabular} on input line 24 ended by \\end{list}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{adjustwidth}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Unbalanced output routine.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Too many }'s.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Misplaced \\crcr.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{tabular}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `pdfpagelabels' is turned off because \\thepage is undefined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13> not available size <12> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <6.5> not available size <6> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <13> not available size <12> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <6.5> not available size <6> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <13> not available size <12> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <6.5> not available size <6> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `U/lasy/m/n' in size <13> not available size <12> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `U/lasy/m/n' in size <6.5> not available size <6> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <13> not available size <12> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <6.5> not available size <6> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <13> not available size <12> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <6.5> not available size <6> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <13> not available size <12> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <6.5> not available size <6> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `U/lasy/b/n' in size <13> not available size <12> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <13> not available size <12> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <6.5> not available size <6> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,130 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [amsfonts]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `reduction' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 18,
+  "message": "Class amsart Warning: Abstract should precede \\maketitle in AMS document classes; reported on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathop' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathcode' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathchardef' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\std@minus' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 2.55527pt removed on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathgroup' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\symoperators' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@ifnextchar' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\times' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were multiply-defined labels",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class cquthesis Warning: Unexpected or missing print mode, processing with AUTO: printmode=[oneside|twoside|auto] on input line 86",
+  "detail": [],
+  "hint": null
+ }
+]

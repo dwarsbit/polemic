@@ -1,0 +1,450 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package fixltx2e Warning: fixltx2e is not required with releases after 2015 All fixes are now in the LaTeX kernel. See the latexrelease package for details",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `Ring:2025ab' on page 1 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 142,
+  "message": "Package natbib Warning: Citation `Mahowald:2013aa' on page 1 undefined on input line 142",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 142,
+  "message": "Package natbib Warning: Citation `Futrell:2015aa' on page 1 undefined on input line 142",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 142,
+  "message": "Package natbib Warning: Citation `Yadav:2020aa' on page 1 undefined on input line 142",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 142,
+  "message": "Package natbib Warning: Citation `Hawkins:2014aa' on page 1 undefined on input line 142",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 143,
+  "message": "Package natbib Warning: Citation `Horberg:2023aa' on page 1 undefined on input line 143",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 143,
+  "message": "Package natbib Warning: Citation `Tucker:2025aa' on page 1 undefined on input line 143",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 143,
+  "message": "Package natbib Warning: Citation `Jaeger:2011aa' on page 1 undefined on input line 143",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 143,
+  "message": "Package natbib Warning: Citation `Smith:2025aa' on page 1 undefined on input line 143",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 144,
+  "message": "Package natbib Warning: Citation `Levshina:2021aa' on page 1 undefined on input line 144",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 144,
+  "message": "Package natbib Warning: Citation `Levshina:2023aa' on page 1 undefined on input line 144",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 144,
+  "message": "Package natbib Warning: Citation `Newmeyer:2017aa' on page 1 undefined on input line 144",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 148,
+  "message": "Package natbib Warning: Citation `Linders:2023aa' on page 1 undefined on input line 148",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 149,
+  "message": "Package natbib Warning: Citation `Ring:2025ab' on page 1 undefined on input line 149",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 170,
+  "message": "Package natbib Warning: Citation `Ring:2025ab' on page 1 undefined on input line 170",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 188,
+  "message": "Package natbib Warning: Citation `Ring:2025ab' on page 1 undefined on input line 188",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 190,
+  "message": "Package natbib Warning: Citation `Zipf:1949aa' on page 1 undefined on input line 190",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 190,
+  "message": "Package natbib Warning: Citation `Wasow:2002aa' on page 1 undefined on input line 190",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 190,
+  "message": "Package natbib Warning: Citation `Futrell:2015aa' on page 1 undefined on input line 190",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 192,
+  "message": "Package natbib Warning: Citation `Hale:2001aa' on page 1 undefined on input line 192",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 192,
+  "message": "Package natbib Warning: Citation `Levy:2008aa' on page 1 undefined on input line 192",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 198,
+  "message": "Package natbib Warning: Citation `Steels:2000aa' on page 1 undefined on input line 198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 198,
+  "message": "Package natbib Warning: Citation `Lund:2022aa' on page 1 undefined on input line 198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 13.59999pt, for example: \\setlength{\\headheight}{13.59999pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-1.59999pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 219,
+  "message": "Package natbib Warning: Citation `Elman:1990aa' on page 2 undefined on input line 219",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 225,
+  "message": "Package natbib Warning: Citation `Niyogi:2006aa' on page 2 undefined on input line 225",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 227,
+  "message": "Package natbib Warning: Citation `Kirby:2002aa' on page 2 undefined on input line 227",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 246,
+  "message": "Package natbib Warning: Citation `Tishby:1999aa' on page 2 undefined on input line 246",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 254,
+  "message": "Package natbib Warning: Citation `Zaslavsky:2020aa' on page 2 undefined on input line 254",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 254,
+  "message": "Package natbib Warning: Citation `Zaslavsky:2020ab' on page 2 undefined on input line 254",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 254,
+  "message": "Package natbib Warning: Citation `Tucker:2025aa' on page 2 undefined on input line 254",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 257,
+  "message": "Package natbib Warning: Citation `Hahn:2020aa' on page 2 undefined on input line 257",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 257,
+  "message": "Package natbib Warning: Citation `Hahn:2022aa' on page 2 undefined on input line 257",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 259,
+  "message": "Package natbib Warning: Citation `Hale:2001aa' on page 3 undefined on input line 259",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 259,
+  "message": "Package natbib Warning: Citation `Levy:2008aa' on page 3 undefined on input line 259",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 275,
+  "message": "Package natbib Warning: Citation `Wasow:2002aa' on page 3 undefined on input line 275",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 275,
+  "message": "Package natbib Warning: Citation `Futrell:2015aa' on page 3 undefined on input line 275",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 277,
+  "message": "Package natbib Warning: Citation `Hale:2001aa' on page 3 undefined on input line 277",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 277,
+  "message": "Package natbib Warning: Citation `Levy:2008aa' on page 3 undefined on input line 277",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 298,
+  "message": "Package natbib Warning: Citation `Zipf:1949aa' on page 3 undefined on input line 298",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 305,
+  "message": "Package natbib Warning: Citation `Jaeger:2011aa' on page 3 undefined on input line 305",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 305,
+  "message": "Package natbib Warning: Citation `Piantadosi:2011aa' on page 3 undefined on input line 305",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 305,
+  "message": "Package natbib Warning: Citation `Bentz:2016ab' on page 3 undefined on input line 305",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 305,
+  "message": "Package natbib Warning: Citation `Lewis:2016aa' on page 3 undefined on input line 305",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 305,
+  "message": "Package natbib Warning: Citation `Armeni:2017aa' on page 3 undefined on input line 305",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 305,
+  "message": "Package natbib Warning: Citation `Baerman:2017aa' on page 3 undefined on input line 305",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 305,
+  "message": "Package natbib Warning: Citation `Hahn:2020aa' on page 3 undefined on input line 305",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 404,
+  "message": "Package natbib Warning: Citation `Oh:2023aa' on page 5 undefined on input line 404",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 404,
+  "message": "Package natbib Warning: Citation `Oh:2026aa' on page 5 undefined on input line 404",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 404,
+  "message": "Package natbib Warning: Citation `Niu:2026aa' on page 5 undefined on input line 404",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": null,
+  "message": "LaTeX Warning: `!h' float specifier changed to `!ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 888,
+  "message": "Package natbib Warning: Citation `Ring:2025ab' on page 13 undefined on input line 888",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 937,
+  "message": "Package natbib Warning: Citation `Ring:2025ab' on page 14 undefined on input line 937",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": 1098,
+  "message": "Package natbib Warning: Citation `Ring:2025ab' on page 16 undefined on input line 1098",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "MinMax_theory.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

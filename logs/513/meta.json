@@ -1,0 +1,33 @@
+{
+ "id": 513,
+ "source": "arXiv",
+ "name": "arXiv:2611.01961",
+ "url": "https://arxiv.org/abs/2611.01961",
+ "type": "Paper",
+ "version": "2611.01961",
+ "files": 8,
+ "main": "ArxivVersion.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ArxivVersion.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 28325,
+  "tail": "exit 12, PDF found\nLatexmk: Missing input file 'ArxivVersion.toc' message in .log file:\n  No file ArxivVersion.toc.\nLatexmk: Missing bbl file 'ArxivVersion.bbl' in following:\n No file ArxivVersion.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 6295,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 20,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Command \\c@problem already defined.",
+ "outcome": "both-fail"
+}

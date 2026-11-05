@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "thesis.cls",
+  "line": null,
+  "message": "LaTeX hooks Warning: Generic hook 'package/after/hyperref' is deprecated. Use hook 'package/hyperref/after' instead",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.cls",
+  "line": null,
+  "message": "LaTeX hooks Warning: Generic hook 'package/after/biblatex' is deprecated. Use hook 'package/biblatex/after' instead",
+  "detail": [],
+  "hint": null
+ }
+]

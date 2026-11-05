@@ -1,0 +1,978 @@
+[
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 188,
+  "message": "LaTeX Warning: Citation 'ajtai1980note' on page 1 undefined on input line 188",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 188,
+  "message": "LaTeX Warning: Citation 'ajtai1981dense' on page 1 undefined on input line 188",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 189,
+  "message": "LaTeX Warning: Citation 'shearer1983note' on page 1 undefined on input line 189",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 193,
+  "message": "LaTeX Warning: Citation 'kim1995brooks' on page 1 undefined on input line 193",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 194,
+  "message": "LaTeX Warning: Citation 'Joh_triangle' on page 1 undefined on input line 194",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 194,
+  "message": "LaTeX Warning: Citation 'MolloyReed' on page 1 undefined on input line 194",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 195,
+  "message": "LaTeX Warning: Citation 'molloy2019list' on page 1 undefined on input line 195",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 195,
+  "message": "LaTeX Warning: Citation 'bernshteyn2019johansson' on page 1 undefined on input line 195",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 195,
+  "message": "LaTeX Warning: Citation 'hurley2021first' on page 1 undefined on input line 195",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 195,
+  "message": "LaTeX Warning: Citation 'DKPS' on page 1 undefined on input line 195",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 195,
+  "message": "LaTeX Warning: Citation 'bonamy2022bounding' on page 1 undefined on input line 195",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 195,
+  "message": "LaTeX Warning: Citation 'martinsson2021simplified' on page 1 undefined on input line 195",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 196,
+  "message": "LaTeX Warning: Citation 'AKSConjecture' on page 1 undefined on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 196,
+  "message": "LaTeX Warning: Citation 'vu2002general' on page 1 undefined on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 196,
+  "message": "LaTeX Warning: Citation 'anderson2024coloring' on page 1 undefined on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 196,
+  "message": "LaTeX Warning: Citation 'anderson2025coloring' on page 1 undefined on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 196,
+  "message": "LaTeX Warning: Citation 'bradshaw2025toward' on page 1 undefined on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 196,
+  "message": "LaTeX Warning: Citation 'KangKelly2023nibble' on page 1 undefined on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 198,
+  "message": "LaTeX Warning: Citation 'shearer1983note' on page 1 undefined on input line 198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 198,
+  "message": "LaTeX Warning: Citation 'DKPS20' on page 1 undefined on input line 198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 199,
+  "message": "LaTeX Warning: Citation 'PS15' on page 1 undefined on input line 199",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 202,
+  "message": "LaTeX Warning: Citation 'shearer1995independence' on page 1 undefined on input line 202",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 203,
+  "message": "LaTeX Warning: Citation 'J96-Kr' on page 2 undefined on input line 203",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 203,
+  "message": "LaTeX Warning: Citation 'bansal2015lovasz' on page 2 undefined on input line 203",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 204,
+  "message": "LaTeX Warning: Citation 'molloy2019list' on page 2 undefined on input line 204",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 204,
+  "message": "LaTeX Warning: Citation 'bernshteyn2019johansson' on page 2 undefined on input line 204",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 204,
+  "message": "LaTeX Warning: Citation 'dhawan2025bounds' on page 2 undefined on input line 204",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 204,
+  "message": "LaTeX Warning: Citation 'bonamy2022bounding' on page 2 undefined on input line 204",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 204,
+  "message": "LaTeX Warning: Citation 'DKPS' on page 2 undefined on input line 204",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 205,
+  "message": "LaTeX Warning: Citation 'ajtai1981turan' on page 2 undefined on input line 205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 211,
+  "message": "LaTeX Warning: Citation 'AKSConjecture' on page 2 undefined on input line 211",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 212,
+  "message": "LaTeX Warning: Citation 'alon1996independence' on page 2 undefined on input line 212",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 212,
+  "message": "LaTeX Warning: Citation 'alon1999coloring' on page 2 undefined on input line 212",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 212,
+  "message": "LaTeX Warning: Citation 'davies2020graph' on page 2 undefined on input line 212",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 212,
+  "message": "LaTeX Warning: Citation 'anderson2025coloring' on page 2 undefined on input line 212",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 212,
+  "message": "LaTeX Warning: Citation 'AndersonBernshteynDhawan' on page 2 undefined on input line 212",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 212,
+  "message": "LaTeX Warning: Citation 'dhawan2025independent' on page 2 undefined on input line 212",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 212,
+  "message": "LaTeX Warning: Citation 'molloy2019list' on page 2 undefined on input line 212",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 212,
+  "message": "LaTeX Warning: Citation 'bernshteyn2019johansson' on page 2 undefined on input line 212",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 213,
+  "message": "LaTeX Warning: Citation 'OAI2026logarithmic' on page 2 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 213,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 2 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 222,
+  "message": "LaTeX Warning: Citation 'reed1998omega' on page 2 undefined on input line 222",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 222,
+  "message": "LaTeX Warning: Citation 'MolloyReed' on page 2 undefined on input line 222",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 222,
+  "message": "LaTeX Warning: Citation 'kilakos1993fractionally' on page 2 undefined on input line 222",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 222,
+  "message": "LaTeX Warning: Citation 'vizing1968some' on page 2 undefined on input line 222",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 222,
+  "message": "LaTeX Warning: Citation 'behzad1965graphs' on page 2 undefined on input line 222",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 223,
+  "message": "LaTeX Warning: Citation 'appel1976every' on page 2 undefined on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 223,
+  "message": "LaTeX Warning: Citation 'hilton19735' on page 2 undefined on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 224,
+  "message": "LaTeX Warning: Citation 'martinsson2025random' on page 2 undefined on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 224,
+  "message": "LaTeX Warning: Citation 'kostochka1999properties' on page 2 undefined on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 224,
+  "message": "LaTeX Warning: Citation 'alon1999coloring' on page 2 undefined on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 225,
+  "message": "LaTeX Warning: Citation 'dhawan2026fractional' on page 2 undefined on input line 225",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 228,
+  "message": "LaTeX Warning: Citation 'dvovrak2014subcubic' on page 3 undefined on input line 228",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 228,
+  "message": "LaTeX Warning: Citation 'staton1979some' on page 3 undefined on input line 228",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 228,
+  "message": "LaTeX Warning: Citation 'heckman2001new' on page 3 undefined on input line 228",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 229,
+  "message": "LaTeX Warning: Citation 'heckman2006independent' on page 3 undefined on input line 229",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 232,
+  "message": "LaTeX Warning: Citation 'shearer1991note' on page 3 undefined on input line 232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 233,
+  "message": "LaTeX Warning: Citation 'kelly2024fractional' on page 3 undefined on input line 233",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 234,
+  "message": "LaTeX Warning: Citation 'kelly2024fractional' on page 3 undefined on input line 234",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 246,
+  "message": "LaTeX Warning: Citation 'martinsson2025random' on page 3 undefined on input line 246",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 251,
+  "message": "LaTeX Warning: Citation 'davies2026random' on page 3 undefined on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 255,
+  "message": "LaTeX Warning: Citation 'kelly2024fractional' on page 3 undefined on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 260,
+  "message": "LaTeX Warning: Citation 'kelly2024fractional' on page 4 undefined on input line 260",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 276,
+  "message": "LaTeX Warning: Citation 'shearer1991note' on page 4 undefined on input line 276",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 276,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 4 undefined on input line 276",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 308,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 5 undefined on input line 308",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 327,
+  "message": "LaTeX Warning: Citation 'arora2012multiplicative' on page 5 undefined on input line 327",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 343,
+  "message": "LaTeX Warning: Citation 'OAI2026logarithmic' on page 6 undefined on input line 343",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 343,
+  "message": "LaTeX Warning: Citation 'davies2026random' on page 6 undefined on input line 343",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 344,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 6 undefined on input line 344",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 349,
+  "message": "LaTeX Warning: Citation 'martinsson2025random' on page 6 undefined on input line 349",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 349,
+  "message": "LaTeX Warning: Citation 'davies2026random' on page 6 undefined on input line 349",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 350,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 6 undefined on input line 350",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 353,
+  "message": "LaTeX Warning: Citation 'OAI2026logarithmic' on page 6 undefined on input line 353",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 353,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 6 undefined on input line 353",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 382,
+  "message": "LaTeX Warning: Citation 'OAI2026logarithmic' on page 7 undefined on input line 382",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 382,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 7 undefined on input line 382",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 391,
+  "message": "LaTeX Warning: Citation 'shearer1991note' on page 7 undefined on input line 391",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 478,
+  "message": "LaTeX Warning: Citation 'OAI2026logarithmic' on page 9 undefined on input line 478",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 578,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 12 undefined on input line 578",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 579,
+  "message": "LaTeX Warning: Citation 'OAI2026logarithmic' on page 12 undefined on input line 579",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 612,
+  "message": "LaTeX Warning: Citation 'OAI2026logarithmic' on page 13 undefined on input line 612",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 612,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 13 undefined on input line 612",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 626,
+  "message": "LaTeX Warning: Citation 'kleinberg2002approximation' on page 13 undefined on input line 626",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 626,
+  "message": "LaTeX Warning: Citation 'angel2021pairwise' on page 13 undefined on input line 626",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 627,
+  "message": "LaTeX Warning: Citation 'erschler2010homomorphisms' on page 13 undefined on input line 627",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 627,
+  "message": "LaTeX Warning: Citation 'benjamini2015disorder' on page 13 undefined on input line 627",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 691,
+  "message": "LaTeX Warning: Citation 'arora2012multiplicative' on page 15 undefined on input line 691",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 699,
+  "message": "LaTeX Warning: Citation 'OAI2026logarithmic' on page 15 undefined on input line 699",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 700,
+  "message": "LaTeX Warning: Citation 'kleinberg2002approximation' on page 15 undefined on input line 700",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 910,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 21 undefined on input line 910",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1353,
+  "message": "LaTeX Warning: Citation 'arora2012multiplicative' on page 32 undefined on input line 1353",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1562,
+  "message": "LaTeX Warning: Citation 'erschler2010homomorphisms' on page 37 undefined on input line 1562",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1562,
+  "message": "LaTeX Warning: Citation 'benjamini2015disorder' on page 37 undefined on input line 1562",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1638,
+  "message": "LaTeX Warning: Citation 'kleinberg2002approximation' on page 39 undefined on input line 1638",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1638,
+  "message": "LaTeX Warning: Citation 'angel2021pairwise' on page 39 undefined on input line 1638",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1752,
+  "message": "LaTeX Warning: Citation 'raghavan1988probabilistic' on page 42 undefined on input line 1752",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1752,
+  "message": "LaTeX Warning: Citation 'kleinberg2002approximation' on page 42 undefined on input line 1752",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1889,
+  "message": "LaTeX Warning: Citation 'OAI2026logarithmic' on page 46 undefined on input line 1889",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1889,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 46 undefined on input line 1889",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1891,
+  "message": "LaTeX Warning: Citation 'dhawan2025independent' on page 46 undefined on input line 1891",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1892,
+  "message": "LaTeX Warning: Citation 'BollobasIndependence' on page 46 undefined on input line 1892",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1905,
+  "message": "LaTeX Warning: Citation 'shearer1983note' on page 46 undefined on input line 1905",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1905,
+  "message": "LaTeX Warning: Citation 'ajtai1980note' on page 46 undefined on input line 1905",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1906,
+  "message": "LaTeX Warning: Citation 'li2001asymptotic' on page 46 undefined on input line 1906",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1910,
+  "message": "LaTeX Warning: Citation 'hefty2025two' on page 47 undefined on input line 1910",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1910,
+  "message": "LaTeX Warning: Citation 'bohman2013dynamic' on page 47 undefined on input line 1910",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1910,
+  "message": "LaTeX Warning: Citation 'fizpontiveros2020triangle' on page 47 undefined on input line 1910",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1910,
+  "message": "LaTeX Warning: Citation 'campos2025new' on page 47 undefined on input line 1910",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1911,
+  "message": "LaTeX Warning: Citation 'mattheus2024asymptotics' on page 47 undefined on input line 1911",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1911,
+  "message": "LaTeX Warning: Citation 'chen2026logarithmic' on page 47 undefined on input line 1911",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1911,
+  "message": "LaTeX Warning: Citation 'linzhang2026logarithmic' on page 47 undefined on input line 1911",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1912,
+  "message": "LaTeX Warning: Citation 'OAI:The-Sharp-Logarithmic-Exponent-of-r-5-t-September-24-2026' on page 47 undefined on input line 1912",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1912,
+  "message": "LaTeX Warning: Citation 'OAI:Sharp-Logarithmic-Exponents-for-Fixed-Off-Diagonal-Ramsey-Numbers-September-24-2026' on page 47 undefined on input line 1912",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1912,
+  "message": "LaTeX Warning: Citation 'OAI2026logarithmic' on page 47 undefined on input line 1912",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1916,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 47 undefined on input line 1916",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1936,
+  "message": "LaTeX Warning: Citation 'OAI2026logarithmic' on page 47 undefined on input line 1936",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1936,
+  "message": "LaTeX Warning: Citation 'OAI2026correspondence' on page 47 undefined on input line 1936",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 1939,
+  "message": "LaTeX Warning: Citation 'kang2026ode' on page 47 undefined on input line 1939",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": 2248,
+  "message": "LaTeX Warning: Empty bibliography on input line 2248",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-const-1-over-r.tex",
+  "line": null,
+  "message": "Package biblatex Warning: Please (re)run Biber on the file: main-const-1-over-r and rerun LaTeX afterwards",
+  "detail": [],
+  "hint": null
+ }
+]

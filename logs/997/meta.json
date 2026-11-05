@@ -1,0 +1,31 @@
+{
+ "id": 997,
+ "source": "CTAN",
+ "name": "ltx-talk",
+ "url": "https://ctan.org/pkg/ltx-talk",
+ "type": "Slides",
+ "version": "0.6.11",
+ "files": 47,
+ "main": "background-image-single-frame.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "background-image-single-frame.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3041
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2792,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

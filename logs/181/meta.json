@@ -1,0 +1,31 @@
+{
+ "id": 181,
+ "source": "GitHub",
+ "name": "EagleoutIce/kit-latex-intro",
+ "url": "https://github.com/EagleoutIce/kit-latex-intro",
+ "type": "Slides",
+ "version": "427a1208078d3eea8e734da238a43f5ec98e52c7",
+ "files": 23,
+ "main": "data/preamble.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "data/preamble.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 856,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'preamble.log' and/or above output for details\n\nLatexmk: Missing input file 'lib/tikzpingus/tex/tikzpingus.sty' message in .log file:\n  ! LaTeX Error: File `lib/tikzpingus/tex/tikzpingus.sty' not found.\nFailure to make 'preamble.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 655,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 1,
+ "firstError": "LaTeX Error: File `lib/tikzpingus/tex/tikzpingus.sty' not found.",
+ "outcome": "both-fail"
+}

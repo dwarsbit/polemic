@@ -1,0 +1,31 @@
+{
+ "id": 121,
+ "source": "GitHub",
+ "name": "czjiangjun/DFT_Manuscript",
+ "url": "https://github.com/czjiangjun/DFT_Manuscript",
+ "type": "Paper",
+ "version": "c839363a55c4e6075b021cc952c01ab6234b1430",
+ "files": 398,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 37463
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 34604,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 11,
+ "outcome": "both-ok"
+}

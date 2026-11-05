@@ -1,0 +1,31 @@
+{
+ "id": 365,
+ "source": "GitHub",
+ "name": "sepidehkhakzad/Git_Github_Cheat_Sheet",
+ "url": "https://github.com/sepidehkhakzad/Git_Github_Cheat_Sheet",
+ "type": "Poster",
+ "version": "cd928110c4172b622f9c868ba8eb3287a687f837",
+ "files": 9,
+ "main": "Source/conference_poster_4.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Source/conference_poster_4.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1994
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1591,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 7,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,33 @@
+{
+ "id": 619,
+ "source": "arXiv",
+ "name": "arXiv:2610.39932",
+ "url": "https://arxiv.org/abs/2610.39932",
+ "type": "Paper",
+ "version": "2610.39932",
+ "files": 14,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 17694,
+  "tail": "exit 12, PDF found\n      Refer to 'main.log' and/or above output for details\n\nLatexmk: Missing bbl file 'main.bbl' in following:\n No file main.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 4354,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 4,
+ "warnings": 2,
+ "firstError": "Missing $ inserted.",
+ "outcome": "both-fail"
+}

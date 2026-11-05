@@ -1,0 +1,31 @@
+{
+ "id": 125,
+ "source": "GitHub",
+ "name": "mvanzulli/SourceCode_Manuscript_2204.10545",
+ "url": "https://github.com/mvanzulli/SourceCode_Manuscript_2204.10545",
+ "type": "Paper",
+ "version": "c06333d5d625d07e318ab4f133e7b5810a87dcb3",
+ "files": 297,
+ "main": "numerical_results/numerical_results.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "numerical_results/numerical_results.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4090,
+  "tail": "exit 12, PDF not found\n\nLatexmk: Missing input file 'BladeCantForcesStatic.tex' message in .log file:\n  ! LaTeX Error: File `BladeCantForcesStatic.tex' not found.\nLatexmk: Missing input file 'BladeCantForcesStatic.tex' message in .log file:\n  ! LaTeX Error: File `BladeCantForcesStatic.tex' not found.\nLatexmk: Missing input file 'BladeCantForcesStatic.tex' message in .log file:\n  ! LaTeX Error: File `BladeCantForcesStatic.tex' not found.\nFailure to make 'numerical_results.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2227,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 47,
+ "firstError": "LaTeX Error: File `BladeCantForcesStatic.tex' not found.",
+ "outcome": "both-fail"
+}

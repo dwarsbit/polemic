@@ -1,0 +1,31 @@
+{
+ "id": 134,
+ "source": "GitHub",
+ "name": "fosterfarrell9/Alg1-WS2425-Experimental-Manuscript-public-",
+ "url": "https://github.com/fosterfarrell9/Alg1-WS2425-Experimental-Manuscript-public-",
+ "type": "Paper",
+ "version": "b548e0baa14342ebd65d2e89dac6d92b76015e8a",
+ "files": 2,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 6457
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 6630,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

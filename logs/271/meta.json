@@ -1,0 +1,32 @@
+{
+ "id": 271,
+ "source": "GitHub",
+ "name": "david-oswald/hwsec_lecture_notes",
+ "url": "https://github.com/david-oswald/hwsec_lecture_notes",
+ "type": "Notes",
+ "version": "385c228bc0aefdc9fe0f7769222a655acdeef385",
+ "files": 31,
+ "main": "lecture_notes.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "lecture_notes.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12154
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 12030,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 22,
+ "outcome": "both-ok"
+}

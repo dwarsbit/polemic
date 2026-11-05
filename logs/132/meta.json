@@ -1,0 +1,32 @@
+{
+ "id": 132,
+ "source": "GitHub",
+ "name": "genyleap/white-paper",
+ "url": "https://github.com/genyleap/white-paper",
+ "type": "Paper",
+ "version": "4b5b5f1cb1a3e531c710c09cbc9d8ae89ac2689c",
+ "files": 31,
+ "main": "latex/genyleap_whitepaper-ar.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "latex/genyleap_whitepaper-ar.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 54386,
+  "tail": "exit 12, PDF found\n  Missing character: There is no / (\"2F) in font nullfont!\n  Missing character: There is no ˈ (\"2C8) in font nullfont!\n  Missing character: There is no d (\"64) in font nullfont!\n  Missing character: There is no ʒ (\"292) in font nullfont!\n  Missing character: There is no e (\"65) in font nullfont!\n  Missing character: There is no . (\"2E) in font nullfont!\n  Missing character: There is no n (\"6E) in font nullfont!\n And 36 more --- see log file 'genyleap_whitepaper-ar.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 26621,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 44,
+ "warnings": 1,
+ "firstError": "Package fontspec Error: The font \"Charis\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

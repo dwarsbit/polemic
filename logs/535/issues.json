@@ -1,0 +1,106 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package etex Warning: Extended allocation already in use. etex.sty code will not be used. To force etex package to load, add \\RequirePackage{etex} at the start of the document",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package caption Warning: Unknown document class (or package), standard defaults will be used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `fig:mgroup' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aanda.tex",
+  "line": 106,
+  "message": "Class aa Warning: Around 303 words in the abstract instead of 300 (max). You should rewrite your abstract on input line 106",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aanda.tex",
+  "line": 151,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 151",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aanda.tex",
+  "line": 162,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 214",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 1.66702pt removed on input line 214",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: `!h' float specifier changed to `!ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\leavevmode@ifvmode' on input line 610",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\kern 1.66702pt removed on input line 610",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Text page 18 contains only floats",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: There were multiply-defined labels",
+  "detail": [],
+  "hint": null
+ }
+]

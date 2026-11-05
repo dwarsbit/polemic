@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "error",
+  "file": "slides/slides.tex",
+  "line": 14,
+  "message": "Package minted Error: You must invoke LaTeX with the -shell-escape flag.",
+  "detail": [],
+  "hint": "Polemic compiles without shell escape, so packages that run other programs (minted, the TikZ externalization library) don't work. The listings package highlights code without it."
+ },
+ {
+  "severity": "error",
+  "file": "slides/slides.tex",
+  "line": 14,
+  "message": "Package minted Error: You must have `pygmentize' installed to use this package.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `slides.pyg' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "slides/slides.tex",
+  "line": 56,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "slides/slides.tex",
+  "line": 56,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ifplatform Warning: shell escape is disabled, so I can only detect \\ifwindows",
+  "detail": [],
+  "hint": null
+ }
+]

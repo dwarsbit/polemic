@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "Index.tex",
+  "line": 9,
+  "message": "Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 9",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 317,
+ "source": "GitHub",
+ "name": "darwiin/yaac-another-awesome-cv",
+ "url": "https://github.com/darwiin/yaac-another-awesome-cv",
+ "type": "CV",
+ "version": "31dcdba2e0ead49edd665a7c601d60f555d20341",
+ "files": 41,
+ "main": "example/cv.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "example/cv.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 21314
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 13825,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 8,
+ "outcome": "both-ok"
+}

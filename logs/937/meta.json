@@ -1,0 +1,31 @@
+{
+ "id": 937,
+ "source": "CTAN",
+ "name": "simplecv",
+ "url": "https://ctan.org/pkg/simplecv",
+ "type": "CV",
+ "version": "1.6a",
+ "files": 6,
+ "main": "testcv.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "testcv.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 772
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 576,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 444,
+ "source": "GitHub",
+ "name": "wtsnjp/platexcheat",
+ "url": "https://github.com/wtsnjp/platexcheat",
+ "type": "Cheat sheet",
+ "version": "a0418608a34a967f566be98158d53af4c113119f",
+ "files": 9,
+ "main": "platexsheet-jsclasses.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "platexsheet-jsclasses.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 362,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'platexsheet-jsclasses.log' and/or above output for details\n\nLatexmk: Missing input file 'plistings.sty' message in .log file:\n  ! LaTeX Error: File `plistings.sty' not found.\nFailure to make 'platexsheet-jsclasses.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 188,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 5,
+ "firstError": "LaTeX Error: File `plistings.sty' not found.",
+ "outcome": "both-fail"
+}

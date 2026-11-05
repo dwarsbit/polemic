@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package inputenc Warning: inputenc package ignored with utf8 based engines",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: Name 'brazil' is deprecated. Use 'brazilian' instead. Reported on input line 4478",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "beamer/template/sample.tex",
+  "line": 33,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\\\' on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "beamer/template/sample.tex",
+  "line": null,
+  "message": "Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "beamer/template/sample.tex",
+  "line": 79,
+  "message": "Package blindtext Warning: brazil not defined, using English instead. on input line 79",
+  "detail": [],
+  "hint": null
+ }
+]

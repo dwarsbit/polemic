@@ -1,0 +1,122 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package etex Warning: Extended allocation already in use. etex.sty code will not be used. To force etex package to load, add \\RequirePackage{etex} at the start of the document",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `LastPage' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "RQG.tex",
+  "line": 733,
+  "message": "Class aa Warning: Around 388 words in the abstract instead of 300 (max). You should rewrite your abstract on input line 733",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "RQG.tex",
+  "line": 786,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 786",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "RQG.tex",
+  "line": 816,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 816",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "RQG.tex",
+  "line": 1179,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 1179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "RQG.tex",
+  "line": 1180,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 1180",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "RQG.tex",
+  "line": 1182,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 1182",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "RQG.tex",
+  "line": 1183,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 1183",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "RQG.tex",
+  "line": 1192,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 1192",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 1465",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 1469",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 1488",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\r invalid in math mode on input line 1520",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: There were multiply-defined labels",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 310,
+ "source": "GitHub",
+ "name": "cdlm/sbabook",
+ "url": "https://github.com/cdlm/sbabook",
+ "type": "Book",
+ "version": "95a7ab6c3353a100b51e51b11e33fd77fca1387e",
+ "files": 21,
+ "main": "cover-pharoexpl.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (latexmkrc)",
+ "baseline": {
+  "main": "cover-pharoexpl.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1218,
+  "tail": "exit 12, PDF not found\n  lualatex: Command for 'lualatex' gave return code 1\n      Refer to 'cover-pharoexpl.log' and/or above output for details\n\n./gitinfo2.sh: Not in a git repo\ntput: No value for $TERM and no -T specified\nLatexmk: Missing input file 'gentiumbook.sty' message in .log file:\n  ! LaTeX Error: File `gentiumbook.sty' not found.\nFailure to make 'cover-pharoexpl.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 309,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/cover-pharoexpl.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

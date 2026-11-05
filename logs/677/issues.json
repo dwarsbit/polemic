@@ -1,0 +1,362 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ctable Warning:  Transparency disabled: incompatible with tikz package ",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package etex Warning: Extended allocation already in use. etex.sty code will not be used. To force etex package to load, add \\RequirePackage{etex} at the start of the document",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 87,
+  "message": "Package microtype Warning: Unable to apply patch `footnote' on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 126,
+  "message": "Package natbib Warning: Citation `hen2014word' on page 1 undefined on input line 126",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 145,
+  "message": "Package natbib Warning: Citation `mem2seq' on page 1 undefined on input line 145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 145,
+  "message": "Package natbib Warning: Citation `eric2017copy' on page 1 undefined on input line 145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 162,
+  "message": "Package natbib Warning: Citation `BordesW16' on page 2 undefined on input line 162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 162,
+  "message": "Package natbib Warning: Citation `wenEMNLP2016' on page 2 undefined on input line 162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 162,
+  "message": "Package natbib Warning: Citation `Ericsigdial' on page 2 undefined on input line 162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 206,
+  "message": "Package natbib Warning: Citation `sukhbaatar2015end' on page 3 undefined on input line 206",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 220,
+  "message": "Package natbib Warning: Citation `sutskever2014sequence' on page 3 undefined on input line 220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 220,
+  "message": "Package natbib Warning: Citation `luong2015effective' on page 3 undefined on input line 220",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 232,
+  "message": "Package natbib Warning: Citation `see2017get' on page 3 undefined on input line 232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 258,
+  "message": "Package natbib Warning: Citation `BordesW16' on page 4 undefined on input line 258",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 258,
+  "message": "Package natbib Warning: Citation `wenEMNLP2016' on page 4 undefined on input line 258",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 258,
+  "message": "Package natbib Warning: Citation `Ericsigdial' on page 4 undefined on input line 258",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 282,
+  "message": "Package natbib Warning: Citation `seo2016query' on page 4 undefined on input line 282",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 282,
+  "message": "Package natbib Warning: Citation `BordesW16' on page 4 undefined on input line 282",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 282,
+  "message": "Package natbib Warning: Citation `liu2017gated' on page 4 undefined on input line 282",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 284,
+  "message": "Package natbib Warning: Citation `ptr-unk' on page 4 undefined on input line 284",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 284,
+  "message": "Package natbib Warning: Citation `mem2seq' on page 4 undefined on input line 284",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 284,
+  "message": "Package natbib Warning: Citation `Ericsigdial' on page 4 undefined on input line 284",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 289,
+  "message": "Package natbib Warning: Citation `BordesW16' on page 4 undefined on input line 289",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 291,
+  "message": "Package natbib Warning: Citation `papineni2002bleu' on page 4 undefined on input line 291",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 291,
+  "message": "Package natbib Warning: Citation `eric2017copy' on page 4 undefined on input line 291",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 297,
+  "message": "Package natbib Warning: Citation `kingma2014adam' on page 5 undefined on input line 297",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 692,
+  "message": "Package natbib Warning: Citation `williams2007partially' on page 7 undefined on input line 692",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 692,
+  "message": "Package natbib Warning: Citation `wen2017network' on page 7 undefined on input line 692",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 692,
+  "message": "Package natbib Warning: Citation `williams2017hybrid' on page 7 undefined on input line 692",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 693,
+  "message": "Package natbib Warning: Citation `BordesW16' on page 7 undefined on input line 693",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 695,
+  "message": "Package natbib Warning: Citation `BordesW16' on page 7 undefined on input line 695",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 695,
+  "message": "Package natbib Warning: Citation `liu2017gated' on page 7 undefined on input line 695",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 695,
+  "message": "Package natbib Warning: Citation `seo2016query' on page 7 undefined on input line 695",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 696,
+  "message": "Package natbib Warning: Citation `eric2017copy' on page 7 undefined on input line 696",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 696,
+  "message": "Package natbib Warning: Citation `mem2seq' on page 7 undefined on input line 696",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 696,
+  "message": "Package natbib Warning: Citation `vinyals2015pointer' on page 7 undefined on input line 696",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 696,
+  "message": "Package natbib Warning: Citation `gu2016incorporating' on page 7 undefined on input line 696",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 696,
+  "message": "Package natbib Warning: Citation `nallapati2016abstractive' on page 7 undefined on input line 696",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 696,
+  "message": "Package natbib Warning: Citation `see2017get' on page 7 undefined on input line 696",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 696,
+  "message": "Package natbib Warning: Citation `ptr-unk' on page 7 undefined on input line 696",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 703,
+  "message": "Package natbib Warning: Citation `eric2017copy' on page 8 undefined on input line 703",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 703,
+  "message": "Package natbib Warning: Citation `ptr-unk' on page 8 undefined on input line 703",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": 703,
+  "message": "Package natbib Warning: Citation `BordesW16' on page 8 undefined on input line 703",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "naaclhlt2019.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

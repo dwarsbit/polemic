@@ -1,0 +1,10 @@
+{
+ "id": 926,
+ "source": "CTAN",
+ "name": "yathesis",
+ "url": "https://ctan.org/pkg/yathesis",
+ "type": "Thesis",
+ "version": "1.0.14",
+ "files": 13,
+ "outcome": "no-tex"
+}

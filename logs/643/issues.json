@@ -1,0 +1,402 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Height of page (\\paperheight) is invalid (0.0pt), using 11in",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 299,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 301,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <> not available size <5> substituted on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 301,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.7> not available size <5> substituted on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 301,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.5> not available size <5> substituted on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 301,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <> not available size <5> substituted on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 301,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.7> not available size <5> substituted on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 301,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.5> not available size <5> substituted on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 301,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <> not available size <5> substituted on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 301,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.7> not available size <5> substituted on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 301,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.5> not available size <5> substituted on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 323,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 323",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 324,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 324",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 325,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 325",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 332,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 332",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 397,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 397",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 397,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\kappa' on input line 397",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 401,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 401",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 406,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 406",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 410,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 410",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 416,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 416",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 424,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 424",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 425,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 425",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 427,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 427",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 482,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 482",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 482,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\kappa' on input line 482",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 539,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 539",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 546,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 546",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 546,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\kappa' on input line 546",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 608,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 608",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 609,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 609",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 718,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 718",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 718,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\kappa' on input line 718",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 739,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 739",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 758,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 758",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 841,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 841",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 851,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 851",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 878,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 878",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 888,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 888",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 904,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 904",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 904,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\kappa' on input line 904",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 1067,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1067",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 1067,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\kappa' on input line 1067",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 1231,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 1231",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 1311,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1311",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 1311,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 1311",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 1311,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\kappa' on input line 1311",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": 1318,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 1318",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "hep-th-0503012.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 4.5pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

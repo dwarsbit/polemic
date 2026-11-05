@@ -1,0 +1,31 @@
+{
+ "id": 26,
+ "source": "GitHub",
+ "name": "mfherbst/dissertation",
+ "url": "https://github.com/mfherbst/dissertation",
+ "type": "Thesis",
+ "version": "29497f416137da3c76a660145a6381d7ed656d34",
+ "files": 267,
+ "main": "dissertation.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "dissertation.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1232,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'dissertation.log' and/or above output for details\n\nLatexmk: Missing input file 'MFHbook.cls' message in .log file:\n  ! LaTeX Error: File `MFHbook.cls' not found.\nFailure to make 'dissertation.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 203,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `MFHbook.cls' not found.",
+ "outcome": "both-fail"
+}

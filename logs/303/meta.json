@@ -1,0 +1,32 @@
+{
+ "id": 303,
+ "source": "GitHub",
+ "name": "re-book/ptmst",
+ "url": "https://github.com/re-book/ptmst",
+ "type": "Book",
+ "version": "83eb4f5fface45e8c473ae1e79b603228864aa38",
+ "files": 38,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 111192,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 概 (\"6982) in font nullfont!\n  Missing character: There is no 率 (\"7387) in font nullfont!\n  Missing character: There is no 论 (\"8BBA) in font nullfont!\n  Missing character: There is no 与 (\"4E0E) in font nullfont!\n  Missing character: There is no 数 (\"6570) in font nullfont!\n  Missing character: There is no 理 (\"7406) in font nullfont!\n  Missing character: There is no 统 (\"7EDF) in font nullfont!\n And 2411 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 30882,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2244,
+ "warnings": 31,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

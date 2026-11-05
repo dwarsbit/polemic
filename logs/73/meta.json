@@ -1,0 +1,32 @@
+{
+ "id": 73,
+ "source": "GitHub",
+ "name": "andygrunwald/FOM-LaTeX-Template",
+ "url": "https://github.com/andygrunwald/FOM-LaTeX-Template",
+ "type": "Thesis",
+ "version": "7fdde276b7252d850a8c296645de0dee8b2d680f",
+ "files": 46,
+ "main": "thesis_main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "thesis_main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 16654
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 11758,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 8,
+ "outcome": "both-ok"
+}

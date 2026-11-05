@@ -1,0 +1,33 @@
+{
+ "id": 245,
+ "source": "GitHub",
+ "name": "stanfordnlp/cs224n-winter17-notes",
+ "url": "https://github.com/stanfordnlp/cs224n-winter17-notes",
+ "type": "Notes",
+ "version": "9df6ef031c148d484a487f50c2009cfba8276c59",
+ "files": 117,
+ "main": "gradient-notes.tex",
+ "catalogMain": "notes1.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "notes1.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4841,
+  "tail": "exit 12, PDF found\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'notes1.log' and/or above output for details\n\nLatexmk: Missing bbl file 'notes1.bbl' in following:\n No file notes1.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 738,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "baseline-only-fail"
+}

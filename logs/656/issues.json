@@ -1,0 +1,554 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package aliascnt Warning: The package is obsolete. Check the documentation. on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "bhmvs2.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `bhmvs2', but the package provides `bhmvs1'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `eqn-trunc' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 105,
+  "message": "Package natbib Warning: Citation `SZ11' on page 1 undefined on input line 105",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 105,
+  "message": "Package natbib Warning: Citation `GSS10' on page 1 undefined on input line 105",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 106,
+  "message": "Package natbib Warning: Citation `Sch11' on page 1 undefined on input line 106",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 118,
+  "message": "Package natbib Warning: Citation `BP66' on page 1 undefined on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 118,
+  "message": "Package natbib Warning: Citation `Str60' on page 1 undefined on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 121,
+  "message": "Package natbib Warning: Citation `Bak75' on page 1 undefined on input line 121",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 122,
+  "message": "Package natbib Warning: Citation `KMH94' on page 1 undefined on input line 122",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 123,
+  "message": "Package natbib Warning: Citation `Yoo09' on page 1 undefined on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 126,
+  "message": "Package natbib Warning: Citation `PGR01' on page 2 undefined on input line 126",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 126,
+  "message": "Package natbib Warning: Citation `DS98' on page 2 undefined on input line 126",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 127,
+  "message": "Package natbib Warning: Citation `PS05' on page 2 undefined on input line 127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 127,
+  "message": "Package natbib Warning: Citation `DMS09' on page 2 undefined on input line 127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 127,
+  "message": "Package natbib Warning: Citation `Wat09' on page 2 undefined on input line 127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 129,
+  "message": "Package natbib Warning: Citation `CFS06' on page 2 undefined on input line 129",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 129,
+  "message": "Package natbib Warning: Citation `Eri08' on page 2 undefined on input line 129",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 131,
+  "message": "Package natbib Warning: Citation `BM05' on page 2 undefined on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 132,
+  "message": "Package natbib Warning: Citation `Sch11' on page 2 undefined on input line 132",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 134,
+  "message": "Package natbib Warning: Citation `SZ11' on page 2 undefined on input line 134",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `GSS10' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `MED09' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 143,
+  "message": "Package natbib Warning: Citation `MED09' on page 2 undefined on input line 143",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 147,
+  "message": "Package natbib Warning: Citation `Sib68' on page 3 undefined on input line 147",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 169,
+  "message": "Package natbib Warning: Citation `Sch11' on page 3 undefined on input line 169",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 209,
+  "message": "Package natbib Warning: Citation `CLO07' on page 5 undefined on input line 209",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@@overline' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 274,
+  "message": "Package natbib Warning: Citation `Sch11' on page 6 undefined on input line 274",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 276,
+  "message": "Package natbib Warning: Citation `M2' on page 6 undefined on input line 276",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 298,
+  "message": "Package natbib Warning: Citation `Sch11' on page 7 undefined on input line 298",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 306,
+  "message": "Package natbib Warning: Citation `BHPS10' on page 7 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 306,
+  "message": "Package natbib Warning: Citation `Ber' on page 7 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 306,
+  "message": "Package natbib Warning: Citation `SZ11' on page 7 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 310,
+  "message": "Package natbib Warning: Citation `SZ11' on page 7 undefined on input line 310",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 382,
+  "message": "Package natbib Warning: Citation `SZ11' on page 9 undefined on input line 382",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 402,
+  "message": "Package natbib Warning: Citation `SZ11' on page 9 undefined on input line 402",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 404,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 404",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 404,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 404",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 442,
+  "message": "Package natbib Warning: Citation `SZ10' on page 10 undefined on input line 442",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 468,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 468",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 468,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\Theta' on input line 468",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 468,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 468",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 601,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 601",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 601,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\rho' on input line 601",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 601,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 601",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 652,
+  "message": "Package natbib Warning: Citation `SZ11' on page 15 undefined on input line 652",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 658,
+  "message": "Package natbib Warning: Citation `Sib68' on page 15 undefined on input line 658",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 672,
+  "message": "Package natbib Warning: Citation `Sch11' on page 15 undefined on input line 672",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 709,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 709",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 709,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\phi' on input line 709",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 709,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 709",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 709,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\infty' on input line 709",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 801,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 801",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 801,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\phi' on input line 801",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 801,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 801",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 801,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\infty' on input line 801",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 814,
+  "message": "Package natbib Warning: Citation `Dre05' on page 17 undefined on input line 814",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 949,
+  "message": "Package natbib Warning: Citation `EGA4' on page 19 undefined on input line 949",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 991,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 991",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 991,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@@overline' on input line 991",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 1050,
+  "message": "Package natbib Warning: Citation `MED09' on page 21 undefined on input line 1050",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 1050,
+  "message": "Package natbib Warning: Citation `GSS10' on page 21 undefined on input line 1050",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 1056,
+  "message": "Package natbib Warning: Citation `GSS10' on page 21 undefined on input line 1056",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 1087,
+  "message": "Package natbib Warning: Citation `GSS10' on page 22 undefined on input line 1087",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": 1100,
+  "message": "Package natbib Warning: Citation `BM05' on page 22 undefined on input line 1100",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "critch-binary-hidden-markov-models-v3.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were multiply-defined labels",
+  "detail": [],
+  "hint": null
+ }
+]

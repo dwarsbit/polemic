@@ -1,0 +1,32 @@
+{
+ "id": 270,
+ "source": "GitHub",
+ "name": "vendramin/galois",
+ "url": "https://github.com/vendramin/galois",
+ "type": "Notes",
+ "version": "f0b2f061c08cbe4dd7a9775cc1d61d027b9ce6ae",
+ "files": 33,
+ "main": "dyslexic.tex",
+ "catalogMain": "notes.tex",
+ "engine": "xelatex",
+ "detectedEngine": "pdflatex (inferred)",
+ "baseline": {
+  "main": "notes.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 8757
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 389,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `mynotes.sty' not found.",
+ "outcome": "polemic-only-fail"
+}

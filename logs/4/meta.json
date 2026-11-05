@@ -1,0 +1,31 @@
+{
+ "id": 4,
+ "source": "GitHub",
+ "name": "timbru31/masters-thesis",
+ "url": "https://github.com/timbru31/masters-thesis",
+ "type": "Thesis",
+ "version": "8e6cf5671b05ba0027846df2c04dc2d3d0d856ab",
+ "files": 1071,
+ "main": "content/config.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "content/config.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3474,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'config.log' and/or above output for details\n\nLatexmk: Missing input file 'tocstyle.sty' message in .log file:\n  ! LaTeX Error: File `tocstyle.sty' not found.\nFailure to make 'config.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1538,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `tocstyle.sty' not found.",
+ "outcome": "both-fail"
+}

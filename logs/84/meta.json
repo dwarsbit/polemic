@@ -1,0 +1,32 @@
+{
+ "id": 84,
+ "source": "GitHub",
+ "name": "KITrobotics/Latex_Template",
+ "url": "https://github.com/KITrobotics/Latex_Template",
+ "type": "Thesis",
+ "version": "a1fcbff7324f871d4f9d983b6279ccd3b99f6406",
+ "files": 41,
+ "main": "thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 8721
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 8423,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 6,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 373,
+ "source": "GitHub",
+ "name": "walkerchi/ETHz-RD-CheatSheet",
+ "url": "https://github.com/walkerchi/ETHz-RD-CheatSheet",
+ "type": "Poster",
+ "version": "6389c336eb48ad288837ebdf10caf5c4339abecd",
+ "files": 25,
+ "main": "conference_poster_4.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "conference_poster_4.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2902
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2358,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `hyperref' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 251,
+  "message": "LaTeX Font Warning: Font shape `TS1/mak/m/n' undefined using `TS1/cmr/m/n' instead for symbol `textcopyright' on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "body_matter/chap2.tex",
+  "line": 33,
+  "message": "LaTeX Font Warning: Font shape `LGR/fvm/m/n' undefined using `LGR/cmr/m/n' instead on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "body_matter/chap8.tex",
+  "line": 87,
+  "message": "LaTeX Font Warning: Font shape `TS1/mak/m/it' undefined using `TS1/mak/m/n' instead for symbol `textasteriskcentered' on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: (ntua_thesis.cls): The \"plain\" option has been selected. CD cover generation has been disabled",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

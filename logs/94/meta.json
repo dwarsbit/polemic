@@ -1,0 +1,32 @@
+{
+ "id": 94,
+ "source": "GitHub",
+ "name": "katsuzakitomohiro/achievements",
+ "url": "https://github.com/katsuzakitomohiro/achievements",
+ "type": "Paper",
+ "version": "9a97cf27b3b132071ccba7382f8b60ea20abbffe",
+ "files": 20,
+ "main": "src/latex/main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (latexmkrc)",
+ "baseline": {
+  "main": "src/latex/main.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 41105,
+  "tail": "exit 12, PDF found\n  No file main.toc.\nLatexmk: Using biber to make bibliography file(s).\ntput: No value for $TERM and no -T specified\nLatexmk: Using biber to make bibliography file(s).\ntput: No value for $TERM and no -T specified\nLatexmk: Using biber to make bibliography file(s).\ntput: No value for $TERM and no -T specified\nLatexmk: Using biber to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 786,
+  "outputs": [
+   "log"
+  ],
+  "tail": "  Missing character: There is no o in font nullfont!\n And 6 more --- see log file 'build/main.log'\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

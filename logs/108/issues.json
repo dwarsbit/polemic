@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "warning",
+  "file": "LaTeX-Dateien/AZ-Rezeptbuch.tex",
+  "line": 63,
+  "message": "Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \\setlength {\\marginparwidth }{2cm} prior to loading the todonotes package. on input line 63",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "LaTeX-Dateien/AZ-Rezeptbuch.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "LaTeX-Dateien/AZ-Rezeptbuch.tex",
+  "line": 1720,
+  "message": "LaTeX Warning: Reference `' on page 57 undefined on input line 1720",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "LaTeX-Dateien/AZ-Rezeptbuch.tex",
+  "line": 3281,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 3281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "LaTeX-Dateien/AZ-Rezeptbuch.tex",
+  "line": 3281,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\pi' on input line 3281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "LaTeX-Dateien/AZ-Rezeptbuch.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

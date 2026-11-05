@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "warning",
+  "file": "aic_template.tex",
+  "line": null,
+  "message": "Package gensymb Warning: Not defining \\perthousand",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aic_template.tex",
+  "line": null,
+  "message": "Package gensymb Warning: Not defining \\micro",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aic_template.tex",
+  "line": 52,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available size <17.28> substituted on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aic_template.tex",
+  "line": 52,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <16> not available size <17.28> substituted on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aic_template.tex",
+  "line": 72,
+  "message": "LaTeX Font Warning: Command \\scriptsize invalid in math mode on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aic_template.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 1.28pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

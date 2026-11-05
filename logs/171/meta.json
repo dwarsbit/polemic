@@ -1,0 +1,32 @@
+{
+ "id": 171,
+ "source": "GitHub",
+ "name": "XiangyunHuang/awesome-beamers",
+ "url": "https://github.com/XiangyunHuang/awesome-beamers",
+ "type": "Slides",
+ "version": "d7c25ba67c8ed25bd927f317de4c96f223e3afb7",
+ "files": 215,
+ "main": "customize-template/template.tex",
+ "catalogMain": "Slide-Berkeley/thesis.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (magic comment)",
+ "baseline": {
+  "main": "Slide-Berkeley/thesis.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3432
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1978,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 1,
+ "firstError": "pdfTeX error: pdflatex (file uniyou91): Font uniyou91 at 657 not found",
+ "outcome": "polemic-only-fail"
+}

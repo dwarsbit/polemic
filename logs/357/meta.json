@@ -1,0 +1,32 @@
+{
+ "id": 357,
+ "source": "GitHub",
+ "name": "purrlab/itu_poster_template",
+ "url": "https://github.com/purrlab/itu_poster_template",
+ "type": "Poster",
+ "version": "2eafebfba2ddbef74b6fab8408a4b55c60447593",
+ "files": 7,
+ "main": "poster.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (inferred)",
+ "baseline": {
+  "main": "poster.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3530
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1935,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

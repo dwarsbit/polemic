@@ -1,0 +1,33 @@
+{
+ "id": 369,
+ "source": "GitHub",
+ "name": "MarcCoru/ICML19_AI4SG_Poster",
+ "url": "https://github.com/MarcCoru/ICML19_AI4SG_Poster",
+ "type": "Poster",
+ "version": "f55efb0c4286b9b28cd1716e9bd31e400c237b71",
+ "files": 102,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 13320,
+  "tail": "exit 12, PDF found\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main.log' and/or above output for details\n\nLatexmk: Missing input file 'logo-blue-TUM' message in .log file:\n  ! LaTeX Error: File `logo-blue-TUM' not found.\nLatexmk: Missing input file 'logo-blue-TUM' message in .log file:\n  ! LaTeX Error: File `logo-blue-TUM' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 6539,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 77,
+ "firstError": "LaTeX Error: Command \\theHalgorithm already defined.",
+ "outcome": "both-fail"
+}

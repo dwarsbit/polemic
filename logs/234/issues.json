@@ -1,0 +1,98 @@
+[
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 73,
+  "message": "Package fontspec Error: The font \"Noto Serif CJK SC SemiBold\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 73,
+  "message": "Package fontspec Error: The font \"Noto Serif CJK SC Black\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 137,
+  "message": "Font TU/NotoSerifCJKSC(1)/m/n/8=\"Noto Serif CJK SC SemiBold/OT\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 139,
+  "message": "Font TU/NotoSerifCJKSC(1)/b/n/17.28=\"Noto Serif CJK SC Black/OT\" at 17.28pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 139,
+  "message": "I can't find file `pgfornament-han/han31.pgf'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 139,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package gbt7714 Warning: Bibliography style name 'gbt7714-numerical' is deprecated. Use 'gbt7714-numeric' instead",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package beamerthememetropolis Warning: Could not find Fira Sans fonts on input line 95",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKrmdefault' (NotoSerifCJKSC(0))",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKsfdefault' (NotoSansCJKSC(0))",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKttdefault' (LXGWZhuqueFangsong-Regular.ttf)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ }
+]

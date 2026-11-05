@@ -1,0 +1,655 @@
+[
+ {
+  "severity": "error",
+  "file": "tex/abstract.tex",
+  "line": 17,
+  "message": "LaTeX Error: Environment abstractpage undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/abstract.tex",
+  "line": 19,
+  "message": "LaTeX Error: Environment abstract-lang undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/abstract.tex",
+  "line": 21,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{abstract-lang}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/abstract.tex",
+  "line": 22,
+  "message": "LaTeX Error: Environment abstract-lang undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/abstract.tex",
+  "line": 24,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{abstract-lang}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/abstract.tex",
+  "line": 33,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{abstractpage}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 430,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 430,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 430,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 437,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 438,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 438,
+  "message": "You can't use `\\hrule' here except with leaders.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 438,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 438,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 439,
+  "message": "Misplaced alignment tab character &.",
+  "detail": [
+   "l.439             \\bfseries Id. &",
+   "                                  \\bfseries Vehículos & \\bfseries Viajes & ..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 441,
+  "message": "LaTeX Error: Not allowed in LR mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 441,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 441,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 441,
+  "message": "Misplaced alignment tab character &.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 442,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 443,
+  "message": "Misplaced \\crcr.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 443,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 450,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 451,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 451,
+  "message": "You can't use `\\hrule' here except with leaders.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 451,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 451,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 452,
+  "message": "Misplaced alignment tab character &.",
+  "detail": [
+   "l.452             \\bfseries Id. &",
+   "                                  \\bfseries Vehículos & \\bfseries Viajes & ..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 454,
+  "message": "LaTeX Error: Not allowed in LR mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 454,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 454,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 454,
+  "message": "Misplaced alignment tab character &.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 455,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 456,
+  "message": "Misplaced \\crcr.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 456,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 476,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 477,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 477,
+  "message": "You can't use `\\hrule' here except with leaders.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 477,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 477,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 478,
+  "message": "Misplaced alignment tab character &.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 479,
+  "message": "LaTeX Error: Not allowed in LR mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 479,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 479,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 479,
+  "message": "Misplaced alignment tab character &.",
+  "detail": [
+   "l.479             \\\\\\hline Finalización &",
+   "                                           20.0\\% & 38.09\\% & 42.85\\%"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 480,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 481,
+  "message": "Misplaced \\crcr.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 481,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 491,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 492,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 492,
+  "message": "You can't use `\\hrule' here except with leaders.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 492,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 492,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 493,
+  "message": "Misplaced alignment tab character &.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 494,
+  "message": "LaTeX Error: Not allowed in LR mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 494,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 494,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 494,
+  "message": "Misplaced alignment tab character &.",
+  "detail": [
+   "l.494             \\\\\\hline Promedio &",
+   "                                      50.18\\% & 14.55\\% & 10.34\\%"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 495,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 495,
+  "message": "Misplaced alignment tab character &.",
+  "detail": [
+   "l.495             \\\\\\hline Desviación Estándar &",
+   "                                                   29.08 & 10.68 & 10.02"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 496,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 497,
+  "message": "Misplaced \\crcr.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 497,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 507,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 508,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 508,
+  "message": "You can't use `\\hrule' here except with leaders.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 508,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 508,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 509,
+  "message": "Misplaced alignment tab character &.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 510,
+  "message": "LaTeX Error: Not allowed in LR mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 510,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 510,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 510,
+  "message": "Misplaced alignment tab character &.",
+  "detail": [
+   "l.510             \\\\\\hline Promedio &",
+   "                                      94.85\\% & 99.24\\% & 98.82\\%"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 511,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 511,
+  "message": "Misplaced alignment tab character &.",
+  "detail": [
+   "l.511             \\\\\\hline Desviación Estándar &",
+   "                                                   6.43 & 1.62 & 1.79"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 512,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 513,
+  "message": "Misplaced \\crcr.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/chapters/implementation_results.tex",
+  "line": 513,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package aliascnt Warning: The package is obsolete. Check the documentation. on input line 62",
+  "detail": [],
+  "hint": null
+ }
+]

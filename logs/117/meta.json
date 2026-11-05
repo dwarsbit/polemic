@@ -1,0 +1,33 @@
+{
+ "id": 117,
+ "source": "GitHub",
+ "name": "fernandoans/publicacoes",
+ "url": "https://github.com/fernandoans/publicacoes",
+ "type": "Paper",
+ "version": "d207b66be43fe3536d742e535ae08502c2749d18",
+ "files": 854,
+ "main": "estrutura.tex",
+ "catalogMain": "Anotacoes/Flutter/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Anotacoes/Flutter/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2284
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 933,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 9,
+ "warnings": 4,
+ "firstError": "LaTeX Error: Two \\documentclass or \\documentstyle commands.",
+ "outcome": "polemic-only-fail"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 877,
+ "source": "CTAN",
+ "name": "aucklandthesis",
+ "url": "https://ctan.org/pkg/aucklandthesis",
+ "type": "Thesis",
+ "version": "",
+ "files": 4,
+ "main": "template.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "template.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1125
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 718,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

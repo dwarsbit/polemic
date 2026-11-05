@@ -1,0 +1,106 @@
+[
+ {
+  "severity": "error",
+  "file": "Apostilas/DashPlotly/DashPlotly.tex",
+  "line": 1,
+  "message": "LaTeX Error: Two \\documentclass or \\documentstyle commands.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Apostilas/DashPlotly/DashPlotly.tex",
+  "line": 34,
+  "message": "LaTeX Error: File `imagem/logo' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Apostilas/DashPlotly/DashPlotly.tex",
+  "line": 51,
+  "message": "LaTeX Error: File `imagem/novoProjeto' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Apostilas/DashPlotly/DashPlotly.tex",
+  "line": 98,
+  "message": "LaTeX Error: File `imagem/hello' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Apostilas/DashPlotly/DashPlotly.tex",
+  "line": 170,
+  "message": "LaTeX Error: File `imagem/grafico1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Apostilas/DashPlotly/DashPlotly.tex",
+  "line": 184,
+  "message": "LaTeX Error: File `imagem/tituloSite' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Apostilas/DashPlotly/DashPlotly.tex",
+  "line": 248,
+  "message": "LaTeX Error: File `imagem/baixo' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Apostilas/DashPlotly/DashPlotly.tex",
+  "line": 305,
+  "message": "LaTeX Error: File `imagem/parametro' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Apostilas/DashPlotly/DashPlotly.tex",
+  "line": 396,
+  "message": "LaTeX Error: File `imagem/interacao' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "estrutura.tex",
+  "line": 4,
+  "message": "LaTeX Warning: \\include should only be used after \\begin{document} on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: Name 'brazil' is deprecated. Use 'brazilian' instead. Reported on input line 4478",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underbar  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underline  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ }
+]

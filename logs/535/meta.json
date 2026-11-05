@@ -1,0 +1,32 @@
+{
+ "id": 535,
+ "source": "arXiv",
+ "name": "arXiv:2610.10117",
+ "url": "https://arxiv.org/abs/2610.10117",
+ "type": "Paper",
+ "version": "2610.10117",
+ "files": 36,
+ "main": "aanda.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "aanda.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4633
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4328,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 13,
+ "outcome": "both-ok"
+}

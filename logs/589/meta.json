@@ -1,0 +1,32 @@
+{
+ "id": 589,
+ "source": "arXiv",
+ "name": "arXiv:2611.04845",
+ "url": "https://arxiv.org/abs/2611.04845",
+ "type": "Paper",
+ "version": "2611.04845",
+ "files": 17,
+ "main": "Triakontadipole.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Triakontadipole.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 8759
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 10882,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 19,
+ "outcome": "both-ok"
+}

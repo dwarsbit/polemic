@@ -1,0 +1,32 @@
+{
+ "id": 273,
+ "source": "GitHub",
+ "name": "andrewx101/rheology_lecture_note",
+ "url": "https://github.com/andrewx101/rheology_lecture_note",
+ "type": "Notes",
+ "version": "4870730474e95592ffe9226c8c758aafaa66be55",
+ "files": 163,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 35400
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 31121,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

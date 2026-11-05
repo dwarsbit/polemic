@@ -1,0 +1,32 @@
+{
+ "id": 124,
+ "source": "GitHub",
+ "name": "eloitanguy/manuscript_template",
+ "url": "https://github.com/eloitanguy/manuscript_template",
+ "type": "Paper",
+ "version": "80f5fd4c169c6c71ddd0aabe19b37bdc678c4387",
+ "files": 79,
+ "main": "manuscript.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "manuscript.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 21882,
+  "tail": "exit 12, PDF found\n No file manuscript.bbl.\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: Using biber to make bibliography file(s).\nmanuscript.xdv -> manuscript.pdf\n[1][2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24][25][26][27][28][29][30][31][32][33][34][35][36][37][38][39][40][41][42]\n174794 bytes written"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 407,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/manuscript.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

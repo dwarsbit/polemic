@@ -1,0 +1,610 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 171,
+  "message": "Package natbib Warning: Citation `West2001' on page 1 undefined on input line 171",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 177,
+  "message": "Package natbib Warning: Citation `Morris19' on page 1 undefined on input line 177",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 177,
+  "message": "Package natbib Warning: Citation `Xu19' on page 1 undefined on input line 177",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 179,
+  "message": "Package natbib Warning: Citation `ChenLiBruna19' on page 1 undefined on input line 179",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 180,
+  "message": "Package natbib Warning: Citation `LiuSong22' on page 1 undefined on input line 180",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 186,
+  "message": "Package natbib Warning: Citation `CFI92' on page 1 undefined on input line 186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 186,
+  "message": "Package natbib Warning: Citation `GroheNeuen21' on page 1 undefined on input line 186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 186,
+  "message": "Package natbib Warning: Citation `GRS22' on page 1 undefined on input line 186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 186,
+  "message": "Package natbib Warning: Citation `RobersonSeppelt23' on page 1 undefined on input line 186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 187,
+  "message": "Package natbib Warning: Citation `Morris19' on page 1 undefined on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 187,
+  "message": "Package natbib Warning: Citation `Xu19' on page 1 undefined on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 188,
+  "message": "Package natbib Warning: Citation `Dvorak10' on page 1 undefined on input line 188",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 188,
+  "message": "Package natbib Warning: Citation `DGR18' on page 1 undefined on input line 188",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 189,
+  "message": "Package natbib Warning: Citation `CFI92' on page 1 undefined on input line 189",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 189,
+  "message": "Package natbib Warning: Citation `ADW17' on page 1 undefined on input line 189",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 189,
+  "message": "Package natbib Warning: Citation `DJR21' on page 1 undefined on input line 189",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 213,
+  "message": "Package natbib Warning: Citation `GroheNeuen21' on page 2 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 213,
+  "message": "Package natbib Warning: Citation `BES80' on page 2 undefined on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 214,
+  "message": "Package natbib Warning: Citation `McKayPiperno14' on page 2 undefined on input line 214",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 216,
+  "message": "Package natbib Warning: Citation `Babai16' on page 2 undefined on input line 216",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 250,
+  "message": "Package natbib Warning: Citation `BannaiIto84' on page 2 undefined on input line 250",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 250,
+  "message": "Package natbib Warning: Citation `BCN89' on page 2 undefined on input line 250",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 251,
+  "message": "Package natbib Warning: Citation `Haviv18' on page 2 undefined on input line 251",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 264,
+  "message": "Package natbib Warning: Citation `LakshmananBujtasTuza' on page 2 undefined on input line 264",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 264,
+  "message": "Package natbib Warning: Citation `GeneralizedLineGraphs15' on page 2 undefined on input line 264",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 264,
+  "message": "Package natbib Warning: Citation `ChenLih87' on page 2 undefined on input line 264",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 264,
+  "message": "Package natbib Warning: Citation `Berge73' on page 2 undefined on input line 264",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 264,
+  "message": "Package natbib Warning: Citation `NRSS82' on page 2 undefined on input line 264",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 303,
+  "message": "Package natbib Warning: Citation `Thi00' on page 3 undefined on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 303,
+  "message": "Package natbib Warning: Citation `CDM17' on page 3 undefined on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 314,
+  "message": "Package natbib Warning: Citation `Neuen23' on page 4 undefined on input line 314",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 314,
+  "message": "Package natbib Warning: Citation `Seppelt23' on page 4 undefined on input line 314",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 320,
+  "message": "Package natbib Warning: Citation `AMP16' on page 4 undefined on input line 320",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 320,
+  "message": "Package natbib Warning: Citation `BHK19' on page 4 undefined on input line 320",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 320,
+  "message": "Package natbib Warning: Citation `BB17' on page 4 undefined on input line 320",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 320,
+  "message": "Package natbib Warning: Citation `MW19' on page 4 undefined on input line 320",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 324,
+  "message": "Package natbib Warning: Citation `Lovasz67' on page 4 undefined on input line 324",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 324,
+  "message": "Package natbib Warning: Citation `Dvorak10' on page 4 undefined on input line 324",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 324,
+  "message": "Package natbib Warning: Citation `DGR18' on page 4 undefined on input line 324",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 325,
+  "message": "Package natbib Warning: Citation `GRS22' on page 4 undefined on input line 325",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 325,
+  "message": "Package natbib Warning: Citation `MR20' on page 4 undefined on input line 325",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 325,
+  "message": "Package natbib Warning: Citation `HomIndZoo' on page 4 undefined on input line 325",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 326,
+  "message": "Package natbib Warning: Citation `MR20' on page 4 undefined on input line 326",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 326,
+  "message": "Package natbib Warning: Citation `GRS22' on page 4 undefined on input line 326",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 326,
+  "message": "Package natbib Warning: Citation `Lovasz12' on page 4 undefined on input line 326",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 328,
+  "message": "Package natbib Warning: Citation `CFI92' on page 4 undefined on input line 328",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 328,
+  "message": "Package natbib Warning: Citation `Dvorak10' on page 4 undefined on input line 328",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 328,
+  "message": "Package natbib Warning: Citation `Otto97' on page 4 undefined on input line 328",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 330,
+  "message": "Package natbib Warning: Citation `Neuen23' on page 4 undefined on input line 330",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 330,
+  "message": "Package natbib Warning: Citation `Seppelt23' on page 4 undefined on input line 330",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 332,
+  "message": "Package natbib Warning: Citation `Roberson22' on page 4 undefined on input line 332",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 333,
+  "message": "Package natbib Warning: Citation `Roberson22' on page 4 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 333,
+  "message": "Package natbib Warning: Citation `FSS24' on page 4 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 333,
+  "message": "Package natbib Warning: Citation `NS26' on page 4 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 335,
+  "message": "Package natbib Warning: Citation `ChenLiBruna19' on page 5 undefined on input line 335",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 335,
+  "message": "Package natbib Warning: Citation `LiuSong22' on page 5 undefined on input line 335",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 336,
+  "message": "Package natbib Warning: Citation `YangHuang24' on page 5 undefined on input line 336",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 336,
+  "message": "Package natbib Warning: Citation `GroheNeuen21' on page 5 undefined on input line 336",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 336,
+  "message": "Package natbib Warning: Citation `CFI92' on page 5 undefined on input line 336",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 337,
+  "message": "Package natbib Warning: Citation `Yang26' on page 5 undefined on input line 337",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 352,
+  "message": "Package natbib Warning: Citation `Whitney32' on page 5 undefined on input line 352",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 373,
+  "message": "Package natbib Warning: Citation `Krausz43' on page 5 undefined on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 403,
+  "message": "Package natbib Warning: Citation `Lovasz67' on page 6 undefined on input line 403",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 405,
+  "message": "Package natbib Warning: Citation `Dvorak10' on page 6 undefined on input line 405",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 405,
+  "message": "Package natbib Warning: Citation `DGR18' on page 6 undefined on input line 405",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 415,
+  "message": "Package natbib Warning: Citation `Neuen23' on page 6 undefined on input line 415",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 415,
+  "message": "Package natbib Warning: Citation `Seppelt23' on page 6 undefined on input line 415",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 431,
+  "message": "Package natbib Warning: Citation `MR20' on page 6 undefined on input line 431",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 431,
+  "message": "Package natbib Warning: Citation `GRS22' on page 6 undefined on input line 431",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 526,
+  "message": "Package natbib Warning: Citation `AMP16' on page 7 undefined on input line 526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 526,
+  "message": "Package natbib Warning: Citation `BHK19' on page 7 undefined on input line 526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 637,
+  "message": "Package natbib Warning: Citation `MR20' on page 8 undefined on input line 637",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 970,
+  "message": "Package natbib Warning: Citation `DHP24' on page 13 undefined on input line 970",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1441,
+  "message": "Package natbib Warning: Citation `KV15' on page 19 undefined on input line 1441",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1441,
+  "message": "Package natbib Warning: Citation `Leighton82' on page 19 undefined on input line 1441",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

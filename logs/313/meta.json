@@ -1,0 +1,31 @@
+{
+ "id": 313,
+ "source": "GitHub",
+ "name": "hash-based-snargs-book/hash-based-snargs-book",
+ "url": "https://github.com/hash-based-snargs-book/hash-based-snargs-book",
+ "type": "Book",
+ "version": "305fa3d9d19ee6dba135de64b3156d1760df8426",
+ "files": 69,
+ "main": "snargs-book.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "snargs-book.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 231489
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1199,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/snargs-book.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "polemic-only-fail"
+}

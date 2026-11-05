@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package inputenc Warning: inputenc package ignored with utf8 based engines",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 449,
+ "source": "GitHub",
+ "name": "marlinstrub/mpscheatsheet",
+ "url": "https://github.com/marlinstrub/mpscheatsheet",
+ "type": "Cheat sheet",
+ "version": "d94c1d54174329368b86bc0ffbf570b5be8e00ef",
+ "files": 6,
+ "main": "example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1995
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1255,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

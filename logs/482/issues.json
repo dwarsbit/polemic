@@ -1,0 +1,762 @@
+[
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `guo2025deepseek' on page 1 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `shao2024grpo' on page 1 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `lambert2025tulu3pushingfrontiers' on page 1 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `ouyang2022training' on page 1 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `bai2022traininghelpfulharmlessassistant' on page 1 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `zhang2025stresstestingmodelspecsreveals' on page 1 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `bai2022constitutionalaiharmlessnessai' on page 1 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `baker2025monitoringreasoningmodelsmisbehavior' on page 1 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `khalifa2026countdowncodetestbedstudyingemergence' on page 1 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `tiwari2026rewardattackanalyzingrobustness' on page 1 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `gao2022scalinglawsreward' on page 1 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 8,
+  "message": "Package natbib Warning: Citation `hubinger2024sleeperagentstrainingdeceptive' on page 1 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 8,
+  "message": "Package natbib Warning: Citation `greenblatt2024alignmentfakinglargelanguage' on page 1 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 8,
+  "message": "Package natbib Warning: Citation `anthropic2025honesty' on page 1 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 8,
+  "message": "Package natbib Warning: Citation `anthropic2025alignment_faking_mitigations' on page 1 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 8,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 1 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 14,
+  "message": "Package natbib Warning: Citation `qi2024safetyalignmentjusttokens' on page 2 undefined on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 14,
+  "message": "Package natbib Warning: Citation `ross2011reductionimitationlearningstructured' on page 2 undefined on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `tamirisa2025tamperresistantsafeguardsopenweightllms' on page 2 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `huang2024vaccineperturbationawarealignmentlarge' on page 2 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `qi2025on' on page 2 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `hubinger2024sleeperagentstrainingdeceptive' on page 3 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `wallace2021concealeddatapoisoningattacks' on page 3 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `rando2024universaljailbreakbackdoorspoisoned' on page 3 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `cui2022unifiedevaluationtextualbackdoor' on page 3 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `qi2021onion' on page 3 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `qi2023backdoor' on page 3 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 6,
+  "message": "Package natbib Warning: Citation `zeng2024beear' on page 3 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 9,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 3 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 9,
+  "message": "Package natbib Warning: Citation `wang2025personafeaturescontrolemergent' on page 3 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 9,
+  "message": "Package natbib Warning: Citation `arush2026selfrecognition' on page 3 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 9,
+  "message": "Package natbib Warning: Citation `kaczér2026intrainingdefensesemergentmisalignment' on page 3 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 11,
+  "message": "Package natbib Warning: Citation `jang2023unlearning2' on page 3 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 11,
+  "message": "Package natbib Warning: Citation `feng2024unlearning' on page 3 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 11,
+  "message": "Package natbib Warning: Citation `fan2025llmunlearningresilientrelearning' on page 3 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 11,
+  "message": "Package natbib Warning: Citation `łucki2025adversarialperspectivemachineunlearning' on page 3 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_works.tex",
+  "line": 11,
+  "message": "Package natbib Warning: Citation `siddiqui2026dormantdeletedtamperresistantunlearning' on page 3 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 198,
+  "message": "Package natbib Warning: Citation `hubinger2024sleeperagentstrainingdeceptive' on page 3 undefined on input line 198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 198,
+  "message": "Package natbib Warning: Citation `greenblatt2024alignmentfakinglargelanguage' on page 3 undefined on input line 198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 198,
+  "message": "Package natbib Warning: Citation `anthropic2025honesty' on page 3 undefined on input line 198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 198,
+  "message": "Package natbib Warning: Citation `anthropic2025alignment_faking_mitigations' on page 3 undefined on input line 198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 198,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 3 undefined on input line 198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 202,
+  "message": "Package natbib Warning: Citation `shao2024grpo' on page 4 undefined on input line 202",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 202,
+  "message": "Package natbib Warning: Citation `shi2025muse' on page 4 undefined on input line 202",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 202,
+  "message": "Package natbib Warning: Citation `ilharco2023editing' on page 4 undefined on input line 202",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 209,
+  "message": "Package natbib Warning: Citation `guha2025openthoughtsdatarecipesreasoning' on page 4 undefined on input line 209",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 235,
+  "message": "Package natbib Warning: Citation `qi2024safetyalignmentjusttokens' on page 4 undefined on input line 235",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 235,
+  "message": "Package natbib Warning: Citation `ross2011reductionimitationlearningstructured' on page 4 undefined on input line 235",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 279,
+  "message": "Package natbib Warning: Citation `wang2024mmluprorobustchallengingmultitask' on page 5 undefined on input line 279",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 279,
+  "message": "Package natbib Warning: Citation `openai2025gpt5systemcard' on page 5 undefined on input line 279",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 293,
+  "message": "Package natbib Warning: Citation `shao2024grpo' on page 6 undefined on input line 293",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 294,
+  "message": "Package natbib Warning: Citation `qi2024safetyalignmentjusttokens' on page 6 undefined on input line 294",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 299,
+  "message": "Package natbib Warning: Citation `guha2025openthoughtsdatarecipesreasoning' on page 6 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 464,
+  "message": "Package natbib Warning: Citation `guha2025openthoughtsdatarecipesreasoning' on page 7 undefined on input line 464",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 489,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 7 undefined on input line 489",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 496,
+  "message": "Package natbib Warning: Citation `bai2022traininghelpfulharmlessassistant' on page 8 undefined on input line 496",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 496,
+  "message": "Package natbib Warning: Citation `ji2023beavertail' on page 8 undefined on input line 496",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 496,
+  "message": "Package natbib Warning: Citation `tan2025inoculationpromptingelicitingtraits' on page 8 undefined on input line 496",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 496,
+  "message": "Package natbib Warning: Citation `wang2025personafeaturescontrolemergent' on page 8 undefined on input line 496",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 496,
+  "message": "Package natbib Warning: Citation `arush2026selfrecognition' on page 8 undefined on input line 496",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 501,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 8 undefined on input line 501",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 508,
+  "message": "Package natbib Warning: Citation `arush2026selfrecognition' on page 8 undefined on input line 508",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 508,
+  "message": "Package natbib Warning: Citation `wang2025personafeaturescontrolemergent' on page 8 undefined on input line 508",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 78,
+  "message": "Package natbib Warning: Citation `ross2011reductionimitationlearningstructured' on page 11 undefined on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 78,
+  "message": "Package natbib Warning: Citation `qi2024safetyalignmentjusttokens' on page 11 undefined on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 361,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 15 undefined on input line 361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 416,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 15 undefined on input line 416",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 430,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 15 undefined on input line 430",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 473,
+  "message": "Package natbib Warning: Citation `wang2024mmluprorobustchallengingmultitask' on page 15 undefined on input line 473",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 475,
+  "message": "Package natbib Warning: Citation `openai2025gpt5systemcard' on page 15 undefined on input line 475",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 625,
+  "message": "Package natbib Warning: Citation `openai2025gpt5systemcard' on page 18 undefined on input line 625",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 657,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 19 undefined on input line 657",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 665,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 19 undefined on input line 665",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 683,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 19 undefined on input line 683",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 695,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 19 undefined on input line 695",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 705,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 19 undefined on input line 705",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 746,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 20 undefined on input line 746",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 933,
+  "message": "Package natbib Warning: Citation `bai2022traininghelpfulharmlessassistant' on page 22 undefined on input line 933",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 934,
+  "message": "Package natbib Warning: Citation `ji2023beavertail' on page 22 undefined on input line 934",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 988,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 23 undefined on input line 988",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1014,
+  "message": "Package natbib Warning: Citation `tan2025inoculationpromptingelicitingtraits' on page 23 undefined on input line 1014",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1029,
+  "message": "Package natbib Warning: Citation `wang2025personafeaturescontrolemergent' on page 23 undefined on input line 1029",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1038,
+  "message": "Package natbib Warning: Citation `arush2026selfrecognition' on page 23 undefined on input line 1038",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1040,
+  "message": "Package natbib Warning: Citation `narayan2018don' on page 23 undefined on input line 1040",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1142,
+  "message": "Package natbib Warning: Citation `guha2025openthoughtsdatarecipesreasoning' on page 25 undefined on input line 1142",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1192,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 25 undefined on input line 1192",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1194,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 25 undefined on input line 1194",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1237,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 26 undefined on input line 1237",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1242,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 26 undefined on input line 1242",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1333,
+  "message": "Package natbib Warning: Citation `Betley_2026' on page 27 undefined on input line 1333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1333,
+  "message": "Package natbib Warning: Citation `wang2025personafeaturescontrolemergent' on page 27 undefined on input line 1333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1333,
+  "message": "Package natbib Warning: Citation `guha2025openthoughtsdatarecipesreasoning' on page 27 undefined on input line 1333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_updated.tex",
+  "line": 1333,
+  "message": "Package natbib Warning: Citation `narayan2018don' on page 27 undefined on input line 1333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 160,
+ "source": "GitHub",
+ "name": "Kijusa94/latex-manuscript-fup-template",
+ "url": "https://github.com/Kijusa94/latex-manuscript-fup-template",
+ "type": "Paper",
+ "version": "adc0c069e29c7bada884444411325b39b8d23641",
+ "files": 19,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 11168
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 6596,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "paper.tex",
+  "line": null,
+  "message": "Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [conference=acm]",
+  "detail": [],
+  "hint": null
+ }
+]

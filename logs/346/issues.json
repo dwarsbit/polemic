@@ -1,0 +1,114 @@
+[
+ {
+  "severity": "error",
+  "file": "alecs.tex",
+  "line": 134,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alecs.tex",
+  "line": 134,
+  "message": "Missing \\endgroup inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alecs.tex",
+  "line": 134,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alecs.tex",
+  "line": 134,
+  "message": "Infinite glue shrinkage found in a paragraph.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alecs.tex",
+  "line": 134,
+  "message": "Unbalanced output routine.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alecs.tex",
+  "line": 134,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alecs.tex",
+  "line": 134,
+  "message": "Too many }'s.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "alecs.tex",
+  "line": 134,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package everypage Warning: Functionality similar to this package has recently been implemented in LaTeX. This package is now in legacy status. Please, don't use it in new documents and packages",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package everypage Warning: You appear to be running a version of LaTeX providing the new functionality. Doing the best to deliver the original `everypage` interface on top of it. Strict equivalence is not possible, breakage may occur. If truly needed, Use `everypage-1x` to force the loading of an older code base",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alecs.cls",
+  "line": null,
+  "message": "Package unicode-math Warning: The first font loaded by unicode-math must be an OpenType Math font (with script=math). If you simply want ‘the default’ before loading supplementary fonts over the top for certain ranges, use: \\setmathfont{latinmodern-math.otf}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alecs.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alecs.tex",
+  "line": 122,
+  "message": "Package biblatex Warning: Keyword 'key1' not found on input line 122",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "alecs.tex",
+  "line": 126,
+  "message": "Package biblatex Warning: Keyword 'key2' not found on input line 126",
+  "detail": [],
+  "hint": null
+ }
+]

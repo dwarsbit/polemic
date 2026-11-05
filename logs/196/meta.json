@@ -1,0 +1,31 @@
+{
+ "id": 196,
+ "source": "GitHub",
+ "name": "borjapetit/tex_template_slides",
+ "url": "https://github.com/borjapetit/tex_template_slides",
+ "type": "Slides",
+ "version": "f39b082b84c188fc2968b578b6ad8be553b44aa3",
+ "files": 7,
+ "main": "example/example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example/example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2789
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2272,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

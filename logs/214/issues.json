@@ -1,0 +1,78 @@
+[
+ {
+  "severity": "error",
+  "file": "beamerfontthemetongji.sty",
+  "line": 23,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.23 \\setmainfont",
+   "                 {Fira Sans} % This sets the normal text font"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamerfontthemetongji.sty",
+  "line": 23,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamerfontthemetongji.sty",
+  "line": 24,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.24 \\setsansfont",
+   "                 {Fira Sans} % This sets the sans serif font"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamerfontthemetongji.sty",
+  "line": 25,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.25 \\setmonofont",
+   "                 {Fira Mono} % This sets the mono font"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamerfontthemetongji.sty",
+  "line": 26,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.26 \\setmathfont",
+   "                 {Fira Math} % This sets the math font"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file uniyou73): Font uniyou73 at 864 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexbeamer Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 44,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\\\' on input line 44",
+  "detail": [],
+  "hint": null
+ }
+]

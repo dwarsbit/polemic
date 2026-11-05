@@ -1,0 +1,32 @@
+{
+ "id": 284,
+ "source": "GitHub",
+ "name": "wisdomfusion/latex-templates",
+ "url": "https://github.com/wisdomfusion/latex-templates",
+ "type": "Book",
+ "version": "3a194790b456bc023abc8ec4011e0252c4db505a",
+ "files": 35,
+ "main": "progartcn/tutorial-sample.tex",
+ "catalogMain": "progbookcn/book-sample.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "progbookcn/book-sample.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 30866,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 中 (\"4E2D) in font nullfont!\n  Missing character: There is no 文 (\"6587) in font nullfont!\n  Missing character: There is no 书 (\"4E66) in font nullfont!\n  Missing character: There is no 名 (\"540D) in font nullfont!\n  Missing character: There is no ： (\"FF1A) in font nullfont!\n  Missing character: There is no A (\"41) in font nullfont!\n  Missing character: There is no n (\"6E) in font nullfont!\n And 199 more --- see log file 'book-sample.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 14999,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 16,
+ "warnings": 9,
+ "firstError": "Font TU/MinionPro(0)/m/n/18.06749=\"Minion Pro\" at 18.06749pt not loadable: Metric (TFM) file or installed font not found.",
+ "outcome": "both-fail"
+}

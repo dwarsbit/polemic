@@ -1,0 +1,31 @@
+{
+ "id": 945,
+ "source": "CTAN",
+ "name": "harnon-cv",
+ "url": "https://ctan.org/pkg/harnon-cv",
+ "type": "CV",
+ "version": "1.0",
+ "files": 4,
+ "main": "sample.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "sample.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1472
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 836,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

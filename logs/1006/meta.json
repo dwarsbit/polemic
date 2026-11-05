@@ -1,0 +1,31 @@
+{
+ "id": 1006,
+ "source": "CTAN",
+ "name": "elpres",
+ "url": "https://ctan.org/pkg/elpres",
+ "type": "Slides",
+ "version": "1.1",
+ "files": 22,
+ "main": "doc/elpres-example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/elpres-example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1369
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 909,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

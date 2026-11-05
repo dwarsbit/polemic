@@ -1,0 +1,32 @@
+{
+ "id": 366,
+ "source": "GitHub",
+ "name": "NuiLab/realtime-celestial-rendering",
+ "url": "https://github.com/NuiLab/realtime-celestial-rendering",
+ "type": "Poster",
+ "version": "42c648ff9943a80b4211142a0be8c89983c32d64",
+ "files": 51,
+ "main": "paper/paper.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "paper/paper.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2906
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1909,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,386 @@
+[
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `dehghani2019universal' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `saunshi2025reasoning' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `geiping2025scaling' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `zhu2025ouro' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `ladhak2026elr' on page 1 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 27,
+  "message": "Package natbib Warning: Citation `loshchilov2025ngptnormalizedtransformerrepresentation' on page 1 undefined on input line 27",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `nvidia2025pretraininglargelanguagemodels' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 31,
+  "message": "Package natbib Warning: Citation `grpo' on page 2 undefined on input line 31",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 33,
+  "message": "Package natbib Warning: Citation `ladhak2026elr' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/introduction.tex",
+  "line": 35,
+  "message": "Package natbib Warning: Citation `qadnvfp4inference' on page 2 undefined on input line 35",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining.tex",
+  "line": null,
+  "message": "LaTeX Warning: `!h' float specifier changed to `!ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining.tex",
+  "line": 17,
+  "message": "Package natbib Warning: Citation `loshchilov2025ngptnormalizedtransformerrepresentation' on page 3 undefined on input line 17",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining.tex",
+  "line": 27,
+  "message": "Package natbib Warning: Citation `nvidia2025pretraininglargelanguagemodels' on page 4 undefined on input line 27",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `nvidia2026nemotron3ultraopen' on page 4 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining.tex",
+  "line": 29,
+  "message": "Package natbib Warning: Citation `feng2024maximizedataspotentialenhancing' on page 4 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining.tex",
+  "line": 47,
+  "message": "Package natbib Warning: Citation `ladhak2026elr' on page 5 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining.tex",
+  "line": 57,
+  "message": "Package natbib Warning: Citation `nvidia2026nemotron35super' on page 5 undefined on input line 57",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining/base_model_evals.tex",
+  "line": 71,
+  "message": "Package natbib Warning: Citation `hendrycks2021measuringmassivemultitasklanguage' on page 6 undefined on input line 71",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining/base_model_evals.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `wang2024mmluprorobustchallengingmultitask' on page 6 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining/base_model_evals.tex",
+  "line": 81,
+  "message": "Package natbib Warning: Citation `cobbe2021trainingverifierssolvemath' on page 6 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining/base_model_evals.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `hendrycks2021measuringmathematicalproblemsolving' on page 6 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining/base_model_evals.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `lightman2023lets' on page 6 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining/base_model_evals.tex",
+  "line": 88,
+  "message": "Package natbib Warning: Citation `chen2021evaluatinglargelanguagemodels' on page 6 undefined on input line 88",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining/base_model_evals.tex",
+  "line": 90,
+  "message": "Package natbib Warning: Citation `austin2021programsynthesislargelanguage' on page 6 undefined on input line 90",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining/base_model_evals.tex",
+  "line": 94,
+  "message": "Package natbib Warning: Citation `Liu_Is_Your_Code_2023' on page 6 undefined on input line 94",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining/base_model_evals.tex",
+  "line": 100,
+  "message": "Package natbib Warning: Citation `Clark2018ThinkYH' on page 7 undefined on input line 100",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining/base_model_evals.tex",
+  "line": 102,
+  "message": "Package natbib Warning: Citation `zellers2019hellaswagmachinereallyfinish' on page 7 undefined on input line 102",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining/base_model_evals.tex",
+  "line": 104,
+  "message": "Package natbib Warning: Citation `sakaguchi2019winograndeadversarialwinogradschema' on page 7 undefined on input line 104",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/pretraining/base_model_evals.tex",
+  "line": 110,
+  "message": "Package natbib Warning: Citation `lai-etal-2017-race' on page 7 undefined on input line 110",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 68,
+  "message": "Package natbib Warning: Citation `grpo' on page 8 undefined on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 68,
+  "message": "Package natbib Warning: Citation `nemo-rl' on page 8 undefined on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 165,
+  "message": "Package natbib Warning: Citation `nvidia2026nemotron35super' on page 9 undefined on input line 165",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining/final_model_evals.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `pyatkin2025generalizing' on page 10 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 172,
+  "message": "Package natbib Warning: Citation `jimenez2023swe' on page 10 undefined on input line 172",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 172,
+  "message": "Package natbib Warning: Citation `chowdhury2024swebenchverified' on page 10 undefined on input line 172",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 172,
+  "message": "Package natbib Warning: Citation `merrill2026terminal' on page 10 undefined on input line 172",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 172,
+  "message": "Package natbib Warning: Citation `patwardhan2025gdpval' on page 10 undefined on input line 172",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 172,
+  "message": "Package natbib Warning: Citation `barres2025tau' on page 10 undefined on input line 172",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 172,
+  "message": "Package natbib Warning: Citation `tian2024scicoderesearchcodingbenchmark' on page 10 undefined on input line 172",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 175,
+  "message": "Package natbib Warning: Citation `rein2023gpqa' on page 10 undefined on input line 175",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 175,
+  "message": "Package natbib Warning: Citation `phan2025humanitysexam' on page 10 undefined on input line 175",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 175,
+  "message": "Package natbib Warning: Citation `jackson2025aaomniscience' on page 10 undefined on input line 175",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 178,
+  "message": "Package natbib Warning: Citation `artificialanalysis2025lcr' on page 10 undefined on input line 178",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/posttraining.tex",
+  "line": 178,
+  "message": "Package natbib Warning: Citation `garre2026gdppdf' on page 10 undefined on input line 178",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/quantization.tex",
+  "line": 10,
+  "message": "Package natbib Warning: Citation `qadnvfp4inference' on page 12 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/quantization.tex",
+  "line": 16,
+  "message": "Package natbib Warning: Citation `nvidia-modelopt' on page 12 undefined on input line 16",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/inference.tex",
+  "line": 10,
+  "message": "Package natbib Warning: Citation `ladhak2026elr' on page 14 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

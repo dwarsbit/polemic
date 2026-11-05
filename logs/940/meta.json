@@ -1,0 +1,31 @@
+{
+ "id": 940,
+ "source": "CTAN",
+ "name": "atsresume",
+ "url": "https://ctan.org/pkg/atsresume",
+ "type": "CV",
+ "version": "1.0.0",
+ "files": 6,
+ "main": "atsresume-doc.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "atsresume-doc.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1188
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 846,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 400,
+ "source": "GitHub",
+ "name": "pinam45/utbm-latex-internship-report-covers",
+ "url": "https://github.com/pinam45/utbm-latex-internship-report-covers",
+ "type": "Report",
+ "version": "4e474be997b7fb70422ceda5d3a24a1d14457267",
+ "files": 12,
+ "main": "latex-upmethodology-version.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "latex-upmethodology-version.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1632,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'latex-upmethodology-version.log' and/or above output for details\n\nLatexmk: Missing input file 'upmext-utbmcovers.cfg' message in .log file:\n  ! LaTeX Error: File `upmext-utbmcovers.cfg' not found.\nFailure to make 'latex-upmethodology-version.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1411,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `upmext-utbmcovers.cfg' not found.",
+ "outcome": "both-fail"
+}

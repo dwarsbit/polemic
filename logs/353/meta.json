@@ -1,0 +1,32 @@
+{
+ "id": 353,
+ "source": "GitHub",
+ "name": "dmitry-kabanov/poster-mardi-open-interfaces",
+ "url": "https://github.com/dmitry-kabanov/poster-mardi-open-interfaces",
+ "type": "Poster",
+ "version": "bce880a98aec4923d2b90c3fdcc47088bdf368c5",
+ "files": 46,
+ "main": "mardi-annual-meeting-2024-open-interfaces.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "mardi-annual-meeting-2024-open-interfaces.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 19928
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 14205,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 7,
+ "outcome": "both-ok"
+}

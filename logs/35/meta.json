@@ -1,0 +1,32 @@
+{
+ "id": 35,
+ "source": "GitHub",
+ "name": "shlee-lab/KUThesis2022",
+ "url": "https://github.com/shlee-lab/KUThesis2022",
+ "type": "Thesis",
+ "version": "1ff4ae8eef78a5342c0ac822d59bd4fa65aa3ec3",
+ "files": 21,
+ "main": "thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4651
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4010,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-ok"
+}

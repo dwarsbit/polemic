@@ -1,0 +1,31 @@
+{
+ "id": 377,
+ "source": "GitHub",
+ "name": "estamos/NTUA-Poster",
+ "url": "https://github.com/estamos/NTUA-Poster",
+ "type": "Poster",
+ "version": "f9d39a38adf9c25a1fb5a884d0fd0aa302cdc96c",
+ "files": 10,
+ "main": "landscape.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "landscape.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2593
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1982,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

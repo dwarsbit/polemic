@@ -1,0 +1,186 @@
+[
+ {
+  "severity": "error",
+  "file": "Style/artratex.sty",
+  "line": 426,
+  "message": "Package fontspec Error: The font \"SimSun\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "Style/artratex.sty",
+  "line": 426,
+  "message": "Package fontspec Error: The font \"KaiTi\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "Tex/Frontmatter.tex",
+  "line": 11,
+  "message": "Font TU/SimSun(1)/b/n/24.09=SimSun/OT:embolden=2.5; at 24.09pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Tex/Frontmatter.tex",
+  "line": 11,
+  "message": "Font TU/SimSun(1)/b/n/18.06749=SimSun/OT:embolden=2.5; at 18.06749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Tex/Frontmatter.tex",
+  "line": 11,
+  "message": "Font TU/SimSun(1)/b/n/15.05624=SimSun/OT:embolden=2.5; at 15.05624pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Tex/Frontmatter.tex",
+  "line": 11,
+  "message": "Font TU/SimSun(1)/b/n/16.06=SimSun/OT:embolden=2.5; at 16.06pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Tex/Frontmatter.tex",
+  "line": 12,
+  "message": "Package fontspec Error: The font \"SimHei\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "Tex/Frontmatter.tex",
+  "line": 12,
+  "message": "Font TU/SimHei(1)/m/n/18.06749=SimHei/OT at 18.06749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Tex/Frontmatter.tex",
+  "line": 12,
+  "message": "Font TU/SimHei(1)/b/n/18.06749=SimHei/OT at 18.06749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Tex/1st_Matter.tex",
+  "line": 1,
+  "message": "Font TU/SimHei(1)/m/n/15.05624=SimHei/OT at 15.05624pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Tex/1st_Matter.tex",
+  "line": 3,
+  "message": "Font TU/SimHei(1)/m/n/14.05249=SimHei/OT at 14.05249pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Tex/1st_Matter.tex",
+  "line": 5,
+  "message": "Font TU/SimSun(1)/m/n/12.045=SimSun/OT at 12.045pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Style/neepuproposal.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `Style/neepuproposal', but the document class provides `neepuproposal'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Style/artratex.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `Style/artratex', but the package provides `artratex'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Style/artratex.sty",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKrmdefault' (SimSun(0))",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Style/artratex.sty",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKsfdefault' (Microsoft YaHei)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Style/artratex.sty",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKttdefault' (FangSong)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ctable Warning: Transparency disabled: pdfTeX is not running in PDF mode ",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Style/artracom.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `Style/artracom', but the package provides `artracom'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Tex/Frontmatter.tex",
+  "line": 12,
+  "message": "LaTeX Font Warning: Font shape `TU/SimHei(1)/b/n' undefined using `TU/SimHei(1)/m/n' instead on input line 12",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Thesis.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

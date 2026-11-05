@@ -1,0 +1,32 @@
+{
+ "id": 939,
+ "source": "CTAN",
+ "name": "tidyres",
+ "url": "https://ctan.org/pkg/tidyres",
+ "type": "CV",
+ "version": "3.0.0",
+ "files": 4,
+ "main": "tidyres-doc.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "tidyres-doc.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 138896,
+  "tail": "exit 12, PDF found\n  Missing character: There is no t (\"74) in font nullfont!\n  Missing character: There is no i (\"69) in font nullfont!\n  Missing character: There is no d (\"64) in font nullfont!\n  Missing character: There is no y (\"79) in font nullfont!\n  Missing character: There is no r (\"72) in font nullfont!\n  Missing character: There is no e (\"65) in font nullfont!\n  Missing character: There is no s (\"73) in font nullfont!\n And 320 more --- see log file 'tidyres-doc.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 71075,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 25,
+ "warnings": 3,
+ "firstError": "Package fontspec Error: The font \"NewComputerModernMono10\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

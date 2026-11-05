@@ -1,0 +1,778 @@
+[
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 17,
+  "message": "LaTeX Warning: Citation `Kaner2006' on page 1 undefined on input line 17",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 19,
+  "message": "LaTeX Warning: Citation `WHK2018' on page 1 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 19,
+  "message": "LaTeX Warning: Citation `deepxplore' on page 1 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 19,
+  "message": "LaTeX Warning: Citation `tian2017deeptest' on page 1 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 19,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 1 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 19,
+  "message": "LaTeX Warning: Citation `deepgauge' on page 1 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 1 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation `deepgauge' on page 1 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation `dart' on page 1 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Citation `sen2005cute' on page 1 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 29,
+  "message": "LaTeX Warning: Citation `SZSBEGF2014' on page 2 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 40,
+  "message": "LaTeX Warning: Citation `WB2015' on page 2 undefined on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 40,
+  "message": "LaTeX Warning: Citation `ACB2017' on page 2 undefined on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 40,
+  "message": "LaTeX Warning: Citation `WHK2018' on page 2 undefined on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 40,
+  "message": "LaTeX Warning: Citation `BSZ2017' on page 2 undefined on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 40,
+  "message": "LaTeX Warning: Citation `RHK2018' on page 2 undefined on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 41,
+  "message": "LaTeX Warning: Citation `deepxplore' on page 2 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 41,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 2 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 41,
+  "message": "LaTeX Warning: Citation `deepgauge' on page 2 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 21,
+  "message": "LaTeX Warning: Citation `HKWW2017' on page 3 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 22,
+  "message": "LaTeX Warning: Citation `KBDJK2017' on page 3 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 22,
+  "message": "LaTeX Warning: Citation `RHK2018' on page 3 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 22,
+  "message": "LaTeX Warning: Citation `gehr2018ai' on page 3 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 22,
+  "message": "LaTeX Warning: Citation `mirman2018differentiable' on page 3 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 23,
+  "message": "LaTeX Warning: Citation `WHK2018' on page 3 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `WHK2018' on page 3 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `deepxplore' on page 3 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `tian2017deeptest' on page 3 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 3 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `deepgauge' on page 3 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `deepxplore' on page 3 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 39,
+  "message": "LaTeX Warning: Citation `HVCR2001' on page 3 undefined on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 39,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 3 undefined on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 40,
+  "message": "LaTeX Warning: Citation `deepgauge' on page 3 undefined on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 42,
+  "message": "LaTeX Warning: Citation `tian2017deeptest' on page 3 undefined on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 45,
+  "message": "LaTeX Warning: Citation `WHK2018' on page 3 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 46,
+  "message": "LaTeX Warning: Citation `deepxplore' on page 3 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 46,
+  "message": "LaTeX Warning: Citation `tian2017deeptest' on page 3 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 46,
+  "message": "LaTeX Warning: Citation `deepgauge' on page 3 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 47,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 3 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 56,
+  "message": "LaTeX Warning: Citation `cadar2008klee' on page 3 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 56,
+  "message": "LaTeX Warning: Citation `xie2005symstra' on page 3 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 56,
+  "message": "LaTeX Warning: Citation `visser2004test' on page 3 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 59,
+  "message": "LaTeX Warning: Citation `dart' on page 3 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 59,
+  "message": "LaTeX Warning: Citation `sen2005cute' on page 3 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 59,
+  "message": "LaTeX Warning: Citation `KHC2015' on page 3 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 62,
+  "message": "LaTeX Warning: Citation `dart' on page 4 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 62,
+  "message": "LaTeX Warning: Citation `sen2005cute' on page 4 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 62,
+  "message": "LaTeX Warning: Citation `burnim2008heuristics' on page 4 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 68,
+  "message": "LaTeX Warning: Citation `burnim2008heuristics' on page 4 undefined on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 68,
+  "message": "LaTeX Warning: Citation `godefroid2008automated' on page 4 undefined on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 69,
+  "message": "LaTeX Warning: Citation `lin2018' on page 4 undefined on input line 69",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "related.tex",
+  "line": 69,
+  "message": "LaTeX Warning: Citation `cha2018' on page 4 undefined on input line 69",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "comparison.tex",
+  "line": 19,
+  "message": "LaTeX Warning: Citation `deepxplore' on page 4 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "comparison.tex",
+  "line": 19,
+  "message": "LaTeX Warning: Citation `tian2017deeptest' on page 4 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "comparison.tex",
+  "line": 19,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 4 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "comparison.tex",
+  "line": 19,
+  "message": "LaTeX Warning: Citation `deepgauge' on page 4 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "comparison.tex",
+  "line": 27,
+  "message": "LaTeX Warning: Citation `deepxplore' on page 4 undefined on input line 27",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "comparison.tex",
+  "line": 27,
+  "message": "LaTeX Warning: Citation `tian2017deeptest' on page 4 undefined on input line 27",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "comparison.tex",
+  "line": 27,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 4 undefined on input line 27",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "comparison.tex",
+  "line": 28,
+  "message": "LaTeX Warning: Citation `deepgauge' on page 4 undefined on input line 28",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "network.tex",
+  "line": 18,
+  "message": "LaTeX Warning: Citation `relu' on page 5 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 19,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 6 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 44,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 6 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 187,
+  "message": "LaTeX Warning: Citation `WB2015' on page 8 undefined on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 187,
+  "message": "LaTeX Warning: Citation `ACB2017' on page 8 undefined on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 187,
+  "message": "LaTeX Warning: Citation `WHK2018' on page 8 undefined on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 187,
+  "message": "LaTeX Warning: Citation `BSZ2017' on page 8 undefined on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 187,
+  "message": "LaTeX Warning: Citation `RHK2018' on page 8 undefined on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 187,
+  "message": "LaTeX Warning: Citation `deepxplore' on page 8 undefined on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 187,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 8 undefined on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 187,
+  "message": "LaTeX Warning: Citation `deepgauge' on page 8 undefined on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 189,
+  "message": "LaTeX Warning: Citation `deepxplore' on page 9 undefined on input line 189",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 189,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 9 undefined on input line 189",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 189,
+  "message": "LaTeX Warning: Citation `deepgauge' on page 9 undefined on input line 189",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 196,
+  "message": "LaTeX Warning: Citation `WSB2003' on page 9 undefined on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 216,
+  "message": "LaTeX Warning: Citation `SZSBEGF2014' on page 9 undefined on input line 216",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 216,
+  "message": "LaTeX Warning: Citation `RHK2018' on page 9 undefined on input line 216",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 231,
+  "message": "LaTeX Warning: Citation `WHK2018' on page 9 undefined on input line 231",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 231,
+  "message": "LaTeX Warning: Citation `WWRHK2018' on page 9 undefined on input line 231",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 231,
+  "message": "LaTeX Warning: Citation `RHK2018' on page 9 undefined on input line 231",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 308,
+  "message": "LaTeX Warning: Citation `deepxplore' on page 10 undefined on input line 308",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 335,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 10 undefined on input line 335",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 336,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 10 undefined on input line 336",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 359,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 11 undefined on input line 359",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "criteria.tex",
+  "line": 427,
+  "message": "LaTeX Warning: Citation `deepgauge' on page 11 undefined on input line 427",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "optimisation.tex",
+  "line": 8,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 14 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "optimisation.tex",
+  "line": 8,
+  "message": "LaTeX Warning: Citation `RWSHKK2018' on page 14 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "optimisation.tex",
+  "line": 21,
+  "message": "LaTeX Warning: Citation `SHK2018' on page 15 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "optimisation.tex",
+  "line": 128,
+  "message": "LaTeX Warning: Citation `RWSHKK2018' on page 16 undefined on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "optimisation.tex",
+  "line": 155,
+  "message": "LaTeX Warning: Citation `RWSHKK2018' on page 17 undefined on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "LipschitzTest_linear.tex",
+  "line": 21,
+  "message": "LaTeX Warning: Citation `Roubicek1997' on page 17 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "LipschitzTest_linear.tex",
+  "line": 32,
+  "message": "LaTeX Warning: Citation `audet2017derivative' on page 18 undefined on input line 32",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "experiments.tex",
+  "line": 12,
+  "message": "LaTeX Warning: Citation `deepxplore' on page 19 undefined on input line 12",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "exp_LipConstTest.tex",
+  "line": 85,
+  "message": "LaTeX Warning: Citation `RWSHKK2018' on page 23 undefined on input line 85",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "exp_LipConstTest.tex",
+  "line": 85,
+  "message": "LaTeX Warning: Citation `RHK2018' on page 23 undefined on input line 85",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

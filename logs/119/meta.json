@@ -1,0 +1,32 @@
+{
+ "id": 119,
+ "source": "GitHub",
+ "name": "dennishnf/latex-formats-archive",
+ "url": "https://github.com/dennishnf/latex-formats-archive",
+ "type": "Paper",
+ "version": "298ccdae1820f25552a92ca145233cf9323c72f5",
+ "files": 107,
+ "main": "Letter-1/cover-letter.tex",
+ "catalogMain": "Paper-BTSym-2019/paper.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Paper-BTSym-2019/paper.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1063
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1604,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

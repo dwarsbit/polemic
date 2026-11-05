@@ -1,0 +1,32 @@
+{
+ "id": 342,
+ "source": "GitHub",
+ "name": "andywiecko/MultiLangCV",
+ "url": "https://github.com/andywiecko/MultiLangCV",
+ "type": "CV",
+ "version": "6407202431a25c6bfbf254e4dcfbd233136f92bf",
+ "files": 40,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3222
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2056,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

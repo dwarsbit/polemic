@@ -1,0 +1,32 @@
+{
+ "id": 239,
+ "source": "GitHub",
+ "name": "garciparedes/tfg-dial-a-ride-problem",
+ "url": "https://github.com/garciparedes/tfg-dial-a-ride-problem",
+ "type": "Slides",
+ "version": "8c9795a4d839ab25e48602bea847d3deff4dd17e",
+ "files": 38,
+ "main": "document.tex",
+ "catalogMain": "slides.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "slides.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 7456,
+  "tail": "exit 12, PDF not found\n\nLatexmk: Missing input file 'slides.nav' message in .log file:\n  No file slides.nav.\nLatexmk: Missing input file 'slides.nav' message in .log file:\n  No file slides.nav.\nLatexmk: Missing input file 'slides.nav' message in .log file:\n  No file slides.nav.\nFailure to make 'slides.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 3427,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 78,
+ "warnings": 1,
+ "firstError": "LaTeX Error: Environment abstractpage undefined.",
+ "outcome": "both-fail"
+}

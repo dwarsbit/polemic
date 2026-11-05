@@ -1,0 +1,31 @@
+{
+ "id": 1008,
+ "source": "CTAN",
+ "name": "beamer-rl",
+ "url": "https://ctan.org/pkg/beamer-rl",
+ "type": "Slides",
+ "version": "2.1",
+ "files": 12,
+ "main": "Example-of-use-ar.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Example-of-use-ar.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2829,
+  "tail": "exit 12, PDF not found\n  No file Example-of-use-ar.nav.\nLatexmk: Missing input file 'Example-of-use-ar.nav' message in .log file:\n  No file Example-of-use-ar.nav.\nLatexmk: Missing input file 'Example-of-use-ar.nav' message in .log file:\n  No file Example-of-use-ar.nav.\nFailure to make 'Example-of-use-ar.pdf'\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Missing character: There is no � in font cmex10!"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 900,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 19,
+ "warnings": 1,
+ "firstError": "Class beamer-rl Error: beamer-rl require lualatex.",
+ "outcome": "both-fail"
+}

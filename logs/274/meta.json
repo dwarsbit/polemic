@@ -1,0 +1,31 @@
+{
+ "id": 274,
+ "source": "GitHub",
+ "name": "ajtulloch/SydneyUniversityMathematicsNotes",
+ "url": "https://github.com/ajtulloch/SydneyUniversityMathematicsNotes",
+ "type": "Notes",
+ "version": "78590230b137f9c87a12e874466c43fb380896d3",
+ "files": 31,
+ "main": "AMH3 - Interest Rate Models/AMH3 Lecture Notes.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "AMH3 - Interest Rate Models/AMH3 Lecture Notes.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2777
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2681,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

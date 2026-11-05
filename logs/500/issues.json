@@ -1,0 +1,354 @@
+[
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 397,
+  "message": "Package natbib Warning: Citation `openai2026workspaceagents' on page 1 undefined on input line 397",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 397,
+  "message": "Package natbib Warning: Citation `spataro2025humanagent' on page 1 undefined on input line 397",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 397,
+  "message": "Package natbib Warning: Citation `claudetag' on page 1 undefined on input line 397",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 402,
+  "message": "Package natbib Warning: Citation `park2023generativeagents' on page 1 undefined on input line 402",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 402,
+  "message": "Package natbib Warning: Citation `zhong2024memorybank' on page 1 undefined on input line 402",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 402,
+  "message": "Package natbib Warning: Citation `packer2023memgpt' on page 1 undefined on input line 402",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 402,
+  "message": "Package natbib Warning: Citation `yang2026groupmembenchbenchmarkingllmagent' on page 1 undefined on input line 402",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 403,
+  "message": "Package natbib Warning: Citation `chhikara2025mem0' on page 1 undefined on input line 403",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 403,
+  "message": "Package natbib Warning: Citation `liu2026simplemem' on page 1 undefined on input line 403",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 404,
+  "message": "Package natbib Warning: Citation `chhikara2025mem0' on page 1 undefined on input line 404",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 404,
+  "message": "Package natbib Warning: Citation `anokhin2024arigraph' on page 1 undefined on input line 404",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 404,
+  "message": "Package natbib Warning: Citation `fang2026lightmem' on page 1 undefined on input line 404",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 524,
+  "message": "Package natbib Warning: Citation `hu2026evaluatinglonghorizonmemorymultiparty' on page 4 undefined on input line 524",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 525,
+  "message": "Package natbib Warning: Citation `yang2026groupmembench' on page 4 undefined on input line 525",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 526,
+  "message": "Package natbib Warning: Citation `chhikara2025mem0' on page 4 undefined on input line 526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 526,
+  "message": "Package natbib Warning: Citation `kang2025memoryosaiagent' on page 4 undefined on input line 526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 526,
+  "message": "Package natbib Warning: Citation `xu2025amem' on page 4 undefined on input line 526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 526,
+  "message": "Package natbib Warning: Citation `zhang2026memrlselfevolvingagentsruntime' on page 4 undefined on input line 526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 526,
+  "message": "Package natbib Warning: Citation `openai2025codex' on page 4 undefined on input line 526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 526,
+  "message": "Package natbib Warning: Citation `anthropic2025claudecode' on page 4 undefined on input line 526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 532,
+  "message": "Package natbib Warning: Citation `openai2026GPT55' on page 4 undefined on input line 532",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 532,
+  "message": "Package natbib Warning: Citation `Deepseek2026v4flash' on page 4 undefined on input line 532",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 532,
+  "message": "Package natbib Warning: Citation `glm5team2026glm5vibecodingagentic' on page 4 undefined on input line 532",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 896,
+  "message": "Package natbib Warning: Citation `park2023generativeagents' on page 8 undefined on input line 896",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 896,
+  "message": "Package natbib Warning: Citation `packer2023memgpt' on page 8 undefined on input line 896",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 896,
+  "message": "Package natbib Warning: Citation `zhong2024memorybank' on page 8 undefined on input line 896",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 896,
+  "message": "Package natbib Warning: Citation `shinn2023reflexion' on page 8 undefined on input line 896",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 896,
+  "message": "Package natbib Warning: Citation `chhikara2025mem0' on page 8 undefined on input line 896",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 896,
+  "message": "Package natbib Warning: Citation `xu2025amem' on page 8 undefined on input line 896",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 896,
+  "message": "Package natbib Warning: Citation `fang2026lightmem' on page 8 undefined on input line 896",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 896,
+  "message": "Package natbib Warning: Citation `liu2026simplemem' on page 8 undefined on input line 896",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 896,
+  "message": "Package natbib Warning: Citation `yan2025memoryr1' on page 8 undefined on input line 896",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 897,
+  "message": "Package natbib Warning: Citation `hu2026evaluatinglonghorizonmemorymultiparty' on page 8 undefined on input line 897",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 897,
+  "message": "Package natbib Warning: Citation `yang2026groupmembench' on page 8 undefined on input line 897",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 899,
+  "message": "Package natbib Warning: Citation `tang2026harnesssurvey' on page 8 undefined on input line 899",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 900,
+  "message": "Package natbib Warning: Citation `lin2026ahe' on page 8 undefined on input line 900",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 900,
+  "message": "Package natbib Warning: Citation `huang2026memoharness' on page 8 undefined on input line 900",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 900,
+  "message": "Package natbib Warning: Citation `chen2026harnessx' on page 8 undefined on input line 900",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 900,
+  "message": "Package natbib Warning: Citation `zhou2026hsi' on page 8 undefined on input line 900",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 900,
+  "message": "Package natbib Warning: Citation `zhang2026selfharness' on page 8 undefined on input line 900",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 900,
+  "message": "Package natbib Warning: Citation `ning2026codeagentharness' on page 8 undefined on input line 900",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 900,
+  "message": "Package natbib Warning: Citation `xu2026polar' on page 8 undefined on input line 900",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": 900,
+  "message": "Package natbib Warning: Citation `banu2026harnessarchitecture' on page 8 undefined on input line 900",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "acl_latex.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

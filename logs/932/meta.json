@@ -1,0 +1,32 @@
+{
+ "id": 932,
+ "source": "CTAN",
+ "name": "europasscv2025",
+ "url": "https://ctan.org/pkg/europasscv2025",
+ "type": "CV",
+ "version": "0.1",
+ "files": 24,
+ "main": "europasscv2025_bib_en.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "europasscv2025_bib_en.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 9432
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4699,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

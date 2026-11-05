@@ -1,0 +1,32 @@
+{
+ "id": 393,
+ "source": "GitHub",
+ "name": "dvcorreia/magda-latex-report",
+ "url": "https://github.com/dvcorreia/magda-latex-report",
+ "type": "Report",
+ "version": "23c1d5a9c55ba07429ce5f69a20f78d21abfaedd",
+ "files": 12,
+ "main": "src/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "src/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 6149
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4769,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

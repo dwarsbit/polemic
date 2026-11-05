@@ -1,0 +1,32 @@
+{
+ "id": 266,
+ "source": "GitHub",
+ "name": "NiuTrans/AML-Notes",
+ "url": "https://github.com/NiuTrans/AML-Notes",
+ "type": "Notes",
+ "version": "bf951e6bcf0617ac301965ade9e7fae614197e2d",
+ "files": 191,
+ "main": "src/main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "src/main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 73368
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 72935,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 299,
+ "outcome": "both-ok"
+}

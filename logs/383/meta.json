@@ -1,0 +1,32 @@
+{
+ "id": 383,
+ "source": "GitHub",
+ "name": "TELECOMNancy/tn-report",
+ "url": "https://github.com/TELECOMNancy/tn-report",
+ "type": "Report",
+ "version": "56a4faf196560c2d114e85ce14e170999cf4a0e5",
+ "files": 42,
+ "main": "template_tex/example-report-1A.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "template_tex/example-report-1A.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4448
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3553,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

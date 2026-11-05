@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `upmext-utbmcovers.cfg' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-upmethodology-version.tex",
+  "line": 42,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ }
+]

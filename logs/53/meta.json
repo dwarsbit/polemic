@@ -1,0 +1,32 @@
+{
+ "id": 53,
+ "source": "GitHub",
+ "name": "NiccoMlt/Unibo-Tesi-Template",
+ "url": "https://github.com/NiccoMlt/Unibo-Tesi-Template",
+ "type": "Thesis",
+ "version": "6333b42edf3db74784a183fbe8251a93781836b9",
+ "files": 18,
+ "main": "tesi.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "tesi.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 17603,
+  "tail": "exit 12, PDF found\nxdvipdfmx:warning: Trying to include PDF file with version (1.7), which is newer than current output PDF setting (1.4).\n][4][5][6][7][8][9][10][11][12][13]\n62517 bytes written\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Missing character: There is no ^^@ (U+0000) in font [lmroman12-regular]:mapping\n  Missing character: There is no ^^@ (U+0000) in font [lmroman12-regular]:mapping=tex-text;!\n  Missing character: There is no ^^@ (U+0000) in font [lmroman12-regular]:mapping\n  Missing character: There is no ^^@ (U+0000) in font [lmroman12-regular]:mapping=tex-text;!"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2718,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 8,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 512,
+ "source": "arXiv",
+ "name": "arXiv:2611.02013",
+ "url": "https://arxiv.org/abs/2611.02013",
+ "type": "Paper",
+ "version": "2611.02013",
+ "files": 2,
+ "main": "CoxTodd.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "CoxTodd.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2231
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1965,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 11,
+ "outcome": "both-ok"
+}

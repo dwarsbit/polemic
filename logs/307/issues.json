@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ifplatform Warning: shell escape is disabled, so I can only detect \\ifwindows",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "apuntes.tex",
+  "line": null,
+  "message": "Package biblatex Warning: Patching footnotes failed. Footnote detection will not work",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "apuntes.tex",
+  "line": 145,
+  "message": "LaTeX Warning: Empty bibliography on input line 145",
+  "detail": [],
+  "hint": null
+ }
+]

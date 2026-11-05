@@ -1,0 +1,31 @@
+{
+ "id": 964,
+ "source": "CTAN",
+ "name": "mnras",
+ "url": "https://ctan.org/pkg/mnras",
+ "type": "Paper",
+ "version": "3.2",
+ "files": 13,
+ "main": "mnras_guide.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "mnras_guide.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1733
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1328,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 8,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,35 @@
+{
+ "id": 311,
+ "source": "GitHub",
+ "name": "paulinelemenkova/latex-report-deep-sea-trenches-pacific",
+ "url": "https://github.com/paulinelemenkova/latex-report-deep-sea-trenches-pacific",
+ "type": "Book",
+ "version": "c203c88a480ebfd42771fd371974b0dc08ad7445",
+ "files": 125,
+ "main": "dissertation.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (latexmkrc)",
+ "baseline": {
+  "main": "dissertation.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 63635,
+  "tail": "exit 12, PDF found\n  Citation 'Sokolov' on page 13 undefined on input line 10\n  Citation 'Gaidaenko' on page 13 undefined on input line 10\n  Citation 'Sokolov' on page 13 undefined on input line 11\n  Citation 'Gaidaenko' on page 13 undefined on input line 11\n  Citation 'vakbib1' on page 13 undefined on input line 12\n  Citation 'confbib2' on page 13 undefined on input line 12\n  Citation 'Lermontov' on page 13 undefined on input line 20\n And 47 more --- see log file 'dissertation.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 23957,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 31,
+ "warnings": 63,
+ "firstError": "Package siunitx Error: Invalid number '1+-2i'.",
+ "outcome": "both-fail"
+}

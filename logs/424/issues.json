@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file unisong5e): Font unisong5e at 632 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 12.64723pt, for example: \\setlength{\\headheight}{12.64723pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-0.64723pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example.tex",
+  "line": 270,
+  "message": "LaTeX Warning: No positions in optional float specifier. Default added (so using `htbp') on input line 270",
+  "detail": [],
+  "hint": null
+ }
+]

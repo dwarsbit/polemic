@@ -1,0 +1,31 @@
+{
+ "id": 152,
+ "source": "GitHub",
+ "name": "Xinyue-online/md-latex-pdf",
+ "url": "https://github.com/Xinyue-online/md-latex-pdf",
+ "type": "Paper",
+ "version": "a290a30520633c1e50a3d8b725a137dc6cf71fca",
+ "files": 36,
+ "main": "templates/academic.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "templates/academic.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4925,
+  "tail": "exit 12, PDF not found\nLatexmk: Log file says no output from latex\nLatexmk: For rule 'xelatex', no output was made\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'academic.log' and/or above output for details\n\nFailure to make 'academic.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1371,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 7,
+ "warnings": 1,
+ "firstError": "Missing $ inserted.",
+ "outcome": "both-fail"
+}

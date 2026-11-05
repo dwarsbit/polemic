@@ -1,0 +1,31 @@
+{
+ "id": 234,
+ "source": "GitHub",
+ "name": "Morimiue/latex-talk",
+ "url": "https://github.com/Morimiue/latex-talk",
+ "type": "Slides",
+ "version": "4c75b4dfe838fd7e01f18d24d3285ab2a6056747",
+ "files": 36,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 33403,
+  "tail": "exit 12, PDF not found\n  Missing character: There is no 零 (U+96F6) in font [LibertinusSerif-Regular.otf]\n  Missing character: There is no 零 (U+96F6) in font [LibertinusSerif-Regular.otf]/OT:script=latn;language=dflt;+hv-kern;+tnum;+lnum;mapping=tex-text;!\n  Missing character: There is no 零 (U+96F6) in font [LibertinusSerif-Regular.otf]\n  Missing character: There is no 零 (U+96F6) in font [LibertinusSerif-Regular.otf]/OT:script=latn;language=dflt;+hv-kern;+tnum;+lnum;mapping=tex-text;!\n  Missing character: There is no 论 (U+8BBA) in font [LibertinusSerif-Bold.otf]/OT\n  Missing character: There is no 论 (U+8BBA) in font [LibertinusSerif-Bold.otf]/OT:script=latn;language=dflt;+hv-kern;+tnum;+lnum;mapping=tex-text;!\n  Missing character: There is no 文 (U+6587) in font [LibertinusSerif-Bold.otf]/OT\n And 13 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 16523,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 6,
+ "warnings": 6,
+ "firstError": "Package fontspec Error: The font \"Noto Serif CJK SC SemiBold\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

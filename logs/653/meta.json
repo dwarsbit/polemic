@@ -1,0 +1,33 @@
+{
+ "id": 653,
+ "source": "arXiv",
+ "name": "arXiv:1206.0219",
+ "url": "https://arxiv.org/abs/1206.0219",
+ "type": "Paper",
+ "version": "1206.0219",
+ "files": 1,
+ "main": "1206.0219.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "1206.0219.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 7166,
+  "tail": "exit 12, PDF found\nOutput written on bbm10.657gf (58 characters, 18468 bytes).\nTranscript written on bbm10.log.\nmktexpk: /cache/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk: successfully generated.\nLatexmk: Missing input file '1206.0219.toc' message in .log file:\n  No file 1206.0219.toc.\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  ! LaTeX Error: Unicode character ‎ (U+200E)\n  ! LaTeX Error: Unicode character ‎ (U+200E)"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 3020,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 1,
+ "firstError": "LaTeX Error: Unicode character ‎ (U+200E)",
+ "outcome": "both-fail"
+}

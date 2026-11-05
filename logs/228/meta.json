@@ -1,0 +1,31 @@
+{
+ "id": 228,
+ "source": "GitHub",
+ "name": "KusaReMKN/slide-20250221",
+ "url": "https://github.com/KusaReMKN/slide-20250221",
+ "type": "Slides",
+ "version": "ddea119332c449607c729764f644ccdd420dc20e",
+ "files": 22,
+ "main": "slide.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "slide.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 942,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'slide.log' and/or above output for details\n\nLatexmk: Missing input file 'beamerthemeMetropolis.sty' message in .log file:\n  ! LaTeX Error: File `beamerthemeMetropolis.sty' not found.\nFailure to make 'slide.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 692,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `beamerthemeMetropolis.sty' not found.",
+ "outcome": "both-fail"
+}

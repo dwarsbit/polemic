@@ -1,0 +1,90 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package glossaries Warning: No language module detected for `nil'. Language modules need to be installed separately. Please check on CTAN for a bundle called `glossaries-undetermined' or similar",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "report.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 14.49998pt, for example: \\setlength{\\headheight}{14.49998pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-2.49998pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "report.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (0.0pt): Make it at least 14.49998pt, for example: \\setlength{\\headheight}{14.49998pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-14.49998pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU/ppl/b/n' undefined using `TU/lmr/m/n' instead on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": 8,
+  "message": "Package natbib Warning: Citation `Eigen1971' on page 2 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": 8,
+  "message": "Package natbib Warning: Citation `Knuth1968' on page 2 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "report.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation(s) may have changed. Rerun to get citations correct",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "report.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "report.tex",
+  "line": null,
+  "message": "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "report.tex",
+  "line": null,
+  "message": "Package rerunfilecheck Warning: File `report.out' has changed. Rerun to get outlines right or use package `bookmark'",
+  "detail": [],
+  "hint": null
+ }
+]

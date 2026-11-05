@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": "template-letter.tex",
+  "line": 3,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `$if(documentclass)$$documentclass$$else$letter$endif$.cls' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template-letter.tex",
+  "line": 8,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ }
+]

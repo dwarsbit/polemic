@@ -1,0 +1,31 @@
+{
+ "id": 642,
+ "source": "arXiv",
+ "name": "arXiv:hep-th/0503010",
+ "url": "https://arxiv.org/abs/hep-th/0503010",
+ "type": "Paper",
+ "version": "hep-th/0503010",
+ "files": 6,
+ "main": "hk2-plb.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "hk2-plb.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1688
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1198,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

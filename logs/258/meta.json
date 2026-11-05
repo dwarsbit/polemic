@@ -1,0 +1,31 @@
+{
+ "id": 258,
+ "source": "GitHub",
+ "name": "jopetty/lecture-notes",
+ "url": "https://github.com/jopetty/lecture-notes",
+ "type": "Notes",
+ "version": "068ba5af3233663aa1368fc43ffc8f64ba1c0b9e",
+ "files": 102,
+ "main": "MATH-350/notes.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "MATH-350/notes.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 792,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'notes.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'notes.log' and/or above output for details\n\nLatexmk: Missing input file 'lnotes.cls' message in .log file:\n  ! LaTeX Error: File `lnotes.cls' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 187,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `lnotes.cls' not found.",
+ "outcome": "both-fail"
+}

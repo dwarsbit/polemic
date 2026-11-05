@@ -1,0 +1,186 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `install/tudscr-metrics.dtx' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "source/tudscrsource.tex",
+  "line": 97,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscrsource.tex",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-version.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-base.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-fonts.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-fields.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-localization.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-area.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-pagestyle.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-layout.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-title.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-frontmatter.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-comp.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-misc.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-color.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-supervisor.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-twocolfix.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-mathswap.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "source/tudscrsource.tex",
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-manual.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-doc.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for tudscr-texindy.dtx",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tudscr-gitinfo Warning: No git info found for install/tudscr-metrics.tex",
+  "detail": [],
+  "hint": null
+ }
+]

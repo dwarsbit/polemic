@@ -1,0 +1,10 @@
+{
+ "id": 1005,
+ "source": "CTAN",
+ "name": "foiltex",
+ "url": "https://ctan.org/pkg/foiltex",
+ "type": "Slides",
+ "version": "2.1.4b",
+ "files": 5,
+ "outcome": "no-tex"
+}

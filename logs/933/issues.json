@@ -1,0 +1,58 @@
+[
+ {
+  "severity": "warning",
+  "file": "examples/mwe-latex.tex",
+  "line": 79,
+  "message": "LaTeX Font Warning: Font shape `OT1/\\familydefault /b/n' undefined using `OT1/\\familydefault /bx/n' instead on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "examples/mwe-latex.tex",
+  "line": 91,
+  "message": "LaTeX Font Warning: Font shape `OT1/\\familydefault /b/n' undefined using `OT1/\\familydefault /bx/n' instead on input line 91",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "examples/mwe-latex.tex",
+  "line": 94,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10> not available Font shape `OT1/cmr/m/sc' tried instead on input line 94",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "examples/mwe-latex.tex",
+  "line": 103,
+  "message": "LaTeX Font Warning: Font shape `OT1/\\familydefault /b/n' undefined using `OT1/\\familydefault /bx/n' instead on input line 103",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "examples/mwe-latex.tex",
+  "line": 111,
+  "message": "LaTeX Font Warning: Font shape `OT1/\\familydefault /b/n' undefined using `OT1/\\familydefault /bx/n' instead on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "examples/mwe-latex.tex",
+  "line": 126,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <50> not available size <24.88> substituted on input line 126",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "examples/mwe-latex.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 25.12pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

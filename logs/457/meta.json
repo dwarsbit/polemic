@@ -1,0 +1,31 @@
+{
+ "id": 457,
+ "source": "GitHub",
+ "name": "PetarV-/TikZ",
+ "url": "https://github.com/PetarV-/TikZ",
+ "type": "Figures",
+ "version": "86aee049f5355d77c598b936399e42caf8941e60",
+ "files": 133,
+ "main": "1D-2D cross-connection/1d-2d_cross-connection.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "1D-2D cross-connection/1d-2d_cross-connection.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 982
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 773,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,32 @@
+{
+ "id": 401,
+ "source": "GitHub",
+ "name": "FAIMS/FAIMS3-Report-LaTeX-Template",
+ "url": "https://github.com/FAIMS/FAIMS3-Report-LaTeX-Template",
+ "type": "Report",
+ "version": "02078440c9fddc04a1531e0d1aa2d9ce739665b1",
+ "files": 23,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 10915
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 6385,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

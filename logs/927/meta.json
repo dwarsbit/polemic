@@ -1,0 +1,9 @@
+{
+ "id": 927,
+ "source": "CTAN",
+ "name": "ustcthesis",
+ "url": "https://ctan.org/pkg/ustcthesis",
+ "type": "Thesis",
+ "outcome": "download-failed",
+ "error": "CTAN has no download for this package"
+}

@@ -1,0 +1,32 @@
+{
+ "id": 208,
+ "source": "GitHub",
+ "name": "demanasta/pres-templates",
+ "url": "https://github.com/demanasta/pres-templates",
+ "type": "Slides",
+ "version": "bd1b462085e61d47346f8a79cf5cfc19f8c7c72d",
+ "files": 56,
+ "main": "lct_pres.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "lct_pres.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 506,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'lct_pres.log' and/or above output for details\n\nLatexmk: Missing input file 'beamerbasercs.sty' message in .log file:\n  ! LaTeX Error: File `beamerbasercs.sty' not found.\nFailure to make 'lct_pres.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 189,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `beamerbasercs.sty' not found.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,33 @@
+{
+ "id": 170,
+ "source": "GitHub",
+ "name": "lthms/manuscript",
+ "url": "https://github.com/lthms/manuscript",
+ "type": "Paper",
+ "version": "e019cc96ab1a72df47eac014867aa423e356b0f5",
+ "files": 58,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 61948,
+  "tail": "exit 12, PDF found\nNothing written in main.ind.\nTranscript written in main.ilg.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Label `needreuse' multiply defined\n  Label `needreduce' multiply defined"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 13869,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 65,
+ "warnings": 35,
+ "firstError": "Package acro Error: You tried to set the property `class' on line 5. This property does not exist. Check for a typo or define the property yourself.",
+ "outcome": "both-fail"
+}

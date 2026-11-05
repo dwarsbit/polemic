@@ -1,0 +1,31 @@
+{
+ "id": 162,
+ "source": "GitHub",
+ "name": "tugLatexTemplates/cv_simple_tex",
+ "url": "https://github.com/tugLatexTemplates/cv_simple_tex",
+ "type": "Paper",
+ "version": "99ede89c14ffacae497fed39946c9b503d5d816a",
+ "files": 12,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2585
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1896,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

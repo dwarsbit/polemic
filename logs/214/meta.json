@@ -1,0 +1,31 @@
+{
+ "id": 214,
+ "source": "GitHub",
+ "name": "TJ-CSCCG/Tongji-Beamer",
+ "url": "https://github.com/TJ-CSCCG/Tongji-Beamer",
+ "type": "Slides",
+ "version": "11785fd272d101f01ba1f7b764d29d02b2e6a338",
+ "files": 21,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 16149,
+  "tail": "exit 12, PDF not found\nLatexmk: Using biber to make bibliography file(s).\n\nkpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 1+57/600 --dpi 657 uniyou92\nmktexpk: don't know how to create bitmap font for uniyou92.\nmktexpk: perhaps uniyou92 is missing from the map file.\nkpathsea: Appending font creation commands to missfont.log.\nLatexmk: Using biber to make bibliography file(s).\nFailure to make 'main.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2419,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 6,
+ "warnings": 2,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

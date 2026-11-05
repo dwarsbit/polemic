@@ -1,0 +1,61 @@
+[
+ {
+  "severity": "error",
+  "file": "absender.lco",
+  "line": 79,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.79 \\@setplength",
+   "                 {sigbeforevskip}{0pt}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "absender.lco",
+  "line": 79,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class scrlttr2 Warning: loading of LCO via class option `absender'. Note: Loading a LCO via class option is deprecated. You should use `\\LoadLetterOption{absender}' instead",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "absender.lco",
+  "line": 6,
+  "message": "Class scrlttr2 Warning: Usage of package `parskip' together with a KOMA-Script class is not recommended. I'd suggest to use option `parskip' with one of it's several values. Nevertheless, using requested package `parskip' on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "brief.tex",
+  "line": 13,
+  "message": "Package hyperref Warning: Values of option `pdfpagemode': * `UseNone' * `UseOutlines' * `UseThumbs' * `FullScreen' * `UseOC' (PDF 1.5) * `UseAttachments' (PDF 1.6) * An empty value disables the option. Unknown value `None' on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "brief.tex",
+  "line": null,
+  "message": "Package ocgx2 Warning: Rerun to get OCG references right!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "brief.tex",
+  "line": null,
+  "message": "LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (1 not 3). Rerun to correct this",
+  "detail": [],
+  "hint": null
+ }
+]

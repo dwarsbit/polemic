@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "cleanthesis.sty",
+  "line": 693,
+  "message": "Class scrreprt Warning: Usage of package `tocloft' together with a KOMA-Script class is not recommended. I'd suggest to use options like `listof=entryprefix', commands like `\\listoflofentryname' or `\\listoflotentryname', and `\\DeclareTOCStyleEntry' or `\\RedeclareSectionCommand' instead of this package, because it breaks several KOMA-Script features of the list of figures, list of tables and table of contents, i.e., options like `listof=numbered', `listof=flat or `toc=flat', commands like `\\BeforeTOCHead{...}' and `\\AfterTOCHead{...}', `\\BeforeStartingTOC{...}' and \\AfterStartingTOC{...}', all features of `\\DeclareTOCStyleEntry', and the ToC entry features of `\\DeclareSecionCommand' and `\\RedeclareSectionCommand' of levels `part', `section', `subsection', `subsubsection', `paragraph' and `subparagraph'. Nevertheless, using requested package `tocloft' on input line 693",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "my-thesis.tex",
+  "line": 95,
+  "message": "Package biblatex Warning: Option 'resetnumbers' requires 'defernumbers=true'. Ignoring 'resetnumbers=true' on input line 95",
+  "detail": [],
+  "hint": null
+ }
+]

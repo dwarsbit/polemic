@@ -1,0 +1,31 @@
+{
+ "id": 506,
+ "source": "arXiv",
+ "name": "arXiv:2611.03124",
+ "url": "https://arxiv.org/abs/2611.03124",
+ "type": "Paper",
+ "version": "2611.03124",
+ "files": 13,
+ "main": "m_positivity_three_blocks__1_.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "m_positivity_three_blocks__1_.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5573
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3110,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

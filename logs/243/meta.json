@@ -1,0 +1,32 @@
+{
+ "id": 243,
+ "source": "GitHub",
+ "name": "shuyong/study-notes-math",
+ "url": "https://github.com/shuyong/study-notes-math",
+ "type": "Notes",
+ "version": "8b07598c4d9859d77aeabb2ed19b3882f3ccfe3e",
+ "files": 1296,
+ "main": "Lie/1104.1106/_IvLie.tex",
+ "catalogMain": "Lie/1906.07795/main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "Lie/1906.07795/main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 153651,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 李 (U+674E) in font [lmroman17-regular]:mapping=t\n  Missing character: There is no 李 (U+674E) in font [lmroman17-regular]:mapping=tex-text;!\n  Missing character: There is no 代 (U+4EE3) in font [lmroman17-regular]:mapping=t\n  Missing character: There is no 代 (U+4EE3) in font [lmroman17-regular]:mapping=tex-text;!\n  Missing character: There is no 数 (U+6570) in font [lmroman17-regular]:mapping=t\n  Missing character: There is no 数 (U+6570) in font [lmroman17-regular]:mapping=tex-text;!\n  Missing character: There is no 中 (U+4E2D) in font [lmroman17-regular]:mapping=t\n And 28628 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 35780,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 16,
+ "warnings": 2,
+ "firstError": "Font TU/FZShuSong-Z01(0)/m/n/17.28=FZShuSong-Z01/OT at 17.28pt not loadable: Metric (TFM) file or installed font not found.",
+ "outcome": "both-fail"
+}

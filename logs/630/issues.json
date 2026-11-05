@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "MA_PortSel_RPred.tex",
+  "line": 377,
+  "message": "Package amsmath Warning: Bracket group [\\mathbf R_{\\rm ref}] at formula start! It could be a misspelled positional argument. If it belongs to the formula add a \\relax in front to hide it on input line 377",
+  "detail": [],
+  "hint": null
+ }
+]

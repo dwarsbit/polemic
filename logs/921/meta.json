@@ -1,0 +1,31 @@
+{
+ "id": 921,
+ "source": "CTAN",
+ "name": "univie-ling",
+ "url": "https://ctan.org/pkg/univie-ling",
+ "type": "Thesis",
+ "version": "2.9",
+ "files": 55,
+ "main": "doc/univie-ling-bbx.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/univie-ling-bbx.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2166
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1868,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

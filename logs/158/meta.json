@@ -1,0 +1,33 @@
+{
+ "id": 158,
+ "source": "GitHub",
+ "name": "christopherL91/acm-conference-paper-pandoc-boilerplate",
+ "url": "https://github.com/christopherL91/acm-conference-paper-pandoc-boilerplate",
+ "type": "Paper",
+ "version": "0c6f431fb91b7b15f53b9803434ebc6c5566d622",
+ "files": 12,
+ "main": "proceedings.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "proceedings.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1414,
+  "tail": "exit 12, PDF found\nLatexmk: Getting log file 'proceedings.log'\nLatexmk: Examining 'proceedings.fls'\nLatexmk: Examining 'proceedings.log'\nLatexmk: Log file says output to 'proceedings.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'proceedings.log' and/or above output for details"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 636,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 4,
+ "firstError": "Package enumitem Error: Misplaced \\item.",
+ "outcome": "both-fail"
+}

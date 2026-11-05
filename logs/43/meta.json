@@ -1,0 +1,31 @@
+{
+ "id": 43,
+ "source": "GitHub",
+ "name": "pavelkryukov/miptlatex",
+ "url": "https://github.com/pavelkryukov/miptlatex",
+ "type": "Thesis",
+ "version": "41a2920481fff05a4ba1b943d664a57b2ed3d2b1",
+ "files": 50,
+ "main": "configs/config.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "configs/config.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1618,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'config.fls'\nLatexmk: Examining 'config.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'config.log' and/or above output for details\n\nFailure to make 'config.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1311,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 1,
+ "firstError": "Emergency stop.",
+ "outcome": "both-fail"
+}

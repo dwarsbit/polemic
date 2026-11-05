@@ -1,0 +1,34 @@
+{
+ "id": 215,
+ "source": "GitHub",
+ "name": "leithaus/talks",
+ "url": "https://github.com/leithaus/talks",
+ "type": "Slides",
+ "version": "1b324569616a0f90d689b1b14c27401c8d90440c",
+ "files": 839,
+ "main": "common/example.tex",
+ "catalogMain": "knots2/papers/knots2pi/master.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "knots2/papers/knots2pi/master.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1856,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'master.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'master.log' and/or above output for details\n\nLatexmk: Missing input file 'bcprules.sty' message in .log file:\n  ! LaTeX Error: File `bcprules.sty' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 814,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 7,
+ "firstError": "Package pdftex.def Error: File `chess-eps-converted-to.pdf' not found: using draft setting.",
+ "outcome": "both-fail"
+}

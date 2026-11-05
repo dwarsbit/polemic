@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `pagecolor' is not available anymore",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Encore.tex",
+  "line": 30,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Encore.tex",
+  "line": 231,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 231",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Encore.tex",
+  "line": 258,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 258",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Encore.tex",
+  "line": 258,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 258",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Encore.tex",
+  "line": 258,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\rightarrow' on input line 258",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Encore.tex",
+  "line": 455,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 455",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Encore.tex",
+  "line": 455,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 455",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": "cumtthesis.cls",
+  "line": 54,
+  "message": "Class cumtthesis Error: XeLaTeX is required.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Invalid value `000' for option `pdfborder'. Option setting is ignored on input line 4070",
+  "detail": [],
+  "hint": null
+ }
+]

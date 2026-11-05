@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "File ended while scanning use of \\course.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `../cheatsheet', but the document class provides `cheatsheet'",
+  "detail": [],
+  "hint": null
+ }
+]

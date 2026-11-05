@@ -1,0 +1,32 @@
+{
+ "id": 908,
+ "source": "CTAN",
+ "name": "thuthesis",
+ "url": "https://ctan.org/pkg/thuthesis",
+ "type": "Thesis",
+ "version": "7.7.1",
+ "files": 33,
+ "main": "thuthesis-example.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "thuthesis-example.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 67783
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 67395,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

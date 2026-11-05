@@ -1,0 +1,32 @@
+{
+ "id": 338,
+ "source": "GitHub",
+ "name": "mcchran/lean_cv",
+ "url": "https://github.com/mcchran/lean_cv",
+ "type": "CV",
+ "version": "a1d3a58d752cbfbe3dbf2d2a8f89f2a8eafea59e",
+ "files": 10,
+ "main": "template.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "template.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2583,
+  "tail": "exit 12, PDF found\ntemplate.xdv -> template.pdf\n[1]\n64340 bytes written\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Missing character: There is no  (\"F10B) in font nullfont!\n  Missing character: There is no  (\"F0AC) in font nullfont!\n  Missing character: There is no  (\"F003) in font nullfont!\n  Missing character: There is no  (\"F0E1) in font nullfont!"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 191,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/template.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

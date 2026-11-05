@@ -1,0 +1,31 @@
+{
+ "id": 965,
+ "source": "CTAN",
+ "name": "nature",
+ "url": "https://ctan.org/pkg/nature",
+ "type": "Paper",
+ "version": "1.0",
+ "files": 4,
+ "main": "nature-template.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "nature-template.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 860
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 594,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

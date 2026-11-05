@@ -1,0 +1,32 @@
+{
+ "id": 93,
+ "source": "GitHub",
+ "name": "huangwb8/ChineseResearchLaTeX",
+ "url": "https://github.com/huangwb8/ChineseResearchLaTeX",
+ "type": "Paper",
+ "version": "3022b19f3bcc6b085e1cd636c81aa2f59a6f70e1",
+ "files": 1387,
+ "main": "projects/cv-01/main-en.tex",
+ "catalogMain": "projects/GDNSF_General/main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "projects/GDNSF_General/main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 91320,
+  "tail": "exit 12, PDF not found\n  Missing character: There is no 广 (\"5E7F) in font nullfont!\n  Missing character: There is no 东 (\"4E1C) in font nullfont!\n  Missing character: There is no 省 (\"7701) in font nullfont!\n  Missing character: There is no 自 (\"81EA) in font nullfont!\n  Missing character: There is no 然 (\"7136) in font nullfont!\n  Missing character: There is no 科 (\"79D1) in font nullfont!\n  Missing character: There is no 学 (\"5B66) in font nullfont!\n And 221 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 285,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `bensz-cv.cls' not found.",
+ "outcome": "both-fail"
+}

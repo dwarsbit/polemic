@@ -1,0 +1,33 @@
+{
+ "id": 949,
+ "source": "CTAN",
+ "name": "aguplus",
+ "url": "https://ctan.org/pkg/aguplus",
+ "type": "Paper",
+ "version": "1.6b",
+ "files": 15,
+ "main": "aguplus.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "aguplus.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 982,
+  "tail": "exit 12, PDF found\n  Latex failed to resolve 1 reference(s)\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'aguplus.log' and/or above output for details\n\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Reference `tab:coords' on page 6 undefined on input line 659"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 453,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 9,
+ "warnings": 1,
+ "firstError": "Extra }, or forgotten $.",
+ "outcome": "both-fail"
+}

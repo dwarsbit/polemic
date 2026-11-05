@@ -1,0 +1,31 @@
+{
+ "id": 224,
+ "source": "GitHub",
+ "name": "aaronbaggett/youngmetro",
+ "url": "https://github.com/aaronbaggett/youngmetro",
+ "type": "Slides",
+ "version": "3e5fa223601fe0c3827448424b3c7d9dcb7021ac",
+ "files": 19,
+ "main": "inst/rmarkdown/templates/metro_beamer/resources/template.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "inst/rmarkdown/templates/metro_beamer/resources/template.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 566,
+  "tail": "exit 12, PDF not found\n      Refer to 'template.log' and/or above output for details\n\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nLatexmk: Missing input file '$documentclass$.cls' message in .log file:\n  ! LaTeX Error: File `$documentclass$.cls' not found.\nFailure to make 'template.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 289,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `$documentclass$.cls' not found.",
+ "outcome": "both-fail"
+}

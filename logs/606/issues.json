@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 34,
+  "message": "LaTeX Error: Command \\c@lemma already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 36,
+  "message": "LaTeX Error: Command \\c@observation already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 37,
+  "message": "LaTeX Error: Command \\c@conjecture already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 38,
+  "message": "LaTeX Error: Command \\c@question already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 39,
+  "message": "LaTeX Error: Command \\c@corollary already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 41,
+  "message": "LaTeX Error: Command \\c@definition already defined.",
+  "detail": [],
+  "hint": null
+ }
+]

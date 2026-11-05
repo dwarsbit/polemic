@@ -1,0 +1,938 @@
+[
+ {
+  "severity": "error",
+  "file": "doc/french/gzt-fr.tex",
+  "line": 113,
+  "message": "LaTeX Error: File `./denis' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package newunicodechar Warning: Redefining Unicode character on input line 1506",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package newunicodechar Warning: Redefining Unicode character on input line 1507",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/french/gzt-fr.tex",
+  "line": null,
+  "message": "Package etoc Warning: Package `tocvsec2' detected and its modification of \\tableofcontents reverted.  Use \\etocsettocdepth.toc as a replacement for `tocvsec2' toc-related commands",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/french/gzt-fr.tex",
+  "line": 84,
+  "message": "Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \\pgfplotsset{compat=1.18} into your preamble. on input line 84",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/french/gzt-fr.tex",
+  "line": 102,
+  "message": "LaTeX Font Warning: Font shape `U/esvect/m/n' in size <20> not available size <20.74> substituted on input line 102",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/french/gzt-fr.tex",
+  "line": 102,
+  "message": "LaTeX Font Warning: Font shape `U/esvect/m/n' in size <15.19989> not available size <14.4> substituted on input line 102",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 61",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package marginnote Warning: Consecutive even pages found. Note, it is not recommended to use consecutive even pages in a double-ended document. The pages of your document should always be a sequence: odd-even-odd-even-... Maybe you've forgotten a \\cleardoublepage before changing the page numbering on page 2",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `sec-comm-oblig' on page 3 undefined on input line 83",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:title' on page 3 undefined on input line 94",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:subtitle' on page 3 undefined on input line 94",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:short' on page 3 undefined on input line 96",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:maketitle' on page 3 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:author' on page 3 undefined on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:maketitle' on page 4 undefined on input line 148",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:author' on page 4 undefined on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:affiliation' on page 4 undefined on input line 165",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:photo' on page 4 undefined on input line 165",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:email' on page 4 undefined on input line 165",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:webpage' on page 4 undefined on input line 165",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:minibio' on page 4 undefined on input line 166",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 185",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:affiliation' on page 5 undefined on input line 210",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:minibio' on page 5 undefined on input line 210",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:email' on page 5 undefined on input line 215",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:webpage' on page 5 undefined on input line 216",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:url' on page 5 undefined on input line 217",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:printauthorsdetails' on page 5 undefined on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:printbibliography' on page 5 undefined on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:acknowledgements' on page 5 undefined on input line 227",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:maketitle' on page 5 undefined on input line 256",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `sec-comm-oblig' on page 5 undefined on input line 258",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:title' on page 6 undefined on input line 262",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:subtitle' on page 6 undefined on input line 263",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:author' on page 6 undefined on input line 266",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:abstract' on page 6 undefined on input line 267",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:surname' on page 6 undefined on input line 272",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:enquote' on page 6 undefined on input line 272",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:affiliation' on page 7 undefined on input line 325",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:photo' on page 7 undefined on input line 325",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:email' on page 7 undefined on input line 325",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:webpage' on page 7 undefined on input line 325",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:minibio' on page 7 undefined on input line 326",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:acknowledgements' on page 7 undefined on input line 327",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:printbibliography' on page 7 undefined on input line 334",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:printauthorsdetails' on page 7 undefined on input line 335",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:author' on page 7 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:academicsignature' on page 7 undefined on input line 348",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:author' on page 7 undefined on input line 361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:maketitle' on page 7 undefined on input line 362",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:academicsignature' on page 7 undefined on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:question' on page 7 undefined on input line 372",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:abstract' on page 8 undefined on input line 410",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztfigure' on page 8 undefined on input line 442",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztfigure*' on page 8 undefined on input line 442",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gzttable' on page 8 undefined on input line 443",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gzttable*' on page 8 undefined on input line 443",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztframe' on page 8 undefined on input line 446",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztframe*' on page 8 undefined on input line 446",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 491",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztframe' on page 9 undefined on input line 590",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztframe*' on page 9 undefined on input line 590",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:vref' on page 9 undefined on input line 591",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:copyright' on page 9 undefined on input line 593",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:title' on page 10 undefined on input line 655",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:title' on page 10 undefined on input line 656",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztfigure' on page 10 undefined on input line 661",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztfigure*' on page 10 undefined on input line 661",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gzttable' on page 10 undefined on input line 662",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gzttable*' on page 10 undefined on input line 662",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztframe' on page 10 undefined on input line 664",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztframe*' on page 10 undefined on input line 664",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 678",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:printbibliography' on page 11 undefined on input line 709",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `sec-auteurs-details' on page 11 undefined on input line 722",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:surname' on page 12 undefined on input line 777",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 818",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:newtheorem' on page 14 undefined on input line 960",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 989",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:newtheorem' on page 16 undefined on input line 1064",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:frenchtitle' on page 16 undefined on input line 1080",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:englishtitle' on page 16 undefined on input line 1081",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:style' on page 16 undefined on input line 1081",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 1115",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztcode' on page 17 undefined on input line 1124",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:gztverb' on page 17 undefined on input line 1125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztcode' on page 17 undefined on input line 1143",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:listing and text' on page 18 undefined on input line 1169",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:listing and text' on page 18 undefined on input line 1170",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztcode' on page 19 undefined on input line 1202",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztcode' on page 19 undefined on input line 1205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztcode' on page 19 undefined on input line 1210",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztcode' on page 19 undefined on input line 1211",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:listing options' on page 19 undefined on input line 1214",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:gztcode' on page 19 undefined on input line 1218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:enquote' on page 20 undefined on input line 1283",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 1286",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:url' on page 21 undefined on input line 1314",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:vref' on page 22 undefined on input line 1346",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:epigraph' on page 22 undefined on input line 1371",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:epigraph' on page 22 undefined on input line 1388",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 1434",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `com:author' on page 25 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `env:abstract' on page 25 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `sec-comm-oblig' on page 25 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/lmtt/b/it' in size <10> not available Font shape `T1/lmtt/b/sl' tried instead on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:freekey' on page 26 undefined on input line 110",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:freekey' on page 26 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:choicekey' on page 26 undefined on input line 115",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Hyper reference `key:choicekey' on page 26 undefined on input line 120",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/french/gzt-fr.tex",
+  "line": 113,
+  "message": "LaTeX Font Warning: Font shape `T1/jkpss/b/scit' undefined using `T1/jkpss/b/scsl' instead on input line 113",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package mparhack Warning: Marginpars may have changed. Rerun to get them right",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/french/gzt-fr.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.7999pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

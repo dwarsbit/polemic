@@ -1,0 +1,1610 @@
+[
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 9,
+  "message": "Package fontspec Error: The font \"Courier New\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 193,
+  "message": "Font TU/CourierNew(0)/m/n/10.95=\"Courier New\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "Font TU/CourierNew(0)/m/n/9=\"Courier New\" at 9.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character :).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character /).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character w).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character j).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 198,
+  "message": "\\textfont 0 is undefined (character g).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character :).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character /).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character g).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character u).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character d).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 201,
+  "message": "\\textfont 0 is undefined (character v).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character :).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character /).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character g).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character u).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character j).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character z).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 204,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character :).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character /).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character g).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character u).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character d).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 207,
+  "message": "\\textfont 0 is undefined (character v).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character v).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 226,
+  "message": "\\textfont 0 is undefined (character y).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character v).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 232,
+  "message": "Font TU/CourierNew(0)/b/n/10.95=\"Courier New\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 232,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 232,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 232,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 232,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 232,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 232,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 232,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 232,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 232,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 232,
+  "message": "\\textfont 0 is undefined (character v).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 232,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 233,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 233,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 233,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 233,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 233,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 233,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 233,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 233,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 233,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 233,
+  "message": "\\textfont 0 is undefined (character v).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 233,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 234,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 234,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 234,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 234,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 234,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 234,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 234,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 234,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 234,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 234,
+  "message": "\\textfont 0 is undefined (character v).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 234,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 235,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 235,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 235,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 235,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 235,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 235,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 235,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 235,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 235,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 235,
+  "message": "\\textfont 0 is undefined (character v).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 235,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 235,
+  "message": "\\textfont 0 is undefined (character d).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character v).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 236,
+  "message": "\\textfont 0 is undefined (character y).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 237,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 237,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 237,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 237,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 237,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 237,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 237,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 237,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 237,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 237,
+  "message": "\\textfont 0 is undefined (character v).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 237,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 238,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 238,
+  "message": "\\textfont 0 is undefined (character v).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 238,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 238,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 238,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 238,
+  "message": "\\textfont 0 is undefined (character x).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 238,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 238,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 238,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 238,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/biblatex-cv.tex",
+  "line": 238,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package typearea Warning: Deprecated option `DIV9' ignored, because `version=first' not set. Note: To avoid this warning and achieve the desired functionality, you should use the `DIV=9' option instead of the `DIV9' option, which has been deprecated for more than 20 years",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `bookmarks' has already been used, setting the option has no effect on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `hyperfootnotes' has already been used, setting the option has no effect on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `pdfpagelabels' has already been used, setting the option has no effect on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/biblatex-cv.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/biblatex-cv.tex",
+  "line": 186,
+  "message": "Package microtype Warning: Unable to apply patch `item' on input line 186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: File 'english-cv.lbx' not found! Ignoring mapping 'english' -> 'english-cv'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/biblatex-cv.tex",
+  "line": 231,
+  "message": "LaTeX Font Warning: Font shape `TU/CourierNew(0)/b/n' undefined using `TU/CourierNew(0)/m/n' instead on input line 231",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/biblatex-cv.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

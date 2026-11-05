@@ -1,0 +1,32 @@
+{
+ "id": 306,
+ "source": "GitHub",
+ "name": "ShaneLogic/TAKE-NOTES",
+ "url": "https://github.com/ShaneLogic/TAKE-NOTES",
+ "type": "Book",
+ "version": "2b2cb9b3f979b7906b95375eea4fb51b7c15e722",
+ "files": 14,
+ "main": "logbook.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "logbook.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12401
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 8155,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 8,
+ "outcome": "both-ok"
+}

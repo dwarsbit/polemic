@@ -1,0 +1,31 @@
+{
+ "id": 5,
+ "source": "GitHub",
+ "name": "akira-okumura/MasterThesisTemplate",
+ "url": "https://github.com/akira-okumura/MasterThesisTemplate",
+ "type": "Thesis",
+ "version": "e6f9706234d5cb5bc26eb253560b545be71e9d35",
+ "files": 44,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3125,
+  "tail": "exit 12, PDF not found\n  ! LaTeX Error: Unicode character 年 (U+5E74)\n  ! LaTeX Error: Unicode character 度 (U+5EA6)\n  ! LaTeX Error: Unicode character 　 (U+3000)\n  ! LaTeX Error: Unicode character 修 (U+4FEE)\n  ! LaTeX Error: Unicode character 士 (U+58EB)\n  ! LaTeX Error: Unicode character 論 (U+8AD6)\n  ! LaTeX Error: Unicode character 文 (U+6587)\n And 281 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 777,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 187,
+ "warnings": 3,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

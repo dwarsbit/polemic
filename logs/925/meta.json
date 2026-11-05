@@ -1,0 +1,10 @@
+{
+ "id": 925,
+ "source": "CTAN",
+ "name": "xduts",
+ "url": "https://ctan.org/pkg/xduts",
+ "type": "Thesis",
+ "version": "6.2.7.2",
+ "files": 5,
+ "outcome": "no-tex"
+}

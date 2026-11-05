@@ -1,0 +1,9 @@
+{
+ "id": 889,
+ "source": "CTAN",
+ "name": "gatech-thesis",
+ "url": "https://ctan.org/pkg/gatech-thesis",
+ "type": "Thesis",
+ "outcome": "download-failed",
+ "error": "fetch failed"
+}

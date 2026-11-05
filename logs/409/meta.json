@@ -1,0 +1,25 @@
+{
+ "id": 409,
+ "source": "GitHub",
+ "name": "ZamDimon/University-Homeworks",
+ "url": "https://github.com/ZamDimon/University-Homeworks",
+ "type": "Homework",
+ "version": "e0b009da92112caef2f490c5108ef01320801877",
+ "files": 1517,
+ "main": "Bachelor Degree/Bachelor Thesis/diploma.tex",
+ "catalogMain": "Bachelor Degree/Bachelor Thesis/presentation/presentation.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Bachelor Degree/Bachelor Thesis/presentation/presentation.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 56522
+ },
+ "polemic": {
+  "http": 400,
+  "error": "{\"error\":\"invalid_project\",\"message\":\"the project is larger than 500000000 bytes\"}"
+ },
+ "outcome": "polemic-rejected"
+}

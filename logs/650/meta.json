@@ -1,0 +1,31 @@
+{
+ "id": 650,
+ "source": "arXiv",
+ "name": "arXiv:hep-th/0503025",
+ "url": "https://arxiv.org/abs/hep-th/0503025",
+ "type": "Paper",
+ "version": "hep-th/0503025",
+ "files": 9,
+ "main": "fstability.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "fstability.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 520,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'fstability.log' and/or above output for details\n\nLatexmk: Missing input file 'JHEP3.cls' message in .log file:\n  ! LaTeX Error: File `JHEP3.cls' not found.\nFailure to make 'fstability.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 179,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `JHEP3.cls' not found.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 419,
+ "source": "GitHub",
+ "name": "harvard-ml-courses/cs181-s25-homeworks",
+ "url": "https://github.com/harvard-ml-courses/cs181-s25-homeworks",
+ "type": "Homework",
+ "version": "49682e7fdaff129a040b93e611a82d5f64de2c69",
+ "files": 85,
+ "main": "hw0/hw0.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "hw0/hw0.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3010
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1346,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

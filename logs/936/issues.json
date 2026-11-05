@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "examples/komacv_example.tex",
+  "line": 135,
+  "message": "LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <35> not available size <35.83> substituted on input line 135",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "examples/komacv_example.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.83pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

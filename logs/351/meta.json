@@ -1,0 +1,31 @@
+{
+ "id": 351,
+ "source": "GitHub",
+ "name": "klb2/scientific-poster-template",
+ "url": "https://github.com/klb2/scientific-poster-template",
+ "type": "Poster",
+ "version": "5f7a72499bf4c842047a9a40225250a397b18845",
+ "files": 7,
+ "main": "poster.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "poster.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4007
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3208,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

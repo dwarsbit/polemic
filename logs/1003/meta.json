@@ -1,0 +1,33 @@
+{
+ "id": 1003,
+ "source": "CTAN",
+ "name": "prosper",
+ "url": "https://ctan.org/pkg/prosper",
+ "type": "Slides",
+ "version": "1.0h",
+ "files": 108,
+ "main": "contrib/gyom.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "contrib/gyom.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1350,
+  "tail": "exit 12, PDF found\nLatexmk: Getting log file 'gyom.log'\nLatexmk: Examining 'gyom.fls'\nLatexmk: Examining 'gyom.log'\nLatexmk: Log file says output to 'gyom.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'gyom.log' and/or above output for details"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 621,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 8,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

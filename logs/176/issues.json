@@ -1,0 +1,90 @@
+[
+ {
+  "severity": "error",
+  "file": "body.tex",
+  "line": 148,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body.tex",
+  "line": 148,
+  "message": "Missing \\endcsname inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body.tex",
+  "line": 148,
+  "message": "Argument of \\boolean has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body.tex",
+  "line": 148,
+  "message": "Paragraph ended before \\boolean was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body.tex",
+  "line": 148,
+  "message": "Argument of \\KVS@@CommaComma has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body.tex",
+  "line": 148,
+  "message": "Paragraph ended before \\KVS@@CommaComma was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body.tex",
+  "line": 150,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body.tex",
+  "line": 150,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "body.tex",
+  "line": 150,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ctex Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\@arrayparboxrestore  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ }
+]

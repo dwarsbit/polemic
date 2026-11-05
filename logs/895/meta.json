@@ -1,0 +1,33 @@
+{
+ "id": 895,
+ "source": "CTAN",
+ "name": "iodhbwm",
+ "url": "https://ctan.org/pkg/iodhbwm",
+ "type": "Thesis",
+ "version": "1.2.2",
+ "files": 60,
+ "main": "doc/iodhbwm.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/iodhbwm.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 24407,
+  "tail": "exit 12, PDF found\nLatexmk: Maximum runs of pdflatex reached without getting stable files\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  name{https://www.dhbw-mannheim.de/} has been referenced but does not exist, replaced by a fixed one\n----------------------\nThis message may duplicate earlier message.\nLatexmk: Failure in processing file 'iodhbwm.tex':\n   'pdflatex' needed too many passes\n----------------------"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 24510,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ],
+  "tail": "   'pdflatex' needed too many passes\n----------------------\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 74,
+ "outcome": "both-fail"
+}

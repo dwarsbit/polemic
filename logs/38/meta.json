@@ -1,0 +1,32 @@
+{
+ "id": 38,
+ "source": "GitHub",
+ "name": "erseco/ugr_tfg",
+ "url": "https://github.com/erseco/ugr_tfg",
+ "type": "Thesis",
+ "version": "1093dedaa7735e1979ba400416cfdd0b07160070",
+ "files": 155,
+ "main": "text/project.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "text/project.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 11052,
+  "tail": "exit 12, PDF found\n  No file project.toc.\nLatexmk: Important warning:\n  (\\end occurred inside a group at level 2)\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: Important warning:\n  (\\end occurred inside a group at level 2)\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Label `art_11' multiply defined"
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 6504,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 8,
+ "outcome": "baseline-only-fail"
+}

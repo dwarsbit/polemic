@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "dtk-bibliography.tex",
+  "line": 25,
+  "message": "LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined using `T1/cmr/m/scsl' instead on input line 25",
+  "detail": [],
+  "hint": null
+ }
+]

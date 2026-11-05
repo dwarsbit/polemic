@@ -1,0 +1,31 @@
+{
+ "id": 899,
+ "source": "CTAN",
+ "name": "msu-thesis",
+ "url": "https://ctan.org/pkg/msu-thesis",
+ "type": "Thesis",
+ "version": "4.3b",
+ "files": 15,
+ "main": "docs/msu-thesis.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "docs/msu-thesis.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2027
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1854,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

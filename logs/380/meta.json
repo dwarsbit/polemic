@@ -1,0 +1,32 @@
+{
+ "id": 380,
+ "source": "GitHub",
+ "name": "ufal/UFAL_poster",
+ "url": "https://github.com/ufal/UFAL_poster",
+ "type": "Poster",
+ "version": "876f3f58ddf991a03e4c47cd648f052dd004adb8",
+ "files": 10,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3755
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1155,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

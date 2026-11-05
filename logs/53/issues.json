@@ -1,0 +1,90 @@
+[
+ {
+  "severity": "error",
+  "file": "tesi.tex",
+  "line": 194,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tesi.tex",
+  "line": 194,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tesi.tex",
+  "line": 194,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `hyperref' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package pdfx Warning: Setting all color commands to rgb,",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package siunitx Warning: Option \"binary-units\" has been removed in this release",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package epstopdf Warning: Drivers other than `pdftex' and `luatex' are not supported",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tesi.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tesi.tex",
+  "line": 194,
+  "message": "Package microtype Warning: Unable to apply patch `footnote' on input line 194",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/1-frontmatter/frontespizio.tex",
+  "line": null,
+  "message": "Package frontespizio Warning: Missing file tesi-frn.pdf",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tesi.tex",
+  "line": null,
+  "message": "Package frontespizio Warning: Remember to compile tesi-frn with xelatex tesi-frn and then rerun xelatex",
+  "detail": [],
+  "hint": null
+ }
+]

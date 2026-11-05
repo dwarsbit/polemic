@@ -1,0 +1,25 @@
+{
+ "id": 186,
+ "source": "GitHub",
+ "name": "tuxtor/slides",
+ "url": "https://github.com/tuxtor/slides",
+ "type": "Slides",
+ "version": "053628512072cbc3e5e3636762b7048b0192142b",
+ "files": 2377,
+ "main": "12-factors/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "12-factors/main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 12625,
+  "tail": "exit 12, PDF found\nLatexmk: Log file says output to 'main.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main.log' and/or above output for details\n\nsh: 1: inkscape: not found\nsh: 1: inkscape: not found"
+ },
+ "polemic": {
+  "http": 400,
+  "error": "{\"error\":\"invalid_project\",\"message\":\"the project is larger than 500000000 bytes\"}"
+ },
+ "outcome": "polemic-rejected"
+}

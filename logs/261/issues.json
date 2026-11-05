@@ -1,0 +1,602 @@
+[
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 409,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 437,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 437,
+  "message": "Double subscript.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 643,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 659,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 659,
+  "message": "Missing { inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 659,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 665,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 675,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 675,
+  "message": "Double subscript.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 675,
+  "message": "Missing { inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 675,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 967,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 967,
+  "message": "Missing { inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 967,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1004,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1236,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1236,
+  "message": "Double subscript.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1247,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1247,
+  "message": "Double subscript.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1649,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1803,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1803,
+  "message": "Double subscript.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1803,
+  "message": "Missing { inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1803,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1803,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1949,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1949,
+  "message": "Double subscript.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1949,
+  "message": "Missing { inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1949,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1949,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1967,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 1982,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 2241,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 2301,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 2369,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 2383,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 2383,
+  "message": "Double subscript.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 2418,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 2695,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 2761,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "agda.lagda.tex",
+  "line": 2839,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ifplatform Warning: shell escape is disabled, so I can only detect \\ifwindows",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": 35,
+  "message": "Package newunicodechar Warning: Redefining Unicode character on input line 35",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": 36,
+  "message": "Package newunicodechar Warning: Redefining Unicode character on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": 37,
+  "message": "Package newunicodechar Warning: Redefining Unicode character on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": 63,
+  "message": "Package newunicodechar Warning: Redefining Unicode character on input line 63",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": 64,
+  "message": "Package newunicodechar Warning: Redefining Unicode character on input line 64",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": 107,
+  "message": "Package microtype Warning: Unable to apply patch `footnote' on input line 107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 2 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 3 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 4 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 5 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 6 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 7 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "agda.lagda.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 8 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 9 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 10 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 11 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 12 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 14 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 15 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 17 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 19 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 20 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 22 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 23 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 24 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 26 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 27 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 28 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 29 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 30 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 31 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 33 moved",
+  "detail": [],
+  "hint": null
+ }
+]

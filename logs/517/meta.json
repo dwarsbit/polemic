@@ -1,0 +1,32 @@
+{
+ "id": 517,
+ "source": "arXiv",
+ "name": "arXiv:2611.03571",
+ "url": "https://arxiv.org/abs/2611.03571",
+ "type": "Paper",
+ "version": "2611.03571",
+ "files": 5,
+ "main": "dilation_one_loop_draft.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "dilation_one_loop_draft.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4795
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4469,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

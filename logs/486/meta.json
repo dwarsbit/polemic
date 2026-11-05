@@ -1,0 +1,32 @@
+{
+ "id": 486,
+ "source": "arXiv",
+ "name": "arXiv:2611.05287",
+ "url": "https://arxiv.org/abs/2611.05287",
+ "type": "Paper",
+ "version": "2611.05287",
+ "files": 37,
+ "main": "iclr2026_conference.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "iclr2026_conference.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5304
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4717,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-ok"
+}

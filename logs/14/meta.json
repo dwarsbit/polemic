@@ -1,0 +1,32 @@
+{
+ "id": 14,
+ "source": "GitHub",
+ "name": "davyxx3/hhu-thesis-bachelor",
+ "url": "https://github.com/davyxx3/hhu-thesis-bachelor",
+ "type": "Thesis",
+ "version": "e49c25a3e49f32f57c3db34599fda4b70b794325",
+ "files": 19,
+ "main": "hhuthesis-example.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (latexmkrc)",
+ "baseline": {
+  "main": "hhuthesis-example.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 77813,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 1 (\"31) in font nullfont!\n  Missing character: There is no 8 (\"38) in font nullfont!\n  Missing character: There is no 1 (\"31) in font nullfont!\n  Missing character: There is no 2 (\"32) in font nullfont!\n  Missing character: There is no 1 (\"31) in font nullfont!\n  Missing character: There is no 0 (\"30) in font nullfont!\n  Missing character: There is no 0 (\"30) in font nullfont!\n And 1331 more --- see log file 'hhuthesis-example.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 354,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/hhuthesis-example.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

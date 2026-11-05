@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: No Cyrillic font encoding has been loaded so far. A font encoding should be declared before babel. Default `T2A' encoding will be loaded  on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package pstcol Warning: ************************************ The package `pstcol' is obsolet! You should use `pstricks' directly: \\usepackage{pstricks} ************************************",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `xypic', but the package provides `xy'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 785,
+  "message": "LaTeX Warning: Command \\CYRN invalid in math mode on input line 785",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 785,
+  "message": "LaTeX Warning: Command \\CYRO invalid in math mode on input line 785",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 785,
+  "message": "LaTeX Warning: Command \\CYRD invalid in math mode on input line 785",
+  "detail": [],
+  "hint": null
+ }
+]

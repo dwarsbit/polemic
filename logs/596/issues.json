@@ -1,0 +1,1114 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Class revtex4-2 Warning: Repair the float package",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 40,
+  "message": "Package natbib Warning: Citation `liuRecentDevelopmentsFractional2024' on page 1 undefined on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `kapitExactParentHamiltonian2010' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `qiGenericWaveFunctionDescription2011' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `regnaultFractionalChernInsulator2011' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `shengFractionalQuantumHall2011' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `tangHighTemperatureFractionalQuantum2011' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `neupertFractionalQuantumHall2011' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 43,
+  "message": "Package natbib Warning: Citation `zengThermodynamicEvidenceFractional2023' on page 1 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 43,
+  "message": "Package natbib Warning: Citation `caiSignaturesFractionalQuantum2023' on page 1 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 43,
+  "message": "Package natbib Warning: Citation `parkObservationFractionallyQuantized2023' on page 1 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 43,
+  "message": "Package natbib Warning: Citation `luFractionalQuantumAnomalous2024' on page 1 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 43,
+  "message": "Package natbib Warning: Citation `luExtendedQuantumAnomalous2025' on page 1 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 43,
+  "message": "Package natbib Warning: Citation `butler13Fractional2026' on page 1 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 46,
+  "message": "Package natbib Warning: Citation `girvinCollectiveExcitationGapFractional1985' on page 1 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 46,
+  "message": "Package natbib Warning: Citation `girvinMagnetorotonTheoryCollective1986' on page 1 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `girvinCollectiveExcitationGapFractional1985' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `girvinMagnetorotonTheoryCollective1986' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `kamillaExcitonicInstabilityTermination1997' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `yangModelWaveFunctions2012' on page 1 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `golkarSpectralSumRules2016' on page 1 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `liangEvidenceChiralGraviton2024' on page 1 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `kousaTheoryMagnetorotonBands2025a' on page 1 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `paulShiningLightCollective2025' on page 1 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `shiEffectsBerryCurvature2026' on page 1 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `wolfIntrabandCollectiveExcitations2025' on page 1 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `wangDynamicsLifetimeGeometric2025' on page 1 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 52,
+  "message": "Package natbib Warning: Citation `shenMagnetorotonsMoireFractional2026' on page 1 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `kousaTheoryMagnetorotonBands2025a' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `paulShiningLightCollective2025' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `shiEffectsBerryCurvature2026' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `wolfIntrabandCollectiveExcitations2025' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `wangDynamicsLifetimeGeometric2025' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `claassenPositionMomentumDualityFractional2015' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `wangExactLandauLevel2021' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `wangOriginModelFractional2023' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `estienneIdealChernBands2023' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `shiAdiabaticApproximationAharonovCasher2024a' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `shenMagnetorotonsMoireFractional2026' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 58,
+  "message": "Package natbib Warning: Citation `sondhiSlidingPhasesMagnetic2001a' on page 1 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 58,
+  "message": "Package natbib Warning: Citation `kaneFractionalQuantumHall2002' on page 1 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 58,
+  "message": "Package natbib Warning: Citation `teoLuttingerLiquidNonAbelian2014a' on page 1 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 58,
+  "message": "Package natbib Warning: Citation `kanePairingLuttingerLiquids2017' on page 1 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 58,
+  "message": "Package natbib Warning: Citation `klinovajaIntegerFractionalQuantum2015' on page 1 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 58,
+  "message": "Package natbib Warning: Citation `hsuGeneralScatteringElectronic2023' on page 1 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 58,
+  "message": "Package natbib Warning: Citation `michenAdiabaticPreparationFractional2023' on page 1 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 58,
+  "message": "Package natbib Warning: Citation `shavitQuantumGeometryStabilization2024' on page 1 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `mengCoupledwireConstructionChiral2015a' on page 1 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `sagiNonAbelianTopologicalInsulators2014' on page 1 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `sagiImprintTopologicalDegeneracy2015' on page 1 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 60,
+  "message": "Package natbib Warning: Citation `shavitQuantumGeometryStabilization2024' on page 1 undefined on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `liuRecentDevelopmentsFractional2024' on page 1 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `yuQuantumGeometryQuantum2025' on page 1 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `royBandGeometryFractional2014' on page 1 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `emanuelUnifyingFrameworkFractional2025' on page 1 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `jacksonGeometricStabilityTopological2015' on page 1 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `ledwithVortexabilityUnifyingCriterion2023' on page 1 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 62,
+  "message": "Package natbib Warning: Citation `canoIdealQuantumGeometry2026' on page 1 undefined on input line 62",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `kumarNeutralExcitationsQuantum2022' on page 1 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 71,
+  "message": "Package natbib Warning: Citation `kaneFractionalQuantumHall2002' on page 2 undefined on input line 71",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `shavitQuantumGeometryStabilization2024' on page 2 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 77,
+  "message": "Package natbib Warning: Citation `laughlinAnomalousQuantumHall1983' on page 2 undefined on input line 77",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 81,
+  "message": "Package natbib Warning: Citation `kaneFractionalQuantumHall2002' on page 2 undefined on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `kaneFractionalQuantumHall2002' on page 2 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 87,
+  "message": "Package natbib Warning: Citation `girvinCollectiveExcitationGapFractional1985' on page 2 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 87,
+  "message": "Package natbib Warning: Citation `girvinMagnetorotonTheoryCollective1986' on page 2 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 103,
+  "message": "Package natbib Warning: Citation `jainCompositeFermions2007' on page 2 undefined on input line 103",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 103,
+  "message": "Package natbib Warning: Citation `kamillaExcitonicInstabilityTermination1997' on page 2 undefined on input line 103",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 104,
+  "message": "Package natbib Warning: Citation `zhangCHERNSIMONSLANDAU1992' on page 2 undefined on input line 104",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 108,
+  "message": "Package natbib Warning: Citation `kohnCyclotronResonanceHaasvan1961' on page 3 undefined on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 108,
+  "message": "Package natbib Warning: Citation `zhangCHERNSIMONSLANDAU1992' on page 3 undefined on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 108,
+  "message": "Package natbib Warning: Citation `parkTwoRotonBoundState2000a' on page 3 undefined on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 108,
+  "message": "Package natbib Warning: Citation `ghoshModelingTwoRotonBound2001' on page 3 undefined on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 109,
+  "message": "Package natbib Warning: Citation `yangModelWaveFunctions2012' on page 3 undefined on input line 109",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 109,
+  "message": "Package natbib Warning: Citation `golkarSpectralSumRules2016' on page 3 undefined on input line 109",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 109,
+  "message": "Package natbib Warning: Citation `liangEvidenceChiralGraviton2024' on page 3 undefined on input line 109",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 109,
+  "message": "Package natbib Warning: Citation `haldaneGeometricalDescriptionFractional2011' on page 3 undefined on input line 109",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 133,
+  "message": "Package natbib Warning: Citation `giamarchiQuantumPhysicsOne2003' on page 3 undefined on input line 133",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 140,
+  "message": "Package natbib Warning: Citation `sondhiSlidingPhasesMagnetic2001a' on page 3 undefined on input line 140",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 140,
+  "message": "Package natbib Warning: Citation `kaneFractionalQuantumHall2002' on page 3 undefined on input line 140",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 142,
+  "message": "Package natbib Warning: Citation `kaneFractionalQuantumHall2002' on page 3 undefined on input line 142",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 186,
+  "message": "Package natbib Warning: Citation `zhangCHERNSIMONSLANDAU1992' on page 4 undefined on input line 186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 207,
+  "message": "Package natbib Warning: Citation `dashenParticleSpectrumModel1975' on page 4 undefined on input line 207",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 207,
+  "message": "Package natbib Warning: Citation `rajaraman1982solitons' on page 4 undefined on input line 207",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 209,
+  "message": "Package natbib Warning: Citation `strong_coupling' on page 4 undefined on input line 209",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 209,
+  "message": "Package natbib Warning: Citation `kaneFractionalQuantumHall2002' on page 4 undefined on input line 209",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 262,
+  "message": "Package natbib Warning: Citation `large_l_note' on page 5 undefined on input line 262",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 268,
+  "message": "Package natbib Warning: Citation `kaneFractionalQuantumHall2002' on page 5 undefined on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 272,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 272",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 289,
+  "message": "Package natbib Warning: Citation `golkarSpectralSumRules2016' on page 5 undefined on input line 289",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 299,
+  "message": "Package natbib Warning: Citation `longChiralGravitonModes2026' on page 5 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 299,
+  "message": "Package natbib Warning: Citation `wangDynamicsLifetimeGeometric2025' on page 5 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 303,
+  "message": "Package natbib Warning: Citation `breather_modes' on page 6 undefined on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 312,
+  "message": "Package natbib Warning: Citation `shavitQuantumGeometryStabilization2024' on page 6 undefined on input line 312",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 316,
+  "message": "Package natbib Warning: Citation `shavitQuantumGeometryStabilization2024' on page 6 undefined on input line 316",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 317,
+  "message": "Package natbib Warning: Citation `tautology_statement' on page 6 undefined on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 335,
+  "message": "Package natbib Warning: Citation `shavitQuantumGeometryStabilization2024' on page 6 undefined on input line 335",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 352,
+  "message": "Package natbib Warning: Citation `kaneFractionalQuantumHall2002' on page 7 undefined on input line 352",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 352,
+  "message": "Package natbib Warning: Citation `shavitQuantumGeometryStabilization2024' on page 7 undefined on input line 352",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 355,
+  "message": "Package natbib Warning: Citation `zhangCHERNSIMONSLANDAU1992' on page 7 undefined on input line 355",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 356,
+  "message": "Package natbib Warning: Citation `golkarSpectralSumRules2016' on page 7 undefined on input line 356",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 359,
+  "message": "Package natbib Warning: Citation `kallinExcitationsFilledLandau1984a' on page 7 undefined on input line 359",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 361,
+  "message": "Package natbib Warning: Citation `gattuMolecularAnyonsFractional2025' on page 7 undefined on input line 361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 361,
+  "message": "Package natbib Warning: Citation `wangAnyonMoleculesFractional2026' on page 7 undefined on input line 361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 366,
+  "message": "Package natbib Warning: Citation `teoLuttingerLiquidNonAbelian2014a' on page 7 undefined on input line 366",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 369,
+  "message": "Package natbib Warning: Citation `teoLuttingerLiquidNonAbelian2014a' on page 7 undefined on input line 369",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 369,
+  "message": "Package natbib Warning: Citation `kanePairingLuttingerLiquids2017' on page 7 undefined on input line 369",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 369,
+  "message": "Package natbib Warning: Citation `sagiNonAbelianTopologicalInsulators2014' on page 7 undefined on input line 369",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 369,
+  "message": "Package natbib Warning: Citation `mengCoupledwireConstructionChiral2015a' on page 7 undefined on input line 369",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 369,
+  "message": "Package natbib Warning: Citation `sagiImprintTopologicalDegeneracy2015' on page 7 undefined on input line 369",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 371,
+  "message": "Package natbib Warning: Citation `royBandGeometryFractional2014' on page 7 undefined on input line 371",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 371,
+  "message": "Package natbib Warning: Citation `shavitQuantumGeometryStabilization2024' on page 7 undefined on input line 371",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 371,
+  "message": "Package natbib Warning: Citation `emanuelUnifyingFrameworkFractional2025' on page 7 undefined on input line 371",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 371,
+  "message": "Package natbib Warning: Citation `andrewsStabilityFractionalChern2024' on page 7 undefined on input line 371",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 372,
+  "message": "Package natbib Warning: Citation `longChiralGravitonModes2026' on page 7 undefined on input line 372",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 389,
+  "message": "Package natbib Warning: Citation `cuevas-maraverSineGordonModelIts2014' on page 7 undefined on input line 389",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 389,
+  "message": "Package natbib Warning: Citation `rajaraman1982solitons' on page 7 undefined on input line 389",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 389,
+  "message": "Package natbib Warning: Citation `giamarchiQuantumPhysicsOne2003' on page 7 undefined on input line 389",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 389,
+  "message": "Package natbib Warning: Citation `dashenParticleSpectrumModel1975' on page 7 undefined on input line 389",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 389,
+  "message": "Package natbib Warning: Citation `colemanQuantumSineGordonEquation1975' on page 7 undefined on input line 389",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 420,
+  "message": "Package natbib Warning: Citation `dashenParticleSpectrumModel1975' on page 8 undefined on input line 420",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 420,
+  "message": "Package natbib Warning: Citation `rajaraman1982solitons' on page 8 undefined on input line 420",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 420,
+  "message": "Package natbib Warning: Citation `giamarchiQuantumPhysicsOne2003' on page 8 undefined on input line 420",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 578,
+  "message": "Package natbib Warning: Citation `poeschlBemerkungenZurQuantenmechanik1933' on page 10 undefined on input line 578",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 578,
+  "message": "Package natbib Warning: Citation `dunneFunctionalDeterminantsQuantum2008' on page 10 undefined on input line 578",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 578,
+  "message": "Package natbib Warning: Citation `dunne_integer' on page 10 undefined on input line 578",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 585,
+  "message": "Package natbib Warning: Citation `grahamUnambiguousOneloopQuantum1998' on page 10 undefined on input line 585",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 610,
+  "message": "Package natbib Warning: Citation `dashenParticleSpectrumModel1975' on page 10 undefined on input line 610",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 610,
+  "message": "Package natbib Warning: Citation `rajaraman1982solitons' on page 10 undefined on input line 610",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 617,
+  "message": "Package natbib Warning: Citation `simonBoundStateWeakly1976' on page 10 undefined on input line 617",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 623,
+  "message": "Package natbib Warning: Citation `landauQM_sech2' on page 10 undefined on input line 623",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 677,
+  "message": "Package natbib Warning: Citation `simonBoundStateWeakly1976' on page 11 undefined on input line 677",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 709,
+  "message": "Package natbib Warning: Citation `shavitQuantumGeometryStabilization2024' on page 12 undefined on input line 709",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 737,
+  "message": "Package natbib Warning: Citation `cardyScalingRenormalizationStatistical1996' on page 12 undefined on input line 737",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 737,
+  "message": "Package natbib Warning: Citation `shavitQuantumGeometryStabilization2024' on page 12 undefined on input line 737",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 737,
+  "message": "Package natbib Warning: Citation `giamarchiQuantumPhysicsOne2003' on page 12 undefined on input line 737",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 766,
+  "message": "Package natbib Warning: Citation `shavitQuantumGeometryStabilization2024' on page 13 undefined on input line 766",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,1082 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 46,
+  "message": "Package tikz-feynman Warning: LuaTeX is required if you wish to have vertices automatically placed. You can disable this warning by setting /tikzfeynman/warn luatex=false on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 46,
+  "message": "Package tikz-feynman Warning: Consider loading TikZ-Feynman with \\usepackage[compat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "foreword/foreword.tex",
+  "line": null,
+  "message": "LaTeX Warning: `!h' float specifier changed to `!ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 214,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 214",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 229,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 229",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 235,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 235",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 238,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 238",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 247,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 247",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 253,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 253",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 265,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 271,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 271",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 380,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 380",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 402,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 402",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 462,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 462",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 467,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 467",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 477,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 477",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 488,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 488",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 494,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 494",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 513,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 513",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 532,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 532",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 558,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 558",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 563,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 563",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 640,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 640",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1041,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1041",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1041,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1041",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1041,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1041",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1077,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1077",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1077,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1077",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1077,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1077",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1112,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1112,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1112,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1145,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1145,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1145,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1145",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1181,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1181",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1181,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1181",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1181,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1181",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1217,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1217",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1217,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1217",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1217,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1217",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1253,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1253",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1253,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1253",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1253,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1253",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1285,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1285",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1285,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1285",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1285,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1285",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1317,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1317,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1317,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1331,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1331",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1331,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1331",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1331,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1331",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1348,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1348",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1348,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1348",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1348,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1348",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1487,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1487",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1487,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1487",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1487,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1487",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1667,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1667",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1667,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1667",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1667,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1667",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1678,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1678",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1678,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1678",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1678,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1678",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1919,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1919",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1956,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1956",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1956,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1956",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1956,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1956",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1997,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 1997",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1997,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 1997",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 1997,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 1997",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2033,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 2033",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2033,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 2033",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2033,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 2033",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2072,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 2072",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2072,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 2072",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2072,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 2072",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2105,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 2105",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2105,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 2105",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2105,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 2105",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2162,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 2162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2162,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 2162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2162,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 2162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2208,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 2208",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2208,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 2208",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2208,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 2208",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2250,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 2250",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2250,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 2250",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1/chapter1.tex",
+  "line": 2250,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 2250",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 104,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 104",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 104,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 104",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 104,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 104",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 111,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 111,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 111,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 131,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 131,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 131,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 138,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 138",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 138,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 138",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 138,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 138",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 158,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 158",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 158,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 158",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 158,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 158",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 165,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 165",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 165,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 165",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 165,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 165",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 185,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 185",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 185,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 185",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 185,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 185",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 191,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 191,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 191,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 415,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 415",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 439,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 439",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 456,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 456",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 1050,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1050",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2/chapter2.tex",
+  "line": 1050,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 1050",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3/chapter3.tex",
+  "line": 36,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3/chapter3.tex",
+  "line": 143,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 143",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3/chapter3.tex",
+  "line": 689,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 689",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3/chapter3.tex",
+  "line": 695,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 695",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3/chapter3.tex",
+  "line": 707,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 707",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3/chapter3.tex",
+  "line": 708,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 708",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3/chapter3.tex",
+  "line": 840,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 840",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3/chapter3.tex",
+  "line": 840,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 840",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "appendix1/appendix1.tex",
+  "line": 44,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "appendix1/appendix1.tex",
+  "line": 44,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "appendix1/appendix1.tex",
+  "line": 44,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "appendix1/appendix1.tex",
+  "line": 86,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 86",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "appendix1/appendix1.tex",
+  "line": 86,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 86",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "appendix1/appendix1.tex",
+  "line": 86,
+  "message": "Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 86",
+  "detail": [],
+  "hint": null
+ }
+]

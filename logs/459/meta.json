@@ -1,0 +1,34 @@
+{
+ "id": 459,
+ "source": "GitHub",
+ "name": "xlite-dev/lihang-notes",
+ "url": "https://github.com/xlite-dev/lihang-notes",
+ "type": "Figures",
+ "version": "95274789c4a3f251a7374e270946c5a5e17437ea",
+ "files": 11,
+ "main": "cover.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "cover.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 16620,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 李 (U+674E) in font Comic Neue Bold/OT:script=DFL\n  Missing character: There is no 李 (U+674E) in font Comic Neue Bold/OT:script=DFLT;language=dflt;mapping=tex-text;!\n  Missing character: There is no 航 (U+822A) in font Comic Neue Bold/OT:script=DFL\n  Missing character: There is no 航 (U+822A) in font Comic Neue Bold/OT:script=DFLT;language=dflt;mapping=tex-text;!\n  Missing character: There is no 《 (U+300A) in font Comic Neue Bold/OT:script=DFL\n  Missing character: There is no 《 (U+300A) in font Comic Neue Bold/OT:script=DFLT;language=dflt;mapping=tex-text;!\n  Missing character: There is no 统 (U+7EDF) in font Comic Neue Bold/OT:script=DFL\n And 105 more --- see log file 'cover.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1830,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 55,
+ "warnings": 15,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

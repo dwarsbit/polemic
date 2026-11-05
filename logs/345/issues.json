@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ctex Warning: Option `noindent' is deprecated. The functionality has been removed.\\\\It's better to set the heading styles via `afterindent' option",
+  "detail": [],
+  "hint": null
+ }
+]

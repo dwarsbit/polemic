@@ -1,0 +1,31 @@
+{
+ "id": 412,
+ "source": "GitHub",
+ "name": "liblaf/housing-price-model",
+ "url": "https://github.com/liblaf/housing-price-model",
+ "type": "Homework",
+ "version": "e45b86de2dae56ce3f9c02d5921f6ca54eb28c40",
+ "files": 22,
+ "main": "writing/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "writing/main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 422,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'main.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main.log' and/or above output for details\n\nLatexmk: Missing input file 'iarticle.cls' message in .log file:\n  ! LaTeX Error: File `iarticle.cls' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 212,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `iarticle.cls' not found.",
+ "outcome": "both-fail"
+}

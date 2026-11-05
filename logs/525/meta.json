@@ -1,0 +1,31 @@
+{
+ "id": 525,
+ "source": "arXiv",
+ "name": "arXiv:2611.02855",
+ "url": "https://arxiv.org/abs/2611.02855",
+ "type": "Paper",
+ "version": "2611.02855",
+ "files": 3,
+ "main": "4d_null_matrix_draft_arXiv.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "4d_null_matrix_draft_arXiv.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3279
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2798,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 158,
+ "outcome": "both-ok"
+}

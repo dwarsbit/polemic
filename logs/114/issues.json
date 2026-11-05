@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package sourcesanspro Warning: This package has been replaced by `sourcesans'",
+  "detail": [],
+  "hint": null
+ }
+]

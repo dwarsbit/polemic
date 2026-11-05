@@ -1,0 +1,33 @@
+{
+ "id": 658,
+ "source": "arXiv",
+ "name": "arXiv:1206.1038",
+ "url": "https://arxiv.org/abs/1206.1038",
+ "type": "Paper",
+ "version": "1206.1038",
+ "files": 7,
+ "main": "duals_of_grassmannians.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "duals_of_grassmannians.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1774,
+  "tail": "exit 12, PDF found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'duals_of_grassmannians.log' and/or above output for details\n\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Label `crit' multiply defined\n  Label `veroseg' multiply defined"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 618,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 4,
+ "warnings": 5,
+ "firstError": "Missing $ inserted.",
+ "outcome": "both-fail"
+}

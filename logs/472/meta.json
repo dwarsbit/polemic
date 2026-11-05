@@ -1,0 +1,31 @@
+{
+ "id": 472,
+ "source": "GitHub",
+ "name": "timerring/SDU-letter-template",
+ "url": "https://github.com/timerring/SDU-letter-template",
+ "type": "Letter",
+ "version": "1028ca4599afab3a08749be5e8e7a9a94728a46d",
+ "files": 14,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1720
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1494,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

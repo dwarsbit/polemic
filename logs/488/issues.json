@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 1.3pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

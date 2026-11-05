@@ -1,0 +1,242 @@
+[
+ {
+  "severity": "warning",
+  "file": "beamerthemefibeamer.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `beamerthemefibeamer', but the package provides `fibeamer/beamerthemefibeamer'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package cmap Warning: fontenc already loaded - some fonts may be unprocessed",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fibeamer/theme/zut/beamercolorthemefibeamer-zut.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `fibeamer/theme/zut/beamercolorthemefibeamer-zut', but the package provides `fibeamer/theme/mu/beamercolorthemefibeamer-mu'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fibeamer/theme/zut/beamercolorthemefibeamer-zut-wi.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `fibeamer/theme/zut/beamercolorthemefibeamer-zut-wi', but the package provides `fibeamer/theme/mu/beamercolorthemefibeamer-mu-fi'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fibeamer/theme/zut/beamerfontthemefibeamer-zut.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `fibeamer/theme/zut/beamerfontthemefibeamer-zut', but the package provides `fibeamer/theme/mu/beamerfontthemefibeamer-mu'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fibeamer/theme/zut/beamerinnerthemefibeamer-zut.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `fibeamer/theme/zut/beamerinnerthemefibeamer-zut', but the package provides `fibeamer/theme/mu/beamerinnerthemefibeamer-mu'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "fibeamer/theme/zut/beamerouterthemefibeamer-zut.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `fibeamer/theme/zut/beamerouterthemefibeamer-zut', but the package provides `fibeamer/theme/mu/beamerouterthemefibeamer-mu'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `lists<1>' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `lists' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `simmonshall<1>' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `simmonshall' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `proof<1>' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `proof' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `math<1>' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `math' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `figs1<1>' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `figs1' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `figs2<1>' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `figs2' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `citations<1>' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `citations' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `knuth84' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `lamport94' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `MG94' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `tantau04' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `MS05' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `bibliography<1>' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `bibliography' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "zutfibeamer.tex",
+  "line": 176,
+  "message": "Package amsmath Warning: Foreign command \\atopwithdelims; \\frac or \\genfrac should be used instead on input line 176",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "zutfibeamer.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were multiply-defined labels",
+  "detail": [],
+  "hint": null
+ }
+]

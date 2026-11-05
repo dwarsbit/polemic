@@ -1,0 +1,31 @@
+{
+ "id": 291,
+ "source": "GitHub",
+ "name": "AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template",
+ "url": "https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template",
+ "type": "Book",
+ "version": "b1e82d9a5666f63efb457990514094d906d0e053",
+ "files": 127,
+ "main": "dissertation.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (latexmkrc)",
+ "baseline": {
+  "main": "dissertation.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 119957
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 13125,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 17,
+ "firstError": "LaTeX Error: File `Dissertation/images/tikz_scheme.tikz' not found.",
+ "outcome": "polemic-only-fail"
+}

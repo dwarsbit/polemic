@@ -1,0 +1,362 @@
+[
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 58,
+  "message": "LaTeX Warning: Citation `fuster2015prefrontal' on page 1 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 64,
+  "message": "LaTeX Warning: Citation `waibel1990phoneme' on page 1 undefined on input line 64",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 65,
+  "message": "LaTeX Warning: Citation `de1992gamma' on page 1 undefined on input line 65",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 67,
+  "message": "LaTeX Warning: Citation `sandberg1997uniform' on page 1 undefined on input line 67",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 68,
+  "message": "LaTeX Warning: Citation `de1992gamma' on page 1 undefined on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 78,
+  "message": "LaTeX Warning: Citation `elman1990finding' on page 1 undefined on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 78,
+  "message": "LaTeX Warning: Citation `jordan:attractor' on page 1 undefined on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 83,
+  "message": "LaTeX Warning: Citation `haykin1998making' on page 1 undefined on input line 83",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 86,
+  "message": "LaTeX Warning: Citation `hochreiter1997long' on page 1 undefined on input line 86",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 91,
+  "message": "LaTeX Warning: Citation `greff2017lstm' on page 1 undefined on input line 91",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 92,
+  "message": "LaTeX Warning: Citation `cho2014learning' on page 1 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 94,
+  "message": "LaTeX Warning: Citation `gers2000recurrent' on page 1 undefined on input line 94",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 101,
+  "message": "LaTeX Warning: Citation `sutskever2014sequence' on page 1 undefined on input line 101",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 102,
+  "message": "LaTeX Warning: Citation `lotter2016deep' on page 1 undefined on input line 102",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 102,
+  "message": "LaTeX Warning: Citation `srivastava2015unsupervised' on page 1 undefined on input line 102",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 116,
+  "message": "LaTeX Warning: Citation `jordan:attractor' on page 1 undefined on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 116,
+  "message": "LaTeX Warning: Citation `hochreiter1997long' on page 1 undefined on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 117,
+  "message": "LaTeX Warning: Citation `sun1993learning' on page 1 undefined on input line 117",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 117,
+  "message": "LaTeX Warning: Citation `sun2017neural' on page 1 undefined on input line 117",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 121,
+  "message": "LaTeX Warning: Citation `joulin2015inferring' on page 1 undefined on input line 121",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 121,
+  "message": "LaTeX Warning: Citation `grefenstette2015learning' on page 1 undefined on input line 121",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 123,
+  "message": "LaTeX Warning: Citation `joulin2015inferring' on page 1 undefined on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 125,
+  "message": "LaTeX Warning: Citation `graves2014neural' on page 1 undefined on input line 125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 126,
+  "message": "LaTeX Warning: Citation `graves2016hybrid' on page 1 undefined on input line 126",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 128,
+  "message": "LaTeX Warning: Citation `DBLP:journals/corr/WestonCB14' on page 1 undefined on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 192,
+  "message": "LaTeX Warning: Citation `jordan:attractor' on page 2 undefined on input line 192",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 227,
+  "message": "LaTeX Warning: Citation `werbos1990backpropagation' on page 2 undefined on input line 227",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 235,
+  "message": "LaTeX Warning: Citation `pascanu2013difficulty' on page 2 undefined on input line 235",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 242,
+  "message": "LaTeX Warning: Citation `hochreiter1997long' on page 2 undefined on input line 242",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 344,
+  "message": "LaTeX Warning: Citation `sun2017neural' on page 3 undefined on input line 344",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 344,
+  "message": "LaTeX Warning: Citation `joulin2015inferring' on page 3 undefined on input line 344",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 344,
+  "message": "LaTeX Warning: Citation `grefenstette2015learning' on page 3 undefined on input line 344",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 350,
+  "message": "LaTeX Warning: Citation `joulin2015inferring' on page 3 undefined on input line 350",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 409,
+  "message": "LaTeX Warning: Citation `rumelhart1986learning' on page 4 undefined on input line 409",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 410,
+  "message": "LaTeX Warning: Citation `DBLP:journals/corr/WestonCB14' on page 4 undefined on input line 410",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 410,
+  "message": "LaTeX Warning: Citation `graves2014neural' on page 4 undefined on input line 410",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 410,
+  "message": "LaTeX Warning: Citation `graves2016hybrid' on page 4 undefined on input line 410",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 469,
+  "message": "LaTeX Warning: Citation `graves2014neural' on page 4 undefined on input line 469",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 496,
+  "message": "LaTeX Warning: Citation `graves2014neural' on page 4 undefined on input line 496",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 498,
+  "message": "LaTeX Warning: Citation `graves2016hybrid' on page 4 undefined on input line 498",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 1247,
+  "message": "LaTeX Warning: Citation `pennington2014glove' on page 13 undefined on input line 1247",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 1310,
+  "message": "LaTeX Warning: Citation `weston2015towards' on page 14 undefined on input line 1310",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 1317,
+  "message": "LaTeX Warning: Citation `graves2016hybrid' on page 14 undefined on input line 1317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": 1318,
+  "message": "LaTeX Warning: Citation `graves2016hybrid' on page 14 undefined on input line 1318",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "memorynetworks.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

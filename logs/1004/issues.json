@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "error",
+  "file": "doc/semsamp1.tex",
+  "line": 33,
+  "message": "Slide frame `Oval' undefined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/semsamp1.tex",
+  "line": 48,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/semsamp1.tex",
+  "line": 64,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/semsamp1.tex",
+  "line": 81,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/semsamp1.tex",
+  "line": 91,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/semsamp1.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [fancybox]",
+  "detail": [],
+  "hint": null
+ }
+]

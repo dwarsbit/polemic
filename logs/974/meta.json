@@ -1,0 +1,33 @@
+{
+ "id": 974,
+ "source": "CTAN",
+ "name": "gzt",
+ "url": "https://ctan.org/pkg/gzt",
+ "type": "Paper",
+ "version": "1.1.5",
+ "files": 14,
+ "main": "doc/french/gzt-fr.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/french/gzt-fr.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 68376,
+  "tail": "exit 12, PDF found\nsystem returned with code 32512\nLatexmk: Using biber to make bibliography file(s).\nsh: 1: texindyunhbox: not found\nsystem returned with code 32512\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Label `key:title' multiply defined\n  Label `key:title@cref' multiply defined"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 14380,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 116,
+ "firstError": "LaTeX Error: File `./denis' not found.",
+ "outcome": "both-fail"
+}

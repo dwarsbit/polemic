@@ -1,0 +1,31 @@
+{
+ "id": 387,
+ "source": "GitHub",
+ "name": "Loschmidt-constant/TeX_report-template",
+ "url": "https://github.com/Loschmidt-constant/TeX_report-template",
+ "type": "Report",
+ "version": "4064b34b2a67aa930338575787d4e16a4230d7ab",
+ "files": 4,
+ "main": "example/example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example/example.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 345,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'example.log' and/or above output for details\n\nLatexmk: Missing input file 'report_form.sty' message in .log file:\n  ! LaTeX Error: File `report_form.sty' not found.\nFailure to make 'example.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 521,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 51,
+ "warnings": 18,
+ "firstError": "LaTeX Error: Command \\thesection undefined.",
+ "outcome": "both-fail"
+}

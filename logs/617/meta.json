@@ -1,0 +1,31 @@
+{
+ "id": 617,
+ "source": "arXiv",
+ "name": "arXiv:2610.40193",
+ "url": "https://arxiv.org/abs/2610.40193",
+ "type": "Paper",
+ "version": "2610.40193",
+ "files": 9,
+ "main": "manuscript_arxiv.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "manuscript_arxiv.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2624,
+  "tail": "exit 12, PDF not found\n  Citation `kasahara2009nonparametric' on page 2 undefined on input line 220\n  Citation `lin2012estimation' on page 2 undefined on input line 220\n  Citation `bonhomme2015grouped' on page 2 undefined on input line 220\n  Citation `sarafidis2015partially' on page 2 undefined on input line 220\n  Citation `shen2015inference' on page 2 undefined on input line 220\n  Citation `bester2016grouped' on page 2 undefined on input line 220\n  Citation `su2016identifying' on page 2 undefined on input line 220\n And 31 more --- see log file 'manuscript_arxiv.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1082,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 20,
+ "warnings": 7,
+ "firstError": "Extended mathchar used as mathchar (14799947).",
+ "outcome": "both-fail"
+}

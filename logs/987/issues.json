@@ -1,0 +1,226 @@
+[
+ {
+  "severity": "error",
+  "file": "gotham-doc.tex",
+  "line": 326,
+  "message": "Package pdftex.def Error: File `gotham-test-035-a.png' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "gotham-doc.tex",
+  "line": 332,
+  "message": "Package pdftex.def Error: File `gotham-test-035-b.png' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 107,
+  "message": "LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined using `T1/lmr/bx/n' instead on input line 107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\begingroup' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\catcode' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\active' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\<def>-command' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\csname\\endcsname' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\<let>-command' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\%' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\#' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\&' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\textunderscore' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\_' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\~' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\textasciitilde' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\\\' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 128,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\Hy@tempa' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 5 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 326,
+  "message": "LaTeX Warning: File `gotham-test-035-a.png' not found on input line 326",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": 332,
+  "message": "LaTeX Warning: File `gotham-test-035-b.png' not found on input line 332",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 7 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 8 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 9 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 11 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 12 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "gotham-doc.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 14 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

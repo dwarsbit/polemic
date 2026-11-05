@@ -1,0 +1,32 @@
+{
+ "id": 572,
+ "source": "arXiv",
+ "name": "arXiv:2610.35638",
+ "url": "https://arxiv.org/abs/2610.35638",
+ "type": "Paper",
+ "version": "2610.35638",
+ "files": 10,
+ "main": "Crofts26_PRE_WC.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Crofts26_PRE_WC.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2208
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1969,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

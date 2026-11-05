@@ -1,0 +1,31 @@
+{
+ "id": 148,
+ "source": "GitHub",
+ "name": "quantixed/manuscript-templates",
+ "url": "https://github.com/quantixed/manuscript-templates",
+ "type": "Paper",
+ "version": "e273c5fc0ace13a4132658a30bfe2f3db1f2d718",
+ "files": 18,
+ "main": "00_Article_Merge.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "00_Article_Merge.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5961
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5616,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

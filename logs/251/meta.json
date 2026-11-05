@@ -1,0 +1,31 @@
+{
+ "id": 251,
+ "source": "GitHub",
+ "name": "TCA166/notes",
+ "url": "https://github.com/TCA166/notes",
+ "type": "Notes",
+ "version": "18f3dab80d343430a6eb01996907561d778aff19",
+ "files": 79,
+ "main": "algebra/algebra.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "algebra/algebra.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3847
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3704,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

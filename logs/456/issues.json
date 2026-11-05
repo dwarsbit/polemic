@@ -1,0 +1,122 @@
+[
+ {
+  "severity": "error",
+  "file": "draftdrawing.cls",
+  "line": 95,
+  "message": "LaTeX Error: Command \\unit already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example draft drawing.tex",
+  "line": 41,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example draft drawing.tex",
+  "line": 45,
+  "message": "Package PGF Math Error: Unknown function `input' (in 'input in').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example draft drawing.tex",
+  "line": 48,
+  "message": "Package PGF Math Error: Unknown function `output' (in 'output in').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example draft drawing.tex",
+  "line": 51,
+  "message": "Package PGF Math Error: Unknown function `input' (in 'input').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example draft drawing.tex",
+  "line": 52,
+  "message": "Package PGF Math Error: Unknown function `output' (in 'output').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example draft drawing.tex",
+  "line": 75,
+  "message": "Package PGF Math Error: Unknown function `input' (in 'input in').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example draft drawing.tex",
+  "line": 80,
+  "message": "Package PGF Math Error: Unknown function `input' (in 'input out').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example draft drawing.tex",
+  "line": 81,
+  "message": "Package PGF Math Error: Unknown function `output' (in 'output in').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example draft drawing.tex",
+  "line": 84,
+  "message": "Package PGF Math Error: Unknown function `output' (in 'output out').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example draft drawing.tex",
+  "line": 85,
+  "message": "Package PGF Math Error: Unknown function `input' (in 'input').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example draft drawing.tex",
+  "line": 86,
+  "message": "Package PGF Math Error: Unknown function `output' (in 'output').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "example draft drawing.tex",
+  "line": 96,
+  "message": "Package PGF Math Error: Unknown function `refrigerant' (in 'refrigerant out').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [border=5mm,linewidth=0.25mm,linewidthborder=0.5mm]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 96,
+  "message": "Package pgf Warning: Returning node center instead of a point on node border. Did you specify a point identical to the center of node ``H3-heating coil''? on input line 96",
+  "detail": [],
+  "hint": null
+ }
+]

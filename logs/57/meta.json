@@ -1,0 +1,33 @@
+{
+ "id": 57,
+ "source": "GitHub",
+ "name": "hasantahir/Dissertation",
+ "url": "https://github.com/hasantahir/Dissertation",
+ "type": "Thesis",
+ "version": "3aeb63b6193bf43364929e4cb123045c8ca4b2a0",
+ "files": 1054,
+ "main": "Complex Analysis Notes/Complex_intro.tex",
+ "catalogMain": "Vertical Electrical Dipole/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Vertical Electrical Dipole/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2592
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 716,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Unicode character − (U+2212)",
+ "outcome": "polemic-only-fail"
+}

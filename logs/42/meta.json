@@ -1,0 +1,33 @@
+{
+ "id": 42,
+ "source": "GitHub",
+ "name": "tchayintr/titech-lrlab-doctoral-thesis-template",
+ "url": "https://github.com/tchayintr/titech-lrlab-doctoral-thesis-template",
+ "type": "Thesis",
+ "version": "f0552ef79835fc8f6bbbe107170fd02782c96974",
+ "files": 23,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 5676,
+  "tail": "exit 12, PDF found\n  ! LaTeX Error: Unicode character こ (U+3053)\n  ! LaTeX Error: Unicode character ん (U+3093)\n  ! LaTeX Error: Unicode character に (U+306B)\n  ! LaTeX Error: Unicode character ち (U+3061)\n  ! LaTeX Error: Unicode character は (U+306F)\n  ! LaTeX Error: Unicode character こ (U+3053)\n  ! LaTeX Error: Unicode character ん (U+3093)\n And 393 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1373,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 46,
+ "warnings": 1,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

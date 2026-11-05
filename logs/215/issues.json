@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "error",
+  "file": "common/example.tex",
+  "line": 352,
+  "message": "Package pdftex.def Error: File `chess-eps-converted-to.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "common/example.tex",
+  "line": 358,
+  "message": "Package pdftex.def Error: File `tigre-eps-converted-to.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `pdfpagelabels' is turned off because \\thepage is undefined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/example.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Height of page (\\paperheight) is invalid (0.0pt), using 11in",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/example.tex",
+  "line": 84,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 84",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/example.tex",
+  "line": 260,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 260",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/example.tex",
+  "line": 269,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 269",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/example.tex",
+  "line": 272,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 272",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "common/example.tex",
+  "line": 280,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 280",
+  "detail": [],
+  "hint": null
+ }
+]

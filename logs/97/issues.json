@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "warning",
+  "file": "paper.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 1 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper.tex",
+  "line": 332,
+  "message": "Class acmart Warning: A possible image without description on input line 332",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper.tex",
+  "line": 334,
+  "message": "Class acmart Warning: \\vspace should only be used to provide space above/below surrounding objects on input line 334",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper.tex",
+  "line": 364,
+  "message": "Class acmart Warning: \\vspace should only be used to provide space above/below surrounding objects on input line 364",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Empty `thebibliography' environment on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper.tex",
+  "line": null,
+  "message": "Class acmart Warning: Some images may lack descriptions. ACM is committed to complying with the upcoming US ADA https://accessiblyapp.com/accessibility-compliance/ada/ and European Accessibility Act (EAA) https://accessiblyapp.com/accessibility-compliance/eaa/ regulations by actively working to ensure our publications and application services are accessible to individuals with disabilities, adhering to the WCAG guidelines to provide a seamless experience for all users, and regularly reviewing our accessibility practices to maintain compliance with evolving standards. To this end, we strongly encourage our authors to provide alternative text and captions for images and multimedia content. It is also important to optimize color contrast for the visually impaired. Taking these important steps when creating your papers will ensure that the widest possible audience can ingest your work",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper.tex",
+  "line": null,
+  "message": "Class acmart Warning: ACM keywords are mandatory for papers over two pages",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper.tex",
+  "line": null,
+  "message": "Class acmart Warning: ACM reference format is mandatory for papers over one page. Please add printacmref=true to the \\settopmatter command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "paper.tex",
+  "line": null,
+  "message": "Class acmart Warning: CCS concepts are mandatory for papers over two pages",
+  "detail": [],
+  "hint": null
+ }
+]

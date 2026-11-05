@@ -1,0 +1,35 @@
+{
+ "id": 453,
+ "source": "GitHub",
+ "name": "rjs02/ethz-cse-summaries",
+ "url": "https://github.com/rjs02/ethz-cse-summaries",
+ "type": "Cheat sheet",
+ "version": "5a9d5673545f007bf666b090f8d65fbc34d5b477",
+ "files": 75,
+ "main": "ComputationalStatistics/CompStat_Sieber_FS25.tex",
+ "catalogMain": "Analysis1+2/src/main.tex",
+ "engine": "xelatex",
+ "detectedEngine": "pdflatex (inferred)",
+ "baseline": {
+  "main": "Analysis1+2/src/main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4761,
+  "tail": "exit 12, PDF found\nLatexmk: Getting log file 'main.log'\nLatexmk: Examining 'main.fls'\nLatexmk: Examining 'main.log'\nLatexmk: Log file says output to 'main.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main.log' and/or above output for details"
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 10497,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "baseline-only-fail"
+}

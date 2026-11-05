@@ -1,0 +1,786 @@
+[
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `sih2004' on page 1 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `reale2007' on page 1 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `bell2009' on page 1 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 45,
+  "message": "Package natbib Warning: Citation `dingemanse2010' on page 1 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 45,
+  "message": "Package natbib Warning: Citation `sih2015' on page 1 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 46,
+  "message": "Package natbib Warning: Citation `webster2011' on page 1 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 46,
+  "message": "Package natbib Warning: Citation `harcourt2009' on page 1 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 47,
+  "message": "Package natbib Warning: Citation `molleman2014' on page 1 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 47,
+  "message": "Package natbib Warning: Citation `toelch2014' on page 1 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 47,
+  "message": "Package natbib Warning: Citation `witt2024' on page 1 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 47,
+  "message": "Package natbib Warning: Citation `kurvers2010' on page 1 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `couzin2009' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `krause2010' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `woolley2010' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `riedl2021' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `hong2004' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `page2007' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `bang2017' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `jolles2017' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `jolles2020' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `farine2017' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `barkoczi2016' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 48,
+  "message": "Package natbib Warning: Citation `galesic2023' on page 1 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 55,
+  "message": "Package natbib Warning: Citation `chirkov2026' on page 2 undefined on input line 55",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 56,
+  "message": "Package natbib Warning: Citation `laland2004' on page 2 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 56,
+  "message": "Package natbib Warning: Citation `rendell2010' on page 2 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 56,
+  "message": "Package natbib Warning: Citation `rendell2011' on page 2 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 56,
+  "message": "Package natbib Warning: Citation `kendal2018' on page 2 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 56,
+  "message": "Package natbib Warning: Citation `mcelreath2008' on page 2 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 56,
+  "message": "Package natbib Warning: Citation `mesoudi2011' on page 2 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 56,
+  "message": "Package natbib Warning: Citation `toyokawa2019' on page 2 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 56,
+  "message": "Package natbib Warning: Citation `garg2022' on page 2 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 56,
+  "message": "Package natbib Warning: Citation `deffner2024' on page 2 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 56,
+  "message": "Package natbib Warning: Citation `mezey2024' on page 2 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 57,
+  "message": "Package natbib Warning: Citation `heyes2016' on page 2 undefined on input line 57",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 58,
+  "message": "Package natbib Warning: Citation `tump2024' on page 2 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `wu2025' on page 2 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `hawkins2023' on page 2 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `berdahl2013' on page 2 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 63,
+  "message": "Package natbib Warning: Citation `higashi2025' on page 2 undefined on input line 63",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 63,
+  "message": "Package natbib Warning: Citation `higashi2026' on page 2 undefined on input line 63",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 65,
+  "message": "Package natbib Warning: Citation `higashi2026' on page 2 undefined on input line 65",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 91,
+  "message": "Package natbib Warning: Citation `chirkov2026' on page 3 undefined on input line 91",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 91,
+  "message": "Package natbib Warning: Citation `wu2025' on page 3 undefined on input line 91",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 91,
+  "message": "Package natbib Warning: Citation `hawkins2023' on page 3 undefined on input line 91",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 97,
+  "message": "Package hyperref Warning: Difference (2) between bookmark levels is greater than one, level fixed on input line 97",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 140,
+  "message": "Package natbib Warning: Citation `chirkov2026' on page 6 undefined on input line 140",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `wu2025' on page 6 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 142,
+  "message": "Package natbib Warning: Citation `hawkins2023' on page 6 undefined on input line 142",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 159,
+  "message": "Package natbib Warning: Citation `strandburgpeshkin2013' on page 6 undefined on input line 159",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 159,
+  "message": "Package natbib Warning: Citation `bastien2020' on page 6 undefined on input line 159",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 161,
+  "message": "Package hyperref Warning: Difference (2) between bookmark levels is greater than one, level fixed on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 164,
+  "message": "Package natbib Warning: Citation `burkner2017' on page 7 undefined on input line 164",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 170,
+  "message": "Package natbib Warning: Citation `rasmussen2006' on page 7 undefined on input line 170",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 172,
+  "message": "Package natbib Warning: Citation `carpenter2017' on page 7 undefined on input line 172",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 180,
+  "message": "Package natbib Warning: Citation `spearman1910' on page 8 undefined on input line 180",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 181,
+  "message": "Package natbib Warning: Citation `enkavi2019' on page 8 undefined on input line 181",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 181,
+  "message": "Package natbib Warning: Citation `eckstein2021' on page 8 undefined on input line 181",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 183,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 183",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 187,
+  "message": "Package natbib Warning: Citation `dorfman2022' on page 8 undefined on input line 187",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 205,
+  "message": "Package natbib Warning: Citation `zaburdaev2015' on page 9 undefined on input line 205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 284,
+  "message": "Package natbib Warning: Citation `lakens2017' on page 13 undefined on input line 284",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 303,
+  "message": "Package natbib Warning: Citation `nichols2002' on page 14 undefined on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 347,
+  "message": "Package natbib Warning: Citation `higashi2026' on page 16 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 484,
+  "message": "Package natbib Warning: Citation `strandburgpeshkin2013' on page 21 undefined on input line 484",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 484,
+  "message": "Package natbib Warning: Citation `bastien2020' on page 21 undefined on input line 484",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 495,
+  "message": "Package natbib Warning: Citation `sih2004' on page 23 undefined on input line 495",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 495,
+  "message": "Package natbib Warning: Citation `reale2007' on page 23 undefined on input line 495",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 495,
+  "message": "Package natbib Warning: Citation `dingemanse2010' on page 23 undefined on input line 495",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 495,
+  "message": "Package natbib Warning: Citation `webster2011' on page 23 undefined on input line 495",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 496,
+  "message": "Package natbib Warning: Citation `harcourt2009' on page 23 undefined on input line 496",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 496,
+  "message": "Package natbib Warning: Citation `couzin2005' on page 23 undefined on input line 496",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 496,
+  "message": "Package natbib Warning: Citation `kendal2018' on page 23 undefined on input line 496",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 496,
+  "message": "Package natbib Warning: Citation `toyokawa2019' on page 23 undefined on input line 496",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 498,
+  "message": "Package natbib Warning: Citation `chirkov2026' on page 23 undefined on input line 498",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 507,
+  "message": "Package natbib Warning: Citation `reale2007' on page 23 undefined on input line 507",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 507,
+  "message": "Package natbib Warning: Citation `monk2018' on page 23 undefined on input line 507",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 508,
+  "message": "Package natbib Warning: Citation `kurvers2010' on page 23 undefined on input line 508",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 508,
+  "message": "Package natbib Warning: Citation `molleman2014' on page 23 undefined on input line 508",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 508,
+  "message": "Package natbib Warning: Citation `toelch2014' on page 23 undefined on input line 508",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 511,
+  "message": "Package natbib Warning: Citation `woolley2010' on page 24 undefined on input line 511",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 511,
+  "message": "Package natbib Warning: Citation `riedl2021' on page 24 undefined on input line 511",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 511,
+  "message": "Package natbib Warning: Citation `hong2004' on page 24 undefined on input line 511",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 511,
+  "message": "Package natbib Warning: Citation `page2007' on page 24 undefined on input line 511",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 511,
+  "message": "Package natbib Warning: Citation `jolles2017' on page 24 undefined on input line 511",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 511,
+  "message": "Package natbib Warning: Citation `jolles2020' on page 24 undefined on input line 511",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 511,
+  "message": "Package natbib Warning: Citation `farine2017' on page 24 undefined on input line 511",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 515,
+  "message": "Package natbib Warning: Citation `lakens2017' on page 24 undefined on input line 515",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 518,
+  "message": "Package natbib Warning: Citation `hong2004' on page 24 undefined on input line 518",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 518,
+  "message": "Package natbib Warning: Citation `woolley2010' on page 24 undefined on input line 518",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 518,
+  "message": "Package natbib Warning: Citation `almaatouq2021' on page 24 undefined on input line 518",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 522,
+  "message": "Package natbib Warning: Citation `higashi2025' on page 25 undefined on input line 522",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 525,
+  "message": "Package natbib Warning: Citation `enkavi2019' on page 25 undefined on input line 525",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 525,
+  "message": "Package natbib Warning: Citation `eckstein2021' on page 25 undefined on input line 525",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 530,
+  "message": "Package natbib Warning: Citation `schakowski2026' on page 25 undefined on input line 530",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 544,
+  "message": "Package hyperref Warning: Difference (3) between bookmark levels is greater than one, level fixed on input line 544",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_en.tex",
+  "line": 547,
+  "message": "Package hyperref Warning: Difference (2) between bookmark levels is greater than one, level fixed on input line 547",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "si_body_en.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

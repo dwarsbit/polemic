@@ -1,0 +1,32 @@
+{
+ "id": 246,
+ "source": "GitHub",
+ "name": "andrejbauer/notes-on-realizability",
+ "url": "https://github.com/andrejbauer/notes-on-realizability",
+ "type": "Notes",
+ "version": "8dccd94381ec3bb343aa68ceed74b47b880ace32",
+ "files": 51,
+ "main": "archive/homework1.tex",
+ "catalogMain": "notes/notes-on-realizability.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "notes/notes-on-realizability.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 6987,
+  "tail": "exit 12, PDF not found\n  Citation 'turing37:_comput_number_with_applic_to_entsc' on page 4 undefined on input line 7\n  Citation 'turing37:_comput_number_with_applic_to_entsc' on page 4 undefined on input line 7\n  Reference `sec:simulations' on page 1 undefined on input line 19\n  Citation 'longley99:_unify_typed_and_untyp_realiz' on page 4 undefined on input line 24\n  Citation 'longley99:_match' on page 4 undefined on input line 24\n  Citation 'longley99:_unify_typed_and_untyp_realiz' on page 4 undefined on input line 24\n  Citation 'longley99:_match' on page 4 undefined on input line 24\n And 8 more --- see log file 'notes-on-realizability.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 219,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `../macros.tex' not found.",
+ "outcome": "both-fail"
+}

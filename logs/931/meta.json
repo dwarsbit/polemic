@@ -1,0 +1,31 @@
+{
+ "id": 931,
+ "source": "CTAN",
+ "name": "europasscv",
+ "url": "https://ctan.org/pkg/europasscv",
+ "type": "CV",
+ "version": "",
+ "files": 43,
+ "main": "europasscv.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "europasscv.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 6178,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'europasscv.log' and/or above output for details\n\nLatexmk: Missing input file 'europasscv.toc' message in .log file:\n  No file europasscv.toc.\nFailure to make 'europasscv.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1031,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 5,
+ "warnings": 252,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

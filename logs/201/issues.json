@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file uniyou5f): Font uniyou5f at 1037 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexbeamer Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <10> not available Font shape `T1/cmtt/m/n' tried instead on input line 3",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 304,
+ "source": "GitHub",
+ "name": "rizaudo/lualatex-doujinshi-template",
+ "url": "https://github.com/rizaudo/lualatex-doujinshi-template",
+ "type": "Book",
+ "version": "593b3c02ac37346eba2166e949bc5171928d4ef8",
+ "files": 8,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "detectedEngine": "lualatex (latexmkrc)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 29183,
+  "tail": "exit 12, PDF found\n  Missing character: There is no [ (U+005B) in font nullfont!\n  Missing character: There is no 1 (U+0031) in font nullfont!\n  Missing character: There is no ] (U+005D) in font nullfont!\n  Missing character: There is no @ (U+0040) in font nullfont!\n  Missing character: There is no r (U+0072) in font nullfont!\n  Missing character: There is no i (U+0069) in font nullfont!\n  Missing character: There is no z (U+007A) in font nullfont!\n And 5915 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 6226,
+  "outputs": [
+   "log"
+  ],
+  "tail": "  Missing character: There is no j (\"6A) in font nullfont!\n And 12 more --- see log file 'build/main.log'\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 1137,
+ "outcome": "both-fail"
+}

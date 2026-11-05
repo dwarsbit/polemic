@@ -1,0 +1,32 @@
+{
+ "id": 395,
+ "source": "GitHub",
+ "name": "thomasbenas/LaTeX-report-template",
+ "url": "https://github.com/thomasbenas/LaTeX-report-template",
+ "type": "Report",
+ "version": "5be73a9353deb46a3ce23674821a2347c344d915",
+ "files": 28,
+ "main": "document.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "document.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 9549
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4453,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

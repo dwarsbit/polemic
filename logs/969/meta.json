@@ -1,0 +1,31 @@
+{
+ "id": 969,
+ "source": "CTAN",
+ "name": "siam",
+ "url": "https://ctan.org/pkg/siam",
+ "type": "Paper",
+ "version": "1.1",
+ "files": 25,
+ "main": "proc2e.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "proc2e.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 837
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 575,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

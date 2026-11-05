@@ -1,0 +1,10 @@
+{
+ "id": 914,
+ "source": "CTAN",
+ "name": "uantwerpendocs",
+ "url": "https://ctan.org/pkg/uantwerpendocs",
+ "type": "Thesis",
+ "version": "4.12",
+ "files": 335,
+ "outcome": "no-tex"
+}

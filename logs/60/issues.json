@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 13,
+  "message": "LaTeX Warning: \\include should only be used after \\begin{document} on input line 13",
+  "detail": [],
+  "hint": null
+ }
+]

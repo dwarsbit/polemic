@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "biomimetics-4559614-done.tex",
+  "line": null,
+  "message": "Class revtex4-2 Warning: Repair the float package",
+  "detail": [],
+  "hint": null
+ }
+]

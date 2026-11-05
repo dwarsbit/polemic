@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 125,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <16> not available size <17.28> substituted on input line 125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 125,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.40009> not available size <8> substituted on input line 125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 1.28pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

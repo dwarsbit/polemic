@@ -1,0 +1,1266 @@
+[
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 280,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <18> not available size <17.28> substituted on input line 280",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 281,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.59995> not available size <12> substituted on input line 281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 281,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <18> not available size <17.28> substituted on input line 281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 281,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.59995> not available size <12> substituted on input line 281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 281,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <18> not available size <17.28> substituted on input line 281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 281,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.59995> not available size <12> substituted on input line 281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 281,
+  "message": "LaTeX Font Warning: Font shape `U/lasy/m/n' in size <18> not available size <17.28> substituted on input line 281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 281,
+  "message": "LaTeX Font Warning: Font shape `U/lasy/m/n' in size <12.59995> not available size <12> substituted on input line 281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 281,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <18> not available size <17.28> substituted on input line 281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 281,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <12.59995> not available size <12> substituted on input line 281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 289,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available size <5> substituted on input line 289",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 289,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available size <5> substituted on input line 289",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 289,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available size <5> substituted on input line 289",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 289,
+  "message": "LaTeX Font Warning: Font shape `U/lasy/m/n' in size <5.5> not available size <5> substituted on input line 289",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 289,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.5> not available size <5> substituted on input line 289",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 317,
+  "message": "LaTeX Warning: Citation `Polyakov:2003interview' on page 2 undefined on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 328,
+  "message": "LaTeX Warning: Citation `Maldacena:1997re' on page 2 undefined on input line 328",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 328,
+  "message": "LaTeX Warning: Citation `Gubser:1998bc' on page 2 undefined on input line 328",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 328,
+  "message": "LaTeX Warning: Citation `Witten:1998qj' on page 2 undefined on input line 328",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 329,
+  "message": "LaTeX Warning: Citation `Poland:2018epd' on page 2 undefined on input line 329",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 336,
+  "message": "LaTeX Warning: Citation `BELAVIN1984333' on page 3 undefined on input line 336",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 339,
+  "message": "LaTeX Warning: Citation `Osborn:1993cr' on page 3 undefined on input line 339",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `zamolodchikov1984conformal' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `zamolodchikov2' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Harlow:2011ny' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Hartman:2013mia' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2014vua' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Perlmutter:2015iya' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Hijano:2015qja' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2015foa' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Beccaria:2015shq' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2015dlt' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2016ive' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Chen:2016cms' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2016mtp' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Hikida:2018dxe' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Bombini:2018jrg' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Cotler:2019nbi' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Besken:2019jyw' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Anous:2020vtw' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Nguyen:2021jja' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Pavlov:2024zqj' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Bissi:2024wur' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Citation `Fortin:2025asz' on page 3 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 349,
+  "message": "LaTeX Warning: Citation `Ceplak:2024bja' on page 3 undefined on input line 349",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 349,
+  "message": "LaTeX Warning: Citation `Kraus:2002iv' on page 3 undefined on input line 349",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 349,
+  "message": "LaTeX Warning: Citation `Fidkowski:2003nf' on page 3 undefined on input line 349",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 349,
+  "message": "LaTeX Warning: Citation `Festuccia:2005pi' on page 3 undefined on input line 349",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Iliesiu:2018fao' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Gobeil:2018fzy' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Kulaxizi:2018dxo' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2019zqz' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Li:2019tpf' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Kulaxizi:2019tkd' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2019efk' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Karlsson:2019dbd' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Li:2019zba' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Karlsson:2019txu' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Karlsson:2020ghx' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2020yjb' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Alday:2020eua' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Grinberg:2020fdj' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Karlsson:2021duj' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Rodriguez-Gomez:2021mkk' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Krishna:2021fus' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Karlsson:2022osn' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Dodelson:2022yvn' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Parisini:2022wkb' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Dodelson:2023vrw' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Esper:2023jeq' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Parisini:2023nbd' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Buric:2025anb' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Haehl:2025ehf' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Buric:2025uqt' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Ammon:2025cdz' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Buric:2025fye' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Niarchos:2025cdg' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Bajc:2025jjv' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Barrat:2025twb' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Afkhami-Jeddi:2025wra' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Dodelson:2025jff' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Ceplak:2025dds' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Jia:2026pmv' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Araya:2026shz' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Giombi:2026kdz' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Jia:2026ryl' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Arnaudo:2026der' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Grozdanov:2026cut' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Arnaudo:2026tcy' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Grozdanov:2026ktq' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Niarchos:2026wsw' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Arnaudo:2026axe' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Hartnoll:2026vhu' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Ceplak:2026ard' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Guo:2026xyl' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Komargodski:2026oob' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Batra:2026gbq' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Correia:2026fnr' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Buric:2026sit' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Bajc:2026wzi' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Chakravarty:2026fdm' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Chen:2026efa' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Almheiri:2026cpv' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Oh:2026dky' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Aniceto:2026vtv' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 351,
+  "message": "LaTeX Warning: Citation `Grassi:2026ekz' on page 3 undefined on input line 351",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 355,
+  "message": "LaTeX Warning: Citation `Huang:2026jbv' on page 4 undefined on input line 355",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 355,
+  "message": "LaTeX Warning: Citation `Huang:2023ikg' on page 4 undefined on input line 355",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 355,
+  "message": "LaTeX Warning: Citation `Huang:2024wbq' on page 4 undefined on input line 355",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 366,
+  "message": "LaTeX Warning: Citation `BELAVIN1984333' on page 4 undefined on input line 366",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 369,
+  "message": "Package amsmath Warning: Foreign command \\over; \\frac or \\genfrac should be used instead on input line 369",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 416,
+  "message": "LaTeX Warning: Citation `Bauer:1991ai' on page 6 undefined on input line 416",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 416,
+  "message": "LaTeX Warning: Citation `Chen:2016cms' on page 6 undefined on input line 416",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 416,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2016ive' on page 6 undefined on input line 416",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 416,
+  "message": "LaTeX Warning: Citation `DiFrancesco:1997nk' on page 6 undefined on input line 416",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 428,
+  "message": "LaTeX Warning: Citation `Huang:2023ikg' on page 6 undefined on input line 428",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 429,
+  "message": "LaTeX Warning: Citation `Huang:2026jbv' on page 6 undefined on input line 429",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 529,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 529",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 529,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 529",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 532,
+  "message": "LaTeX Warning: Citation `Huang:2026jbv' on page 8 undefined on input line 532",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 565,
+  "message": "LaTeX Warning: Citation `Gubser:1998bc' on page 9 undefined on input line 565",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 565,
+  "message": "LaTeX Warning: Citation `Witten:1998qj' on page 9 undefined on input line 565",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 571,
+  "message": "LaTeX Warning: Citation `Witten:1998qj' on page 9 undefined on input line 571",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 580,
+  "message": "LaTeX Warning: Citation `Keski-Vakkuri:1998gmz' on page 9 undefined on input line 580",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 590,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2019zqz' on page 9 undefined on input line 590",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 823,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 823",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 852,
+  "message": "LaTeX Warning: Citation `Bauer:1991ai' on page 15 undefined on input line 852",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 852,
+  "message": "LaTeX Warning: Citation `DiFrancesco:1997nk' on page 15 undefined on input line 852",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 852,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2016ive' on page 15 undefined on input line 852",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 852,
+  "message": "LaTeX Warning: Citation `Chen:2016cms' on page 15 undefined on input line 852",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1029,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1029",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1029,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 1029",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1031,
+  "message": "LaTeX Warning: Citation `Huang:2026jbv' on page 18 undefined on input line 1031",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1055,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2019zqz' on page 18 undefined on input line 1055",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1075,
+  "message": "LaTeX Warning: Citation `breitenlohner1982stability' on page 19 undefined on input line 1075",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1075,
+  "message": "LaTeX Warning: Citation `breitenlohner1982positive' on page 19 undefined on input line 1075",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1100,
+  "message": "LaTeX Warning: Citation `Huang:2026jbv' on page 19 undefined on input line 1100",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1123,
+  "message": "LaTeX Warning: Citation `Huang:2026jbv' on page 20 undefined on input line 1123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1134,
+  "message": "LaTeX Warning: Citation `Huang:2026jbv' on page 20 undefined on input line 1134",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1155,
+  "message": "LaTeX Warning: Citation `Dolan:2000ut' on page 20 undefined on input line 1155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1196,
+  "message": "LaTeX Warning: Citation `Huang:2023ikg' on page 21 undefined on input line 1196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1198,
+  "message": "LaTeX Warning: Citation `Kulaxizi:2019tkd' on page 21 undefined on input line 1198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1198,
+  "message": "LaTeX Warning: Citation `Karlsson:2019dbd' on page 21 undefined on input line 1198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1198,
+  "message": "LaTeX Warning: Citation `Karlsson:2020ghx' on page 21 undefined on input line 1198",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1236,
+  "message": "LaTeX Warning: Citation `Kulaxizi:2019tkd' on page 22 undefined on input line 1236",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1239,
+  "message": "LaTeX Warning: Citation `Karlsson:2019dbd' on page 22 undefined on input line 1239",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1239,
+  "message": "LaTeX Warning: Citation `Karlsson:2020ghx' on page 22 undefined on input line 1239",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1240,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2012yx' on page 22 undefined on input line 1240",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1240,
+  "message": "LaTeX Warning: Citation `Komargodski:2012ek' on page 22 undefined on input line 1240",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1243,
+  "message": "LaTeX Warning: Citation `Huang:2023ikg' on page 22 undefined on input line 1243",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1254,
+  "message": "LaTeX Warning: Citation `Huang:2026jbv' on page 23 undefined on input line 1254",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1259,
+  "message": "LaTeX Warning: Citation `Huang:2024wbq' on page 23 undefined on input line 1259",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1740,
+  "message": "LaTeX Warning: Citation `Huang:2026jbv' on page 32 undefined on input line 1740",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1762,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2019zqz' on page 33 undefined on input line 1762",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1762,
+  "message": "LaTeX Warning: Citation `Fitzpatrick:2020yjb' on page 33 undefined on input line 1762",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": 1766,
+  "message": "LaTeX Warning: Citation `Chen:2016cms' on page 33 undefined on input line 1766",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.72pt have occurred",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4d_null_matrix_draft_arXiv.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

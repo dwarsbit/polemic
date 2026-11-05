@@ -1,0 +1,130 @@
+[
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `scikit-learn' on page 1 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `sklearn_api' on page 1 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `stream-based-sampling' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `uncertainty-sampling' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `query-by-committee' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `query-by-disagreement' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `ranked-batch-mode' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `expected-error' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `svm-binary-minimum' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `svm-max-loss' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `esuli-sebastiani' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `information-density' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `7352306' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 128,
+  "message": "Package natbib Warning: Citation `YY2017' on page 3 undefined on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": 128,
+  "message": "Package natbib Warning: Citation `JCLAL' on page 3 undefined on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modAL.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

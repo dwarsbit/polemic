@@ -1,0 +1,610 @@
+[
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `BC_CP_HCD_MJ_EOM' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `VE_QPM' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `KJ_SO' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `KollarModuliSurvey' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `CF_CCO' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `VR_MLI' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `VanOpstallModProd' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `VOMA_SDIP' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `LW_SD' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `RS_CM' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `AV_PR_ECO' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `LY_ACO' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `HP_KS_TJ_COT' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `HP_KS_TJ_SPT' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `AV_CMI' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `HB_SLS' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Citation `HP_CM' on page 1 undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 153,
+  "message": "LaTeX Warning: Citation `VanOpstallModProd' on page 1 undefined on input line 153",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 214,
+  "message": "LaTeX Warning: Citation `MatsusakaMumford' on page 2 undefined on input line 214",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 216,
+  "message": "LaTeX Warning: Citation `KovacsYPG' on page 2 undefined on input line 216",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 216,
+  "message": "LaTeX Warning: Citation `KollarModuliSurvey' on page 2 undefined on input line 216",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 216,
+  "message": "LaTeX Warning: Citation `KJ_SO' on page 2 undefined on input line 216",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 216,
+  "message": "LaTeX Warning: Citation `HR_GD' on page 2 undefined on input line 216",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 224,
+  "message": "LaTeX Warning: Citation `KovacsYPG' on page 3 undefined on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 230,
+  "message": "LaTeX Warning: Citation `KollarModuliSurvey' on page 3 undefined on input line 230",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 252,
+  "message": "LaTeX Warning: Citation `VanOpstallModProd' on page 3 undefined on input line 252",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 258,
+  "message": "LaTeX Warning: Citation `GD_KS_KSJ_PT_DF' on page 3 undefined on input line 258",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 278,
+  "message": "LaTeX Warning: Citation `GD_KS_KSJ_PT_DF' on page 3 undefined on input line 278",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 313,
+  "message": "LaTeX Warning: Citation `GA_EGA_IV_II' on page 5 undefined on input line 313",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 313,
+  "message": "LaTeX Warning: Citation `KM_IOA' on page 5 undefined on input line 313",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 335,
+  "message": "LaTeX Warning: Citation `AbramovichHassett' on page 5 undefined on input line 335",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 349,
+  "message": "LaTeX Warning: Citation `VanOpstallModProd' on page 5 undefined on input line 349",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 419,
+  "message": "LaTeX Warning: Citation `AbramovichHassett' on page 6 undefined on input line 419",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 424,
+  "message": "LaTeX Warning: Citation `KovacsYPG' on page 6 undefined on input line 424",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 439,
+  "message": "LaTeX Warning: Citation `KollarFlatness' on page 6 undefined on input line 439",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 482,
+  "message": "LaTeX Warning: Citation `AbramovichHassett' on page 7 undefined on input line 482",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 492,
+  "message": "LaTeX Warning: Citation `LurieDAG' on page 7 undefined on input line 492",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 563,
+  "message": "LaTeX Warning: Citation `LurieICM' on page 9 undefined on input line 563",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 593,
+  "message": "LaTeX Warning: Citation `MatCA' on page 10 undefined on input line 593",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 768,
+  "message": "LaTeX Warning: Citation `NeemanGD' on page 14 undefined on input line 768",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 770,
+  "message": "LaTeX Warning: Citation `NeemanGD' on page 15 undefined on input line 770",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 785,
+  "message": "LaTeX Warning: Citation `MatCA' on page 15 undefined on input line 785",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 817,
+  "message": "LaTeX Warning: Citation `AbramovichHassett' on page 16 undefined on input line 817",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 926,
+  "message": "LaTeX Warning: Citation `HD_LM_TG' on page 17 undefined on input line 926",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 960,
+  "message": "LaTeX Warning: Citation `HD_LM_TG' on page 17 undefined on input line 960",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 998,
+  "message": "LaTeX Warning: Citation `AT_EDT' on page 18 undefined on input line 998",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 998,
+  "message": "LaTeX Warning: Citation `YST_OTR' on page 18 undefined on input line 998",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 1018,
+  "message": "LaTeX Warning: Citation `HD_CG' on page 18 undefined on input line 1018",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 1023,
+  "message": "LaTeX Warning: Citation `HD_CG' on page 18 undefined on input line 1023",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 1038,
+  "message": "LaTeX Warning: Citation `UK_YST_OTE' on page 18 undefined on input line 1038",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 1060,
+  "message": "LaTeX Warning: Citation `BA_CM' on page 18 undefined on input line 1060",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": 1125,
+  "message": "LaTeX Warning: Citation `BA_CM' on page 19 undefined on input line 1125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 5,
+  "message": "LaTeX Warning: Citation `LurieDAG' on page 20 undefined on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 5,
+  "message": "LaTeX Warning: Citation `IllusieCC1' on page 20 undefined on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 5,
+  "message": "LaTeX Warning: Citation `LurieHA' on page 20 undefined on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 5,
+  "message": "LaTeX Warning: Citation `LurieHT' on page 20 undefined on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 7,
+  "message": "LaTeX Warning: Citation `LurieHA' on page 20 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 13,
+  "message": "LaTeX Warning: Citation `LurieHA' on page 20 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 18,
+  "message": "LaTeX Warning: Citation `QuillenCRC' on page 20 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 18,
+  "message": "LaTeX Warning: Citation `IllusieCC1' on page 20 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 26,
+  "message": "LaTeX Warning: Citation `IllusieCC1' on page 21 undefined on input line 26",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 26,
+  "message": "LaTeX Warning: Citation `LurieDAG' on page 21 undefined on input line 26",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 26,
+  "message": "LaTeX Warning: Citation `QuillenCRC' on page 21 undefined on input line 26",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 35,
+  "message": "LaTeX Warning: Citation `LurieDAG' on page 21 undefined on input line 35",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 35,
+  "message": "LaTeX Warning: Citation `IllusieCC1' on page 21 undefined on input line 35",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 42,
+  "message": "LaTeX Warning: Citation `LurieDAG' on page 21 undefined on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 42,
+  "message": "LaTeX Warning: Citation `IllusieCC1' on page 21 undefined on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 70,
+  "message": "LaTeX Warning: Citation `IllusieCC1' on page 23 undefined on input line 70",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 96,
+  "message": "LaTeX Warning: Citation `LurieDAG' on page 23 undefined on input line 96",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 96,
+  "message": "LaTeX Warning: Citation `IllusieCC1' on page 23 undefined on input line 96",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 101,
+  "message": "LaTeX Warning: Citation `LurieHA' on page 24 undefined on input line 101",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 108,
+  "message": "LaTeX Warning: Citation `IllusieCC1' on page 24 undefined on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 108,
+  "message": "LaTeX Warning: Citation `LurieDAG' on page 24 undefined on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 127,
+  "message": "LaTeX Warning: Citation `LurieHA' on page 25 undefined on input line 127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "derivedAGreview.tex",
+  "line": 127,
+  "message": "LaTeX Warning: Citation `IllusieCC1' on page 25 undefined on input line 127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "modprod.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 933,
+ "source": "CTAN",
+ "name": "limecv",
+ "url": "https://ctan.org/pkg/limecv",
+ "type": "CV",
+ "version": "0.1.12",
+ "files": 13,
+ "main": "examples/mwe-latex.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "examples/mwe-latex.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1968
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1665,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 7,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 560,
+ "source": "arXiv",
+ "name": "arXiv:2611.02972",
+ "url": "https://arxiv.org/abs/2611.02972",
+ "type": "Paper",
+ "version": "2611.02972",
+ "files": 11,
+ "main": "Spin_qubit_shuttling.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Spin_qubit_shuttling.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3997
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2352,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 95,
+ "outcome": "both-ok"
+}

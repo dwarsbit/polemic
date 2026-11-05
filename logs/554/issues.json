@@ -1,0 +1,82 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class revtex4-2 Warning: No Society specified, using default society aps",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class revtex4-2 Warning: No type size specified, using default 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_clean_edited.tex",
+  "line": null,
+  "message": "Class revtex4-2 Warning: Repair the float package",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `jc-hamiltonian' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_clean_edited.tex",
+  "line": 605,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix] on input line 605",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_clean_edited.tex",
+  "line": 627,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix] on input line 627",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_clean_edited.tex",
+  "line": 733,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix] on input line 733",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_clean_edited.tex",
+  "line": 816,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix] on input line 816",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_clean_edited.tex",
+  "line": 835,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix] on input line 835",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main_clean_edited.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were multiply-defined labels",
+  "detail": [],
+  "hint": null
+ }
+]

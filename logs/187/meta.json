@@ -1,0 +1,34 @@
+{
+ "id": 187,
+ "source": "GitHub",
+ "name": "nguyenpanda/Panda-Report-Slide",
+ "url": "https://github.com/nguyenpanda/Panda-Report-Slide",
+ "type": "Slides",
+ "version": "f8a2fb0b225ada8452ad2fd313be4e1f9f8ca421",
+ "files": 60,
+ "main": "tex/01/main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "tex/01/main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 669,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'main.log' and/or above output for details\n\nLatexmk: Missing input file 'nguyenpandaSlide.cls' message in .log file:\n  ! LaTeX Error: File `nguyenpandaSlide.cls' not found.\nFailure to make 'main.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2852,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ],
+  "tail": "  Citation 'texbook' on page 15 undefined on input line 20\n And 1 more --- see log file 'build/main.log'\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 14,
+ "outcome": "both-fail"
+}

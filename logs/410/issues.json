@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "tex/FinalExam.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 13.59999pt, for example: \\setlength{\\headheight}{13.59999pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-1.59999pt}",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,170 @@
+[
+ {
+  "severity": "error",
+  "file": "rannis.cls",
+  "line": 47,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannis.cls",
+  "line": 50,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannis.cls",
+  "line": 51,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannis.cls",
+  "line": 67,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannis.cls",
+  "line": 70,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannis.cls",
+  "line": 76,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannis.cls",
+  "line": 118,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannis.cls",
+  "line": 120,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannis.cls",
+  "line": 121,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannis.cls",
+  "line": 122,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannis.cls",
+  "line": 123,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannismain2021.tex",
+  "line": 4,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannismain2021.tex",
+  "line": 5,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannismain2021.tex",
+  "line": 8,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannismain2021.tex",
+  "line": 10,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannismain2021.tex",
+  "line": 11,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannismain2021.tex",
+  "line": 12,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannismain2021.tex",
+  "line": 50,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannismain2021.tex",
+  "line": 95,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannismain2021.tex",
+  "line": 98,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "rannismain2021.tex",
+  "line": 98,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 514,
+ "source": "arXiv",
+ "name": "arXiv:2611.01716",
+ "url": "https://arxiv.org/abs/2611.01716",
+ "type": "Paper",
+ "version": "2611.01716",
+ "files": 3,
+ "main": "ku_torelli.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ku_torelli.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4993
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4389,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

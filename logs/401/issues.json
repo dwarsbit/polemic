@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package everypage Warning: Functionality similar to this package has recently been implemented in LaTeX. This package is now in legacy status. Please, don't use it in new documents and packages",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package everypage Warning: You appear to be running a version of LaTeX providing the new functionality. Doing the best to deliver the original `everypage` interface on top of it. Strict equivalence is not possible, breakage may occur. If truly needed, Use `everypage-1x` to force the loading of an older code base",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class beamer Warning: ``serif'' option is obsolete. Use font theme ``serif'' instead on input line 372",
+  "detail": [],
+  "hint": null
+ }
+]

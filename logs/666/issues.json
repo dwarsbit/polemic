@@ -1,0 +1,714 @@
+[
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 6,
+  "message": "LaTeX Warning: Citation `olah2017feature' on page 1 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 13,
+  "message": "LaTeX Warning: Citation `selvaraju2016grad' on page 1 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 16,
+  "message": "LaTeX Warning: Citation `olah2018the' on page 2 undefined on input line 16",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 18,
+  "message": "LaTeX Warning: Citation `mahendran2016visualizing' on page 2 undefined on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 19,
+  "message": "LaTeX Warning: Citation `mahendran2016visualizing' on page 2 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 22,
+  "message": "LaTeX Warning: Citation `mahendran2016visualizing' on page 2 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 22,
+  "message": "LaTeX Warning: Citation `olah2017feature' on page 2 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 23,
+  "message": "LaTeX Warning: Citation `olah2017feature' on page 2 undefined on input line 23",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 25,
+  "message": "LaTeX Warning: Citation `thirion1998image' on page 2 undefined on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 25,
+  "message": "LaTeX Warning: Citation `vercauteren2009diffeomorphic' on page 2 undefined on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 25,
+  "message": "LaTeX Warning: Citation `neuberger2009sobolev' on page 2 undefined on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 25,
+  "message": "LaTeX Warning: Citation `chefd2002flows' on page 2 undefined on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 25,
+  "message": "LaTeX Warning: Citation `sundaramoorthi2007sobolev' on page 2 undefined on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 25,
+  "message": "LaTeX Warning: Citation `calder2010image' on page 2 undefined on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `selvaraju2016grad' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `maaten2008visualizing' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `erhan2009visualizing' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `simonyan2013deep' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `zeiler2014visualizing' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `springenberg2014striving' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `nguyen2015deep' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `nguyen2016plug' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `fong2017interpretable' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `kindermans2017patternnet' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `kindermans2017reliability' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `sundararajan2017axiomatic' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `olah2017feature' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Citation `olah2018the' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 34,
+  "message": "LaTeX Warning: Citation `grun2016taxonomy' on page 2 undefined on input line 34",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 34,
+  "message": "LaTeX Warning: Citation `olah2018the' on page 2 undefined on input line 34",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `erhan2009visualizing' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `szegedy2013intriguing' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `mahendran2016visualizing' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `nguyen2015deep' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `oygard2015glasses' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `mordvintsev2015inceptionism' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `tyka2016art' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `mordvintsev2016deepdream' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `dosovitskiy2015inverting' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `nguyen2016synthesizing' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `nguyen2016plug' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 37,
+  "message": "LaTeX Warning: Citation `ulyanov2017practical' on page 2 undefined on input line 37",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 10,
+  "message": "LaTeX Warning: Citation `mahendran2016visualizing' on page 4 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 53,
+  "message": "LaTeX Warning: Citation `thirion1998image' on page 5 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 53,
+  "message": "LaTeX Warning: Citation `vercauteren2009diffeomorphic' on page 5 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 68,
+  "message": "LaTeX Warning: Citation `christensen1996deformable' on page 5 undefined on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 69,
+  "message": "LaTeX Warning: Citation `fischer2004unified' on page 5 undefined on input line 69",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 69,
+  "message": "LaTeX Warning: Citation `vercauteren2009diffeomorphic' on page 5 undefined on input line 69",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `oygard2015glasses' on page 6 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `nguyen2015deep' on page 6 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `mordvintsev2015inceptionism' on page 6 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 88,
+  "message": "LaTeX Warning: Citation `mahendran2016visualizing' on page 6 undefined on input line 88",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 88,
+  "message": "LaTeX Warning: Citation `tyka2016art' on page 6 undefined on input line 88",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 89,
+  "message": "LaTeX Warning: Citation `olah2017feature' on page 6 undefined on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 106,
+  "message": "LaTeX Warning: Citation `neuberger2009sobolev' on page 6 undefined on input line 106",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 106,
+  "message": "LaTeX Warning: Citation `sundaramoorthi2007sobolev' on page 6 undefined on input line 106",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 112,
+  "message": "LaTeX Warning: Citation `calder2010image' on page 7 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 126,
+  "message": "LaTeX Warning: Citation `chefd2002flows' on page 7 undefined on input line 126",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 126,
+  "message": "LaTeX Warning: Citation `vercauteren2009diffeomorphic' on page 7 undefined on input line 126",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 140,
+  "message": "LaTeX Warning: Citation `rudin1992nonlinear' on page 7 undefined on input line 140",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 141,
+  "message": "LaTeX Warning: Citation `chambolle2010introduction' on page 7 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 146,
+  "message": "LaTeX Warning: Citation `chambolle2010introduction' on page 7 undefined on input line 146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 152,
+  "message": "LaTeX Warning: Citation `chambolle2010introduction' on page 8 undefined on input line 152",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "methodology.tex",
+  "line": 160,
+  "message": "LaTeX Warning: Citation `oygard2015glasses' on page 8 undefined on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "experiments.tex",
+  "line": 11,
+  "message": "LaTeX Warning: Citation `simonyan2013deep' on page 8 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "experiments.tex",
+  "line": 11,
+  "message": "LaTeX Warning: Citation `mordvintsev2015inceptionism' on page 8 undefined on input line 11",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "experiments.tex",
+  "line": 14,
+  "message": "LaTeX Warning: Citation `simonyan2013deep' on page 8 undefined on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "experiments.tex",
+  "line": 14,
+  "message": "LaTeX Warning: Citation `he2016deep' on page 8 undefined on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "experiments.tex",
+  "line": 14,
+  "message": "LaTeX Warning: Citation `huang2017densely' on page 8 undefined on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "discussion.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "discussion.tex",
+  "line": 29,
+  "message": "LaTeX Warning: Citation `tyka2016art' on page 11 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "discussion.tex",
+  "line": 29,
+  "message": "LaTeX Warning: Citation `perona1990scale' on page 11 undefined on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "discussion.tex",
+  "line": 30,
+  "message": "LaTeX Warning: Citation `mordvintsev2016deepdream' on page 11 undefined on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "discussion.tex",
+  "line": 30,
+  "message": "LaTeX Warning: Citation `dosovitskiy2015inverting' on page 11 undefined on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "discussion.tex",
+  "line": 30,
+  "message": "LaTeX Warning: Citation `nguyen2016synthesizing' on page 11 undefined on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "discussion.tex",
+  "line": 30,
+  "message": "LaTeX Warning: Citation `nguyen2016plug' on page 11 undefined on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "discussion.tex",
+  "line": 30,
+  "message": "LaTeX Warning: Citation `ulyanov2017practical' on page 11 undefined on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "discussion.tex",
+  "line": 31,
+  "message": "LaTeX Warning: Citation `kukavcka2017regularization' on page 11 undefined on input line 31",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tab_related_work.tex",
+  "line": 6,
+  "message": "LaTeX Warning: Citation `mahendran2016visualizing' on page 13 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tab_related_work.tex",
+  "line": 6,
+  "message": "LaTeX Warning: Citation `nguyen2015deep' on page 13 undefined on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tab_related_work.tex",
+  "line": 7,
+  "message": "LaTeX Warning: Citation `oygard2015glasses' on page 13 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tab_related_work.tex",
+  "line": 7,
+  "message": "LaTeX Warning: Citation `mordvintsev2015inceptionism' on page 13 undefined on input line 7",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tab_related_work.tex",
+  "line": 8,
+  "message": "LaTeX Warning: Citation `mordvintsev2016deepdream' on page 13 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tab_related_work.tex",
+  "line": 9,
+  "message": "LaTeX Warning: Citation `tyka2016art' on page 13 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tab_related_work.tex",
+  "line": 9,
+  "message": "LaTeX Warning: Citation `dosovitskiy2015inverting' on page 13 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tab_related_work.tex",
+  "line": 9,
+  "message": "LaTeX Warning: Citation `nguyen2016synthesizing' on page 13 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tab_related_work.tex",
+  "line": 9,
+  "message": "LaTeX Warning: Citation `nguyen2016plug' on page 13 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tab_related_work.tex",
+  "line": 9,
+  "message": "LaTeX Warning: Citation `ulyanov2017practical' on page 13 undefined on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "discussion.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

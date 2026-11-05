@@ -1,0 +1,31 @@
+{
+ "id": 363,
+ "source": "GitHub",
+ "name": "jcalov/HFT-Poster",
+ "url": "https://github.com/jcalov/HFT-Poster",
+ "type": "Poster",
+ "version": "853593f638c39a9cbd42aa9f9165743e12a9149c",
+ "files": 13,
+ "main": "example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2318
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2008,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

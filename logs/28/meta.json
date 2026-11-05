@@ -1,0 +1,32 @@
+{
+ "id": 28,
+ "source": "GitHub",
+ "name": "detiuaveiro/ua-thesis-template",
+ "url": "https://github.com/detiuaveiro/ua-thesis-template",
+ "type": "Thesis",
+ "version": "d96147af859e3b98d9206393e758f79ab73a9556",
+ "files": 17,
+ "main": "thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 16656
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 10661,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

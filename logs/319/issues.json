@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": "assets/gradient-text.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `awesome-academic-cv', but the document class provides `gradient-text'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "assets/sparklines.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `awesome-academic-cv', but the document class provides `sparklines'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package french.ldf Warning: You are relying on the legacy list code. There is nothing wrong with this, just be aware that new lists templates are available and will become the default sooner or later. Adding \\DocumentMetadata{ ... } before the \\documentclass{} command, enables the new lists templates. Give them a try! Reported on input line 15",
+  "detail": [],
+  "hint": null
+ }
+]

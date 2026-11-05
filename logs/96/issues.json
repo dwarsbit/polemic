@@ -1,0 +1,82 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underbar  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underline  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tracklang Warning: No `datatool' support for dialect `french'  on input line 9924",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [multicol]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 13.59999pt, for example: \\setlength{\\headheight}{13.59999pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-1.59999pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 14.1595pt, for example: \\setlength{\\headheight}{14.1595pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-2.1595pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3_Chapitre3/chapitre3.tex",
+  "line": 114,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3_Chapitre3/chapitre3.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 14.06094pt, for example: \\setlength{\\headheight}{14.06094pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-2.06094pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "4_Chapitre4/chapitre4.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 25.2232pt, for example: \\setlength{\\headheight}{25.2232pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-13.2232pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "6_Chapitre6/chapitre6.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 27.66095pt, for example: \\setlength{\\headheight}{27.66095pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-15.66095pt}",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 350,
+ "source": "GitHub",
+ "name": "classysoftware/classycv",
+ "url": "https://github.com/classysoftware/classycv",
+ "type": "CV",
+ "version": "41dba0701fe9622f61cc9e3c7be1f0e74250f133",
+ "files": 31,
+ "main": "examples/assets/attachment.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "examples/assets/attachment.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 397,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'attachment.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'attachment.log' and/or above output for details\n\nLatexmk: Missing input file 'classycv.cls' message in .log file:\n  ! LaTeX Error: File `classycv.cls' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 196,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `classycv.cls' not found.",
+ "outcome": "both-fail"
+}

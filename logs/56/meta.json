@@ -1,0 +1,32 @@
+{
+ "id": 56,
+ "source": "GitHub",
+ "name": "gcedo/master-thesis",
+ "url": "https://github.com/gcedo/master-thesis",
+ "type": "Thesis",
+ "version": "4e4e83fd15e2ee940ad0fe60217c79bef4274e87",
+ "files": 57,
+ "main": "thesis_polimi.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "thesis_polimi.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 186308,
+  "tail": "exit 12, PDF found\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no w (\"77) in font nullfont!\n And 42438 more --- see log file 'thesis_polimi.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 60362,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 168,
+ "warnings": 47,
+ "firstError": "Package fontspec Error: The font \"Minion Pro\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

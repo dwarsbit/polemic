@@ -1,0 +1,33 @@
+{
+ "id": 988,
+ "source": "CTAN",
+ "name": "beamertheme-trigon",
+ "url": "https://ctan.org/pkg/beamertheme-trigon",
+ "type": "Slides",
+ "version": "0.7.0",
+ "files": 16,
+ "main": "demo/trigon_demo.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "demo/trigon_demo.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3305,
+  "tail": "exit 12, PDF found\n====BUT force_mode is on, so I will continue. There may be problems ===\nLatexmk: Veto of running of 'bibtex trigon_demo' ($bibtex_use=1)\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Citation `knuth92' on page 15 undefined on input line 247\n  Citation `ConcreteMath' on page 15 undefined on input line 247\n  Citation `Simpson' on page 15 undefined on input line 247\n  Citation `Er01' on page 15 undefined on input line 247\n  Citation `greenwade93' on page 15 undefined on input line 247"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1554,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ],
+  "tail": "  Citation `Er01' on page 15 undefined on input line 247\n  Citation `greenwade93' on page 15 undefined on input line 247\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 11,
+ "outcome": "both-fail"
+}

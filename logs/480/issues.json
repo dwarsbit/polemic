@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": "tex/cls/eadmatUFRB.cls",
+  "line": 49,
+  "message": "Package modelo_eadmatUFRB Error: Precisa de XeLaTeX.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/cls/eadmatUFRB.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `tex/cls/eadmatUFRB', but the document class provides `eadmatUFRB'",
+  "detail": [],
+  "hint": null
+ }
+]

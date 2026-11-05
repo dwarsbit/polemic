@@ -1,0 +1,31 @@
+{
+ "id": 663,
+ "source": "arXiv",
+ "name": "arXiv:1206.1830",
+ "url": "https://arxiv.org/abs/1206.1830",
+ "type": "Paper",
+ "version": "1206.1830",
+ "files": 2,
+ "main": "DerivedGodeauxV5.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "DerivedGodeauxV5.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1718
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1499,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 7,
+ "outcome": "both-ok"
+}

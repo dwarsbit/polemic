@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file unisong76): Font unisong76 at 540 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexart Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Advanced",
+  "line": 10,
+  "message": "LaTeX Warning: Command \\textendash invalid in math mode on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Advanced",
+  "line": 30,
+  "message": "LaTeX Warning: Command \\textendash invalid in math mode on input line 30",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Advanced",
+  "line": 35,
+  "message": "LaTeX Warning: Command \\textendash invalid in math mode on input line 35",
+  "detail": [],
+  "hint": null
+ }
+]

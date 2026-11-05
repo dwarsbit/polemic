@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `cv-class', but the document class provides `my_cv'",
+  "detail": [],
+  "hint": null
+ }
+]

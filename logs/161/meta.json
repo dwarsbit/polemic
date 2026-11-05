@@ -1,0 +1,33 @@
+{
+ "id": 161,
+ "source": "GitHub",
+ "name": "Shulin-Li22/HUST-arXiv-Template",
+ "url": "https://github.com/Shulin-Li22/HUST-arXiv-Template",
+ "type": "Paper",
+ "version": "998f18cb999e13e9e89359c83b9132cb68a9e207",
+ "files": 39,
+ "main": "paper_zh.tex",
+ "catalogMain": "paper.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "paper.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 5221,
+  "tail": "exit 12, PDF found\nLatexmk: Missing bbl file 'paper.bbl' in following:\n No file paper.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\npaper.xdv -> paper.pdf\n[1][2][3][4][5][6][7][8]\n101695 bytes written"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1305,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 199,
+ "warnings": 7,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

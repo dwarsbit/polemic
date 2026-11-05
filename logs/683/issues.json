@@ -1,0 +1,306 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class revtex4-2 Warning: No type size specified, using default 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Class revtex4-2 Warning: Repair the float package",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `dionne2005planar' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `dionne2006plasmon' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `saleh2019fundamentals' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `edwards2008experimental' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `lalanne2009microscopic' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `durnin_diffraction-free_1987' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `mcgloin2005bessel' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `PhysRevLett.99.213901' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `lu1992nondiffracting' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `saari_evidence_1997' on page 1 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 43,
+  "message": "Package natbib Warning: Citation `agrawal2000nonlinear' on page 1 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 43,
+  "message": "Package natbib Warning: Citation `pal2010guided' on page 1 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 45,
+  "message": "Package natbib Warning: Citation `kondakci2019optical' on page 1 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 45,
+  "message": "Package natbib Warning: Citation `bhaduri_anomalous_2020' on page 1 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `porras_nature_2018' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `murat_yessenov_what_2019' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 92,
+  "message": "Package natbib Warning: Citation `hall_spectral_2020' on page 2 undefined on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 100,
+  "message": "Package natbib Warning: Citation `bhaduri_anomalous_2020' on page 2 undefined on input line 100",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 110,
+  "message": "Package natbib Warning: Citation `bhaduri_anomalous_2020' on page 2 undefined on input line 110",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 119,
+  "message": "Package natbib Warning: Citation `bhaduri_anomalous_2020' on page 3 undefined on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 131,
+  "message": "Package natbib Warning: Citation `bhaduri_anomalous_2020' on page 4 undefined on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 131,
+  "message": "Package natbib Warning: Citation `guocheng' on page 4 undefined on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 131,
+  "message": "Package natbib Warning: Citation `yessenov_engineering_2021' on page 4 undefined on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 151,
+  "message": "Package natbib Warning: Citation `murat_yessenov_what_2019' on page 4 undefined on input line 151",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 151,
+  "message": "Package natbib Warning: Citation `yessenov_engineering_2021' on page 4 undefined on input line 151",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 153,
+  "message": "Package natbib Warning: Citation `yessenov_engineering_2021' on page 4 undefined on input line 153",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 153,
+  "message": "Package natbib Warning: Citation `hall2021vwaves' on page 4 undefined on input line 153",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 160,
+  "message": "Package natbib Warning: Citation `hall_spectral_2020' on page 5 undefined on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 160,
+  "message": "Package natbib Warning: Citation `motz_axial_2020' on page 5 undefined on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 160,
+  "message": "Package natbib Warning: Citation `yessenov_engineering_2021' on page 5 undefined on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 160,
+  "message": "Package natbib Warning: Citation `schepler_space-time_2020' on page 5 undefined on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 160,
+  "message": "Package natbib Warning: Citation `driben2013inversion' on page 5 undefined on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 162,
+  "message": "Package natbib Warning: Citation `guocheng' on page 5 undefined on input line 162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 162,
+  "message": "Package natbib Warning: Citation `bhaduri_anomalous_2020' on page 5 undefined on input line 162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 162,
+  "message": "Package natbib Warning: Citation `yessenov_engineering_2021' on page 5 undefined on input line 162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

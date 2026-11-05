@@ -1,0 +1,32 @@
+{
+ "id": 305,
+ "source": "GitHub",
+ "name": "projeduc/oop4coders",
+ "url": "https://github.com/projeduc/oop4coders",
+ "type": "Book",
+ "version": "4fba9cbcad03760c8ec6295aa0e448543ac2fe92",
+ "files": 341,
+ "main": "book-ar/classObject.tex",
+ "catalogMain": "book-ar/OOPintro.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "book-ar/OOPintro.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1941,
+  "tail": "exit 12, PDF not found\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'OOPintro.log' and/or above output for details\n\nThis is makeindex, version 2.18 [TeX Live 2026] (kpathsea + Thai support).\nScanning input file OOPintro.idx...done (0 entries accepted, 0 rejected).\nNothing written in OOPintro.ind.\nTranscript written in OOPintro.ilg.\nFailure to make 'OOPintro.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 203,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `KodeBook.cls' not found.",
+ "outcome": "both-fail"
+}

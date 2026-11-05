@@ -1,0 +1,32 @@
+{
+ "id": 980,
+ "source": "CTAN",
+ "name": "flowfram",
+ "url": "https://ctan.org/pkg/flowfram",
+ "type": "Poster",
+ "version": "2.3",
+ "files": 63,
+ "main": "flowfram-manual.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "flowfram-manual.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 88999,
+  "tail": "exit 12, PDF found\n  Missing character: There is no o (\"6F) in font nullfont!\n  Missing character: There is no s (\"73) in font nullfont!\n  Missing character: There is no . (\"2E) in font nullfont!\n  Missing character: There is no e (\"65) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no e (\"65) in font nullfont!\n  Missing character: There is no c (\"63) in font nullfont!\n And 39 more --- see log file 'flowfram-manual.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 25402,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 3696,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

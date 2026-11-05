@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": "doc/example/spine.tex",
+  "line": 42,
+  "message": "LaTeX Error: File `thesis' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file simhei.ttf): cannot open TrueType font file for reading",
+  "detail": [],
+  "hint": null
+ }
+]

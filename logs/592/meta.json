@@ -1,0 +1,32 @@
+{
+ "id": 592,
+ "source": "arXiv",
+ "name": "arXiv:2611.04333",
+ "url": "https://arxiv.org/abs/2611.04333",
+ "type": "Paper",
+ "version": "2611.04333",
+ "files": 15,
+ "main": "SciPostPhysCodeb.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "SciPostPhysCodeb.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3359
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2639,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

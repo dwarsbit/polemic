@@ -1,0 +1,31 @@
+{
+ "id": 340,
+ "source": "GitHub",
+ "name": "themagicalmammal/Resume",
+ "url": "https://github.com/themagicalmammal/Resume",
+ "type": "CV",
+ "version": "630647d8935bb9b724e3a42c259ef2cf63ce1337",
+ "files": 51,
+ "main": "resume.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "resume.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 557,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'resume.fls'\nLatexmk: Examining 'resume.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'resume.log' and/or above output for details\n\nFailure to make 'resume.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 256,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/resume.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

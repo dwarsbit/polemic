@@ -1,0 +1,32 @@
+{
+ "id": 376,
+ "source": "GitHub",
+ "name": "MarekPikula/RISC-V-Summit-Europe-2025",
+ "url": "https://github.com/MarekPikula/RISC-V-Summit-Europe-2025",
+ "type": "Poster",
+ "version": "9c4d1023378bfb0a51fe8092095caac1d21d4705",
+ "files": 18,
+ "main": "abstract/abstract.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "abstract/abstract.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 8688
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4328,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

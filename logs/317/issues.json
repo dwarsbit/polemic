@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "yaac-another-awesome-cv.cls",
+  "line": null,
+  "message": "Package fontspec Warning: Input mapping not supported in LuaTeX. Use \"Ligatures=TeX\" instead of \"Mapping=tex-text\"",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/cv.tex",
+  "line": null,
+  "message": "Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/cv.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [10pt]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package french.ldf Warning: You are relying on the legacy list code. There is nothing wrong with this, just be aware that new lists templates are available and will become the default sooner or later. Adding \\DocumentMetadata{ ... } before the \\documentclass{} command, enables the new lists templates. Give them a try! Reported on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/section_publications.tex",
+  "line": 25,
+  "message": "LaTeX Font Warning: Font shape `TU/SourceSansPro-Light(0)/m/scit' undefined using `TU/SourceSansPro-Light(0)/m/sc' instead on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/section_publications.tex",
+  "line": 27,
+  "message": "LaTeX Font Warning: Font shape `TU/SourceSansPro-Light(0)/m/scit' undefined using `TU/SourceSansPro-Light(0)/m/sc' instead on input line 27",
+  "detail": [],
+  "hint": null
+ }
+]

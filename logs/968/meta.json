@@ -1,0 +1,31 @@
+{
+ "id": 968,
+ "source": "CTAN",
+ "name": "revtex",
+ "url": "https://ctan.org/pkg/revtex",
+ "type": "Paper",
+ "version": "4.2f",
+ "files": 49,
+ "main": "aip/aipguide4-2.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "aip/aipguide4-2.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 600,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'aipguide4-2.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'aipguide4-2.log' and/or above output for details\n\nLatexmk: Missing input file 'docs.sty' message in .log file:\n  ! LaTeX Error: File `docs.sty' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 267,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `docs.sty' not found.",
+ "outcome": "both-fail"
+}

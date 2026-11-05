@@ -1,0 +1,9 @@
+{
+ "id": 679,
+ "source": "arXiv",
+ "name": "arXiv:2109.00158",
+ "url": "https://arxiv.org/abs/2109.00158",
+ "type": "Paper",
+ "outcome": "download-failed",
+ "error": "arXiv has only a PDF of this paper"
+}

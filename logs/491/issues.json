@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 11,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 11,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file unifs57): Font unifs57 at 540 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ctex Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 201,
+ "source": "GitHub",
+ "name": "zeyu10/xmum-beamer-template",
+ "url": "https://github.com/zeyu10/xmum-beamer-template",
+ "type": "Slides",
+ "version": "a6ee9f9d05b0994f2560c4f1ffb75f0150137841",
+ "files": 33,
+ "main": "xmum_beamer_readme.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "xmum_beamer_readme.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 23384
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 5720,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 2,
+ "firstError": "pdfTeX error: pdflatex (file uniyou5f): Font uniyou5f at 1037 not found",
+ "outcome": "polemic-only-fail"
+}

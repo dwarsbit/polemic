@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": "thubeamer-example-en.tex",
+  "line": 45,
+  "message": "LaTeX Warning: \\include should only be used after \\begin{document} on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thubeamer-example-en.tex",
+  "line": 49,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\\\' on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\translate ' on input line 1",
+  "detail": [],
+  "hint": null
+ }
+]

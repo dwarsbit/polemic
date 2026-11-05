@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 5,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 5,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 283,
+ "source": "GitHub",
+ "name": "jemmybutton/byrne-euclid",
+ "url": "https://github.com/jemmybutton/byrne-euclid",
+ "type": "Book",
+ "version": "10744dfafb1eceea3023df12e2b5d9744d324c42",
+ "files": 46,
+ "main": "books11-13-en-latex.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (inferred)",
+ "baseline": {
+  "main": "books11-13-en-latex.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 20624
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 440,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/books11-13-en-latex.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "polemic-only-fail"
+}

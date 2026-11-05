@@ -1,0 +1,82 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class revtex4-1 Warning: No journal specified, using default pra",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class revtex4-1 Warning: No type size specified, using default 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `xypic', but the package provides `xy'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.tex",
+  "line": 60,
+  "message": "Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \\setlength {\\marginparwidth }{2cm} prior to loading the todonotes package. on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.tex",
+  "line": null,
+  "message": "Class revtex4-1 Warning: If you want your PACS to appear in your output, use document class option showpacs",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.tex",
+  "line": 114,
+  "message": "LaTeX Warning: No positions in optional float specifier. Default added (so using `tbp') on input line 114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.tex",
+  "line": 207,
+  "message": "LaTeX Warning: No positions in optional float specifier. Default added (so using `tbp') on input line 207",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.tex",
+  "line": 324,
+  "message": "LaTeX Warning: No positions in optional float specifier. Default added (so using `tbp') on input line 324",
+  "detail": [],
+  "hint": null
+ }
+]

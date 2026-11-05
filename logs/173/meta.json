@@ -1,0 +1,32 @@
+{
+ "id": 173,
+ "source": "GitHub",
+ "name": "Gedevan-Aleksizde/rmdja",
+ "url": "https://github.com/Gedevan-Aleksizde/rmdja",
+ "type": "Slides",
+ "version": "d0c3823005161a99a188aed8bc6f4a49103c4598",
+ "files": 198,
+ "main": "docs/rmdja.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "docs/rmdja.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 137,
+  "timedOut": true,
+  "durationMs": 240327,
+  "tail": "exit 137, PDF not found\n! Emergency stop.\n<*> \\mode:=ljfour; mag:=1; ; nonstopmode; input OT\n                                                  \nTranscript written on mfput.log.\ngrep: OT.log: No such file or directory\nmktextfm: `mf-nowin -progname=mf \\mode:=ljfour; mag:=1; ; nonstopmode; input OT' failed to make OT.tfm.\n\nkpathsea: Running mktextfm NotoSerifCJKjp-Regular/OT"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 120018,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 177,
+ "warnings": 11774,
+ "firstError": "Package fontspec Error: The font \"Ricty\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

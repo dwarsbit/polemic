@@ -1,0 +1,33 @@
+{
+ "id": 2,
+ "source": "GitHub",
+ "name": "msinamsina/kntu-thesis",
+ "url": "https://github.com/msinamsina/kntu-thesis",
+ "type": "Thesis",
+ "version": "1fc3ca32a2a50d4710f1c631f70dce59728a952f",
+ "files": 67,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 20544,
+  "tail": "exit 12, PDF found\n  Label `LastPage' multiply defined\n  Missing character: There is no ف (U+0641) in font [./font/LiberationSerif-Regul\n  Missing character: There is no ف (U+0641) in font [./font/LiberationSerif-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;!\n  Missing character: There is no ا (U+0627) in font [./font/LiberationSerif-Regul\n  Missing character: There is no ا (U+0627) in font [./font/LiberationSerif-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;!\n  Missing character: There is no ی (U+06CC) in font [./font/LiberationSerif-Regul\n  Missing character: There is no ی (U+06CC) in font [./font/LiberationSerif-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;!\n And 66 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 6876,
+  "outputs": [
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 6,
+ "warnings": 21,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

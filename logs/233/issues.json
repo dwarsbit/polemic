@@ -1,0 +1,914 @@
+[
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 180,
+  "message": "Package pdftex.def Error: File `Fig_52.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 213,
+  "message": "Package pdftex.def Error: File `Fig_02.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 307,
+  "message": "Package pdftex.def Error: File `Fig_39.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 307,
+  "message": "Package pdftex.def Error: File `Fig_40.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 483,
+  "message": "Package pdftex.def Error: File `Fig_38.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 539,
+  "message": "Package pdftex.def Error: File `Fig_52.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 550,
+  "message": "Package pdftex.def Error: File `Fig_01.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 612,
+  "message": "Package pdftex.def Error: File `Fig_03.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 612,
+  "message": "Package pdftex.def Error: File `Fig_04.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 612,
+  "message": "Package pdftex.def Error: File `Fig_05.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 650,
+  "message": "Package pdftex.def Error: File `Fig_06.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 650,
+  "message": "Package pdftex.def Error: File `Fig_07.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 669,
+  "message": "Package pdftex.def Error: File `Fig_08.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 701,
+  "message": "Package pdftex.def Error: File `Fig_09.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 726,
+  "message": "Package pdftex.def Error: File `Fig_10.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 726,
+  "message": "Package pdftex.def Error: File `Fig_11.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 765,
+  "message": "Package pdftex.def Error: File `Fig_12.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 765,
+  "message": "Package pdftex.def Error: File `Fig_13.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 828,
+  "message": "Package pdftex.def Error: File `Fig_14.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 828,
+  "message": "Package pdftex.def Error: File `Fig_15.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 828,
+  "message": "Package pdftex.def Error: File `Fig_17.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 828,
+  "message": "Package pdftex.def Error: File `Fig_18.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 866,
+  "message": "Package pdftex.def Error: File `Fig_19.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 866,
+  "message": "Package pdftex.def Error: File `Fig_20.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 906,
+  "message": "Package pdftex.def Error: File `Fig_21.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 934,
+  "message": "Package pdftex.def Error: File `Fig_22.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 976,
+  "message": "Package pdftex.def Error: File `Fig_23.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 976,
+  "message": "Package pdftex.def Error: File `Fig_24.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1018,
+  "message": "Package pdftex.def Error: File `Fig_26.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1018,
+  "message": "Package pdftex.def Error: File `Fig_25.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1053,
+  "message": "Package pdftex.def Error: File `Fig_27.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1053,
+  "message": "Package pdftex.def Error: File `Fig_28.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1097,
+  "message": "Package pdftex.def Error: File `Fig_29.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1097,
+  "message": "Package pdftex.def Error: File `Fig_30.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1129,
+  "message": "Package pdftex.def Error: File `Fig_31.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1153,
+  "message": "Package pdftex.def Error: File `Fig_32.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1153,
+  "message": "Package pdftex.def Error: File `Fig_33.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1186,
+  "message": "Package pdftex.def Error: File `Fig_34.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1186,
+  "message": "Package pdftex.def Error: File `Fig_35.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1229,
+  "message": "Package pdftex.def Error: File `Fig_36.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1229,
+  "message": "Package pdftex.def Error: File `Fig_37.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1282,
+  "message": "Package pdftex.def Error: File `Fig_41.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1282,
+  "message": "Package pdftex.def Error: File `Fig_42.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1282,
+  "message": "Package pdftex.def Error: File `Fig_43.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1304,
+  "message": "Package pdftex.def Error: File `Fig_44.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1325,
+  "message": "Package pdftex.def Error: File `Fig_45.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1363,
+  "message": "Package pdftex.def Error: File `Fig_47.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1363,
+  "message": "Package pdftex.def Error: File `Fig_46.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1374,
+  "message": "Package pdftex.def Error: File `Fig_48.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1413,
+  "message": "Package pdftex.def Error: File `Fig_49.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1413,
+  "message": "Package pdftex.def Error: File `Fig_50.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1456,
+  "message": "Package pdftex.def Error: File `Fig_51.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1456,
+  "message": "Package pdftex.def Error: File `Zambia.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1483,
+  "message": "Package pdftex.def Error: File `Fig_52.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Презентация_30102025.tex",
+  "line": 1554,
+  "message": "Package pdftex.def Error: File `Fig_52.jpg' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `hyperref' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: No Cyrillic font encoding has been loaded so far. A font encoding should be declared before babel. Default `T2A' encoding will be loaded  on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": null,
+  "message": "Package gensymb Warning: Not defining \\perthousand",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": null,
+  "message": "Package gensymb Warning: Not defining \\micro",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 180,
+  "message": "LaTeX Warning: File `Fig_52.jpg' not found on input line 180",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 213,
+  "message": "LaTeX Warning: File `Fig_02.jpg' not found on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 307,
+  "message": "LaTeX Warning: File `Fig_39.jpg' not found on input line 307",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 307,
+  "message": "LaTeX Warning: File `Fig_40.jpg' not found on input line 307",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 483,
+  "message": "LaTeX Warning: File `Fig_38.jpg' not found on input line 483",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 539,
+  "message": "LaTeX Warning: File `Fig_52.jpg' not found on input line 539",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 550,
+  "message": "LaTeX Warning: File `Fig_01.jpg' not found on input line 550",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 612,
+  "message": "LaTeX Warning: File `Fig_03.jpg' not found on input line 612",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 612,
+  "message": "LaTeX Warning: File `Fig_04.jpg' not found on input line 612",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 612,
+  "message": "LaTeX Warning: File `Fig_05.jpg' not found on input line 612",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 650,
+  "message": "LaTeX Warning: File `Fig_06.jpg' not found on input line 650",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 650,
+  "message": "LaTeX Warning: File `Fig_07.jpg' not found on input line 650",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 669,
+  "message": "LaTeX Warning: File `Fig_08.jpg' not found on input line 669",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 701,
+  "message": "LaTeX Warning: File `Fig_09.jpg' not found on input line 701",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 726,
+  "message": "LaTeX Warning: File `Fig_10.jpg' not found on input line 726",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 726,
+  "message": "LaTeX Warning: File `Fig_11.jpg' not found on input line 726",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 765,
+  "message": "LaTeX Warning: File `Fig_12.jpg' not found on input line 765",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 765,
+  "message": "LaTeX Warning: File `Fig_13.jpg' not found on input line 765",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 828,
+  "message": "LaTeX Warning: File `Fig_14.jpg' not found on input line 828",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 828,
+  "message": "LaTeX Warning: File `Fig_15.jpg' not found on input line 828",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 828,
+  "message": "LaTeX Warning: File `Fig_17.jpg' not found on input line 828",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 828,
+  "message": "LaTeX Warning: File `Fig_18.jpg' not found on input line 828",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 866,
+  "message": "LaTeX Warning: File `Fig_19.jpg' not found on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 866,
+  "message": "LaTeX Warning: File `Fig_20.jpg' not found on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 906,
+  "message": "LaTeX Warning: File `Fig_21.jpg' not found on input line 906",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 934,
+  "message": "LaTeX Warning: File `Fig_22.jpg' not found on input line 934",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 976,
+  "message": "LaTeX Warning: File `Fig_23.jpg' not found on input line 976",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 976,
+  "message": "LaTeX Warning: File `Fig_24.jpg' not found on input line 976",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1018,
+  "message": "LaTeX Warning: File `Fig_26.jpg' not found on input line 1018",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1018,
+  "message": "LaTeX Warning: File `Fig_25.jpg' not found on input line 1018",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1053,
+  "message": "LaTeX Warning: File `Fig_27.jpg' not found on input line 1053",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1053,
+  "message": "LaTeX Warning: File `Fig_28.jpg' not found on input line 1053",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1097,
+  "message": "LaTeX Warning: File `Fig_29.jpg' not found on input line 1097",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1097,
+  "message": "LaTeX Warning: File `Fig_30.jpg' not found on input line 1097",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1129,
+  "message": "LaTeX Warning: File `Fig_31.jpg' not found on input line 1129",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1153,
+  "message": "LaTeX Warning: File `Fig_32.jpg' not found on input line 1153",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1153,
+  "message": "LaTeX Warning: File `Fig_33.jpg' not found on input line 1153",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1186,
+  "message": "LaTeX Warning: File `Fig_34.jpg' not found on input line 1186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1186,
+  "message": "LaTeX Warning: File `Fig_35.jpg' not found on input line 1186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1229,
+  "message": "LaTeX Warning: File `Fig_36.jpg' not found on input line 1229",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1229,
+  "message": "LaTeX Warning: File `Fig_37.jpg' not found on input line 1229",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1282,
+  "message": "LaTeX Warning: File `Fig_41.jpg' not found on input line 1282",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1282,
+  "message": "LaTeX Warning: File `Fig_42.jpg' not found on input line 1282",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1282,
+  "message": "LaTeX Warning: File `Fig_43.jpg' not found on input line 1282",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1304,
+  "message": "LaTeX Warning: File `Fig_44.jpg' not found on input line 1304",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1325,
+  "message": "LaTeX Warning: File `Fig_45.jpg' not found on input line 1325",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1363,
+  "message": "LaTeX Warning: File `Fig_47.jpg' not found on input line 1363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1363,
+  "message": "LaTeX Warning: File `Fig_46.jpg' not found on input line 1363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1374,
+  "message": "LaTeX Warning: File `Fig_48.jpg' not found on input line 1374",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1413,
+  "message": "LaTeX Warning: File `Fig_49.jpg' not found on input line 1413",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1413,
+  "message": "LaTeX Warning: File `Fig_50.jpg' not found on input line 1413",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1456,
+  "message": "LaTeX Warning: File `Fig_51.jpg' not found on input line 1456",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1456,
+  "message": "LaTeX Warning: File `Zambia.jpg' not found on input line 1456",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1483,
+  "message": "LaTeX Warning: File `Fig_52.jpg' not found on input line 1483",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Презентация_30102025.tex",
+  "line": 1554,
+  "message": "LaTeX Warning: File `Fig_52.jpg' not found on input line 1554",
+  "detail": [],
+  "hint": null
+ }
+]

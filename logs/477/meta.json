@@ -1,0 +1,33 @@
+{
+ "id": 477,
+ "source": "GitHub",
+ "name": "GOS-Book/GOS-Book.github.io",
+ "url": "https://github.com/GOS-Book/GOS-Book.github.io",
+ "type": "Exam",
+ "version": "d458bbef0376116a5bc762ced40bc92a0e9c10a6",
+ "files": 106,
+ "main": "GOS-Book.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "GOS-Book.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 71314,
+  "tail": "exit 12, PDF found\nOutput written in GOS-Book.ind.\nTranscript written in GOS-Book.ilg.\nThis is makeindex, version 2.18 [TeX Live 2026] (kpathsea + Thai support).\nScanning input file GOS-Book.idx....done (92 entries accepted, 0 rejected).\nSorting entries....done (677 comparisons).\nGenerating output file GOS-Book.ind....done (124 lines written, 0 warnings).\nOutput written in GOS-Book.ind.\nTranscript written in GOS-Book.ilg."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 62634,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 13,
+ "warnings": 81,
+ "firstError": "LaTeX Error: Command \\theHdefnT already defined.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,1893 @@
+[
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 10,
+  "message": "LaTeX Error: No counter 'section' defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 28,
+  "message": "LaTeX Error: The font size command \\normalsize is not defined:",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 29,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.29 \t\\maketitle"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.30 \t\\section",
+   "              {コンピュータアーキテクチャとは}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character コ (U+30B3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character ン (U+30F3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character ピ (U+30D4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character ュ (U+30E5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character タ (U+30BF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character ア (U+30A2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character キ (U+30AD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character テ (U+30C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character ク (U+30AF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character チ (U+30C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character ャ (U+30E3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character と (U+3068)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 30,
+  "message": "LaTeX Error: Unicode character は (U+306F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character ア (U+30A2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character キ (U+30AD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character テ (U+30C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character ク (U+30AF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character チ (U+30C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character ャ (U+30E3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character と (U+3068)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character は (U+306F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 構 (U+69CB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 造 (U+9020)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character や (U+3084)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 成 (U+6210)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character い (U+3044)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character う (U+3046)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character よ (U+3088)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character な (U+306A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 意 (U+610F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 味 (U+5473)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character を (U+3092)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 持 (U+6301)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character ち (U+3061)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 、 (U+3001)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 特 (U+7279)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character コ (U+30B3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ン (U+30F3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ピ (U+30D4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ュ (U+30E5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character タ (U+30BF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ア (U+30A2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character キ (U+30AD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character テ (U+30C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ク (U+30AF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character チ (U+30C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ャ (U+30E3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character は (U+306F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ハ (U+30CF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ド (U+30C9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ウ (U+30A6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ェ (U+30A7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character と (U+3068)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ソ (U+30BD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character フ (U+30D5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ト (U+30C8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 、 (U+3001)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character さ (U+3055)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ら (U+3089)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character の (U+306E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 設 (U+8A2D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 計 (U+8A08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 思 (U+601D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 想 (U+60F3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character や (U+3084)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 開 (U+958B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 発 (U+767A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 技 (U+6280)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 術 (U+8853)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character を (U+3092)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 包 (U+5305)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 括 (U+62EC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character し (U+3057)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character た (U+305F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 広 (U+5E83)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character い (U+3044)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 意 (U+610F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 味 (U+5473)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 持 (U+6301)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character つ (U+3064)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 34,
+  "message": "LaTeX Error: Unicode character 命 (U+547D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 34,
+  "message": "LaTeX Error: Unicode character 令 (U+4EE4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 34,
+  "message": "LaTeX Error: Unicode character セ (U+30BB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 34,
+  "message": "LaTeX Error: Unicode character ッ (U+30C3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 34,
+  "message": "LaTeX Error: Unicode character ト (U+30C8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 34,
+  "message": "LaTeX Error: Unicode character ア (U+30A2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 34,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 34,
+  "message": "LaTeX Error: Unicode character キ (U+30AD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 34,
+  "message": "LaTeX Error: Unicode character テ (U+30C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 34,
+  "message": "LaTeX Error: Unicode character ク (U+30AF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 34,
+  "message": "LaTeX Error: Unicode character チ (U+30C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 34,
+  "message": "LaTeX Error: Unicode character ャ (U+30E3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 35,
+  "message": "LaTeX Error: Unicode character 演 (U+6F14)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 35,
+  "message": "LaTeX Error: Unicode character 算 (U+7B97)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 35,
+  "message": "LaTeX Error: Unicode character ア (U+30A2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 35,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 35,
+  "message": "LaTeX Error: Unicode character キ (U+30AD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 35,
+  "message": "LaTeX Error: Unicode character テ (U+30C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 35,
+  "message": "LaTeX Error: Unicode character ク (U+30AF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 35,
+  "message": "LaTeX Error: Unicode character チ (U+30C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 35,
+  "message": "LaTeX Error: Unicode character ャ (U+30E3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 制 (U+5236)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 御 (U+5FA1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character ア (U+30A2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character キ (U+30AD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character テ (U+30C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character ク (U+30AF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character チ (U+30C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character ャ (U+30E3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 37,
+  "message": "LaTeX Error: Unicode character ア (U+30A2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 37,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 37,
+  "message": "LaTeX Error: Unicode character キ (U+30AD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 37,
+  "message": "LaTeX Error: Unicode character テ (U+30C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 37,
+  "message": "LaTeX Error: Unicode character ク (U+30AF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 37,
+  "message": "LaTeX Error: Unicode character チ (U+30C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 37,
+  "message": "LaTeX Error: Unicode character ャ (U+30E3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 38,
+  "message": "LaTeX Error: Unicode character ネ (U+30CD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 38,
+  "message": "LaTeX Error: Unicode character ッ (U+30C3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 38,
+  "message": "LaTeX Error: Unicode character ト (U+30C8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 38,
+  "message": "LaTeX Error: Unicode character ワ (U+30EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 38,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 38,
+  "message": "LaTeX Error: Unicode character ク (U+30AF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 38,
+  "message": "LaTeX Error: Unicode character ア (U+30A2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 38,
+  "message": "LaTeX Error: Unicode character キ (U+30AD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 38,
+  "message": "LaTeX Error: Unicode character テ (U+30C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 38,
+  "message": "LaTeX Error: Unicode character チ (U+30C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 38,
+  "message": "LaTeX Error: Unicode character ャ (U+30E3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 39,
+  "message": "LaTeX Error: Unicode character シ (U+30B7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 39,
+  "message": "LaTeX Error: Unicode character ス (U+30B9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 39,
+  "message": "LaTeX Error: Unicode character テ (U+30C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 39,
+  "message": "LaTeX Error: Unicode character ム (U+30E0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 39,
+  "message": "LaTeX Error: Unicode character ア (U+30A2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 39,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 39,
+  "message": "LaTeX Error: Unicode character キ (U+30AD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 39,
+  "message": "LaTeX Error: Unicode character ク (U+30AF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 39,
+  "message": "LaTeX Error: Unicode character チ (U+30C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 39,
+  "message": "LaTeX Error: Unicode character ャ (U+30E3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character こ (U+3053)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character れ (U+308C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character ら (U+3089)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character す (U+3059)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character べ (U+3079)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character て (U+3066)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character ま (U+307E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character と (U+3068)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character め (U+3081)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character コ (U+30B3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character ン (U+30F3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character ピ (U+30D4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character ュ (U+30E5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character タ (U+30BF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character ア (U+30A2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character キ (U+30AD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character テ (U+30C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character ク (U+30AF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character チ (U+30C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character ャ (U+30E3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character 呼 (U+547C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character 称 (U+79F0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character る (U+308B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 41,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 43,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.43 \t\\section",
+   "              {コンピューターの歴史}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 43,
+  "message": "LaTeX Error: Unicode character コ (U+30B3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 43,
+  "message": "LaTeX Error: Unicode character ン (U+30F3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 43,
+  "message": "LaTeX Error: Unicode character ピ (U+30D4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 43,
+  "message": "LaTeX Error: Unicode character ュ (U+30E5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 43,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 43,
+  "message": "LaTeX Error: Unicode character タ (U+30BF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 43,
+  "message": "LaTeX Error: Unicode character の (U+306E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 43,
+  "message": "LaTeX Error: Unicode character 歴 (U+6B74)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 43,
+  "message": "LaTeX Error: Unicode character 史 (U+53F2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 44,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.44 \t\t\\subsection",
+   "                  {機械式計算機}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 44,
+  "message": "LaTeX Error: Unicode character 機 (U+6A5F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 44,
+  "message": "LaTeX Error: Unicode character 械 (U+68B0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 44,
+  "message": "LaTeX Error: Unicode character 式 (U+5F0F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 44,
+  "message": "LaTeX Error: Unicode character 計 (U+8A08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 44,
+  "message": "LaTeX Error: Unicode character 算 (U+7B97)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character 歯 (U+6B6F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character 車 (U+8ECA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character 等 (U+7B49)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character を (U+3092)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character い (U+3044)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character て (U+3066)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character 計 (U+8A08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character 算 (U+7B97)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character 行 (U+884C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character え (U+3048)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character る (U+308B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character よ (U+3088)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character う (U+3046)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 45,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: There's no line here to end.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character 後 (U+5F8C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character 、 (U+3001)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character パ (U+30D1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character ン (U+30F3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character チ (U+30C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character カ (U+30AB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character ド (U+30C9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character を (U+3092)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character い (U+3044)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character て (U+3066)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character プ (U+30D7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character ロ (U+30ED)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character グ (U+30B0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character ラ (U+30E9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character ム (U+30E0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character よ (U+3088)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character っ (U+3063)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character 自 (U+81EA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character 動 (U+52D5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character 計 (U+8A08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character 算 (U+7B97)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character が (U+304C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character 行 (U+884C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character え (U+3048)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character る (U+308B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character 様 (U+69D8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": "LaTeX Error: Unicode character な (U+306A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "done/ネットワークアーキテクチャ/Week1/report.tex",
+  "line": 46,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

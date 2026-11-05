@@ -1,0 +1,32 @@
+{
+ "id": 282,
+ "source": "GitHub",
+ "name": "ElegantLaTeX/ElegantBook",
+ "url": "https://github.com/ElegantLaTeX/ElegantBook",
+ "type": "Book",
+ "version": "8b90c11e4a5ffd9d1e07174011303c133093d09c",
+ "files": 13,
+ "main": "elegantbook-cn.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (inferred)",
+ "baseline": {
+  "main": "elegantbook-cn.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 48674,
+  "tail": "exit 12, PDF found\n  No file elegantbook-cn.toc.\nLatexmk: Using biber to make bibliography file(s).\ntput: No value for $TERM and no -T specified\nLatexmk: Using biber to make bibliography file(s).\ntput: No value for $TERM and no -T specified\nLatexmk: Using biber to make bibliography file(s).\ntput: No value for $TERM and no -T specified\nLatexmk: Using biber to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2163,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 13,
+ "warnings": 1,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

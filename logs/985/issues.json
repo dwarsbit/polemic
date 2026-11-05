@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package beamerthememetropolis Warning: You need to compile with XeLaTeX or LuaLaTeX to use the Fira fonts on input line 95",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/bx/sc' undefined using `OT1/cmss/bx/n' instead on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10> not available Font shape `OT1/cmr/m/sc' tried instead on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "demo/demo.tex",
+  "line": 76,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <12> not available Font shape `OT1/cmr/m/sc' tried instead on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "demo/demo.tex",
+  "line": 80,
+  "message": "Package beamerthememetropolis Warning: Be aware that titleformat frame=allsmallcaps can lead to problems on input line 80",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "demo/demo.tex",
+  "line": 93,
+  "message": "Package beamerthememetropolis Warning: Be aware that titleformat frame=allcaps can lead to problems on input line 93",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "demo/demo.tex",
+  "line": 129,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined using `OT1/cmss/bx/n' instead on input line 129",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "demo/demo.tex",
+  "line": 316,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\translate ' on input line 316",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "demo/demo.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

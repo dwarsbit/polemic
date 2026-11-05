@@ -1,0 +1,32 @@
+{
+ "id": 886,
+ "source": "CTAN",
+ "name": "feupphdteses",
+ "url": "https://ctan.org/pkg/feupphdteses",
+ "type": "Thesis",
+ "version": "4.0",
+ "files": 23,
+ "main": "Template_EN.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Template_EN.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 7772
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4492,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

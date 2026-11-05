@@ -1,0 +1,32 @@
+{
+ "id": 367,
+ "source": "GitHub",
+ "name": "Fancy-Templates/latex-poster",
+ "url": "https://github.com/Fancy-Templates/latex-poster",
+ "type": "Poster",
+ "version": "918508c29aabeed72477cf1eed8567d730f2bfe6",
+ "files": 10,
+ "main": "example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12729
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 6971,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

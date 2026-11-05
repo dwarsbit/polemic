@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `beamerthemesustech.sty' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main_template.tex",
+  "line": 31,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 307,
+ "source": "GitHub",
+ "name": "coliva92/latex-notes",
+ "url": "https://github.com/coliva92/latex-notes",
+ "type": "Book",
+ "version": "25566ce4c830c28ef906915ce04f7ca0613ac507",
+ "files": 8,
+ "main": "apuntes.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "apuntes.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 8580
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3455,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

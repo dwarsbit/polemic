@@ -1,0 +1,34 @@
+{
+ "id": 9,
+ "source": "GitHub",
+ "name": "douglasrizzo/Classe-Latex-FEI",
+ "url": "https://github.com/douglasrizzo/Classe-Latex-FEI",
+ "type": "Thesis",
+ "version": "227e48d663c6bc602229e42ed579e1ade342fa2e",
+ "files": 67,
+ "main": "fei-template-sublist.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "fei-template-sublist.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 19488,
+  "tail": "exit 12, PDF found\n  But now I want to set it to 'makeindex fei-template-sublist.idx'\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: Possible bug:\n  In linking rules I already set source_rules{fei-template-sublist.ind} to 'cusdep idx ind fei-template-sublist'\n  But now I want to set it to 'makeindex fei-template-sublist.idx'\nLatexmk: Possible bug:\n  In linking rules I already set source_rules{fei-template-sublist.ind} to 'cusdep idx ind fei-template-sublist'\n  But now I want to set it to 'makeindex fei-template-sublist.idx'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 5513,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ],
+  "tail": "Have you used any entries defined in glossary 'symbols'?\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 11,
+ "outcome": "both-fail"
+}

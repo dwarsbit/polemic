@@ -1,0 +1,138 @@
+[
+ {
+  "severity": "error",
+  "file": "oup-authoring-template.tex",
+  "line": 270,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "oup-authoring-template.tex",
+  "line": 270,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "oup-authoring-template.tex",
+  "line": 270,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "oup-authoring-template.tex",
+  "line": 290,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "oup-authoring-template.tex",
+  "line": 290,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "oup-authoring-template.tex",
+  "line": 290,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "oup-authoring-template.tex",
+  "line": 310,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "oup-authoring-template.tex",
+  "line": 310,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "oup-authoring-template.tex",
+  "line": 310,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "oup-authoring-template.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [unnumsec,webpdf,contemporary,large]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "oup-authoring-template.tex",
+  "line": 131,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined using `OT1/cmss/bx/n' instead on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "oup-authoring-template.tex",
+  "line": 131,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined using `OT1/cmss/bx/n' instead on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "oup-authoring-template.tex",
+  "line": 150,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <8.03> not available Font shape `OT1/cmss/m/sl' tried instead on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "oup-authoring-template.tex",
+  "line": 155,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <9.53561> not available Font shape `OT1/cmss/m/sl' tried instead on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <9.03374> not available Font shape `OT1/cmss/m/sl' tried instead on input line 637",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package natbib Warning: Citation(s) may have changed. Rerun to get citations correct",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

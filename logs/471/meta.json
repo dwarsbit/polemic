@@ -1,0 +1,31 @@
+{
+ "id": 471,
+ "source": "GitHub",
+ "name": "JensOstertag/latex-letter",
+ "url": "https://github.com/JensOstertag/latex-letter",
+ "type": "Letter",
+ "version": "7d6f7e9f9d35e583644c3b5fa73fa495f3643a8f",
+ "files": 5,
+ "main": "example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1698
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1046,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

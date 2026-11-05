@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": "inst/rmarkdown/templates/pdf/resources/template.tex",
+  "line": 2,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `$fontfamily$.sty' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "inst/rmarkdown/templates/pdf/resources/template.tex",
+  "line": 4,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ }
+]

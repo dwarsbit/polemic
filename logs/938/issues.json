@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "warning",
+  "file": "CV.tex",
+  "line": 45,
+  "message": "Package hyperref Warning: Option `bookmarks' has already been used, setting the option has no effect on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CV.tex",
+  "line": 73,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.3> not available size <5> substituted on input line 73",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CV.tex",
+  "line": 73,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.3> not available size <5> substituted on input line 73",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CV.tex",
+  "line": 73,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.3> not available size <5> substituted on input line 73",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CV.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.7pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

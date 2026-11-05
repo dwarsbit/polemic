@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKrmdefault' (FandolSong-Regular(0))",
+  "detail": [],
+  "hint": null
+ }
+]

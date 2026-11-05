@@ -1,0 +1,32 @@
+{
+ "id": 259,
+ "source": "GitHub",
+ "name": "aflaag-notes/algorithms",
+ "url": "https://github.com/aflaag-notes/algorithms",
+ "type": "Notes",
+ "version": "d81b192ee9c978ed493270d855e7b462b151a26f",
+ "files": 6,
+ "main": "old_src/Progettazione di Algoritmi.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "old_src/Progettazione di Algoritmi.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 322,
+  "tail": "exit 0, PDF not found\nRc files read (in order):\n  NONE\nLatexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.\nLatexmk: Nothing to do for 'Progettazione di Algoritmi.tex'.\nLatexmk: All targets (Progettazione di Algoritmi.pdf) are up-to-date"
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 6269,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "baseline-only-fail"
+}

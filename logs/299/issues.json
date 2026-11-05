@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `capitulos/mat-disc/logica.tex' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "apuntes.tex",
+  "line": 134,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "apuntes.tex",
+  "line": 134,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ifplatform Warning: shell escape is disabled, so I can only detect \\ifwindows",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "apuntes.tex",
+  "line": null,
+  "message": "Package biblatex Warning: Patching footnotes failed. Footnote detection will not work",
+  "detail": [],
+  "hint": null
+ }
+]

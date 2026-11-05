@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `notes.cls' not found.",
+  "detail": [],
+  "hint": null
+ }
+]

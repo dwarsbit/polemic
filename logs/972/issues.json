@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `pagebackref' has already been used, setting the option has no effect on input line 113",
+  "detail": [],
+  "hint": null
+ }
+]

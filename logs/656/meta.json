@@ -1,0 +1,32 @@
+{
+ "id": 656,
+ "source": "arXiv",
+ "name": "arXiv:1206.0500",
+ "url": "https://arxiv.org/abs/1206.0500",
+ "type": "Paper",
+ "version": "1206.0500",
+ "files": 3,
+ "main": "critch-binary-hidden-markov-models-v3.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "critch-binary-hidden-markov-models-v3.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4187,
+  "tail": "exit 12, PDF found\n====BUT force_mode is on, so I will continue. There may be problems ===\nLatexmk: Veto of running of 'bibtex critch-binary-hidden-markov-models-v3' ($bibtex_use=1)\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Failed to find one or more bibliography files in search path.\n====BUT force_mode is on, so I will continue. There may be problems ===\nLatexmk: Veto of running of 'bibtex critch-binary-hidden-markov-models-v3' ($bibtex_use=1)\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Label `eqn-trunc' multiply defined"
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4968,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 69,
+ "outcome": "baseline-only-fail"
+}

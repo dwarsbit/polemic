@@ -1,0 +1,32 @@
+{
+ "id": 272,
+ "source": "GitHub",
+ "name": "ks838/Murphy-Machine-Learning-A-Probabilistic-Perspective-Errata-and-Notes-4th-printing",
+ "url": "https://github.com/ks838/Murphy-Machine-Learning-A-Probabilistic-Perspective-Errata-and-Notes-4th-printing",
+ "type": "Notes",
+ "version": "66ab9b9a57c88a2abc06ab863b2dce26d69c3a09",
+ "files": 7,
+ "main": "Murphy-Machine-Learning-mathematical-errata.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Murphy-Machine-Learning-mathematical-errata.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1624
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1282,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

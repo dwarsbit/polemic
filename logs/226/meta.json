@@ -1,0 +1,31 @@
+{
+ "id": 226,
+ "source": "GitHub",
+ "name": "taihup/material-robotica-movil-rosario",
+ "url": "https://github.com/taihup/material-robotica-movil-rosario",
+ "type": "Slides",
+ "version": "f7d2991e3f5650221f760f65b6a3010d4a796b9f",
+ "files": 1138,
+ "main": "apuntes/camera_calibration/camera_calibration_guide.tex",
+ "catalogMain": "teoricas/teorica_01/slides.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "teoricas/teorica_01/slides.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 16750
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 554,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `../../common/latex_preamble.tex' not found.",
+ "outcome": "polemic-only-fail"
+}

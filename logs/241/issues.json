@@ -1,0 +1,458 @@
+[
+ {
+  "severity": "error",
+  "file": "parts/part_7/chapter_34_natural_deduction_predicate.tex",
+  "line": 105,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "parts/part_7/chapter_34_natural_deduction_predicate.tex",
+  "line": 106,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ifplatform Warning: shell escape is disabled, so I can only detect \\ifwindows",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 3,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\\\' on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_1/chapter_1_proofs.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 4 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_1/chapter_2_proofs_by_contradiction.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 9 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_1/chapter_4_strong_induction.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 21 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_1/chapter_6_sets.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 29 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_1/chapter_6_sets.tex",
+  "line": 47,
+  "message": "LaTeX Font Warning: Font shape `LGR/pplj/m/n' undefined using `LGR/cmr/m/n' instead on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_1/chapter_6_sets.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 31 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_1/chapter_7_functions.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 37 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_1/chapter_9_structural_induction.tex",
+  "line": 265,
+  "message": "LaTeX Warning: Cref reference format for label type `claim' undefined on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_1/chapter_9_structural_induction.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 55 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_10_p_n_positions.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 61 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_10_p_n_positions.tex",
+  "line": 166,
+  "message": "LaTeX Warning: Cref reference format for label type `game' undefined on input line 166",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_10_p_n_positions.tex",
+  "line": null,
+  "message": "LaTeX Warning: `!h' float specifier changed to `!ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_10_p_n_positions.tex",
+  "line": 169,
+  "message": "LaTeX Warning: Cref reference format for label type `game' undefined on input line 169",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_10_p_n_positions.tex",
+  "line": 196,
+  "message": "LaTeX Warning: Cref reference format for label type `game' undefined on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_10_p_n_positions.tex",
+  "line": 211,
+  "message": "LaTeX Warning: Cref reference format for label type `game' undefined on input line 211",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_11_the_game_of_nim.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 67 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_11_the_game_of_nim.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 70 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_12_graph_games.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 71 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_12_graph_games.tex",
+  "line": 156,
+  "message": "LaTeX Warning: Cref reference format for label type `game' undefined on input line 156",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_12_graph_games.tex",
+  "line": 157,
+  "message": "LaTeX Warning: Cref reference format for label type `game' undefined on input line 157",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_12_graph_games.tex",
+  "line": 185,
+  "message": "LaTeX Warning: Cref reference format for label type `game' undefined on input line 185",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_12_graph_games.tex",
+  "line": 199,
+  "message": "LaTeX Warning: Cref reference format for label type `game' undefined on input line 199",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_12_graph_games.tex",
+  "line": 253,
+  "message": "LaTeX Warning: Cref reference format for label type `game' undefined on input line 253",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_13_sum_of_games.tex",
+  "line": 42,
+  "message": "LaTeX Warning: Cref reference format for label type `game' undefined on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_13_sum_of_games.tex",
+  "line": 201,
+  "message": "LaTeX Warning: Cref reference format for label type `game' undefined on input line 201",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_2/chapter_13_sum_of_games.tex",
+  "line": 256,
+  "message": "LaTeX Warning: Cref reference format for label type `game' undefined on input line 256",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_3/chapter_16_expected_value.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 92 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_3/chapter_16_expected_value.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 93 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_3/chapter_16_expected_value.tex",
+  "line": 150,
+  "message": "LaTeX Warning: Cref reference format for label type `claim' undefined on input line 150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_4/chapter_18_principles.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 103 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_4/chapter_19_pigeonhole_principle.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 109 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_4/chapter_20_binomial_coefficients.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 118 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_4/chapter_20_binomial_coefficients.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 120 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_4/chapter_20_binomial_coefficients.tex",
+  "line": 396,
+  "message": "LaTeX Warning: Cref reference format for label type `claim' undefined on input line 396",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_4/chapter_20_binomial_coefficients.tex",
+  "line": 397,
+  "message": "LaTeX Warning: Cref reference format for label type `claim' undefined on input line 397",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_4/chapter_21_partitions.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 130 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_4/chapter_22_permutations.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 135 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_5/chapter_25_countable.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 159 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_5/chapter_26_uncountable.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 164 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_5/chapter_26_uncountable.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 165 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_6/chapter_27_matrix_games.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 171 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_6/chapter_29_yaos_principle.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 177 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_7/chapter_30_propositional_formulas.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 181 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_7/chapter_31_true_statements.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 188 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_7/chapter_33_predicate_formulas.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 203 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_8/chapter_32_basics_of_graph_theory.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 214 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_8/chapter_33_paths.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 217 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_8/chapter_33_paths.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 221 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Cref reference format for label type `exercise' undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_8/chapter_34_trees.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 227 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_9/chapter_39_m_reductions.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 251 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "parts/part_3/chapter_16_expected_value.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

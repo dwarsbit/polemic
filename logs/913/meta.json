@@ -1,0 +1,32 @@
+{
+ "id": 913,
+ "source": "CTAN",
+ "name": "ucdavisthesis",
+ "url": "https://ctan.org/pkg/ucdavisthesis",
+ "type": "Thesis",
+ "version": "1.3",
+ "files": 12,
+ "main": "example/ucdavisthesis_example_main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example/ucdavisthesis_example_main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2712
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1931,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 200,
+ "source": "GitHub",
+ "name": "inbo/INBOmd",
+ "url": "https://github.com/inbo/INBOmd",
+ "type": "Slides",
+ "version": "482f559e5be7d5cea24d7032d38e53d48ca9ed44",
+ "files": 212,
+ "main": "inst/pandoc/inbo_beamer.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "inst/pandoc/inbo_beamer.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 430,
+  "tail": "exit 12, PDF not found\n      Refer to 'inbo_beamer.log' and/or above output for details\n\nwarning: kpathsea: beamer$if(handout)$switch$endif$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: beamer$if(handout)$switch$endif$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: beamer$if(handout)$switch$endif$.cls: Unrecognized variable construct `$.'.\nLatexmk: Missing input file 'beamer$if(handout)$switch$endif$.cls' message in .log file:\n  ! LaTeX Error: File `beamer$if(handout)$switch$endif$.cls' not found.\nFailure to make 'inbo_beamer.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 181,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `beamer$if(handout)$switch$endif$.cls' not found.",
+ "outcome": "both-fail"
+}

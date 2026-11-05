@@ -1,0 +1,98 @@
+[
+ {
+  "severity": "error",
+  "file": "chapters/02-summary.tex",
+  "line": 5,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/03-findings.tex",
+  "line": 2,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/03-findings.tex",
+  "line": 2,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/03-findings.tex",
+  "line": 2,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/03-findings.tex",
+  "line": 3,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/03-findings.tex",
+  "line": 5,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/03-findings.tex",
+  "line": 6,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/03-findings.tex",
+  "line": 8,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/03-findings.tex",
+  "line": 8,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 29,
+  "message": "File ended while scanning use of \\@iiiparbox.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 34,
+  "message": "LaTeX Error: \\begin{tcbitemize} on input line 8 ended by \\end{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package cvss Warning: Some values are invalid, CVSS score couldn't be calculated",
+  "detail": [],
+  "hint": null
+ }
+]

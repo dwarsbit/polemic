@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "warning",
+  "file": "free-particle_arXiv_combined.tex",
+  "line": 154,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.43146> not available size <8> substituted on input line 154",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "free-particle_arXiv_combined.tex",
+  "line": 154,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available size <6> substituted on input line 154",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "free-particle_arXiv_combined.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "free-particle_arXiv_combined.tex",
+  "line": 252,
+  "message": "Package hyperref Warning: Difference (4) between bookmark levels is greater than one, level fixed on input line 252",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "free-particle_arXiv_combined.tex",
+  "line": 258,
+  "message": "Package hyperref Warning: Difference (3) between bookmark levels is greater than one, level fixed on input line 258",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "free-particle_arXiv_combined.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.47939pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,114 @@
+[
+ {
+  "severity": "error",
+  "file": "preamble2.tex",
+  "line": 25,
+  "message": "LaTeX Error: Command \\c@proposition already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 84,
+  "message": "Class amsart Warning: Abstract should precede \\maketitle in AMS document classes; reported on input line 84",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 1583,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1583",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 1973,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1973",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 2563,
+  "message": "Package amsmath Warning: Foreign command \\atopwithdelims; \\frac or \\genfrac should be used instead on input line 2563",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 2661,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 2661",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 2661,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 2661",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 3015,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 3015",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 3015,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 3015",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 3015,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 3015",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 3161,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 3161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 3161,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 3161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 3281,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 3281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "charp.tex",
+  "line": 3281,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 3281",
+  "detail": [],
+  "hint": null
+ }
+]

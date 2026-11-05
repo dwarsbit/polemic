@@ -1,0 +1,33 @@
+{
+ "id": 961,
+ "source": "CTAN",
+ "name": "langsci",
+ "url": "https://ctan.org/pkg/langsci",
+ "type": "Paper",
+ "version": "",
+ "files": 45,
+ "main": "documentation/langsci-doc.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "documentation/langsci-doc.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 12349,
+  "tail": "exit 12, PDF found\n  (\\end occurred when \\ifx on line 2 was incomplete) \nLatexmk: Index file 'langsci-doc.ldx' written\n  ==> but it has an extension I do not know how to handle <==\nLatexmk: Index file 'langsci-doc.adx' written\n  ==> but it has an extension I do not know how to handle <==\nLatexmk: Index file 'langsci-doc.sdx' written\n  ==> but it has an extension I do not know how to handle <==\nLatexmk: Using biber to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2333,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 4,
+ "warnings": 18,
+ "firstError": "Class langscibook Error: Please use XeLaTeX!.",
+ "outcome": "both-fail"
+}

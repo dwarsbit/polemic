@@ -1,0 +1,250 @@
+[
+ {
+  "severity": "error",
+  "file": "hitresume.cls",
+  "line": 46,
+  "message": "Package fontspec Error: The font \"msyh\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "hitresume.cls",
+  "line": 46,
+  "message": "Package fontspec Error: The font \"msyhbd.ttc\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "hitresume.cls",
+  "line": 46,
+  "message": "Package fontspec Error: The font \"msyhbd\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "hitresume.cls",
+  "line": 46,
+  "message": "Font TU/msyh.ttc(0)/m/n/10=[fonts/msyh.ttc]/OT at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "hitresume.cls",
+  "line": 50,
+  "message": "Package fontspec Error: The font \"msyh\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "hitresume.cls",
+  "line": 50,
+  "message": "Package fontspec Error: The font \"msyhbd.ttc\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "hitresume.cls",
+  "line": 50,
+  "message": "Package fontspec Error: The font \"msyhbd\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 9,
+  "message": "Font TU/msyh.ttc(0)/m/n/9=[fonts/msyh.ttc]/OT at 9.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 22,
+  "message": "LaTeX Error: File `photo' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 22,
+  "message": "Package fontspec Error: The font \"msyh\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 22,
+  "message": "Font TU/msyh.ttc(0)/m/n/20=[fonts/msyh.ttc]/OT at 20.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 22,
+  "message": "Font TU/msyh.ttc(1)/m/n/20=[fonts/msyh.ttc]/OT at 20.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 22,
+  "message": "Font TU/msyh.ttc(0)/b/n/9=[fonts/msyhbd.ttc]/OT at 9.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 22,
+  "message": "Font TU/msyh.ttc(1)/b/n/9=[fonts/msyhbd.ttc]/OT at 9.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 22,
+  "message": "Font TU/msyh.ttc(1)/m/n/9=[fonts/msyh.ttc]/OT at 9.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 30,
+  "message": "Font TU/msyh.ttc(0)/m/n/13=[fonts/msyh.ttc]/OT at 13.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 30,
+  "message": "Font TU/msyh.ttc(1)/m/n/13=[fonts/msyh.ttc]/OT at 13.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "Font TU/msyh.ttc(1)/m/n/10=[fonts/msyh.ttc]/OT at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "Missing \\endcsname inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "Extra \\endcsname.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "Improper alphabetic constant.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "Cannot use \\XeTeXglyphbounds with nullfont; not a native platform font.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "Missing ) inserted for expression.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "You can't use `\\XeTeXcharglyph' in horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "LaTeX Error: Control sequence \\c__xeCJK_xeCJK/msyh.ttc(1)/m/n/10/quanjiao/dim/bound/left/，/tl already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "LaTeX Error: Control sequence",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "LaTeX Error: Control sequence \\c__xeCJK_xeCJK/msyh.ttc(1)/m/n/10/quanjiao/dim/width/，/tl already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "demo.tex",
+  "line": 31,
+  "message": "LaTeX Error: Control sequence \\c__xeCJK_xeCJK/msyh.ttc(1)/m/n/10/quanjiao/dim/dimen/，/tl already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "demo.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": "cas-dc-sample.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cas-dc-sample.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cas-dc-sample.tex",
+  "line": 151,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 151",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cas-dc-sample.tex",
+  "line": 389,
+  "message": "LaTeX Warning: The counter will not be printed. The label is: \\textbullet  on input line 389",
+  "detail": [],
+  "hint": null
+ }
+]

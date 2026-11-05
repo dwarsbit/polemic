@@ -1,0 +1,690 @@
+[
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 13,
+  "message": "Package natbib Warning: Citation `grossman1992analysis' on page 1 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 13,
+  "message": "Package natbib Warning: Citation `rogerson1985first' on page 1 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 13,
+  "message": "Package natbib Warning: Citation `vaubel2006principal' on page 1 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 13,
+  "message": "Package natbib Warning: Citation `gerardi2012principal' on page 1 undefined on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 16,
+  "message": "Package natbib Warning: Citation `bates2022principal' on page 1 undefined on input line 16",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 21,
+  "message": "Package natbib Warning: Citation `bates2022principal' on page 2 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 33,
+  "message": "Package natbib Warning: Citation `bates2022principal' on page 2 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `jordan2025collectivist' on page 2 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 41,
+  "message": "Package natbib Warning: Citation `bates2022principal' on page 2 undefined on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `schultzberg2023choosing' on page 2 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `lindon2024sequential' on page 2 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `lucht2024sequential' on page 2 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `growthbook_sequential_testing' on page 2 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `oberst2024pioneering' on page 2 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `adobe2025experimentation_panel' on page 2 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `henderson2022beyond' on page 2 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 44,
+  "message": "Package natbib Warning: Citation `henderson2023integrating' on page 2 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 46,
+  "message": "Package natbib Warning: Citation `bates2022principal' on page 2 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `dawid2011probability' on page 2 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `dawid2011insuring' on page 2 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `shafer2011test' on page 2 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 49,
+  "message": "Package natbib Warning: Citation `choe2026combining' on page 2 undefined on input line 49",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 55,
+  "message": "Package natbib Warning: Citation `bates2022principal' on page 3 undefined on input line 55",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 56,
+  "message": "Package natbib Warning: Citation `bates2022principal' on page 3 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `bates2022principal' on page 3 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `chen2026strategic' on page 3 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `shi2024sharp' on page 3 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `shi2025instance' on page 3 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `bates2023incentive' on page 3 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 4,
+  "message": "Package natbib Warning: Citation `chugg2026strategic' on page 3 undefined on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 8,
+  "message": "Package natbib Warning: Citation `velasco2026optimizing' on page 3 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 8,
+  "message": "Package natbib Warning: Citation `ramdas2025hypothesis' on page 3 undefined on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 10,
+  "message": "Package natbib Warning: Citation `nguyen2026incentive' on page 3 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 10,
+  "message": "Package natbib Warning: Citation `velasevic2026anytime' on page 3 undefined on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 12,
+  "message": "Package natbib Warning: Citation `clerico2026time' on page 3 undefined on input line 12",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 15,
+  "message": "Package natbib Warning: Citation `lanchimba2026contract' on page 3 undefined on input line 15",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 15,
+  "message": "Package natbib Warning: Citation `laffont2002theory' on page 3 undefined on input line 15",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 16,
+  "message": "Package natbib Warning: Citation `dutting2024algorithmic' on page 3 undefined on input line 16",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 16,
+  "message": "Package natbib Warning: Citation `cohen2022learning' on page 3 undefined on input line 16",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 16,
+  "message": "Package natbib Warning: Citation `chen2024bounded' on page 3 undefined on input line 16",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/related_work.tex",
+  "line": 16,
+  "message": "Package natbib Warning: Citation `zhu2022sample' on page 3 undefined on input line 16",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 67,
+  "message": "Package natbib Warning: Citation `chugg2026values' on page 3 undefined on input line 67",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 67,
+  "message": "Package natbib Warning: Citation `ramdas2025hypothesis' on page 3 undefined on input line 67",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 67,
+  "message": "Package natbib Warning: Citation `grunwald2024safe' on page 3 undefined on input line 67",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 129,
+  "message": "Package natbib Warning: Citation `bates2022principal' on page 5 undefined on input line 129",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 136,
+  "message": "Package natbib Warning: Citation `bates2022principal' on page 5 undefined on input line 136",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 155,
+  "message": "Package natbib Warning: Citation `shafer2011test' on page 6 undefined on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 155,
+  "message": "Package natbib Warning: Citation `choe2026combining' on page 6 undefined on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 155,
+  "message": "Package natbib Warning: Citation `dawid2011probability' on page 6 undefined on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 155,
+  "message": "Package natbib Warning: Citation `dawid2011insuring' on page 6 undefined on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 160,
+  "message": "Package natbib Warning: Citation `shafer2011test' on page 6 undefined on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 161,
+  "message": "Package natbib Warning: Citation `ramdas2023game' on page 6 undefined on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 163,
+  "message": "Package natbib Warning: Citation `shafer2011test' on page 6 undefined on input line 163",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 172,
+  "message": "Package natbib Warning: Citation `choe2026combining' on page 6 undefined on input line 172",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 172,
+  "message": "Package natbib Warning: Citation `koolen2014buy' on page 6 undefined on input line 172",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 196,
+  "message": "Package natbib Warning: Citation `ville1939etude' on page 7 undefined on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 196,
+  "message": "Package natbib Warning: Citation `ruf2023composite' on page 7 undefined on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 209,
+  "message": "Package natbib Warning: Citation `shafer2011test' on page 7 undefined on input line 209",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 209,
+  "message": "Package natbib Warning: Citation `choe2026combining' on page 7 undefined on input line 209",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 209,
+  "message": "Package natbib Warning: Citation `koolen2014buy' on page 7 undefined on input line 209",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 211,
+  "message": "Package natbib Warning: Citation `choe2026combining' on page 7 undefined on input line 211",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 227,
+  "message": "Package natbib Warning: Citation `puterman1990markov' on page 8 undefined on input line 227",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 227,
+  "message": "Package natbib Warning: Citation `shiryaev2008optimal' on page 8 undefined on input line 227",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 239,
+  "message": "Package natbib Warning: Citation `asmussen1997controlled' on page 8 undefined on input line 239",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 239,
+  "message": "Package natbib Warning: Citation `karatzas2000utility' on page 8 undefined on input line 239",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 317,
+  "message": "Package natbib Warning: Citation `clerico2026time' on page 10 undefined on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 337,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined using `OT1/cmr/bx/n' instead on input line 337",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 361,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined using `OT1/cmr/m/sc' instead on input line 361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 365,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined using `OT1/cmr/m/sc' instead on input line 365",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 423,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined using `OT1/cmr/m/sc' instead on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 428,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined using `OT1/cmr/m/sc' instead on input line 428",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 451,
+  "message": "Package natbib Warning: Citation `howard2020time' on page 12 undefined on input line 451",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 457,
+  "message": "Package natbib Warning: Citation `waudby2024estimating' on page 12 undefined on input line 457",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 480,
+  "message": "Package natbib Warning: Citation `waudby2024estimating' on page 12 undefined on input line 480",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 564,
+  "message": "Package natbib Warning: Citation `ramdas2023game' on page 15 undefined on input line 564",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 732,
+  "message": "Package natbib Warning: Citation `peskir2006optimal' on page 18 undefined on input line 732",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 734,
+  "message": "Package natbib Warning: Citation `waudby2024estimating' on page 18 undefined on input line 734",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 750,
+  "message": "Package natbib Warning: Citation `peskir2006optimal' on page 19 undefined on input line 750",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 750,
+  "message": "Package natbib Warning: Citation `deroos2025rao' on page 19 undefined on input line 750",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 758,
+  "message": "Package natbib Warning: Citation `darling1972optimal' on page 19 undefined on input line 758",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 758,
+  "message": "Package natbib Warning: Citation `novikov2005effective' on page 19 undefined on input line 758",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 790,
+  "message": "Package natbib Warning: Citation `spitzer1956combinatorial' on page 19 undefined on input line 790",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 855,
+  "message": "Package natbib Warning: Citation `bates2022principal' on page 21 undefined on input line 855",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/body.tex",
+  "line": 868,
+  "message": "Package natbib Warning: Citation `bates2022principal' on page 21 undefined on input line 868",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

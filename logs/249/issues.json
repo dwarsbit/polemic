@@ -1,0 +1,570 @@
+[
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-1.tex",
+  "line": 37,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-1.tex",
+  "line": 37,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-1.tex",
+  "line": 37,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/1-mathematics/3-polynomials.tex",
+  "line": 149,
+  "message": "Package pdftex.def Error: File `contents/images/lecture_1/interpolation.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/1-mathematics/3-polynomials.tex",
+  "line": 292,
+  "message": "Package pdftex.def Error: File `contents/images/lecture_1/shamir_demo.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-2.tex",
+  "line": 22,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-2.tex",
+  "line": 22,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-2.tex",
+  "line": 22,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 38,
+  "message": "Package pdftex.def Error: File `contents/images/lecture_3/ec_illustration_1.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 122,
+  "message": "Package pdftex.def Error: File `contents/images/lecture_3/ec_illustration_2.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 371,
+  "message": "Package pdftex.def Error: File `contents/images/lecture_4/line_1_view_1.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 371,
+  "message": "Package pdftex.def Error: File `contents/images/lecture_4/line_1_view_2.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 388,
+  "message": "Package pdftex.def Error: File `contents/images/lecture_4/line_2.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 436,
+  "message": "Package pdftex.def Error: File `contents/images/lecture_4/projective_ec.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 467,
+  "message": "Package pdftex.def Error: File `contents/images/lecture_4/projective_ec_jacobian.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 524,
+  "message": "Package pdftex.def Error: File `contents/images/lecture_4/strategy.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-3.tex",
+  "line": 35,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-3.tex",
+  "line": 35,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-3.tex",
+  "line": 35,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/3-zk-foundations/2-sigma.tex",
+  "line": 160,
+  "message": "Package pdftex.def Error: File `contents/images/lecture_7/sigma_protocol_illustration.pdf' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-4.tex",
+  "line": 38,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-4.tex",
+  "line": 38,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-4.tex",
+  "line": 38,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-5.tex",
+  "line": 44,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-5.tex",
+  "line": 44,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-5.tex",
+  "line": 44,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "config/zkdl-template.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `config/zkdl-template', but the document class provides `zkdl-template'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "config/listlings/listings-rust.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `config/listlings/listings-rust', but the package provides `listings-rust'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "config/listlings/listings-circom.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `config/listlings/listings-circom', but the package provides `PsiDirectory:/Users/kyrylr/Desktop/temp/lectures-tex/listings-circom'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "config/listlings/listings-json.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `config/listlings/listings-json', but the package provides `listings-rust'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "config/listlings/listings-ts.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `config/listlings/listings-ts', but the package provides `listings-rust'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "book.tex",
+  "line": 12,
+  "message": "Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \\pgfplotsset{compat=1.18} into your preamble. on input line 12",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/1-mathematics/1-number-theory.tex",
+  "line": 132,
+  "message": "Package multicol Warning: multicols* inside a box does not make sense. Going to balance anyway on input line 132",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/1-mathematics/1-number-theory.tex",
+  "line": 949,
+  "message": "Package multicol Warning: multicols* inside a box does not make sense. Going to balance anyway on input line 949",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/1-mathematics/3-polynomials.tex",
+  "line": 149,
+  "message": "LaTeX Warning: File `contents/images/lecture_1/interpolation.pdf' not found on input line 149",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/1-mathematics/3-polynomials.tex",
+  "line": 292,
+  "message": "LaTeX Warning: File `contents/images/lecture_1/shamir_demo.pdf' not found on input line 292",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/1-security-basics.tex",
+  "line": 38,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 38",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/1-security-basics.tex",
+  "line": 624,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 624",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 38,
+  "message": "LaTeX Warning: File `contents/images/lecture_3/ec_illustration_1.pdf' not found on input line 38",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": null,
+  "message": "LaTeX Warning: `!h' float specifier changed to `!ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 122,
+  "message": "LaTeX Warning: File `contents/images/lecture_3/ec_illustration_2.pdf' not found on input line 122",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 371,
+  "message": "LaTeX Warning: File `contents/images/lecture_4/line_1_view_1.pdf' not found on input line 371",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 371,
+  "message": "LaTeX Warning: File `contents/images/lecture_4/line_1_view_2.pdf' not found on input line 371",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 388,
+  "message": "LaTeX Warning: File `contents/images/lecture_4/line_2.pdf' not found on input line 388",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 436,
+  "message": "LaTeX Warning: File `contents/images/lecture_4/projective_ec.pdf' not found on input line 436",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 467,
+  "message": "LaTeX Warning: File `contents/images/lecture_4/projective_ec_jacobian.pdf' not found on input line 467",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/2-ec.tex",
+  "line": 524,
+  "message": "LaTeX Warning: File `contents/images/lecture_4/strategy.pdf' not found on input line 524",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/3-commitments.tex",
+  "line": 205,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/2-cryptography-basics/3-commitments.tex",
+  "line": 401,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 401",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/3-zk-foundations/2-sigma.tex",
+  "line": 160,
+  "message": "LaTeX Warning: File `contents/images/lecture_7/sigma_protocol_illustration.pdf' not found on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/3-zk-foundations/4-qap-pcp.tex",
+  "line": 319,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/3-zk-foundations/4-qap-pcp.tex",
+  "line": 325,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 325",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/3-zk-foundations/4-qap-pcp.tex",
+  "line": 330,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 330",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/3-zk-foundations/4-qap-pcp.tex",
+  "line": 368,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 368",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/3-zk-foundations/8-bulletproofs.tex",
+  "line": 72,
+  "message": "Package amsmath Warning: Bracket group [l_u] at formula start! It could be a misspelled positional argument. If it belongs to the formula add a \\relax in front to hide it on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/3-zk-foundations/8-bulletproofs.tex",
+  "line": 86,
+  "message": "Package amsmath Warning: Bracket group [l_u] at formula start! It could be a misspelled positional argument. If it belongs to the formula add a \\relax in front to hide it on input line 86",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/3-zk-foundations/8-bulletproofs.tex",
+  "line": 361,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/3-zk-foundations/8-bulletproofs.tex",
+  "line": 361,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/3-zk-foundations/8-bulletproofs.tex",
+  "line": 810,
+  "message": "Package amsmath Warning: Bracket group [t_u] at formula start! It could be a misspelled positional argument. If it belongs to the formula add a \\relax in front to hide it on input line 810",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/3-zk-foundations/8-bulletproofs.tex",
+  "line": 1260,
+  "message": "Package amsmath Warning: Bracket group [t_u] at formula start! It could be a misspelled positional argument. If it belongs to the formula add a \\relax in front to hide it on input line 1260",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/4-sumcheck-lookups/2-gkr.tex",
+  "line": 242,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 242",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/4-sumcheck-lookups/5-ultragroth.tex",
+  "line": 201,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 201",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/5-post-quantum/2-lattice-sigma-protocols.tex",
+  "line": 792,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 792",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/5-post-quantum/2-lattice-sigma-protocols.tex",
+  "line": 792,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 792",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/5-post-quantum/2-lattice-sigma-protocols.tex",
+  "line": 880,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 880",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/5-post-quantum/2-lattice-sigma-protocols.tex",
+  "line": 880,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 880",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/5-post-quantum/2-lattice-sigma-protocols.tex",
+  "line": 981,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 981",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/5-post-quantum/2-lattice-sigma-protocols.tex",
+  "line": 981,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 981",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/5-post-quantum/2-lattice-sigma-protocols.tex",
+  "line": 1167,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1167",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/5-post-quantum/2-lattice-sigma-protocols.tex",
+  "line": 1167,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 1167",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "contents/0-auxiliary/chapter-intros/chapter-4.tex",
+  "line": 167,
+  "message": "Package hyperref Warning: Difference (2) between bookmark levels is greater than one, level fixed on input line 167",
+  "detail": [],
+  "hint": null
+ }
+]

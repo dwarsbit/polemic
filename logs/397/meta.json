@@ -1,0 +1,31 @@
+{
+ "id": 397,
+ "source": "GitHub",
+ "name": "AodhAnd/smno-drx-pyrite-structure",
+ "url": "https://github.com/AodhAnd/smno-drx-pyrite-structure",
+ "type": "Report",
+ "version": "6dd09f8385b29bafb6c9d7a489e2e0ab6ae4ef69",
+ "files": 26,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3837,
+  "tail": "exit 12, PDF not found\n  Reference `fig:laueCliche' on page 1 undefined on input line 91\n  Reference `fig:laueCliche' on page 1 undefined on input line 91\n  Reference `tab:LaueAngleError' on page 1 undefined on input line 97\n  Reference `fig:laueCliche' on page 1 undefined on input line 121\n  Citation 'JJRousseau2007' on page 1 undefined on input line 124\n  Citation 'JJRousseau2007' on page 1 undefined on input line 124\n  Citation 'JJRousseau2007' on page 1 undefined on input line 127\n And 18 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1582,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 49,
+ "warnings": 5,
+ "firstError": "LaTeX Error: Missing \\begin{document}.",
+ "outcome": "both-fail"
+}

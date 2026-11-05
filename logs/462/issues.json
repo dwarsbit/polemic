@@ -1,0 +1,93 @@
+[
+ {
+  "severity": "error",
+  "file": "pgf/standalone/rdf.tex",
+  "line": 76,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.76 \\usegdlibrary",
+   "                  {trees,circular,layered,examples,force,phylogenetics,routing}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgf/standalone/rdf.tex",
+  "line": 76,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgf/standalone/rdf.tex",
+  "line": 180,
+  "message": "Package pgfkeys Error: I do not know the key '/graph drawing/anchor at', to which you passed '(\\tikz@lastx ,\\tikz@lasty )', and I am going to ignore it. Perhaps you misspelled it.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgf/standalone/rdf.tex",
+  "line": 180,
+  "message": "Package pgfkeys Error: I do not know the key '/tikz/graphs/layered layout' and I am going to ignore it. Perhaps you misspelled it.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgf/standalone/rdf.tex",
+  "line": 180,
+  "message": "Package pgfkeys Error: I do not know the key '/tikz/graphs/sibling sep', to which you passed '1mm', and I am going to ignore it. Perhaps you misspelled it.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgf/standalone/rdf.tex",
+  "line": 180,
+  "message": "Package pgfkeys Error: I do not know the key '/tikz/graphs/sibling distance', to which you passed '0pt', and I am going to ignore it. Perhaps you misspelled it.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgf/standalone/rdf.tex",
+  "line": 180,
+  "message": "Package pgfkeys Error: I do not know the key '/tikz/graphs/tail anchor', to which you passed 'south', and I am going to ignore it. Perhaps you misspelled it.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgf/standalone/rdf.tex",
+  "line": 180,
+  "message": "Package pgfkeys Error: I do not know the key '/tikz/graphs/head anchor', to which you passed 'north', and I am going to ignore it. Perhaps you misspelled it.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgf/standalone/rdf.tex",
+  "line": 213,
+  "message": "Package PGF Math Error: Unknown function `Seq' (in 'Seq').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgf/standalone/rdf.tex",
+  "line": 213,
+  "message": "Package PGF Math Error: Unknown function `Seq' (in 'Seq ').",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgf/standalone/rdf.tex",
+  "line": 213,
+  "message": "Package PGF Math Error: Unknown function `rdf' (in 'rdf').",
+  "detail": [],
+  "hint": null
+ }
+]

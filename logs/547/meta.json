@@ -1,0 +1,33 @@
+{
+ "id": 547,
+ "source": "arXiv",
+ "name": "arXiv:2611.03624",
+ "url": "https://arxiv.org/abs/2611.03624",
+ "type": "Paper",
+ "version": "2611.03624",
+ "files": 13,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 8908,
+  "tail": "exit 12, PDF found\n====BUT force_mode is on, so I will continue. There may be problems ===\nLatexmk: Veto of running of 'bibtex main' ($bibtex_use=1)\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Failed to find one or more bibliography files in search path.\n====BUT force_mode is on, so I will continue. There may be problems ===\nLatexmk: Veto of running of 'bibtex main' ($bibtex_use=1)\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Missing character: There is no ; in font nullfont!"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 3669,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 16,
+ "warnings": 44,
+ "firstError": "LaTeX Error: Command \\c@lemma already defined.",
+ "outcome": "both-fail"
+}

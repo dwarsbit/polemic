@@ -1,0 +1,31 @@
+{
+ "id": 614,
+ "source": "arXiv",
+ "name": "arXiv:2611.04184",
+ "url": "https://arxiv.org/abs/2611.04184",
+ "type": "Paper",
+ "version": "2611.04184",
+ "files": 2,
+ "main": "permutation_waves_v23_proof_audited.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "permutation_waves_v23_proof_audited.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2466
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2210,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 216,
+ "source": "GitHub",
+ "name": "marado/ANSOL-presentation",
+ "url": "https://github.com/marado/ANSOL-presentation",
+ "type": "Slides",
+ "version": "ef8a57b8ec4e346b180b976f44454ded65bece85",
+ "files": 43,
+ "main": "ANSOL-presentation-en.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ANSOL-presentation-en.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2377
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1625,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 16,
+ "outcome": "both-ok"
+}

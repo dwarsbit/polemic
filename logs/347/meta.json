@@ -1,0 +1,32 @@
+{
+ "id": 347,
+ "source": "GitHub",
+ "name": "SandaruLJ/modest-cv",
+ "url": "https://github.com/SandaruLJ/modest-cv",
+ "type": "CV",
+ "version": "7032e0afc3dd1010c3d07b811977f5d768b3d0e4",
+ "files": 25,
+ "main": "Sandaru_Jayasekara_CV.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "Sandaru_Jayasekara_CV.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 6595,
+  "tail": "exit 12, PDF not found\n  ! I can't find file `.fd'.\ntput: No value for $TERM and no -T specified\nLatexmk: Missing input file '.fd' message in .log file:\n  ! I can't find file `.fd'.\ntput: No value for $TERM and no -T specified\nLatexmk: Missing input file '.fd' message in .log file:\n  ! I can't find file `.fd'.\nFailure to make 'Sandaru_Jayasekara_CV.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 4050,
+  "outputs": [
+   "pdf",
+   "log"
+  ]
+ },
+ "errors": 6,
+ "warnings": 0,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

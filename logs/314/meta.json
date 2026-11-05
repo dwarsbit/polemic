@@ -1,0 +1,32 @@
+{
+ "id": 314,
+ "source": "GitHub",
+ "name": "AlfredLouis00/hanjaKoreanTextbook",
+ "url": "https://github.com/AlfredLouis00/hanjaKoreanTextbook",
+ "type": "Book",
+ "version": "8c5dfb68db4ba2606da0d183ee793e7057114032",
+ "files": 15,
+ "main": "yonsei1.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (inferred)",
+ "baseline": {
+  "main": "yonsei1.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3811,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'yonsei1.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  lualatex: Command for 'lualatex' gave return code 1\n      Refer to 'yonsei1.log' and/or above output for details\n\ntput: No value for $TERM and no -T specified\nFailure to make 'yonsei1.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1173,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

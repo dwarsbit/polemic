@@ -1,0 +1,33 @@
+{
+ "id": 81,
+ "source": "GitHub",
+ "name": "Q4-S/thesis-latex-template",
+ "url": "https://github.com/Q4-S/thesis-latex-template",
+ "type": "Thesis",
+ "version": "ca5a377a3de76ff2134d571cf1c60d7d61446da3",
+ "files": 9,
+ "main": "app.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "app.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 10202
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4317,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,30 @@
+{
+ "id": 398,
+ "source": "GitHub",
+ "name": "jafPrudente/report-templates",
+ "url": "https://github.com/jafPrudente/report-templates",
+ "type": "Report",
+ "version": "2998613a99d967d15d3723c649ec062d38ecc509",
+ "files": 32,
+ "main": "aps/Reporte.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "aps/Reporte.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2903
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 460,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 4,
+ "firstError": "LaTeX Error: File `./Sec1/Sec1.tex' not found.",
+ "outcome": "polemic-only-fail"
+}

@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": "iclr2026_conference.tex",
+  "line": 53,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "iclr2026_conference.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "iclr2026_conference.tex",
+  "line": null,
+  "message": "LaTeX Warning: `!h' float specifier changed to `!ht'",
+  "detail": [],
+  "hint": null
+ }
+]

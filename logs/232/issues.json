@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package breakurl Warning: You are using breakurl while processing via pdflatex. \\burl will be just a synonym of \\url. on input line 48",
+  "detail": [],
+  "hint": null
+ }
+]

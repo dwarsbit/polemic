@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": "europecv.tex",
+  "line": 391,
+  "message": "LaTeX Font Warning: Font shape `T1/lmtt/c/n' undefined using `T1/lmtt/m/n' instead on input line 391",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "europecv.tex",
+  "line": 861,
+  "message": "LaTeX Font Warning: Font shape `T1/ma1/m/n' undefined using `T1/cmr/m/n' instead on input line 861",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "europecv.tex",
+  "line": 872,
+  "message": "LaTeX Font Warning: Font shape `T1/ma1/c/n' undefined using `T1/ma1/m/n' instead on input line 872",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "europecv.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

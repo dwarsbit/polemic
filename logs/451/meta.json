@@ -1,0 +1,31 @@
+{
+ "id": 451,
+ "source": "GitHub",
+ "name": "Dolfost/math-cheatsheets",
+ "url": "https://github.com/Dolfost/math-cheatsheets",
+ "type": "Cheat sheet",
+ "version": "d9b17d56315b6bc073ddc0a6d4041eef0514cb74",
+ "files": 6,
+ "main": "preamble.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "preamble.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 665,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'preamble.fls'\nLatexmk: Examining 'preamble.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'preamble.log' and/or above output for details\n\nFailure to make 'preamble.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 298,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 3,
+ "firstError": "Emergency stop.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 336,
+ "source": "GitHub",
+ "name": "neoben/smart-fancy-latex-cv",
+ "url": "https://github.com/neoben/smart-fancy-latex-cv",
+ "type": "CV",
+ "version": "a518a9c1d702d23292e5fb0174d413612cbfa7dc",
+ "files": 16,
+ "main": "cv.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "cv.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1827,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'cv.log' and/or above output for details\n\nLatexmk: Missing input file 'dtklogos.sty' message in .log file:\n  ! LaTeX Error: File `dtklogos.sty' not found.\nFailure to make 'cv.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1373,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 1,
+ "firstError": "LaTeX Error: File `dtklogos.sty' not found.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,176 @@
+[
+ {
+  "severity": "error",
+  "file": "beamer-rl.cls",
+  "line": 68,
+  "message": "Class beamer-rl Error: beamer-rl require lualatex.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamer-rl.cls",
+  "line": 520,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.520 \t\t\\edef\\@tmpa{\\the\\suppressfontnotfounderror",
+   "                                                  }"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamer-rl.cls",
+  "line": 520,
+  "message": "You can't use `end-group character }' after \\the.",
+  "detail": [
+   "l.520 ...def\\@tmpa{\\the\\suppressfontnotfounderror}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamer-rl.cls",
+  "line": 521,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.521 \t\t\\suppressfontnotfounderror",
+   "                                  =1"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamer-rl.cls",
+  "line": 522,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.522 \t\t\\font\\sffont@rl",
+   "                       =\"Amiri\" at 10pt"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamer-rl.cls",
+  "line": 523,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.523 \t\t\\suppressfontnotfounderror",
+   "                                  =\\@tmpa"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamer-rl.cls",
+  "line": 526,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Example-of-use-ar.tex",
+  "line": 2,
+  "message": "File ended while scanning definition of \\@tmpa.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Example-of-use-ar.tex",
+  "line": 6,
+  "message": "Package babel Error: This macro is available only in LuaLaTeX and XeLaTeX..",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Example-of-use-ar.tex",
+  "line": 6,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Example-of-use-ar.tex",
+  "line": 83,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Example-of-use-ar.tex",
+  "line": 83,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Example-of-use-ar.tex",
+  "line": 83,
+  "message": "Missing { inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Example-of-use-ar.tex",
+  "line": 83,
+  "message": "You can't use `\\prevdepth' in restricted horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Example-of-use-ar.tex",
+  "line": 83,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Example-of-use-ar.tex",
+  "line": 83,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Example-of-use-ar.tex",
+  "line": 83,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Example-of-use-ar.tex",
+  "line": 83,
+  "message": "pdfTeX error (ext4): pdf_link_stack empty, \\pdfendlink used without \\pdfstartlink?.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Example-of-use-ar.tex",
+  "line": 83,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: From babel-und.ini: Unknown language or deprecated name ('nil'). Falling back locale tag to 'und'. Reported on input line 4478",
+  "detail": [],
+  "hint": null
+ }
+]

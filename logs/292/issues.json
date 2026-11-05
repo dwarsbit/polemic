@@ -1,0 +1,170 @@
+[
+ {
+  "severity": "error",
+  "file": "chapter3.tex",
+  "line": 1440,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter3.tex",
+  "line": 1441,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter3.tex",
+  "line": 1447,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter3.tex",
+  "line": 1448,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter3.tex",
+  "line": 1454,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter3.tex",
+  "line": 1455,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "book.tex",
+  "line": null,
+  "message": "Package gensymb Warning: Not defining \\perthousand",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "book.tex",
+  "line": null,
+  "message": "Package gensymb Warning: Not defining \\micro",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter1.tex",
+  "line": 3,
+  "message": "LaTeX Font Warning: Font shape `TS1/bch/m/sc' undefined using `TS1/bch/m/n' instead for symbol `textperiodcentered' on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter2.tex",
+  "line": 978,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 978",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3.tex",
+  "line": 96,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 96",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3.tex",
+  "line": 96,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\times' on input line 96",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3.tex",
+  "line": 219,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 219",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3.tex",
+  "line": 219,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\times' on input line 219",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3.tex",
+  "line": 424,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 424",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3.tex",
+  "line": 424,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\times' on input line 424",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3.tex",
+  "line": 811,
+  "message": "LaTeX Font Warning: Command \\Large invalid in math mode on input line 811",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter3.tex",
+  "line": 1207,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1207",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter4.tex",
+  "line": 979,
+  "message": "LaTeX Font Warning: Command \\small invalid in math mode on input line 979",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "book.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (15.2pt): Make it at least 22.45503pt, for example: \\setlength{\\headheight}{22.45503pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-7.25504pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

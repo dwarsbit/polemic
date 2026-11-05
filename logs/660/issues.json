@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "1206.1357.tex",
+  "line": 137,
+  "message": "Class amsart Warning: Abstract should precede \\maketitle in AMS document classes; reported on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "1206.1357.tex",
+  "line": 638,
+  "message": "Package amsmath Warning: Foreign command \\atopwithdelims; \\frac or \\genfrac should be used instead on input line 638",
+  "detail": [],
+  "hint": null
+ }
+]

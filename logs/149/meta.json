@@ -1,0 +1,31 @@
+{
+ "id": 149,
+ "source": "GitHub",
+ "name": "purukaushik/acm-pandoc-paper",
+ "url": "https://github.com/purukaushik/acm-pandoc-paper",
+ "type": "Paper",
+ "version": "4e98e5f4bb1d207a7be9d3c7f39a8d1ab0ad6c25",
+ "files": 12,
+ "main": "template.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "template.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 579,
+  "tail": "exit 12, PDF not found\n      Refer to 'template.log' and/or above output for details\n\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nLatexmk: Missing input file '$documentclass$.cls' message in .log file:\n  ! LaTeX Error: File `$documentclass$.cls' not found.\nFailure to make 'template.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 297,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `$documentclass$.cls' not found.",
+ "outcome": "both-fail"
+}

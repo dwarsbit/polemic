@@ -1,0 +1,33 @@
+{
+ "id": 509,
+ "source": "arXiv",
+ "name": "arXiv:2611.02388",
+ "url": "https://arxiv.org/abs/2611.02388",
+ "type": "Paper",
+ "version": "2611.02388",
+ "files": 2,
+ "main": "kuz_stab.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "kuz_stab.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3923,
+  "tail": "exit 12, PDF found\nLatexmk: Getting log file 'kuz_stab.log'\nLatexmk: Examining 'kuz_stab.fls'\nLatexmk: Examining 'kuz_stab.log'\nLatexmk: Log file says output to 'kuz_stab.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'kuz_stab.log' and/or above output for details"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1077,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 5,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Command \\c@corollary already defined.",
+ "outcome": "both-fail"
+}

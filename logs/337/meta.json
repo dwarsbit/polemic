@@ -1,0 +1,31 @@
+{
+ "id": 337,
+ "source": "GitHub",
+ "name": "MuQY1818/baoyan-resume-template",
+ "url": "https://github.com/MuQY1818/baoyan-resume-template",
+ "type": "CV",
+ "version": "6382b7dd62d1177348c41b68f30aa287fb907158",
+ "files": 8,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 31107
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 30523,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

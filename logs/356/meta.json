@@ -1,0 +1,32 @@
+{
+ "id": 356,
+ "source": "GitHub",
+ "name": "IFAFMultiLA/poster-htw-forschungsforum-2024",
+ "url": "https://github.com/IFAFMultiLA/poster-htw-forschungsforum-2024",
+ "type": "Poster",
+ "version": "eca43abbe1066914adee082ff26e731b04ebfcd5",
+ "files": 20,
+ "main": "poster_multila.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "poster_multila.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 7329
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 6363,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

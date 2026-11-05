@@ -1,0 +1,202 @@
+[
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 36,
+  "message": "Font TU/MinionPro(0)/m/n/18.06749=\"Minion Pro\" at 18.06749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 36,
+  "message": "Package fontspec Error: The font \"方正黑体_GBK\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 36,
+  "message": "Font TU/MyriadPro(0)/b/n/18.06749=\"Myriad Pro\" at 18.06749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 36,
+  "message": "Font TU/方正黑体_GBK(0)/m/n/18.06749=方正黑体_GBK/OT at 18.06749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 36,
+  "message": "Font TU/MinionPro(0)/m/n/15.05624=\"Minion Pro\" at 15.05624pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 36,
+  "message": "Font TU/MinionPro(0)/m/n/12.045=\"Minion Pro\" at 12.045pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 39,
+  "message": "Font TU/MyriadPro(0)/m/n/12.045=\"Myriad Pro\" at 12.045pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 39,
+  "message": "Font TU/MyriadPro(0)/b/n/12.045=\"Myriad Pro\" at 12.045pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 39,
+  "message": "Font TU/方正黑体_GBK(0)/b/n/12.045=方正黑体_GBK/OT at 12.045pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 40,
+  "message": "Font TU/方正书宋_GBK(0)/m/n/10.53937=方正书宋_GBK/OT at 10.53937pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 40,
+  "message": "Font TU/MinionPro(0)/b/n/10.53937=\"Minion Pro\" at 10.53937pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 40,
+  "message": "Font TU/方正书宋_GBK(0)/b/n/10.53937=方正小标宋_GBK/OT at 10.53937pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 40,
+  "message": "Cannot use \\XeTeXglyphbounds with nullfont; not a native platform font.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 40,
+  "message": "Missing ) inserted for expression.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 40,
+  "message": "You can't use `\\XeTeXcharglyph' in horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 40,
+  "message": "LaTeX Error: Control sequence",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package geometry Warning: Over-specification in `h'-direction. `width' (392.64803pt) is ignored",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package geometry Warning: Over-specification in `v'-direction. `height' (611.73424pt) is ignored",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKrmdefault' (FandolSong-Regular(0))",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKsfdefault' (FandolHei-Regular(0))",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKttdefault' (FandolFang-Regular)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 36,
+  "message": "LaTeX Font Warning: Font shape `TU/MinionPro(0)/b/n' undefined using `TU/MinionPro(0)/m/n' instead on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 36,
+  "message": "LaTeX Font Warning: Font shape `TU/MyriadPro(0)/b/n' undefined using `TU/MyriadPro(0)/m/n' instead on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "progartcn/tutorial-sample.tex",
+  "line": 36,
+  "message": "LaTeX Font Warning: Font shape `TU/方正黑体_GBK(0)/b/n' undefined using `TU/方正黑体_GBK(0)/m/n' instead on input line 36",
+  "detail": [],
+  "hint": null
+ }
+]

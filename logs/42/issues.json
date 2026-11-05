@@ -1,0 +1,390 @@
+[
+ {
+  "severity": "error",
+  "file": "thesis-ict-en.sty",
+  "line": 11,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.11 \\kanjiskip",
+   "                4.2857mm plus .2zw"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis-ict-en.sty",
+  "line": 11,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis-ict-en.sty",
+  "line": 12,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.12 \\advance \\kanjiskip",
+   "                         by -1zw"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis-ict-en.sty",
+  "line": 12,
+  "message": "You can't use `the letter b' after \\advance.",
+  "detail": [
+   "l.12 \\advance \\kanjiskip b",
+   "                          y -1zw"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis-ict-en.sty",
+  "line": 13,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.13 \\xkanjiskip",
+   "                 2pt plus 2pt minus .5pt"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis-ict-en.sty",
+  "line": 70,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis-ict-en.sty",
+  "line": 70,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis-ict-en.sty",
+  "line": 71,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis-ict-en.sty",
+  "line": 71,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis-ict-en.sty",
+  "line": 71,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 14,
+  "message": "LaTeX Error: Unknown option `ipaex' for package `pxchfon'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 96,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/0_abstract.tex",
+  "line": 1,
+  "message": "LaTeX Error: Unicode character こ (U+3053)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/0_abstract.tex",
+  "line": 1,
+  "message": "LaTeX Error: Unicode character ん (U+3093)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/0_abstract.tex",
+  "line": 1,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/0_abstract.tex",
+  "line": 1,
+  "message": "LaTeX Error: Unicode character ち (U+3061)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/0_abstract.tex",
+  "line": 1,
+  "message": "LaTeX Error: Unicode character は (U+306F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/6_conclusion.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character こ (U+3053)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/6_conclusion.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character ん (U+3093)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/6_conclusion.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/6_conclusion.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character ち (U+3061)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/6_conclusion.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character は (U+306F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/7_acknowledgements.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character あ (U+3042)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/7_acknowledgements.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character り (U+308A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/7_acknowledgements.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character が (U+304C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/7_acknowledgements.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character と (U+3068)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/7_acknowledgements.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character う (U+3046)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/7_acknowledgements.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character ご (U+3054)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/7_acknowledgements.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character ざ (U+3056)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/7_acknowledgements.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character い (U+3044)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/7_acknowledgements.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character ま (U+307E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/7_acknowledgements.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character す (U+3059)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/7_acknowledgements.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character こ (U+3053)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character ん (U+3093)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character ち (U+3061)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 4,
+  "message": "LaTeX Error: Unicode character は (U+306F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 8,
+  "message": "LaTeX Error: Unicode character ミ (U+30DF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 8,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 8,
+  "message": "LaTeX Error: Unicode character ム (U+30E0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 13,
+  "message": "LaTeX Error: Unicode character こ (U+3053)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 13,
+  "message": "LaTeX Error: Unicode character ん (U+3093)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 13,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 13,
+  "message": "LaTeX Error: Unicode character ち (U+3061)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "sections/8_appendix.tex",
+  "line": 13,
+  "message": "LaTeX Error: Unicode character は (U+306F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package epstopdf Warning: Drivers other than `pdftex' and `luatex' are not supported",
+  "detail": [],
+  "hint": null
+ }
+]

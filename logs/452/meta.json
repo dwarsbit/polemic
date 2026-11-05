@@ -1,0 +1,31 @@
+{
+ "id": 452,
+ "source": "GitHub",
+ "name": "a-mr/simics-cheatsheet",
+ "url": "https://github.com/a-mr/simics-cheatsheet",
+ "type": "Cheat sheet",
+ "version": "680b942be5b00b6c5f26500d1923c9d5d74f7b7e",
+ "files": 28,
+ "main": "simics.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "simics.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 14685,
+  "tail": "exit 12, PDF not found\nLatexmk: Log file says no output from latex\nLatexmk: For rule 'xelatex', no output was made\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'simics.log' and/or above output for details\n\nFailure to make 'simics.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 14129,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 4,
+ "warnings": 2,
+ "firstError": "Package fontspec Error: The font \"Nunito Medium Italic\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

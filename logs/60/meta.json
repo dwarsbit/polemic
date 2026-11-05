@@ -1,0 +1,32 @@
+{
+ "id": 60,
+ "source": "GitHub",
+ "name": "mirea-ninja/Latex-Template-for-Report-Diploma-Thesis",
+ "url": "https://github.com/mirea-ninja/Latex-Template-for-Report-Diploma-Thesis",
+ "type": "Thesis",
+ "version": "39a603abe2becbd9b646ef4c542133d8c9463d11",
+ "files": 25,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 48314,
+  "tail": "exit 12, PDF found\n  Missing character: There is no С (\"421) in font nullfont!\n  Missing character: There is no о (\"43E) in font nullfont!\n  Missing character: There is no д (\"434) in font nullfont!\n  Missing character: There is no е (\"435) in font nullfont!\n  Missing character: There is no р (\"440) in font nullfont!\n  Missing character: There is no ж (\"436) in font nullfont!\n  Missing character: There is no а (\"430) in font nullfont!\n And 6824 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 211,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/main.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-fail"
+}

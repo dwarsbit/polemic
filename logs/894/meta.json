@@ -1,0 +1,10 @@
+{
+ "id": 894,
+ "source": "CTAN",
+ "name": "hustthesis",
+ "url": "https://ctan.org/pkg/hustthesis",
+ "type": "Thesis",
+ "version": "2.1.0",
+ "files": 5,
+ "outcome": "no-tex"
+}

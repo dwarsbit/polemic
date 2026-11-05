@@ -1,0 +1,32 @@
+{
+ "id": 909,
+ "source": "CTAN",
+ "name": "toptesi",
+ "url": "https://ctan.org/pkg/toptesi",
+ "type": "Thesis",
+ "version": "6.4.07",
+ "files": 50,
+ "main": "FrontespizioScudo.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "FrontespizioScudo.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 13967
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 11198,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 7,
+ "outcome": "both-ok"
+}

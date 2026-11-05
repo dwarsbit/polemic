@@ -1,0 +1,31 @@
+{
+ "id": 129,
+ "source": "GitHub",
+ "name": "shinyypig/Simple-Paper",
+ "url": "https://github.com/shinyypig/Simple-Paper",
+ "type": "Paper",
+ "version": "b06b45722e8ebb9a79bd98cf01ffe0387f713b03",
+ "files": 15,
+ "main": "Thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Thesis.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 11758,
+  "tail": "exit 12, PDF not found\n  Reference `fig:pdf_example' on page 1 undefined on input line 2\n  Reference `fig:pdf_example' on page 1 undefined on input line 2\n  Missing character: There is no � in font cmtt9!\n  Missing character: There is no � in font cmtt9!\n  Missing character: There is no � in font cmtt9!\n  Missing character: There is no � in font cmtt9!\n  Missing character: There is no � in font cmtt9!\n And 17 more --- see log file 'Thesis.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2198,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 12,
+ "warnings": 1,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,33 @@
+{
+ "id": 372,
+ "source": "GitHub",
+ "name": "diehlpkteaching/ParallelComputationMath",
+ "url": "https://github.com/diehlpkteaching/ParallelComputationMath",
+ "type": "Poster",
+ "version": "7666e76c4b2df338689a7ab6b4ec027cfe44a6b8",
+ "files": 83,
+ "main": "lecture1.tex",
+ "catalogMain": "poster/poster.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "poster/poster.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 5530,
+  "tail": "exit 12, PDF found\n\nposter.xdv -> poster.pdf\n[1]\n45867 bytes written\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Missing character: There is no 1 (\"31) in font nullfont!\n  Missing character: There is no = (\"3D) in font nullfont!\n  Missing character: There is no 1 (\"31) in font nullfont!"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 528,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/lecture1.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-fail"
+}

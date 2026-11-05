@@ -1,0 +1,1722 @@
+[
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 106,
+  "message": "Package fontspec Error: The font \"Minion Pro\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 106,
+  "message": "Font TU/MinionPro(0)/m/n/12=\"Minion Pro\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 108,
+  "message": "Package fontspec Error: The font \"Myriad Pro\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 109,
+  "message": "Package fontspec Error: The font \"Zapfino\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 110,
+  "message": "Package fontspec Error: The font \"Monaco\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 110,
+  "message": "Use of \\??? doesn't match its definition.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 111,
+  "message": "Package fontspec Error: The font \"Myriad Pro\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 112,
+  "message": "Package fontspec Error: The font \"Myriad Pro\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "Improper `at' size (0.0pt), replaced by 10pt.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "Font TU/Monaco(0)/m/n/12=Monaco at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "Font TU/Monaco(0)/m/it/12=Monaco at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "Font TU/Monaco(0)/m/sc/12=Monaco at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "Font TU/Monaco(0)/b/n/12=Monaco at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "Font TU/Monaco(0)/b/it/12=Monaco at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "Font TU/Monaco(0)/b/sc/12=Monaco at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "Font TU/Monaco(0)/l/n/12=Monaco at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "Font TU/Monaco(0)/l/it/12=Monaco at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 219,
+  "message": "Package pdfpages Error: Cannot find file `cover.pdf'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 219,
+  "message": "Package pdfpages Error: Cannot find file `1'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 219,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 219,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 219,
+  "message": "Package pdfpages Error: Page 1 of `\\AM@currentdocname ' does not exist.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 225,
+  "message": "Font TU/MyriadPro(0)/m/n/12=\"Myriad Pro\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 226,
+  "message": "Font TU/MinionPro(0)/m/n/20.74=\"Minion Pro\" at 20.74pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 226,
+  "message": "Font TU/MinionPro(0)/m/sc/20.74=\"Minion Pro\" at 20.74pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "thesis_polimi.tex",
+  "line": 226,
+  "message": "Font TU/MinionPro(0)/m/n/14.4=\"Minion Pro\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 4,
+  "message": "Font TU/MinionPro(0)/m/n/17.28=\"Minion Pro\" at 17.28pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 4,
+  "message": "Font TU/MyriadPro(0)/m/n/17.28=\"Myriad Pro\" at 17.28pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 9,
+  "message": "Font TU/MinionPro(0)/m/n/8=\"Minion Pro\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 9,
+  "message": "Font TU/Zapfino(0)/m/n/8=Zapfino at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "Font TU/MinionPro(0)/m/n/6=\"Minion Pro\" at 6.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character u).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character j).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "colophon.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/dedication.tex",
+  "line": 4,
+  "message": "Font TU/MinionPro(0)/m/it/12=\"Minion Pro\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/abstract.tex",
+  "line": 4,
+  "message": "Font TU/MinionPro(0)/m/n/24.88=\"Minion Pro\" at 24.88pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/abstract.tex",
+  "line": 5,
+  "message": "Font TU/MinionPro(0)/m/sc/12=\"Minion Pro\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/abstract.tex",
+  "line": 5,
+  "message": "Font TU/MinionPro(0)/m/n/43.5=\"Minion Pro\" at 43.5pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/abstract.tex",
+  "line": 42,
+  "message": "Font TU/MinionPro(0)/b/n/24.88=\"Minion Pro\" at 24.88pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/abstract.tex",
+  "line": 46,
+  "message": "Font TU/MinionPro(0)/b/n/12=\"Minion Pro\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 3,
+  "message": "Package graphics Error: Division by 0.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 3,
+  "message": "Package graphics Error: Division by 0.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 38,
+  "message": "Font TU/MinionPro(0)/b/n/14.4=\"Minion Pro\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 38,
+  "message": "Font TU/MyriadPro(1)/m/n/14.4=\"Myriad Pro\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 38,
+  "message": "Font TU/MyriadPro(1)/b/n/14.4=\"Myriad Pro\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 38,
+  "message": "Font TU/MyriadPro(0)/m/n/14.4=\"Myriad Pro\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 40,
+  "message": "Font TU/MinionPro(0)/m/n/14.5=\"Minion Pro\" at 14.5pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 72,
+  "message": "Font TU/MinionPro(0)/b/n/10.95=\"Minion Pro\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 72,
+  "message": "Font TU/MyriadPro(0)/b/n/10.95=\"Myriad Pro\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 72,
+  "message": "Font TU/MinionPro(0)/m/n/10.95=\"Minion Pro\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "Font TU/MinionPro(0)/m/n/10=\"Minion Pro\" at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "Font TU/MinionPro(0)/m/n/7=\"Minion Pro\" at 7.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "Font TU/MinionPro(0)/m/n/5=\"Minion Pro\" at 5.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "Improper `at' size (0.0pt), replaced by 10pt.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "Font TU/Monaco(0)/m/n/10=Monaco at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character :).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character /).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character w).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character y).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character u).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character _).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character j).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character ?).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character d).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character =).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character 2).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character 0).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character 1).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character 7).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character 3).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 96,
+  "message": "\\textfont 0 is undefined (character 9).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 137,
+  "message": "Font TU/MyriadPro(0)/b/n/14.4=\"Myriad Pro\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 225,
+  "message": "Improper `at' size (0.0pt), replaced by 10pt.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 225,
+  "message": "Font TU/Monaco(0)/m/n/8=Monaco at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 225,
+  "message": "Font TU/Monaco(0)/m/n/6=Monaco at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 225,
+  "message": "Package abraces Error: Unused part in ^{...}: '\\mathclap {\\text {\\sffamily third level domain}}\\@nil ' dropped.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 225,
+  "message": "Argument of \\abrace@next has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 225,
+  "message": "Paragraph ended before \\abrace@next was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 225,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 225,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 225,
+  "message": "Display math should end with $$.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 225,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 227,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 227,
+  "message": "Package abraces Error: Unused part in _{...}: '\\mathclap {\\text {\\sffamily second level domain}}\\@nil ' dropped.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 227,
+  "message": "Argument of \\abrace@next has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 227,
+  "message": "Paragraph ended before \\abrace@next was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 227,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 227,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 228,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 228,
+  "message": "Package abraces Error: Unused part in ^{...}: '\\mathclap {\\text {\\sffamily top level domain}}\\@nil ' dropped.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 228,
+  "message": "Argument of \\abrace@next has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 228,
+  "message": "Paragraph ended before \\abrace@next was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 228,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 228,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 228,
+  "message": "LaTeX Error: Bad math environment delimiter.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 228,
+  "message": "Display math should end with $$.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 274,
+  "message": "Font TU/MyriadPro(0)/m/n/8=\"Myriad Pro\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 274,
+  "message": "Font TU/MyriadPro(0)/b/n/8=\"Myriad Pro\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 286,
+  "message": "Improper `at' size (0.0pt), replaced by 10pt.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 286,
+  "message": "Font TU/Monaco(0)/b/n/10.95=Monaco at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 286,
+  "message": "\\textfont 0 is undefined (character w).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 286,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 286,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 286,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 286,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 286,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 286,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 286,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character :).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character /).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character k).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character u).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character y).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character w).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character -).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character d).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character 2).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character 0).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character 1).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character 3).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character g).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character _).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character D).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character R).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character A).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character F).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character T).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 474,
+  "message": "\\textfont 0 is undefined (character f).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `thesis_polimi.pyg.sty' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/botnets.tex",
+  "line": 751,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package epstopdf Warning: Drivers other than `pdftex' and `luatex' are not supported",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyphenat Warning: ******************************* * You have used the htt option. * You are likely to get many Font Warning messages. * These can usually be ignored. *******************************",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 113,
+  "message": "Class memoir Warning: The titlesec package is not recommended with memoir. With it we loose some of the features provides by the class. We provide our own interface to adjust how sections and chapters should look like. See the manual sections 6.4 through 6.6 for details.  on input line 113",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "Class memoir Warning: \\addtodef is marked deprecated and will be removed in 2026, use instead \\patchcmd, \\pretocmd or \\apptocmd from the etoolbox package (which is autoloaded by the class) on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/m/it' undefined using `TU/Monaco(0)/m/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/m/sl' undefined using `TU/Monaco(0)/m/it' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/m/scit' undefined using `TU/Monaco(0)/m/sc' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/b/n' undefined using `TU/Monaco(0)/m/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/b/it' undefined using `TU/Monaco(0)/b/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/b/sl' undefined using `TU/Monaco(0)/b/it' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/b/scit' undefined using `TU/Monaco(0)/b/sc' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/b/sc' undefined using `TU/Monaco(0)/b/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/bx/sc' undefined using `TU/Monaco(0)/b/sc' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/bx/n' undefined using `TU/Monaco(0)/b/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/bx/it' undefined using `TU/Monaco(0)/b/it' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/sb/sc' undefined using `TU/Monaco(0)/b/sc' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/sb/n' undefined using `TU/Monaco(0)/b/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/sb/it' undefined using `TU/Monaco(0)/b/it' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/bc/sc' undefined using `TU/Monaco(0)/b/sc' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/bc/n' undefined using `TU/Monaco(0)/b/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/bc/it' undefined using `TU/Monaco(0)/b/it' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/l/n' undefined using `TU/Monaco(0)/m/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/l/it' undefined using `TU/Monaco(0)/l/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/l/sl' undefined using `TU/Monaco(0)/l/it' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/l/scit' undefined using `TU/Monaco(0)/l/sc' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/l/sc' undefined using `TU/Monaco(0)/l/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/m/ui' undefined using `TU/Monaco(0)/m/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/bx/ui' undefined using `TU/Monaco(0)/m/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `TU/Monaco(0)/m/In' undefined using `TU/Monaco(0)/m/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis_polimi.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/dedication.tex",
+  "line": 4,
+  "message": "LaTeX Font Warning: Font shape `TU/MinionPro(0)/m/it' undefined using `TU/MinionPro(0)/m/n' instead on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/abstract.tex",
+  "line": 4,
+  "message": "LaTeX Font Warning: Font shape `TU/MinionPro(0)/b/n' undefined using `TU/MinionPro(0)/m/n' instead on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/abstract.tex",
+  "line": 5,
+  "message": "Package lettrine Warning: Unable to compute \\fontsize! \\LettrineTestString empty? reported on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/abstract.tex",
+  "line": 43,
+  "message": "Package lettrine Warning: Unable to compute \\fontsize! \\LettrineTestString empty? reported on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/acknowledgments.tex",
+  "line": 3,
+  "message": "Package lettrine Warning: Unable to compute \\fontsize! \\LettrineTestString empty? reported on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/introduction.tex",
+  "line": 6,
+  "message": "Package lettrine Warning: Unable to compute \\fontsize! \\LettrineTestString empty? reported on input line 6",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/botnets.tex",
+  "line": 5,
+  "message": "Package lettrine Warning: Unable to compute \\fontsize! \\LettrineTestString empty? reported on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/botnets.tex",
+  "line": 38,
+  "message": "LaTeX Font Warning: Font shape `TU/MyriadPro(1)/b/n' undefined using `TU/MyriadPro(1)/m/n' instead on input line 38",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/botnets.tex",
+  "line": 38,
+  "message": "LaTeX Font Warning: Font shape `TU/MyriadPro(0)/b/n' undefined using `TU/MyriadPro(0)/m/n' instead on input line 38",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/botnets.tex",
+  "line": 40,
+  "message": "Package lettrine Warning: Unable to compute \\fontsize! \\LettrineTestString empty? reported on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/botnets.tex",
+  "line": 139,
+  "message": "Package lettrine Warning: Unable to compute \\fontsize! \\LettrineTestString empty? reported on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/botnets.tex",
+  "line": 139,
+  "message": "Package lettrine Warning: *** ATTENTION REQUIRED *** The dropped cap D doesn't fit on page 3. Missing vertical space: 100.27924pt. Reported on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 191,
+  "message": "Package lettrine Warning: Unable to compute \\fontsize! \\LettrineTestString empty? reported on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 454,
+  "message": "Package lettrine Warning: Unable to compute \\fontsize! \\LettrineTestString empty? reported on input line 454",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 454,
+  "message": "Package lettrine Warning: *** ATTENTION REQUIRED *** The dropped cap I doesn't fit on page 5. Missing vertical space: 22.46933pt. Reported on input line 454",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 585,
+  "message": "Package lettrine Warning: Unable to compute \\fontsize! \\LettrineTestString empty? reported on input line 585",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 664,
+  "message": "Package lettrine Warning: Unable to compute \\fontsize! \\LettrineTestString empty? reported on input line 664",
+  "detail": [],
+  "hint": null
+ }
+]

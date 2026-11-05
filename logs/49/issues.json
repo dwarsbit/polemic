@@ -1,0 +1,114 @@
+[
+ {
+  "severity": "error",
+  "file": "3/TikzPictures/example1.tikz",
+  "line": 19,
+  "message": "I can't write on file `./3/TikzPictures/thesis-figure0.md5'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "3/TikzPictures/example1.tikz",
+  "line": 19,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "3/TikzPictures/example1.tikz",
+  "line": 19,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Classes/PhDthesisTUB.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `Classes/PhDthesisTUB', but the document class provides `PhDthesisTUB'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `hyperref' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package pdfx Warning: Setting all color commands to rgb,",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tracklang Warning: No `datatool' support for dialect `german'  on input line 9924",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Classes/PhDthesisTUB.cls",
+  "line": 975,
+  "message": "Class PhDthesisTUB Warning: Using default font Latin Modern. If you would like to use other pre-defined fonts use `fontA' to `fontW' or load a custom font in the preamble.tex file by specifying `customfont' in the class options on input line 975",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 109,
+  "message": "LaTeX Warning: \\include should only be used after \\begin{document} on input line 109",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Preamble/preamble.tex",
+  "line": null,
+  "message": "Package siunitx Warning: Option \"binary-units\" has been removed in this release",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 110,
+  "message": "LaTeX Warning: \\include should only be used after \\begin{document} on input line 110",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 131,
+  "message": "Package microtype Warning: Unable to apply patch `footnote' on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 186,
+  "message": "Package glossaries-extra Warning: Glossary `abbreviations' is missing on input line 186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 197,
+  "message": "Package glossaries-extra Warning: Glossary `symbolslist' is missing on input line 197",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,33 @@
+{
+ "id": 232,
+ "source": "GitHub",
+ "name": "anjanatiha/Research-Survey-Papers",
+ "url": "https://github.com/anjanatiha/Research-Survey-Papers",
+ "type": "Slides",
+ "version": "dfddd8811f3194cbc1844524f5851f54a3d115e3",
+ "files": 128,
+ "main": "Cryptography/Latex/Crytography_Anjana_Tiha_v1.0.0.0.tex",
+ "catalogMain": "Undergraduate Thesis/Latex/report.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Undergraduate Thesis/Latex/report.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1492,
+  "tail": "exit 12, PDF found\nLatexmk: Missing input file 'expansion' message in .log file:\n  ! LaTeX Error: File `expansion' not found.\nLatexmk: Missing input file 'interference' message in .log file:\n  ! LaTeX Error: File `interference' not found.\nLatexmk: Missing input file 'hack2' message in .log file:\n  ! LaTeX Error: File `hack2' not found.\nLatexmk: Missing input file 'prov' message in .log file:\n  ! LaTeX Error: File `prov' not found."
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4213,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "baseline-only-fail"
+}

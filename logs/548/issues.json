@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Class revtex4-2 Warning: Repair the float package",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [amsthm]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1525,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 1525",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1525,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 1525",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1710,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1710",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1759,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 1759",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1792,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 1792",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 1895,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 1895",
+  "detail": [],
+  "hint": null
+ }
+]

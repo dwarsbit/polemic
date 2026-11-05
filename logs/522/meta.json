@@ -1,0 +1,31 @@
+{
+ "id": 522,
+ "source": "arXiv",
+ "name": "arXiv:2611.03269",
+ "url": "https://arxiv.org/abs/2611.03269",
+ "type": "Paper",
+ "version": "2611.03269",
+ "files": 6,
+ "main": "from_photons_to_fractons.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "from_photons_to_fractons.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2556
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2414,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

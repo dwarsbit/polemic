@@ -1,0 +1,1466 @@
+[
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [tikz]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `SY93' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Kitaev2015' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Maldacena:2016hyu' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Maldacena_2016' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Chowdhury2022' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Maldacena:1997re' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Sachdev:2015efa' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Maldacena:2016upp' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Kitaev:2017awl' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Danshita:2016xbo' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Pikulin:2017mhj' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Chew_2017' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Chen2018' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `cavity_proposal' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Brzezinska2023' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Baumgartner:2024ysk' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Baumgartner:2025uue' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 139,
+  "message": "Package natbib Warning: Citation `Granet:2025yys' on page 3 undefined on input line 139",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `wang_solvable_2020' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `wang_quantum_2020' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `wang_phase_2021' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `classen_superconductivity_2021' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `inkof_quantum_2022' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `valentinis_correlation_2023' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `valentinis_bcs_2023' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `patel_universal_2023' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `Grunwald:2023plc' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `davis_quantum_2023' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `Qiu:2025ynz' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `Solis_2026' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `Cao:2026uxg' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `pan_yukawa-syk_2021' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 322,
+  "message": "LaTeX Warning: Float too large for page by 9.75241pt on input line 322",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 324,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 3 undefined on input line 324",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 333,
+  "message": "Package natbib Warning: Citation `Hauke_2016' on page 5 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 333,
+  "message": "Package natbib Warning: Citation `Braunstein_Caves1994' on page 5 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 336,
+  "message": "Package natbib Warning: Citation `Hosseinabadi:2023mid' on page 5 undefined on input line 336",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 336,
+  "message": "Package natbib Warning: Citation `Cichutek_2024' on page 5 undefined on input line 336",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 337,
+  "message": "Package natbib Warning: Citation `Leggett_1987' on page 5 undefined on input line 337",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 337,
+  "message": "Package natbib Warning: Citation `Hu_1992' on page 5 undefined on input line 337",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 341,
+  "message": "Package natbib Warning: Citation `Zhang2019' on page 6 undefined on input line 341",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 341,
+  "message": "Package natbib Warning: Citation `Sa:2020fpf' on page 6 undefined on input line 341",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 341,
+  "message": "Package natbib Warning: Citation `Kulkarni:2021gtt' on page 6 undefined on input line 341",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 341,
+  "message": "Package natbib Warning: Citation `Kawabata:2022cpr' on page 6 undefined on input line 341",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 341,
+  "message": "Package natbib Warning: Citation `Garcia-Garcia:2024tbd' on page 6 undefined on input line 341",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 341,
+  "message": "Package natbib Warning: Citation `Pelliconi2026' on page 6 undefined on input line 341",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 341,
+  "message": "Package natbib Warning: Citation `Liu2026' on page 6 undefined on input line 341",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 342,
+  "message": "Package natbib Warning: Citation `Chen:2017dbb' on page 6 undefined on input line 342",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 342,
+  "message": "Package natbib Warning: Citation `Almheiri:2019jqq' on page 6 undefined on input line 342",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 342,
+  "message": "Package natbib Warning: Citation `Chen:2020wiq' on page 6 undefined on input line 342",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 343,
+  "message": "Package natbib Warning: Citation `Jana:2020vyx' on page 6 undefined on input line 343",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 343,
+  "message": "Package natbib Warning: Citation `Garcia-Garcia:2022adg' on page 6 undefined on input line 343",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 343,
+  "message": "Package natbib Warning: Citation `Wang:2023vkq' on page 6 undefined on input line 343",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 343,
+  "message": "Package natbib Warning: Citation `Vargas:2026ijf' on page 6 undefined on input line 343",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 346,
+  "message": "Package natbib Warning: Citation `cavity_proposal' on page 6 undefined on input line 346",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 346,
+  "message": "Package natbib Warning: Citation `Peyruchat:2024akp' on page 6 undefined on input line 346",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 346,
+  "message": "Package natbib Warning: Citation `Baumgartner:2025uue' on page 6 undefined on input line 346",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 346,
+  "message": "Package natbib Warning: Citation `Wold:2025kcy' on page 6 undefined on input line 346",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 346,
+  "message": "Package natbib Warning: Citation `Ferrari:2026zkn' on page 6 undefined on input line 346",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 346,
+  "message": "Package natbib Warning: Citation `Pacchioni2026' on page 6 undefined on input line 346",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 357,
+  "message": "Package natbib Warning: Citation `davis_quantum_2023' on page 6 undefined on input line 357",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 357,
+  "message": "Package natbib Warning: Citation `Solis_2026' on page 6 undefined on input line 357",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 357,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 6 undefined on input line 357",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 363,
+  "message": "Package natbib Warning: Citation `Solis_2026' on page 7 undefined on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 363,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 7 undefined on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 370,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 7 undefined on input line 370",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 390,
+  "message": "Package natbib Warning: Citation `Kubo1957' on page 8 undefined on input line 390",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 390,
+  "message": "Package natbib Warning: Citation `CallenWelton1951' on page 8 undefined on input line 390",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 390,
+  "message": "Package natbib Warning: Citation `Kubo1966' on page 8 undefined on input line 390",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 395,
+  "message": "Package natbib Warning: Citation `Sachdev:2015efa' on page 8 undefined on input line 395",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 395,
+  "message": "Package natbib Warning: Citation `Gu_2020' on page 8 undefined on input line 395",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 418,
+  "message": "Package natbib Warning: Citation `Maldacena:2016hyu' on page 8 undefined on input line 418",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 418,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 8 undefined on input line 418",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 424,
+  "message": "Package natbib Warning: Citation `Fu_2017' on page 9 undefined on input line 424",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 424,
+  "message": "Package natbib Warning: Citation `Bi:2017yvx' on page 9 undefined on input line 424",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 424,
+  "message": "Package natbib Warning: Citation `Kim_2020' on page 9 undefined on input line 424",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 432,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 9 undefined on input line 432",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 448,
+  "message": "Package natbib Warning: Citation `Maldacena:2016hyu' on page 9 undefined on input line 448",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 456,
+  "message": "Package natbib Warning: Citation `Bi:2017yvx' on page 9 undefined on input line 456",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 456,
+  "message": "Package natbib Warning: Citation `Kim_2020' on page 9 undefined on input line 456",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 456,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 9 undefined on input line 456",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 467,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 10 undefined on input line 467",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 484,
+  "message": "Package natbib Warning: Citation `Kubo1957' on page 10 undefined on input line 484",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 484,
+  "message": "Package natbib Warning: Citation `Martin:1959jp' on page 10 undefined on input line 484",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 484,
+  "message": "Package natbib Warning: Citation `Haag:1967sg' on page 10 undefined on input line 484",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 502,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 11 undefined on input line 502",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 507,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 507",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 507,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 507",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 510,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 11 undefined on input line 510",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 519,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 12 undefined on input line 519",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 536,
+  "message": "Package natbib Warning: Citation `Maldacena:2016hyu' on page 13 undefined on input line 536",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 536,
+  "message": "Package natbib Warning: Citation `Winer2020' on page 13 undefined on input line 536",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 536,
+  "message": "Package natbib Warning: Citation `Legramandi2024' on page 13 undefined on input line 536",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 536,
+  "message": "Package natbib Warning: Citation `Solis_2026' on page 13 undefined on input line 536",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 537,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 13 undefined on input line 537",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 619,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 14 undefined on input line 619",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 668,
+  "message": "Package natbib Warning: Citation `Sambe:1973cnm' on page 15 undefined on input line 668",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 668,
+  "message": "Package natbib Warning: Citation `Bukov_2015' on page 15 undefined on input line 668",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 705,
+  "message": "Package natbib Warning: Citation `tsuji_2008' on page 17 undefined on input line 705",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 714,
+  "message": "Package natbib Warning: Citation `Schmalian:2022web' on page 18 undefined on input line 714",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 714,
+  "message": "Package natbib Warning: Citation `inkof_quantum_2022' on page 18 undefined on input line 714",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 716,
+  "message": "Package natbib Warning: Citation `Tersoff1985' on page 18 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 716,
+  "message": "Package natbib Warning: Citation `Fischer2007' on page 18 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 716,
+  "message": "Package natbib Warning: Citation `Damascelli2003' on page 18 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 716,
+  "message": "Package natbib Warning: Citation `Chin2004' on page 18 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 716,
+  "message": "Package natbib Warning: Citation `Stewart2008' on page 18 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 716,
+  "message": "Package natbib Warning: Citation `Clerk2010' on page 18 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 716,
+  "message": "Package natbib Warning: Citation `cavity_proposal' on page 18 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 716,
+  "message": "Package natbib Warning: Citation `Baumgartner:2024ysk' on page 18 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 716,
+  "message": "Package natbib Warning: Citation `Baumgartner:2025uue' on page 18 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 716,
+  "message": "Package natbib Warning: Citation `Solis_2026' on page 18 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 716,
+  "message": "Package natbib Warning: Citation `GardinerCollett1985' on page 18 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 716,
+  "message": "Package natbib Warning: Citation `Brennecke2013' on page 18 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 730,
+  "message": "Package natbib Warning: Citation `Mottl2012' on page 19 undefined on input line 730",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 730,
+  "message": "Package natbib Warning: Citation `Brennecke2013' on page 19 undefined on input line 730",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 757,
+  "message": "Package natbib Warning: Citation `Pini2019' on page 20 undefined on input line 757",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 828,
+  "message": "Package natbib Warning: Citation `Braunstein_Caves1994' on page 24 undefined on input line 828",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 835,
+  "message": "Package natbib Warning: Citation `Paris_2009' on page 24 undefined on input line 835",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 835,
+  "message": "Package natbib Warning: Citation `Pezze2009' on page 24 undefined on input line 835",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 835,
+  "message": "Package natbib Warning: Citation `Toth_2012' on page 24 undefined on input line 835",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 835,
+  "message": "Package natbib Warning: Citation `Hyllus_2012' on page 24 undefined on input line 835",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 859,
+  "message": "Package natbib Warning: Citation `Hauke_2016' on page 24 undefined on input line 859",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `Hauke_2016' on page 24 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `Pezze2009' on page 24 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `Mathew2020' on page 24 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `Scheie2021' on page 24 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `Laurell2021' on page 24 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `Laurell2025' on page 24 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `Scheie2025Tutorial' on page 24 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `Balut2025IXS' on page 24 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `TenHuisen2026' on page 24 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `Fang2025' on page 24 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `Mazza2026' on page 24 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `Balut2025' on page 24 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 880,
+  "message": "Package natbib Warning: Citation `Thomas1925' on page 25 undefined on input line 880",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 880,
+  "message": "Package natbib Warning: Citation `Kuhn1925' on page 25 undefined on input line 880",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 880,
+  "message": "Package natbib Warning: Citation `Reiche1925' on page 25 undefined on input line 880",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 880,
+  "message": "Package natbib Warning: Citation `Bethe1930' on page 25 undefined on input line 880",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 893,
+  "message": "Package natbib Warning: Citation `Hauke_2016' on page 26 undefined on input line 893",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1096,
+  "message": "Package natbib Warning: Citation `Almheiri:2019jqq' on page 32 undefined on input line 1096",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1096,
+  "message": "Package natbib Warning: Citation `Zhang2019' on page 32 undefined on input line 1096",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1096,
+  "message": "Package natbib Warning: Citation `Hosseinabadi:2023mid' on page 32 undefined on input line 1096",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1302,
+  "message": "Package natbib Warning: Citation `Caldeira_Legget_1981' on page 33 undefined on input line 1302",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1302,
+  "message": "Package natbib Warning: Citation `Leggett_1987' on page 33 undefined on input line 1302",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1302,
+  "message": "Package natbib Warning: Citation `Hosseinabadi:2023mid' on page 33 undefined on input line 1302",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1345,
+  "message": "Package natbib Warning: Citation `Hosseinabadi:2023mid' on page 34 undefined on input line 1345",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1361,
+  "message": "Package natbib Warning: Citation `Pini_2025' on page 35 undefined on input line 1361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1363,
+  "message": "Package natbib Warning: Citation `Pelliconi2026' on page 35 undefined on input line 1363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1525,
+  "message": "Package natbib Warning: Citation `Leggett_1987' on page 39 undefined on input line 1525",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1525,
+  "message": "Package natbib Warning: Citation `Hu_1992' on page 39 undefined on input line 1525",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1646,
+  "message": "Package natbib Warning: Citation `Grabert1984' on page 44 undefined on input line 1646",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1763,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 45 undefined on input line 1763",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1769,
+  "message": "Package natbib Warning: Citation `Hosseinabadi:2023mid' on page 46 undefined on input line 1769",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1769,
+  "message": "Package natbib Warning: Citation `Cichutek_2024' on page 46 undefined on input line 1769",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1788,
+  "message": "Package natbib Warning: Citation `Hosseinabadi:2023mid' on page 47 undefined on input line 1788",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1790,
+  "message": "Package natbib Warning: Citation `cavity_proposal' on page 47 undefined on input line 1790",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1790,
+  "message": "Package natbib Warning: Citation `Baumgartner:2024ysk' on page 47 undefined on input line 1790",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1790,
+  "message": "Package natbib Warning: Citation `Baumgartner:2025uue' on page 47 undefined on input line 1790",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1790,
+  "message": "Package natbib Warning: Citation `Solis_2026' on page 47 undefined on input line 1790",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1790,
+  "message": "Package natbib Warning: Citation `Ferrari:2026zkn' on page 47 undefined on input line 1790",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1793,
+  "message": "Package natbib Warning: Citation `Pacchioni2026' on page 47 undefined on input line 1793",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1872,
+  "message": "Package natbib Warning: Citation `Solis_2026' on page 49 undefined on input line 1872",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1872,
+  "message": "Package natbib Warning: Citation `Torre_Keldysh_open_systems_2013' on page 49 undefined on input line 1872",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1881,
+  "message": "Package natbib Warning: Citation `Sieberer_Keldysh_open_systeems_2016' on page 49 undefined on input line 1881",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1951,
+  "message": "Package natbib Warning: Citation `Maldacena:2016hyu' on page 51 undefined on input line 1951",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 1951,
+  "message": "Package natbib Warning: Citation `Esterlis_2019' on page 51 undefined on input line 1951",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2006,
+  "message": "Package natbib Warning: Citation `langreth1976linear' on page 52 undefined on input line 2006",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2006,
+  "message": "Package natbib Warning: Citation `Haug2008' on page 52 undefined on input line 2006",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2137,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 2137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2137,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 2137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2315,
+  "message": "Package natbib Warning: Citation `cavity_proposal' on page 60 undefined on input line 2315",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2315,
+  "message": "Package natbib Warning: Citation `Baumgartner:2024ysk' on page 60 undefined on input line 2315",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2315,
+  "message": "Package natbib Warning: Citation `Baumgartner:2025uue' on page 60 undefined on input line 2315",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2315,
+  "message": "Package natbib Warning: Citation `Solis_2026' on page 60 undefined on input line 2315",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2315,
+  "message": "Package natbib Warning: Citation `Ferrari:2026zkn' on page 60 undefined on input line 2315",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2328,
+  "message": "Package natbib Warning: Citation `Solis_2026' on page 60 undefined on input line 2328",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2410,
+  "message": "Package natbib Warning: Citation `cavity_proposal' on page 60 undefined on input line 2410",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2505,
+  "message": "Package natbib Warning: Citation `Pini2019' on page 62 undefined on input line 2505",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2539,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 2539",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 2539,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\alpha' on input line 2539",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

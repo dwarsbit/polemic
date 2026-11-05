@@ -1,0 +1,31 @@
+{
+ "id": 432,
+ "source": "GitHub",
+ "name": "nindanaoto/DC1proposal",
+ "url": "https://github.com/nindanaoto/DC1proposal",
+ "type": "Proposal",
+ "version": "be2958e5afd13ebadf66e57e59c4d3a0c2d54b26",
+ "files": 66,
+ "main": "dc.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "dc.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 740,
+  "tail": "exit 12, PDF not found\n  ! LaTeX Error: Unicode character 式 (U+5F0F)\n  Missing character: There is no L in font nullfont!\n  Missing character: There is no a in font nullfont!\n  Missing character: There is no T in font nullfont!\n  Missing character: There is no e in font nullfont!\n  Missing character: There is no X in font nullfont!\n  Missing character: There is no E in font nullfont!\n And 4221 more --- see log file 'dc.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 437,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 55,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Command \\section undefined.",
+ "outcome": "both-fail"
+}

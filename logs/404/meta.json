@@ -1,0 +1,32 @@
+{
+ "id": 404,
+ "source": "GitHub",
+ "name": "liziwl/sustech-master-reports",
+ "url": "https://github.com/liziwl/sustech-master-reports",
+ "type": "Report",
+ "version": "de510d99fdf5ab6ef28f3158a23a940d72f1523d",
+ "files": 52,
+ "main": "main-example.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main-example.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 13579
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 11449,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 9,
+ "outcome": "both-ok"
+}

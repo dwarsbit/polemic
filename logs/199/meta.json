@@ -1,0 +1,32 @@
+{
+ "id": 199,
+ "source": "GitHub",
+ "name": "samsartor/lug-wasm",
+ "url": "https://github.com/samsartor/lug-wasm",
+ "type": "Slides",
+ "version": "de5f84c5f1af9c2c17180b2340b4713951cff6d2",
+ "files": 55,
+ "main": "wasm.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "wasm.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 10224
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 9424,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

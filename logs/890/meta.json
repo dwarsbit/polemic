@@ -1,0 +1,32 @@
+{
+ "id": 890,
+ "source": "CTAN",
+ "name": "hagenberg-thesis",
+ "url": "https://ctan.org/pkg/hagenberg-thesis",
+ "type": "Thesis",
+ "version": "",
+ "files": 30,
+ "main": "doc/hagenberg-thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/hagenberg-thesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12027
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 7388,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

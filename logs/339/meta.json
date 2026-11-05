@@ -1,0 +1,31 @@
+{
+ "id": 339,
+ "source": "GitHub",
+ "name": "MaxwellJay256/hitresume",
+ "url": "https://github.com/MaxwellJay256/hitresume",
+ "type": "CV",
+ "version": "d18ca93e56dfe4aab5c3dbd58db72871cea8c772",
+ "files": 13,
+ "main": "demo.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "demo.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3499,
+  "tail": "exit 12, PDF not found\n  Missing character: There is no 帕 (\"5E15) in font nullfont!\n  Missing character: There is no 秋 (\"79CB) in font nullfont!\n  Missing character: There is no 莉 (\"8389) in font nullfont!\n  Missing character: There is no · (\"B7) in font nullfont!\n  Missing character: There is no 诺 (\"8BFA) in font nullfont!\n  Missing character: There is no 蕾 (\"857E) in font nullfont!\n  Missing character: There is no 姬 (\"59EC) in font nullfont!\n And 131 more --- see log file 'demo.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1115,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 30,
+ "warnings": 1,
+ "firstError": "Package fontspec Error: The font \"msyh\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

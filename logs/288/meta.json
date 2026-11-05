@@ -1,0 +1,32 @@
+{
+ "id": 288,
+ "source": "GitHub",
+ "name": "christophergandrud/Rep-Res-Book",
+ "url": "https://github.com/christophergandrud/Rep-Res-Book",
+ "type": "Book",
+ "version": "716e545e0764582b95501be6ab8e8566ec9a1645",
+ "files": 218,
+ "main": "Old/Writing_Setup/HeaderFooter/IndvChapterHead.tex",
+ "catalogMain": "Old/Writing_Setup/TableofContentPDF/GandrudRep-Res-Book-TOC.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Old/Writing_Setup/TableofContentPDF/GandrudRep-Res-Book-TOC.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1410,
+  "tail": "exit 12, PDF not found\n      Refer to 'GandrudRep-Res-Book-TOC.log' and/or above output for details\n\nLatexmk: File-database 'GandrudRep-Res-Book-TOC.fdb_latexmk' is of incompatible version, 3 v. current version 4\nLatexmk: Missing input file '/git_repositories/Rep-Res-Book/Source/Rep-Res-Parent.toc' message in .log file:\n  ! LaTeX Error: File `/git_repositories/Rep-Res-Book/Source/Rep-Res-Parent.toc' not found.\nLatexmk: Missing input file '/git_repositories/Rep-Res-Book/Source/Rep-Res-Parent.toc' message in .log file:\n  ! LaTeX Error: File `/git_repositories/Rep-Res-Book/Source/Rep-Res-Parent.toc' not found.\nFailure to make 'GandrudRep-Res-Book-TOC.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 474,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "Emergency stop.",
+ "outcome": "both-fail"
+}

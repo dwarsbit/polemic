@@ -1,0 +1,31 @@
+{
+ "id": 494,
+ "source": "arXiv",
+ "name": "arXiv:2611.04406",
+ "url": "https://arxiv.org/abs/2611.04406",
+ "type": "Paper",
+ "version": "2611.04406",
+ "files": 3,
+ "main": "MinMax_theory.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "MinMax_theory.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3687
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2020,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 56,
+ "outcome": "both-ok"
+}

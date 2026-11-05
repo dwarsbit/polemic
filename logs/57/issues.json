@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": "Complex Analysis Notes/Complex_intro.tex",
+  "line": 111,
+  "message": "LaTeX Error: Unicode character − (U+2212)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Complex Analysis Notes/Complex_intro.tex",
+  "line": 112,
+  "message": "LaTeX Error: Unicode character − (U+2212)",
+  "detail": [],
+  "hint": null
+ }
+]

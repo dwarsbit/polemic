@@ -1,0 +1,31 @@
+{
+ "id": 474,
+ "source": "GitHub",
+ "name": "devangel77b/wrceletter",
+ "url": "https://github.com/devangel77b/wrceletter",
+ "type": "Letter",
+ "version": "136b9901e9c44a445a0dee8b0829e1508c470612",
+ "files": 14,
+ "main": "examples/burgess/burgess-whoi.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "examples/burgess/burgess-whoi.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 386,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'burgess-whoi.log' and/or above output for details\n\nLatexmk: Missing input file 'wrceletter.cls' message in .log file:\n  ! LaTeX Error: File `wrceletter.cls' not found.\nFailure to make 'burgess-whoi.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 323,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `designature.sty' not found.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,32 @@
+{
+ "id": 34,
+ "source": "GitHub",
+ "name": "latextemplates/scientific-thesis-template",
+ "url": "https://github.com/latextemplates/scientific-thesis-template",
+ "type": "Thesis",
+ "version": "c6a348f9b74c452da71dd8f28e5001fcceaff5d2",
+ "files": 100,
+ "main": "main-basic-listings-english-thu.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "main-basic-listings-english-thu.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 57542
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 65145,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 8,
+ "outcome": "both-ok"
+}

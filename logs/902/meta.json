@@ -1,0 +1,31 @@
+{
+ "id": 902,
+ "source": "CTAN",
+ "name": "pkuthss",
+ "url": "https://ctan.org/pkg/pkuthss",
+ "type": "Thesis",
+ "version": "1.9.4",
+ "files": 44,
+ "main": "doc/example/spine.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/example/spine.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 901,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'spine.log' and/or above output for details\n\nLatexmk: Missing input file 'thesis' message in .log file:\n  ! LaTeX Error: File `thesis' not found.\nFailure to make 'spine.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 486,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `thesis' not found.",
+ "outcome": "both-fail"
+}

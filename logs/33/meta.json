@@ -1,0 +1,35 @@
+{
+ "id": 33,
+ "source": "GitHub",
+ "name": "eleurent/phd-thesis",
+ "url": "https://github.com/eleurent/phd-thesis",
+ "type": "Thesis",
+ "version": "c1464cd3a219715e5218a866a822a34af581aac7",
+ "files": 290,
+ "main": "PhD_thesis__Edouard_Leurent.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "PhD_thesis__Edouard_Leurent.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 146742,
+  "tail": "exit 12, PDF found\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n And 2947 more --- see log file 'PhD_thesis__Edouard_Leurent.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 40859,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 38,
+ "warnings": 28,
+ "firstError": "Missing number, treated as zero.",
+ "outcome": "both-fail"
+}

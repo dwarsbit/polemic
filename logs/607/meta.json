@@ -1,0 +1,31 @@
+{
+ "id": 607,
+ "source": "arXiv",
+ "name": "arXiv:2611.05090",
+ "url": "https://arxiv.org/abs/2611.05090",
+ "type": "Paper",
+ "version": "2611.05090",
+ "files": 5,
+ "main": "face_polynomial.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "face_polynomial.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3279
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2390,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

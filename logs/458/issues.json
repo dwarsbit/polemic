@@ -1,0 +1,362 @@
+[
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 197,
+  "message": "LaTeX Error: Command \\warning already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 855,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 855,
+  "message": "LaTeX Error: \\begin{shape} on input line 850 ended by \\end{mdframed}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 855,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{warning}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 855,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 880,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 880,
+  "message": "LaTeX Error: \\begin{key} on input line 867 ended by \\end{mdframed}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 880,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{warning}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 880,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 892,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{pgfmanualentry}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 892,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 892,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{key}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 977,
+  "message": "Too many }'s.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 977,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 977,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{mdframed}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 977,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{warning}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 979,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{pgfmanualentry}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 979,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 979,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{shape}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1622,
+  "message": "Too many }'s.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1622,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1622,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{mdframed}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1622,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{warning}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1705,
+  "message": "Too many }'s.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1705,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1705,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{mdframed}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1705,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{warning}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1802,
+  "message": "Too many }'s.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1802,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1802,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{mdframed}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1802,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{warning}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package etex Warning: Extended allocation already in use. etex.sty code will not be used. To force etex package to load, add \\RequirePackage{etex} at the start of the document",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/tikz-optics.en.tex",
+  "line": null,
+  "message": "Package siunitx Warning: Option \"math-micro\" has been removed in this release",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/tikz-optics.en.tex",
+  "line": null,
+  "message": "Package siunitx Warning: Option \"math-ohm\" has been removed in this release",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/tikz-optics.en.tex",
+  "line": null,
+  "message": "Package siunitx Warning: Option \"text-micro\" has been removed in this release",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/tikz-optics.en.tex",
+  "line": null,
+  "message": "Package siunitx Warning: Option \"text-ohm\" has been removed in this release",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hypdoc Warning: hyperref has been loaded before with option 'hyperindex' enabled. The index will not work properly. on input line 65",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 855,
+  "message": "Package mdframed Warning: The environment is empty on input line 855",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 880,
+  "message": "Package mdframed Warning: The environment is empty on input line 880",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 977,
+  "message": "Package mdframed Warning: The environment is empty on input line 977",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1616,
+  "message": "Package fourier-orns Warning: Command \\danger is deprecated. Use \\warning instead; reported on input line 1616",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1622,
+  "message": "Package mdframed Warning: The environment is empty on input line 1622",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1699,
+  "message": "Package fourier-orns Warning: Command \\danger is deprecated. Use \\warning instead; reported on input line 1699",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1705,
+  "message": "Package mdframed Warning: The environment is empty on input line 1705",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/tikz-optics.en.tex",
+  "line": 1802,
+  "message": "Package mdframed Warning: The environment is empty on input line 1802",
+  "detail": [],
+  "hint": null
+ }
+]

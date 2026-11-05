@@ -1,0 +1,32 @@
+{
+ "id": 197,
+ "source": "GitHub",
+ "name": "saruman9/micro_arch_side_channel_attacks_pres",
+ "url": "https://github.com/saruman9/micro_arch_side_channel_attacks_pres",
+ "type": "Slides",
+ "version": "9156d760c07e7b570fe84b54a497785fcd77cb87",
+ "files": 46,
+ "main": "tex/main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "tex/main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 37140,
+  "tail": "exit 12, PDF not found\n<*> ...r; mag:=1; ; nonstopmode; input TerminusTTF\n                                                  \nTranscript written on mfput.log.\ngrep: TerminusTTF.log: No such file or directory\nmktextfm: `mf-nowin -progname=mf \\mode:=ljfour; mag:=1; ; nonstopmode; input TerminusTTF' failed to make TerminusTTF.tfm.\nLatexmk: Missing input file 'beamerthemedsec.sty' message in .log file:\n  ! LaTeX Error: File `beamerthemedsec.sty' not found.\nFailure to make 'main.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2403,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 2,
+ "firstError": "LaTeX Error: File `beamerthemedsec.sty' not found.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,33 @@
+{
+ "id": 385,
+ "source": "GitHub",
+ "name": "anisayari/IMTA-report-latex",
+ "url": "https://github.com/anisayari/IMTA-report-latex",
+ "type": "Report",
+ "version": "3dc5a1eae45615021ef9e2b4fa6600c243d72d0d",
+ "files": 33,
+ "main": "report.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "report.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4912,
+  "tail": "exit 12, PDF found\nLatexmk: Using bibtex to make bibliography file(s).\nreport.xdv -> report.pdf\n[1][2][3][4][5][6][7][8\nxdvipdfmx:warning: Object @page.1 already defined.\n][9\nxdvipdfmx:warning: Object @page.2 already defined.\n][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24][25][26][27][28][29][30][31][32][33][34][35][36][37][38][39][40][41][42][43][44][45][46][47][48][49][50][51][52][53][54][55][56][57][58][59][60][61][62]\n804329 bytes written"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2722,
+  "outputs": [
+   "synctex",
+   "log",
+   "blg"
+  ],
+  "tail": "  Citation `Eigen1971' on page 2 undefined on input line 8\n  Citation `Knuth1968' on page 2 undefined on input line 8\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 11,
+ "outcome": "both-fail"
+}

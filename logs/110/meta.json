@@ -1,0 +1,32 @@
+{
+ "id": 110,
+ "source": "GitHub",
+ "name": "MatthieuNICOLAS/thesis-manuscript",
+ "url": "https://github.com/MatthieuNICOLAS/thesis-manuscript",
+ "type": "Paper",
+ "version": "2d0c34a346d4f7b234dc4f01cd4bb7cac31bd7ce",
+ "files": 175,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 49595
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 44880,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 15,
+ "outcome": "both-ok"
+}

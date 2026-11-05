@@ -1,0 +1,31 @@
+{
+ "id": 468,
+ "source": "GitHub",
+ "name": "aaronwolen/pandoc-letter",
+ "url": "https://github.com/aaronwolen/pandoc-letter",
+ "type": "Letter",
+ "version": "31e603eeee5b3992d57b4875052f75deb5ee7210",
+ "files": 9,
+ "main": "template-letter.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "template-letter.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 527,
+  "tail": "exit 12, PDF not found\nwarning: kpathsea: $if(documentclass)$$documentclass$$else$letter$endif$.cls: Unrecognized variable construct `$$'.\nwarning: kpathsea: $if(documentclass)$$documentclass$$else$letter$endif$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $if(documentclass)$$documentclass$$else$letter$endif$.cls: Unrecognized variable construct `$$'.\nwarning: kpathsea: $if(documentclass)$$documentclass$$else$letter$endif$.cls: Unrecognized variable construct `$$'.\nwarning: kpathsea: $if(documentclass)$$documentclass$$else$letter$endif$.cls: Unrecognized variable construct `$.'.\nLatexmk: Missing input file '$if(documentclass)$$documentclass$$else$letter$endif$.cls' message in .log file:\n  ! LaTeX Error: File `$if(documentclass)$$documentclass$$else$letter$endif$.cls' not found.\nFailure to make 'template-letter.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 288,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Missing \\begin{document}.",
+ "outcome": "both-fail"
+}

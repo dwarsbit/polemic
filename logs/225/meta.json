@@ -1,0 +1,33 @@
+{
+ "id": 225,
+ "source": "GitHub",
+ "name": "sjtug/sjtulib-latex-talk",
+ "url": "https://github.com/sjtug/sjtulib-latex-talk",
+ "type": "Slides",
+ "version": "bd425494a6e32b3533d6a2461513c9fc2b9cb5bc",
+ "files": 187,
+ "main": "latex-talk.tex",
+ "catalogMain": "support/beamer/poster.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "support/beamer/poster.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1435,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'poster.log' and/or above output for details\n\nLatexmk: Missing input file 'beamerthemesjtubeamer.sty' message in .log file:\n  ! LaTeX Error: File `beamerthemesjtubeamer.sty' not found.\nFailure to make 'poster.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 674,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `beamerthemesjtubeamer.sty' not found.",
+ "outcome": "both-fail"
+}

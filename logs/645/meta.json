@@ -1,0 +1,31 @@
+{
+ "id": 645,
+ "source": "arXiv",
+ "name": "arXiv:hep-th/0503015",
+ "url": "https://arxiv.org/abs/hep-th/0503015",
+ "type": "Paper",
+ "version": "hep-th/0503015",
+ "files": 1,
+ "main": "hep-th-0503015.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "hep-th-0503015.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 518,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'hep-th-0503015.log' and/or above output for details\n\nLatexmk: Missing input file 'axodraw.sty' message in .log file:\n  ! LaTeX Error: File `axodraw.sty' not found.\nFailure to make 'hep-th-0503015.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 208,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `axodraw.sty' not found.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 597,
+ "source": "arXiv",
+ "name": "arXiv:2611.05329",
+ "url": "https://arxiv.org/abs/2611.05329",
+ "type": "Paper",
+ "version": "2611.05329",
+ "files": 9,
+ "main": "QFTLatticeDirac.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "QFTLatticeDirac.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4388
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3975,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 86,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,32 @@
+{
+ "id": 207,
+ "source": "GitHub",
+ "name": "stone-zeng/latex-talk",
+ "url": "https://github.com/stone-zeng/latex-talk",
+ "type": "Slides",
+ "version": "6e194f1ad743b78a23b71c0b099a988f3f5556a4",
+ "files": 43,
+ "main": "latex-talk.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (latexmkrc)",
+ "baseline": {
+  "main": "latex-talk.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 32382,
+  "tail": "exit 12, PDF not found\n  Missing character: There is no 零 (U+96F6) in font [LibertinusSerif-Regular.otf]\n  Missing character: There is no 零 (U+96F6) in font [LibertinusSerif-Regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!\n  Missing character: There is no 零 (U+96F6) in font [LibertinusSerif-Regular.otf]\n  Missing character: There is no 零 (U+96F6) in font [LibertinusSerif-Regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!\n  Missing character: There is no 现 (U+73B0) in font [LibertinusSerif-Bold.otf]/OT\n  Missing character: There is no 现 (U+73B0) in font [LibertinusSerif-Bold.otf]/OT:script=latn;language=dflt;mapping=tex-text;!\n  Missing character: There is no 代 (U+4EE3) in font [LibertinusSerif-Bold.otf]/OT\n And 9 more --- see log file 'latex-talk.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1417,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 52,
+ "warnings": 3,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

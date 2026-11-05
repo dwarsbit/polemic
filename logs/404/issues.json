@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "warning",
+  "file": "sustech-gs-report.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKrmdefault' (FandolSong-Regular(0))",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sustech-gs-report.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKsfdefault' (FandolHei-Regular)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sustech-gs-report.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKttdefault' (FandolFang-Regular)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sustech-gs-report.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `zhsong' (FandolSong-Regular)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sustech-gs-report.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `zhhei' (FandolHei-Regular)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sustech-gs-report.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `zhkai' (FandolKai-Regular)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sustech-gs-report.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `zhfs' (FandolFang-Regular)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "body/chapterTest.tex",
+  "line": 63,
+  "message": "LaTeX Font Warning: Font shape `TU/SimHei.ttf(0)/m/it' undefined using `TU/SimHei.ttf(0)/m/n' instead on input line 63",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-example.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

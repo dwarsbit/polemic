@@ -1,0 +1,242 @@
+[
+ {
+  "severity": "error",
+  "file": "nwpuphdproposal.cls",
+  "line": 24,
+  "message": "Package fontspec Error: The font \"Times New Roman\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "nwpuphdproposal.cls",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/m/n/12.045=\"Times New Roman\" at 12.045pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Package fontspec Error: The font \"KaiTi\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Font TU/TimesNewRoman(0)/b/n/26.09749=\"Times New Roman\" at 26.09749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Font TU/KaiTi(0)/b/n/26.09749=KaiTi/OT:embolden=4; at 26.09749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Font TU/TimesNewRoman(0)/m/n/15.05624=\"Times New Roman\" at 15.05624pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Font TU/KaiTi(0)/m/n/15.05624=KaiTi/OT at 15.05624pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Package fontspec Error: The font \"SimSun\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Font TU/TimesNewRoman(0)/m/n/10.53937=\"Times New Roman\" at 10.53937pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Font TU/TimesNewRoman(0)/b/n/10.53937=\"Times New Roman\" at 10.53937pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Font TU/TimesNewRoman(0)/m/n/14.05249=\"Times New Roman\" at 14.05249pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Font TU/KaiTi(0)/m/n/14.05249=KaiTi/OT at 14.05249pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Missing \\endcsname inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Extra \\endcsname.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Improper alphabetic constant.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Font TU/SimSun(1)/m/n/10.53937=SimSun/OT at 10.53937pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Font TU/TimesNewRoman(0)/m/n/18.06749=\"Times New Roman\" at 18.06749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Font TU/TimesNewRoman(0)/b/n/18.06749=\"Times New Roman\" at 18.06749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 19,
+  "message": "Font TU/KaiTi(0)/b/n/18.06749=KaiTi/OT:embolden=4; at 18.06749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 30,
+  "message": "Font TU/SimSun(0)/b/n/10.53937=SimHei/OT at 10.53937pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 30,
+  "message": "Font TU/SimSun(0)/m/n/10.53937=SimSun/OT at 10.53937pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 30,
+  "message": "Cannot use \\XeTeXglyphbounds with nullfont; not a native platform font.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 30,
+  "message": "Missing ) inserted for expression.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 30,
+  "message": "You can't use `\\XeTeXcharglyph' in restricted horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 30,
+  "message": "LaTeX Error: Control sequence",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 30,
+  "message": "LaTeX Error: Control sequence \\c__xeCJK_xeCJK/SimSun(0)/m/n/10.53937/quanjiao/dim/width/（/tl already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 30,
+  "message": "LaTeX Error: Control sequence \\c__xeCJK_xeCJK/SimSun(0)/m/n/10.53937/quanjiao/dim/dimen/（/tl already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 19,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/b/n' undefined using `TU/TimesNewRoman(0)/m/n' instead on input line 19",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 248,
+ "source": "GitHub",
+ "name": "shiftpsh/sgcs-mat2120",
+ "url": "https://github.com/shiftpsh/sgcs-mat2120",
+ "type": "Notes",
+ "version": "5d7682629b111aa5f2a2a1fc4bddd5ff49685299",
+ "files": 50,
+ "main": "homework/header.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "homework/header.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 507,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'header.fls'\nLatexmk: Examining 'header.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'header.log' and/or above output for details\n\nFailure to make 'header.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 331,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 5,
+ "warnings": 0,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

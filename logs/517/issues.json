@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "jhep-template/jheppub.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `jhep-template/jheppub', but the package provides `jheppub'",
+  "detail": [],
+  "hint": null
+ }
+]

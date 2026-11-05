@@ -1,0 +1,34 @@
+{
+ "id": 241,
+ "source": "GitHub",
+ "name": "alexanderknop/I2DM",
+ "url": "https://github.com/alexanderknop/I2DM",
+ "type": "Notes",
+ "version": "745bc4e24087c1d7abd02f39c1481bb7b7ddb796",
+ "files": 61,
+ "main": "main.tex",
+ "catalogMain": "macroses/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "macroses/main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2555,
+  "tail": "exit 12, PDF not found\n  ! LaTeX Error: File `macroses/enviroments.tex' not found.\nThis is makeindex, version 2.18 [TeX Live 2026] (kpathsea + Thai support).\nScanning input file main.idx...done (0 entries accepted, 0 rejected).\nNothing written in main.ind.\nTranscript written in main.ilg.\nLatexmk: Missing input file 'macroses/enviroments.tex' message in .log file:\n  ! LaTeX Error: File `macroses/enviroments.tex' not found.\nFailure to make 'main.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 13730,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 55,
+ "firstError": "Missing $ inserted.",
+ "outcome": "both-fail"
+}

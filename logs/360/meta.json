@@ -1,0 +1,31 @@
+{
+ "id": 360,
+ "source": "GitHub",
+ "name": "meneguzzi/facin-tc-poster-template",
+ "url": "https://github.com/meneguzzi/facin-tc-poster-template",
+ "type": "Poster",
+ "version": "c02a7804fdc4131e618a04144548bec98192873d",
+ "files": 8,
+ "main": "poster.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "poster.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2135
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1152,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 17,
+ "outcome": "both-ok"
+}

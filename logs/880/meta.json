@@ -1,0 +1,32 @@
+{
+ "id": 880,
+ "source": "CTAN",
+ "name": "cleanthesis",
+ "url": "https://ctan.org/pkg/cleanthesis",
+ "type": "Thesis",
+ "version": "0.4.0",
+ "files": 24,
+ "main": "my-thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "my-thesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 13791
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 8826,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

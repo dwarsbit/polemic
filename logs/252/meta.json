@@ -1,0 +1,34 @@
+{
+ "id": 252,
+ "source": "GitHub",
+ "name": "Polaris-Aeterna/loom-notes",
+ "url": "https://github.com/Polaris-Aeterna/loom-notes",
+ "type": "Notes",
+ "version": "290fa4042d33a7dd11f290eb39fba7f5d5b71369",
+ "files": 84,
+ "main": "template/main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "template/main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 150903,
+  "tail": "exit 12, PDF found\n  Missing character: There is no - (\"2D) in font nullfont!\n  Missing character: There is no - (\"2D) in font nullfont!\n  Missing character: There is no - (\"2D) in font nullfont!\n  Missing character: There is no - (\"2D) in font nullfont!\n  Missing character: There is no - (\"2D) in font nullfont!\n  Missing character: There is no - (\"2D) in font nullfont!\n  Missing character: There is no - (\"2D) in font nullfont!\n And 582 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1477,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 26,
+ "warnings": 4,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

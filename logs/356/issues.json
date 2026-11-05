@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster_multila.tex",
+  "line": 138,
+  "message": "Package caption Warning: Cannot determine current font size. Try setting it with `size=' explicitly on input line 138",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster_multila.tex",
+  "line": 143,
+  "message": "Package caption Warning: Cannot determine current font size. Try setting it with `size=' explicitly on input line 143",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster_multila.tex",
+  "line": 243,
+  "message": "Package caption Warning: Cannot determine current font size. Try setting it with `size=' explicitly on input line 243",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster_multila.tex",
+  "line": 248,
+  "message": "Package caption Warning: Cannot determine current font size. Try setting it with `size=' explicitly on input line 248",
+  "detail": [],
+  "hint": null
+ }
+]

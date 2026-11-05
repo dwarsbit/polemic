@@ -1,0 +1,30 @@
+{
+ "id": 190,
+ "source": "GitHub",
+ "name": "yhbcode000/sustech-slides-template",
+ "url": "https://github.com/yhbcode000/sustech-slides-template",
+ "type": "Slides",
+ "version": "55147b3bf5d8f8ffdb1f4910012ebd35b3bf4e13",
+ "files": 18,
+ "main": "main_template.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main_template.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 6988
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 975,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `beamerthemesustech.sty' not found.",
+ "outcome": "polemic-only-fail"
+}

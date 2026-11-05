@@ -1,0 +1,33 @@
+{
+ "id": 277,
+ "source": "GitHub",
+ "name": "leokruglikov/CUDA-notes",
+ "url": "https://github.com/leokruglikov/CUDA-notes",
+ "type": "Notes",
+ "version": "c7362396f1674c567ede840f09af3fee9a94c46a",
+ "files": 71,
+ "main": "cuda_recap.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "cuda_recap.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 34175,
+  "tail": "exit 12, PDF found\n(/usr/local/texlive/2026/texmf-dist/fonts/source/lh/base/llmligtb.mf) ) ) )\nFont metrics written on lait1000.tfm.\nOutput written on lait1000.600gf (256 characters, 44772 bytes).\nTranscript written on lait1000.log.\nmktextfm: /cache/texmf-var/fonts/tfm/lh/lh-t2a/lait1000.tfm: successfully generated.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 22214,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 7,
+ "warnings": 13,
+ "firstError": "Illegal parameter number in definition of \\Hy@tempa.",
+ "outcome": "both-fail"
+}

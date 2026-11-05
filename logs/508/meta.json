@@ -1,0 +1,31 @@
+{
+ "id": 508,
+ "source": "arXiv",
+ "name": "arXiv:2611.02496",
+ "url": "https://arxiv.org/abs/2611.02496",
+ "type": "Paper",
+ "version": "2611.02496",
+ "files": 2,
+ "main": "MNisse-Top_Max_Vol_Amoebas_20261102.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "MNisse-Top_Max_Vol_Amoebas_20261102.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3676
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3769,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

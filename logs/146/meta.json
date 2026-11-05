@@ -1,0 +1,33 @@
+{
+ "id": 146,
+ "source": "GitHub",
+ "name": "paul-buerkner/Bayesian-IRT-paper",
+ "url": "https://github.com/paul-buerkner/Bayesian-IRT-paper",
+ "type": "Paper",
+ "version": "17bbd19e09a1d64a320c319809d8a88b1e711517",
+ "files": 11,
+ "main": "Bayesian-IRT.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Bayesian-IRT.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 5452,
+  "tail": "exit 12, PDF found\n  ! LaTeX Error: File `Bayesian-IRT_files/figure-latex/me-va-ord-cov2-1' not found.\nLatexmk: Missing input file 'Bayesian-IRT_files/figure-latex/pp-exg1-1' message in .log file:\n  ! LaTeX Error: File `Bayesian-IRT_files/figure-latex/pp-exg1-1' not found.\nLatexmk: Missing input file 'Bayesian-IRT_files/figure-latex/me-exg-1' message in .log file:\n  ! LaTeX Error: File `Bayesian-IRT_files/figure-latex/me-exg-1' not found.\nLatexmk: Missing input file 'Bayesian-IRT_files/figure-latex/me-drift-1' message in .log file:\n  ! LaTeX Error: File `Bayesian-IRT_files/figure-latex/me-drift-1' not found.\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1114,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 22,
+ "warnings": 10,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

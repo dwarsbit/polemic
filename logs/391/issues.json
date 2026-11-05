@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/cmr/el/n' undefined using `T1/cmr/m/n' instead on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/futs/el/n' undefined using `T1/futs/m/n' instead on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 25,
+  "message": "LaTeX Font Warning: Font shape `T1/Roboto-LF/t/n' undefined using `T1/Roboto-LF/m/n' instead on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

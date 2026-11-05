@@ -1,0 +1,32 @@
+{
+ "id": 320,
+ "source": "GitHub",
+ "name": "HolgerGerhardt/TeXTemplates",
+ "url": "https://github.com/HolgerGerhardt/TeXTemplates",
+ "type": "CV",
+ "version": "a41eb00e2f9b0f447594f380adbf507b5d630c26",
+ "files": 175,
+ "main": "Template_CV.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Template_CV.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 11763
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 7165,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

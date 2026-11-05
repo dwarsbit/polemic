@@ -1,0 +1,31 @@
+{
+ "id": 139,
+ "source": "GitHub",
+ "name": "Mr-potato-123/cumcm-paper-hand-skill",
+ "url": "https://github.com/Mr-potato-123/cumcm-paper-hand-skill",
+ "type": "Paper",
+ "version": "2d46ef4b04f379c1a637ad6cbb07cb78985f7381",
+ "files": 25,
+ "main": "skills/cumcm-paper-hand-skill/templates/论文模板.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "skills/cumcm-paper-hand-skill/templates/论文模板.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2093
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1787,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

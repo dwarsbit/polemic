@@ -1,0 +1,138 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU/mdbch/m/n' undefined using `TU/lmr/m/n' instead on input line 186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": 954,
+  "message": "Package hyperref Warning: Option `hyperindex' has already been used, setting the option has no effect on input line 954",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": 954,
+  "message": "Package hyperref Warning: Option `hyperfootnotes' has already been used, setting the option has no effect on input line 954",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": 954,
+  "message": "Package hyperref Warning: Option `bookmarks' has already been used, setting the option has no effect on input line 954",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": 954,
+  "message": "Package hyperref Warning: Option `pdfpagelabels' has already been used, setting the option has no effect on input line 954",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": 1400,
+  "message": "Package mathdesign/mdbch Warning: Package 'amssymb' shouldn't be used in conjonction with package mdbch, on input line 1400",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": 1400,
+  "message": "Package mathdesign/mdbch Warning: Package 'amsfonts' shouldn't be used in conjonction with package mdbch, on input line 1400",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": null,
+  "message": "Package unicode-math Warning: Using \\overbracket and \\underbracket from `mathtools' package",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": null,
+  "message": "Package unicode-math Warning: I'm going to overwrite the following commands from the `mathtools' package:",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": null,
+  "message": "Package tablefootnote Warning: LuaTeX and hyperref package used: Hyperreferences in rotated content will be misplaced regardless of tablefootnote package. The text to be printed will be OK",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package soulutf8 Warning: This package is obsolete, use the soul package directly. on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": null,
+  "message": "Class scrbook Warning: Redefinition of \\@makechapterhead detected. Note: KOMA-Script does use styles for commands like \\chapter. Currently it internally still provides and uses \\@makechapterhead, but a completely different definition compared to the standard classes. So redefining or using internal \\@makechapterhead by users or package authors may already break KOMA-Script and will not work with a coming version, that will remove this deprecated code",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": 1426,
+  "message": "LaTeX Font Warning: Font shape `TU/phv/m/n' undefined using `TU/lmr/m/n' instead on input line 1426",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": 1431,
+  "message": "LaTeX Font Warning: Font shape `TU/phv/b/n' undefined using `TU/phv/m/n' instead on input line 1431",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package markdown Warning: The `hybrid` option has been soft-deprecated. Consider using one of the following better options for mixing TeX and markdown: `contentBlocks`, `rawAttribute`, `texComments`, `texMathDollars`, `texMathSingleBackslash`, and `texMathDoubleBackslash`. For more information, see the user manual at <https://witiko.github.io/markdown/>",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Float too large for bottom area: b changed to p on input line 228",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "thesis-example-basic-listings-en.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

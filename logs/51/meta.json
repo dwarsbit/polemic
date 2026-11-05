@@ -1,0 +1,31 @@
+{
+ "id": 51,
+ "source": "GitHub",
+ "name": "deon-george/BrowseBlock-Phase1-Report",
+ "url": "https://github.com/deon-george/BrowseBlock-Phase1-Report",
+ "type": "Thesis",
+ "version": "58156f6cb6350c4149accc9e7bfda9cb06370171",
+ "files": 33,
+ "main": "thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 7231
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 7004,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,34 @@
+{
+ "id": 78,
+ "source": "GitHub",
+ "name": "baronefr/unipd-thesis-modern",
+ "url": "https://github.com/baronefr/unipd-thesis-modern",
+ "type": "Thesis",
+ "version": "4d9f348ebcc1797e8713c9410d8e4df843ce4bca",
+ "files": 30,
+ "main": "main.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 23575,
+  "tail": "exit 12, PDF found\n  No file main.acr.\nLatexmk: Using biber to make bibliography file(s).\ntput: No value for $TERM and no -T specified\nLatexmk: Missing input file 'main.gls' message in .log file:\n  No file main.gls.\nLatexmk: Missing input file 'main.acr' message in .log file:\n  No file main.acr.\nLatexmk: Using biber to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 10456,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "Missing number, treated as zero.",
+ "outcome": "both-fail"
+}

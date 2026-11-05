@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "warning",
+  "file": "kdd-2024/ibis-hands-on-tutorial-KDD.tex",
+  "line": null,
+  "message": "Class acmart Warning: No city present for an affiliation",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "kdd-2024/ibis-hands-on-tutorial-KDD.tex",
+  "line": 323,
+  "message": "Class acmart Warning: \\vspace should only be used to provide space above/below surrounding objects on input line 323",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "kdd-2024/ibis-hands-on-tutorial-KDD.tex",
+  "line": 330,
+  "message": "Class acmart Warning: \\vspace should only be used to provide space above/below surrounding objects on input line 330",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "kdd-2024/ibis-hands-on-tutorial-KDD.tex",
+  "line": 336,
+  "message": "Class acmart Warning: \\vspace should only be used to provide space above/below surrounding objects on input line 336",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "kdd-2024/ibis-hands-on-tutorial-KDD.tex",
+  "line": 342,
+  "message": "Class acmart Warning: \\vspace should only be used to provide space above/below surrounding objects on input line 342",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "kdd-2024/ibis-hands-on-tutorial-KDD.tex",
+  "line": 355,
+  "message": "Class acmart Warning: \\vspace should only be used to provide space above/below surrounding objects on input line 355",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "kdd-2024/ibis-hands-on-tutorial-KDD.tex",
+  "line": 364,
+  "message": "Class acmart Warning: \\vspace should only be used to provide space above/below surrounding objects on input line 364",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class acmart Warning: ACM keywords are mandatory for papers over two pages",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class acmart Warning: CCS concepts are mandatory for papers over two pages",
+  "detail": [],
+  "hint": null
+ }
+]

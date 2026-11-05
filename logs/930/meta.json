@@ -1,0 +1,9 @@
+{
+ "id": 930,
+ "source": "CTAN",
+ "name": "moderncv",
+ "url": "https://ctan.org/pkg/moderncv",
+ "type": "CV",
+ "outcome": "download-failed",
+ "error": "fetch failed"
+}

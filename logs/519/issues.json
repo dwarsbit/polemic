@@ -1,0 +1,1002 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class revtex4-2 Warning: No type size specified, using default 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 69,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 69",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 69,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\theta' on input line 69",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `BPST' on page 1 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `tHooft76' on page 1 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `tHooft76b' on page 1 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `CDG' on page 1 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `Polyakov75' on page 1 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `Polyakov77' on page 1 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `ColemanBook' on page 1 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `Witten79' on page 1 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `Affleck80' on page 1 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `DLD' on page 1 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 72,
+  "message": "Package natbib Warning: Citation `WittenTheta' on page 1 undefined on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 73,
+  "message": "Package natbib Warning: Citation `ColemanBook' on page 1 undefined on input line 73",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 73,
+  "message": "Package natbib Warning: Citation `Witten79' on page 1 undefined on input line 73",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 73,
+  "message": "Package natbib Warning: Citation `Affleck80' on page 1 undefined on input line 73",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `Unsal2008' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `Unsal2009' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `ShifmanUnsal2008' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `UnsalYaffe2008' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `Unsal2020' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `Poppitz2022' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `TanizakiUnsal2022' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `HayashiTanizaki2024a' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `HayashiTanizaki2024b' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `DunneUnsal2013' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `Bruckmann' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `Brendel' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `MisumiNittaSakai2014' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `Fujimori2019' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `LeeYi97' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `LeeLu98' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `KraanvanBaal98a' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `KraanvanBaal98b' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `ACD2021' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `BCD2018' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `BPU2018' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 76,
+  "message": "Package natbib Warning: Citation `ColemanBook' on page 1 undefined on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 78,
+  "message": "Package natbib Warning: Citation `Parkes92' on page 1 undefined on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 78,
+  "message": "Package natbib Warning: Citation `ChalmersSiegel' on page 1 undefined on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `HU' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `DGNU' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `Bardeen96' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `Cangemi96' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `BCDK94' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `Mahlon94' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `WittenTwistor' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `CSW04' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `Mansfield06' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `Mason05' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `BMS07' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `MonteiroOConnell11' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `Costello21' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `CostelloPaquette22' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `HRSS2026' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `Frenkel:2006fy' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `Frenkel:2008vz' on page 1 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 82,
+  "message": "Package natbib Warning: Citation `Witten79' on page 1 undefined on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 87,
+  "message": "Package natbib Warning: Citation `NU' on page 1 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 119,
+  "message": "Package natbib Warning: Citation `NU' on page 1 undefined on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 123,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 123,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 131,
+  "message": "Package natbib Warning: Citation `HU' on page 1 undefined on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 132,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix] on input line 132",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `HU' on page 2 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 155,
+  "message": "Package natbib Warning: Citation `Ward' on page 2 undefined on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 155,
+  "message": "Package natbib Warning: Citation `Speight' on page 2 undefined on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 155,
+  "message": "Package natbib Warning: Citation `SDSYM' on page 2 undefined on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 160,
+  "message": "Package natbib Warning: Citation `HU' on page 2 undefined on input line 160",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 177,
+  "message": "Package natbib Warning: Citation `NU' on page 2 undefined on input line 177",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 181,
+  "message": "Package natbib Warning: Citation `DH' on page 2 undefined on input line 181",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 189,
+  "message": "Package natbib Warning: Citation `SDSYM' on page 3 undefined on input line 189",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 190,
+  "message": "Package natbib Warning: Citation `DGH' on page 3 undefined on input line 190",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 190,
+  "message": "Package natbib Warning: Citation `BTZ' on page 3 undefined on input line 190",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 190,
+  "message": "Package natbib Warning: Citation `FKNO' on page 3 undefined on input line 190",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 190,
+  "message": "Package natbib Warning: Citation `Givental' on page 3 undefined on input line 190",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 206,
+  "message": "Package natbib Warning: Citation `Unsal2020' on page 3 undefined on input line 206",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 207,
+  "message": "Package natbib Warning: Citation `NU' on page 3 undefined on input line 207",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 227,
+  "message": "Package natbib Warning: Citation `YangLee' on page 3 undefined on input line 227",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 227,
+  "message": "Package natbib Warning: Citation `LeeYang' on page 3 undefined on input line 227",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 253,
+  "message": "Package natbib Warning: Citation `ColemanBook' on page 3 undefined on input line 253",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 253,
+  "message": "Package natbib Warning: Citation `Witten79' on page 3 undefined on input line 253",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 255,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 256,
+  "message": "Package natbib Warning: Citation `ChalmersSiegel' on page 3 undefined on input line 256",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 284,
+  "message": "Package natbib Warning: Citation `Osborn' on page 4 undefined on input line 284",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 284,
+  "message": "Package natbib Warning: Citation `Maciocia' on page 4 undefined on input line 284",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 284,
+  "message": "Package natbib Warning: Citation `Dorey:2002ik' on page 4 undefined on input line 284",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 292,
+  "message": "Package natbib Warning: Citation `Dorey:2002ik' on page 4 undefined on input line 292",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 297,
+  "message": "Package natbib Warning: Citation `Osborn' on page 4 undefined on input line 297",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 298,
+  "message": "Package natbib Warning: Citation `Maciocia' on page 4 undefined on input line 298",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 298,
+  "message": "Package natbib Warning: Citation `Nekrasov' on page 4 undefined on input line 298",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 298,
+  "message": "Package natbib Warning: Citation `NekrasovOkounkov' on page 4 undefined on input line 298",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 298,
+  "message": "Package natbib Warning: Citation `Seiberg:1994rs' on page 4 undefined on input line 298",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 299,
+  "message": "Package natbib Warning: Citation `Nekrasov' on page 4 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 299,
+  "message": "Package natbib Warning: Citation `MNS' on page 4 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 299,
+  "message": "Package natbib Warning: Citation `NS' on page 4 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 330,
+  "message": "Package natbib Warning: Citation `NS' on page 4 undefined on input line 330",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 330,
+  "message": "Package natbib Warning: Citation `KozlowskiTeschner' on page 4 undefined on input line 330",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 331,
+  "message": "Package natbib Warning: Citation `SDSYM' on page 4 undefined on input line 331",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 333,
+  "message": "Package natbib Warning: Citation `NSVZ' on page 4 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 333,
+  "message": "Package natbib Warning: Citation `ShifmanVainshtein88' on page 4 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 333,
+  "message": "Package natbib Warning: Citation `DaviesHKM' on page 4 undefined on input line 333",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 336,
+  "message": "Package natbib Warning: Citation `HU' on page 4 undefined on input line 336",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 350,
+  "message": "Package natbib Warning: Citation `Witten79' on page 4 undefined on input line 350",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 354,
+  "message": "Package natbib Warning: Citation `Nekrasov' on page 5 undefined on input line 354",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 354,
+  "message": "Package natbib Warning: Citation `NekrasovOkounkov' on page 5 undefined on input line 354",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 354,
+  "message": "Package natbib Warning: Citation `Seiberg:1994rs' on page 5 undefined on input line 354",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 361,
+  "message": "Package natbib Warning: Citation `ChalmersSiegel' on page 5 undefined on input line 361",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 362,
+  "message": "Package natbib Warning: Citation `tHooft76' on page 5 undefined on input line 362",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 369,
+  "message": "Package natbib Warning: Citation `Unsal2008' on page 5 undefined on input line 369",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 369,
+  "message": "Package natbib Warning: Citation `ShifmanUnsal2008' on page 5 undefined on input line 369",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 369,
+  "message": "Package natbib Warning: Citation `Unsal2009' on page 5 undefined on input line 369",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 369,
+  "message": "Package natbib Warning: Citation `DunneUnsalReview' on page 5 undefined on input line 369",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 369,
+  "message": "Package natbib Warning: Citation `TanizakiUnsal2022' on page 5 undefined on input line 369",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 373,
+  "message": "Package natbib Warning: Citation `HV' on page 5 undefined on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 376,
+  "message": "Package natbib Warning: Citation `DGNU' on page 5 undefined on input line 376",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 376,
+  "message": "Package natbib Warning: Citation `SDSYM' on page 5 undefined on input line 376",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 398,
+  "message": "Package natbib Warning: Citation `NS' on page 6 undefined on input line 398",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 454,
+  "message": "Package natbib Warning: Citation `NS' on page 6 undefined on input line 454",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 454,
+  "message": "Package natbib Warning: Citation `MY' on page 6 undefined on input line 454",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 498,
+  "message": "Package natbib Warning: Citation `LS' on page 7 undefined on input line 498",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 498,
+  "message": "Package natbib Warning: Citation `VK' on page 7 undefined on input line 498",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

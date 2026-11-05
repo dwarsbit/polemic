@@ -1,0 +1,32 @@
+{
+ "id": 879,
+ "source": "CTAN",
+ "name": "classicthesis",
+ "url": "https://ctan.org/pkg/classicthesis",
+ "type": "Thesis",
+ "version": "4.8",
+ "files": 43,
+ "main": "ClassicThesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ClassicThesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 13589
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 13103,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 7,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,32 @@
+{
+ "id": 394,
+ "source": "GitHub",
+ "name": "oops-sdu/sdu_report",
+ "url": "https://github.com/oops-sdu/sdu_report",
+ "type": "Report",
+ "version": "3b75aa95b6768c2bfa9b73144b8c1b65b38351c1",
+ "files": 13,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 86543,
+  "tail": "exit 12, PDF found\n  Missing character: There is no ( (\"28) in font nullfont!\n  Missing character: There is no 1 (\"31) in font nullfont!\n  Missing character: There is no ) (\"29) in font nullfont!\n  Missing character: There is no ( (\"28) in font nullfont!\n  Missing character: There is no 2 (\"32) in font nullfont!\n  Missing character: There is no ) (\"29) in font nullfont!\n  Missing character: There is no • (\"2022) in font nullfont!\n And 328 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 42520,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 11,
+ "warnings": 4,
+ "firstError": "Package fontspec Error: The font \"Consolas\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

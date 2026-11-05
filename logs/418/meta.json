@@ -1,0 +1,31 @@
+{
+ "id": 418,
+ "source": "GitHub",
+ "name": "Sensente/NJU_LaTex_Template",
+ "url": "https://github.com/Sensente/NJU_LaTex_Template",
+ "type": "Homework",
+ "version": "07a61df4a6101cbbb174f3dc1fbc888c067e7d2d",
+ "files": 11,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4959,
+  "tail": "exit 12, PDF not found\nLatexmk: Using bibtex to make bibliography file(s).\n\nkpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 1+303/600 --dpi 903 unihei80\nmktexpk: don't know how to create bitmap font for unihei80.\nmktexpk: perhaps unihei80 is missing from the map file.\nkpathsea: Appending font creation commands to missfont.log.\nLatexmk: Using bibtex to make bibliography file(s).\nFailure to make 'main.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1491,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 4,
+ "warnings": 3,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

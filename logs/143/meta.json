@@ -1,0 +1,33 @@
+{
+ "id": 143,
+ "source": "GitHub",
+ "name": "StorkST/multilingual-periodic-table",
+ "url": "https://github.com/StorkST/multilingual-periodic-table",
+ "type": "Paper",
+ "version": "5f32be31e6cc4640db32c5a4a1c4aeb8a67dee95",
+ "files": 7,
+ "main": "periodic_table.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "periodic_table.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 5989,
+  "tail": "exit 12, PDF found\n(/usr/local/texlive/2026/texmf-dist/fonts/source/lh/base/llvligtb.mf)\n(/usr/local/texlive/2026/texmf-dist/fonts/source/lh/base/llrligtb.mf)\n(/usr/local/texlive/2026/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )\n(some charht values had to be adjusted by as much as 0.09158pt)\nFont metrics written on labx2488.tfm.\nOutput written on labx2488.600gf (256 characters, 123220 bytes).\nTranscript written on labx2488.log.\nmktextfm: /cache/texmf-var/fonts/tfm/lh/lh-t2a/labx2488.tfm: successfully generated."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 16157,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 260,
+ "warnings": 7,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: You have requested file `', but the file provides `mathrsfs'",
+  "detail": [],
+  "hint": null
+ }
+]

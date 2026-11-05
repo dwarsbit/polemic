@@ -1,0 +1,242 @@
+[
+ {
+  "severity": "error",
+  "file": "formularyETH/formularyETH_boxes.sty",
+  "line": 590,
+  "message": "LaTeX Error: No counter 'methodBoxCounter' defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "formularyETH/formularyETH_boxes.sty",
+  "line": 1029,
+  "message": "Package tcolorbox Error: Invalid box name ``codeboxinput''. A single command is expected after space trimming. I'll drop this box definition.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "formulary.tex",
+  "line": 68,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package typearea Warning: Very low DIV value! DIV values less than 6 result in textwidth/-height smaller than total marginwidth/-height. You should e.g. increase DIV, increase fontsize or change papersize",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/formularyETH.cls",
+  "line": null,
+  "message": "Package geometry Warning: `landscape' should be set to `true' or `false'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/formularyETH.sty",
+  "line": 42,
+  "message": "Class scrartcl Warning: Usage of package `titlesec' together with a KOMA-Script class is not recommended. I'd suggest to use KOMA-Script features like \\setkomafont, \\RedeclareSectionCommand, \\sectionlinesformat and several others to re-configure section headings. Nevertheless, using requested package `titlesec' on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\section detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\subsection detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\subsubsection detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\paragraph detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\subparagraph detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/formularyETH_macros.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `formularyETH/formularyETH_macros', but the package provides `formularyETH_macros'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/formularyETH_boxes.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `formularyETH/formularyETH_boxes', but the package provides `formularyETH_boxes'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/formularyETH_GeneralPackages.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `formularyETH/formularyETH_GeneralPackages', but the package provides `formularyETH_GeneralPackages'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/formularyETH_theorems.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `formularyETH/formularyETH_theorems', but the package provides `formularyETH'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/formularyETH_theorems.sty",
+  "line": 272,
+  "message": "Package amsthm Warning: Unknown theoremstyle `explantion' on input line 272",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/formularyETH_theorems.sty",
+  "line": 277,
+  "message": "Package amsthm Warning: Unknown theoremstyle `description' on input line 277",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/formularyETH_theorems.sty",
+  "line": 338,
+  "message": "Package amsthm Warning: Unknown theoremstyle `ruling' on input line 338",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/formularyETH_items.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `formularyETH/formularyETH_items', but the package provides `formularyETH'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/formularyETH_underline.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `formularyETH/formularyETH_underline', but the package provides `formularyETH_underline'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/extern/formularyETH_scientific.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `formularyETH/extern/formularyETH_scientific', but the package provides `formularyETH'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/extern/formularyETH_tikz.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `formularyETH/extern/formularyETH_tikz', but the package provides `formularyETH'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/extern/formularyETH_coding.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `formularyETH/extern/formularyETH_coding', but the package provides `formularyETH'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/extern/formularyETH_coding.sty",
+  "line": null,
+  "message": "LaTeX cmd Warning: Optional and mandatory argument with same delimiter '{'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formularyETH/extern/formularyETH_algorithms.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `formularyETH/extern/formularyETH_algorithms', but the package provides `formularyETH_algorithms'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formulary.tex",
+  "line": 68,
+  "message": "Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \\pgfplotsset{compat=1.18} into your preamble. on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/section_multiple_linear_regression.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `U/stmry/b/n' undefined using `U/stmry/m/n' instead on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/section_bootstrap.tex",
+  "line": 82,
+  "message": "LaTeX Warning: Characters dropped after `\\end{mintlinebox}' on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/section_classification.tex",
+  "line": 39,
+  "message": "Package amsmath Warning: Foreign command \\atopwithdelims; \\frac or \\genfrac should be used instead on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "formulary.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

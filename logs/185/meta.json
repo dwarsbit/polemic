@@ -1,0 +1,33 @@
+{
+ "id": 185,
+ "source": "GitHub",
+ "name": "jurihock/dhbw-beamer",
+ "url": "https://github.com/jurihock/dhbw-beamer",
+ "type": "Slides",
+ "version": "f30b1d5a05db864f64a2db009dba02de89f297cb",
+ "files": 24,
+ "main": "Index.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "Index.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 73940,
+  "tail": "exit 12, PDF found\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no D (\"44) in font nullfont!\n  Missing character: There is no H (\"48) in font nullfont!\n And 7357 more --- see log file 'Index.log'"
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3122,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "baseline-only-fail"
+}

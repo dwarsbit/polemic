@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "error",
+  "file": "pandoc/template/eisvogel.tex",
+  "line": 42,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pandoc/template/eisvogel.tex",
+  "line": 60,
+  "message": "LaTeX Error: The key 'document/metadata/$if(pdfstandard.version)$ pdfversion' is unknown and is being ignored.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pandoc/template/eisvogel.tex",
+  "line": 60,
+  "message": "LaTeX Error: The key 'document/metadata/$endif$ $if(pdfstandard.standards)$ pdfstandard' is unknown and is being ignored.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pandoc/template/eisvogel.tex",
+  "line": 60,
+  "message": "LaTeX Error: The key 'document/metadata/$endif$ $if(pdfstandard.tagging)$ tagging' is unknown and is being ignored.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pandoc/template/eisvogel.tex",
+  "line": 60,
+  "message": "LaTeX Error: The key 'document/metadata/$endif$ $if(lang)$ lang' is unknown and is being ignored.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pandoc/template/eisvogel.tex",
+  "line": 60,
+  "message": "LaTeX Error: The key 'document/metadata/$endif$ xmp' is unknown and is being ignored.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pandoc/template/eisvogel.tex",
+  "line": 61,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `$if(book)$scrbook$else$scrartcl$endif$.cls' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pandoc/template/eisvogel.tex",
+  "line": 89,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": "templates/eisvogel-custom.tex",
+  "line": 47,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `$if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "templates/eisvogel-custom.tex",
+  "line": 74,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 278,
+ "source": "GitHub",
+ "name": "andrewx100/rheology_lecture_note",
+ "url": "https://github.com/andrewx100/rheology_lecture_note",
+ "type": "Notes",
+ "version": "cb6c5f6e602e1725f75854f79a7d3cdd0156b4ab",
+ "files": 65,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 23923,
+  "tail": "exit 12, PDF found\n  Missing character: There is no ， (U+FF0C) in font [lmroman12-regular]:mapping=t\n  Missing character: There is no ， (U+FF0C) in font [lmroman12-regular]:mapping=tex-text;!\n  Reference `thm:II.10.3' on page 61 undefined on input line 69\n  Missing character: There is no ， (U+FF0C) in font [lmroman12-regular]:mapping=t\n  Missing character: There is no ， (U+FF0C) in font [lmroman12-regular]:mapping=tex-text;!\n  Reference `thm:II.11.5' on page 70 undefined on input line 299\n  Reference `thm:II.16.6' on page 71 undefined on input line 335\n And 6 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 9019,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 26,
+ "warnings": 3,
+ "firstError": "LaTeX Error: Counter too large.",
+ "outcome": "both-fail"
+}

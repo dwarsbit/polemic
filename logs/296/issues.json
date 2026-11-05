@@ -1,0 +1,98 @@
+[
+ {
+  "severity": "error",
+  "file": "copyright.tex",
+  "line": 52,
+  "message": "Package pdftex.def Error: File `img/by.png' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "copyright.tex",
+  "line": 55,
+  "message": "Package pdftex.def Error: File `img/sa.png' not found: using draft setting.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package cmap Warning: fontenc already loaded - some fonts may be unprocessed",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `a4paper' is no longer used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "edibleplants.tex",
+  "line": 48,
+  "message": "Package french3.ldf Warning: OT1 encoding should not be used for French. Add \\usepackage[T1]{fontenc} to the preamble of your document; reported on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "edibleplants.tex",
+  "line": 48,
+  "message": "Package french3.ldf Warning: Figures' and tables' captions might look like `Figure 1:' in French instead of `Figure 1 :'. If this happens, to fix this issue switch to LuaLaTeX or XeLaTeX or try to add \\usepackage{caption} or ... leave it as it is; reported on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "edibleplants.tex",
+  "line": 52,
+  "message": "LaTeX Font Warning: Font shape `LAE/lmr/m/n' undefined using `LAE/cmr/m/n' instead on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "copyright.tex",
+  "line": 52,
+  "message": "LaTeX Warning: File `img/by.png' not found on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "copyright.tex",
+  "line": 55,
+  "message": "LaTeX Warning: File `img/sa.png' not found on input line 55",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "preface.tex",
+  "line": 45,
+  "message": "LaTeX Font Warning: Font shape `LAE/lmr/bx/n' undefined using `LAE/lmr/m/n' instead on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "preface.tex",
+  "line": 64,
+  "message": "LaTeX Font Warning: Font shape `OT1/aedimnah/m/n' undefined using `OT1/cmr/m/n' instead for symbol `textquotedblright' on input line 64",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

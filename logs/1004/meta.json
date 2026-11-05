@@ -1,0 +1,33 @@
+{
+ "id": 1004,
+ "source": "CTAN",
+ "name": "seminar",
+ "url": "https://ctan.org/pkg/seminar",
+ "type": "Slides",
+ "version": "1.63a",
+ "files": 34,
+ "main": "doc/semsamp1.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/semsamp1.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1002,
+  "tail": "exit 12, PDF found\nLatexmk: Getting log file 'semsamp1.log'\nLatexmk: Examining 'semsamp1.fls'\nLatexmk: Examining 'semsamp1.log'\nLatexmk: Log file says output to 'semsamp1.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'semsamp1.log' and/or above output for details"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 440,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 5,
+ "warnings": 1,
+ "firstError": "Slide frame `Oval' undefined",
+ "outcome": "both-fail"
+}

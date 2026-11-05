@@ -1,0 +1,33 @@
+{
+ "id": 32,
+ "source": "GitHub",
+ "name": "Inventitech/phd-thesis-template",
+ "url": "https://github.com/Inventitech/phd-thesis-template",
+ "type": "Thesis",
+ "version": "68c91e18bd11caca8038c54da3c402a3b23e89dd",
+ "files": 67,
+ "main": "dissertation.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "dissertation.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 7056
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4745,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

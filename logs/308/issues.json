@@ -1,0 +1,210 @@
+[
+ {
+  "severity": "error",
+  "file": "kao.sty",
+  "line": 1028,
+  "message": "Package fontspec Error: The font \"Liberation Mono\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 165,
+  "message": "Package fontspec Error: The font \"Noto Sans TC\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 165,
+  "message": "Font TU/NotoSansTC(0)/m/n/20.74=\"Noto Sans TC/OT\" at 20.74pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "Font TU/LiberationMono(1)/m/n/10=\"Liberation Mono\" at 8.9pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "Cannot use XeTeXglyph with nullfont; not a native platform font.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "Font TU/LiberationMono(1)/m/n/8=\"Liberation Mono\" at 7.12pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "Font TU/LiberationMono(1)/m/n/6=\"Liberation Mono\" at 5.34pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "\\textfont 9 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "\\textfont 9 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "\\textfont 9 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "\\textfont 9 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "\\textfont 9 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "\\textfont 9 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "\\textfont 9 is undefined (character 1).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "\\textfont 9 is undefined (character 2).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapters/introduction.tex",
+  "line": 199,
+  "message": "\\textfont 9 is undefined (character 7).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [a4paper,fontsize,twoside,open,titlepage,numbers]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 165,
+  "message": "LaTeX Font Warning: Font shape `TU/NotoSansTC(0)/b/n' undefined using `TU/NotoSansTC(0)/m/n' instead on input line 165",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/introduction.tex",
+  "line": 2,
+  "message": "Class scrbook Warning: odd/even page label number 1 undefined on input line 2",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/introduction.tex",
+  "line": 2,
+  "message": "LaTeX Font Warning: Font shape `TU/NotoSerifTC(0)/b/n' undefined using `TU/NotoSerifTC(0)/m/n' instead on input line 2",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/introduction.tex",
+  "line": null,
+  "message": "Package hyperref Warning: bookmark level for unknown mtocsection defaults to 0",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/introduction.tex",
+  "line": 149,
+  "message": "LaTeX Font Warning: Font shape `TU/NotoSerifTC(0)/m/sl' undefined using `TU/NotoSerifTC(0)/m/n' instead on input line 149",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

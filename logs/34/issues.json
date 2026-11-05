@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "warning",
+  "file": "main-basic-listings-english-thu.tex",
+  "line": null,
+  "message": "Package unicode-math Warning: Using \\overbracket and \\underbracket from `mathtools' package",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-basic-listings-english-thu.tex",
+  "line": null,
+  "message": "Package unicode-math Warning: I'm going to overwrite the following commands from the `mathtools' package:",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main-basic-listings-english-thu.tex",
+  "line": null,
+  "message": "Package tablefootnote Warning: LuaTeX and hyperref package used: Hyperreferences in rotated content will be misplaced regardless of tablefootnote package. The text to be printed will be OK",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package soulutf8 Warning: This package is obsolete, use the soul package directly. on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package markdown Warning: The `hybrid` option has been soft-deprecated. Consider using one of the following better options for mixing TeX and markdown: `contentBlocks`, `rawAttribute`, `texComments`, `texMathDollars`, `texMathSingleBackslash`, and `texMathDoubleBackslash`. For more information, see the user manual at <https://witiko.github.io/markdown/>",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Float too large for bottom area: b changed to p on input line 146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Float too large for bottom area: b changed to p on input line 219",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Float too large for bottom area: b changed to p on input line 230",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,82 @@
+[
+ {
+  "severity": "warning",
+  "file": "An",
+  "line": 39,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <2> not available size <3> substituted on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "An",
+  "line": 39,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4> not available size <5> substituted on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "An",
+  "line": 39,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <2.79999> not available size <5> substituted on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "An",
+  "line": 39,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <2> not available size <5> substituted on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "An",
+  "line": 39,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4> not available size <5> substituted on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "An",
+  "line": 39,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <2.79999> not available size <5> substituted on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "An",
+  "line": 39,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <2> not available size <5> substituted on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "An",
+  "line": 203,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 203",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "An",
+  "line": 203,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\ast' on input line 203",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "An",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 3.0pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

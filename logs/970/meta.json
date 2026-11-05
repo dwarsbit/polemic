@@ -1,0 +1,10 @@
+{
+ "id": 970,
+ "source": "CTAN",
+ "name": "tugboat",
+ "url": "https://ctan.org/pkg/tugboat",
+ "type": "Paper",
+ "version": "2.39",
+ "files": 10,
+ "outcome": "no-tex"
+}

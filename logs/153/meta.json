@@ -1,0 +1,33 @@
+{
+ "id": 153,
+ "source": "GitHub",
+ "name": "IloveNooodles/ta-paper-latex-itb",
+ "url": "https://github.com/IloveNooodles/ta-paper-latex-itb",
+ "type": "Paper",
+ "version": "ddd88dd31238d1c358df72d321a6962a8de3ee0b",
+ "files": 55,
+ "main": "src/paper.tex",
+ "catalogMain": "src/thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "src/thesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 9442
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4911,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,33 @@
+{
+ "id": 298,
+ "source": "GitHub",
+ "name": "KokunoYumeto/stacks-fr",
+ "url": "https://github.com/KokunoYumeto/stacks-fr",
+ "type": "Book",
+ "version": "0957ad291a38799945c810ff7fac6eda8e8d39ee",
+ "files": 1106,
+ "main": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "editions/2026-09-21-complete116/stacks_fr_complete_116.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 137,
+  "timedOut": true,
+  "durationMs": 240212,
+  "tail": "exit 137, PDF found\n\\T1/lmr/m/it/10 image r�-ci-proque $\\OML/lmm/m/it/10 f[]\\OT1/lmr/m/n/10 (\\OML/l\nmm/m/it/10 Z\\OT1/lmr/m/n/10 )$ \\T1/lmr/m/it/10 du sous-\n[8299]Latexmk: Missing input file 'stacks_fr_complete_116.toc' message in .log file:\n  No file stacks_fr_complete_116.toc.\nLatexmk: Missing bbl file 'stacks_fr_complete_116.bbl' in following:\n No file stacks_fr_complete_116.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "timeout",
+  "durationMs": 240016,
+  "outputs": [
+   "pdf",
+   "log",
+   "blg"
+  ],
+  "tail": "\\T1/lmr/m/n/10 o�, dans la troi-si�me �ga-lit�, nous uti-li-sons l'iso-mor-phisme $\\OML/lmm/m/it/10 g[]h[] [] h[]$ \\T1/lmr/m/n/10 construit\n<xymatrix 2x2 161>\nUnderfull \\vbox (badness 2452) has occurred while \\output is active [5291] <xymatrix 3x2 176> [5292] <xymatrix 2x2 168> [5293] [5294] <xymatrix 3x3 374> [5295] [5296] <xymatrix 5x3 436> [5297] [5298] [5299] [5300] [5301] <xymatrix 3x3 302> [5302Latexmk: Missing input file 'stacks_fr_complete_116.toc' message in .log file:\n  No file stacks_fr_complete_116.toc.\nLatexmk: Missing bbl file 'build/stacks_fr_complete_116.bbl' in following:\n No file stacks_fr_complete_116.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "errors": 0,
+ "warnings": 20,
+ "outcome": "both-fail-timeout"
+}

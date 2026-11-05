@@ -1,0 +1,34 @@
+{
+ "id": 221,
+ "source": "GitHub",
+ "name": "xexeo/DicasSlidesAcademicos",
+ "url": "https://github.com/xexeo/DicasSlidesAcademicos",
+ "type": "Slides",
+ "version": "f611e82d058288ec0e4542324d17429f2376699a",
+ "files": 81,
+ "main": "DicasSlidesAcademicos.tex",
+ "catalogMain": "Slides/main.tex",
+ "engine": "lualatex",
+ "detectedEngine": "pdflatex (inferred)",
+ "baseline": {
+  "main": "Slides/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3894
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 17631,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

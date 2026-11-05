@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "error",
+  "file": "ltx-talk-code.tex",
+  "line": 109,
+  "message": "LaTeX Error: \\begin{tabular} on input line 77 ended by \\end{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ltx-talk.dtx",
+  "line": null,
+  "message": "Package l3doc Warning: A control sequence of the form '...__box_set_to_wd:NNnn' was used. It should only be used in the module 'box', not in 'talk'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ltx-talk.dtx",
+  "line": null,
+  "message": "Package l3doc Warning: A control sequence of the form '...__box_dim_eval:n' was used. It should only be used in the module 'box', not in 'talk'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ltx-talk.dtx",
+  "line": null,
+  "message": "Package l3doc Warning: A control sequence of the form '...__box_set_to_wd:' was used. It should only be used in the module 'box', not in 'talk'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ltx-talk-color.dtx",
+  "line": null,
+  "message": "Package l3doc Warning: A control sequence of the form '...__color_backend_reset:' was used. It should only be used in the module 'color', not in 'talk'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ltx-talk-structure.dtx",
+  "line": 856,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\foreign' on input line 856",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ltx-talk-title.dtx",
+  "line": null,
+  "message": "Package l3doc Warning: A control sequence of the form '...__tag_title_author_tl' was used. It should only be used in the module 'tag', not in 'talk'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ltx-talk-title.dtx",
+  "line": null,
+  "message": "Package l3doc Warning: A control sequence of the form '...__tag_title_title_tl' was used. It should only be used in the module 'tag', not in 'talk'",
+  "detail": [],
+  "hint": null
+ }
+]

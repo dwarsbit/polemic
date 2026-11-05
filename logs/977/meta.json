@@ -1,0 +1,9 @@
+{
+ "id": 977,
+ "source": "CTAN",
+ "name": "beamerposter",
+ "url": "https://ctan.org/pkg/beamerposter",
+ "type": "Poster",
+ "outcome": "download-failed",
+ "error": "fetch failed"
+}

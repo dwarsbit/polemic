@@ -1,0 +1,58 @@
+[
+ {
+  "severity": "error",
+  "file": "algorithm/Drawing_figures_using_Latex.tex",
+  "line": 5,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "algorithm/Drawing_figures_using_Latex.tex",
+  "line": 5,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file uniyou59): Font uniyou59 at 864 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class beamer Warning: ``mathserif'' is obsolete. Use font theme ``serif'' with option ``onlymath'' on input line 372",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ctex Warning: Option `nofonts' is deprecated. Option `fontset=none' is set",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "algorithm/Drawing_figures_using_Latex.tex",
+  "line": 144,
+  "message": "Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \\pgfplotsset{compat=1.18} into your preamble. on input line 144",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "algorithm/Drawing_figures_using_Latex.tex",
+  "line": 2143,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10.95> not available Font shape `OT1/cmr/m/sc' tried instead on input line 2143",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 285,
+ "source": "GitHub",
+ "name": "igrishaev/clj-book",
+ "url": "https://github.com/igrishaev/clj-book",
+ "type": "Book",
+ "version": "f112c3d07a40c3fa328007efbe8de587a8dae4c3",
+ "files": 81,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 609,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main.log' and/or above output for details\n\nLatexmk: Missing input file '$DOCUMENT.cls' message in .log file:\n  ! LaTeX Error: File `$DOCUMENT.cls' not found.\nFailure to make 'main.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 188,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `$DOCUMENT.cls' not found.",
+ "outcome": "both-fail"
+}

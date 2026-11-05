@@ -1,0 +1,32 @@
+{
+ "id": 897,
+ "source": "CTAN",
+ "name": "lion-msc",
+ "url": "https://ctan.org/pkg/lion-msc",
+ "type": "Thesis",
+ "version": "0.31",
+ "files": 17,
+ "main": "lion-msc.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "lion-msc.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 7302
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 7013,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

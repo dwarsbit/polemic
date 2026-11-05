@@ -1,0 +1,31 @@
+{
+ "id": 561,
+ "source": "arXiv",
+ "name": "arXiv:2610.38564",
+ "url": "https://arxiv.org/abs/2610.38564",
+ "type": "Paper",
+ "version": "2610.38564",
+ "files": 8,
+ "main": "TavaresSargentJin.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "TavaresSargentJin.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1788
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1395,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 81,
+ "outcome": "both-ok"
+}

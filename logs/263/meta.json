@@ -1,0 +1,32 @@
+{
+ "id": 263,
+ "source": "GitHub",
+ "name": "hooyuser/Solution-to-Algebra-Chapter-0",
+ "url": "https://github.com/hooyuser/Solution-to-Algebra-Chapter-0",
+ "type": "Notes",
+ "version": "d431673d0485f279a9f46cccdb9e94465d64f815",
+ "files": 18,
+ "main": "Solution_to_Algebra_Chapter_0.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Solution_to_Algebra_Chapter_0.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 9526
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 8733,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

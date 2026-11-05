@@ -1,0 +1,33 @@
+{
+ "id": 322,
+ "source": "GitHub",
+ "name": "lnyk/acv-dukang",
+ "url": "https://github.com/lnyk/acv-dukang",
+ "type": "CV",
+ "version": "7c62a587d75bfd8340df83e0eace39a7b34c72cd",
+ "files": 27,
+ "main": "src/dukang-doc.tex",
+ "catalogMain": "src/main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "src/main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 123918,
+  "tail": "exit 12, PDF found\n  Missing character: There is no . (\"2E) in font nullfont!\n  Missing character: There is no / (\"2F) in font nullfont!\n  Missing character: There is no s (\"73) in font nullfont!\n  Missing character: There is no r (\"72) in font nullfont!\n  Missing character: There is no c (\"63) in font nullfont!\n  Missing character: There is no / (\"2F) in font nullfont!\n  Missing character: There is no r (\"72) in font nullfont!\n And 132 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 81983,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 6,
+ "warnings": 9,
+ "firstError": "Font TU/Adobe仿宋Std(0)/b/n/32=\"Adobe 黑体 Std/OT\" at 32.0pt not loadable: Metric (TFM) file or installed font not found.",
+ "outcome": "both-fail"
+}

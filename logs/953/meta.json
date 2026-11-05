@@ -1,0 +1,33 @@
+{
+ "id": 953,
+ "source": "CTAN",
+ "name": "asmejour",
+ "url": "https://ctan.org/pkg/asmejour",
+ "type": "Paper",
+ "version": "1.27",
+ "files": 15,
+ "main": "asmejour-template.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "asmejour-template.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 6695,
+  "tail": "exit 12, PDF found\n No file asmejour-template.bbl.\nLatexmk: Missing input file 'asmejour-template.lof' message in .log file:\n  No file asmejour-template.lof.\nLatexmk: Missing input file 'asmejour-template.lot' message in .log file:\n  No file asmejour-template.lot.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1994,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 2,
+ "firstError": "LaTeX Error: The value expansion ' \\omega \\cdot U' is unknown.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 473,
+ "source": "GitHub",
+ "name": "eddelbuettel/linl",
+ "url": "https://github.com/eddelbuettel/linl",
+ "type": "Letter",
+ "version": "0a7e4cd8f98c11c7ffbd4e91f5fd74855f94fe12",
+ "files": 29,
+ "main": "inst/rmarkdown/templates/pdf/resources/template.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "inst/rmarkdown/templates/pdf/resources/template.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 603,
+  "tail": "exit 12, PDF not found\n      Refer to 'template.log' and/or above output for details\n\nwarning: kpathsea: $fontfamily$.sty: Unrecognized variable construct `$.'.\nwarning: kpathsea: $fontfamily$.sty: Unrecognized variable construct `$.'.\nwarning: kpathsea: $fontfamily$.sty: Unrecognized variable construct `$.'.\nLatexmk: Missing input file '$fontfamily$.sty' message in .log file:\n  ! LaTeX Error: File `$fontfamily$.sty' not found.\nFailure to make 'template.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 380,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Missing \\begin{document}.",
+ "outcome": "both-fail"
+}

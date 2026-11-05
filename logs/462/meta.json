@@ -1,0 +1,33 @@
+{
+ "id": 462,
+ "source": "GitHub",
+ "name": "DominikPeters/tikz.dev",
+ "url": "https://github.com/DominikPeters/tikz.dev",
+ "type": "Figures",
+ "version": "94bc695d54a627f2f1815b43dab48f865051c23c",
+ "files": 573,
+ "main": "pgf/standalone/rdf.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (latexmkrc)",
+ "baseline": {
+  "main": "pgf/standalone/rdf.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2618
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1335,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 11,
+ "warnings": 0,
+ "firstError": "Undefined control sequence.",
+ "outcome": "polemic-only-fail"
+}

@@ -1,0 +1,33 @@
+{
+ "id": 92,
+ "source": "GitHub",
+ "name": "ToAmano/paper_template",
+ "url": "https://github.com/ToAmano/paper_template",
+ "type": "Paper",
+ "version": "afbebc8f36f8713bd832513bc08289eb72510238",
+ "files": 66,
+ "main": "coverletter/coverletter.tex",
+ "catalogMain": "manuscript/main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (latexmkrc)",
+ "baseline": {
+  "main": "manuscript/main.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 6912
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1425,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

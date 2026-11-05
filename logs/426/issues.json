@@ -1,0 +1,274 @@
+[
+ {
+  "severity": "error",
+  "file": "SYSUReport.cls",
+  "line": 43,
+  "message": "Package fontspec Error: The font \"SimSun\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "SYSUReport.cls",
+  "line": 46,
+  "message": "Package fontspec Error: The font \"Times New Roman\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "SYSUReport.cls",
+  "line": 46,
+  "message": "Font TU/TimesNewRoman(0)/m/n/12=\"Times New Roman\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/m/n/18.06749=\"Times New Roman\" at 18.06749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/m/n/26.09749=\"Times New Roman\" at 26.09749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/m/n/22.08249=\"Times New Roman\" at 22.08249pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/m/n/36.135=\"Times New Roman\" at 36.135pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/b/n/36.135=\"Times New Roman\" at 36.135pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/m/n/16.06=\"Times New Roman\" at 16.06pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/b/n/18.06749=\"Times New Roman\" at 18.06749pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/m/n/15.05624=\"Times New Roman\" at 15.05624pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/m/n/12.045=\"Times New Roman\" at 12.045pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/b/n/16.06=\"Times New Roman\" at 16.06pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/m/n/14.05249=\"Times New Roman\" at 14.05249pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/TimesNewRoman(0)/m/n/10.53937=\"Times New Roman\" at 10.53937pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Package fontspec Error: The font \"LiSu\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 24,
+  "message": "Font TU/LiSu(0)/m/n/16.06=LiSu/OT at 16.06pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 63,
+  "message": "Font TU/TimesNewRoman(0)/b/n/15.05624=\"Times New Roman\" at 15.05624pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 65,
+  "message": "Font TU/SimSun(0)/m/n/12=SimSun/OT at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 65,
+  "message": "Cannot use \\XeTeXglyphbounds with nullfont; not a native platform font.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 65,
+  "message": "Missing ) inserted for expression.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 65,
+  "message": "You can't use `\\XeTeXcharglyph' in horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 65,
+  "message": "LaTeX Error: Control sequence \\c__xeCJK_xeCJK/SimSun(0)/m/n/12/quanjiao/dim/bound/left/（/tl already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 65,
+  "message": "LaTeX Error: Control sequence \\c__xeCJK_xeCJK/SimSun(0)/m/n/12/quanjiao/dim/bound/right/（/tl already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 65,
+  "message": "LaTeX Error: Control sequence \\c__xeCJK_xeCJK/SimSun(0)/m/n/12/quanjiao/dim/width/（/tl already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 65,
+  "message": "LaTeX Error: Control sequence \\c__xeCJK_xeCJK/SimSun(0)/m/n/12/quanjiao/dim/dimen/（/tl already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexart Warning: Option `hyperref' is deprecated. `hyperref' package will be loaded",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SYSUReport.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKrmdefault' (FandolSong-Regular(0))",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SYSUReport.cls",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKsfdefault' (FandolHei-Regular)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Unexpected value `blue' of option `bookmarksnumbered' instead of `true' or 'false' on input line 4070",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/b/n' undefined using `TU/TimesNewRoman(0)/m/n' instead on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `TU/FandolKai-Regular(0)/b/n' undefined using `TU/FandolKai-Regular(0)/m/n' instead on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 22.0pt, for example: \\setlength{\\headheight}{22.0pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-10.0pt}",
+  "detail": [],
+  "hint": null
+ }
+]

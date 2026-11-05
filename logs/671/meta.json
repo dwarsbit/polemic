@@ -1,0 +1,31 @@
+{
+ "id": 671,
+ "source": "arXiv",
+ "name": "arXiv:1805.00616",
+ "url": "https://arxiv.org/abs/1805.00616",
+ "type": "Paper",
+ "version": "1805.00616",
+ "files": 2,
+ "main": "Regression_Arxiv_10.21.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Regression_Arxiv_10.21.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2596
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2006,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 56,
+ "outcome": "both-ok"
+}

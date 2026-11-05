@@ -1,0 +1,106 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Class aastex701 Warning: Repair the float package",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 131,
+  "message": "Package csquotes Warning: No multilingual support. Cannot enable multilingual quotes on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "introduction.tex",
+  "line": 1,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "overview.tex",
+  "line": 52,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined using `OT1/cmss/bx/n' instead on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Stars_method.tex",
+  "line": 31,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 31",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Stars_method.tex",
+  "line": 31,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 31",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "model.tex",
+  "line": 13,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed) on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "model.tex",
+  "line": null,
+  "message": "Class aastex701 Warning: Deferred float stuck during \\clearpage processing",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FFBs_method.tex",
+  "line": 12,
+  "message": "LaTeX Warning: Float too large for page by 46.66328pt on input line 12",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FFBs_method.tex",
+  "line": 20,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed) on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "discussion.tex",
+  "line": 60,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed) on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

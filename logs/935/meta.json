@@ -1,0 +1,10 @@
+{
+ "id": 935,
+ "source": "CTAN",
+ "name": "currvita",
+ "url": "https://ctan.org/pkg/currvita",
+ "type": "CV",
+ "version": "",
+ "files": 4,
+ "outcome": "no-tex"
+}

@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "chapter/chapter2.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (15.0pt): Make it at least 27.18335pt, for example: \\setlength{\\headheight}{27.18335pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-12.18335pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter/chapter2.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (15.0pt): Make it at least 27.85004pt, for example: \\setlength{\\headheight}{27.85004pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-12.85004pt}",
+  "detail": [],
+  "hint": null
+ }
+]

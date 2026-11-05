@@ -1,0 +1,31 @@
+{
+ "id": 502,
+ "source": "arXiv",
+ "name": "arXiv:2611.03566",
+ "url": "https://arxiv.org/abs/2611.03566",
+ "type": "Paper",
+ "version": "2611.03566",
+ "files": 2,
+ "main": "main-6.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main-6.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1915
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1747,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

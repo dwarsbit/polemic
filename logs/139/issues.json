@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "skills/cumcm-paper-hand-skill/templates/论文模板.tex",
+  "line": 194,
+  "message": "LaTeX Font Warning: Font shape `TU/FandolFang-Regular(0)/m/it' undefined using `TU/FandolFang-Regular(0)/m/n' instead on input line 194",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "skills/cumcm-paper-hand-skill/templates/论文模板.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 230,
+ "source": "GitHub",
+ "name": "alexandretannus/slides-aula",
+ "url": "https://github.com/alexandretannus/slides-aula",
+ "type": "Slides",
+ "version": "6755642170bf5fe052ac54e802d3284be532a123",
+ "files": 569,
+ "main": "Arquitetura_Computadores/00-Apresentacao/00-Apresentacao.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Arquitetura_Computadores/00-Apresentacao/00-Apresentacao.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2045,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to '00-Apresentacao.log' and/or above output for details\n\nLatexmk: Missing input file 'beamerthemeUniEvangelica.sty' message in .log file:\n  ! LaTeX Error: File `beamerthemeUniEvangelica.sty' not found.\nFailure to make '00-Apresentacao.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 543,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `../../defs/slides.tex' not found.",
+ "outcome": "both-fail"
+}

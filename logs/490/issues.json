@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": "sections/1_introduction_v3.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/appendix_v2.tex",
+  "line": 672,
+  "message": "LaTeX Font Warning: Font shape `OMS/zi4/m/n' undefined using `OMS/cmsy/m/n' instead for symbol `textbraceleft' on input line 672",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package minted Warning: Package option \"final\" no longer has any effect with minted v3+ on input line 317",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 159,
+ "source": "GitHub",
+ "name": "solaranamnesis/felix-lajard",
+ "url": "https://github.com/solaranamnesis/felix-lajard",
+ "type": "Paper",
+ "version": "5cd7edd0db72422c32704212a44a338326c9d522",
+ "files": 157,
+ "main": "recherches-sur-le-culte-du-cypres-pyramidal-1854/full-text-french-custom.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "recherches-sur-le-culte-du-cypres-pyramidal-1854/full-text-french-custom.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 198900,
+  "tail": "exit 12, PDF found\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n And 641314 more --- see log file 'full-text-french-custom.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 65791,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 335,
+ "warnings": 164,
+ "firstError": "Package svg Error: File `020_svg-tex.pdf' is missing.",
+ "outcome": "both-fail"
+}

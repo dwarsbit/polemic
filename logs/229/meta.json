@@ -1,0 +1,31 @@
+{
+ "id": 229,
+ "source": "GitHub",
+ "name": "yhbcode000/paper-share-skills",
+ "url": "https://github.com/yhbcode000/paper-share-skills",
+ "type": "Slides",
+ "version": "bd2f48a392748cc2fb2ea671c4669f9387e48c88",
+ "files": 60,
+ "main": "paper-video-cover/templates/main_template_lab_poster.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "paper-video-cover/templates/main_template_lab_poster.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1393,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'main_template_lab_poster.log' and/or above output for details\n\nLatexmk: Missing input file 'beamerthemesustech.sty' message in .log file:\n  ! LaTeX Error: File `beamerthemesustech.sty' not found.\nFailure to make 'main_template_lab_poster.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1079,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `beamerthemesustech.sty' not found.",
+ "outcome": "both-fail"
+}

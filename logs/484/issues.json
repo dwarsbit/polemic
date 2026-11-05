@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": "iclr2027_conference.tex",
+  "line": 320,
+  "message": "Package wrapfig Warning: Collision between wrapping environments on input line 320",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "iclr2027_conference.tex",
+  "line": 331,
+  "message": "Package wrapfig Warning: Stationary wrapfigure forced to float on input line 331",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "iclr2027_conference.tex",
+  "line": 1221,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 1221",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "iclr2027_conference.tex",
+  "line": 1283,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 1283",
+  "detail": [],
+  "hint": null
+ }
+]

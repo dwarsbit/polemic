@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "error",
+  "file": "kuz_stab.tex",
+  "line": 18,
+  "message": "LaTeX Error: Command \\c@corollary already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "kuz_stab.tex",
+  "line": 18,
+  "message": "LaTeX Error: Command \\c@lemma already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "kuz_stab.tex",
+  "line": 19,
+  "message": "LaTeX Error: Command \\c@proposition already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "kuz_stab.tex",
+  "line": 20,
+  "message": "LaTeX Error: Command \\c@definition already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "kuz_stab.tex",
+  "line": 20,
+  "message": "LaTeX Error: Command \\c@remark already defined.",
+  "detail": [],
+  "hint": null
+ }
+]

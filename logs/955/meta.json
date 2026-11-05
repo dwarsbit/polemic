@@ -1,0 +1,31 @@
+{
+ "id": 955,
+ "source": "CTAN",
+ "name": "elsarticle",
+ "url": "https://ctan.org/pkg/elsarticle",
+ "type": "Paper",
+ "version": "3.5",
+ "files": 24,
+ "main": "elsarticle-template-harv.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "elsarticle-template-harv.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1510
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1077,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

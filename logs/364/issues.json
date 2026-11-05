@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 18,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available size <5> substituted on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 18,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available size <5> substituted on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 18,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available size <5> substituted on input line 18",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 0.5pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

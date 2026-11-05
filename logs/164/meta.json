@@ -1,0 +1,33 @@
+{
+ "id": 164,
+ "source": "GitHub",
+ "name": "HuangCongQing/LaTeX",
+ "url": "https://github.com/HuangCongQing/LaTeX",
+ "type": "Paper",
+ "version": "95bb9bec5fb5264410a08cc20d47b8d095ff7af2",
+ "files": 155,
+ "main": "algorithm/Drawing_figures_using_Latex.tex",
+ "catalogMain": "cv/cv_chs_ctexart_pdflatex.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "cv/cv_chs_ctexart_pdflatex.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3287,
+  "tail": "exit 12, PDF found\n  Label `Ale81' multiply defined\n  Label `BZS92' multiply defined\n  Label `Ale81' multiply defined\n  Label `BZS92' multiply defined\n  Label `Ale81' multiply defined\n  Label `BZS92' multiply defined\n  Missing character: There is no � (U+FFFD) in font [lmroman17-regular]:mapping=t\n And 369 more --- see log file 'cv_chs_ctexart_pdflatex.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 18862,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 4,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

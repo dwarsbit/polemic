@@ -1,0 +1,33 @@
+{
+ "id": 68,
+ "source": "GitHub",
+ "name": "gsarti/masters-thesis",
+ "url": "https://github.com/gsarti/masters-thesis",
+ "type": "Thesis",
+ "version": "c6801d48edfd8eeff02fb54fd7d2d5b58b91490c",
+ "files": 102,
+ "main": "templates/brief_template.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "templates/brief_template.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 437,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'brief_template.log' and/or above output for details\n\nLatexmk: Missing input file 'templates/ociamthesis.cls' message in .log file:\n  ! LaTeX Error: File `templates/ociamthesis.cls' not found.\nFailure to make 'brief_template.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1343,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 6,
+ "warnings": 2,
+ "firstError": "LaTeX Error: Missing \\begin{document}.",
+ "outcome": "both-fail"
+}

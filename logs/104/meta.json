@@ -1,0 +1,32 @@
+{
+ "id": 104,
+ "source": "GitHub",
+ "name": "FedericoBruzzone/papers-on-compiler-optimizations",
+ "url": "https://github.com/FedericoBruzzone/papers-on-compiler-optimizations",
+ "type": "Paper",
+ "version": "5e6a583d0ee11df17733cc0bc2b653ae2b61cc0a",
+ "files": 10,
+ "main": "latex/papers.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "latex/papers.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5468
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5448,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,370 @@
+[
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 28,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-Norm\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 28,
+  "message": "Package fontspec Error: The font \"MetaScOffcPro-Norm\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 28,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-Bold\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 28,
+  "message": "Package fontspec Error: The font \"MetaScOffcPro-Bold\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 28,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-NormIta\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 28,
+  "message": "Package fontspec Error: The font \"MetaScOffcPro-NormIta\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 28,
+  "message": "Font \\TU/MetaOffcPro(0)/m/n/10.95=[fonts/MetaOffcPro-Norm.ttf]:mode=node;language=dflt;+tlig; at 10.95pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 45,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-Norm\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 50,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-Norm\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 50,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-Norm.ttf\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 50,
+  "message": "Font \\TU/MetaOffcPro-Norm.ttf(0)/m/n/10.95=[fonts/MetaOffcPro-Norm.ttf]:mode=base;script=math;language=dflt;mathfontdimen=xetex; at 10.95pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 50,
+  "message": "Font \\TU/MetaOffcPro-Norm.ttf(0)/m/n/7.665=[fonts/MetaOffcPro-Norm.ttf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=0; at 7.66499pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 50,
+  "message": "Font \\TU/MetaOffcPro-Norm.ttf(0)/m/n/5.475=[fonts/MetaOffcPro-Norm.ttf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=1; at 5.47501pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 52,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-NormIta\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 52,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-NormIta.ttf\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 52,
+  "message": "Font \\TU/MetaOffcPro-NormIta.ttf(0)/m/n/10.95=[fonts/MetaOffcPro-NormIta.ttf]:mode=base;script=math;language=dflt;mathfontdimen=xetex; at 10.95pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 52,
+  "message": "Font \\TU/MetaOffcPro-NormIta.ttf(0)/m/n/7.665=[fonts/MetaOffcPro-NormIta.ttf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=0; at 7.66499pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 52,
+  "message": "Font \\TU/MetaOffcPro-NormIta.ttf(0)/m/n/5.475=[fonts/MetaOffcPro-NormIta.ttf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=1; at 5.47501pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 54,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-Bold\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 54,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-Bold.ttf\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 54,
+  "message": "Font \\TU/MetaOffcPro-Bold.ttf(0)/m/n/10.95=[fonts/MetaOffcPro-Bold.ttf]:mode=base;script=math;language=dflt;mathfontdimen=xetex; at 10.95pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 54,
+  "message": "Font \\TU/MetaOffcPro-Bold.ttf(0)/m/n/7.665=[fonts/MetaOffcPro-Bold.ttf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=0; at 7.66499pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 54,
+  "message": "Font \\TU/MetaOffcPro-Bold.ttf(0)/m/n/5.475=[fonts/MetaOffcPro-Bold.ttf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=1; at 5.47501pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 56,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-Bold\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 56,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-Bold.ttf\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 56,
+  "message": "Font \\TU/MetaOffcPro-Bold.ttf(1)/m/n/10.95=[fonts/MetaOffcPro-Bold.ttf]:mode=base;script=math;language=dflt;slant=0.2;mathfontdimen=xetex; at 10.95pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 56,
+  "message": "Font \\TU/MetaOffcPro-Bold.ttf(1)/m/n/7.665=[fonts/MetaOffcPro-Bold.ttf]:mode=base;script=math;language=dflt;slant=0.2;mathfontdimen=xetex;+ssty=0; at 7.66499pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 56,
+  "message": "Font \\TU/MetaOffcPro-Bold.ttf(1)/m/n/5.475=[fonts/MetaOffcPro-Bold.ttf]:mode=base;script=math;language=dflt;slant=0.2;mathfontdimen=xetex;+ssty=1; at 5.47501pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 63,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 63,
+  "message": "Argument of \\TU\\= has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 63,
+  "message": "Paragraph ended before \\TU\\= was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 63,
+  "message": "Argument of \\TU\\. has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 63,
+  "message": "Paragraph ended before \\TU\\. was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/fsphys.lco",
+  "line": 63,
+  "message": "Package fontspec Error: The font \"MetaOffcPro-Norm\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "tex/brief_vorlage.tex",
+  "line": 14,
+  "message": "File ended while scanning use of \\__int_compare:NNw.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/brief_vorlage.tex",
+  "line": 14,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/brief_vorlage.tex",
+  "line": 16,
+  "message": "LaTeX Error: Command \\fachschaftler undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/brief_vorlage.tex",
+  "line": 18,
+  "message": "LaTeX Error: Command \\datum undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/brief_vorlage.tex",
+  "line": 20,
+  "message": "LaTeX Error: Command \\betreff undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "tex/brief_vorlage.tex",
+  "line": 31,
+  "message": "Font \\TU/MetaOffcPro(0)/m/n/8=[fonts/MetaOffcPro-Norm.ttf]:mode=node;language=dflt;+tlig; at 8pt not loadable: metric data not found or bad.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class scrlttr2 Warning: loading of LCO via class option `fsphys'. Note: Loading a LCO via class option is deprecated. You should use `\\LoadLetterOption{fsphys}' instead",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/fsphys.lco",
+  "line": null,
+  "message": "Package unicode-math Warning: I am trying to set up alphabet\"it/num\" but there are no configuration settings for it. (See source file \"unicode-math-alphabets.dtx\" to debug.)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/fsphys.lco",
+  "line": null,
+  "message": "Package unicode-math Warning: I am trying to set up alphabet\"bfit/num\" but there are no configuration settings for it. (See source file \"unicode-math-alphabets.dtx\" to debug.)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/brief_vorlage.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [german,ngerman]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/brief_vorlage.tex",
+  "line": null,
+  "message": "Package unicode-math Warning: Using \\overbracket and \\underbracket from `mathtools' package",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tex/brief_vorlage.tex",
+  "line": null,
+  "message": "Package unicode-math Warning: I'm going to overwrite the following commands from the `mathtools' package:",
+  "detail": [],
+  "hint": null
+ }
+]

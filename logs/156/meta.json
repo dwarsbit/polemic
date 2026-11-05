@@ -1,0 +1,34 @@
+{
+ "id": 156,
+ "source": "GitHub",
+ "name": "peilingjiang/acm-conference-latex",
+ "url": "https://github.com/peilingjiang/acm-conference-latex",
+ "type": "Paper",
+ "version": "91be2facd871501c95156272e3f1f8f35ace7457",
+ "files": 18,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 10876,
+  "tail": "exit 12, PDF found\n489585 bytes written\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Missing character: There is no X (\"58) in font nullfont!\n  Missing character: There is no X (\"58) in font nullfont!\n  Missing character: There is no X (\"58) in font nullfont!\n  Missing character: There is no X (\"58) in font nullfont!\n  Missing character: There is no X (\"58) in font nullfont!\n  Missing character: There is no X (\"58) in font nullfont!"
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2718,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "baseline-only-fail"
+}

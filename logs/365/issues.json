@@ -1,0 +1,58 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package pgf Warning: Snakes have been superseded by decorations. Please use the decoration libraries instead of the snakes library on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Source/conference_poster_4.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [fontscale=0.285]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Source/conference_poster_4.tex",
+  "line": 77,
+  "message": "LaTeX Font Warning: Font shape `T1/helvet/m/n' undefined using `T1/cmr/m/n' instead on input line 77",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Source/conference_poster_4.tex",
+  "line": 104,
+  "message": "LaTeX Font Warning: Font shape `T1/helvet/b/n' undefined using `T1/helvet/m/n' instead on input line 104",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Source/conference_poster_4.tex",
+  "line": 104,
+  "message": "LaTeX Font Warning: Font shape `T1/helvet/b/sc' undefined using `T1/helvet/b/n' instead on input line 104",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Source/conference_poster_4.tex",
+  "line": 104,
+  "message": "LaTeX Font Warning: Font shape `T1/helvet/m/sc' undefined using `T1/helvet/m/n' instead on input line 104",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Source/conference_poster_4.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

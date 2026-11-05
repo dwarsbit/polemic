@@ -1,0 +1,33 @@
+{
+ "id": 960,
+ "source": "CTAN",
+ "name": "jpsj",
+ "url": "https://ctan.org/pkg/jpsj",
+ "type": "Paper",
+ "version": "1.2.2",
+ "files": 5,
+ "main": "injpsj2.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "injpsj2.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1253,
+  "tail": "exit 12, PDF found\nLatexmk: Getting log file 'injpsj2.log'\nLatexmk: Examining 'injpsj2.fls'\nLatexmk: Examining 'injpsj2.log'\nLatexmk: Log file says output to 'injpsj2.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'injpsj2.log' and/or above output for details"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 664,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 4,
+ "warnings": 0,
+ "firstError": "Extra }, or forgotten $.",
+ "outcome": "both-fail"
+}

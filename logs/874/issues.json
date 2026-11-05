@@ -1,0 +1,1218 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: Name 'brazil' is deprecated. Use 'brazilian' instead. Reported on input line 4478",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hypdoc Warning: hyperref has been loaded before with option 'hyperindex' enabled. The index will not work properly. on input line 65",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 125,
+  "message": "Package microtype Warning: Unable to apply patch `footnote' on input line 125",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 152,
+  "message": "LaTeX Warning: Reference `sec-introducao' on page 1 undefined on input line 152",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 157,
+  "message": "LaTeX Warning: Reference `sec-estrutura' on page 1 undefined on input line 157",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 162,
+  "message": "LaTeX Warning: Citation `abntex2cite' on page 1 undefined on input line 162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 163,
+  "message": "LaTeX Warning: Citation `abntex2cite-alf' on page 1 undefined on input line 163",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 166,
+  "message": "LaTeX Warning: Citation `abntex2modelo' on page 1 undefined on input line 166",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 166,
+  "message": "LaTeX Warning: Citation `abntex2modelo-artigo' on page 1 undefined on input line 166",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 166,
+  "message": "LaTeX Warning: Citation `abntex2modelo-relatorio' on page 1 undefined on input line 166",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 166,
+  "message": "LaTeX Warning: Citation `abntex2modelo-projeto-pesquisa' on page 1 undefined on input line 166",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 166,
+  "message": "LaTeX Warning: Citation `abntex2modelo-glossario' on page 1 undefined on input line 166",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 166,
+  "message": "LaTeX Warning: Citation `abntex2modelo-livro' on page 1 undefined on input line 166",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 195,
+  "message": "LaTeX Warning: Reference `sec-historico' on page 2 undefined on input line 195",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 210,
+  "message": "LaTeX Warning: Citation `abntex2cite' on page 2 undefined on input line 210",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 210,
+  "message": "LaTeX Warning: Citation `abntex2cite-alf' on page 2 undefined on input line 210",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 235,
+  "message": "LaTeX Warning: Citation `memoir' on page 3 undefined on input line 235",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 306,
+  "message": "LaTeX Warning: Citation `abntex2modelo' on page 4 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 306,
+  "message": "LaTeX Warning: Citation `abntex2modelo-artigo' on page 4 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 306,
+  "message": "LaTeX Warning: Citation `abntex2modelo-relatorio' on page 4 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 306,
+  "message": "LaTeX Warning: Citation `abntex2modelo-projeto-pesquisa' on page 4 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 306,
+  "message": "LaTeX Warning: Citation `abntex2modelo-glossario' on page 4 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 306,
+  "message": "LaTeX Warning: Citation `abntex2modelo-livro' on page 4 undefined on input line 306",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 320,
+  "message": "LaTeX Warning: Reference `sec-referencias' on page 4 undefined on input line 320",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 324,
+  "message": "LaTeX Warning: Citation `abntex2cite' on page 4 undefined on input line 324",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 325,
+  "message": "LaTeX Warning: Citation `abntex2cite-alf' on page 4 undefined on input line 325",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 326,
+  "message": "LaTeX Warning: Reference `sec-internacional' on page 4 undefined on input line 326",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 419,
+  "message": "LaTeX Warning: Citation `abntex2modelo-relatorio' on page 6 undefined on input line 419",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 435,
+  "message": "LaTeX Warning: Citation `abntex2modelo-artigo' on page 6 undefined on input line 435",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 438,
+  "message": "LaTeX Warning: Citation `abntex2modelo-livro' on page 6 undefined on input line 438",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 480,
+  "message": "LaTeX Warning: Reference `sec-xelatex' on page 7 undefined on input line 480",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 489,
+  "message": "LaTeX Warning: Citation `memoir' on page 7 undefined on input line 489",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 499,
+  "message": "LaTeX Warning: Reference `sec-sumario' on page 7 undefined on input line 499",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 499,
+  "message": "LaTeX Warning: Reference `sec-opcoes-tamanho-fonte' on page 7 undefined on input line 499",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 500,
+  "message": "LaTeX Warning: Reference `sec-opcoes-tamanho-titulo' on page 7 undefined on input line 500",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 509,
+  "message": "LaTeX Warning: Citation `memoir' on page 7 undefined on input line 509",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 526,
+  "message": "LaTeX Warning: Reference `sec-pretextuais' on page 7 undefined on input line 526",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 529,
+  "message": "LaTeX Warning: Reference `sec-macro-titulo-estrangeiro' on page 7 undefined on input line 529",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 7 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 8 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 576,
+  "message": "LaTeX Warning: Citation `memoir' on page 8 undefined on input line 576",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 619,
+  "message": "LaTeX Warning: Reference `sec-sumario' on page 9 undefined on input line 619",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 675,
+  "message": "LaTeX Warning: Citation `memoir' on page 10 undefined on input line 675",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 713,
+  "message": "LaTeX Warning: Reference `sec-fichacatalografica' on page 10 undefined on input line 713",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 714,
+  "message": "LaTeX Warning: Reference `sec-pretextuais' on page 10 undefined on input line 714",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 716,
+  "message": "LaTeX Warning: Reference `sec-sumario' on page 10 undefined on input line 716",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 733,
+  "message": "LaTeX Warning: Reference `sec-formatacaocapitulos-starred' on page 11 undefined on input line 733",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 735,
+  "message": "LaTeX Warning: Reference `sec-sumario' on page 11 undefined on input line 735",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 748,
+  "message": "LaTeX Warning: Reference `sec-listadeilustracoes' on page 11 undefined on input line 748",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 748,
+  "message": "LaTeX Warning: Reference `sec-listadetabelas' on page 11 undefined on input line 748",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 749,
+  "message": "LaTeX Warning: Reference `sec-listadeabreviaturas' on page 11 undefined on input line 749",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 749,
+  "message": "LaTeX Warning: Reference `sec-sumario' on page 11 undefined on input line 749",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 755,
+  "message": "LaTeX Warning: Reference `sec-formatacaocapitulos' on page 11 undefined on input line 755",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 758,
+  "message": "LaTeX Warning: Citation `oberdiek2011' on page 11 undefined on input line 758",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 771,
+  "message": "LaTeX Warning: Reference `sec-formatacaocapitulos' on page 11 undefined on input line 771",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 814,
+  "message": "LaTeX Warning: Reference `sec-utf8' on page 12 undefined on input line 814",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 911,
+  "message": "LaTeX Warning: Citation `babel' on page 13 undefined on input line 911",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 13 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 934,
+  "message": "LaTeX Warning: Reference `sec-interncional-traducao' on page 14 undefined on input line 934",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 937,
+  "message": "LaTeX Warning: Reference `sec-citacao' on page 14 undefined on input line 937",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 945,
+  "message": "LaTeX Warning: Citation `NBR14724:2011' on page 14 undefined on input line 945",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 946,
+  "message": "LaTeX Warning: Citation `NBR6024:2012' on page 14 undefined on input line 946",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 946,
+  "message": "LaTeX Warning: Reference `tab-babel' on page 14 undefined on input line 946",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 972,
+  "message": "LaTeX Warning: Reference `sec-sumario' on page 14 undefined on input line 972",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 997,
+  "message": "LaTeX Warning: Reference `sec-autoref' on page 14 undefined on input line 997",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1004,
+  "message": "LaTeX Warning: Reference `sec-internacional-hifen' on page 14 undefined on input line 1004",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1013,
+  "message": "LaTeX Warning: Reference `tab-babel' on page 15 undefined on input line 1013",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1014,
+  "message": "LaTeX Warning: Reference `sec-macrosdados' on page 15 undefined on input line 1014",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1018,
+  "message": "LaTeX Warning: Citation `babel' on page 15 undefined on input line 1018",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1056,
+  "message": "LaTeX Warning: Reference `sec-capa' on page 15 undefined on input line 1056",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1057,
+  "message": "LaTeX Warning: Reference `sec-folhaderosto' on page 15 undefined on input line 1057",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1058,
+  "message": "LaTeX Warning: Reference `sec-folhadeaprovacao' on page 15 undefined on input line 1058",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1059,
+  "message": "LaTeX Warning: Reference `sec-fichacatalografica' on page 15 undefined on input line 1059",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1063,
+  "message": "LaTeX Warning: Reference `sec-dados_hyperref' on page 15 undefined on input line 1063",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1067,
+  "message": "LaTeX Warning: Reference `sec-macro-titulo' on page 16 undefined on input line 1067",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1068,
+  "message": "LaTeX Warning: Reference `sec-macro-autor' on page 16 undefined on input line 1068",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1068,
+  "message": "LaTeX Warning: Reference `sec-macro-data' on page 16 undefined on input line 1068",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1073,
+  "message": "LaTeX Warning: Reference `sec-interncional-traducao' on page 16 undefined on input line 1073",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 16 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 17 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1164,
+  "message": "LaTeX Warning: Reference `sec-fichacatalografica' on page 17 undefined on input line 1164",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1266,
+  "message": "LaTeX Warning: Citation `NBR6024:2012' on page 18 undefined on input line 1266",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1268,
+  "message": "LaTeX Warning: Reference `sec-internacional-babel-alteracoes' on page 18 undefined on input line 1268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1280,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 19 undefined on input line 1280",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1281,
+  "message": "LaTeX Warning: Reference `sec-sumario' on page 19 undefined on input line 1281",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1282,
+  "message": "LaTeX Warning: Reference `sec-sumario' on page 19 undefined on input line 1282",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1308,
+  "message": "LaTeX Warning: Reference `sec-postextual' on page 19 undefined on input line 1308",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 19 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1329,
+  "message": "LaTeX Warning: Reference `sec-formatacaocapitulos' on page 19 undefined on input line 1329",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1331,
+  "message": "LaTeX Warning: Reference `sec-formatacaocapitulos' on page 19 undefined on input line 1331",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 20 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1386,
+  "message": "LaTeX Warning: Reference `sec-macrosdados' on page 20 undefined on input line 1386",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1392,
+  "message": "LaTeX Warning: Reference `sec-fichacatalografica' on page 20 undefined on input line 1392",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1455,
+  "message": "LaTeX Warning: Reference `sec-folhaderosto' on page 22 undefined on input line 1455",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1509,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 23 undefined on input line 1509",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1519,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 23 undefined on input line 1519",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1520,
+  "message": "LaTeX Warning: Reference `sec-macrosdados' on page 23 undefined on input line 1520",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 23 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1556,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 23 undefined on input line 1556",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1558,
+  "message": "LaTeX Warning: Reference `sec-macrosdados' on page 23 undefined on input line 1558",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 25 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1642,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 25 undefined on input line 1642",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1668,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 25 undefined on input line 1668",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1669,
+  "message": "LaTeX Warning: Reference `sec-macrosdados' on page 25 undefined on input line 1669",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1689,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 25 undefined on input line 1689",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1722,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 26 undefined on input line 1722",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 26 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 27 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 28 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1818,
+  "message": "LaTeX Warning: Citation `memoir' on page 28 undefined on input line 1818",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1820,
+  "message": "LaTeX Warning: Reference `sec-internacional-hifen' on page 28 undefined on input line 1820",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1833,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 28 undefined on input line 1833",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1851,
+  "message": "LaTeX Warning: Citation `memoir' on page 28 undefined on input line 1851",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1863,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 28 undefined on input line 1863",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1962,
+  "message": "LaTeX Warning: Reference `sec-listadeabreviaturas' on page 30 undefined on input line 1962",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1962,
+  "message": "LaTeX Warning: Reference `sec-glossarios' on page 30 undefined on input line 1962",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 30 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 1997,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 30 undefined on input line 1997",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2041,
+  "message": "LaTeX Warning: Reference `sec-elementostextuais' on page 31 undefined on input line 2041",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2043,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 31 undefined on input line 2043",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2052,
+  "message": "LaTeX Warning: Reference `sec-phantompart' on page 31 undefined on input line 2052",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2071,
+  "message": "LaTeX Warning: Citation `memoir' on page 32 undefined on input line 2071",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 32 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2113,
+  "message": "LaTeX Warning: Reference `sec-sumario' on page 32 undefined on input line 2113",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2116,
+  "message": "LaTeX Warning: Reference `sec-formatacaocapitulos' on page 32 undefined on input line 2116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2118,
+  "message": "LaTeX Warning: Reference `sec-formatacaocapitulos-starred' on page 32 undefined on input line 2118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2121,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 32 undefined on input line 2121",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2150,
+  "message": "LaTeX Warning: Reference `sec-formatacaocapitulos-adicionais' on page 33 undefined on input line 2150",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 33 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2177,
+  "message": "LaTeX Warning: Reference `tab-divisoes' on page 33 undefined on input line 2177",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2252,
+  "message": "LaTeX Warning: Reference `sec-bookmark' on page 34 undefined on input line 2252",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2261,
+  "message": "LaTeX Warning: Citation `memoir' on page 34 undefined on input line 2261",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2267,
+  "message": "LaTeX Warning: Citation `NBR14724:2011' on page 34 undefined on input line 2267",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2328,
+  "message": "LaTeX Warning: Reference `sec-internacional-hifen' on page 35 undefined on input line 2328",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2338,
+  "message": "LaTeX Warning: Reference `sec-internacional-hifen' on page 35 undefined on input line 2338",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2342,
+  "message": "LaTeX Warning: Reference `sec-configgerais' on page 35 undefined on input line 2342",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2374,
+  "message": "LaTeX Warning: Citation `enumitem' on page 36 undefined on input line 2374",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 36 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 37 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2472,
+  "message": "LaTeX Warning: Citation `ibge1993' on page 37 undefined on input line 2472",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2567,
+  "message": "LaTeX Warning: Reference `sec-phantompart' on page 39 undefined on input line 2567",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 39 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2587,
+  "message": "LaTeX Warning: Citation `abntex2cite' on page 39 undefined on input line 2587",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2587,
+  "message": "LaTeX Warning: Citation `abntex2cite-alf' on page 39 undefined on input line 2587",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2659,
+  "message": "LaTeX Warning: Reference `sec-listadesimbolos' on page 41 undefined on input line 2659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": 2676,
+  "message": "LaTeX Warning: Citation `abntex2modelo-glossario' on page 41 undefined on input line 2676",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 41 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 42 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "Package rerunfilecheck Warning: File `abntex2.out' has changed. Rerun to get outlines right or use package `bookmark'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/abntex2.tex",
+  "line": null,
+  "message": "Package rerunfilecheck Warning: File `abntex2.hd' has changed. Rerun",
+  "detail": [],
+  "hint": null
+ }
+]

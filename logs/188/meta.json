@@ -1,0 +1,31 @@
+{
+ "id": 188,
+ "source": "GitHub",
+ "name": "konradcinkusz/csharp-flashcards",
+ "url": "https://github.com/konradcinkusz/csharp-flashcards",
+ "type": "Slides",
+ "version": "c8254b6c946cf13b63535a98e50c787ba6ba3979",
+ "files": 60,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 102702
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 99046,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

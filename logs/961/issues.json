@@ -1,0 +1,178 @@
+[
+ {
+  "severity": "error",
+  "file": "langscibook.cls",
+  "line": 722,
+  "message": "Class langscibook Error: Please use XeLaTeX!.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "langscibook.cls",
+  "line": 854,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "langscibook.cls",
+  "line": 854,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "langscibook.cls",
+  "line": null,
+  "message": "Class scrbook Warning: Mapping of \\setcapindent{0pt} to \\captionsetup{indent=0.0pt} because the caption package is being used. When using the caption package, it is recommended to use the options of this package directly instead of the KOMA-Script setting on line 1626",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\addtocontents  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <52> not available size <24.88> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <52> not available size <24.88> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <52> not available size <24.88> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <36.39984> not available size <24.88> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <26> not available size <24.88> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <52> not available size <24.88> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <36.39984> not available size <24.88> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <26> not available size <24.88> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <52> not available size <24.88> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <36.39984> not available size <24.88> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <26> not available size <24.88> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 24,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <36.39984> not available size <24.88> substituted on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 177,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmtt/bx/n' undefined using `OMS/cmsy/m/n' instead for symbol `textbackslash' on input line 177",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": 194,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined using `OMS/cmsy/m/n' instead for symbol `textbackslash' on input line 194",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 27.12pt have occurred",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "documentation/langsci-doc.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

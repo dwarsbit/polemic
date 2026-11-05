@@ -1,0 +1,33 @@
+{
+ "id": 928,
+ "source": "CTAN",
+ "name": "beamer2thesis",
+ "url": "https://ctan.org/pkg/beamer2thesis",
+ "type": "Slides",
+ "version": "2.2",
+ "files": 17,
+ "main": "doc/basic_guide/beamer2thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/basic_guide/beamer2thesis.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 8446,
+  "tail": "exit 12, PDF found\n\nLatexmk: Missing input file 'beamer2thesis.nav' message in .log file:\n  No file beamer2thesis.nav.\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Missing character: There is no ; in font nullfont!\n  Missing character: There is no ; in font nullfont!\n  Missing character: There is no ; in font nullfont!\n  Missing character: There is no ; in font nullfont!"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 4059,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ],
+  "tail": "  Missing character: There is no ; in font nullfont!\n  Reference `secondrel' on page 40 undefined on input line 8\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 10,
+ "outcome": "both-fail"
+}

@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file uniyou73): Font uniyou73 at 720 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 39,
+  "message": "Package hyperref Warning: Option `pdfauthor' has already been used, setting the option has no effect on input line 39",
+  "detail": [],
+  "hint": null
+ }
+]

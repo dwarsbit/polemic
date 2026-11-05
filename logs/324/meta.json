@@ -1,0 +1,31 @@
+{
+ "id": 324,
+ "source": "GitHub",
+ "name": "dyweb/Deedy-Resume-for-Chinese",
+ "url": "https://github.com/dyweb/Deedy-Resume-for-Chinese",
+ "type": "CV",
+ "version": "3fe0e55a52ad3a96958b1bcd3c8e4674fc72f5ce",
+ "files": 57,
+ "main": "OpenFonts.Chinese/resume.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "OpenFonts.Chinese/resume.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3320
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 318,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/resume.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "polemic-only-fail"
+}

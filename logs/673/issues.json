@@ -1,0 +1,842 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 88,
+  "message": "LaTeX Warning: \\include should only be used after \\begin{document} on input line 88",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 135,
+  "message": "Package natbib Warning: Citation `koller_friedman' on page 1 undefined on input line 135",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `todorov_kalman_duality' on page 1 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `ziebart_thesis' on page 1 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `kappen_pgm' on page 1 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `kappen_oc' on page 1 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 141,
+  "message": "Package natbib Warning: Citation `toussaint_soc' on page 1 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 360,
+  "message": "Package natbib Warning: Citation `ziebart_thesis' on page 7 undefined on input line 360",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 368,
+  "message": "Package natbib Warning: Citation `gae' on page 7 undefined on input line 368",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 453,
+  "message": "Package natbib Warning: Citation `koller_friedman' on page 10 undefined on input line 453",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 453,
+  "message": "Package natbib Warning: Citation `williams' on page 10 undefined on input line 453",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 471,
+  "message": "Package natbib Warning: Citation `williams' on page 10 undefined on input line 471",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 477,
+  "message": "Package natbib Warning: Citation `gae' on page 11 undefined on input line 477",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 532,
+  "message": "Package natbib Warning: Citation `sac' on page 12 undefined on input line 532",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 567,
+  "message": "Package natbib Warning: Citation `haarnoja' on page 12 undefined on input line 567",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 569,
+  "message": "Package natbib Warning: Citation `haarnoja' on page 12 undefined on input line 569",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 597,
+  "message": "Package natbib Warning: Citation `kalman_filter' on page 13 undefined on input line 597",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 597,
+  "message": "Package natbib Warning: Citation `todorov_kalman_duality' on page 13 undefined on input line 597",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 599,
+  "message": "Package natbib Warning: Citation `attias' on page 14 undefined on input line 599",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 599,
+  "message": "Package natbib Warning: Citation `todorov_lmdp' on page 14 undefined on input line 599",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 599,
+  "message": "Package natbib Warning: Citation `kappen_oc' on page 14 undefined on input line 599",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 599,
+  "message": "Package natbib Warning: Citation `toussaint_soc' on page 14 undefined on input line 599",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 599,
+  "message": "Package natbib Warning: Citation `rawlik_soc' on page 14 undefined on input line 599",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 599,
+  "message": "Package natbib Warning: Citation `ep' on page 14 undefined on input line 599",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 599,
+  "message": "Package natbib Warning: Citation `ziebart_thesis' on page 14 undefined on input line 599",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 606,
+  "message": "Package natbib Warning: Citation `suttonadp' on page 14 undefined on input line 606",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 606,
+  "message": "Package natbib Warning: Citation `KLMSurvey' on page 14 undefined on input line 606",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 606,
+  "message": "Package natbib Warning: Citation `sallans' on page 14 undefined on input line 606",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 606,
+  "message": "Package natbib Warning: Citation `ebrl' on page 14 undefined on input line 606",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 608,
+  "message": "Package natbib Warning: Citation `WilliamsPeng91' on page 14 undefined on input line 608",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 608,
+  "message": "Package natbib Warning: Citation `williams' on page 14 undefined on input line 608",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 608,
+  "message": "Package natbib Warning: Citation `pgq' on page 14 undefined on input line 608",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 614,
+  "message": "Package natbib Warning: Citation `rwr' on page 15 undefined on input line 614",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 614,
+  "message": "Package natbib Warning: Citation `em_policy_search' on page 15 undefined on input line 614",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 614,
+  "message": "Package natbib Warning: Citation `neumann' on page 15 undefined on input line 614",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 614,
+  "message": "Package natbib Warning: Citation `mpo' on page 15 undefined on input line 614",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 614,
+  "message": "Package natbib Warning: Citation `levine_vgps' on page 15 undefined on input line 614",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 614,
+  "message": "Package natbib Warning: Citation `levine_thesis' on page 15 undefined on input line 614",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 614,
+  "message": "Package natbib Warning: Citation `toussaint06' on page 15 undefined on input line 614",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 616,
+  "message": "Package natbib Warning: Citation `covariant' on page 15 undefined on input line 616",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 616,
+  "message": "Package natbib Warning: Citation `reps' on page 15 undefined on input line 616",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 616,
+  "message": "Package natbib Warning: Citation `mfgps' on page 15 undefined on input line 616",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 616,
+  "message": "Package natbib Warning: Citation `trpo' on page 15 undefined on input line 616",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 616,
+  "message": "Package natbib Warning: Citation `mpo' on page 15 undefined on input line 616",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 616,
+  "message": "Package natbib Warning: Citation `rawlik_soc' on page 15 undefined on input line 616",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `kappen_oc' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `pi2' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `lmdp_policy' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `todorov_lmdp' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `ldmp_irl' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `gps' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `pcl' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `trust_pcl' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `mfgps' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `cgps' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `endtoend' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `haarnoja' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `schulman' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `sac' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 621,
+  "message": "Package natbib Warning: Citation `hausman' on page 16 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 623,
+  "message": "Package natbib Warning: Citation `lmdp_policy' on page 16 undefined on input line 623",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 625,
+  "message": "Package natbib Warning: Citation `pcl' on page 16 undefined on input line 625",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 625,
+  "message": "Package natbib Warning: Citation `trust_pcl' on page 16 undefined on input line 625",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 625,
+  "message": "Package natbib Warning: Citation `cgps' on page 16 undefined on input line 625",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 625,
+  "message": "Package natbib Warning: Citation `mfgps' on page 16 undefined on input line 625",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 625,
+  "message": "Package natbib Warning: Citation `endtoend' on page 16 undefined on input line 625",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 625,
+  "message": "Package natbib Warning: Citation `haarnoja' on page 16 undefined on input line 625",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 625,
+  "message": "Package natbib Warning: Citation `sac' on page 16 undefined on input line 625",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 625,
+  "message": "Package natbib Warning: Citation `hausman' on page 16 undefined on input line 625",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 625,
+  "message": "Package natbib Warning: Citation `haarnoja_composable' on page 16 undefined on input line 625",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 627,
+  "message": "Package natbib Warning: Citation `hausman' on page 16 undefined on input line 627",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 627,
+  "message": "Package natbib Warning: Citation `learning_to_explore' on page 16 undefined on input line 627",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 627,
+  "message": "Package natbib Warning: Citation `haarnoja' on page 16 undefined on input line 627",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 627,
+  "message": "Package natbib Warning: Citation `realnvp' on page 16 undefined on input line 627",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 632,
+  "message": "Package natbib Warning: Citation `maxentirl' on page 17 undefined on input line 632",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 640,
+  "message": "Package natbib Warning: Citation `maxcausalent' on page 17 undefined on input line 640",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 642,
+  "message": "Package natbib Warning: Citation `gpirl' on page 17 undefined on input line 642",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 642,
+  "message": "Package natbib Warning: Citation `maxentdeepirl' on page 17 undefined on input line 642",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 642,
+  "message": "Package natbib Warning: Citation `localioc' on page 17 undefined on input line 642",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 642,
+  "message": "Package natbib Warning: Citation `legibility' on page 17 undefined on input line 642",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 642,
+  "message": "Package natbib Warning: Citation `gcl' on page 17 undefined on input line 642",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 642,
+  "message": "Package natbib Warning: Citation `airl' on page 17 undefined on input line 642",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 642,
+  "message": "Package natbib Warning: Citation `Javdani' on page 17 undefined on input line 642",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 642,
+  "message": "Package natbib Warning: Citation `kitani1' on page 17 undefined on input line 642",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 642,
+  "message": "Package natbib Warning: Citation `kitani2' on page 17 undefined on input line 642",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 644,
+  "message": "Package natbib Warning: Citation `gan' on page 17 undefined on input line 644",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 644,
+  "message": "Package natbib Warning: Citation `gcl' on page 17 undefined on input line 644",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 644,
+  "message": "Package natbib Warning: Citation `finn_adversarial' on page 17 undefined on input line 644",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 644,
+  "message": "Package natbib Warning: Citation `airl' on page 17 undefined on input line 644",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 644,
+  "message": "Package natbib Warning: Citation `gail' on page 17 undefined on input line 644",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 648,
+  "message": "Package natbib Warning: Citation `finn_adversarial' on page 17 undefined on input line 648",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 648,
+  "message": "Package natbib Warning: Citation `airl' on page 17 undefined on input line 648",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 648,
+  "message": "Package natbib Warning: Citation `gail' on page 17 undefined on input line 648",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 648,
+  "message": "Package natbib Warning: Citation `ldmp_irl' on page 17 undefined on input line 648",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 650,
+  "message": "Package natbib Warning: Citation `solway' on page 18 undefined on input line 650",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 650,
+  "message": "Package natbib Warning: Citation `botvinick' on page 18 undefined on input line 650",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 650,
+  "message": "Package natbib Warning: Citation `bottoussaint' on page 18 undefined on input line 650",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 650,
+  "message": "Package natbib Warning: Citation `friston' on page 18 undefined on input line 650",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 657,
+  "message": "Package natbib Warning: Citation `hausman' on page 18 undefined on input line 657",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 657,
+  "message": "Package natbib Warning: Citation `learning_to_explore' on page 18 undefined on input line 657",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 657,
+  "message": "Package natbib Warning: Citation `haarnoja' on page 18 undefined on input line 657",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 657,
+  "message": "Package natbib Warning: Citation `realnvp' on page 18 undefined on input line 657",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 659,
+  "message": "Package natbib Warning: Citation `ziebart_thesis' on page 18 undefined on input line 659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 659,
+  "message": "Package natbib Warning: Citation `haarnoja_composable' on page 18 undefined on input line 659",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

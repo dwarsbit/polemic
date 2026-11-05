@@ -1,0 +1,106 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package opcit Warning: No sample.bbl file. There will be no footnote references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `pagecolor' is not available anymore",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": null,
+  "message": "Class philosophersimprint Warning: ******************************** * Cannot find title image * NoSuchImageDotUse.pdf. * Switching to simulated title. ********************************",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": 29,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\hskip 9.5pt replaced by space on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": 66,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\hskip 9.5pt replaced by space on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `Harnad99:FreeAtLast' on page 2 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `NewSystems' on page 2 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Citation `ScholarsForum' on page 2 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": 137,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\hskip 9.5pt replaced by space on input line 137",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 13.49998pt, for example: \\setlength{\\headheight}{13.49998pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-1.49998pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": 149,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): \\hskip 9.5pt replaced by space on input line 149",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": null,
+  "message": "Package rerunfilecheck Warning: File `sample.out' has changed. Rerun to get outlines right or use package `bookmark'",
+  "detail": [],
+  "hint": null
+ }
+]

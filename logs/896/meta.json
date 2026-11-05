@@ -1,0 +1,31 @@
+{
+ "id": 896,
+ "source": "CTAN",
+ "name": "ksp-thesis",
+ "url": "https://ctan.org/pkg/ksp-thesis",
+ "type": "Thesis",
+ "version": "1.0.2",
+ "files": 21,
+ "main": "ksp-thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ksp-thesis.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 434,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'ksp-thesis.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'ksp-thesis.log' and/or above output for details\n\nLatexmk: Missing input file 'l3regex.sty' message in .log file:\n  ! LaTeX Error: File `l3regex.sty' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 196,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `l3regex.sty' not found.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,10 @@
+{
+ "id": 907,
+ "source": "CTAN",
+ "name": "suftesi",
+ "url": "https://ctan.org/pkg/suftesi",
+ "type": "Thesis",
+ "version": "3.2.6",
+ "files": 4,
+ "outcome": "no-tex"
+}

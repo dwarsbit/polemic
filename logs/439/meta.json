@@ -1,0 +1,33 @@
+{
+ "id": 439,
+ "source": "GitHub",
+ "name": "KeithEvanSchubert/grant_templates",
+ "url": "https://github.com/KeithEvanSchubert/grant_templates",
+ "type": "Proposal",
+ "version": "635f34a95224efc1cb41704c710ba100032c4fad",
+ "files": 40,
+ "main": "Template NIH/NIH_Bio.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Template NIH/NIH_Bio.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1381,
+  "tail": "exit 12, PDF found\nLatexmk: Getting log file 'NIH_Bio.log'\nLatexmk: Examining 'NIH_Bio.fls'\nLatexmk: Examining 'NIH_Bio.log'\nLatexmk: Log file says output to 'NIH_Bio.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'NIH_Bio.log' and/or above output for details"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 423,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 119,
+ "warnings": 0,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

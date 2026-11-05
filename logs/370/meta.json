@@ -1,0 +1,31 @@
+{
+ "id": 370,
+ "source": "GitHub",
+ "name": "rafaelbailo/betterposter-latex-template",
+ "url": "https://github.com/rafaelbailo/betterposter-latex-template",
+ "type": "Poster",
+ "version": "30baa8ea30da2a75fbcd69b3772071ea87e52648",
+ "files": 18,
+ "main": "example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3288
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2747,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

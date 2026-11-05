@@ -1,0 +1,32 @@
+{
+ "id": 328,
+ "source": "GitHub",
+ "name": "jishanshaikh4/resume",
+ "url": "https://github.com/jishanshaikh4/resume",
+ "type": "CV",
+ "version": "f51312a486f78d4e61266f3833a32924a0b2b607",
+ "files": 27,
+ "main": "McDowell-CV/main.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "McDowell-CV/main.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3732,
+  "tail": "exit 12, PDF not found\n  ! I can't find file `.fd'.\ntput: No value for $TERM and no -T specified\nLatexmk: Missing input file '.fd' message in .log file:\n  ! I can't find file `.fd'.\ntput: No value for $TERM and no -T specified\nLatexmk: Missing input file '.fd' message in .log file:\n  ! I can't find file `.fd'.\nFailure to make 'main.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1665,
+  "outputs": [
+   "pdf",
+   "log"
+  ]
+ },
+ "errors": 6,
+ "warnings": 0,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

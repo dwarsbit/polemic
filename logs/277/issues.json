@@ -1,0 +1,162 @@
+[
+ {
+  "severity": "error",
+  "file": "cuda_recap_programming.tex",
+  "line": 366,
+  "message": "Illegal parameter number in definition of \\Hy@tempa.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cuda_recap_programming.tex",
+  "line": 682,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cuda_recap_appendix.tex",
+  "line": 12,
+  "message": "LaTeX Error: Environment code undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cuda_recap_appendix.tex",
+  "line": 16,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{code}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cuda_recap_appendix.tex",
+  "line": 19,
+  "message": "LaTeX Error: Environment code undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cuda_recap_appendix.tex",
+  "line": 21,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{code}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cuda_recap.tex",
+  "line": 117,
+  "message": "Package biblatex Error: '\\bibliographystyle' invalid for 'biblatex'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: No Cyrillic font encoding has been loaded so far. A font encoding should be declared before babel. Default `T2A' encoding will be loaded  on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\@parboxrestore  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package fvextra Warning: csquotes should be loaded after fvextra, to avoid a warning from the lineno package on input line 36",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cuda_recap_architecture.tex",
+  "line": 167,
+  "message": "LaTeX Font Warning: Font shape `T2A/pcr/m/n' undefined using `T2A/cmr/m/n' instead on input line 167",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cuda_recap_programming.tex",
+  "line": 151,
+  "message": "LaTeX Font Warning: Font shape `T2A/pcr/m/sl' undefined using `T2A/pcr/m/n' instead on input line 151",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cuda_recap_programming.tex",
+  "line": 161,
+  "message": "LaTeX Font Warning: Font shape `T2A/cmr/m/scit' undefined using `T2A/cmr/m/sc' instead on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cuda_recap_programming.tex",
+  "line": 311,
+  "message": "LaTeX Warning: Hyper reference `fig:pitch' on page 16 undefined on input line 311",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cuda_recap_programming.tex",
+  "line": 436,
+  "message": "LaTeX Warning: Hyper reference `intermezzo1d2d' on page 18 undefined on input line 436",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cuda_recap_programming.tex",
+  "line": 447,
+  "message": "LaTeX Warning: Hyper reference `intermezzo1d2d' on page 18 undefined on input line 447",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cuda_recap_programming.tex",
+  "line": 460,
+  "message": "LaTeX Warning: Hyper reference `grocery_store' on page 19 undefined on input line 460",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cuda_recap_programming.tex",
+  "line": null,
+  "message": "LaTeX Warning: `!h' float specifier changed to `!ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 480,
+ "source": "GitHub",
+ "name": "icaro-freire/eadmatUFRB",
+ "url": "https://github.com/icaro-freire/eadmatUFRB",
+ "type": "Exam",
+ "version": "812bc3ea3967d3db18a76cab9af28fbc22b8d96b",
+ "files": 14,
+ "main": "modelo_eadmatUFRB.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "modelo_eadmatUFRB.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2846
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 219,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 1,
+ "firstError": "Package modelo_eadmatUFRB Error: Precisa de XeLaTeX.",
+ "outcome": "polemic-only-fail"
+}

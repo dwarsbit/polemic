@@ -1,0 +1,32 @@
+{
+ "id": 426,
+ "source": "GitHub",
+ "name": "wangplin/SYSU_MST_Thesis_Proposal_Template",
+ "url": "https://github.com/wangplin/SYSU_MST_Thesis_Proposal_Template",
+ "type": "Proposal",
+ "version": "c7500d07b49ac2690677e496c3151428cd4bc494",
+ "files": 10,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 124609,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 中 (\"4E2D) in font nullfont!\n  Missing character: There is no 山 (\"5C71) in font nullfont!\n  Missing character: There is no 大 (\"5927) in font nullfont!\n  Missing character: There is no 学 (\"5B66) in font nullfont!\n  Missing character: There is no 微 (\"5FAE) in font nullfont!\n  Missing character: There is no 电 (\"7535) in font nullfont!\n  Missing character: There is no 子 (\"5B50) in font nullfont!\n And 39 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 41009,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 26,
+ "warnings": 8,
+ "firstError": "Package fontspec Error: The font \"SimSun\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

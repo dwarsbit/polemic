@@ -1,0 +1,35 @@
+{
+ "id": 456,
+ "source": "GitHub",
+ "name": "jellespijker/PIDcircuitTikZ",
+ "url": "https://github.com/jellespijker/PIDcircuitTikZ",
+ "type": "Figures",
+ "version": "ecc535621adee4295ab2a29c98acd951dafe2dbf",
+ "files": 20,
+ "main": "example draft drawing.tex",
+ "catalogMain": "PIDcircuitTikZ.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (inferred)",
+ "baseline": {
+  "main": "PIDcircuitTikZ.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 7009,
+  "tail": "exit 12, PDF not found\n  Missing character: There is no = (U+003D) in font nullfont!\n  Missing character: There is no 5 (U+0035) in font nullfont!\n  Missing character: There is no = (U+003D) in font nullfont!\n  Missing character: There is no 5 (U+0035) in font nullfont!\n  Missing character: There is no = (U+003D) in font nullfont!\n  Missing character: There is no 2 (U+0032) in font nullfont!\n  Missing character: There is no = (U+003D) in font nullfont!\n And 8 more --- see log file 'PIDcircuitTikZ.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1055,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 13,
+ "warnings": 2,
+ "firstError": "LaTeX Error: Command \\unit already defined.",
+ "outcome": "both-fail"
+}

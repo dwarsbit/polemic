@@ -1,0 +1,36 @@
+[
+ {
+  "severity": "error",
+  "file": "FZU-Beamer-Theme-230130/slide.tex",
+  "line": 45,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.45 \\kaishu"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "FZU-Beamer-Theme-230130/slide.tex",
+  "line": 193,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ctex Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <10> not available Font shape `T1/cmtt/m/n' tried instead on input line 5",
+  "detail": [],
+  "hint": null
+ }
+]

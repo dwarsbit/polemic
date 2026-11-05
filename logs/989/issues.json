@@ -1,0 +1,2914 @@
+[
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 蜃 (U+8703)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 楼 (U+697C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 与 (U+4E0E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 主 (U+4E3B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 题 (U+9898)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 林 (U+6797)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 莲 (U+83B2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 25,
+  "message": "LaTeX Error: Unicode character 枝 (U+679D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 35,
+  "message": "LaTeX Error: Unicode character 摘 (U+6458)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 35,
+  "message": "LaTeX Error: Unicode character 要 (U+8981)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 基 (U+57FA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 于 (U+4E8E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 《 (U+300A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 蜃 (U+8703)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 楼 (U+697C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 》 (U+300B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 歌 (U+6B4C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 曲 (U+66F2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 宣 (U+5BA3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 传 (U+4F20)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 封 (U+5C01)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 面 (U+9762)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 二 (U+4E8C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 创 (U+521B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 和 (U+548C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 主 (U+4E3B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 题 (U+9898)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 53,
+  "message": "LaTeX Error: Unicode character 基 (U+57FA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 53,
+  "message": "LaTeX Error: Unicode character 本 (U+672C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 53,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 53,
+  "message": "LaTeX Error: Unicode character 法 (U+6CD5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 两 (U+4E24)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 种 (U+79CD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 模 (U+6A21)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 式 (U+5F0F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 可 (U+53EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 选 (U+9009)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character ： (U+FF1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 默 (U+9ED8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 认 (U+8BA4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 颜 (U+989C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 色 (U+8272)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 深 (U+6DF1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 沉 (U+6C89)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character ， (U+FF0C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 较 (U+8F83)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 浅 (U+6D45)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 适 (U+9002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 合 (U+5408)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 列 (U+5217)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 印 (U+5370)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 详 (U+8BE6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 细 (U+7EC6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 使 (U+4F7F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 方 (U+65B9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 法 (U+6CD5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 参 (U+53C2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 考 (U+8003)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 示 (U+793A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 范 (U+8303)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 55,
+  "message": "LaTeX Error: Unicode character 档 (U+6863)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 71,
+  "message": "LaTeX Error: Unicode character 英 (U+82F1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 71,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 71,
+  "message": "LaTeX Error: Unicode character 示 (U+793A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 71,
+  "message": "LaTeX Error: Unicode character 范 (U+8303)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 71,
+  "message": "LaTeX Error: Unicode character 档 (U+6863)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 71,
+  "message": "LaTeX Error: Unicode character 可 (U+53EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 71,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 71,
+  "message": "LaTeX Error: Unicode character 或 (U+6216)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 编 (U+7F16)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 译 (U+8BD1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 中 (U+4E2D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 示 (U+793A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 范 (U+8303)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 档 (U+6863)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 请 (U+8BF7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 页 (U+9875)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 脚 (U+811A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 里 (U+91CC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 幻 (U+5E7B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 灯 (U+706F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 片 (U+7247)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 帧 (U+5E27)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 数 (U+6570)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 需 (U+9700)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 多 (U+591A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 次 (U+6B21)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 才 (U+624D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 能 (U+80FD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 正 (U+6B63)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 确 (U+786E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 72,
+  "message": "LaTeX Error: Unicode character 显 (U+663E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 96,
+  "message": "LaTeX Error: Unicode character 海 (U+6D77)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 96,
+  "message": "LaTeX Error: Unicode character 报 (U+62A5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 蜃 (U+8703)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 楼 (U+697C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 主 (U+4E3B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 题 (U+9898)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 也 (U+4E5F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 可 (U+53EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 以 (U+4EE5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 和 (U+548C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 搭 (U+642D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 配 (U+914D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 使 (U+4F7F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 制 (U+5236)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 作 (U+4F5C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 海 (U+6D77)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 报 (U+62A5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character （ (U+FF08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 一 (U+4E00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 些 (U+4E9B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 设 (U+8BBE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 置 (U+7F6E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 需 (U+9700)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 许 (U+8BB8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 修 (U+4FEE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 改 (U+6539)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character ） (U+FF09)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character ， (U+FF0C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 请 (U+8BF7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 参 (U+53C2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 照 (U+7167)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 98,
+  "message": "LaTeX Error: Unicode character 及 (U+53CA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 120,
+  "message": "LaTeX Error: Unicode character 主 (U+4E3B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 120,
+  "message": "LaTeX Error: Unicode character 题 (U+9898)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 尝 (U+5C1D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 试 (U+8BD5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 做 (U+505A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 了 (U+4E86)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 一 (U+4E00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 个 (U+4E2A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 适 (U+9002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 配 (U+914D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 蜃 (U+8703)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 楼 (U+697C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 主 (U+4E3B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 题 (U+9898)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character ， (U+FF0C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 十 (U+5341)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 分 (U+5206)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 感 (U+611F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 谢 (U+8C22)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 请 (U+8BF7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 参 (U+53C2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 照 (U+7167)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 目 (U+76EE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 前 (U+524D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 还 (U+8FD8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 很 (U+5F88)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 粗 (U+7C97)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 糙 (U+7CD9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 自 (U+81EA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 行 (U+884C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 斟 (U+659F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 酌 (U+914C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 使 (U+4F7F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 122,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 151,
+  "message": "LaTeX Error: Unicode character 一 (U+4E00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 151,
+  "message": "LaTeX Error: Unicode character 些 (U+4E9B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 151,
+  "message": "LaTeX Error: Unicode character 可 (U+53EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 151,
+  "message": "LaTeX Error: Unicode character 调 (U+8C03)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 151,
+  "message": "LaTeX Error: Unicode character 整 (U+6574)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 151,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 151,
+  "message": "LaTeX Error: Unicode character 元 (U+5143)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 151,
+  "message": "LaTeX Error: Unicode character 素 (U+7D20)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 蜃 (U+8703)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 楼 (U+697C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 本 (U+672C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 身 (U+8EAB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 并 (U+5E76)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 没 (U+6CA1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 有 (U+6709)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 设 (U+8BBE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 置 (U+7F6E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 任 (U+4EFB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 何 (U+4F55)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 字 (U+5B57)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 体 (U+4F53)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character ， (U+FF0C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 户 (U+6237)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 可 (U+53EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 以 (U+4EE5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 自 (U+81EA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 行 (U+884C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 在 (U+5728)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 导 (U+5BFC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 言 (U+8A00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 曲 (U+66F2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 加 (U+52A0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 载 (U+8F7D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 己 (U+5DF1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 喜 (U+559C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 欢 (U+6B22)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 宏 (U+5B8F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 包 (U+5305)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 或 (U+6216)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 153,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 示 (U+793A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 范 (U+8303)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 档 (U+6863)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 案 (U+6848)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 导 (U+5BFC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 言 (U+8A00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 区 (U+533A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 加 (U+52A0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 载 (U+8F7D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 了 (U+4E86)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 、 (U+3001)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 仅 (U+4EC5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 限 (U+9650)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 英 (U+82F1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 中 (U+4E2D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 这 (U+8FD9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 些 (U+4E9B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 都 (U+90FD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 是 (U+662F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 可 (U+53EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 以 (U+4EE5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 自 (U+81EA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 行 (U+884C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 更 (U+66F4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character 换 (U+6362)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 155,
+  "message": "LaTeX Error: Unicode character ！ (U+FF01)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 第 (U+7B2C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 帧 (U+5E27)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 幻 (U+5E7B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 灯 (U+706F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 片 (U+7247)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 里 (U+91CC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 环 (U+73AF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 境 (U+5883)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 是 (U+662F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 蜃 (U+8703)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 楼 (U+697C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 主 (U+4E3B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 题 (U+9898)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 自 (U+81EA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 定 (U+5B9A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 义 (U+4E49)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 它 (U+5B83)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 、 (U+3001)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 都 (U+90FD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 可 (U+53EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 以 (U+4EE5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 更 (U+66F4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 换 (U+6362)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character ， (U+FF0C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 也 (U+4E5F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 重 (U+91CD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 新 (U+65B0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 前 (U+524D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 缀 (U+7F00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 装 (U+88C5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 饰 (U+9970)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character （ (U+FF08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 详 (U+8BE6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 见 (U+89C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 示 (U+793A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 范 (U+8303)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 代 (U+4EE3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character 码 (U+7801)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 157,
+  "message": "LaTeX Error: Unicode character ） (U+FF09)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 159,
+  "message": "LaTeX Error: Unicode character 其 (U+5176)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 159,
+  "message": "LaTeX Error: Unicode character 它 (U+5B83)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 159,
+  "message": "LaTeX Error: Unicode character 可 (U+53EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 159,
+  "message": "LaTeX Error: Unicode character 以 (U+4EE5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 159,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 159,
+  "message": "LaTeX Error: Unicode character 装 (U+88C5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 159,
+  "message": "LaTeX Error: Unicode character 饰 (U+9970)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 159,
+  "message": "LaTeX Error: Unicode character ： (U+FF1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 这 (U+8FD9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 些 (U+4E9B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 是 (U+662F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 、 (U+3001)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 以 (U+4EE5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 及 (U+53CA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 之 (U+4E4B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 类 (U+7C7B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 前 (U+524D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 缀 (U+7F00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 装 (U+88C5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 饰 (U+9970)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character （ (U+FF08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 详 (U+8BE6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 见 (U+89C1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 第 (U+7B2C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 帧 (U+5E27)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 幻 (U+5E7B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 灯 (U+706F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 片 (U+7247)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 注 (U+6CE8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character 释 (U+91CA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 165,
+  "message": "LaTeX Error: Unicode character ） (U+FF09)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 蜃 (U+8703)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 楼 (U+697C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 主 (U+4E3B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 题 (U+9898)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 已 (U+5DF2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 加 (U+52A0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 载 (U+8F7D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 宏 (U+5B8F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 包 (U+5305)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character ， (U+FF0C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 可 (U+53EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 以 (U+4EE5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 尽 (U+5C3D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 情 (U+60C5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 使 (U+4F7F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 此 (U+6B64)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 提 (U+63D0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 供 (U+4F9B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 符 (U+7B26)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 号 (U+53F7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 是 (U+662F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 来 (U+6765)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 控 (U+63A7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 制 (U+5236)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 页 (U+9875)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 脚 (U+811A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 的 (U+7684)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 小 (U+5C0F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 光 (U+5149)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 球 (U+7403)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 半 (U+534A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 径 (U+5F84)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character ； (U+FF1B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 作 (U+4F5C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 海 (U+6D77)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 报 (U+62A5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 时 (U+65F6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 可 (U+53EF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 以 (U+4EE5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 酌 (U+914C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 量 (U+91CF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 加 (U+52A0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 大 (U+5927)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-mirage-doc.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": 176,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 176",
+  "detail": [],
+  "hint": null
+ }
+]

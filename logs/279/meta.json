@@ -1,0 +1,30 @@
+{
+ "id": 279,
+ "source": "GitHub",
+ "name": "dev-aditya/course-notes-core",
+ "url": "https://github.com/dev-aditya/course-notes-core",
+ "type": "Notes",
+ "version": "2c82a9d9cd5fe2ce63b749fb85f5daab46145471",
+ "files": 44,
+ "main": "MTH102: Real-analysis/MTH102_-_Real_analysis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "MTH102: Real-analysis/MTH102_-_Real_analysis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12706
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 216,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `notes.cls' not found.",
+ "outcome": "polemic-only-fail"
+}

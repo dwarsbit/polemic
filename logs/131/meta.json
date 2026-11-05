@@ -1,0 +1,32 @@
+{
+ "id": 131,
+ "source": "GitHub",
+ "name": "dante-ev/dtk-bibliography",
+ "url": "https://github.com/dante-ev/dtk-bibliography",
+ "type": "Paper",
+ "version": "94fac42d803368841760cf7acc1dc22dc652045e",
+ "files": 11,
+ "main": "dtk-bibliography.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "dtk-bibliography.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 48297
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 45516,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

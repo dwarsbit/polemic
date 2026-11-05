@@ -1,0 +1,33 @@
+{
+ "id": 463,
+ "source": "GitHub",
+ "name": "rossmacarthur/latex-templates",
+ "url": "https://github.com/rossmacarthur/latex-templates",
+ "type": "Figures",
+ "version": "17b976d4cbb42bcf51d47d0e32d1eef46bc44320",
+ "files": 41,
+ "main": "article/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "article/main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2176,
+  "tail": "exit 12, PDF found\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main.log' and/or above output for details\n\nLatexmk: Missing bbl file 'main.bbl' in following:\n No file main.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 625,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ],
+  "tail": " No file main.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-fail"
+}

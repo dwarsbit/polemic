@@ -1,0 +1,162 @@
+[
+ {
+  "severity": "error",
+  "file": "CM_chs.tex",
+  "line": 71,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "CM_chs.tex",
+  "line": 76,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 1,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 3,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 5,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 9,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 13,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 15,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 17,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 19,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 21,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 21,
+  "message": "Missing \\endcsname inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 21,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 21,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CM_chs.tex",
+  "line": 71,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <18.06749> not available size <17.28> substituted on input line 71",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CM_chs.tex",
+  "line": 71,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <15.05624> not available size <14.4> substituted on input line 71",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CM_chs.tex",
+  "line": 76,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <26.09749> not available size <24.88> substituted on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CM_chs.tex",
+  "line": 76,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <22.08249> not available size <20.74> substituted on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CM_chs.tex",
+  "line": 76,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <16.06> not available size <17.28> substituted on input line 76",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapter/vectorial-mechanics/Kinematics.tex",
+  "line": 21,
+  "message": "LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available size <10.95> substituted on input line 21",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 355,
+ "source": "GitHub",
+ "name": "Torenu/geometry_poster",
+ "url": "https://github.com/Torenu/geometry_poster",
+ "type": "Poster",
+ "version": "41f8f819cb647a8524d445bb7c16a6475f6285f3",
+ "files": 120,
+ "main": "geomposter-en.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "geomposter-en.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 57815,
+  "tail": "exit 12, PDF found\nmktextfm: `mf-nowin -progname=mf \\mode:=ljfour; mag:=1; ; nonstopmode; input Consolas' failed to make Consolas.tfm.\ngeomposter-en.xdv -> geomposter-en.pdf\n[1]\n88269 bytes written\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Missing character: There is no 1 (\"31) in font nullfont!\n  Missing character: There is no = (\"3D) in font nullfont!\n  Missing character: There is no 1 (\"31) in font nullfont!"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 27731,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 9,
+ "firstError": "Package fontspec Error: The font \"Consolas\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

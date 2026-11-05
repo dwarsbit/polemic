@@ -1,0 +1,610 @@
+[
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 99,
+  "message": "LaTeX Warning: Citation `Harvey:2018rdc' on page 1 undefined on input line 99",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 99,
+  "message": "LaTeX Warning: Citation `Harvey:2019qzs' on page 1 undefined on input line 99",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 99,
+  "message": "LaTeX Warning: Citation `Duan:2022ltz' on page 1 undefined on input line 99",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 99,
+  "message": "LaTeX Warning: Citation `Adamovic:2025efe' on page 1 undefined on input line 99",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 101,
+  "message": "LaTeX Warning: Citation `Bantay:1997ek' on page 1 undefined on input line 101",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 101,
+  "message": "LaTeX Warning: Citation `Dijkgraaf:1996xw' on page 1 undefined on input line 101",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 103,
+  "message": "LaTeX Warning: Citation `Narain:1986qm' on page 2 undefined on input line 103",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 103,
+  "message": "LaTeX Warning: Citation `Narain:1990mw' on page 2 undefined on input line 103",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 106,
+  "message": "Package amsmath Warning: Foreign command \\over; \\frac or \\genfrac should be used instead on input line 106",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 116,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 116,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 134,
+  "message": "LaTeX Warning: Citation `Harvey:2018rdc' on page 3 undefined on input line 134",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 141,
+  "message": "LaTeX Warning: Citation `Schellekens:1986mb' on page 3 undefined on input line 141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 245,
+  "message": "LaTeX Warning: Citation `Bantay:2016nkw' on page 6 undefined on input line 245",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 245,
+  "message": "LaTeX Warning: Citation `Bytsko:1998tb' on page 6 undefined on input line 245",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 245,
+  "message": "LaTeX Warning: Citation `Feingold:2013toa' on page 6 undefined on input line 245",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 264,
+  "message": "LaTeX Warning: Citation `Bantay:1997ek' on page 6 undefined on input line 264",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 334,
+  "message": "LaTeX Warning: Citation `Bantay:1997ek' on page 7 undefined on input line 334",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 334,
+  "message": "LaTeX Warning: Citation `Dijkgraaf:1996xw' on page 7 undefined on input line 334",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 363,
+  "message": "LaTeX Warning: Citation `Vafa:1986wx' on page 9 undefined on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 363,
+  "message": "LaTeX Warning: Citation `Freed:1987qk' on page 9 undefined on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 363,
+  "message": "LaTeX Warning: Citation `Dong:1997ea' on page 9 undefined on input line 363",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 367,
+  "message": "LaTeX Warning: Citation `Chang:2018iay' on page 9 undefined on input line 367",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 367,
+  "message": "LaTeX Warning: Citation `Lin:2021udi' on page 9 undefined on input line 367",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 427,
+  "message": "LaTeX Warning: Citation `Harvey:2018rdc' on page 10 undefined on input line 427",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 433,
+  "message": "LaTeX Warning: Citation `Bantay:2001ni' on page 10 undefined on input line 433",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 433,
+  "message": "LaTeX Warning: Citation `Harvey:2018rdc' on page 10 undefined on input line 433",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 433,
+  "message": "LaTeX Warning: Citation `Harvey:2019qzs' on page 10 undefined on input line 433",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 452,
+  "message": "LaTeX Warning: Citation `Harvey:2018rdc' on page 11 undefined on input line 452",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 457,
+  "message": "LaTeX Warning: Citation `Harvey:2018rdc' on page 11 undefined on input line 457",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 473,
+  "message": "LaTeX Warning: Citation `Forgacs:1988iw' on page 12 undefined on input line 473",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 578,
+  "message": "LaTeX Warning: Citation `Schellekens:1986mb' on page 15 undefined on input line 578",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 635,
+  "message": "LaTeX Warning: Citation `Gaberdiel:2016zke' on page 16 undefined on input line 635",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 635,
+  "message": "LaTeX Warning: Citation `Harvey:2018rdc' on page 16 undefined on input line 635",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 641,
+  "message": "LaTeX Warning: Citation `Schellekens:1992db' on page 16 undefined on input line 641",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 641,
+  "message": "LaTeX Warning: Citation `Conway:1999dov' on page 16 undefined on input line 641",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 665,
+  "message": "LaTeX Warning: Citation `dong2004holomorphic' on page 18 undefined on input line 665",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 665,
+  "message": "LaTeX Warning: Citation `Dong:2002fs' on page 18 undefined on input line 665",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 730,
+  "message": "LaTeX Warning: Citation `Barron:2013tka' on page 20 undefined on input line 730",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 784,
+  "message": "LaTeX Warning: Citation `Lam:2016sss' on page 21 undefined on input line 784",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 815,
+  "message": "LaTeX Warning: Citation `Harvey:2018rdc' on page 21 undefined on input line 815",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 820,
+  "message": "LaTeX Warning: Citation `Hoehn:2007vut' on page 22 undefined on input line 820",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 820,
+  "message": "LaTeX Warning: Citation `Lin:2019hks' on page 22 undefined on input line 820",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 847,
+  "message": "LaTeX Warning: Citation `Paquette:2017xui' on page 22 undefined on input line 847",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 847,
+  "message": "LaTeX Warning: Citation `Chen:2014aia' on page 22 undefined on input line 847",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 866,
+  "message": "LaTeX Warning: Citation `Harvey:2018rdc' on page 22 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 873,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 873",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 873,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 873",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 912,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 912",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 912,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 912",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 981,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 981",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 981,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 981",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 992,
+  "message": "LaTeX Warning: Citation `Yang:1987wk' on page 26 undefined on input line 992",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 992,
+  "message": "LaTeX Warning: Citation `Diatlyk:2023fwf' on page 26 undefined on input line 992",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 992,
+  "message": "LaTeX Warning: Citation `Thorngren:2021yso' on page 26 undefined on input line 992",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1079,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1079",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1079,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 1079",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1096,
+  "message": "LaTeX Warning: Citation `vanEkeren:2017scl' on page 29 undefined on input line 1096",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1120,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1120",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1120,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 1120",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1140,
+  "message": "LaTeX Warning: Citation `Bantay:2001ni' on page 30 undefined on input line 1140",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1162,
+  "message": "LaTeX Warning: Citation `DHoker:2024xor' on page 31 undefined on input line 1162",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1184,
+  "message": "LaTeX Warning: Citation `Conway:1999dov' on page 32 undefined on input line 1184",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1184,
+  "message": "LaTeX Warning: Citation `vanEkeren:2017scl' on page 32 undefined on input line 1184",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1200,
+  "message": "LaTeX Warning: Citation `Dong:2002fs' on page 33 undefined on input line 1200",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1202,
+  "message": "LaTeX Warning: Citation `Conway:1999dov' on page 33 undefined on input line 1202",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1205,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1205,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 1205",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1214,
+  "message": "LaTeX Warning: Citation `Goddard:1984vk' on page 34 undefined on input line 1214",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1214,
+  "message": "LaTeX Warning: Citation `Forgacs:1988iw' on page 34 undefined on input line 1214",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1248,
+  "message": "LaTeX Warning: Citation `Chen:2014aia' on page 34 undefined on input line 1248",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1280,
+  "message": "LaTeX Warning: Citation `Carnahan:2012gx' on page 35 undefined on input line 1280",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1280,
+  "message": "LaTeX Warning: Citation `Conway:1979qga' on page 35 undefined on input line 1280",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1341,
+  "message": "LaTeX Warning: Citation `DHoker:2024xor' on page 36 undefined on input line 1341",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": 1347,
+  "message": "LaTeX Warning: Citation `Conway:1979qga' on page 37 undefined on input line 1347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Hecke_Relations_Draft.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

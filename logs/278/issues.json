@@ -1,0 +1,234 @@
+[
+ {
+  "severity": "error",
+  "file": "Part II/II.4.1.tex",
+  "line": 77,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.4.1.tex",
+  "line": 225,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.4.1.tex",
+  "line": 249,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.4.2.tex",
+  "line": 14,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.4.2.tex",
+  "line": 76,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.5.tex",
+  "line": 15,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.6.tex",
+  "line": 73,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.7.tex",
+  "line": 27,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.7.tex",
+  "line": 101,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.9.tex",
+  "line": 104,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.10.tex",
+  "line": 47,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.10.tex",
+  "line": 129,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.11.tex",
+  "line": 29,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.11.tex",
+  "line": 31,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.12.tex",
+  "line": 98,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.12.tex",
+  "line": 102,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.12.tex",
+  "line": 175,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.12.tex",
+  "line": 238,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part II/II.12.tex",
+  "line": 246,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part III/III.3.tex",
+  "line": 5,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part VI/VI.2.3.tex",
+  "line": 25,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part VI/VI.2.3.tex",
+  "line": 27,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part VI/VI.2.4.tex",
+  "line": 182,
+  "message": "LaTeX Error: Counter too large.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part VI/VI.4.tex",
+  "line": 73,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Part VI/VI.4.tex",
+  "line": 74,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file unisong8a): Font unisong8a at 542 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexart Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package fancyhdr Warning: \\headheight is too small (12.0pt): Make it at least 14.45398pt, for example: \\setlength{\\headheight}{14.45398pt}. You might also make \\topmargin smaller: \\addtolength{\\topmargin}{-2.45398pt}",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Part",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ }
+]

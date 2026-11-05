@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": "beamertheme-tcolorbox-doc.tex",
+  "line": 72,
+  "message": "I can't write on file `./include/beamertheme-tcolorbox-doc-listing-1.tex'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-tcolorbox-doc.tex",
+  "line": 72,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "beamertheme-tcolorbox-doc.tex",
+  "line": 72,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

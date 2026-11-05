@@ -1,0 +1,31 @@
+{
+ "id": 903,
+ "source": "CTAN",
+ "name": "psu-thesis",
+ "url": "https://ctan.org/pkg/psu-thesis",
+ "type": "Thesis",
+ "version": "1.1",
+ "files": 9,
+ "main": "manual.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "manual.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1228
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 590,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

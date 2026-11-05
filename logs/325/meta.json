@@ -1,0 +1,31 @@
+{
+ "id": 325,
+ "source": "GitHub",
+ "name": "opieters/limecv",
+ "url": "https://github.com/opieters/limecv",
+ "type": "CV",
+ "version": "4aefad7dcb8a79fdc84406f3b2f9f31f9096e991",
+ "files": 24,
+ "main": "examples/mwe-latex.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "examples/mwe-latex.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1831
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1597,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 7,
+ "outcome": "both-ok"
+}

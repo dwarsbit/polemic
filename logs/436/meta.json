@@ -1,0 +1,32 @@
+{
+ "id": 436,
+ "source": "GitHub",
+ "name": "mrgrist/Grant-templates",
+ "url": "https://github.com/mrgrist/Grant-templates",
+ "type": "Proposal",
+ "version": "77babff4f8b346dd1e743a3f7a1f9b37be72d562",
+ "files": 10,
+ "main": "Cover letters/CoverNote.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "Cover letters/CoverNote.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 63678,
+  "tail": "exit 12, PDF found\n  Missing character: There is no D (\"44) in font nullfont!\n  Missing character: There is no e (\"65) in font nullfont!\n  Missing character: There is no a (\"61) in font nullfont!\n  Missing character: There is no r (\"72) in font nullfont!\n  Missing character: There is no C (\"43) in font nullfont!\n  Missing character: There is no o (\"6F) in font nullfont!\n  Missing character: There is no m (\"6D) in font nullfont!\n And 4196 more --- see log file 'CoverNote.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 201,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/CoverNote.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-fail"
+}

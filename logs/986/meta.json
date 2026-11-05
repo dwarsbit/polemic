@@ -1,0 +1,32 @@
+{
+ "id": 986,
+ "source": "CTAN",
+ "name": "beamertheme-focus",
+ "url": "https://ctan.org/pkg/beamertheme-focus",
+ "type": "Slides",
+ "version": "3.4.0",
+ "files": 19,
+ "main": "focus-demo.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "focus-demo.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 8694
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 7078,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

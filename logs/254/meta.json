@@ -1,0 +1,34 @@
+{
+ "id": 254,
+ "source": "GitHub",
+ "name": "yegor256/sqm",
+ "url": "https://github.com/yegor256/sqm",
+ "type": "Notes",
+ "version": "3ad494b9a60c8452b85aa1bab8d8be422abd7d2a",
+ "files": 297,
+ "main": "00-syllabus/00-syllabus.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (latexmkrc)",
+ "baseline": {
+  "main": "00-syllabus/00-syllabus.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 11755,
+  "tail": "exit 12, PDF found\n  Missing character: There is no Н (\"41D) in font larm1200!\n  Missing character: There is no а (\"430) in font larm1200!\n  Missing character: There is no з (\"437) in font larm1200!\n  Missing character: There is no в (\"432) in font larm1200!\n  Missing character: There is no а (\"430) in font larm1200!\n  Missing character: There is no н (\"43D) in font larm1200!\n  Missing character: There is no и (\"438) in font larm1200!\n And 4017 more --- see log file '00-syllabus.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 3356,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 25,
+ "warnings": 3,
+ "firstError": "Package iexec Error: You must run TeX processor with --shell-escape option.",
+ "outcome": "both-fail"
+}

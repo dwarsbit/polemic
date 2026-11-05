@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "error",
+  "file": "manuscript.tex",
+  "line": 142,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "components/elsarticle.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `components/elsarticle', but the document class provides `elsarticle'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package fixltx2e Warning: fixltx2e is not required with releases after 2015 All fixes are now in the LaTeX kernel. See the latexrelease package for details",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.tex",
+  "line": 102,
+  "message": "Package hyperref Warning: Option `bookmarks' has already been used, setting the option has no effect on input line 102",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [author-year]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.tex",
+  "line": 142,
+  "message": "LaTeX Warning: Hyper reference `c1' on page 1 undefined on input line 142",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.tex",
+  "line": 367,
+  "message": "Package longtable Warning: Column widths have changed in table 1 on input line 367",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "manuscript.tex",
+  "line": null,
+  "message": "Package longtable Warning: Table widths have changed. Rerun LaTeX",
+  "detail": [],
+  "hint": null
+ }
+]

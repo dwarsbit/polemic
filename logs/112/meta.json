@@ -1,0 +1,31 @@
+{
+ "id": 112,
+ "source": "GitHub",
+ "name": "okayama-daiki/latex-skeleton",
+ "url": "https://github.com/okayama-daiki/latex-skeleton",
+ "type": "Paper",
+ "version": "efab154cd2951637c2d61a4fae8e9df3b818e4ee",
+ "files": 14,
+ "main": "report.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "report.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 808,
+  "tail": "exit 12, PDF not found\n  Missing character: There is no u in font nullfont!\n  Missing character: There is no t in font nullfont!\n  Missing character: There is no f in font nullfont!\n  Missing character: There is no 8 in font nullfont!\n  Missing character: There is no - in font nullfont!\n  Missing character: There is no h in font nullfont!\n  Missing character: There is no o in font nullfont!\n And 6 more --- see log file '.tex/report.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 293,
+  "outputs": [
+   "log"
+  ],
+  "tail": "  Missing character: There is no o in font nullfont!\n And 6 more --- see log file 'build/report.log'\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

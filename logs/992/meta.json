@@ -1,0 +1,9 @@
+{
+ "id": 992,
+ "source": "CTAN",
+ "name": "beamertheme-nord",
+ "url": "https://ctan.org/pkg/beamertheme-nord",
+ "type": "Slides",
+ "outcome": "download-failed",
+ "error": "CTAN has no download for this package"
+}

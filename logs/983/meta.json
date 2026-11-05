@@ -1,0 +1,31 @@
+{
+ "id": 983,
+ "source": "CTAN",
+ "name": "bfh-ci",
+ "url": "https://ctan.org/pkg/bfh-ci",
+ "type": "Poster",
+ "version": "2.2.9",
+ "files": 54,
+ "main": "example/DEMO-BFHBeamer-Sidebar.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example/DEMO-BFHBeamer-Sidebar.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2980
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2392,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,32 @@
+{
+ "id": 219,
+ "source": "GitHub",
+ "name": "TingliangZhang/LatexTalk",
+ "url": "https://github.com/TingliangZhang/LatexTalk",
+ "type": "Slides",
+ "version": "1d95c475407b3d7eb84c7c93812c466cb0daada5",
+ "files": 44,
+ "main": "latex-talk.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "latex-talk.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 15659,
+  "tail": "exit 12, PDF not found\n! Emergency stop.\n<*> \\mode:=ljfour; mag:=1; ; nonstopmode; input OT\n                                                  \nTranscript written on mfput.log.\ngrep: OT.log: No such file or directory\nmktextfm: `mf-nowin -progname=mf \\mode:=ljfour; mag:=1; ; nonstopmode; input OT' failed to make OT.tfm.\nkpathsea: Appending font creation commands to missfont.log.\nFailure to make 'latex-talk.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 82794,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 9,
+ "warnings": 9,
+ "firstError": "Font TU/MicrosoftYaHei(0)/m/n/24.88=\"Microsoft YaHei/OT\" at 24.88pt not loadable: Metric (TFM) file or installed font not found.",
+ "outcome": "both-fail"
+}

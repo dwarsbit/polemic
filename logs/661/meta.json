@@ -1,0 +1,33 @@
+{
+ "id": 661,
+ "source": "arXiv",
+ "name": "arXiv:1206.1435",
+ "url": "https://arxiv.org/abs/1206.1435",
+ "type": "Paper",
+ "version": "1206.1435",
+ "files": 1,
+ "main": "1206.1435.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "1206.1435.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2425,
+  "tail": "exit 12, PDF found\nLatexmk: Log file says output to '1206.1435.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to '1206.1435.log' and/or above output for details\n\nLatexmk: Missing input file '1206.1435.toc' message in .log file:\n  No file 1206.1435.toc."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1053,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 6,
+ "warnings": 2,
+ "firstError": "LaTeX Error: Invalid UTF-8 byte \"A7.",
+ "outcome": "both-fail"
+}

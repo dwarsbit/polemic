@@ -1,0 +1,33 @@
+{
+ "id": 204,
+ "source": "GitHub",
+ "name": "davidstutz/latex-resources",
+ "url": "https://github.com/davidstutz/latex-resources",
+ "type": "Slides",
+ "version": "6de42dca4b15dd87e6467c48b64b44992dd7755d",
+ "files": 287,
+ "main": "algo-backprop/backprop.tex",
+ "catalogMain": "templates-rwth-master/thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "templates-rwth-master/thesis.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 5631,
+  "tail": "exit 12, PDF found\n\nLatexmk: Missing input file 'thesis.toc' message in .log file:\n  No file thesis.toc.\nLatexmk: Missing bbl file 'thesis.bbl' in following:\n No file thesis.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 635,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "baseline-only-fail"
+}

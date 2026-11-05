@@ -1,0 +1,690 @@
+[
+ {
+  "severity": "error",
+  "file": "document.tex",
+  "line": 4,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.4 \\directlua",
+   "              {if arg[9] == \"answers\" then tex.print(\"\\\\printanswers\") end}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "document.tex",
+  "line": 4,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "preamble.tex",
+  "line": 12,
+  "message": "LaTeX Error: Environment luacode* undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "preamble.tex",
+  "line": 13,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "preamble.tex",
+  "line": 15,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{luacode*}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "document.tex",
+  "line": 11,
+  "message": "LaTeX Error: Environment luacode* undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "document.tex",
+  "line": 22,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{luacode*}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "document.tex",
+  "line": 25,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.25 Matriculation number: \\directlua",
+   "                                     {tex.print(matriculationNumber)}\\\\"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "document.tex",
+  "line": 26,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.26 Student name: \\directlua",
+   "                             {tex.print(firstName .. \" \" .. lastName)}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 2,
+  "message": "LaTeX Error: Environment luacode* undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 19,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.19     assert(#",
+   "                 points == 2, \"expected two intersection points\")"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 33,
+  "message": "LaTeX Error: \\begin{questions} on input line 28 ended by \\end{luacode*}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 37,
+  "message": "LaTeX Error: Something's wrong--perhaps a missing \\item.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 37,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 42,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 45,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 46,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 47,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 48,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 65,
+  "message": "LaTeX Error: Environment luacode* undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 66,
+  "message": "LaTeX Error: Not allowed in LR mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 66,
+  "message": "Missing \\endgroup inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 66,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 72,
+  "message": "LaTeX Error: \\begin{tikzpicture} on input line 52 ended by \\end{luacode*}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 74,
+  "message": "LaTeX Error: \\begin{tikzpicture} on input line 52 ended by \\end{axis}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 75,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 75,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 75,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 75,
+  "message": "Infinite glue shrinkage found in a paragraph.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 75,
+  "message": "Too many }'s.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 75,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 75,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{tikzpicture}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 76,
+  "message": "Infinite glue shrinkage found in a paragraph.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 76,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{center}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 76,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 77,
+  "message": "Too many }'s.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 77,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{solution}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_calculus_segment.tex",
+  "line": 77,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 2,
+  "message": "LaTeX Error: Environment luacode* undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 14,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 18,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 25,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{luacode*}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 28,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.28 \\question"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 31,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 48,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 66,
+  "message": "LaTeX Error: Environment luacode* undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 67,
+  "message": "LaTeX Error: Not allowed in LR mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 67,
+  "message": "Missing \\endgroup inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 67,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 73,
+  "message": "LaTeX Error: \\begin{tikzpicture} on input line 51 ended by \\end{luacode*}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 75,
+  "message": "LaTeX Error: \\begin{tikzpicture} on input line 51 ended by \\end{axis}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 76,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 76,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 76,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 76,
+  "message": "Infinite glue shrinkage found in a paragraph.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 76,
+  "message": "Too many }'s.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 76,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 76,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{tikzpicture}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 77,
+  "message": "Infinite glue shrinkage found in a paragraph.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 77,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{center}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 77,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 81,
+  "message": "Argument of \\scprint has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 81,
+  "message": "Paragraph ended before \\scprint was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 81,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 81,
+  "message": "Argument of \\markboth  has an extra }.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 81,
+  "message": "Paragraph ended before \\markboth  was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 83,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 85,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 91,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{parts}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 91,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 92,
+  "message": "Too many }'s.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 92,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{solution}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_derivatives.tex",
+  "line": 92,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_eigenvalues.tex",
+  "line": 2,
+  "message": "LaTeX Error: Environment luacode* undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_eigenvalues.tex",
+  "line": 24,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{luacode*}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_eigenvalues.tex",
+  "line": 26,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.26 \\question"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_eigenvalues.tex",
+  "line": 29,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_eigenvalues.tex",
+  "line": 37,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_eigenvalues.tex",
+  "line": 43,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "taskpool/task_eigenvalues.tex",
+  "line": 48,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "document.tex",
+  "line": 35,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{questions}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "document.tex",
+  "line": 35,
+  "message": "Extra \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package luapackageloader Warning: You are using this package without LuaTeX. This is not supported. on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "taskpool/task_eigenvalues.tex",
+  "line": null,
+  "message": "Class exam Warning: Point totals have changed. Rerun to get point totals right",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,98 @@
+[
+ {
+  "severity": "error",
+  "file": "Doc/ms.tex",
+  "line": 103,
+  "message": "Package mathspec Error: `amsmath' must be loaded earlier than `mathspec'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Doc/ms.tex",
+  "line": 233,
+  "message": "LaTeX Error: File `ms_files/figure-latex/figName-1' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Doc/ms.tex",
+  "line": 244,
+  "message": "LaTeX Error: File `/Users/dli/Github/workflow_demo/Figs/plot' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package fixltx2e Warning: fixltx2e is not required with releases after 2015 All fixes are now in the LaTeX kernel. See the latexrelease package for details",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package inputenc Warning: inputenc package ignored with utf8 based engines",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Doc/ms.tex",
+  "line": 128,
+  "message": "Package microtype Warning: Unable to apply patch `footnote' on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Doc/ms.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Doc/ms.tex",
+  "line": 164,
+  "message": "LaTeX Font Warning: Font shape `TU/zi4/m/n' undefined using `TU/lmr/m/n' instead on input line 164",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Doc/ms.tex",
+  "line": 186,
+  "message": "LaTeX Font Warning: Font shape `TU/zi4/b/n' undefined using `TU/zi4/m/n' instead on input line 186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Doc/ms.tex",
+  "line": 224,
+  "message": "Package longtable Warning: Column widths have changed in table 3 on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Doc/ms.tex",
+  "line": null,
+  "message": "Package longtable Warning: Table widths have changed. Rerun LaTeX",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Doc/ms.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

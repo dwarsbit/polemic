@@ -1,0 +1,32 @@
+{
+ "id": 403,
+ "source": "GitHub",
+ "name": "Teddy-van-Jerry/SEU_Circuit_Report",
+ "url": "https://github.com/Teddy-van-Jerry/SEU_Circuit_Report",
+ "type": "Report",
+ "version": "de4b7f797d58a6102e3a55ace62d07d98aa1a4f8",
+ "files": 19,
+ "main": "Circuit Experiment Report.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Circuit Experiment Report.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 14481,
+  "tail": "exit 12, PDF not found\nLatexmk: Important warning:\n  (\\end occurred when \\ifx on line 96 was incomplete)\nLatexmk: Important warning:\n  (\\end occurred when \\ifx on line 96 was incomplete)\nLatexmk: Important warning:\n  (\\end occurred when \\ifx on line 96 was incomplete) \nLatexmk: Using biber to make bibliography file(s).\nFailure to make 'Circuit Experiment Report.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 6116,
+  "outputs": [
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 18,
+ "warnings": 5,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

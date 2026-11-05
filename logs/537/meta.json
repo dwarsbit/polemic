@@ -1,0 +1,32 @@
+{
+ "id": 537,
+ "source": "arXiv",
+ "name": "arXiv:2610.09628",
+ "url": "https://arxiv.org/abs/2610.09628",
+ "type": "Paper",
+ "version": "2610.09628",
+ "files": 10,
+ "main": "Gaia4CoreShift.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Gaia4CoreShift.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4443
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3669,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

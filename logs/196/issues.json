@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `../bpslides', but the document class provides `bpslides'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 54,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined using `OMS/cmsy/m/n' instead for symbol `textbraceleft' on input line 54",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 54,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmtt/m/it' undefined using `OMS/cmtt/m/n' instead for symbol `textbraceleft' on input line 54",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": 221,
+  "message": "LaTeX Font Warning: Command \\footnotesize invalid in math mode on input line 221",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/example.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

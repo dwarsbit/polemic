@@ -1,0 +1,9 @@
+{
+ "id": 929,
+ "source": "CTAN",
+ "name": "altacv",
+ "url": "https://ctan.org/pkg/altacv",
+ "type": "CV",
+ "outcome": "download-failed",
+ "error": "CTAN has no download for this package"
+}

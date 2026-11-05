@@ -1,0 +1,31 @@
+{
+ "id": 941,
+ "source": "CTAN",
+ "name": "nihbiosketch",
+ "url": "https://ctan.org/pkg/nihbiosketch",
+ "type": "CV",
+ "version": "",
+ "files": 5,
+ "main": "example-nihbiosketch.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "example-nihbiosketch.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 180292,
+  "tail": "exit 12, PDF found\n  Missing character: There is no . (\"2E) in font nullfont!\n  Missing character: There is no 9 (\"39) in font nullfont!\n  Missing character: There is no 5 (\"35) in font nullfont!\n  Missing character: There is no . (\"2E) in font nullfont!\n  Missing character: There is no 9 (\"39) in font nullfont!\n  Missing character: There is no 5 (\"35) in font nullfont!\n  Missing character: There is no . (\"2E) in font nullfont!\n And 1259 more --- see log file 'example-nihbiosketch.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 35753,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 11,
+ "warnings": 1215,
+ "firstError": "Package fontspec Error: The font \"Arial\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

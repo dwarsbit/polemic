@@ -1,0 +1,32 @@
+{
+ "id": 67,
+ "source": "GitHub",
+ "name": "partigabor/phd-thesis-template",
+ "url": "https://github.com/partigabor/phd-thesis-template",
+ "type": "Thesis",
+ "version": "722ef2fb6c788ad8694a0923a71c964d16b36ed0",
+ "files": 51,
+ "main": "thesis.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 80684,
+  "tail": "exit 12, PDF found\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no x (\"78) in font nullfont!\n  Missing character: There is no   (U+0020) in font [academicons.otf]/OT!\n  Missing character: There is no   (U+0020) in font [academicons.otf]/OT!\n  Missing character: There is no   (U+0020) in font [academicons.otf]/OT:language\n  Missing character: There is no   (U+0020) in font [academicons.otf]/OT:language=dflt;!\n And 893 more --- see log file 'thesis.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 406,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/thesis.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

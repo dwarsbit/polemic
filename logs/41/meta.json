@@ -1,0 +1,32 @@
+{
+ "id": 41,
+ "source": "GitHub",
+ "name": "c1ydehhx/NTUT-Thesis-Template",
+ "url": "https://github.com/c1ydehhx/NTUT-Thesis-Template",
+ "type": "Thesis",
+ "version": "b77553871a117bfc3c93cde1460a3e1a635c8dd7",
+ "files": 26,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 47009,
+  "tail": "exit 12, PDF found\n  Label `fig: image' multiply defined\n  Label `fig: image' multiply defined\n  Label `tab: complexity' multiply defined\n  Label `fig: image' multiply defined\n  Label `tab: complexity' multiply defined\n  Label `fig: image' multiply defined\n  Missing character: There is no [ (\"5B) in font nullfont!\n And 1771 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1326,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 154,
+ "warnings": 5,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

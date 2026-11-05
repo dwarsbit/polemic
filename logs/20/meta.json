@@ -1,0 +1,33 @@
+{
+ "id": 20,
+ "source": "GitHub",
+ "name": "ArturB/WUT-Thesis",
+ "url": "https://github.com/ArturB/WUT-Thesis",
+ "type": "Thesis",
+ "version": "7391c2874e4d668a59c053267f85e1ecf4dfb882",
+ "files": 55,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 18231
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 10531,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

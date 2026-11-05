@@ -1,0 +1,31 @@
+{
+ "id": 402,
+ "source": "GitHub",
+ "name": "quang-tran0/HCMUT-LaTeX-Template",
+ "url": "https://github.com/quang-tran0/HCMUT-LaTeX-Template",
+ "type": "Report",
+ "version": "e6a2ea16ebbfd62c589157937d3a9aa72e7748b4",
+ "files": 16,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3903
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2895,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,33 @@
+{
+ "id": 442,
+ "source": "GitHub",
+ "name": "hehli/comp-stats-cheatsheet",
+ "url": "https://github.com/hehli/comp-stats-cheatsheet",
+ "type": "Cheat sheet",
+ "version": "7e93d2802e4dd110d49a08b7f91dd1c80e7b3b2b",
+ "files": 56,
+ "main": "formulary.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "formulary.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 13395,
+  "tail": "exit 12, PDF found\nLatexmk: Getting log file 'formulary.log'\nLatexmk: Examining 'formulary.fls'\nLatexmk: Examining 'formulary.log'\nLatexmk: Log file says output to 'formulary.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'formulary.log' and/or above output for details"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 3733,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 27,
+ "firstError": "LaTeX Error: No counter 'methodBoxCounter' defined.",
+ "outcome": "both-fail"
+}

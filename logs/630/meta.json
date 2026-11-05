@@ -1,0 +1,32 @@
+{
+ "id": 630,
+ "source": "arXiv",
+ "name": "arXiv:2611.04433",
+ "url": "https://arxiv.org/abs/2611.04433",
+ "type": "Paper",
+ "version": "2611.04433",
+ "files": 18,
+ "main": "MA_PortSel_RPred.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "MA_PortSel_RPred.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4206
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3762,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

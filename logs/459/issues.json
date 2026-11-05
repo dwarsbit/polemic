@@ -1,0 +1,568 @@
+[
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 10,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.10 \\setmainfont",
+   "                 {Comic Neue}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 10,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 11,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.11 \\setCJKmainfont",
+   "                    {LXGW WenKai}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 李 (U+674E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 航 (U+822A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 《 (U+300A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 统 (U+7EDF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 计 (U+8BA1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 学 (U+5B66)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 习 (U+4E60)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 方 (U+65B9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 法 (U+6CD5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 》 (U+300B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 笔 (U+7B14)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 记 (U+8BB0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 从 (U+4ECE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 原 (U+539F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 理 (U+7406)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 到 (U+5230)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 实 (U+5B9E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 现 (U+73B0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character ： (U+FF1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 基 (U+57FA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 于 (U+4E8E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 作 (U+4F5C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character 者 (U+8005)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 167,
+  "message": "LaTeX Error: Unicode character ： (U+FF1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 声 (U+58F0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 明 (U+660E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character ： (U+FF1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 本 (U+672C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 笔 (U+7B14)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 记 (U+8BB0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 仅 (U+4EC5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 于 (U+4E8E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 学 (U+5B66)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 习 (U+4E60)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 交 (U+4EA4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 流 (U+6D41)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character ， (U+FF0C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 未 (U+672A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 经 (U+7ECF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 人 (U+4EBA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 同 (U+540C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 意 (U+610F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 不 (U+4E0D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 得 (U+5F97)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 任 (U+4EFB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 何 (U+4F55)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 商 (U+5546)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 业 (U+4E1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 传 (U+4F20)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 播 (U+64AD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 32,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <30> not available size <24.88> substituted on input line 32",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 147,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <11.5> not available size <12> substituted on input line 147",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 147,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <11.5> not available size <12> substituted on input line 147",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 147,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <11.5> not available size <12> substituted on input line 147",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 147,
+  "message": "LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <11.5> not available size <12> substituted on input line 147",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 149,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available size <10.95> substituted on input line 149",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 149,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <10.5> not available size <10.95> substituted on input line 149",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 149,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <10.5> not available size <10.95> substituted on input line 149",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 149,
+  "message": "LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.5> not available size <10.95> substituted on input line 149",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 152,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available size <5> substituted on input line 152",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 152,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available size <5> substituted on input line 152",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 152,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available size <5> substituted on input line 152",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 167,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13> not available size <12> substituted on input line 167",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": 169,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <8.5> not available size <8> substituted on input line 169",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "cover.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 5.12pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "error",
+  "file": "McDowell-CV/main.tex",
+  "line": 49,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "McDowell-CV/main.tex",
+  "line": 49,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "McDowell-CV/main.tex",
+  "line": 49,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "McDowell-CV/main.tex",
+  "line": 53,
+  "message": "I can't find file `.fd'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "McDowell-CV/main.tex",
+  "line": 53,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "McDowell-CV/main.tex",
+  "line": 53,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

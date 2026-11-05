@@ -1,0 +1,32 @@
+{
+ "id": 151,
+ "source": "GitHub",
+ "name": "Cmouzouni/verifier-is-all-you-need",
+ "url": "https://github.com/Cmouzouni/verifier-is-all-you-need",
+ "type": "Paper",
+ "version": "0405224912c7fe02f232ee75f490b2f20dceaec0",
+ "files": 141,
+ "main": "paper/main_conference.tex",
+ "catalogMain": "paper/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "paper/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2307
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1853,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 7,
+ "outcome": "both-ok"
+}

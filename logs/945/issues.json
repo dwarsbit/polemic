@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": 17,
+  "message": "LaTeX Font Warning: Font shape `T1/cantarell-TLF/m/sc' undefined using `T1/cantarell-TLF/m/n' instead on input line 17",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sample.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

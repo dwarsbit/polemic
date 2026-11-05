@@ -1,0 +1,31 @@
+{
+ "id": 250,
+ "source": "GitHub",
+ "name": "linevych/lecture-notes",
+ "url": "https://github.com/linevych/lecture-notes",
+ "type": "Notes",
+ "version": "47b94f1ffa0bbc15f6e536e550af3c9c69e18363",
+ "files": 250,
+ "main": "cad/header.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "cad/header.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 15645,
+  "tail": "exit 12, PDF not found\nFailure to make 'header.xdv'\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Missing character: There is no а (U+0430) in font [lmroman12-regular]:mapping=t\n  Missing character: There is no а (U+0430) in font [lmroman12-regular]:mapping=tex-text;!\n  Missing character: There is no а (U+0430) in font [lmroman12-regular]:mapping=t\n  Missing character: There is no а (U+0430) in font [lmroman12-regular]:mapping=tex-text;!\n  Missing character: There is no а (U+0430) in font [lmroman12-regular]:mapping=t\n  Missing character: There is no а (U+0430) in font [lmroman12-regular]:mapping=tex-text;!"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 14992,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 4,
+ "warnings": 3,
+ "firstError": "Package fontspec Error: The font \"Times New Roman\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

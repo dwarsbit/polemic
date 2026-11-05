@@ -1,0 +1,31 @@
+{
+ "id": 469,
+ "source": "GitHub",
+ "name": "b-mehta/maths-notes",
+ "url": "https://github.com/b-mehta/maths-notes",
+ "type": "Letter",
+ "version": "90283a8e078a22cfc60c05c3ff3f7256be66e422",
+ "files": 83,
+ "main": "ii/letter.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ii/letter.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 927
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 555,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

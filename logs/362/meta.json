@@ -1,0 +1,32 @@
+{
+ "id": 362,
+ "source": "GitHub",
+ "name": "constraintAutomaton/rule-based-approach-for-source-selection-in-LTQP",
+ "url": "https://github.com/constraintAutomaton/rule-based-approach-for-source-selection-in-LTQP",
+ "type": "Poster",
+ "version": "3582e4a1e57d202c3c2fcb0ba509caa4c343327a",
+ "files": 34,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5335
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5051,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

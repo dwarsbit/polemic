@@ -1,0 +1,32 @@
+{
+ "id": 384,
+ "source": "GitHub",
+ "name": "matilde-varela/ISEP-PESTI-Report-2025",
+ "url": "https://github.com/matilde-varela/ISEP-PESTI-Report-2025",
+ "type": "Report",
+ "version": "aa326cf88c80726165fcd08d7f01c6aa8a91b466",
+ "files": 98,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 34063
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 30351,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 16,
+ "outcome": "both-ok"
+}

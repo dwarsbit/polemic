@@ -1,0 +1,32 @@
+{
+ "id": 150,
+ "source": "GitHub",
+ "name": "Cactusolo/PD_manuscript",
+ "url": "https://github.com/Cactusolo/PD_manuscript",
+ "type": "Paper",
+ "version": "63dc1bf4dacb69d78a3cee0bbbf2c7334d11fea5",
+ "files": 30,
+ "main": "Doc/ms.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "Doc/ms.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2750,
+  "tail": "exit 12, PDF found\n  ! LaTeX Error: File `/Users/dli/Github/workflow_demo/Figs/plot' not found.\nLatexmk: Missing input file 'ms_files/figure-latex/figName-1' message in .log file:\n  ! LaTeX Error: File `ms_files/figure-latex/figName-1' not found.\nLatexmk: Missing input file '/Users/dli/Github/workflow_demo/Figs/plot' message in .log file:\n  ! LaTeX Error: File `/Users/dli/Github/workflow_demo/Figs/plot' not found.\nms.xdv -> ms.pdf\n[1][2][3][4]\n37222 bytes written"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1108,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 9,
+ "firstError": "Package mathspec Error: `amsmath' must be loaded earlier than `mathspec'.",
+ "outcome": "both-fail"
+}

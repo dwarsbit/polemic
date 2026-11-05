@@ -1,0 +1,31 @@
+{
+ "id": 222,
+ "source": "GitHub",
+ "name": "hoseinshetaie/UT_LaTeX_Present_Temp",
+ "url": "https://github.com/hoseinshetaie/UT_LaTeX_Present_Temp",
+ "type": "Slides",
+ "version": "4867e91e0d4dc04d19d4073b7ac5ed9b9561d0c1",
+ "files": 135,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 7111
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 6202,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

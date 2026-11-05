@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 61,
+  "message": "Class acmart Warning: A possible image without description on input line 61",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/05_chameleon.tex",
+  "line": 83,
+  "message": "Class acmart Warning: A possible image without description on input line 83",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09_appendix.tex",
+  "line": 405,
+  "message": "Class acmart Warning: A possible image without description on input line 405",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09_appendix.tex",
+  "line": 478,
+  "message": "Class acmart Warning: A possible image without description on input line 478",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09_appendix.tex",
+  "line": 624,
+  "message": "Class acmart Warning: A possible image without description on input line 624",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "sections/09_appendix.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Class acmart Warning: Some images may lack descriptions. ACM is committed to complying with the upcoming US ADA https://accessiblyapp.com/accessibility-compliance/ada/ and European Accessibility Act (EAA) https://accessiblyapp.com/accessibility-compliance/eaa/ regulations by actively working to ensure our publications and application services are accessible to individuals with disabilities, adhering to the WCAG guidelines to provide a seamless experience for all users, and regularly reviewing our accessibility practices to maintain compliance with evolving standards. To this end, we strongly encourage our authors to provide alternative text and captions for images and multimedia content. It is also important to optimize color contrast for the visually impaired. Taking these important steps when creating your papers will ensure that the widest possible audience can ingest your work",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Class acmart Warning: ACM reference format is mandatory for papers over one page. Please add printacmref=true to the \\settopmatter command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Class acmart Warning: CCS concepts are mandatory for papers over two pages",
+  "detail": [],
+  "hint": null
+ }
+]

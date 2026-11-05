@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "draft-2026-10.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ }
+]

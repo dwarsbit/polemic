@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package babel Warning: Name 'polutonikogreek' is deprecated. Use 'polytonicgreek' instead. Reported on input line 4478",
+  "detail": [],
+  "hint": null
+ }
+]

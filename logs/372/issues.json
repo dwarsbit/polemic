@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "template/dbt.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `template/dbt', but the package provides `dbt'",
+  "detail": [],
+  "hint": null
+ }
+]

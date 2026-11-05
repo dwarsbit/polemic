@@ -1,0 +1,33 @@
+{
+ "id": 515,
+ "source": "arXiv",
+ "name": "arXiv:2611.01138",
+ "url": "https://arxiv.org/abs/2611.01138",
+ "type": "Paper",
+ "version": "2611.01138",
+ "files": 5,
+ "main": "Arxiv.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Arxiv.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4312,
+  "tail": "exit 12, PDF found\n      Refer to 'Arxiv.log' and/or above output for details\n\nLatexmk: Missing bbl file 'Arxiv.bbl' in following:\n No file Arxiv.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 956,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 9,
+ "warnings": 6,
+ "firstError": "LaTeX Error: Command \\c@proposition already defined.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `pdftex' has already been used, setting the option has no effect on input line 1369",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package siunitx Warning: Option \"binary-units\" has been removed in this release",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package soulutf8 Warning: This package is obsolete, use the soul package directly. on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/appendix-more.tex",
+  "line": null,
+  "message": "Package marginnote Warning: Consecutive even pages found. Note, it is not recommended to use consecutive even pages in a double-ended document. The pages of your document should always be a sequence: odd-even-odd-even-... Maybe you've forgotten a \\cleardoublepage before changing the page numbering on page 10",
+  "detail": [],
+  "hint": null
+ }
+]

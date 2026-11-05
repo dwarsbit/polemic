@@ -1,0 +1,490 @@
+[
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 9,
+  "message": "Package fontspec Error: The font \"Equity Text A\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 10,
+  "message": "Package fontspec Error: The font \"Concourse T3\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 10,
+  "message": "Font TU/ConcourseT3(0)/m/n/14.4=\"Concourse T3\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 11,
+  "message": "Package fontspec Error: The font \"Triplicate T4\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 29,
+  "message": "Font TU/ConcourseT3(0)/m/n/6=\"Concourse T3\" at 6.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "Font TU/ConcourseT3(0)/m/n/20.74=\"Concourse T3\" at 20.74pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "Font TU/ConcourseT3(0)/m/n/35.83=\"Concourse T3\" at 35.83pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "Font TU/TriplicateT4(0)/m/n/14.4=\"Triplicate T4\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "Font TU/EquityTextA(0)/m/n/14.4=\"Equity Text A\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "Font TU/EquityTextA(0)/m/n/10=\"Equity Text A\" at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "Font TU/EquityTextA(0)/m/n/7=\"Equity Text A\" at 7.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "Font TU/ConcourseT3(0)/m/n/10=\"Concourse T3\" at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "Font TU/ConcourseT3(0)/m/n/7=\"Concourse T3\" at 7.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "Font TU/ConcourseT3(0)/m/it/10=\"Concourse T3\" at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "Font TU/ConcourseT3(0)/m/it/7=\"Concourse T3\" at 7.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character :).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character /).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character v).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character y).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character g).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "Font TU/ConcourseT3(0)/m/n/4=\"Concourse T3\" at 4.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 61,
+  "message": "Font TU/ConcourseT3(0)/m/n/29.86=\"Concourse T3\" at 29.86pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 80,
+  "message": "Font TU/ConcourseT3(0)/m/n/17.28=\"Concourse T3\" at 17.28pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "Font TU/TriplicateT4(0)/b/n/14.4=\"Triplicate T4\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character h).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character t).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character p).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character s).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character :).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character /).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character i).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character n).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character e).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character r).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character .).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character g).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character u).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character o).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character q).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "\\textfont 0 is undefined (character l).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "els2015-qtools/slides.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "els2015-qtools/slides.tex",
+  "line": 40,
+  "message": "LaTeX Font Warning: Font shape `TU/ConcourseT3(0)/m/it' undefined using `TU/ConcourseT3(0)/m/n' instead on input line 40",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU/TriplicateT4(0)/b/n' undefined using `TU/TriplicateT4(0)/m/n' instead on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "els2015-qtools/slides.tex",
+  "line": 159,
+  "message": "LaTeX Font Warning: Font shape `TU/ConcourseT3(0)/b/n' undefined using `TU/ConcourseT3(0)/m/n' instead on input line 159",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "els2015-qtools/slides.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "id": 184,
+ "source": "GitHub",
+ "name": "linas-p/VU-MIF-II-slides-template-1",
+ "url": "https://github.com/linas-p/VU-MIF-II-slides-template-1",
+ "type": "Slides",
+ "version": "976fbc4835988a424649d484d3621533ad4008c2",
+ "files": 22,
+ "main": "slides.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "slides.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 13974
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 8185,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

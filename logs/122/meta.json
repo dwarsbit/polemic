@@ -1,0 +1,32 @@
+{
+ "id": 122,
+ "source": "GitHub",
+ "name": "h-hg/latex-response-template",
+ "url": "https://github.com/h-hg/latex-response-template",
+ "type": "Paper",
+ "version": "adf9fb20b60a4f490bcf1dc9dc5b9a9d1fbacd60",
+ "files": 12,
+ "main": "letter.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "letter.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12030
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 6423,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

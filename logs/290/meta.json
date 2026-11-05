@@ -1,0 +1,32 @@
+{
+ "id": 290,
+ "source": "GitHub",
+ "name": "kahei/parser_book",
+ "url": "https://github.com/kahei/parser_book",
+ "type": "Book",
+ "version": "1e4eed5aea8d1ace700f299bb9db1f4ad830c39f",
+ "files": 133,
+ "main": "publish/main.tex",
+ "engine": "xelatex",
+ "detectedEngine": "pdflatex (inferred)",
+ "baseline": {
+  "main": "publish/main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 482,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'main.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'main.log' and/or above output for details\n\nLatexmk: Missing input file 'asciibook.cls' message in .log file:\n  ! LaTeX Error: File `asciibook.cls' not found."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 298,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `asciibook.cls' not found.",
+ "outcome": "both-fail"
+}

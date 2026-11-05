@@ -1,0 +1,32 @@
+{
+ "id": 192,
+ "source": "GitHub",
+ "name": "zerocracy/sales-deck",
+ "url": "https://github.com/zerocracy/sales-deck",
+ "type": "Slides",
+ "version": "b9b9722e0bec52b4b9c5944e014c29c03d4b00fd",
+ "files": 34,
+ "main": "founder-pitch.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (latexmkrc)",
+ "baseline": {
+  "main": "founder-pitch.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3838,
+  "tail": "exit 12, PDF found\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'founder-pitch.log' and/or above output for details\n\nsh: 1: inkscape: not found\nsh: 1: inkscape: not found\nfounder-pitch.xdv -> founder-pitch.pdf\n[1][2][3][4][5][6][7]\n13297 bytes written"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 231,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/founder-pitch.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

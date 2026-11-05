@@ -1,0 +1,178 @@
+[
+ {
+  "severity": "error",
+  "file": "main.tex",
+  "line": 82,
+  "message": "LaTeX Error: Loading a class or package in a group.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex4ei/latex4ei_sheet.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `latex4ei/latex4ei_sheet', but the document class provides `latex4ei_sheet'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package scrartcl Warning: Deprecated option `6pt' ignored, because `version=first' not set. Note: To avoid this warning and achieve the desired functionality, you should use the `fontsize=6pt' option instead of the `6pt' option, which has been deprecated for more than 20 years",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex4ei/scientific.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `latex4ei/scientific', but the package provides `scientific'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex4ei/latex4ei_unicode.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `latex4ei/latex4ei_unicode', but the package provides `latex4ei_unicode'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex4ei/latex4ei_boxes.sty",
+  "line": null,
+  "message": "LaTeX Warning: You have requested package `latex4ei/latex4ei_boxes', but the package provides `latex4ei_boxes'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex4ei/latex4ei_sheet.cls",
+  "line": 99,
+  "message": "Class scrartcl Warning: Usage of package `fancyhdr' together with a KOMA-Script class is not recommended. I'd suggest to use package `scrlayer' or `scrlayer-scrpage', because they support KOMA-Script classes. With `fancyhdr' several features of class `scrartcl' like options `headsepline', `footsepline' or command `\\MakeMarkcase' and the commands `\\setkomafont' and `\\addtokomafont' for the page style elements need explicite user intervention to work. Nevertheless, using requested package `fancyhdr' on input line 99",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex4ei/latex4ei_sheet.cls",
+  "line": 132,
+  "message": "Class scrartcl Warning: Usage of package `titlesec' together with a KOMA-Script class is not recommended. I'd suggest to use KOMA-Script features like \\setkomafont, \\RedeclareSectionCommand, \\sectionlinesformat and several others to re-configure section headings. Nevertheless, using requested package `titlesec' on input line 132",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\section detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\subsection detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\subsubsection detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\paragraph detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\subparagraph detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex4ei/latex4ei_sheet.cls",
+  "line": 155,
+  "message": "Class scrartcl Warning: Usage of package `parskip' together with a KOMA-Script class is not recommended. I'd suggest to use option `parskip' with one of it's several values. Nevertheless, using requested package `parskip' on input line 155",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [6pt,landscape]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package siunitx Warning: Option \"math-rm\" has been removed in this release",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package siunitx Warning: Option \"text-rm\" has been removed in this release",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "lectures/lec01_the-geometry-of-linear-equations.tex",
+  "line": 268,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "lectures/lec01_the-geometry-of-linear-equations.tex",
+  "line": 311,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 311",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 299,
+  "message": "Package caption Warning: Unused \\captionsetup[table] on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 318,
+  "message": "Package caption Warning: Unused \\captionsetup[figure] on input line 318",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 341,
+  "message": "Package caption Warning: Unused \\captionsetup[lstlisting] on input line 341",
+  "detail": [],
+  "hint": null
+ }
+]

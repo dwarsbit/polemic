@@ -1,0 +1,33 @@
+{
+ "id": 36,
+ "source": "GitHub",
+ "name": "tenhobi/bachelors-thesis",
+ "url": "https://github.com/tenhobi/bachelors-thesis",
+ "type": "Thesis",
+ "version": "090534eb635b6a7b33813bbcd97a1ef102664fa7",
+ "files": 102,
+ "main": "cover.tex",
+ "catalogMain": "thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 24276,
+  "tail": "exit 12, PDF found\nLatexmk: Missing input file 'thesis.lol' message in .log file:\n  No file thesis.lol.\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: Missing input file 'thesis.lot' message in .log file:\n  No file thesis.lot.\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: Using biber to make bibliography file(s).\nLatexmk: Using biber to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 683,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "baseline-only-fail"
+}

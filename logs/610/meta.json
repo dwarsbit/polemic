@@ -1,0 +1,33 @@
+{
+ "id": 610,
+ "source": "arXiv",
+ "name": "arXiv:2611.04644",
+ "url": "https://arxiv.org/abs/2611.04644",
+ "type": "Paper",
+ "version": "2611.04644",
+ "files": 2,
+ "main": "Additive_energy,_Freiman_s_lemma,_and_an_edge-isoperimetric_problem_on_the_boolean_cube.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Additive_energy,_Freiman_s_lemma,_and_an_edge-isoperimetric_problem_on_the_boolean_cube.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3482,
+  "tail": "exit 12, PDF found\nLatexmk: Getting log file 'Additive_energy,_Freiman_s_lemma,_and_an_edge-isoperimetric_problem_on_the_boolean_cube.log'\nLatexmk: Examining 'Additive_energy,_Freiman_s_lemma,_and_an_edge-isoperimetric_problem_on_the_boolean_cube.fls'\nLatexmk: Examining 'Additive_energy,_Freiman_s_lemma,_and_an_edge-isoperimetric_problem_on_the_boolean_cube.log'\nLatexmk: Log file says output to 'Additive_energy,_Freiman_s_lemma,_and_an_edge-isoperimetric_problem_on_the_boolean_cube.pdf'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'Additive_energy,_Freiman_s_lemma,_and_an_edge-isoperimetric_problem_on_the_boolean_cube.log' and/or above output for details"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 979,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 8,
+ "warnings": 1,
+ "firstError": "LaTeX Error: Command \\c@lemma already defined.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 346,
+ "source": "GitHub",
+ "name": "alessant/ALECS---Another-LatEx-Cv-for-Scientists",
+ "url": "https://github.com/alessant/ALECS---Another-LatEx-Cv-for-Scientists",
+ "type": "CV",
+ "version": "fe798ed9f73fd2ece1798af07f62e86cd80c9097",
+ "files": 21,
+ "main": "alecs.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "alecs.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 5266,
+  "tail": "exit 12, PDF not found\nLatexmk: ========== Incomplete .bcf file 'alecs.bcf'.\n  I'll rename the file to 'alecs.bcf-SAVE-ERROR'.\n  I'll rename the bbl file to 'alecs.bbl-SAVE-ERROR',\n  in case the incomplete bcf file was a result of error in\n  'xelatex' caused by an error in the bbl file.\nFailure to make 'alecs.xdv'\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Missing character: There is no ; (\"3B) in font nullfont!"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1733,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 8,
+ "warnings": 6,
+ "firstError": "Missing } inserted.",
+ "outcome": "both-fail"
+}

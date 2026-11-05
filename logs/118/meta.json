@@ -1,0 +1,30 @@
+{
+ "id": 118,
+ "source": "GitHub",
+ "name": "objectionary/reducing-programs-to-objects",
+ "url": "https://github.com/objectionary/reducing-programs-to-objects",
+ "type": "Paper",
+ "version": "a83dd34af7c6314e7c6366383defae56a05bdcc7",
+ "files": 33,
+ "main": "paper.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "paper.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5019
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 686,
+  "outputs": [
+   "log"
+  ],
+  "tail": "         i.e., the actual target directory is 'build/_eolang/'.\n !! However, I'm not configured to make it, so you'll have to make it yourself.\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "polemic-only-fail"
+}

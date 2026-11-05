@@ -1,0 +1,32 @@
+{
+ "id": 255,
+ "source": "GitHub",
+ "name": "Open-Astrophysics-Bookshelf/stellar-physics-notes",
+ "url": "https://github.com/Open-Astrophysics-Bookshelf/stellar-physics-notes",
+ "type": "Notes",
+ "version": "afecac238cf47482e8d566bd27b3f634fca4d5cb",
+ "files": 122,
+ "main": "sample-handout.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "sample-handout.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1967,
+  "tail": "exit 12, PDF not found\n\nLatexmk: Missing bbl file 'sample-handout.bbl' in following:\n No file sample-handout.bbl.\nLatexmk: Missing input file 'starType.sty' message in .log file:\n  ! LaTeX Error: File `starType.sty' not found.\nLatexmk: Foreign .bbl file, 'sample-handout.bbl',\nappears **not** to be associated with .aux file from this run.\nFailure to make 'sample-handout.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 597,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 2,
+ "firstError": "LaTeX Error: File `starType.sty' not found.",
+ "outcome": "both-fail"
+}

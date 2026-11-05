@@ -1,0 +1,32 @@
+{
+ "id": 253,
+ "source": "GitHub",
+ "name": "Open-Astrophysics-Bookshelf/star_formation_notes",
+ "url": "https://github.com/Open-Astrophysics-Bookshelf/star_formation_notes",
+ "type": "Notes",
+ "version": "2bc4d08bed04b1844949d6c1663d5e0b92c0a491",
+ "files": 156,
+ "main": "sfnotes.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "sfnotes.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 25352
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 24507,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 89,
+ "outcome": "both-ok"
+}

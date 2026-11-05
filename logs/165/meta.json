@@ -1,0 +1,32 @@
+{
+ "id": 165,
+ "source": "GitHub",
+ "name": "kloysova/surikumi",
+ "url": "https://github.com/kloysova/surikumi",
+ "type": "Paper",
+ "version": "f2d84e121e11b2d351e9460666f06a21c6cd8460",
+ "files": 46,
+ "main": "examples/catalog/kaisetsu-catalog.tex",
+ "catalogMain": "font-development/sugaku-fourier/sugaku-fourier-proof.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "font-development/sugaku-fourier/sugaku-fourier-proof.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 462,
+  "tail": "exit 12, PDF not found\n  Missing character: There is no j in font nullfont!\n  Missing character: There is no l in font nullfont!\n  Missing character: There is no r in font nullfont!\n  Missing character: There is no e in font nullfont!\n  Missing character: There is no q in font nullfont!\n  Missing character: There is no = in font nullfont!\n  Missing character: There is no j in font nullfont!\n And 197 more --- see log file 'sugaku-fourier-proof.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 265,
+  "outputs": [
+   "log"
+  ],
+  "tail": "  Missing character: There is no j in font nullfont!\n And 197 more --- see log file 'build/kaisetsu-catalog.log'\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

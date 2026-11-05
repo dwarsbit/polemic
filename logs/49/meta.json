@@ -1,0 +1,31 @@
+{
+ "id": 49,
+ "source": "GitHub",
+ "name": "holgern/TUB_PhDThesisTemplate",
+ "url": "https://github.com/holgern/TUB_PhDThesisTemplate",
+ "type": "Thesis",
+ "version": "f1f36a42437966ea7037ac1496224f08d42308c0",
+ "files": 53,
+ "main": "thesis.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 22710
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2353,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 11,
+ "firstError": "I can't write on file `./3/TikzPictures/thesis-figure0.md5'.",
+ "outcome": "polemic-only-fail"
+}

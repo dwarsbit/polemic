@@ -1,0 +1,58 @@
+[
+ {
+  "severity": "warning",
+  "file": "beamertheme-light-example.tex",
+  "line": null,
+  "message": "Package fontspec Warning: Ignored LuaTeX-only feature: 'Renderer=Full/Basic/Node/Base/HarfBuzz'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "beamertheme-light-example.tex",
+  "line": 13,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "beamertheme-light-example.tex",
+  "line": 13,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "beamertheme-light-example.tex",
+  "line": 13,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\dagger' on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "beamertheme-light-example.tex",
+  "line": 13,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\ddagger' on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "beamertheme-light-example.tex",
+  "line": 13,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mrfnt' on input line 13",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "beamertheme-light-example.tex",
+  "line": 13,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\ast' on input line 13",
+  "detail": [],
+  "hint": null
+ }
+]

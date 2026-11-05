@@ -1,0 +1,754 @@
+[
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 342,
+  "message": "LaTeX Error: Command \\theHdefnT already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 348,
+  "message": "LaTeX Error: Command \\theHdefnnT already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 355,
+  "message": "LaTeX Error: Command \\theHthmT already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 361,
+  "message": "LaTeX Error: Command \\theHthmnT already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 367,
+  "message": "LaTeX Error: Command \\theHlemmT already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 373,
+  "message": "LaTeX Error: Command \\theHlemmnT already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 385,
+  "message": "LaTeX Error: Command \\theHaxiomeT already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 391,
+  "message": "LaTeX Error: Command \\theHaxiomenT already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 398,
+  "message": "LaTeX Error: Command \\theHconsT already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 404,
+  "message": "LaTeX Error: Command \\theHconsnT already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 411,
+  "message": "LaTeX Error: Command \\theHexmplT already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 418,
+  "message": "LaTeX Error: Command \\theHexercT already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "structure.tex",
+  "line": 428,
+  "message": "LaTeX Error: Command \\theHequation already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "GOS-Book.tex",
+  "line": 3,
+  "message": "LaTeX Warning: \\include should only be used after \\begin{document} on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "GOS-Book.tex",
+  "line": 4,
+  "message": "LaTeX Warning: \\include should only be used after \\begin{document} on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "frontmatter/titlepageTMB.tex",
+  "line": 43,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "frontmatter/litra.tex",
+  "line": 10,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "frontmatter/litra.tex",
+  "line": 26,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 26",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "frontmatter/litra.tex",
+  "line": 38,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 38",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "frontmatter/litra.tex",
+  "line": 50,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "frontmatter/litra.tex",
+  "line": 61,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 61",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "frontmatter/litra.tex",
+  "line": 72,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 72",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "frontmatter/litra.tex",
+  "line": 84,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 84",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "frontmatter/litra.tex",
+  "line": 92,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "frontmatter/litra.tex",
+  "line": 108,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "frontmatter/notations.tex",
+  "line": 42,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": 102,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 102",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": 248,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 248",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": 260,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 260",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": 368,
+  "message": "LaTeX Warning: Hyper reference `ch1:th:otrehposled' on page 23 undefined on input line 368",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": 373,
+  "message": "LaTeX Warning: Hyper reference `ch1:th:TBV' on page 23 undefined on input line 373",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": 404,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 404",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter1.tex",
+  "line": 417,
+  "message": "LaTeX Warning: Hyper reference `ch1:th:TBV' on page 24 undefined on input line 417",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter2.tex",
+  "line": 9,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 9",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter2.tex",
+  "line": 81,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter2.tex",
+  "line": 206,
+  "message": "LaTeX Warning: Hyper reference `ch1:th:TBV' on page 30 undefined on input line 206",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter3.tex",
+  "line": 22,
+  "message": "LaTeX Warning: Hyper reference `ch1:th:poslstyag' on page 31 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter3.tex",
+  "line": 91,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 91",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter3.tex",
+  "line": 121,
+  "message": "LaTeX Warning: Hyper reference `ch3n1' on page 34 undefined on input line 121",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter4.tex",
+  "line": 93,
+  "message": "LaTeX Warning: Hyper reference `th:ch2:Veyershtrass' on page 37 undefined on input line 93",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter4.tex",
+  "line": 93,
+  "message": "LaTeX Warning: Hyper reference `ch4n1' on page 37 undefined on input line 93",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter6.tex",
+  "line": 5,
+  "message": "LaTeX Warning: Hyper reference `ch4t1' on page 47 undefined on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter6.tex",
+  "line": 14,
+  "message": "LaTeX Warning: Hyper reference `ch4t1' on page 47 undefined on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter6.tex",
+  "line": 22,
+  "message": "LaTeX Warning: Hyper reference `ch4t1' on page 47 undefined on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter6.tex",
+  "line": 33,
+  "message": "LaTeX Warning: Hyper reference `ch4n1' on page 48 undefined on input line 33",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter6.tex",
+  "line": 44,
+  "message": "LaTeX Warning: Hyper reference `ch4n1' on page 48 undefined on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter6.tex",
+  "line": 57,
+  "message": "LaTeX Warning: Hyper reference `ch4t1' on page 48 undefined on input line 57",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter6.tex",
+  "line": 116,
+  "message": "LaTeX Warning: Hyper reference `ch4t1' on page 50 undefined on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter6.tex",
+  "line": 146,
+  "message": "Package mdframed Warning: You got a bad break because the last box will be empty you have to change it manually by changing the text, the space or something else on input line 146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter6.tex",
+  "line": 146,
+  "message": "Package mdframed Warning: You got a bad break because the last split box is empty You have to change the settings on input line 146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter6.tex",
+  "line": 191,
+  "message": "Package mdframed Warning: You got a bad break because the last box will be empty you have to change it manually by changing the text, the space or something else on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter7.tex",
+  "line": 46,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter7.tex",
+  "line": 50,
+  "message": "LaTeX Warning: Hyper reference `ch1:th:TBV' on page 54 undefined on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter7.tex",
+  "line": 67,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 67",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter7.tex",
+  "line": 123,
+  "message": "LaTeX Warning: Hyper reference `ch1:th:TBV' on page 56 undefined on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter12.tex",
+  "line": 88,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 88",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter15.tex",
+  "line": 1,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\newline' on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter15.tex",
+  "line": 129,
+  "message": "Package mdframed Warning: You got a bad break because the last box will be empty you have to change it manually by changing the text, the space or something else on input line 129",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter18.tex",
+  "line": 117,
+  "message": "Package mdframed Warning: You got a bad break because the last box will be empty you have to change it manually by changing the text, the space or something else on input line 117",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter21.tex",
+  "line": 54,
+  "message": "Package mdframed Warning: You got a bad break because the last box will be empty you have to change it manually by changing the text, the space or something else on input line 54",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter26.tex",
+  "line": 39,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 39",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter27.tex",
+  "line": 3,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\newline' on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter27.tex",
+  "line": 151,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 151",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter27.tex",
+  "line": 182,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 182",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter28.tex",
+  "line": 78,
+  "message": "Package mdframed Warning: You got a bad break because the last box will be empty you have to change it manually by changing the text, the space or something else on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter29.tex",
+  "line": 216,
+  "message": "Package mdframed Warning: You got a bad break because the last box will be empty you have to change it manually by changing the text, the space or something else on input line 216",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter31.tex",
+  "line": 258,
+  "message": "LaTeX Warning: Hyper reference `fullprob' on page 181 undefined on input line 258",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter31.tex",
+  "line": 270,
+  "message": "LaTeX Warning: Hyper reference `fullprob' on page 182 undefined on input line 270",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter31.tex",
+  "line": 274,
+  "message": "LaTeX Warning: Hyper reference `Bayes' on page 182 undefined on input line 274",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter35.tex",
+  "line": 110,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 110",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter35.tex",
+  "line": 128,
+  "message": "LaTeX Warning: Hyper reference `th:ch1:threefuncs' on page 201 undefined on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter35.tex",
+  "line": 288,
+  "message": "LaTeX Warning: Hyper reference `exp17' on page 205 undefined on input line 288",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter37.tex",
+  "line": 20,
+  "message": "LaTeX Warning: Hyper reference `ch34.2Thm1' on page 217 undefined on input line 20",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter37.tex",
+  "line": 24,
+  "message": "LaTeX Warning: Hyper reference `ch34.2Thm1' on page 217 undefined on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter37.tex",
+  "line": 51,
+  "message": "LaTeX Warning: Hyper reference `ch35.1Thm5' on page 218 undefined on input line 51",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter37.tex",
+  "line": 77,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 77",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter37.tex",
+  "line": 79,
+  "message": "LaTeX Warning: Hyper reference `abc28' on page 219 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter37.tex",
+  "line": 90,
+  "message": "LaTeX Warning: Hyper reference `ch34thm1' on page 219 undefined on input line 90",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter37.tex",
+  "line": 188,
+  "message": "Package mdframed Warning: You got a bad break because the last box will be empty you have to change it manually by changing the text, the space or something else on input line 188",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter37.tex",
+  "line": 261,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 261",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter37.tex",
+  "line": 263,
+  "message": "LaTeX Warning: Hyper reference `ch35.1cons3' on page 223 undefined on input line 263",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter38.tex",
+  "line": 48,
+  "message": "LaTeX Warning: Hyper reference `ch34.2Thm1' on page 227 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter38.tex",
+  "line": 48,
+  "message": "LaTeX Warning: Hyper reference `ch35.1Thm5' on page 227 undefined on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter38.tex",
+  "line": 126,
+  "message": "Package enumitem Warning: Negative labelwidth. This does not make much sense, on input line 126",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter38.tex",
+  "line": 129,
+  "message": "LaTeX Warning: Hyper reference `abc28' on page 229 undefined on input line 129",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter38.tex",
+  "line": 166,
+  "message": "LaTeX Warning: Hyper reference `ch36.1T1' on page 230 undefined on input line 166",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter38.tex",
+  "line": 171,
+  "message": "LaTeX Warning: Hyper reference `ch36defn2' on page 230 undefined on input line 171",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter38.tex",
+  "line": 194,
+  "message": "LaTeX Warning: Hyper reference `ch36.1T1' on page 231 undefined on input line 194",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter38.tex",
+  "line": 199,
+  "message": "LaTeX Warning: Hyper reference `ch36.1T1' on page 231 undefined on input line 199",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter38.tex",
+  "line": 223,
+  "message": "Package mdframed Warning: You got a bad break because the last box will be empty you have to change it manually by changing the text, the space or something else on input line 223",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter38.tex",
+  "line": 232,
+  "message": "LaTeX Warning: Hyper reference `ch36.1lemm4' on page 232 undefined on input line 232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter38.tex",
+  "line": 253,
+  "message": "LaTeX Warning: Hyper reference `ch36.1T1' on page 232 undefined on input line 253",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/chapter38.tex",
+  "line": 309,
+  "message": "LaTeX Warning: Hyper reference `ch36.1lemm5' on page 233 undefined on input line 309",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package imakeidx Warning: Remember to run (pdf)latex again after calling `texindy -M mystyle.xdy -L russian -C utf8 GOS-Book.idx'",
+  "detail": [],
+  "hint": null
+ }
+]

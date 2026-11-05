@@ -1,0 +1,33 @@
+{
+ "id": 31,
+ "source": "GitHub",
+ "name": "Wisebite/wisebite_report",
+ "url": "https://github.com/Wisebite/wisebite_report",
+ "type": "Thesis",
+ "version": "cec02319babbe5218b626196245cab20fab01f0a",
+ "files": 109,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 22039,
+  "tail": "exit 12, PDF found\n  No file main.toc.\nLatexmk: Missing input file 'main.lof' message in .log file:\n  No file main.lof.\nLatexmk: Missing input file 'main.lot' message in .log file:\n  No file main.lot.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 7205,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 8,
+ "firstError": "Use of \\??? doesn't match its definition.",
+ "outcome": "both-fail"
+}

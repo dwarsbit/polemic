@@ -1,0 +1,32 @@
+{
+ "id": 434,
+ "source": "GitHub",
+ "name": "emtpb/proposal_dfg",
+ "url": "https://github.com/emtpb/proposal_dfg",
+ "type": "Proposal",
+ "version": "40732cd6b528eb732e91e8e6411a1fc7a21f87b8",
+ "files": 13,
+ "main": "form_53_01_de.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "form_53_01_de.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12508
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5816,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "error",
+  "file": "templates/brief_template.tex",
+  "line": 80,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "templates/brief_template.tex",
+  "line": 87,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "templates/brief_template.tex",
+  "line": 107,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "templates/brief_template.tex",
+  "line": 110,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "templates/brief_template.tex",
+  "line": 112,
+  "message": "LaTeX Error: Option clash for package biblatex.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "templates/brief_template.tex",
+  "line": 112,
+  "message": "LaTeX Error: Command \\bibtitle already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "templates/ociamthesis.cls",
+  "line": 112,
+  "message": "Package fancyhdr Warning: \\fancyhead's `E' option without twoside option is useless. Please consider using the `twoside' option on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "templates/ociamthesis.cls",
+  "line": 113,
+  "message": "Package fancyhdr Warning: \\fancyhead's `E' option without twoside option is useless. Please consider using the `twoside' option on input line 113",
+  "detail": [],
+  "hint": null
+ }
+]

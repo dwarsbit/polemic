@@ -1,0 +1,671 @@
+[
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 21,
+  "message": "LaTeX Error: Backend request inconsistent with engine: using 'pdftex' backend.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 21,
+  "message": "LaTeX Error: The font size command \\normalsize is not defined:",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 27,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.27 \\maketitle"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 29,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.29 \\section",
+   "             {はじめに}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 29,
+  "message": "LaTeX Error: Unicode character は (U+306F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 29,
+  "message": "LaTeX Error: Unicode character じ (U+3058)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 29,
+  "message": "LaTeX Error: Unicode character め (U+3081)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 29,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character こ (U+3053)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character の (U+306E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 書 (U+66F8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character は (U+306F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character ， (U+FF0C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character レ (U+30EC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character ポ (U+30DD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character ト (U+30C8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character や (U+3084)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 論 (U+8AD6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character き (U+304D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 方 (U+65B9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character を (U+3092)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 示 (U+793A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character す (U+3059)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character た (U+305F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character め (U+3081)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character サ (U+30B5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character ン (U+30F3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character プ (U+30D7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character ル (U+30EB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character で (U+3067)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 31,
+  "message": "LaTeX Error: Unicode character 。 (U+3002)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character タ (U+30BF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character イ (U+30A4)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ト (U+30C8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ル (U+30EB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character を (U+3092)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 「 (U+300C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 象 (U+8C61)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character の (U+306E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 卵 (U+5375)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 重 (U+91CD)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character さ (U+3055)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character と (U+3068)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 長 (U+9577)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 径 (U+5F84)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 関 (U+95A2)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character す (U+3059)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character る (U+308B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 考 (U+8003)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 察 (U+5BDF)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 」 (U+300D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character し (U+3057)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character て (U+3066)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character あ (U+3042)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character は (U+306F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character ， (U+FF0C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character え (U+3048)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 荒 (U+8352)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 唐 (U+5510)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 無 (U+7121)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 稽 (U+7A3D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character な (U+306A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 内 (U+5185)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character 容 (U+5BB9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character こ (U+3053)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 32,
+  "message": "LaTeX Error: Unicode character で (U+3067)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 間 (U+9593)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 違 (U+9055)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character え (U+3048)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character て (U+3066)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 修 (U+4FEE)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 正 (U+6B63)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character せ (U+305B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character ず (U+305A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 提 (U+63D0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character 出 (U+51FA)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character さ (U+3055)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": "LaTeX Error: Unicode character れ (U+308C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "src/report_sample.tex",
+  "line": 33,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

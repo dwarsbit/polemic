@@ -1,0 +1,32 @@
+{
+ "id": 407,
+ "source": "GitHub",
+ "name": "Freed-Wu/signal-and-system-report",
+ "url": "https://github.com/Freed-Wu/signal-and-system-report",
+ "type": "Homework",
+ "version": "a25d69773c35ca483d998f04bf9bdf74e2a45ade",
+ "files": 99,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3517,
+  "tail": "exit 12, PDF not found\n  ! LaTeX Error: File `boxie.sty' not found.\nThis is makeindex, version 2.18 [TeX Live 2026] (kpathsea + Thai support).\nScanning input file main.idx...done (0 entries accepted, 0 rejected).\nNothing written in main.ind.\nTranscript written in main.ilg.\nLatexmk: Missing input file 'boxie.sty' message in .log file:\n  ! LaTeX Error: File `boxie.sty' not found.\nFailure to make 'main.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 224,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 0,
+ "firstError": "Emergency stop.",
+ "outcome": "both-fail"
+}

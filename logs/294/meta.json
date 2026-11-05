@@ -1,0 +1,31 @@
+{
+ "id": 294,
+ "source": "GitHub",
+ "name": "cnlinxi/book-text-to-speech",
+ "url": "https://github.com/cnlinxi/book-text-to-speech",
+ "type": "Book",
+ "version": "079886bf7a22512daaa6bc704ef24933a905e224",
+ "files": 51,
+ "main": "text_to_speech.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "text_to_speech.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 34151
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2210,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 9,
+ "warnings": 1,
+ "firstError": "Improper alphabetic constant.",
+ "outcome": "polemic-only-fail"
+}

@@ -1,0 +1,33 @@
+{
+ "id": 391,
+ "source": "GitHub",
+ "name": "praseodym/tudelft-report-latex",
+ "url": "https://github.com/praseodym/tudelft-report-latex",
+ "type": "Report",
+ "version": "f38aa26ce9d09953a50ce7b91bb199d83c56223c",
+ "files": 53,
+ "main": "cover.tex",
+ "catalogMain": "report.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "report.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4889
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1460,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

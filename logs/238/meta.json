@@ -1,0 +1,32 @@
+{
+ "id": 238,
+ "source": "GitHub",
+ "name": "wisdomfusion/latex-beamer-teamplates",
+ "url": "https://github.com/wisdomfusion/latex-beamer-teamplates",
+ "type": "Slides",
+ "version": "5dc68292514d8806ce46bacb1ae3edcec1844a71",
+ "files": 45,
+ "main": "googleblue/googleblue.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "googleblue/googleblue.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 39614,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 0 (\"30) in font nullfont!\n  Missing character: There is no / (\"2F) in font nullfont!\n  Missing character: There is no 2 (\"32) in font nullfont!\n  Missing character: There is no 8 (\"38) in font nullfont!\n  Missing character: There is no 0 (\"30) in font nullfont!\n  Missing character: There is no / (\"2F) in font nullfont!\n  Missing character: There is no 2 (\"32) in font nullfont!\n And 8726 more --- see log file 'googleblue.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 17974,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 53,
+ "warnings": 13,
+ "firstError": "Package fontspec Error: The font \"Minion Pro\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

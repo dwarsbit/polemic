@@ -1,0 +1,362 @@
+[
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 10,
+  "message": "Package fontspec Error: The font \"Charis\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 45,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 47,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 51,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 58,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 74,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 76,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 82,
+  "message": "Font TU/Charis(0)/m/n/12=Charis at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 86,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 87,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 88,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 90,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 92,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 106,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 108,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 114,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 179,
+  "message": "Package polyglossia Error: The current main monospace font, lmmonolt10-bold, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 180,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 186,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 191,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 200,
+  "message": "Package polyglossia Error: The current main monospace font, lmmonolt10-bold, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 202,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 203,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 204,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 205,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 206,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 207,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 208,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 214,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 219,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 222,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 228,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 232,
+  "message": "Package polyglossia Error: The current main monospace font, lmmonolt10-bold, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 242,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 249,
+  "message": "Package polyglossia Error: The current main monospace font, lmmonolt10-bold, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 251,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 266,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 272,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 282,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 283,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 284,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 285,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono10-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 293,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex/genyleap_whitepaper-ar.tex",
+  "line": 294,
+  "message": "Package polyglossia Error: The current main monospace font, lmmono12-regular, does not contain the \"Arabic\" script! Please define \\arabicfonttt with \\newfontfamily command",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ }
+]

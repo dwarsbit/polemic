@@ -1,0 +1,32 @@
+{
+ "id": 951,
+ "source": "CTAN",
+ "name": "aomart",
+ "url": "https://ctan.org/pkg/aomart",
+ "type": "Paper",
+ "version": "1.41",
+ "files": 21,
+ "main": "aomfrench.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "aomfrench.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3829
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1899,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 20,
+ "outcome": "both-ok"
+}

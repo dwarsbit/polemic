@@ -1,0 +1,33 @@
+{
+ "id": 966,
+ "source": "CTAN",
+ "name": "oup-authoring-template",
+ "url": "https://ctan.org/pkg/oup-authoring-template",
+ "type": "Paper",
+ "version": "1.5",
+ "files": 9,
+ "main": "oup-authoring-template.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "oup-authoring-template.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 7409,
+  "tail": "exit 12, PDF found\n      Refer to 'oup-authoring-template.log' and/or above output for details\n\nPossible precedence problem between ! and pattern match (m//) at /usr/bin/texcount line 1430.\nPossible precedence problem between ! and pattern match (m//) at /usr/bin/texcount line 2861.\nPossible precedence problem between ! and pattern match (m//) at /usr/bin/texcount line 1430.\nPossible precedence problem between ! and pattern match (m//) at /usr/bin/texcount line 2861.\nPossible precedence problem between ! and pattern match (m//) at /usr/bin/texcount line 1430.\nPossible precedence problem between ! and pattern match (m//) at /usr/bin/texcount line 2861."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2231,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 9,
+ "warnings": 8,
+ "firstError": "Extra }, or forgotten $.",
+ "outcome": "both-fail"
+}

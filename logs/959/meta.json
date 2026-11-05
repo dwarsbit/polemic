@@ -1,0 +1,9 @@
+{
+ "id": 959,
+ "source": "CTAN",
+ "name": "jmlr",
+ "url": "https://ctan.org/pkg/jmlr",
+ "type": "Paper",
+ "outcome": "download-failed",
+ "error": "fetch failed"
+}

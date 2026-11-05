@@ -1,0 +1,9 @@
+{
+ "id": 544,
+ "source": "arXiv",
+ "name": "arXiv:2610.10308",
+ "url": "https://arxiv.org/abs/2610.10308",
+ "type": "Paper",
+ "outcome": "download-failed",
+ "error": "https://arxiv.org/e-print/2610.10308 answered 404"
+}

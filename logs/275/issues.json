@@ -1,0 +1,194 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ifplatform Warning: shell escape is disabled, so I can only detect \\ifwindows",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TsangNotes_Example.tex",
+  "line": 17,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\\\' on input line 17",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TsangNotes_Example.tex",
+  "line": 17,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\noindent' on input line 17",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TsangNotes_Example.tex",
+  "line": 29,
+  "message": "Package microtype Warning: Unable to apply patch `footnote' on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L1/L1.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 2 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L1/L1.tex",
+  "line": 54,
+  "message": "LaTeX Warning: Reference `Fig1_1' on page 3 undefined on input line 54",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L1/L1.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 3 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L1/L1.tex",
+  "line": 78,
+  "message": "LaTeX Warning: Reference `SHM_DE' on page 4 undefined on input line 78",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L1/L1.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 4 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L1/L1.tex",
+  "line": 86,
+  "message": "LaTeX Warning: Reference `SHM_sol' on page 4 undefined on input line 86",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L1/L1.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 5 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L1/L1.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 6 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L2/L2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 7 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L2/L2.tex",
+  "line": 46,
+  "message": "LaTeX Warning: Reference `eq:SpringEoM' on page 7 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L2/L2.tex",
+  "line": 58,
+  "message": "LaTeX Warning: Reference `Ex1_3EoM' on page 7 undefined on input line 58",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L2/L2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 8 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L2/L2.tex",
+  "line": 87,
+  "message": "LaTeX Warning: Reference `Fig:SimplePendulum' on page 8 undefined on input line 87",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L2/L2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 9 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "L2/L2.tex",
+  "line": null,
+  "message": "LaTeX Warning: Marginpar on page 10 moved",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TsangNotes_Example.tex",
+  "line": null,
+  "message": "Package bibentry Warning: You have used \\nobibliography* without a following \\bibliography. You may not be able to run BibTeX",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TsangNotes_Example.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TsangNotes_Example.tex",
+  "line": null,
+  "message": "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "TsangNotes_Example.tex",
+  "line": null,
+  "message": "Package rerunfilecheck Warning: File `TsangNotes_Example.out' has changed. Rerun to get outlines right or use package `bookmark'",
+  "detail": [],
+  "hint": null
+ }
+]

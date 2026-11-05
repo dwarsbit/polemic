@@ -1,0 +1,32 @@
+{
+ "id": 126,
+ "source": "GitHub",
+ "name": "tsukahara-lab/TUS-ME_thesis_template",
+ "url": "https://github.com/tsukahara-lab/TUS-ME_thesis_template",
+ "type": "Paper",
+ "version": "b36c57bf4d24981bb48a7df5a5ee5b77b3bdee7b",
+ "files": 77,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (latexmkrc)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 15267,
+  "tail": "exit 0, PDF not found\n  No file main.toc.\nLatexmk: Missing bbl file 'latex.out/main.bbl' in following:\n No file main.bbl.\nLatexmk: Using bibtex to make bibliography file(s).\ntput: No value for $TERM and no -T specified\nLatexmk: Using bibtex to make bibliography file(s).\ntput: No value for $TERM and no -T specified\nLatexmk: Using bibtex to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 272,
+  "outputs": [
+   "log"
+  ],
+  "tail": "  Missing character: There is no o in font nullfont!\n And 6 more --- see log file 'build/main.log'\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

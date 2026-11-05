@@ -1,0 +1,32 @@
+{
+ "id": 396,
+ "source": "GitHub",
+ "name": "LuminolT/SHU-Lab-Report-Template",
+ "url": "https://github.com/LuminolT/SHU-Lab-Report-Template",
+ "type": "Report",
+ "version": "22f4b1864e17532b7ef8fdf6ff7115f32384cff5",
+ "files": 9,
+ "main": "shu-lab-report.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "shu-lab-report.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 163338,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 摸 (U+6478) in font [texgyretermes-bold.otf]/OT:s\n  Missing character: There is no 摸 (U+6478) in font [texgyretermes-bold.otf]/OT:script=latn;language=dflt;mapping=tex-text;!\n  Missing character: There is no 鱼 (U+9C7C) in font [texgyretermes-bold.otf]/OT:s\n  Missing character: There is no 鱼 (U+9C7C) in font [texgyretermes-bold.otf]/OT:script=latn;language=dflt;mapping=tex-text;!\n  Missing character: There is no 学 (U+5B66) in font [texgyretermes-bold.otf]/OT:s\n  Missing character: There is no 学 (U+5B66) in font [texgyretermes-bold.otf]/OT:script=latn;language=dflt;mapping=tex-text;!\n  Missing character: There is no 导 (U+5BFC) in font [texgyretermes-bold.otf]/OT:s\n And 510 more --- see log file 'shu-lab-report.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 54045,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 15,
+ "warnings": 3,
+ "firstError": "Package fontspec Error: The font \"FZShuSong-Z01\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

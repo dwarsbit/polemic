@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file uniyou91): Font uniyou91 at 657 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexbeamer Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ }
+]

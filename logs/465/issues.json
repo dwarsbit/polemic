@@ -1,0 +1,114 @@
+[
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Option `pagecolor' is not available anymore",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": 124,
+  "message": "Package tikz-cd-doc Warning:  Couldn't find pgfmanual.aux. To get cross-references to the pgf manual, compile it and copy all resulting .aux files to the current directory on input line 124",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hypdoc Warning: hyperref has been loaded before with option 'hyperindex' enabled. The index will not work properly. on input line 65",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": 268,
+  "message": "LaTeX Warning: Reference `pgfman-section-label-quotes' on page 2 undefined on input line 268",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": 300,
+  "message": "LaTeX Warning: Reference `pgfman-section-matrices' on page 2 undefined on input line 300",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": 574,
+  "message": "LaTeX Warning: Reference `pgfman-section-cap-joins' on page 5 undefined on input line 574",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": 574,
+  "message": "LaTeX Warning: Reference `pgfman-library-to-paths' on page 5 undefined on input line 574",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": 581,
+  "message": "LaTeX Warning: Reference `pgfman-section-nodes' on page 5 undefined on input line 581",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": 581,
+  "message": "LaTeX Warning: Reference `pgfman-section-pos-option' on page 5 undefined on input line 581",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": 702,
+  "message": "LaTeX Warning: Reference `pgfman-section-matrices' on page 7 undefined on input line 702",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": 786,
+  "message": "LaTeX Warning: Reference `pgfman-section-arrows-meta' on page 8 undefined on input line 786",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": 1126,
+  "message": "LaTeX Warning: Reference `pgfman-library-to-paths' on page 12 undefined on input line 1126",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": 1434,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined using `OT1/cmr/m/sc' instead on input line 1434",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tikz-cd-doc.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "background-image-single-frame.tex",
+  "line": null,
+  "message": "Package tagpdf Warning: Alternative text for graphic is missing. Using 'example-image.pdf' instead",
+  "detail": [],
+  "hint": null
+ }
+]

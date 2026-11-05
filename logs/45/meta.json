@@ -1,0 +1,32 @@
+{
+ "id": 45,
+ "source": "GitHub",
+ "name": "tomepel/Technical_Book_DL",
+ "url": "https://github.com/tomepel/Technical_Book_DL",
+ "type": "Thesis",
+ "version": "1246c33fa086b2169cf13b28a165cc8f7d69efd8",
+ "files": 62,
+ "main": "White_book.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "White_book.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 20171
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 11415,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 39,
+ "outcome": "both-ok"
+}

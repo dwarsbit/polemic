@@ -1,0 +1,31 @@
+{
+ "id": 491,
+ "source": "arXiv",
+ "name": "arXiv:2611.04687",
+ "url": "https://arxiv.org/abs/2611.04687",
+ "type": "Paper",
+ "version": "2611.04687",
+ "files": 32,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 8661,
+  "tail": "exit 12, PDF not found\nLatexmk: Using bibtex to make bibliography file(s).\n\nkpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+540/600 --dpi 540 unifs57\nmktexpk: don't know how to create bitmap font for unifs57.\nmktexpk: perhaps unifs57 is missing from the map file.\nkpathsea: Appending font creation commands to missfont.log.\nLatexmk: Using bibtex to make bibliography file(s).\nFailure to make 'main.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2125,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 1,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

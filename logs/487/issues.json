@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `eq' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main/exp1_new.tex",
+  "line": 81,
+  "message": "LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined using `OT1/ptm/m/sc' instead on input line 81",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main/appendix.tex",
+  "line": 197,
+  "message": "LaTeX Warning: No positions in optional float specifier. Default added (so using `tbp') on input line 197",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main/exp1_new.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were multiply-defined labels",
+  "detail": [],
+  "hint": null
+ }
+]

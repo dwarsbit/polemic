@@ -1,0 +1,32 @@
+{
+ "id": 381,
+ "source": "GitHub",
+ "name": "shouydev/report-template-apa-7",
+ "url": "https://github.com/shouydev/report-template-apa-7",
+ "type": "Report",
+ "version": "e76f09db71196c86f028f79493720ad7696725f3",
+ "files": 21,
+ "main": "pandoc/template/eisvogel.tex",
+ "engine": "xelatex",
+ "detectedEngine": "lualatex (inferred)",
+ "baseline": {
+  "main": "pandoc/template/eisvogel.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1835,
+  "tail": "exit 12, PDF not found\n  Missing character: There is no - (U+002D) in font nullfont!\n  Missing character: There is no - (U+002D) in font nullfont!\n  Missing character: There is no - (U+002D) in font nullfont!\n  Missing character: There is no - (U+002D) in font nullfont!\n  Missing character: There is no P (U+0050) in font nullfont!\n  Missing character: There is no D (U+0044) in font nullfont!\n  Missing character: There is no F (U+0046) in font nullfont!\n And 79 more --- see log file 'eisvogel.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 994,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 9,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Missing \\begin{document}.",
+ "outcome": "both-fail"
+}

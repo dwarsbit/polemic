@@ -1,0 +1,31 @@
+{
+ "id": 202,
+ "source": "GitHub",
+ "name": "karlosos/zut-fibeamer",
+ "url": "https://github.com/karlosos/zut-fibeamer",
+ "type": "Slides",
+ "version": "f514e12f959ecf8250bc86b4d107798848c85e96",
+ "files": 23,
+ "main": "zutfibeamer.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "zutfibeamer.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 16413
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 15279,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 30,
+ "outcome": "both-ok"
+}

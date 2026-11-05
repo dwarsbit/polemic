@@ -1,0 +1,33 @@
+{
+ "id": 233,
+ "source": "GitHub",
+ "name": "paulinelemenkova/africa-remote-sensing-mapping-talk-ru",
+ "url": "https://github.com/paulinelemenkova/africa-remote-sensing-mapping-talk-ru",
+ "type": "Slides",
+ "version": "5ec6df369a539b32fdabd5fe1db8af2ccbcb38f1",
+ "files": 3,
+ "main": "Презентация_30102025.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Презентация_30102025.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 34643,
+  "tail": "exit 12, PDF found\n  LaTeX Warning: File `Fig_51.jpg' not found on input line 1456.\nLatexmk: Missing input file 'Zambia.jpg' message in .log file:\n  LaTeX Warning: File `Zambia.jpg' not found on input line 1456.\nLatexmk: Missing input file 'Fig_52.jpg' message in .log file:\n  LaTeX Warning: File `Fig_52.jpg' not found on input line 1483.\nLatexmk: Missing input file 'Fig_52.jpg' message in .log file:\n  LaTeX Warning: File `Fig_52.jpg' not found on input line 1554.\nLatexmk: Using biber to make bibliography file(s)."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 19152,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 55,
+ "warnings": 59,
+ "firstError": "Package pdftex.def Error: File `Fig_52.jpg' not found: using draft setting.",
+ "outcome": "both-fail"
+}

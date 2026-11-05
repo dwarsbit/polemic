@@ -1,0 +1,25 @@
+{
+ "id": 244,
+ "source": "GitHub",
+ "name": "mendax1234/lecture-notes",
+ "url": "https://github.com/mendax1234/lecture-notes",
+ "type": "Notes",
+ "version": "310c24cb91b1f7b19b84ba9fa5fcefebc3d1d1b7",
+ "files": 3814,
+ "main": "Self-Learning/French-in-Normandie-A2/main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "Self-Learning/French-in-Normandie-A2/main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 49120
+ },
+ "polemic": {
+  "http": 400,
+  "error": "{\"error\":\"invalid_project\",\"message\":\"the project is larger than 500000000 bytes\"}"
+ },
+ "outcome": "polemic-rejected"
+}

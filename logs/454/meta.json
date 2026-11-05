@@ -1,0 +1,32 @@
+{
+ "id": 454,
+ "source": "GitHub",
+ "name": "yuanweize/CVUT-SZZ-Survival-Kit",
+ "url": "https://github.com/yuanweize/CVUT-SZZ-Survival-Kit",
+ "type": "Cheat sheet",
+ "version": "2c79fdffce765eedc734e1d6ba70801e9d23e564",
+ "files": 198,
+ "main": "SZZ_Master_Kit/szz_guide.tex",
+ "engine": "xelatex",
+ "detectedEngine": "lualatex (inferred)",
+ "baseline": {
+  "main": "SZZ_Master_Kit/szz_guide.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4599,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'szz_guide.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  lualatex: Command for 'lualatex' gave return code 1\n      Refer to 'szz_guide.log' and/or above output for details\n\ntput: No value for $TERM and no -T specified\nFailure to make 'szz_guide.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 531,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 2,
+ "firstError": "LaTeX Error: Loading a class or package in a group.",
+ "outcome": "both-fail"
+}

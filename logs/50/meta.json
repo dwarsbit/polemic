@@ -1,0 +1,32 @@
+{
+ "id": 50,
+ "source": "GitHub",
+ "name": "cnDelbert/SDU_thesis_template_for_postgraduate",
+ "url": "https://github.com/cnDelbert/SDU_thesis_template_for_postgraduate",
+ "type": "Thesis",
+ "version": "d704254397d07b0b7217ac13e5d2435d7a93a4cc",
+ "files": 29,
+ "main": "SDUthesistemplate.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "SDUthesistemplate.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 166855,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 分 (U+5206) in font [lmroman17-regular]:mapping=t\n  Missing character: There is no 分 (U+5206) in font [lmroman17-regular]:mapping=tex-text;!\n  Missing character: There is no 类 (U+7C7B) in font [lmroman17-regular]:mapping=t\n  Missing character: There is no 类 (U+7C7B) in font [lmroman17-regular]:mapping=tex-text;!\n  Missing character: There is no 号 (U+53F7) in font [lmroman17-regular]:mapping=t\n  Missing character: There is no 号 (U+53F7) in font [lmroman17-regular]:mapping=tex-text;!\n  Missing character: There is no ： (U+FF1A) in font [lmroman17-regular]:mapping=t\n And 10803 more --- see log file 'SDUthesistemplate.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 83961,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 17,
+ "warnings": 28,
+ "firstError": "Package fontspec Error: The font \"SimSun\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

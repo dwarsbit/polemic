@@ -1,0 +1,32 @@
+{
+ "id": 76,
+ "source": "GitHub",
+ "name": "timjb/bachelorarbeit",
+ "url": "https://github.com/timjb/bachelorarbeit",
+ "type": "Thesis",
+ "version": "bcff1a55853701f9deddd37f2b2f5a9b0aef8cdf",
+ "files": 9,
+ "main": "homotopiegruppen_serre.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "homotopiegruppen_serre.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 15702
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 15435,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 10,
+ "outcome": "both-ok"
+}

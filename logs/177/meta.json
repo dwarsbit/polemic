@@ -1,0 +1,31 @@
+{
+ "id": 177,
+ "source": "GitHub",
+ "name": "GregoryKogan/use-compsci-prep",
+ "url": "https://github.com/GregoryKogan/use-compsci-prep",
+ "type": "Slides",
+ "version": "8a72f7e08fb6d1dcd348169558a23dade38b15bc",
+ "files": 200,
+ "main": "templates/eisvogel-custom.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "templates/eisvogel-custom.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 727,
+  "tail": "exit 12, PDF not found\nwarning: kpathsea: $if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls: Unrecognized variable construct `$$'.\nwarning: kpathsea: $if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls: Unrecognized variable construct `$$'.\nwarning: kpathsea: $if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls: Unrecognized variable construct `$$'.\nwarning: kpathsea: $if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls: Unrecognized variable construct `$$'.\nwarning: kpathsea: $if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls: Unrecognized variable construct `$.'.\nLatexmk: Missing input file '$if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls' message in .log file:\n  ! LaTeX Error: File `$if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$.cls' not found.\nFailure to make 'eisvogel-custom.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 299,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Missing \\begin{document}.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": "resources/tikz/chapter_1/co/cutting_plane.tex",
+  "line": 169,
+  "message": "I can't write on file `tikz-cache/main-figure0.md5'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resources/tikz/chapter_1/co/cutting_plane.tex",
+  "line": 169,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "resources/tikz/chapter_1/co/cutting_plane.tex",
+  "line": 169,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

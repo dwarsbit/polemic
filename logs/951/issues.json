@@ -1,0 +1,162 @@
+[
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 19,
+  "message": "Package french3.ldf Warning: OT1 encoding should not be used for French. Add \\usepackage[T1]{fontenc} to the preamble of your document; reported on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\unhbox' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\voidb@x' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\<let>-command' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\setbox' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@tempboxa' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\hbox' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\global' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\mathchardef' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\accent@spacefactor' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\spacefactor' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\begingroup' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\typeout' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\<def>-command' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\write' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\m@ne' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\endgroup' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\ignorespaces' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 46,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\accent' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "aomfrench.tex",
+  "line": 108,
+  "message": "LaTeX Warning: Command \\textquoteright invalid in math mode on input line 108",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "error",
+  "file": "injpsj2.tex",
+  "line": 68,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "injpsj2.tex",
+  "line": 68,
+  "message": "LaTeX Error: Command \\end{center} invalid in math mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "injpsj2.tex",
+  "line": 68,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "injpsj2.tex",
+  "line": 68,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,90 @@
+[
+ {
+  "severity": "error",
+  "file": "packages.tex",
+  "line": 232,
+  "message": "LaTeX Error: Command \\c@lemma already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "packages.tex",
+  "line": 233,
+  "message": "LaTeX Error: Command \\c@corollary already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "packages.tex",
+  "line": 234,
+  "message": "LaTeX Error: Command \\c@proposition already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "packages.tex",
+  "line": 235,
+  "message": "LaTeX Error: Command \\c@conjecture already defined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `Gen/ott-rules.tex' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "packages.tex",
+  "line": 248,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "packages.tex",
+  "line": 248,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package siunitx Warning: Option \"binary-units\" has been removed in this release",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "mimosis.cls",
+  "line": null,
+  "message": "Package siunitx Warning: Option \"detect-inline-weight\" has been removed in this release",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package fixltx2e Warning: fixltx2e is not required with releases after 2015 All fixes are now in the LaTeX kernel. See the latexrelease package for details",
+  "detail": [],
+  "hint": null
+ }
+]

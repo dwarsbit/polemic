@@ -1,0 +1,31 @@
+{
+ "id": 179,
+ "source": "GitHub",
+ "name": "go-hep/talks",
+ "url": "https://github.com/go-hep/talks",
+ "type": "Slides",
+ "version": "21779c3d6533a718136190f2cbd1a186f925c218",
+ "files": 121,
+ "main": "2017/2017-08-24-go-hep-acat/paper/go-hep-acat-2017.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "2017/2017-08-24-go-hep-acat/paper/go-hep-acat-2017.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3858
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3230,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,146 @@
+[
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 143,
+  "message": "Font TU/MicrosoftYaHei(0)/m/n/24.88=\"Microsoft YaHei/OT\" at 24.88pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 143,
+  "message": "Font TU/MicrosoftYaHei(0)/m/n/10.95=\"Microsoft YaHei/OT\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 143,
+  "message": "Package fontspec Error: The font \"FangSong\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 174,
+  "message": "Font TU/MicrosoftYaHei(0)/m/n/10=\"Microsoft YaHei/OT\" at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 174,
+  "message": "Font TU/MicrosoftYaHei(0)/m/n/12=\"Microsoft YaHei/OT\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "content/02.01.basis-1.tex",
+  "line": 98,
+  "message": "Font TU/MicrosoftYaHei(0)/m/n/9=\"Microsoft YaHei/OT\" at 9.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "content/02.01.basis-1.tex",
+  "line": 98,
+  "message": "Font TU/MicrosoftYaHei(0)/m/it/9=\"Microsoft YaHei/OT\" at 9.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "content/02.01.basis-1.tex",
+  "line": 134,
+  "message": "Font TU/SimHei(0)/m/n/10=SimHei/OT at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "content/02.01.basis-2.tex",
+  "line": 314,
+  "message": "Font TU/MicrosoftYaHei(0)/b/n/12=\"Microsoft YaHei Bold/OT\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex-talk.tex",
+  "line": 118,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex-talk.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T3/Roboto(0)/m/n' undefined using `T3/cmr/m/n' instead on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "content/01.introduction.tex",
+  "line": 170,
+  "message": "LaTeX Font Warning: Command \\boldmath invalid in math mode on input line 170",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "content/01.introduction.tex",
+  "line": 170,
+  "message": "LaTeX Font Warning: Command \\mathversion invalid in math mode on input line 170",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU/FangSong(0)/m/sl' undefined using `TU/FangSong(0)/m/n' instead on input line 8",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "content/02.01.basis-1.tex",
+  "line": 98,
+  "message": "LaTeX Font Warning: Font shape `TU/MicrosoftYaHei(0)/m/it' undefined using `TU/MicrosoftYaHei(0)/m/n' instead on input line 98",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex-talk.tex",
+  "line": null,
+  "message": "LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (1 not 64). Rerun to correct this",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex-talk.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

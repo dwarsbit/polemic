@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "refcard.cls",
+  "line": 66,
+  "message": "Package array Warning: Redefining primitive column b on input line 66",
+  "detail": [],
+  "hint": null
+ }
+]

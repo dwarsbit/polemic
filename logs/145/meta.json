@@ -1,0 +1,31 @@
+{
+ "id": 145,
+ "source": "GitHub",
+ "name": "Dolgalad/thesis-manuscript",
+ "url": "https://github.com/Dolgalad/thesis-manuscript",
+ "type": "Paper",
+ "version": "2e7f6ce572b3669d01b292a0307a0a17fdc8129c",
+ "files": 233,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 6338,
+  "tail": "exit 12, PDF not found\n  Reference `chap:chapter_2_related_work' on page 5 undefined on input line 64\n  Reference `chapter:3_differentiable_mrf_inference_for_BILPs' on page 5 undefined on input line 66\n  Reference `chapter:4_denoising_and_mrf_inference' on page 5 undefined on input line 68\n  Reference `chapter:5_feature-to-factor_mappings_for_approximate_mrf_inference' on page 5 undefined on input line 70\n  Reference `chapter:3_differentiable_mrf_inference_for_BILPs' on page 6 undefined on input line 6\n  Reference `chapter:5_feature-to-factor_mappings_for_approximate_mrf_inference' on page 6 undefined on input line 6\n  Reference `chapter:3_differentiable_mrf_inference_for_BILPs' on page 6 undefined on input line 8\n And 26 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1995,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "I can't write on file `tikz-cache/main-figure0.md5'.",
+ "outcome": "both-fail"
+}

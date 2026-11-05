@@ -1,0 +1,32 @@
+{
+ "id": 430,
+ "source": "GitHub",
+ "name": "ericbarefoot/compact_proposal",
+ "url": "https://github.com/ericbarefoot/compact_proposal",
+ "type": "Proposal",
+ "version": "1c83519e6c9bdaac53d559bdd7c80dc9b2c15b73",
+ "files": 13,
+ "main": "compact_proposal/test_proposal_draft_nonotes.tex",
+ "catalogMain": "compact_proposal/test_proposal_draft.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "compact_proposal/test_proposal_draft.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1734
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1135,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

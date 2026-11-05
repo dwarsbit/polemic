@@ -1,0 +1,82 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "homotopiegruppen_serre.tex",
+  "line": null,
+  "message": "Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "titelseite.tex",
+  "line": 5,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined using `OT1/cmr/bx/n' instead on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "homotopiegruppen_serre.tex",
+  "line": 1107,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "homotopiegruppen_serre.tex",
+  "line": 1345,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1345",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "homotopiegruppen_serre.tex",
+  "line": 1511,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1511",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "homotopiegruppen_serre.tex",
+  "line": 1511,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 1511",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "homotopiegruppen_serre.tex",
+  "line": 1612,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 1612",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "homotopiegruppen_serre.tex",
+  "line": 1612,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `superscript' on input line 1612",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "homotopiegruppen_serre.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

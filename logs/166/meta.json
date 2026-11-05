@@ -1,0 +1,33 @@
+{
+ "id": 166,
+ "source": "GitHub",
+ "name": "noise-lab/paper-skeleton",
+ "url": "https://github.com/noise-lab/paper-skeleton",
+ "type": "Paper",
+ "version": "7de1ac920679451513546aaff3605a42351272a9",
+ "files": 17,
+ "main": "paper.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "paper.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12535
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5206,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

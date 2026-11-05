@@ -1,0 +1,31 @@
+{
+ "id": 882,
+ "source": "CTAN",
+ "name": "disser",
+ "url": "https://ctan.org/pkg/disser",
+ "type": "Thesis",
+ "version": "1.5.0",
+ "files": 167,
+ "main": "src/manual.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "src/manual.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 10385
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 10094,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 202,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "thesis.tex",
+  "line": 67,
+  "message": "Class ucbthesis Warning: The final submitted version should not have an approval page on input line 67",
+  "detail": [],
+  "hint": null
+ }
+]

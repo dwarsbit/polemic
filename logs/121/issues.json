@@ -1,0 +1,90 @@
+[
+ {
+  "severity": "warning",
+  "file": "Manuscript.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `Manuscript', but the document class provides `thuthesis'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package pgf Warning: Snakes have been superseded by decorations. Please use the decoration libraries instead of the snakes library on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "data/chap-2026-VASP-0.tex",
+  "line": 19,
+  "message": "Package natbib Warning: Citation `PRSLSA123-714_1929' on page 1 undefined on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "data/chap-2026-VASP-0.tex",
+  "line": 46,
+  "message": "Package natbib Warning: Citation `PR136-B864_1964' on page 1 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "data/chap-2026-VASP-0.tex",
+  "line": 46,
+  "message": "Package natbib Warning: Citation `PR140-A1133_1965' on page 1 undefined on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "data/chap-2026-VASP-0.tex",
+  "line": 79,
+  "message": "Package natbib Warning: Citation `Science177-393_1972' on page 3 undefined on input line 79",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "data/chap-2026-VASP-0.tex",
+  "line": 128,
+  "message": "Package natbib Warning: Citation `CNature36-89_2014' on page 5 undefined on input line 128",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "data/chap-2026-VASP-2.tex",
+  "line": 55,
+  "message": "LaTeX Warning: Command \\textbackslash invalid in math mode on input line 55",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "data/chap-2026-VASP-2.tex",
+  "line": 276,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 276",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "data/chap-2026-VASP-2.tex",
+  "line": 276,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\vec' on input line 276",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

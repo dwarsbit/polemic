@@ -1,0 +1,90 @@
+[
+ {
+  "severity": "warning",
+  "file": "CoxTodd.tex",
+  "line": 240,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 240",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CoxTodd.tex",
+  "line": 240,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\Theta' on input line 240",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CoxTodd.tex",
+  "line": 240,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 240",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CoxTodd.tex",
+  "line": 301,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CoxTodd.tex",
+  "line": 301,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\Theta' on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CoxTodd.tex",
+  "line": 301,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CoxTodd.tex",
+  "line": 301,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\Gamma' on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CoxTodd.tex",
+  "line": 544,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 544",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CoxTodd.tex",
+  "line": 544,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 544",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CoxTodd.tex",
+  "line": 580,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `math shift' on input line 580",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CoxTodd.tex",
+  "line": 580,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `subscript' on input line 580",
+  "detail": [],
+  "hint": null
+ }
+]

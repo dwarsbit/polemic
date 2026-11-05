@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `../cheat', but the document class provides `cheat'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3D",
+  "line": 16,
+  "message": "Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \\pgfplotsset{compat=1.18} into your preamble. on input line 16",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3D",
+  "line": 16,
+  "message": "Package hyperref Warning: Option `pdfstartview' has already been used, setting the option has no effect on input line 16",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3D",
+  "line": 16,
+  "message": "Package hyperref Warning: Option `colorlinks' has already been used, setting the option has no effect on input line 16",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3D",
+  "line": 351,
+  "message": "LaTeX Warning: Command \\textquoteright invalid in math mode on input line 351",
+  "detail": [],
+  "hint": null
+ }
+]

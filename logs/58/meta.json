@@ -1,0 +1,32 @@
+{
+ "id": 58,
+ "source": "GitHub",
+ "name": "jlokiec/FTIMS-thesis-template",
+ "url": "https://github.com/jlokiec/FTIMS-thesis-template",
+ "type": "Thesis",
+ "version": "85038729b5c0fd798c358326b644054aab2accab",
+ "files": 7,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 8523
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4051,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

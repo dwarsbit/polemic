@@ -1,0 +1,32 @@
+{
+ "id": 83,
+ "source": "GitHub",
+ "name": "ustctug/ustcthesis",
+ "url": "https://github.com/ustctug/ustcthesis",
+ "type": "Thesis",
+ "version": "f25e13d5214eeb33adc5cb26cd8d2348cba0bb31",
+ "files": 151,
+ "main": "main.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 50511
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 49716,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

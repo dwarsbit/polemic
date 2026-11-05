@@ -1,0 +1,18 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package inputenc Warning: inputenc package ignored with utf8 based engines",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\@footnotemark  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "hybridPRv2b.tex",
+  "line": null,
+  "message": "Class revtex4 Warning: If you want your PACS to appear in your output, use document class option showpacs",
+  "detail": [],
+  "hint": null
+ }
+]

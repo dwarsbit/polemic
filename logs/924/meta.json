@@ -1,0 +1,32 @@
+{
+ "id": 924,
+ "source": "CTAN",
+ "name": "uwthesis",
+ "url": "https://ctan.org/pkg/uwthesis",
+ "type": "Thesis",
+ "version": "6.13",
+ "files": 6,
+ "main": "uwthesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "uwthesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1799
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1448,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

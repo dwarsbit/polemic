@@ -1,0 +1,61 @@
+[
+ {
+  "severity": "error",
+  "file": "physicsreport.cls",
+  "line": 146,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.146 \\setmonofont",
+   "                  {LigalexMono}["
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "physicsreport.cls",
+  "line": 146,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "report-1.tex",
+  "line": 34,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "report-1.tex",
+  "line": 76,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "report-1.tex",
+  "line": 95,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file unisong5d): Font unisong5d at 632 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexart Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ }
+]

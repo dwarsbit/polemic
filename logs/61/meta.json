@@ -1,0 +1,34 @@
+{
+ "id": 61,
+ "source": "GitHub",
+ "name": "BJCaasenbrood/ThesisDotTex",
+ "url": "https://github.com/BJCaasenbrood/ThesisDotTex",
+ "type": "Thesis",
+ "version": "bc68cf251acab434488e29fe67d5785f9cc3c092",
+ "files": 66,
+ "main": "thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 9636,
+  "tail": "exit 12, PDF found\n  Label `chap: chapter 1' multiply defined\n  Label `sec: chap2 intro' multiply defined\n  Label `sec: chap2 section header' multiply defined\n  Label `eq: chap2 vector field' multiply defined\n  Label `sec: chap2 conclusion' multiply defined\n  Label `fig: chap2 cntrld mass' multiply defined\n  Label `part: design' multiply defined\n And 6 more --- see log file 'thesis.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2712,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ],
+  "tail": "  Citation `Goebel2012' on page 14 undefined on input line 11\n  Citation `Goebel2012' on page 20 undefined on input line 11\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 8,
+ "outcome": "both-fail"
+}

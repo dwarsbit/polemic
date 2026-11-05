@@ -1,0 +1,31 @@
+{
+ "id": 236,
+ "source": "GitHub",
+ "name": "samcarter/beamertheme-tcolorbox",
+ "url": "https://github.com/samcarter/beamertheme-tcolorbox",
+ "type": "Slides",
+ "version": "4f8495541cdc665152db1eb8ad43d195b4ae58c1",
+ "files": 16,
+ "main": "beamertheme-tcolorbox-doc.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "beamertheme-tcolorbox-doc.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4596,
+  "tail": "exit 12, PDF not found\n         Presumably './include/' should be a subdirectory of the aux dir,\n         i.e., the actual target directory is './include/'.\n !! However, I'm not configured to make it, so you'll have to make it yourself.\nLatexmk: There were problems writing to 'beamertheme-tcolorbox-doc-listing-1.tex' in directory './include/'.\n         Presumably './include/' should be a subdirectory of the aux dir,\n         i.e., the actual target directory is './include/'.\n !! However, I'm not configured to make it, so you'll have to make it yourself.\nFailure to make 'beamertheme-tcolorbox-doc.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1900,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "I can't write on file `./include/beamertheme-tcolorbox-doc-listing-1.tex'.",
+ "outcome": "both-fail"
+}

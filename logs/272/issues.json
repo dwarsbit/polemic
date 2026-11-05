@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class revtex4-1 Warning: No journal specified, using default pra",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Murphy-Machine-Learning-mathematical-errata.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [a4]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "Murphy-Machine-Learning-mathematical-errata.tex",
+  "line": null,
+  "message": "Class revtex4-1 Warning: Assuming \\noaffiliation for authors",
+  "detail": [],
+  "hint": null
+ }
+]

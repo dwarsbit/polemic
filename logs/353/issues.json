@@ -1,0 +1,58 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package kvoptions-patch Warning: kvoptions-patch is not compatible with LaTeX 2026-11-01 Loading is aborted on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "mpi2015_poster.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested, on input line 32, version `2019/11/29' of package kvoptions-patch, but only version `' is available",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Option `pdfpagelabels' is turned off because \\thepage is undefined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package minted Warning: Package option \"final\" no longer has any effect with minted v3+ on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "mardi-annual-meeting-2024-open-interfaces.tex",
+  "line": 107,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 107",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "mardi-annual-meeting-2024-open-interfaces.tex",
+  "line": 194,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 194",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "mardi-annual-meeting-2024-open-interfaces.tex",
+  "line": 237,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 237",
+  "detail": [],
+  "hint": null
+ }
+]

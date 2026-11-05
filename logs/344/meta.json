@@ -1,0 +1,33 @@
+{
+ "id": 344,
+ "source": "GitHub",
+ "name": "lgloege/YAML-CV",
+ "url": "https://github.com/lgloege/YAML-CV",
+ "type": "CV",
+ "version": "2d9d295c222631b1825bbab87b0dd9591c0c07ec",
+ "files": 12,
+ "main": "templates/pdf/cv-template.tex",
+ "catalogMain": "build/pdf/cv.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "build/pdf/cv.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1613
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1346,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

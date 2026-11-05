@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package mhchem Warning: You did not specify a 'version' option for the mhchem package. Please write \\usepackage[version=4]{mhchem} in your preamble (or any lower number for compatibility mode), because you might get slightly different output with the same input in future versions",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: 'babel' option is deprecated. Please use 'autolang' instead",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ProblemBook.cls",
+  "line": null,
+  "message": "Package xassoccnt Warning: Warning: Package \"calc\" is loaded -- this is not recommended for xassoccnt",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "Oxford_Thesis.tex",
+  "line": 104,
+  "message": "Package biblatex Warning: Language 'latin' not supported. Using dummy definitions on input line 104",
+  "detail": [],
+  "hint": null
+ }
+]

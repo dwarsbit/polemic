@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Using fall-back bibtex backend: functionality may be reduced/unavailable",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "logbook.tex",
+  "line": null,
+  "message": "Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "logbook.tex",
+  "line": 120,
+  "message": "LaTeX Warning: Reference `sub:preprocessing' on page 5 undefined on input line 120",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "logbook.tex",
+  "line": 232,
+  "message": "LaTeX Warning: Citation 'einstein' on page 9 undefined on input line 232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "logbook.tex",
+  "line": 232,
+  "message": "LaTeX Warning: Citation 'knuth-fa' on page 9 undefined on input line 232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "logbook.tex",
+  "line": 522,
+  "message": "LaTeX Warning: Empty bibliography on input line 522",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "logbook.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "logbook.tex",
+  "line": null,
+  "message": "Package biblatex Warning: Please (re)run BibTeX on the file(s): logbook and rerun LaTeX afterwards",
+  "detail": [],
+  "hint": null
+ }
+]

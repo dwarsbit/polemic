@@ -1,0 +1,32 @@
+{
+ "id": 956,
+ "source": "CTAN",
+ "name": "els-cas-templates",
+ "url": "https://ctan.org/pkg/els-cas-templates",
+ "type": "Paper",
+ "version": "2.4",
+ "files": 30,
+ "main": "cas-dc-sample.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "cas-dc-sample.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3357
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2525,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 4,
+ "outcome": "both-ok"
+}

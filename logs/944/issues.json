@@ -1,0 +1,50 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexart Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/resume-en.tex",
+  "line": 16,
+  "message": "LaTeX Warning: \\include should only be used after \\begin{document} on input line 16",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/resume-en.tex",
+  "line": 50,
+  "message": "Package natbib Warning: Citation `label' on page 1 undefined on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/resume-en.tex",
+  "line": 98,
+  "message": "LaTeX Warning: \\verb may be unreliable inside tabularx on input line 98",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/resume-en.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "example/resume-en.tex",
+  "line": null,
+  "message": "Package rerunfilecheck Warning: File `resume-en.out' has changed. Rerun to get outlines right or use package `bookmark'",
+  "detail": [],
+  "hint": null
+ }
+]

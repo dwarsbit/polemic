@@ -1,0 +1,31 @@
+{
+ "id": 140,
+ "source": "GitHub",
+ "name": "amrohendawi/thesis_template",
+ "url": "https://github.com/amrohendawi/thesis_template",
+ "type": "Paper",
+ "version": "b51bf13a6ce7c700c87a7614fd85d0bd84a04e31",
+ "files": 82,
+ "main": "thesis_template.config.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "thesis_template.config.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3228,
+  "tail": "exit 12, PDF not found\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'thesis_template.config.log' and/or above output for details\n\nThis is makeindex, version 2.18 [TeX Live 2026] (kpathsea + Thai support).\nScanning input file thesis_template.config.idx...done (0 entries accepted, 0 rejected).\nNothing written in thesis_template.config.ind.\nTranscript written in thesis_template.config.ilg.\nFailure to make 'thesis_template.config.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1463,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 2,
+ "firstError": "Emergency stop.",
+ "outcome": "both-fail"
+}

@@ -1,0 +1,34 @@
+{
+ "id": 464,
+ "source": "GitHub",
+ "name": "a358003542/tikz_gallery",
+ "url": "https://github.com/a358003542/tikz_gallery",
+ "type": "Figures",
+ "version": "c62d9049754b7174cbeec0f8f930e6ca0ecde59a",
+ "files": 238,
+ "main": "gallery/banner43.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "gallery/banner43.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 19022,
+  "tail": "exit 12, PDF found\n  Missing character: There is no 应 (U+5E94) in font [lmroman17-regular]:mapping=t\n  Missing character: There is no 应 (U+5E94) in font [lmroman17-regular]:mapping=tex-text;!\n  Missing character: There is no 用 (U+7528) in font [lmroman17-regular]:mapping=t\n  Missing character: There is no 用 (U+7528) in font [lmroman17-regular]:mapping=tex-text;!\n  Missing character: There is no 开 (U+5F00) in font [lmroman17-regular]:mapping=t\n  Missing character: There is no 开 (U+5F00) in font [lmroman17-regular]:mapping=tex-text;!\n  Missing character: There is no 发 (U+53D1) in font [lmroman17-regular]:mapping=t\n And 5 more --- see log file 'banner43.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 490,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 12,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Unknown option `CJKecglue={\\hskip 0pt}' for package `xeCJK'.",
+ "outcome": "both-fail"
+}

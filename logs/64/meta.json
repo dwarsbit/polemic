@@ -1,0 +1,31 @@
+{
+ "id": 64,
+ "source": "GitHub",
+ "name": "drtychai/research101",
+ "url": "https://github.com/drtychai/research101",
+ "type": "Thesis",
+ "version": "1b818ce35e0bcb24e1b542cdfcff65683495d2e6",
+ "files": 13,
+ "main": "beamer/main.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "beamer/main.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5427
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5085,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

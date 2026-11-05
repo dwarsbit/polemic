@@ -1,0 +1,31 @@
+{
+ "id": 217,
+ "source": "GitHub",
+ "name": "EricMarcon/memoiR",
+ "url": "https://github.com/EricMarcon/memoiR",
+ "type": "Slides",
+ "version": "11a22dde46c789943f467bb1ba15a9052f697c33",
+ "files": 94,
+ "main": "inst/rmarkdown/templates/memoir/skeleton/latex/template.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "inst/rmarkdown/templates/memoir/skeleton/latex/template.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 812,
+  "tail": "exit 12, PDF not found\n      Refer to 'template.log' and/or above output for details\n\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nwarning: kpathsea: $documentclass$.cls: Unrecognized variable construct `$.'.\nLatexmk: Missing input file '$documentclass$.cls' message in .log file:\n  ! LaTeX Error: File `$documentclass$.cls' not found.\nFailure to make 'template.xdv'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 287,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: Missing \\begin{document}.",
+ "outcome": "both-fail"
+}

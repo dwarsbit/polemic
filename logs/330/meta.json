@@ -1,0 +1,35 @@
+{
+ "id": 330,
+ "source": "GitHub",
+ "name": "davidefiocco/phd-thesis",
+ "url": "https://github.com/davidefiocco/phd-thesis",
+ "type": "CV",
+ "version": "01ea9867758825bb9f5f8cf2b1cfafb7ab1d22ce",
+ "files": 1040,
+ "main": "Presentations/PrivateDefense/Private-2014-EPFL-Fiocco.tex",
+ "catalogMain": "Thesis_sources/tail/resume_science.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (magic comment)",
+ "baseline": {
+  "main": "Thesis_sources/tail/resume_science.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 30450,
+  "tail": "exit 12, PDF found\n  Missing character: There is no C (\"43) in font nullfont!\n  Missing character: There is no h (\"68) in font nullfont!\n  Missing character: There is no e (\"65) in font nullfont!\n  Missing character: There is no m (\"6D) in font nullfont!\n  Missing character: There is no i (\"69) in font nullfont!\n  Missing character: There is no n (\"6E) in font nullfont!\n  Missing character: There is no d (\"64) in font nullfont!\n And 2565 more --- see log file 'resume_science.log'"
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 71431,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "baseline-only-fail"
+}

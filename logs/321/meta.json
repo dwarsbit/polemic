@@ -1,0 +1,33 @@
+{
+ "id": 321,
+ "source": "GitHub",
+ "name": "huajh/awesome-latex-cv",
+ "url": "https://github.com/huajh/awesome-latex-cv",
+ "type": "CV",
+ "version": "9c2be28b85b8a697cad5870e0675350ad339aed6",
+ "files": 34,
+ "main": "awesome-cv.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "awesome-cv.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 8178,
+  "tail": "exit 12, PDF found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  lualatex: Command for 'lualatex' gave return code 1\n      Refer to 'awesome-cv.log' and/or above output for details\n\ntput: No value for $TERM and no -T specified\ntput: No value for $TERM and no -T specified\ntput: No value for $TERM and no -T specified"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 3836,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 2,
+ "firstError": "LaTeX cmd Error: Command '\\FA' already defined.",
+ "outcome": "both-fail"
+}

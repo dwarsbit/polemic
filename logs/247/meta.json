@@ -1,0 +1,31 @@
+{
+ "id": 247,
+ "source": "GitHub",
+ "name": "Blackdeer1524/BMSTU-Algebra",
+ "url": "https://github.com/Blackdeer1524/BMSTU-Algebra",
+ "type": "Notes",
+ "version": "b5704acc7069eb3135982f533d757cceafe5389b",
+ "files": 9,
+ "main": "AlgebraLL3.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "AlgebraLL3.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 6512
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 11994,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 6,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,298 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Class revtex4-2 Warning: Repair the float package",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `Imada1998' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `Dagotto2005' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `Slichter1990' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `Moriya1963' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 53,
+  "message": "Package natbib Warning: Citation `Korringa1950' on page 1 undefined on input line 53",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `Dora2009' on page 1 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `Hirata2017' on page 1 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 59,
+  "message": "Package natbib Warning: Citation `Hirata2021' on page 1 undefined on input line 59",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 60,
+  "message": "Package natbib Warning: Citation `Hirata2017' on page 1 undefined on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 60,
+  "message": "Package natbib Warning: Citation `Hirata2021' on page 1 undefined on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 60,
+  "message": "Package natbib Warning: Citation `Ohki2020' on page 1 undefined on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Topp2016' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Tian2021' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Fu2019' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Kar2020' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Tian2020' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Takane2018' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Hirose2020' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Yamakage2016' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Takane2018a' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Kato2017' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Kato2017a' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Zhou2019' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Kobayashi2021' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 66,
+  "message": "Package natbib Warning: Citation `Kawamura2020' on page 2 undefined on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 89,
+  "message": "Package natbib Warning: Citation `Moriya1963' on page 2 undefined on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 89,
+  "message": "Package natbib Warning: Citation `Narath1968' on page 2 undefined on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 95,
+  "message": "Package natbib Warning: Citation `Moriya1963' on page 2 undefined on input line 95",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 146,
+  "message": "Package natbib Warning: Citation `Kobayashi2021' on page 3 undefined on input line 146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 146,
+  "message": "Package natbib Warning: Citation `Kawamura2020' on page 3 undefined on input line 146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 146,
+  "message": "Package natbib Warning: Citation `Kawamura2021' on page 3 undefined on input line 146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 178,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix] on input line 178",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 203,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix] on input line 203",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 214,
+  "message": "Package natbib Warning: Citation `Dressel2007' on page 6 undefined on input line 214",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "draft.tex",
+  "line": 214,
+  "message": "Package natbib Warning: Citation `Barthel1993' on page 6 undefined on input line 214",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

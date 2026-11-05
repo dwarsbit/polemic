@@ -1,0 +1,530 @@
+[
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 43,
+  "message": "Package fontspec Error: The font \"Minion Pro\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 44,
+  "message": "Package fontspec Error: The font \"Myriad Pro\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 44,
+  "message": "Font TU/MyriadPro(0)/m/n/10.95=\"Myriad Pro\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 45,
+  "message": "Package fontspec Error: The font \"Courier Std\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 46,
+  "message": "Package fontspec Error: The font \"Source Han Sans SC\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 46,
+  "message": "Package fontspec Error: The font \"Source Han Sans SC Medium\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 46,
+  "message": "Package fontspec Error: The font \"Adobe Kaiti Std\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 46,
+  "message": "Package fontspec Error: The font \"Adobe Fangsong Std\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 60,
+  "message": "Font TU/MyriadPro(0)/m/n/6=\"Myriad Pro\" at 6.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 60,
+  "message": "Font TU/MinionPro(0)/m/n/6=\"Minion Pro\" at 6.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 60,
+  "message": "Font TU/MinionPro(0)/m/n/5=\"Minion Pro\" at 5.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 60,
+  "message": "Font TU/MyriadPro(0)/m/n/5=\"Myriad Pro\" at 5.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 60,
+  "message": "Font TU/MyriadPro(0)/m/it/5=\"Myriad Pro\" at 5.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/MyriadPro(0)/m/n/14.4=\"Myriad Pro\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/MyriadPro(0)/m/n/8=\"Myriad Pro\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/MyriadPro(0)/m/n/20.74=\"Myriad Pro\" at 20.74pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/MyriadPro(0)/m/n/10=\"Myriad Pro\" at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/CourierStd(0)/m/n/10=\"Courier Std\" at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/MinionPro(0)/m/n/10=\"Minion Pro\" at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/MinionPro(0)/m/n/7=\"Minion Pro\" at 7.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/MyriadPro(0)/m/n/7=\"Myriad Pro\" at 7.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/MyriadPro(0)/m/it/10=\"Myriad Pro\" at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/MyriadPro(0)/m/it/7=\"Myriad Pro\" at 7.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/CourierStd(0)/m/n/7=\"Courier Std\" at 7.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/MyriadPro(0)/m/n/4=\"Myriad Pro\" at 4.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 67,
+  "message": "Font TU/MyriadPro(0)/m/it/6=\"Myriad Pro\" at 6.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 92,
+  "message": "Font TU/MinionPro(0)/m/n/10.95=\"Minion Pro\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 92,
+  "message": "Font TU/MinionPro(0)/m/n/8=\"Minion Pro\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 92,
+  "message": "Font TU/MyriadPro(0)/m/it/10.95=\"Myriad Pro\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 92,
+  "message": "Font TU/MyriadPro(0)/m/it/8=\"Myriad Pro\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 107,
+  "message": "Font TU/MyriadPro(0)/b/n/10.95=\"Myriad Pro\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 142,
+  "message": "Font TU/CourierStd(0)/m/n/6=\"Courier Std\" at 6.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 212,
+  "message": "Font TU/CourierStd(0)/m/n/8=\"Courier Std\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 310,
+  "message": "Cannot use \\XeTeXglyph with nullfont; not a native platform font.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 310,
+  "message": "You can't use `\\numexpr' in restricted horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 310,
+  "message": "You can't use `\\XeTeXcharglyph' in restricted horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 493,
+  "message": "\\textfont 7 is undefined (character a).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 493,
+  "message": "\\textfont 7 is undefined (character b).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 493,
+  "message": "\\textfont 7 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 493,
+  "message": "\\textfont 7 is undefined (character d).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 589,
+  "message": "Unable to load picture or PDF file './figs/taipei101.jpg'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 589,
+  "message": "\\textfont 7 is undefined (character E).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 589,
+  "message": "\\textfont 7 is undefined (character m).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 589,
+  "message": "\\textfont 7 is undefined (character c).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 607,
+  "message": "Unable to load picture or PDF file './figs/GitHub-Mark-120px-plus.png'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 607,
+  "message": "Package graphics Error: Division by 0.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 607,
+  "message": "Unable to load picture or PDF file './figs/mactexlogoX5.png'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 607,
+  "message": "Font TU/MinionPro(0)/m/n/20.74=\"Minion Pro\" at 20.74pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 607,
+  "message": "Font TU/MinionPro(0)/m/n/14.4=\"Minion Pro\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 607,
+  "message": "Font TU/MinionPro(0)/m/n/12=\"Minion Pro\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 607,
+  "message": "Font TU/MyriadPro(0)/m/it/20.74=\"Myriad Pro\" at 20.74pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 607,
+  "message": "Font TU/MyriadPro(0)/m/it/14.4=\"Myriad Pro\" at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "googleblue/googleblue.tex",
+  "line": 607,
+  "message": "Font TU/MyriadPro(0)/m/it/12=\"Myriad Pro\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class beamer Warning: This option works no longer loads ucs. on input line 372",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package inputenc Warning: inputenc package ignored with utf8 based engines",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "googleblue/googleblue.tex",
+  "line": null,
+  "message": "Package xeCJK Warning: Redefining CJKfamily `\\CJKrmdefault' (FandolSong-Regular(0))",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "googleblue/googleblue.tex",
+  "line": 56,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\\\' on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "googleblue/googleblue.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "googleblue/googleblue.tex",
+  "line": 60,
+  "message": "LaTeX Font Warning: Font shape `TU/MyriadPro(0)/m/it' undefined using `TU/MyriadPro(0)/m/n' instead on input line 60",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "googleblue/googleblue.tex",
+  "line": 92,
+  "message": "LaTeX Font Warning: Font shape `TU/MyriadPro(0)/b/n' undefined using `TU/MyriadPro(0)/m/n' instead on input line 92",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `TU/MyriadPro(0)/m/sl' undefined using `TU/MyriadPro(0)/m/it' instead on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: \\verb may be unreliable inside tabularx on input line 28",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "googleblue/googleblue.tex",
+  "line": 589,
+  "message": "LaTeX Warning: File `./figs/taipei101.jpg' not found on input line 589",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "googleblue/googleblue.tex",
+  "line": 607,
+  "message": "LaTeX Warning: File `./figs/GitHub-Mark-120px-plus.png' not found on input line 607",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "googleblue/googleblue.tex",
+  "line": 607,
+  "message": "LaTeX Warning: File `./figs/mactexlogoX5.png' not found on input line 607",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "googleblue/googleblue.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

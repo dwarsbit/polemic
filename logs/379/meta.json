@@ -1,0 +1,31 @@
+{
+ "id": 379,
+ "source": "GitHub",
+ "name": "javadr/xebaposter",
+ "url": "https://github.com/javadr/xebaposter",
+ "type": "Poster",
+ "version": "dad28a87ec02a95cb5232e69fa7620d03dd11833",
+ "files": 23,
+ "main": "poster-fa.tex",
+ "catalogMain": "poster.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "poster.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5306
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 410,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/poster-fa.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "polemic-only-fail"
+}

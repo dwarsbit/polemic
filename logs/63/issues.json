@@ -1,0 +1,2674 @@
+[
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 263,
+  "message": "LaTeX Error: Font family `JT1+gt' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 264,
+  "message": "LaTeX Error: Encoding scheme `JT1' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 265,
+  "message": "LaTeX Error: Font family `JT1+mdg' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 266,
+  "message": "LaTeX Error: Encoding scheme `JT1' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 267,
+  "message": "LaTeX Error: Font family `JT1+gmb' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 268,
+  "message": "LaTeX Error: Font family `JT1+gmb' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 269,
+  "message": "LaTeX Error: Encoding scheme `JT1' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 270,
+  "message": "LaTeX Error: Font family `JT1+sg' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 271,
+  "message": "LaTeX Error: Font family `JT1+sg' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 272,
+  "message": "LaTeX Error: Encoding scheme `JT1' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 273,
+  "message": "LaTeX Error: Font family `JT1+gbm' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 274,
+  "message": "LaTeX Error: Font family `JT1+gbm' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 275,
+  "message": "LaTeX Error: Encoding scheme `JT1' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 276,
+  "message": "LaTeX Error: Font family `JT1+jun' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 277,
+  "message": "LaTeX Error: Font family `JT1+jun' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 278,
+  "message": "LaTeX Error: Font family `JT1+jun' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 279,
+  "message": "LaTeX Error: Font family `JT1+mc' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 280,
+  "message": "LaTeX Error: Font family `JY1+mc' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 282,
+  "message": "LaTeX Error: Font family `JT1+mc' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 283,
+  "message": "LaTeX Error: Font family `JY1+mc' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 287,
+  "message": "LaTeX Error: Font family `JT1+mc' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 288,
+  "message": "LaTeX Error: Font family `JY1+mc' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 302,
+  "message": "LaTeX Error: Font family `JY1+mc' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 316,
+  "message": "LaTeX Error: Font family `JY1+gt' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 519,
+  "message": "LaTeX Error: Encoding scheme `JY1' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 523,
+  "message": "LaTeX Error: Font family `JY1+fgb' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 524,
+  "message": "LaTeX Error: Encoding scheme `JT1' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 527,
+  "message": "LaTeX Error: Font family `JT1+fgb' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 530,
+  "message": "LaTeX Error: Encoding scheme `JY1' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 534,
+  "message": "LaTeX Error: Font family `JY1+fmb' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 535,
+  "message": "LaTeX Error: Encoding scheme `JT1' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 538,
+  "message": "LaTeX Error: Font family `JT1+fmb' unknown.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 592,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 592,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 592,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 592,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 593,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.593  \\setbox0\\hbox{\\char\\euc",
+   "                              \"A1A1}% \""
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 593,
+  "message": "Bad character code (41377).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 594,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 594,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 594,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 595,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 595,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 595,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 596,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 596,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 596,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 597,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 597,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 597,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 598,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 598,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 598,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 689,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 689,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 690,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 690,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 691,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 691,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 738,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 738,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 849,
+  "message": "Arithmetic overflow.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 963,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 963,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2558,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"97.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2558,
+  "message": "LaTeX Error: Unicode character 付 (U+4ED8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2559,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"A1.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2559,
+  "message": "LaTeX Error: Unicode character 録 (U+9332)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2560,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"8D.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2560,
+  "message": "LaTeX Error: Unicode character 受 (U+53D7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2560,
+  "message": "LaTeX Error: Unicode character 付 (U+4ED8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2561,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"8D.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2561,
+  "message": "LaTeX Error: Unicode character 再 (U+518D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2561,
+  "message": "LaTeX Error: Unicode character 受 (U+53D7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2561,
+  "message": "LaTeX Error: Unicode character 付 (U+4ED8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2562,
+  "message": "LaTeX Error: Invalid UTF-8 byte \"BA.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2562,
+  "message": "LaTeX Error: Unicode character 表 (U+8868)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 2564,
+  "message": "Paragraph ended before \\Presented was complete.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 3673,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.3673 \\leftmargini\\Cwd"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 3674,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 3674,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.3674 \\leftmarginii.5\\Cwd"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 3675,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.3675 \\leftmarginiii2\\Cwd"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 3676,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.3676 \\leftmarginiv2\\Cwd"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 3677,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.3677 \\leftmarginv2\\Cwd"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 3678,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.3678 \\leftmarginvi2\\Cwd"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 3694,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 3694,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 4731,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 4731,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 4745,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 4745,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 4745,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 4783,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.4783  \\textheight 47\\Cvs"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 4784,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 4810,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.4810 \\tabbingsep.5\\Cwd"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 4811,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5363,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5363 \\postbreakpenalty",
+   "                        `\\`=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5363,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5363,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5364,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5364 \\prebreakpenalty",
+   "                       `'=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5365,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5365 \\prebreakpenalty",
+   "                       `)=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5366,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5366 \\postbreakpenalty",
+   "                        `(=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5367,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5367 \\prebreakpenalty",
+   "                       `]=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5368,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5368 \\postbreakpenalty",
+   "                        `[=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5369,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5369 \\prebreakpenalty",
+   "                       `\\}=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5370,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5370 \\postbreakpenalty",
+   "                        `\\{=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5371,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5371,
+  "message": "\\textfont 7 is undefined (character ^^P).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5372 \\prebreakpenalty",
+   "                       `・=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "LaTeX Error: Unicode character 情 (U+60C5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "LaTeX Error: Unicode character 報 (U+5831)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "LaTeX Error: Unicode character 処 (U+51E6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "LaTeX Error: Unicode character 理 (U+7406)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "LaTeX Error: Unicode character 学 (U+5B66)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "LaTeX Error: Unicode character 会 (U+4F1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "LaTeX Error: Unicode character 論 (U+8AD6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "LaTeX Error: Unicode character 文 (U+6587)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "LaTeX Error: Unicode character 誌 (U+8A8C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "LaTeX Error: Unicode character ・ (U+30FB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5372,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5373,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5373 \\prebreakpenalty",
+   "                       `：=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5373,
+  "message": "LaTeX Error: Unicode character ： (U+FF1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5374,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5374 \\prebreakpenalty",
+   "                       `；=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5374,
+  "message": "LaTeX Error: Unicode character ； (U+FF1B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5375,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5375 \\prebreakpenalty",
+   "                       `？=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5375,
+  "message": "LaTeX Error: Unicode character ？ (U+FF1F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5376,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5376 \\prebreakpenalty",
+   "                       `！=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5376,
+  "message": "LaTeX Error: Unicode character ！ (U+FF01)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5377,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5377,
+  "message": "\\textfont 7 is undefined (character ^^P).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5378,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5378 \\prebreakpenalty",
+   "                       \\jis\"212D=\\@M\t\t% ´"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5378,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5378,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5379,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5379 \\postbreakpenalty",
+   "                        \\jis\"212E=\\@M\t\t% ｀"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5380,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5380 \\postbreakpenalty",
+   "                        \\jis\"2146=\\@M\t\t% ‘"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5381,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5381 \\prebreakpenalty",
+   "                       \\jis\"2147=\\@M\t\t% ’"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5382,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5382 \\postbreakpenalty",
+   "                        \\jis\"2148=\\@M\t\t% “"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5383,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5383 \\prebreakpenalty",
+   "                       \\jis\"2149=\\@M\t\t% ”"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5384,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5384,
+  "message": "\\textfont 7 is undefined (character ^^P).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5385,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5385 \\prebreakpenalty",
+   "                       `）=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5385,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5385,
+  "message": "LaTeX Error: Unicode character ） (U+FF09)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5385,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5386,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5386 \\postbreakpenalty",
+   "                        `（=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5386,
+  "message": "LaTeX Error: Unicode character （ (U+FF08)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5387,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5387 \\prebreakpenalty",
+   "                       `｝=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5387,
+  "message": "LaTeX Error: Unicode character ｝ (U+FF5D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5388,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5388 \\postbreakpenalty",
+   "                        `｛=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5388,
+  "message": "LaTeX Error: Unicode character ｛ (U+FF5B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5389,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5389 \\prebreakpenalty",
+   "                       `］=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5389,
+  "message": "LaTeX Error: Unicode character ］ (U+FF3D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5390,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5390 \\postbreakpenalty",
+   "                        `［=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5390,
+  "message": "LaTeX Error: Unicode character ［ (U+FF3B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5391,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5391 \\postbreakpenalty",
+   "                        `‘=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5392,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5392 \\prebreakpenalty",
+   "                       `’=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5393,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5393,
+  "message": "\\textfont 7 is undefined (character ^^P).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5394,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5394 \\postbreakpenalty",
+   "                        \\jis\"214C=\\@M\t\t%〔"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5394,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5394,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5395,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5395 \\prebreakpenalty",
+   "                       \\jis\"214D=\\@M\t\t% 〕"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5396,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5396 \\postbreakpenalty",
+   "                        \\jis\"2152=\\@M\t\t% 〈"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5397,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5397 \\prebreakpenalty",
+   "                       \\jis\"2153=\\@M\t\t% 〉"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5398,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5398 \\postbreakpenalty",
+   "                        \\jis\"2154=\\@M\t\t% 《"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5399,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5399 \\prebreakpenalty",
+   "                       \\jis\"2155=\\@M\t\t% 》"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5400,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5400 \\postbreakpenalty",
+   "                        \\jis\"2156=\\@M\t\t% 「"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5401,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5401 \\prebreakpenalty",
+   "                       \\jis\"2157=\\@M\t\t% 」"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5402,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5402 \\postbreakpenalty",
+   "                        \\jis\"2158=\\@M\t\t% 『"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5403,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5403 \\prebreakpenalty",
+   "                       \\jis\"2159=\\@M\t\t% 』"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5404,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5404 \\postbreakpenalty",
+   "                        \\jis\"215A=\\@M\t\t% 【"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5405,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5405 \\prebreakpenalty",
+   "                       \\jis\"215B=\\@M\t\t% 】"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5406,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5406,
+  "message": "\\textfont 7 is undefined (character ^^P).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5407,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5407 \\prebreakpenalty",
+   "                       `ー=\\@M\t\t\t\t\t\t% 2.12(6)"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5407,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5407,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5407,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5408,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5408 \\prebreakpenalty",
+   "                       `〜=\\@M\t\t\t\t\t\t% 2.12(6)"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5408,
+  "message": "LaTeX Error: Unicode character 〜 (U+301C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5409,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5409,
+  "message": "\\textfont 7 is undefined (character ^^P).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5410,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5410 \\prebreakpenalty",
+   "                       `ぁ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5410,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5410,
+  "message": "LaTeX Error: Unicode character ぁ (U+3041)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5410,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5411,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5411 \\prebreakpenalty",
+   "                       `ぃ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5411,
+  "message": "LaTeX Error: Unicode character ぃ (U+3043)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5412,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5412 \\prebreakpenalty",
+   "                       `ぅ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5412,
+  "message": "LaTeX Error: Unicode character ぅ (U+3045)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5413,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5413 \\prebreakpenalty",
+   "                       `ぇ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5413,
+  "message": "LaTeX Error: Unicode character ぇ (U+3047)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5414,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5414 \\prebreakpenalty",
+   "                       `ぉ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5414,
+  "message": "LaTeX Error: Unicode character ぉ (U+3049)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5415,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5415 \\prebreakpenalty",
+   "                       `っ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5415,
+  "message": "LaTeX Error: Unicode character っ (U+3063)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5416,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5416 \\prebreakpenalty",
+   "                       `ゃ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5416,
+  "message": "LaTeX Error: Unicode character ゃ (U+3083)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5417,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5417 \\prebreakpenalty",
+   "                       `ゅ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5417,
+  "message": "LaTeX Error: Unicode character ゅ (U+3085)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5418,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5418 \\prebreakpenalty",
+   "                       `ょ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5418,
+  "message": "LaTeX Error: Unicode character ょ (U+3087)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5419,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5419 \\prebreakpenalty",
+   "                       \\jis\"246E=\\@M\t\t% ゎ"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5420,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5420 \\prebreakpenalty",
+   "                       `ァ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5420,
+  "message": "LaTeX Error: Unicode character ァ (U+30A1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5421,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5421 \\prebreakpenalty",
+   "                       `ィ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5421,
+  "message": "LaTeX Error: Unicode character ィ (U+30A3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5422,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5422 \\prebreakpenalty",
+   "                       `ゥ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5422,
+  "message": "LaTeX Error: Unicode character ゥ (U+30A5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5423,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5423 \\prebreakpenalty",
+   "                       `ェ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5423,
+  "message": "LaTeX Error: Unicode character ェ (U+30A7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5424,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5424 \\prebreakpenalty",
+   "                       `ォ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5424,
+  "message": "LaTeX Error: Unicode character ォ (U+30A9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5425,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5425 \\prebreakpenalty",
+   "                       `ッ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5425,
+  "message": "LaTeX Error: Unicode character ッ (U+30C3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5426,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5426 \\prebreakpenalty",
+   "                       `ャ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5426,
+  "message": "LaTeX Error: Unicode character ャ (U+30E3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5427,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5427 \\prebreakpenalty",
+   "                       `ュ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5427,
+  "message": "LaTeX Error: Unicode character ュ (U+30E5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5428,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5428 \\prebreakpenalty",
+   "                       `ョ=\\@M"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5428,
+  "message": "LaTeX Error: Unicode character ョ (U+30E7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5429,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5429 \\prebreakpenalty",
+   "                       \\jis\"256E=\\@M\t\t% ヮ"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5430,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5430 \\prebreakpenalty",
+   "                       \\jis\"2575=\\@M\t\t% ヵ"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5431,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.5431 \\prebreakpenalty",
+   "                       \\jis\"2576=\\@M\t\t% ヶ"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5433,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "ipsj.cls",
+  "line": 5433,
+  "message": "\\textfont 7 is undefined (character ^^P).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "serverspec.tex",
+  "line": 2,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "serverspec.tex",
+  "line": 2,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "serverspec.tex",
+  "line": 11,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "serverspec.tex",
+  "line": 11,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "serverspec.tex",
+  "line": 11,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "serverspec.tex",
+  "line": 11,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 1,
+  "message": "LaTeX Error: Unicode character 概 (U+6982)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 1,
+  "message": "LaTeX Error: Unicode character 要 (U+8981)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 1,
+  "message": "LaTeX Error: Unicode character ： (U+FF1A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character シ (U+30B7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character ス (U+30B9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character テ (U+30C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character ム (U+30E0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character の (U+306E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 大 (U+5927)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 規 (U+898F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 模 (U+6A21)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character ・ (U+30FB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 複 (U+8907)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 雑 (U+96D1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 化 (U+5316)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character に (U+306B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 伴 (U+4F34)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character い (U+3044)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character ， (U+FF0C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character サ (U+30B5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character ー (U+30FC)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character バ (U+30D0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 構 (U+69CB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 築 (U+7BC9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 運 (U+904B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character を (U+3092)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 効 (U+52B9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 率 (U+7387)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character す (U+3059)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character る (U+308B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character た (U+305F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character め (U+3081)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 状 (U+72B6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 態 (U+614B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character コ (U+30B3)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character ド (U+30C9)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character で (U+3067)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 記 (U+8A18)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 述 (U+8FF0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 手 (U+624B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 法 (U+6CD5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character が (U+304C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 数 (U+6570)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 多 (U+591A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character く (U+304F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 提 (U+63D0)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 供 (U+4F9B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character さ (U+3055)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character れ (U+308C)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character て (U+3066)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character ． (U+FF0E)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character そ (U+305D)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character ら (U+3089)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 良 (U+826F)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 扱 (U+6271)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character う (U+3046)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character プ (U+30D7)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character ロ (U+30ED)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character セ (U+30BB)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character と (U+3068)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character し (U+3057)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character ト (U+30C8)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 駆 (U+99C6)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 動 (U+52D5)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 開 (U+958B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": "LaTeX Error: Unicode character 発 (U+767A)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "abstract.tex",
+  "line": 2,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `OT1/txsy/m/n' undefined using `OT1/cmr/m/n' instead on input line 5372",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\textquoteleft invalid in math mode on input line 5391",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\textquoteright invalid in math mode on input line 5392",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package epstopdf Warning: Drivers other than `pdftex' and `luatex' are not supported",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "serverspec.tex",
+  "line": 11,
+  "message": "LaTeX Warning: First page is already shipped out, ignoring \\AtBeginDvi on input line 11",
+  "detail": [],
+  "hint": null
+ }
+]

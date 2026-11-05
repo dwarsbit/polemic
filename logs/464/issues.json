@@ -1,0 +1,107 @@
+[
+ {
+  "severity": "error",
+  "file": "gallery/banner43.tex",
+  "line": 6,
+  "message": "LaTeX Error: Unknown option `CJKecglue={\\hskip 0pt}' for package `xeCJK'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "gallery/banner43.tex",
+  "line": 6,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "gallery/banner43.tex",
+  "line": 6,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "gallery/banner43.tex",
+  "line": 7,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.7 \\setCJKmainfont",
+   "                   [ItalicFont=KaiTi]{Source Han Serif CN}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "gallery/banner43.tex",
+  "line": 8,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.8 \\setCJKsansfont",
+   "                   {Source Han Sans CN}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "gallery/banner43.tex",
+  "line": 9,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.9 \\setCJKmonofont",
+   "                   {KaiTi}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "gallery/banner43.tex",
+  "line": 35,
+  "message": "LaTeX Error: Unicode character 应 (U+5E94)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "gallery/banner43.tex",
+  "line": 36,
+  "message": "LaTeX Error: Unicode character 用 (U+7528)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "gallery/banner43.tex",
+  "line": 37,
+  "message": "LaTeX Error: Unicode character 开 (U+5F00)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "gallery/banner43.tex",
+  "line": 37,
+  "message": "LaTeX Error: Unicode character 发 (U+53D1)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "gallery/banner43.tex",
+  "line": 37,
+  "message": "LaTeX Error: Unicode character 总 (U+603B)",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "gallery/banner43.tex",
+  "line": 37,
+  "message": "LaTeX Error: Unicode character 论 (U+8BBA)",
+  "detail": [],
+  "hint": null
+ }
+]

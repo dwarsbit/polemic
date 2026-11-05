@@ -1,0 +1,31 @@
+{
+ "id": 141,
+ "source": "GitHub",
+ "name": "TaikiKawa/papers",
+ "url": "https://github.com/TaikiKawa/papers",
+ "type": "Paper",
+ "version": "f974d7df57e2388647dca467e2e231ebfb6b33ae",
+ "files": 20,
+ "main": "ipfs-cap2pfs-jp/ipfs-cap2pfs.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ipfs-cap2pfs-jp/ipfs-cap2pfs.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1397,
+  "tail": "exit 12, PDF not found\n  ! LaTeX Error: Unicode character イ (U+30A4)\n  ! LaTeX Error: Unicode character ン (U+30F3)\n  ! LaTeX Error: Unicode character タ (U+30BF)\n  ! LaTeX Error: Unicode character ー (U+30FC)\n  ! LaTeX Error: Unicode character プ (U+30D7)\n  ! LaTeX Error: Unicode character ラ (U+30E9)\n  ! LaTeX Error: Unicode character ネ (U+30CD)\n And 93 more --- see log file 'ipfs-cap2pfs.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 443,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 59,
+ "warnings": 3,
+ "firstError": "LaTeX Error: Unicode character イ (U+30A4)",
+ "outcome": "both-fail"
+}

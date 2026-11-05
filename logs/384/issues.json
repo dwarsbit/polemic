@@ -1,0 +1,130 @@
+[
+ {
+  "severity": "warning",
+  "file": "PESTI-style.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `PESTI-style', but the document class provides `tmdei-style'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tracklang Warning: No `datatool' support for dialect `portuguese'  on input line 9924",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Label `fig:mapeamento' multiply defined",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "frontmatter/frontmatter.tex",
+  "line": 12,
+  "message": "LaTeX Font Warning: Font shape `T1/cmbr/b/sc' undefined using `T1/cmbr/b/n' instead on input line 12",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/cmbr/b/it' undefined using `T1/cmbr/b/n' instead on input line 93",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/EA.tex",
+  "line": 29,
+  "message": "LaTeX Font Warning: Font shape `T1/cmbr/m/sc' undefined using `T1/cmbr/m/n' instead on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/EA.tex",
+  "line": 63,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\gls' on input line 63",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/EA.tex",
+  "line": 82,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\gls' on input line 82",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/EA.tex",
+  "line": 97,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\gls' on input line 97",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/EA.tex",
+  "line": 118,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\gls' on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/EA.tex",
+  "line": 175,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\gls' on input line 175",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "chapters/Implementação.tex",
+  "line": 144,
+  "message": "LaTeX Font Warning: Font shape `T1/cmtl/b/n' undefined using `T1/cmtl/m/n' instead on input line 144",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "appendices/appendixC.tex",
+  "line": 24,
+  "message": "Package caption Warning: The option `hypcap=true' will be ignored for this particular \\caption on input line 24",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "appendices/appendixB.tex",
+  "line": null,
+  "message": "Package glossaries Warning: No \\printglossary or \\printglossaries found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "appendices/appendixB.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "appendices/appendixB.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were multiply-defined labels",
+  "detail": [],
+  "hint": null
+ }
+]

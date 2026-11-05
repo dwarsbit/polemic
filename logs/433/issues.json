@@ -1,0 +1,127 @@
+[
+ {
+  "severity": "error",
+  "file": "buaaproposal.cls",
+  "line": 36,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.36 \\setmainfont",
+   "                 {Times New Roman}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "buaaproposal.cls",
+  "line": 36,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "buaaproposal.cls",
+  "line": 38,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.38 \\setCJKmainfont",
+   "                    [AutoFakeBold={1.25}, Path=\\string fonts/]{simsun.ttc}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "buaaproposal.cls",
+  "line": 46,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.46 \\setCJKfamilyfont",
+   "                      {song}[AutoFakeBold={1.25}, Path=\\string fonts/]{simsu..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "buaaproposal.cls",
+  "line": 46,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "buaaproposal.cls",
+  "line": 47,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.47 \\setCJKfamilyfont",
+   "                      {hei}[AutoFakeBold={2}, Path=\\string fonts/]{simhei.ttf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "buaaproposal.cls",
+  "line": 48,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.48 \\setCJKfamilyfont",
+   "                      {kai}[AutoFakeBold={2}, Path=\\string fonts/]{KaiTiGB23..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "buaaproposal.cls",
+  "line": 49,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.49 \\setCJKfamilyfont",
+   "                      {fangsong}[AutoFakeBold={1.25}, Path=\\string fonts/]{F..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "buaaproposal.cls",
+  "line": 50,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.50 \\setCJKfamilyfont",
+   "                      {hwxingkai}[AutoFakeBold={1.25}, Path=\\string fonts/]{..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "buaaproposal.cls",
+  "line": 164,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "pdfTeX error: pdflatex (file unisong98): Font unisong98 at 331 not found",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "report.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [AutoFakeBold]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "content/appendix.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ }
+]

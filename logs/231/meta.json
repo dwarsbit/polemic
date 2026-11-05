@@ -1,0 +1,33 @@
+{
+ "id": 231,
+ "source": "GitHub",
+ "name": "myfsr/LLP2017_Folien",
+ "url": "https://github.com/myfsr/LLP2017_Folien",
+ "type": "Slides",
+ "version": "c493f2c17cf0ea915f7fe54e876fcde1b066f676",
+ "files": 49,
+ "main": "aushangThemen.tex",
+ "catalogMain": "poster.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "poster.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 8657
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 836,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 1,
+ "firstError": "Package pdftex.def Error: File `../fsrlogo.png' not found: using draft setting.",
+ "outcome": "polemic-only-fail"
+}

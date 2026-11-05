@@ -1,0 +1,31 @@
+{
+ "id": 957,
+ "source": "CTAN",
+ "name": "ieeetran",
+ "url": "https://ctan.org/pkg/ieeetran",
+ "type": "Paper",
+ "version": "1.8b",
+ "files": 36,
+ "main": "bare_adv.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "bare_adv.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 843
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 614,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

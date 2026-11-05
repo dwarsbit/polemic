@@ -1,0 +1,682 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underbar  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underline  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 169,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 1 undefined on input line 169",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 229,
+  "message": "Package natbib Warning: Citation `rigollet2010nonparametric' on page 4 undefined on input line 229",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 229,
+  "message": "Package natbib Warning: Citation `perchet2013' on page 4 undefined on input line 229",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 229,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 4 undefined on input line 229",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 230,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 4 undefined on input line 230",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 230,
+  "message": "Package natbib Warning: Citation `perchet2013' on page 4 undefined on input line 230",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 232,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 4 undefined on input line 232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 232,
+  "message": "Package natbib Warning: Citation `rigollet2010nonparametric' on page 4 undefined on input line 232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 232,
+  "message": "Package natbib Warning: Citation `perchet2013' on page 4 undefined on input line 232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 233,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 4 undefined on input line 233",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 255,
+  "message": "Package natbib Warning: Citation `besbes2009dynamic' on page 4 undefined on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 255,
+  "message": "Package natbib Warning: Citation `araman2009dynamic' on page 4 undefined on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 255,
+  "message": "Package natbib Warning: Citation `farias2010dynamic' on page 4 undefined on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 255,
+  "message": "Package natbib Warning: Citation `broder2012dynamic' on page 4 undefined on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 255,
+  "message": "Package natbib Warning: Citation `denboer2014simul' on page 4 undefined on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 255,
+  "message": "Package natbib Warning: Citation `keskin2014dynamic' on page 4 undefined on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 255,
+  "message": "Package natbib Warning: Citation `cheung2017dynamic' on page 4 undefined on input line 255",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 256,
+  "message": "Package natbib Warning: Citation `den2015dynamic' on page 4 undefined on input line 256",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 261,
+  "message": "Package natbib Warning: Citation `nambiar2016dynamic' on page 4 undefined on input line 261",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 261,
+  "message": "Package natbib Warning: Citation `qiang2016dynamic' on page 4 undefined on input line 261",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 261,
+  "message": "Package natbib Warning: Citation `javanmard2016dynamic' on page 4 undefined on input line 261",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 261,
+  "message": "Package natbib Warning: Citation `cohen2016feature' on page 4 undefined on input line 261",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 261,
+  "message": "Package natbib Warning: Citation `ban2017personalized' on page 4 undefined on input line 261",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 262,
+  "message": "Package natbib Warning: Citation `qiang2016dynamic' on page 4 undefined on input line 262",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 262,
+  "message": "Package natbib Warning: Citation `ban2017personalized' on page 4 undefined on input line 262",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 272,
+  "message": "Package natbib Warning: Citation `cohen2016feature' on page 5 undefined on input line 272",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 273,
+  "message": "Package natbib Warning: Citation `javanmard2016dynamic' on page 5 undefined on input line 273",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 274,
+  "message": "Package natbib Warning: Citation `ban2017personalized' on page 5 undefined on input line 274",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 276,
+  "message": "Package natbib Warning: Citation `javanmard2016dynamic' on page 5 undefined on input line 276",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 276,
+  "message": "Package natbib Warning: Citation `keskin2014dynamic' on page 5 undefined on input line 276",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 278,
+  "message": "Package natbib Warning: Citation `besbes2012blind' on page 5 undefined on input line 278",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 279,
+  "message": "Package natbib Warning: Citation `chen2018primal' on page 5 undefined on input line 279",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 297,
+  "message": "Package natbib Warning: Citation `cesa2006prediction' on page 5 undefined on input line 297",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 297,
+  "message": "Package natbib Warning: Citation `bubeck2012regret' on page 5 undefined on input line 297",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 298,
+  "message": "Package natbib Warning: Citation `kuleshov2014algorithms' on page 5 undefined on input line 298",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 298,
+  "message": "Package natbib Warning: Citation `agrawal2012analysis' on page 5 undefined on input line 298",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 299,
+  "message": "Package natbib Warning: Citation `agrawal1995continuum' on page 5 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 299,
+  "message": "Package natbib Warning: Citation `kleinberg2005nearly' on page 5 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 299,
+  "message": "Package natbib Warning: Citation `Auer2007' on page 5 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 299,
+  "message": "Package natbib Warning: Citation `kleinberg2008multi' on page 5 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 299,
+  "message": "Package natbib Warning: Citation `bubeck2011x' on page 5 undefined on input line 299",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 300,
+  "message": "Package natbib Warning: Citation `kleinberg2008multi' on page 5 undefined on input line 300",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 300,
+  "message": "Package natbib Warning: Citation `bubeck2011x' on page 5 undefined on input line 300",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 303,
+  "message": "Package natbib Warning: Citation `goldenshluger2013linear' on page 5 undefined on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 303,
+  "message": "Package natbib Warning: Citation `bastani2015online' on page 5 undefined on input line 303",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 304,
+  "message": "Package natbib Warning: Citation `yang2002randomized' on page 5 undefined on input line 304",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 304,
+  "message": "Package natbib Warning: Citation `langford2008epoch' on page 5 undefined on input line 304",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 304,
+  "message": "Package natbib Warning: Citation `rigollet2010nonparametric' on page 5 undefined on input line 304",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 304,
+  "message": "Package natbib Warning: Citation `perchet2013' on page 5 undefined on input line 304",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 304,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 5 undefined on input line 304",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 304,
+  "message": "Package natbib Warning: Citation `elmachtoub2017practical' on page 5 undefined on input line 304",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 305,
+  "message": "Package natbib Warning: Citation `perchet2013' on page 5 undefined on input line 305",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 307,
+  "message": "Package natbib Warning: Citation `perchet2013' on page 5 undefined on input line 307",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 309,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 5 undefined on input line 309",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 310,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 5 undefined on input line 310",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 314,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 5 undefined on input line 314",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 317,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 5 undefined on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 319,
+  "message": "Package natbib Warning: Citation `tsybakov2004optimal' on page 5 undefined on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 319,
+  "message": "Package natbib Warning: Citation `rigollet2010nonparametric' on page 5 undefined on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 319,
+  "message": "Package natbib Warning: Citation `perchet2013' on page 5 undefined on input line 319",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 320,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 5 undefined on input line 320",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 321,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 5 undefined on input line 321",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 442,
+  "message": "Package natbib Warning: Citation `besbes2009dynamic' on page 9 undefined on input line 442",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 442,
+  "message": "Package natbib Warning: Citation `wang2014close' on page 9 undefined on input line 442",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 442,
+  "message": "Package natbib Warning: Citation `lei2014near' on page 9 undefined on input line 442",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 442,
+  "message": "Package natbib Warning: Citation `ban2017personalized' on page 9 undefined on input line 442",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 442,
+  "message": "Package natbib Warning: Citation `qiang2016dynamic' on page 9 undefined on input line 442",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 454,
+  "message": "Package natbib Warning: Citation `wang2014close' on page 9 undefined on input line 454",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 454,
+  "message": "Package natbib Warning: Citation `lei2014near' on page 9 undefined on input line 454",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 463,
+  "message": "Package natbib Warning: Citation `ggbook' on page 9 undefined on input line 463",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 473,
+  "message": "Package natbib Warning: Citation `qiang2016dynamic' on page 10 undefined on input line 473",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 478,
+  "message": "Package natbib Warning: Citation `slivkins2014contextual' on page 10 undefined on input line 478",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 479,
+  "message": "Package natbib Warning: Citation `tsybakov2004optimal' on page 10 undefined on input line 479",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 479,
+  "message": "Package natbib Warning: Citation `goldenshluger2009woodroofe' on page 10 undefined on input line 479",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 479,
+  "message": "Package natbib Warning: Citation `rigollet2010nonparametric' on page 10 undefined on input line 479",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 479,
+  "message": "Package natbib Warning: Citation `perchet2013' on page 10 undefined on input line 479",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 702,
+  "message": "LaTeX Warning: No positions in optional float specifier. Default added (so using `tbp') on input line 702",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 815,
+  "message": "Package natbib Warning: Citation `rigollet2010nonparametric' on page 20 undefined on input line 815",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 866,
+  "message": "Package natbib Warning: Citation `hastie01statisticallearning' on page 21 undefined on input line 866",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 1084,
+  "message": "Package natbib Warning: Citation `foucart2013mathematical' on page 27 undefined on input line 1084",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 1302,
+  "message": "Package natbib Warning: Citation `rigollet2010nonparametric' on page 34 undefined on input line 1302",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": 1409,
+  "message": "Package natbib Warning: Citation `tsybakov2009introduction' on page 37 undefined on input line 1409",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "learning.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ }
+]

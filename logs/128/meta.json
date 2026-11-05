@@ -1,0 +1,31 @@
+{
+ "id": 128,
+ "source": "GitHub",
+ "name": "solaranamnesis/louis-proust",
+ "url": "https://github.com/solaranamnesis/louis-proust",
+ "type": "Paper",
+ "version": "80f0145e54c1e124ac1557fa11c914f51052c599",
+ "files": 11,
+ "main": "analisis-de-una-piedra-meteorica-de-sixena/full-text-spanish-alegreya.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "analisis-de-una-piedra-meteorica-de-sixena/full-text-spanish-alegreya.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2158
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1961,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

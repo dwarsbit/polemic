@@ -1,0 +1,66 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `plistings.sty' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "platexsheet-jsclasses.tex",
+  "line": 6,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "platexsheet-jsclasses.tex",
+  "line": 6,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\section detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\subsection detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\subsubsection detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\paragraph detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package titlesec Warning: Non standard sectioning command \\subparagraph detected. Using default spacing and no format",
+  "detail": [],
+  "hint": null
+ }
+]

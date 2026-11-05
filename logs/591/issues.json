@@ -1,0 +1,114 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class revtex4-2 Warning: No type size specified, using default 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package caption Warning: Unknown document class (or package), standard defaults will be used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package nameref Warning: The definition of \\label has changed! Check your packages! Replacing it with the kernel definition on input line 161",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "magIA.tex",
+  "line": null,
+  "message": "Class revtex4-2 Warning: Repair the float package",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "magIA.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [floatsfix]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "magIA.tex",
+  "line": null,
+  "message": "Package gensymb Warning: Not defining \\perthousand",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "magIA.tex",
+  "line": null,
+  "message": "Package gensymb Warning: Not defining \\micro",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "magIA.tex",
+  "line": 114,
+  "message": "Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \\setlength {\\marginparwidth }{2cm} prior to loading the todonotes package. on input line 114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "magIA.tex",
+  "line": 144,
+  "message": "LaTeX Font Warning: Font shape `U/wasy/b/n' in size <9> not available Font shape `U/wasy/m/n' tried instead on input line 144",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "magIA.tex",
+  "line": 144,
+  "message": "LaTeX Font Warning: Font shape `U/wasy/b/n' in size <6> not available Font shape `U/wasy/m/n' tried instead on input line 144",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "magIA.tex",
+  "line": 144,
+  "message": "LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5> not available Font shape `U/wasy/m/n' tried instead on input line 144",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "magIA.tex",
+  "line": 151,
+  "message": "LaTeX Font Warning: Font shape `U/wasy/b/n' in size <7> not available Font shape `U/wasy/m/n' tried instead on input line 151",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "magIA.tex",
+  "line": 337,
+  "message": "LaTeX Font Warning: Font shape `U/wasy/b/n' in size <8> not available Font shape `U/wasy/m/n' tried instead on input line 337",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "magIA.tex",
+  "line": 651,
+  "message": "LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix] on input line 651",
+  "detail": [],
+  "hint": null
+ }
+]

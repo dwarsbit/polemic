@@ -1,0 +1,32 @@
+{
+ "id": 25,
+ "source": "GitHub",
+ "name": "jnv/stunome-dip",
+ "url": "https://github.com/jnv/stunome-dip",
+ "type": "Thesis",
+ "version": "2ba71800ac8d615df783de9a9a3d2513def8d882",
+ "files": 30,
+ "main": "main.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "main.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 57873,
+  "tail": "exit 12, PDF found\n  Citation 'Glut' on page 18 undefined on input line 57\n  Citation 'Glut' on page 18 undefined on input line 57\n  Citation 'Glut' on page 42 undefined on input line 271\n  Citation 'Glut' on page 46 undefined on input line 68\n  Citation 'Glut' on page 46 undefined on input line 73\n  Citation 'xtdd2' on page 49 undefined on input line 122\n  Citation 'xtdd2' on page 49 undefined on input line 122\n And 18 more --- see log file 'main.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 554,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/main.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-fail"
+}

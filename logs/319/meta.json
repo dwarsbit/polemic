@@ -1,0 +1,31 @@
+{
+ "id": 319,
+ "source": "GitHub",
+ "name": "shellywhen/Academic-CV-Template-LaTeX",
+ "url": "https://github.com/shellywhen/Academic-CV-Template-LaTeX",
+ "type": "CV",
+ "version": "cc86c8e03337b5e0ee95c16d8040c2732006814b",
+ "files": 29,
+ "main": "cv.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "cv.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 12396
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 9069,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-ok"
+}

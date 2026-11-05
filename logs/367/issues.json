@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "example.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [a3paper,portrait]",
+  "detail": [],
+  "hint": null
+ }
+]

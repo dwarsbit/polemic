@@ -1,0 +1,31 @@
+{
+ "id": 998,
+ "source": "CTAN",
+ "name": "fibeamer",
+ "url": "https://ctan.org/pkg/fibeamer",
+ "type": "Slides",
+ "version": "1.2.0",
+ "files": 142,
+ "main": "example/bs/standard-lualatex.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example/bs/standard-lualatex.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 937,
+  "tail": "exit 12, PDF not found\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'standard-lualatex.log' and/or above output for details\n\nLatexmk: Missing input file 'beamerthemefibeamer.sty' message in .log file:\n  ! LaTeX Error: File `beamerthemefibeamer.sty' not found.\nFailure to make 'standard-lualatex.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 566,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 3,
+ "warnings": 0,
+ "firstError": "LaTeX Error: File `beamerthemefibeamer.sty' not found.",
+ "outcome": "both-fail"
+}

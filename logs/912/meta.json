@@ -1,0 +1,32 @@
+{
+ "id": 912,
+ "source": "CTAN",
+ "name": "ucbthesis",
+ "url": "https://ctan.org/pkg/ucbthesis",
+ "type": "Thesis",
+ "version": "3.6",
+ "files": 9,
+ "main": "thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 8219
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3556,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

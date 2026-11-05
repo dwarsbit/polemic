@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ifplatform Warning: shell escape is disabled, so I can only detect \\ifwindows",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tufte_algorithms_book.cls",
+  "line": null,
+  "message": "Package geometry Warning: Over-specification in `h'-direction. `width' (444.0pt) is ignored",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "tufte_algorithms_book.cls",
+  "line": null,
+  "message": "Package geometry Warning: Over-specification in `v'-direction. `height' (658.0pt) is ignored",
+  "detail": [],
+  "hint": null
+ }
+]

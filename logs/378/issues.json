@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": "paper/guide.tex",
+  "line": 267,
+  "message": "LaTeX Error: File `eijkel2' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "paper/guide.tex",
+  "line": 278,
+  "message": "LaTeX Error: File `eijkel2' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package aliascnt Warning: The package is obsolete. Check the documentation. on input line 62",
+  "detail": [],
+  "hint": null
+ }
+]

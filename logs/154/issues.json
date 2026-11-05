@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "error",
+  "file": "biblatex-archaeology_example.tex",
+  "line": 18,
+  "message": "Package fontspec Error: The font \"NotoSansMono\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `scrpage2.sty' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "biblatex-archaeology_example.tex",
+  "line": 110,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package biblatex Warning: Macro 'sortnamelist' undefined. Using \\newbibmacro",
+  "detail": [],
+  "hint": null
+ }
+]

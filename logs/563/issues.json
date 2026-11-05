@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "main.tex",
+  "line": 65,
+  "message": "Package hyperref Warning: Ignoring empty anchor on input line 65",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 3,
+ "source": "GitHub",
+ "name": "OscarPDR/PhD-dissertation-template",
+ "url": "https://github.com/OscarPDR/PhD-dissertation-template",
+ "type": "Thesis",
+ "version": "30a04d81ff720af24bdf04d5ac742d7e300f385a",
+ "files": 20,
+ "main": "dissertation.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "dissertation.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 62898,
+  "tail": "exit 12, PDF found\nTranscript written in dissertation.ilg.\nLatexmk: Missing input file 'dissertation.brf' message in .log file:\n  No file dissertation.brf.\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: Using bibtex to make bibliography file(s).\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Label `sec:section_1' multiply defined"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 458,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/dissertation.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-fail"
+}

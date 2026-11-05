@@ -1,0 +1,33 @@
+{
+ "id": 386,
+ "source": "GitHub",
+ "name": "HIT-UOI-SR/HIT-Graduate-Report",
+ "url": "https://github.com/HIT-UOI-SR/HIT-Graduate-Report",
+ "type": "Report",
+ "version": "9ed7a15e089056f9f54732dd796d683f56f4e33c",
+ "files": 7,
+ "main": "report.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (latexmkrc)",
+ "baseline": {
+  "main": "report.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 1063,
+  "tail": "exit 12, PDF not found\nLatexmk: Log file says no output from latex\nLatexmk: For rule 'xelatex', no output was made\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  xelatex: Command for 'xelatex' gave return code 1\n      Refer to 'out/report.log' and/or above output for details\n\nFailure to make 'out/report.xdv'"
+ },
+ "polemic": {
+  "status": "timeout",
+  "durationMs": 240012,
+  "outputs": [
+   "pdf",
+   "log"
+  ]
+ },
+ "errors": 8,
+ "warnings": 2,
+ "firstError": "Class hitgsrep Error: Please use: xelatex.",
+ "outcome": "both-fail-timeout"
+}

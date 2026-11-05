@@ -1,0 +1,31 @@
+{
+ "id": 527,
+ "source": "arXiv",
+ "name": "arXiv:2611.02559",
+ "url": "https://arxiv.org/abs/2611.02559",
+ "type": "Paper",
+ "version": "2611.02559",
+ "files": 10,
+ "main": "ThermalFL_final.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ThermalFL_final.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3345
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2446,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

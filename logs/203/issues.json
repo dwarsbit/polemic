@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "0.0-org.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [beameroptions={aspectratio=169}]",
+  "detail": [],
+  "hint": null
+ }
+]

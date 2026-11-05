@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package hyperref Warning: Values of option `pdfpagelayout': * `SinglePage' * `OneColumn' * `TwoColumnLeft' * `TwoColumnRight' * `TwoPageLeft' (PDF 1.5) * `TwoPageRight' (PDF 1.5) * An empty value disables the option. Unknown value `useoutlines' on input line 4070",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underbar  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Warning: Command \\underline  has changed. Check if current package is valid",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/abstract.tex",
+  "line": 17,
+  "message": "LaTeX Warning: \\include should only be used after \\begin{document} on input line 17",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "src/abstract.tex",
+  "line": null,
+  "message": "Package glossaries Warning: No \\printglossary or \\printglossaries found",
+  "detail": [],
+  "hint": null
+ }
+]

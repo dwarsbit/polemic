@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": "anarchie/full-text-dutch-atkinson.tex",
+  "line": 19,
+  "message": "LaTeX Font Warning: Font shape `T1/atkinsn-LF/m/sc' undefined using `T1/atkinsn-LF/m/n' instead on input line 19",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "anarchie/full-text-dutch-atkinson.tex",
+  "line": 43,
+  "message": "LaTeX Font Warning: Font shape `T1/atkinsn-LF/m/scit' undefined using `T1/atkinsn-LF/m/it' instead on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "anarchie/full-text-dutch-atkinson.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

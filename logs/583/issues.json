@@ -1,0 +1,106 @@
+[
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": 1964,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\begingroup' on input line 1964",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": 1964,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\let' on input line 1964",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": 1964,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\<let>-command' on input line 1964",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": 1964,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\NAT@ctype' on input line 1964",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": 1964,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\z@' on input line 1964",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": 1964,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 1964",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": 1970,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\begingroup' on input line 1970",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": 1970,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\let' on input line 1970",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": 1970,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\<let>-command' on input line 1970",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": 1970,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\NAT@ctype' on input line 1970",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": 1970,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\z@' on input line 1970",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": 1970,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 1970",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "threshold_nearly_integrated.tex",
+  "line": null,
+  "message": "LaTeX Warning: Text page 67 contains only floats",
+  "detail": [],
+  "hint": null
+ }
+]

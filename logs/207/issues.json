@@ -1,0 +1,562 @@
+[
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 1,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1 \\XeTeXgenerateactualtext",
+   "                            =1"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 1,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 81,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.81 \\setmainfont",
+   "                 {LibertinusSerif}["
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 81,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 88,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.88 \\setmonofont",
+   "                 {RobotoMono}["
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 95,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.95 \\setmathfont",
+   "                 {LibertinusMath-Regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 97,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.97 \\IfFontExistsTF",
+   "                    {Source Han Serif SC}{"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 97,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 98,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.98   \\setCJKmainfont",
+   "                      {Source Han Serif SC}["
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 105,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.105   \\setCJKmainfont",
+   "                       {Noto Serif CJK SC}["
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 112,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.112 \\IfFontExistsTF",
+   "                     {Source Han Serif SC}{"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 113,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.113   \\setCJKmonofont",
+   "                       {Source Han Sans SC}[AutoFakeSlant]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 115,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.115   \\setCJKmonofont",
+   "                       {Noto Sans CJK SC}[AutoFakeSlant]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 119,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.119 \\newfontfamily",
+   "                    \\Garamond{EBGaramond}["
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 119,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 125,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.125 \\newfontface",
+   "                  \\ArphicKai{gkai00mp.ttf}[AutoFakeBold=4, AutoFakeSlant]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 126,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.126 \\newfontface",
+   "                  \\Times{FreeSerif.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 127,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.127 \\newfontface",
+   "                  \\Helvetica{FreeSans.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 128,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.128 \\newfontface",
+   "                  \\Courier{FreeMono.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 129,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.129 \\newfontface",
+   "                  \\Bodini{QTBodini.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 130,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.130 \\newfontface",
+   "                  \\Futura{QTFuture.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 131,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.131 \\newfontface",
+   "                  \\Optima{QTOptimum.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 132,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.132 \\newfontface",
+   "                  \\Inconsolata{Inconsolatazi4-Regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 133,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.133 \\newfontface",
+   "                  \\LibertinusKey{LibertinusKeyboard-Regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 134,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.134 \\newfontface",
+   "                  \\LatinRomanV{lmroman5-regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 135,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.135 \\newfontface",
+   "                  \\LatinRomanVI{lmroman6-regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 136,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.136 \\newfontface",
+   "                  \\LatinRomanVII{lmroman7-regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 137,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.137 \\newfontface",
+   "                  \\LatinRomanVIII{lmroman8-regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 138,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.138 \\newfontface",
+   "                  \\LatinRomanIX{lmroman9-regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 139,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.139 \\newfontface",
+   "                  \\LatinRomanX{lmroman10-regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 140,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.140 \\newfontface",
+   "                  \\LatinRomanXII{lmroman12-regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 141,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.141 \\newfontface",
+   "                  \\LatinRomanXVII{lmroman17-regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 142,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.142 \\newCJKfontfamily",
+   "                       \\fangsong{FandolFang-Regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 143,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.143 \\newCJKfontfamily",
+   "                       \\heiti{FandolHei-Regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 144,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.144 \\newCJKfontfamily",
+   "                       \\kaishu{FandolKai-Regular.otf}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 145,
+  "message": "Package xcolor Error: Undefined color `.'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 147,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.147 \\newfontface",
+   "                  \\NotoDevanagari{NotoSerifDevanagari-Regular.otf}[Path=./fo..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 147,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 148,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.148 \\newfontface",
+   "                  \\NotoArabic{NotoNaskhArabic-Regular.otf}[Path=./fonts/, Sc..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 149,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.149 \\newfontface",
+   "                  \\NotoEgyptian{NotoSansEgyptianHieroglyphs-Regular.otf}[Pat..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 150,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.150 \\newfontface",
+   "                  \\Unifont{unifont-14.0.02.subset.ttf}[Path=./fonts/]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 151,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.151 \\newfontface",
+   "                  \\XKCD{xkcd-script.ttf}[Path=./fonts/, Ligatures=TeX]"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 154,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.154 \\xeCJKsetup",
+   "                 {sout/thickness = 0.05em}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 154,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 199,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.199 \\xeCJK_new_class:n",
+   "                         { PoZheHao }"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 199,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 200,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.200 \\__xeCJK_save_CJK_class:n",
+   "                                { PoZheHao }"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 201,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.201 \\xeCJK_declare_char_class:nn",
+   "                                   { PoZheHao } { \"2014 }"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 209,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 246,
+  "message": "I can't find file `pgfornament-han/han31.pgf'.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 246,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "latex-talk.tex",
+  "line": 246,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class ctexbeamer Warning: UTF8 will be used as the default encoding",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex-talk.tex",
+  "line": 246,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined using `OT1/cmr/bx/n' instead on input line 246",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "latex-talk.tex",
+  "line": 246,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined using `OT1/cmr/m/sc' instead on input line 246",
+  "detail": [],
+  "hint": null
+ }
+]

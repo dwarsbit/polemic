@@ -1,0 +1,9 @@
+{
+ "id": 893,
+ "source": "CTAN",
+ "name": "hithesis",
+ "url": "https://ctan.org/pkg/hithesis",
+ "type": "Thesis",
+ "outcome": "download-failed",
+ "error": "fetch failed"
+}

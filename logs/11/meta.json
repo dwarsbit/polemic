@@ -1,0 +1,33 @@
+{
+ "id": 11,
+ "source": "GitHub",
+ "name": "kks32/phd-thesis-template",
+ "url": "https://github.com/kks32/phd-thesis-template",
+ "type": "Thesis",
+ "version": "8d6c2d59790d93ef58e50f908d98d49e00b4fb1d",
+ "files": 62,
+ "main": "thesis.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5570
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4434,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

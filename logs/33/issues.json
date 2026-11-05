@@ -1,0 +1,530 @@
+[
+ {
+  "severity": "error",
+  "file": "2-Chapters/5-Chapter/chapter5.tex",
+  "line": 57,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/5-Chapter/chapter5.tex",
+  "line": 61,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/5-Chapter/chapter5.tex",
+  "line": 172,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/5-Chapter/chapter5.tex",
+  "line": 584,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/5-Chapter/chapter5.tex",
+  "line": 584,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/5-Chapter/chapter5.tex",
+  "line": 584,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/5-Chapter/chapter5.tex",
+  "line": 584,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 866,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 868,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 874,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 883,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 883,
+  "message": "Incompatible list can't be unboxed.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 891,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 924,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 938,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 950,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 950,
+  "message": "Incompatible list can't be unboxed.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 1030,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 1035,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 1038,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 1038,
+  "message": "Incompatible list can't be unboxed.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 1045,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 1061,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 1072,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/7-Chapter/chapter7.tex",
+  "line": 275,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/7-Chapter/chapter7.tex",
+  "line": 275,
+  "message": "Incompatible list can't be unboxed.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/7-Chapter/chapter7.tex",
+  "line": 1646,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/7-Chapter/chapter7.tex",
+  "line": 1646,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/7-Chapter/chapter7.tex",
+  "line": 1646,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/7-Chapter/chapter7.tex",
+  "line": 1646,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/appendix6.tex",
+  "line": 628,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/appendix6.tex",
+  "line": 628,
+  "message": "Incompatible list can't be unboxed.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/appendix6.tex",
+  "line": 629,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/appendix6.tex",
+  "line": 630,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/appendix6.tex",
+  "line": 633,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/appendix6.tex",
+  "line": 640,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/appendix6.tex",
+  "line": 643,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "2-Chapters/6-Chapter/appendix6.tex",
+  "line": 680,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "0-Misc/PhDThesisPSnPDF.cls",
+  "line": null,
+  "message": "LaTeX Warning: You have requested document class `0-Misc/PhDThesisPSnPDF', but the document class provides `PhDThesisPSnPDF'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "0-Misc/PhDThesisPSnPDF.cls",
+  "line": 180,
+  "message": "Class PhDThesisPSnPDF Warning: Bibliography selection conflict: A bibliography style aleady specified. Please check the document class options in case you have defined two bibliography styles. on input line 180",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "0-Misc/PhDThesisPSnPDF.cls",
+  "line": 585,
+  "message": "Class PhDThesisPSnPDF Warning: Using default font Latin Modern. If you would like to use other pre-defined fonts use `times' (The Cambridge University PhD thesis guidelines recommend using Times font) or `fourier' or load a custom font in the preamble.tex file by specifying `customfont' in the class options on input line 585",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "PhD_thesis__Edouard_Leurent.tex",
+  "line": 25,
+  "message": "Class PhDThesisPSnPDF Warning: Draft is inactive, to use SetDraftVersion include `draft' in the document class options. on input line 25",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package siunitx Warning: Option \"binary-units\" has been removed in this release",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package glossaries Warning: No language module detected for `greek'. Language modules need to be installed separately. Please check on CTAN for a bundle called `glossaries-greek' or similar",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package tracklang Warning: No `datatool' support for dialect `greek'  on input line 9924",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2-Chapters/2-Chapter/chapter2.tex",
+  "line": 21,
+  "message": "LaTeX Font Warning: Font shape `LGR/qpl/m/it' undefined using `LGR/cmr/m/n' instead on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2-Chapters/2-Chapter/chapter2.tex",
+  "line": 28,
+  "message": "LaTeX Font Warning: Font shape `LGR/qpl/m/n' undefined using `LGR/cmr/m/n' instead on input line 28",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2-Chapters/5-Chapter/chapter5.tex",
+  "line": 57,
+  "message": "LaTeX Font Warning: Font shape `U/stmry/b/n' undefined using `U/stmry/m/n' instead on input line 57",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2-Chapters/6-Chapter/chapter6.tex",
+  "line": 595,
+  "message": "LaTeX Warning: Float too large for page by 19.4407pt on input line 595",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2-Chapters/Conclusion/conclusion.tex",
+  "line": 21,
+  "message": "Package hyperref Warning: Difference (2) between bookmark levels is greater than one, level fixed on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3-Appendices/1-Appendix/appendix.tex",
+  "line": 10,
+  "message": "Package hyperref Warning: Difference (2) between bookmark levels is greater than one, level fixed on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3-Appendices/1-Appendix/appendix.tex",
+  "line": 41,
+  "message": "Package subcaption Warning: `subfigure' is treated as `subtable' on input line 41",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3-Appendices/1-Appendix/appendix.tex",
+  "line": 42,
+  "message": "Package subcaption Warning: `subfigure' is treated as `subtable' on input line 42",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3-Appendices/1-Appendix/appendix.tex",
+  "line": 44,
+  "message": "Package subcaption Warning: `subfigure' is treated as `subtable' on input line 44",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3-Appendices/1-Appendix/appendix.tex",
+  "line": 45,
+  "message": "Package subcaption Warning: `subfigure' is treated as `subtable' on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3-Appendices/1-Appendix/appendix.tex",
+  "line": 46,
+  "message": "Package subcaption Warning: `subfigure' is treated as `subtable' on input line 46",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3-Appendices/1-Appendix/appendix.tex",
+  "line": 47,
+  "message": "Package subcaption Warning: `subfigure' is treated as `subtable' on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2-Chapters/5-Chapter/appendix5.tex",
+  "line": 4,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2-Chapters/5-Chapter/appendix5.tex",
+  "line": 5,
+  "message": "Package hyperref Warning: Difference (2) between bookmark levels is greater than one, level fixed on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2-Chapters/6-Chapter/appendix6.tex",
+  "line": 4,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2-Chapters/6-Chapter/appendix6.tex",
+  "line": 10,
+  "message": "Package hyperref Warning: Difference (2) between bookmark levels is greater than one, level fixed on input line 10",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2-Chapters/7-Chapter/appendix7.tex",
+  "line": 4,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\new@ifnextchar' on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "2-Chapters/7-Chapter/appendix7.tex",
+  "line": 5,
+  "message": "Package hyperref Warning: Difference (2) between bookmark levels is greater than one, level fixed on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3-Appendices/appendices.tex",
+  "line": null,
+  "message": "Package minitoc(hints) Warning: W0024",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "3-Appendices/appendices.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

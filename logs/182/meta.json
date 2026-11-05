@@ -1,0 +1,31 @@
+{
+ "id": 182,
+ "source": "GitHub",
+ "name": "botprof/qu-slides",
+ "url": "https://github.com/botprof/qu-slides",
+ "type": "Slides",
+ "version": "2f80f6a90933e96d3418577fd99486f8866d710b",
+ "files": 28,
+ "main": "qu-slides-example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "qu-slides-example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 6191
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5391,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 644,
+ "source": "arXiv",
+ "name": "arXiv:hep-th/0503013",
+ "url": "https://arxiv.org/abs/hep-th/0503013",
+ "type": "Paper",
+ "version": "hep-th/0503013",
+ "files": 2,
+ "main": "ToArxiv.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ToArxiv.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1685
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1290,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

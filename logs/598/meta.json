@@ -1,0 +1,31 @@
+{
+ "id": 598,
+ "source": "arXiv",
+ "name": "arXiv:2611.05002",
+ "url": "https://arxiv.org/abs/2611.05002",
+ "type": "Paper",
+ "version": "2611.05002",
+ "files": 3,
+ "main": "Hecke_Relations_Draft.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Hecke_Relations_Draft.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3365
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2898,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 76,
+ "outcome": "both-ok"
+}

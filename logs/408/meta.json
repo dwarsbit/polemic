@@ -1,0 +1,31 @@
+{
+ "id": 408,
+ "source": "GitHub",
+ "name": "WorcesterSociety/HomeworkTemplate",
+ "url": "https://github.com/WorcesterSociety/HomeworkTemplate",
+ "type": "Homework",
+ "version": "5260b0006657a6fa97a92a82bfed3a0da2357e97",
+ "files": 7,
+ "main": "example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 4999
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3840,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

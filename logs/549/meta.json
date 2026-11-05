@@ -1,0 +1,32 @@
+{
+ "id": 549,
+ "source": "arXiv",
+ "name": "arXiv:2611.03521",
+ "url": "https://arxiv.org/abs/2611.03521",
+ "type": "Paper",
+ "version": "2611.03521",
+ "files": 4,
+ "main": "SchwartzTomography.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "SchwartzTomography.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 9546
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 4850,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

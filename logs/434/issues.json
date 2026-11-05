@@ -1,0 +1,10 @@
+[
+ {
+  "severity": "warning",
+  "file": "form_53_01_de.tex",
+  "line": 30,
+  "message": "LaTeX Warning: Empty bibliography on input line 30",
+  "detail": [],
+  "hint": null
+ }
+]

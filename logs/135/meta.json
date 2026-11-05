@@ -1,0 +1,32 @@
+{
+ "id": 135,
+ "source": "GitHub",
+ "name": "frontiersin/latex-manuscript-templates",
+ "url": "https://github.com/frontiersin/latex-manuscript-templates",
+ "type": "Paper",
+ "version": "f2a983f59b4312133fe359f26a77d260f4778eef",
+ "files": 28,
+ "main": "Frontiers_Corrigendum_LaTeX/frontiers_Corrigendum.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Frontiers_Corrigendum_LaTeX/frontiers_Corrigendum.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3002
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 728,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 4,
+ "firstError": "Package pdftex.def Error: File `./logo1-eps-converted-to.pdf' not found: using draft setting.",
+ "outcome": "polemic-only-fail"
+}

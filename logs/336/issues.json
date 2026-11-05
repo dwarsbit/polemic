@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Error: File `dtklogos.sty' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "cv.tex",
+  "line": 17,
+  "message": "Emergency stop.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "friggeri-cv.cls",
+  "line": null,
+  "message": "Package unicode-math Warning: The first font loaded by unicode-math must be an OpenType Math font (with script=math). If you simply want ‘the default’ before loading supplementary fonts over the top for certain ranges, use: \\setmathfont{latinmodern-math.otf}",
+  "detail": [],
+  "hint": null
+ }
+]

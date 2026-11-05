@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "error",
+  "file": "main_1102.tex",
+  "line": 134,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main_1102.tex",
+  "line": 134,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "main_1102.tex",
+  "line": 134,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ }
+]

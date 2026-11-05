@@ -1,0 +1,33 @@
+{
+ "id": 175,
+ "source": "GitHub",
+ "name": "fsphys-muenster/presentation-template",
+ "url": "https://github.com/fsphys-muenster/presentation-template",
+ "type": "Slides",
+ "version": "f2d6b411efe05c5549bba7b0d4d28ef298321a2f",
+ "files": 31,
+ "main": "tex/vortrag.tex",
+ "engine": "lualatex",
+ "baseline": {
+  "main": "tex/vortrag.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 9550,
+  "tail": "exit 12, PDF found\n  Missing character: There is no A (U+0041) in font nullfont!\n  Missing character: There is no u (U+0075) in font nullfont!\n  Missing character: There is no s (U+0073) in font nullfont!\n  Missing character: There is no f (U+0066) in font nullfont!\n  Missing character: There is no ü (U+00FC) in font nullfont!\n  Missing character: There is no h (U+0068) in font nullfont!\n  Missing character: There is no r (U+0072) in font nullfont!\n And 1074 more --- see log file 'vortrag.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 3106,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 55,
+ "warnings": 2,
+ "firstError": "Package fontspec Error: The font \"MetaOffcPro-Norm\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

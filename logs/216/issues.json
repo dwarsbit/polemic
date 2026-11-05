@@ -1,0 +1,130 @@
+[
+ {
+  "severity": "warning",
+  "file": "ANSOL-en.tex",
+  "line": 48,
+  "message": "Class slides Warning: Slide 4 too long on input line 48",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "category.latex",
+  "line": 65,
+  "message": "LaTeX Warning: \\oval, \\circle, or \\line size unavailable on input line 65",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "category.latex",
+  "line": 66,
+  "message": "LaTeX Warning: \\oval, \\circle, or \\line size unavailable on input line 66",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "category.latex",
+  "line": 67,
+  "message": "LaTeX Warning: \\oval, \\circle, or \\line size unavailable on input line 67",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "category.latex",
+  "line": 68,
+  "message": "LaTeX Warning: \\oval, \\circle, or \\line size unavailable on input line 68",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "category.latex",
+  "line": 486,
+  "message": "LaTeX Warning: \\oval, \\circle, or \\line size unavailable on input line 486",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "category.latex",
+  "line": 487,
+  "message": "LaTeX Warning: \\oval, \\circle, or \\line size unavailable on input line 487",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "category.latex",
+  "line": 488,
+  "message": "LaTeX Warning: \\oval, \\circle, or \\line size unavailable on input line 488",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "category.latex",
+  "line": 489,
+  "message": "LaTeX Warning: \\oval, \\circle, or \\line size unavailable on input line 489",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ANSOL-en.tex",
+  "line": 196,
+  "message": "Class slides Warning: Slide 10 too long on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ANSOL-en.tex",
+  "line": 228,
+  "message": "Class slides Warning: Slide 13 too long on input line 228",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ANSOL-en.tex",
+  "line": 283,
+  "message": "Class slides Warning: Slide 13 too long on input line 283",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ANSOL-en.tex",
+  "line": 397,
+  "message": "Class slides Warning: Slide 16 too long on input line 397",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ANSOL-en.tex",
+  "line": 433,
+  "message": "Class slides Warning: Slide 19 too long on input line 433",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ANSOL-en.tex",
+  "line": 452,
+  "message": "Class slides Warning: Slide 20 too long on input line 452",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ANSOL-en.tex",
+  "line": 471,
+  "message": "Class slides Warning: Slide 21 too long on input line 471",
+  "detail": [],
+  "hint": null
+ }
+]

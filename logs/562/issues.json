@@ -1,0 +1,26 @@
+[
+ {
+  "severity": "warning",
+  "file": "iclr2027_conference.tex",
+  "line": 416,
+  "message": "LaTeX Warning: No positions in optional float specifier. Default added (so using `tbp') on input line 416",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "iclr2027_conference.tex",
+  "line": 423,
+  "message": "LaTeX Warning: No positions in optional float specifier. Default added (so using `tbp') on input line 423",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "iclr2027_conference.tex",
+  "line": 499,
+  "message": "LaTeX Warning: No positions in optional float specifier. Default added (so using `tbp') on input line 499",
+  "detail": [],
+  "hint": null
+ }
+]

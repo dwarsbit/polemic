@@ -1,0 +1,34 @@
+[
+ {
+  "severity": "warning",
+  "file": "CM3708_Revision2711.tex",
+  "line": 98,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 98",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CM3708_Revision2711.tex",
+  "line": 164,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 164",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CM3708_Revision2711.tex",
+  "line": 170,
+  "message": "LaTeX Font Warning: Command \\tiny invalid in math mode on input line 170",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "CM3708_Revision2711.tex",
+  "line": 523,
+  "message": "Package amsmath Warning: Foreign command \\over; \\frac or \\genfrac should be used instead on input line 523",
+  "detail": [],
+  "hint": null
+ }
+]

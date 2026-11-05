@@ -1,0 +1,31 @@
+{
+ "id": 445,
+ "source": "GitHub",
+ "name": "innovativeinnovation/cheatsheet-latex-template",
+ "url": "https://github.com/innovativeinnovation/cheatsheet-latex-template",
+ "type": "Cheat sheet",
+ "version": "2550c84390ac52433ac7444d521988ddd0b51aaf",
+ "files": 13,
+ "main": "src/example.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "src/example.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1960
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1282,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

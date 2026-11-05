@@ -1,0 +1,31 @@
+{
+ "id": 675,
+ "source": "arXiv",
+ "name": "arXiv:1805.01128",
+ "url": "https://arxiv.org/abs/1805.01128",
+ "type": "Paper",
+ "version": "1805.01128",
+ "files": 10,
+ "main": "ICLR_CNN.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ICLR_CNN.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2848
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2158,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 28,
+ "outcome": "both-ok"
+}

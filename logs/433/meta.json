@@ -1,0 +1,31 @@
+{
+ "id": 433,
+ "source": "GitHub",
+ "name": "wangyunduo/buaa-proposal",
+ "url": "https://github.com/wangyunduo/buaa-proposal",
+ "type": "Proposal",
+ "version": "52fa0d5ea8ef970c16af4ad9a8e68a05c76e30d9",
+ "files": 25,
+ "main": "report.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "report.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 7709,
+  "tail": "exit 12, PDF not found\nLatexmk: Using bibtex to make bibliography file(s).\n\nkpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+331/600 --dpi 331 unisong98\nmktexpk: don't know how to create bitmap font for unisong98.\nmktexpk: perhaps unisong98 is missing from the map file.\nkpathsea: Appending font creation commands to missfont.log.\nLatexmk: Using bibtex to make bibliography file(s).\nFailure to make 'report.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 2373,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 11,
+ "warnings": 2,
+ "firstError": "Undefined control sequence.",
+ "outcome": "both-fail"
+}

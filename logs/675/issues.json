@@ -1,0 +1,226 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package caption Warning: Unknown document class (or package), standard defaults will be used",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 43,
+  "message": "LaTeX Warning: Citation `LeCun15' on page 1 undefined on input line 43",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 45,
+  "message": "LaTeX Warning: Citation `he16identity' on page 1 undefined on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 47,
+  "message": "LaTeX Warning: Citation `Jaderberg17' on page 1 undefined on input line 47",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 50,
+  "message": "LaTeX Warning: Citation `Carreira14' on page 1 undefined on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 50,
+  "message": "LaTeX Warning: Citation `Taylor16' on page 1 undefined on input line 50",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 52,
+  "message": "LaTeX Warning: Citation `Jaderberg17' on page 1 undefined on input line 52",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 54,
+  "message": "LaTeX Warning: Citation `Czarnecki17' on page 1 undefined on input line 54",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 56,
+  "message": "LaTeX Warning: Citation `Czarnecki17' on page 1 undefined on input line 56",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 77,
+  "message": "LaTeX Warning: Citation `Jaderberg17' on page 1 undefined on input line 77",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 131,
+  "message": "LaTeX Warning: Citation `Jaderberg17' on page 2 undefined on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 146,
+  "message": "LaTeX Warning: Citation `Cortes17' on page 3 undefined on input line 146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 146,
+  "message": "LaTeX Warning: Citation `feng15' on page 3 undefined on input line 146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 146,
+  "message": "LaTeX Warning: Citation `kwon97' on page 3 undefined on input line 146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 146,
+  "message": "LaTeX Warning: Citation `reed93' on page 3 undefined on input line 146",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 158,
+  "message": "LaTeX Warning: Citation `zoph17' on page 3 undefined on input line 158",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 169,
+  "message": "LaTeX Warning: Citation `larsson17' on page 3 undefined on input line 169",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 169,
+  "message": "LaTeX Warning: Citation `huang18multi' on page 3 undefined on input line 169",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 196,
+  "message": "LaTeX Warning: Citation `he16deep' on page 3 undefined on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 196,
+  "message": "LaTeX Warning: Citation `szegedy15' on page 3 undefined on input line 196",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 222,
+  "message": "LaTeX Warning: Citation `Krizhevsky09' on page 3 undefined on input line 222",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 224,
+  "message": "LaTeX Warning: Citation `Czarnecki17' on page 3 undefined on input line 224",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 257,
+  "message": "LaTeX Warning: Citation `Jaderberg17' on page 4 undefined on input line 257",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 257,
+  "message": "LaTeX Warning: Citation `Czarnecki17' on page 4 undefined on input line 257",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 276,
+  "message": "LaTeX Warning: Citation `Jaderberg17' on page 4 undefined on input line 276",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 276,
+  "message": "LaTeX Warning: Citation `Czarnecki17' on page 4 undefined on input line 276",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": 285,
+  "message": "LaTeX Warning: Citation `Czarnecki17' on page 4 undefined on input line 285",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "ICLR_CNN.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ }
+]

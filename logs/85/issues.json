@@ -1,0 +1,722 @@
+[
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 57,
+  "message": "LaTeX Error: File `arakhne_org_logo' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 498,
+  "message": "LaTeX Error: File `arakhne_org_logo' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 517,
+  "message": "LaTeX Error: File `arakhne_org_logo' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 536,
+  "message": "LaTeX Error: File `arakhne_org_logo' not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 593,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 593,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 593,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 600,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 600,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 600,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 647,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 647,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 647,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 666,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 666,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 666,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 700,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 700,
+  "message": "Extra }, or forgotten $.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 700,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1200,
+  "message": "LaTeX Error: Environment enumerate* undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1201,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1202,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1203,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1204,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{enumerate*}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1223,
+  "message": "LaTeX Error: Environment enumerate* undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1223,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1223,
+  "message": "LaTeX Error: \\begin{inlineenumeration} on input line 1219 ended by \\end{enumerate*}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 170,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 170",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 212,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 212",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 260,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 260",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 266,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 266",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 340,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 340",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 395,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 395",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 408,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 408",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 446,
+  "message": "LaTeX Font Warning: Font shape `OMS/txtt/b/n' undefined using `OMS/txtt/m/n' instead for symbol `textbackslash' on input line 446",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 451,
+  "message": "LaTeX Font Warning: Font shape `OMS/txtt/m/it' undefined using `OMS/txtt/m/n' instead for symbol `textbackslash' on input line 451",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 479,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 479",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 531,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 531",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 562,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 562",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 593,
+  "message": "Package pgf Warning: File \"arakhne_org_logo\" not found when defining image \"upm@includegraphics@1\". Tried all extensions in \".pdf:.jpg:.jpeg:.png:\" on input line 593",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 593,
+  "message": "Package pgf Warning: Missing height for image \"upm@includegraphics@1\" (\"arakhne_org_logo\") in draft mode. Using 1cm instead on input line 593",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 606,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 606",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 643,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 643",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 697,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 697",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 726,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 726",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 754,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 754",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 784,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 784",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 833,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 833",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 881,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 881",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 986,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 986",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 988,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 988",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1039,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1039",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1083,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1083",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1127,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1186,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1186",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1233,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1233",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1288,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1288",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1340,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1340",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1396,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1396",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1450,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1450",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1496,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1496",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1549,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1549",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1589,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1589",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1648,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1648",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1701,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1701",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1731,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1731",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1775,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1775",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1820,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1820",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1871,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1871",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1922,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1922",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 1974,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 1974",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2053,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2053",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2077,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2077",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2113,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2113",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2141,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2141",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2217,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2217",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2248,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2248",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2286,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2286",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2338,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2338",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2346,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2346",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2394,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2394",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2410,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2410",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2448,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2448",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2520,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2520",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2534,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2534",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2613,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2613",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2644,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2644",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 2794,
+  "message": "LaTeX Font Warning: Font shape `OT1/txr/m/scsl' undefined using `OT1/txr/m/sc' instead on input line 2794",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": 57,
+  "message": "Package caption Warning: Unused \\captionsetup[algorithm] on input line 57",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/upmethodology-doc.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "id": 213,
+ "source": "GitHub",
+ "name": "seloumi/beamer-rl",
+ "url": "https://github.com/seloumi/beamer-rl",
+ "type": "Slides",
+ "version": "5785a83d872ad2770871979533b8307aa4e575cd",
+ "files": 17,
+ "main": "Example-of-use-ar.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Example-of-use-ar.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 3322,
+  "tail": "exit 12, PDF not found\n  No file Example-of-use-ar.nav.\nLatexmk: Missing input file 'Example-of-use-ar.nav' message in .log file:\n  No file Example-of-use-ar.nav.\nLatexmk: Missing input file 'Example-of-use-ar.nav' message in .log file:\n  No file Example-of-use-ar.nav.\nFailure to make 'Example-of-use-ar.pdf'\nLatexmk: ====Problematic refs and citations with line #s in .tex file:\n  Missing character: There is no � in font cmex10!"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 896,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 19,
+ "warnings": 1,
+ "firstError": "Class beamer-rl Error: beamer-rl require lualatex.",
+ "outcome": "both-fail"
+}

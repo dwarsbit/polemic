@@ -1,0 +1,13 @@
+[
+ {
+  "severity": "error",
+  "file": "template.tex",
+  "line": 37,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.37 \\prefaceseciton",
+   "                    {Acknowledgements}"
+  ],
+  "hint": null
+ }
+]

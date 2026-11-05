@@ -1,0 +1,298 @@
+[
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 21,
+  "message": "Package fontspec Error: The font \"Times New Roman\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 21,
+  "message": "Font TU/TimesNewRoman(0)/m/n/10.95=\"Times New Roman\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 117,
+  "message": "Package fontspec Error: The font \"SimSun\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+  "detail": [],
+  "hint": "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}."
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 119,
+  "message": "Font TU/TimesNewRoman(0)/m/n/10=\"Times New Roman\" at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 119,
+  "message": "Font TU/TimesNewRoman(0)/m/it/10=\"Times New Roman\" at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 119,
+  "message": "Font TU/TimesNewRoman(0)/m/n/34=\"Times New Roman\" at 34.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 119,
+  "message": "Font TU/SimSun(0)/m/n/34=SimSun/OT at 34.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 119,
+  "message": "Font TU/TimesNewRoman(0)/m/n/17.28=\"Times New Roman\" at 17.28pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 119,
+  "message": "Font TU/TimesNewRoman(0)/m/it/17.28=\"Times New Roman\" at 17.28pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 121,
+  "message": "Font TU/TimesNewRoman(0)/m/n/8=\"Times New Roman\" at 8.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 121,
+  "message": "Font TU/SimSun(0)/m/n/14.4=SimSun/OT at 14.4pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 124,
+  "message": "Font TU/SimSun(0)/b/n/10.95=SimSun/OT:embolden=4; at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 124,
+  "message": "Font TU/TimesNewRoman(0)/m/it/10.95=\"Times New Roman\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 124,
+  "message": "Font TU/SimSun(0)/m/it/10.95=SimSun/OT:slant=0.167; at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 124,
+  "message": "Font TU/SimSun(0)/m/n/10=SimSun/OT at 10.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 124,
+  "message": "Missing number, treated as zero.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 124,
+  "message": "Illegal unit of measure (pt inserted).",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 124,
+  "message": "Missing \\endcsname inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 124,
+  "message": "Extra \\endcsname.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 124,
+  "message": "Improper alphabetic constant.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 127,
+  "message": "Font TU/TimesNewRoman(0)/b/n/10.95=\"Times New Roman\" at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 133,
+  "message": "Font TU/SimSun(0)/m/n/10.95=SimSun/OT at 10.95pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 142,
+  "message": "Font TU/TimesNewRoman(0)/m/n/12=\"Times New Roman\" at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 142,
+  "message": "Font TU/SimSun(0)/m/n/12=SimSun/OT at 12.0pt not loadable: Metric (TFM) file or installed font not found.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "template_cn_blue.tex",
+  "line": 160,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package ifplatform Warning: shell escape is disabled, so I can only detect \\ifwindows",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template_cn_blue.tex",
+  "line": null,
+  "message": "Package xeCJK Warning: Undefined CJK default family `\\CJKrmdefault' has been replaced by `song'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template_cn_blue.tex",
+  "line": null,
+  "message": "Package hyperref Warning: Rerun to get /PageLabels entry",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template_cn_blue.tex",
+  "line": 119,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/m/sl' undefined using `TU/TimesNewRoman(0)/m/it' instead on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template_cn_blue.tex",
+  "line": 119,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/m/it' undefined using `TU/TimesNewRoman(0)/m/n' instead on input line 119",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template_cn_blue.tex",
+  "line": 124,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/b/n' undefined using `TU/TimesNewRoman(0)/m/n' instead on input line 124",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template_cn_blue.tex",
+  "line": 124,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/m/sl' undefined using `TU/TimesNewRoman(0)/m/it' instead on input line 124",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template_cn_blue.tex",
+  "line": 127,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/m/sl' undefined using `TU/TimesNewRoman(0)/m/it' instead on input line 127",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template_cn_blue.tex",
+  "line": 131,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/m/sl' undefined using `TU/TimesNewRoman(0)/m/it' instead on input line 131",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template_cn_blue.tex",
+  "line": 133,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/m/sl' undefined using `TU/TimesNewRoman(0)/m/it' instead on input line 133",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template_cn_blue.tex",
+  "line": 140,
+  "message": "LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/m/sl' undefined using `TU/TimesNewRoman(0)/m/it' instead on input line 140",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "template_cn_blue.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

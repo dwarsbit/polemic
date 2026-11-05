@@ -1,0 +1,58 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package xcolor Warning: Package option `hyperref' is obsolete and ignored on input line 265",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package pdfx Warning: Setting all color commands to rgb,",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FrontespizioScudo.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [tipotesi=scudo]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FrontespizioScudo.tex",
+  "line": 45,
+  "message": "Package hyperref Warning: Option `pdftitle' has already been used, setting the option has no effect on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FrontespizioScudo.tex",
+  "line": 45,
+  "message": "Package hyperref Warning: Option `pdfauthor' has already been used, setting the option has no effect on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FrontespizioScudo.tex",
+  "line": 45,
+  "message": "Package hyperref Warning: Option `pdfsubject' has already been used, setting the option has no effect on input line 45",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FrontespizioScudo.tex",
+  "line": 45,
+  "message": "Package hyperref Warning: Option `pdfkeywords' has already been used, setting the option has no effect on input line 45",
+  "detail": [],
+  "hint": null
+ }
+]

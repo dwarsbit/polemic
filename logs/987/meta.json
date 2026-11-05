@@ -1,0 +1,33 @@
+{
+ "id": 987,
+ "source": "CTAN",
+ "name": "beamertheme-gotham",
+ "url": "https://ctan.org/pkg/beamertheme-gotham",
+ "type": "Slides",
+ "version": "1.2.5.a",
+ "files": 23,
+ "main": "gotham-doc.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "gotham-doc.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 4484,
+  "tail": "exit 12, PDF found\nSorting entries.....done (1995 comparisons).\nGenerating output file gotham-doc.ind....done (578 lines written, 0 warnings).\nOutput written in gotham-doc.ind.\nTranscript written in gotham-doc.ilg.\nLatexmk: Missing input file 'gotham-test-035-a.png' message in .log file:\n  LaTeX Warning: File `gotham-test-035-a.png' not found on input line 326.\nLatexmk: Missing input file 'gotham-test-035-b.png' message in .log file:\n  LaTeX Warning: File `gotham-test-035-b.png' not found on input line 332."
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 1522,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 2,
+ "warnings": 26,
+ "firstError": "Package pdftex.def Error: File `gotham-test-035-a.png' not found: using draft setting.",
+ "outcome": "both-fail"
+}

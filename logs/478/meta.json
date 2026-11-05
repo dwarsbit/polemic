@@ -1,0 +1,32 @@
+{
+ "id": 478,
+ "source": "GitHub",
+ "name": "Twopothead/multiple-choice-kindle",
+ "url": "https://github.com/Twopothead/multiple-choice-kindle",
+ "type": "Exam",
+ "version": "f83a5fccfecac990be1e56414816d93978567177",
+ "files": 52,
+ "main": "stsq-tex-template/stsq-template.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "xelatex (inferred)",
+ "baseline": {
+  "main": "stsq-tex-template/stsq-template.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 15121,
+  "tail": "exit 12, PDF not found\nLatexmk: Missing input file 'esvect.sty' message in .log file:\n  ! LaTeX Error: File `esvect.sty' not found.\nLatexmk: ===For rule 'xelatex', the extensions differ between the\n   actual output file 'stsq-template.pdf',\n   and the expected output 'stsq-template.xdv'.\nLatexmk: Missing input file 'BHCexam.cfg' message in .log file:\n  ! LaTeX Error: File `BHCexam.cfg' not found.\nFailure to make 'stsq-template.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 918,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/stsq-template.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-fail"
+}

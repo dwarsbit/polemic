@@ -1,0 +1,594 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Class scrartcl Warning: Switching back to an old KOMA-Script release does not mean, that KOMA-Script is fully compatible with the old release. If you need full compatibility to an old KOMA-Script release, you should use that old KOMA-Script release. However, in that case you could also need old releases of other packages and even of the LaTeX kernel. Please also note, that the KOMA-Script developers refuse support for documents using `version=3.32'. We recommend to eliminate all deprecated options and commands. We also recommend to not use option `version', i.e., with other values than `last'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package typearea Warning: Deprecated option `DIV7' ignored, because `version=first' not set. Note: To avoid this warning and achieve the desired functionality, you should use the `DIV=7' option instead of the `DIV7' option, which has been deprecated for more than 20 years",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package scrlayer-scrpage Warning: Command \\deftripstyle is deprecate. You should replace it by \\deftriplepagestyle, e.g., on input line 1413",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 158,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 158",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 158,
+  "message": "LaTeX Font Warning: Font shape `T1/lmtt/regular/n' undefined using `T1/lmtt/m/n' instead on input line 158",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 176,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 176",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/lmr/sb/n' undefined using `T1/lmr/b/n' instead on input line 2",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/lmr/sb/n' undefined using `T1/lmr/b/n' instead on input line 3",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/lmr/sb/n' undefined using `T1/lmr/b/n' instead on input line 4",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/lmr/sb/n' undefined using `T1/lmr/b/n' instead on input line 5",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/lmr/sb/n' undefined using `T1/lmr/b/n' instead on input line 14",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/lmr/sb/n' undefined using `T1/lmr/b/n' instead on input line 22",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/lmr/sb/n' undefined using `T1/lmr/b/n' instead on input line 27",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/lmr/sb/n' undefined using `T1/lmr/b/n' instead on input line 29",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/lmr/sb/n' undefined using `T1/lmr/b/n' instead on input line 34",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 1",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 182,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 182",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 191,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 191,
+  "message": "LaTeX Font Warning: Font shape `U/fontawesometwo/b/n' undefined using `U/fontawesometwo/m/n' instead on input line 191",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 192,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 192",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 192,
+  "message": "LaTeX Font Warning: Font shape `T1/lmtt/bold/n' undefined using `T1/lmtt/m/n' instead on input line 192",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 208,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 208",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 213,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 213",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 218,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 218",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 221,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 221",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 231,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 231",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 232,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 232",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 233,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 233",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 234,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 234",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 235,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 235",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 236,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 236",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 237,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 237",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 238,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 238",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 239,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 239",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 240,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 240",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 241,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 241",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 242,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 242",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 243,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 243",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 244,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 244",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 245,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 245",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 246,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 246",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 292,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 292",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 301,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 301",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 316,
+  "message": "LaTeX Font Warning: Font shape `T1/lmtt/sb/n' undefined using `T1/lmtt/m/n' instead on input line 316",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 316,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 316",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 317,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 317",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 332,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 332",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 379,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 379",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 383,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 383",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 386,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 386",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 389,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 389",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 390,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 390",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 393,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 393",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 409,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 409",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 487,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 487",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 498,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 498",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 530,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 530",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 531,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 531",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 532,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 532",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 549,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 549",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 576,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 576",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 623,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 623",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 626,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 626",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 642,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 642",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 645,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 645",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 664,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 664",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 680,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 680",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 681,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 681",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 686,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 686",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 687,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 687",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 689,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 689",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 692,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 692",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": 704,
+  "message": "LaTeX Font Warning: Font shape `T1/lmss/sb/n' undefined using `T1/lmss/b/n' instead on input line 704",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "doc/iodhbwm.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Some font shapes were not available, defaults substituted",
+  "detail": [],
+  "hint": null
+ }
+]

@@ -1,0 +1,650 @@
+[
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 110,
+  "message": "Package natbib Warning: Citation `li2017analysis' on page 1 undefined on input line 110",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 110,
+  "message": "Package natbib Warning: Citation `mohammed2019review' on page 1 undefined on input line 110",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 110,
+  "message": "Package natbib Warning: Citation `gutierrez2020modern' on page 1 undefined on input line 110",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 111,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\<def>-command' on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 111,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\cnotenum' on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 111,
+  "message": "Package hyperref Warning: Token not allowed in a PDF string (Unicode): removing `\\@corref' on input line 111",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `strotzel2019managing' on page 2 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 112,
+  "message": "Package natbib Warning: Citation `dorn2015quality' on page 2 undefined on input line 112",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 114,
+  "message": "Package natbib Warning: Citation `chand2021road' on page 2 undefined on input line 114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 114,
+  "message": "Package natbib Warning: Citation `hamed2020exploratory' on page 2 undefined on input line 114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 114,
+  "message": "Package natbib Warning: Citation `SCHEINER2011307' on page 2 undefined on input line 114",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 116,
+  "message": "Package natbib Warning: Citation `wang2024statistical' on page 2 undefined on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 116,
+  "message": "Package natbib Warning: Citation `wang2019factors' on page 2 undefined on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 118,
+  "message": "Package natbib Warning: Citation `guo2022modeling' on page 3 undefined on input line 118",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 120,
+  "message": "Package natbib Warning: Citation `luo2022identifying' on page 3 undefined on input line 120",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 120,
+  "message": "Package natbib Warning: Citation `cheng2023towards' on page 3 undefined on input line 120",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 120,
+  "message": "Package natbib Warning: Citation `tang2023national' on page 3 undefined on input line 120",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 123,
+  "message": "Package natbib Warning: Citation `fotheringham2009geographically' on page 3 undefined on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 123,
+  "message": "Package natbib Warning: Citation `yang2024spatio' on page 3 undefined on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 123,
+  "message": "Package natbib Warning: Citation `li2023locally' on page 3 undefined on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 123,
+  "message": "Package natbib Warning: Citation `luo2022identifying' on page 3 undefined on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 126,
+  "message": "Package natbib Warning: Citation `berg2004typical' on page 4 undefined on input line 126",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 153,
+  "message": "Package natbib Warning: Citation `luo2022identifying' on page 5 undefined on input line 153",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 167,
+  "message": "Package natbib Warning: Citation `luo2022identifying' on page 5 undefined on input line 167",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 170,
+  "message": "Package natbib Warning: Citation `luo2022identifying' on page 6 undefined on input line 170",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 180,
+  "message": "Package natbib Warning: Citation `LUO2022111' on page 6 undefined on input line 180",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 180,
+  "message": "LaTeX Warning: Reference `fig:extreme' on page 6 undefined on input line 180",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 225,
+  "message": "LaTeX Warning: Reference `eq:reg_tree' on page 9 undefined on input line 225",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 241,
+  "message": "LaTeX Warning: Reference `eq:reg_con' on page 9 undefined on input line 241",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 259,
+  "message": "LaTeX Warning: Reference `eq:smallcp' on page 10 undefined on input line 259",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 264,
+  "message": "LaTeX Warning: Reference `eq:con' on page 10 undefined on input line 264",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 309,
+  "message": "LaTeX Warning: Reference `fig:framework' on page 11 undefined on input line 309",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 312,
+  "message": "LaTeX Warning: Reference `eq:opt' on page 12 undefined on input line 312",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 340,
+  "message": "Package natbib Warning: Citation `song2020optimal' on page 12 undefined on input line 340",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 347,
+  "message": "LaTeX Warning: Reference `fig:flowchart' on page 13 undefined on input line 347",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 359,
+  "message": "Package natbib Warning: Citation `StatistischesBundesamt2024' on page 13 undefined on input line 359",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 362,
+  "message": "Package natbib Warning: Citation `StatistischesBundesamt2024' on page 13 undefined on input line 362",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 362,
+  "message": "LaTeX Warning: Reference `fig:gertrafficmap' on page 13 undefined on input line 362",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 365,
+  "message": "LaTeX Warning: Reference `tab:explanatory_variables' on page 14 undefined on input line 365",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 365,
+  "message": "Package natbib Warning: Citation `StatistischesBundesamt2024' on page 14 undefined on input line 365",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 396,
+  "message": "LaTeX Warning: Float too large for page by 47.28412pt on input line 396",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 401,
+  "message": "Package natbib Warning: Citation `yannis2014effect' on page 15 undefined on input line 401",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 401,
+  "message": "Package natbib Warning: Citation `momtaz2018rate' on page 15 undefined on input line 401",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 401,
+  "message": "Package natbib Warning: Citation `hakim1991critical' on page 15 undefined on input line 401",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 401,
+  "message": "Package natbib Warning: Citation `kruger2013fatal' on page 15 undefined on input line 401",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 401,
+  "message": "Package natbib Warning: Citation `ashkan2013educational' on page 15 undefined on input line 401",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 403,
+  "message": "LaTeX Warning: Reference `tab:explanatory_variables' on page 15 undefined on input line 403",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 405,
+  "message": "Package natbib Warning: Citation `luo2022identifying' on page 15 undefined on input line 405",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 412,
+  "message": "Package natbib Warning: Citation `song2020optimal' on page 17 undefined on input line 412",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 424,
+  "message": "Package natbib Warning: Citation `luo2022identifying' on page 18 undefined on input line 424",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 424,
+  "message": "Package natbib Warning: Citation `wang2017geodetector' on page 18 undefined on input line 424",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 457,
+  "message": "LaTeX Warning: Reference `tab:8variables' on page 18 undefined on input line 457",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 457,
+  "message": "LaTeX Warning: Reference `fig:boxplot-features' on page 18 undefined on input line 457",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 461,
+  "message": "Package natbib Warning: Citation `hamed2020exploratory' on page 20 undefined on input line 461",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 461,
+  "message": "Package natbib Warning: Citation `affeltranger2005accidents' on page 20 undefined on input line 461",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 461,
+  "message": "Package natbib Warning: Citation `bougueroua2016economic' on page 20 undefined on input line 461",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 461,
+  "message": "Package natbib Warning: Citation `bishai2006national' on page 20 undefined on input line 461",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 461,
+  "message": "Package natbib Warning: Citation `ashkan2013educational' on page 20 undefined on input line 461",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 461,
+  "message": "Package natbib Warning: Citation `hong2015incidence' on page 20 undefined on input line 461",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 461,
+  "message": "Package natbib Warning: Citation `etehad2015impact' on page 20 undefined on input line 461",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 463,
+  "message": "LaTeX Warning: Reference `fig:my_label' on page 20 undefined on input line 463",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 515,
+  "message": "LaTeX Warning: Reference `fig:Germanymap' on page 21 undefined on input line 515",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 532,
+  "message": "LaTeX Warning: Reference `fig:subfigure' on page 22 undefined on input line 532",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 570,
+  "message": "LaTeX Warning: Reference `fig:Germanymap' on page 23 undefined on input line 570",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 574,
+  "message": "LaTeX Warning: Reference `fig:sub4' on page 24 undefined on input line 574",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 574,
+  "message": "LaTeX Warning: Reference `tab:6groups' on page 24 undefined on input line 574",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 576,
+  "message": "LaTeX Warning: Reference `sec:featureselection' on page 24 undefined on input line 576",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 581,
+  "message": "LaTeX Warning: Reference `fig:sub3' on page 24 undefined on input line 581",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 610,
+  "message": "LaTeX Warning: Reference `tab:6groups' on page 25 undefined on input line 610",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 610,
+  "message": "LaTeX Warning: Reference `fig:my_label' on page 25 undefined on input line 610",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 621,
+  "message": "LaTeX Warning: Reference `fig:subfigure' on page 26 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 621,
+  "message": "LaTeX Warning: Reference `fig:sub4' on page 26 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 621,
+  "message": "LaTeX Warning: Reference `fig:sub1' on page 26 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 621,
+  "message": "LaTeX Warning: Reference `fig:sub2' on page 26 undefined on input line 621",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 647,
+  "message": "LaTeX Warning: Reference `tab:comparison' on page 27 undefined on input line 647",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": 652,
+  "message": "Package natbib Warning: Citation `luo2024understanding' on page 28 undefined on input line 652",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": null,
+  "message": "Package natbib Warning: There were undefined citations",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": null,
+  "message": "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "01_main.tex",
+  "line": null,
+  "message": "Package rerunfilecheck Warning: File `01_main.out' has changed. Rerun to get outlines right or use package `bookmark'",
+  "detail": [],
+  "hint": null
+ }
+]

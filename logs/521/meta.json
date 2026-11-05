@@ -1,0 +1,32 @@
+{
+ "id": 521,
+ "source": "arXiv",
+ "name": "arXiv:2611.03347",
+ "url": "https://arxiv.org/abs/2611.03347",
+ "type": "Paper",
+ "version": "2611.03347",
+ "files": 25,
+ "main": "bouncing_singularity_AdSCFT.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "bouncing_singularity_AdSCFT.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 5571
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 5046,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 7,
+ "outcome": "both-ok"
+}

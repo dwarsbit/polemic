@@ -1,0 +1,990 @@
+[
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 28,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 29,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 30,
+  "message": "Misplaced \\noalign.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 31,
+  "message": "Misplaced \\crcr.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 31,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 54,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.54 \\gobble",
+   "            {"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 56,
+  "message": "LaTeX Error: Environment Description undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 57,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 60,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{Description}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 86,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.86 \\gobble",
+   "            {{\\myitem} \\parens{1998} Founder, M.D.-Ph.D.~Program in Computat..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 135,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.135 176 total, with 19 in 2005--6)}\\gobble",
+   "                                            {\\\\ {\\sf Publications available ..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 141,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.141 \\gobble",
+   "             {{{\\mystar} {\\em Note: In Computer Science, certain conferences"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 173,
+  "message": "LaTeX Error: Environment Enumerate undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 185,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 185,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 185,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 190,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 190,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 190,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 195,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 195,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 195,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 202,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 202,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 202,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 208,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.208 \\gobble",
+   "             {"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 209,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 209,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 209,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 217,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 217,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 217,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 225,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.225 \\gobble",
+   "             {"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 226,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 226,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 226,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 234,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 234,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 234,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 240,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 240,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 240,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 246,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 246,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 246,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 254,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 254,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 254,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 261,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 261,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 261,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 268,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 268,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 268,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 275,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.275 \\gobble",
+   "             {"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 276,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 276,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 276,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 284,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 284,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 284,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 290,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 290,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 290,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 297,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 297,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 297,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 303,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 303,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 303,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 312,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 312,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 312,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 319,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 319,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 319,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 327,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.327 \\gobble",
+   "             {"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 328,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 328,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 328,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 337,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 337,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 337,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 346,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 346,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 346,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 351,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.351 \\gobble",
+   "             {special issue from papers presented at the 2005 Int'l.~Conf.~on"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 355,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 362,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 371,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 378,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.378 \\gobble",
+   "             {"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 380,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 390,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 390,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 390,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 398,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 398,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 398,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 406,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 406,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 406,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 413,
+  "message": "LaTeX Error: Lonely \\item--perhaps a missing list environment.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 413,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 413,
+  "message": "You can't use `\\relax' after \\the.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 425,
+  "message": "LaTeX Error: \\begin{document} ended by \\end{Enumerate}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 434,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.434 \\MEMS",
+   "           {Change URL}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 436,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.436 \\gobble",
+   "             {"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 457,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 457,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 458,
+  "message": "Misplaced \\crcr.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 458,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 473,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 473,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 474,
+  "message": "Misplaced \\crcr.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 474,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 492,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 492,
+  "message": "Missing } inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 493,
+  "message": "Misplaced \\crcr.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "Template NIH/NIH_Bio.tex",
+  "line": 493,
+  "message": "Extra }, or forgotten \\endgroup.",
+  "detail": [],
+  "hint": null
+ }
+]

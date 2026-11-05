@@ -1,0 +1,32 @@
+{
+ "id": 62,
+ "source": "GitHub",
+ "name": "OpenCUMT/thesis-latex",
+ "url": "https://github.com/OpenCUMT/thesis-latex",
+ "type": "Thesis",
+ "version": "723f159227a7567ad638dbf69f043b1783b72170",
+ "files": 38,
+ "main": "thesis.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (latexmkrc)",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "lualatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 11734,
+  "tail": "exit 12, PDF not found\n  Missing character: There is no r (U+0072) in font nullfont!\n  Missing character: There is no m (U+006D) in font nullfont!\n  Missing character: There is no S (U+0053) in font nullfont!\n  Missing character: There is no i (U+0069) in font nullfont!\n  Missing character: There is no m (U+006D) in font nullfont!\n  Missing character: There is no S (U+0053) in font nullfont!\n  Missing character: There is no u (U+0075) in font nullfont!\n And 165 more --- see log file 'thesis.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 957,
+  "outputs": [
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 1,
+ "firstError": "Class cumtthesis Error: XeLaTeX is required.",
+ "outcome": "both-fail"
+}

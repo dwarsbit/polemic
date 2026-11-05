@@ -1,0 +1,31 @@
+{
+ "id": 415,
+ "source": "GitHub",
+ "name": "ziqin/LaTeX-SUSTechHomework",
+ "url": "https://github.com/ziqin/LaTeX-SUSTechHomework",
+ "type": "Homework",
+ "version": "b646599543163d03fd0cdcc4b65995ba2c966f51",
+ "files": 5,
+ "main": "example.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "example.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 2409
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2202,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 3,
+ "outcome": "both-ok"
+}

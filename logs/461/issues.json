@@ -1,0 +1,500 @@
+[
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 18,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.18 \\colorlet",
+   "              {examplefill}{yellow!80!black}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 18,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 19,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.19 \\definecolor",
+   "                 {graphicbackground}{rgb}{0.96,0.96,0.8}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 20,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.20 \\definecolor",
+   "                 {codebackground}{rgb}{0.9,0.9,1}"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 388,
+  "message": "LaTeX Error: Environment environment undefined.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1167,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1167 \\c@IndexColumns",
+   "                      =2"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1167,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1518,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1518 \\pgfqkeys",
+   "                {/codeexample}{%"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1518,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1519,
+  "message": "Undefined control sequence.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1519,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1520,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1520   graphic/.code=  {\\colorlet",
+   "                                   {graphicbackground}{#1}},"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1520,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1520 .../.code=  {\\colorlet{graphicbackground}{#",
+   "                                                  1}},"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1521,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1521   code/.code=  {\\colorlet",
+   "                                {codebackground}{#1}},"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1521,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1521   code/.code=  {\\colorlet{codebackground}{#",
+   "                                                  1}},"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1523,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1523   code only/.code=  {\\code@executefalse",
+   "                                              },"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1524,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1524   pre/.store in=\\code@pre",
+   "                                ,"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1525,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1525   post/.store in=\\code@post",
+   "                                  ,"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1528,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1528   typeset listing/.code=  {#",
+   "                                   1},"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1529,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1529   render instead/.store in=\\code@render",
+   "                                              ,"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1535,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1535   from file/.code={\\codeexamplefromfiletrue",
+   "                                                  \\def\\codeexamplesource{#1}},"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1535,
+  "message": "Illegal parameter number in definition of \\codeexamplesource.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1686,
+  "message": "LaTeX Error: \\usepackage before \\documentclass.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1705,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1705 \\pgfkeys",
+   "               {"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1706,
+  "message": "LaTeX Error: Missing \\begin{document}.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1707,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1707 ...e/prettyprint/key name/.code={\\textcolor",
+   "                                                  {keycolor}{\\pgfmanualpdfre..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1707,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1707 ...{\\textcolor{keycolor}{\\pgfmanualpdfref{#",
+   "                                                  #1}{\\noligs{##1}}}},"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1708,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1708 ...me with handler/.code 2 args={\\textcolor",
+   "                                                  {keycolor}{\\pgfmanualpdfre..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1708,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1708 ...{\\textcolor{keycolor}{\\pgfmanualpdfref{#",
+   "                                                  #1}{\\noligs{##1}}}/\\textco..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1709,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1709 ...key value display only/.code={\\textcolor",
+   "                                                  {keycolor}{{\\itshape{\\let\\..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1709,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1709 ...startup\\relax\\pgfmanualprettyprintcode{#",
+   "                                                  #1}}}}},"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1710,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1710 ...example/prettyprint/cs/.code={\\textcolor",
+   "                                                  {cscolor}{\\pgfmanualcslink..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1710,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1710 ...ualcslinkpreskip4.25pt\\pgfmanualpdfref{#",
+   "                                                  #1}{\\noligs{##1}}}},"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1711,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1711 ...nt/cs with args/.code 2 args={\\textcolor",
+   "                                                  {black}{\\pgfmanualcslinkpr..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1711,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1711 ...ualcslinkpreskip4.25pt\\pgfmanualpdfref{#",
+   "                                                  #1}{\\noligs{##1}}}\\{\\textc..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1713,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1713 ...rint/cs/pgfkeys/.code 2 args={\\textcolor",
+   "                                                  {black}{\\pgfmanualcslinkpr..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1713,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1713 ...ualcslinkpreskip4.25pt\\pgfmanualpdfref{#",
+   "                                                  #1}{\\noligs{##1}}}\\{\\textc..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1715,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1715 ...yprint/cs/begin/.code 2 args={\\textcolor",
+   "                                                  {black}{##1}\\{\\textcolor{c..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1715,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1715 .../begin/.code 2 args={\\textcolor{black}{#",
+   "                                                  #1}\\{\\textcolor{cscolor}{\\..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1717,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1717 ...ttyprint/cs/end/.code 2 args={\\textcolor",
+   "                                                  {black}{##1}\\{\\textcolor{c..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1717,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1717 ...cs/end/.code 2 args={\\textcolor{black}{#",
+   "                                                  #1}\\{\\textcolor{cscolor}{\\..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1718,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1718 ...yprint/word/.code={\\pgfmanualwordstartup",
+   "                                                  {\\begingroup\\pgfkeyssetval..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1718,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1718 ...rch key prefixes in}{}\\pgfmanualpdfref{#",
+   "                                                  #1}{\\noligs{##1}}\\endgroup}},"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1719,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1719 ...mple/prettyprint/point/.code={\\textcolor",
+   "                                                  {pointcolor}{\\noligs{##1}}},%"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1719,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1719 .../.code={\\textcolor{pointcolor}{\\noligs{#",
+   "                                                  #1}}},%"
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1720,
+  "message": "Undefined control sequence.",
+  "detail": [
+   "l.1720 ...t/point with cs/.code 2 args={\\textcolor",
+   "                                                  {pointcolor}{(\\pgfmanualpd..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1720,
+  "message": "You can't use `macro parameter character #' in horizontal mode.",
+  "detail": [
+   "l.1720 ...extcolor{pointcolor}{(\\pgfmanualpdfref{#",
+   "                                                  #1}{\\noligs{##1}}:\\noligs{..."
+  ],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "pgfmanual-en-macros.tex",
+  "line": 1720,
+  "message": " ==> Fatal error occurred, no output PDF file produced!",
+  "detail": [],
+  "hint": null
+ }
+]

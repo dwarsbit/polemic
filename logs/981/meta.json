@@ -1,0 +1,31 @@
+{
+ "id": 981,
+ "source": "CTAN",
+ "name": "xebaposter",
+ "url": "https://ctan.org/pkg/xebaposter",
+ "type": "Poster",
+ "version": "2.54",
+ "files": 20,
+ "main": "doc/poster-fa.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "doc/poster-fa.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 877,
+  "tail": "exit 12, PDF not found\nLatexmk: Examining 'poster-fa.fls'\nLatexmk: Examining 'poster-fa.log'\nLatexmk: Errors, in force_mode: so I tried finishing targets\nCollected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'poster-fa.log' and/or above output for details\n\nFailure to make 'poster-fa.pdf'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 440,
+  "outputs": [
+   "log"
+  ],
+  "tail": "      Refer to 'build/poster-fa.log' and/or above output for details\n\nLatexmk: Sometimes, the -f option can be used to get latexmk\n  to try to force complete processing.\n  But normally, you will need to correct the file(s) that caused the\n  error, and then rerun latexmk.\n  In some cases, it is best to clean out generated files before rerunning\n  latexmk after you've corrected the files."
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-fail"
+}

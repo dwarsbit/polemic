@@ -1,0 +1,31 @@
+{
+ "id": 938,
+ "source": "CTAN",
+ "name": "simple-resume-cv",
+ "url": "https://ctan.org/pkg/simple-resume-cv",
+ "type": "CV",
+ "version": "",
+ "files": 30,
+ "main": "CV.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "CV.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1842
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1606,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 5,
+ "outcome": "both-ok"
+}

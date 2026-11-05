@@ -1,0 +1,74 @@
+[
+ {
+  "severity": "error",
+  "file": "duals_of_grassmannians.tex",
+  "line": 686,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "duals_of_grassmannians.tex",
+  "line": 687,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "duals_of_grassmannians.tex",
+  "line": 700,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "error",
+  "file": "duals_of_grassmannians.tex",
+  "line": 701,
+  "message": "Missing $ inserted.",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "duals_of_grassmannians.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [epsf]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "duals_of_grassmannians.tex",
+  "line": 99,
+  "message": "Class amsart Warning: Abstract should precede \\maketitle in AMS document classes; reported on input line 99",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "duals_of_grassmannians.tex",
+  "line": null,
+  "message": "LaTeX Warning: `h' float specifier changed to `ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "duals_of_grassmannians.tex",
+  "line": null,
+  "message": "LaTeX Warning: `!h' float specifier changed to `!ht'",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "duals_of_grassmannians.tex",
+  "line": 1079,
+  "message": "LaTeX Warning: Float too large for page by 19.96921pt on input line 1079",
+  "detail": [],
+  "hint": null
+ }
+]

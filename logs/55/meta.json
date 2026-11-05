@@ -1,0 +1,32 @@
+{
+ "id": 55,
+ "source": "GitHub",
+ "name": "skywalker023/thesis-template-snu-cse",
+ "url": "https://github.com/skywalker023/thesis-template-snu-cse",
+ "type": "Thesis",
+ "version": "98bba119923819a62b33e651daa6fb66f773c5b9",
+ "files": 14,
+ "main": "thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "thesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3233
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 2662,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 2,
+ "outcome": "both-ok"
+}

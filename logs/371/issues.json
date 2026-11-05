@@ -1,0 +1,146 @@
+[
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <42> not available size <24.88> substituted on input line 2563",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "Package typearea Warning: Very low DIV value! DIV values less than 6 result in textwidth/-height smaller than total marginwidth/-height. You should e.g. increase DIV, increase fontsize or change papersize",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "betterposterv2.cls",
+  "line": null,
+  "message": "Class betterposterv2 Warning: You are not using LuaLaTeX or XeLaTeX. Modern font features will be limited. Recommended: Compile with LuaLaTeX for best results",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": null,
+  "line": null,
+  "message": "LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <42> not available size <35.83> substituted on input line 116",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": null,
+  "message": "LaTeX Warning: Unused global option(s): [portrait]",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 89,
+  "message": "LaTeX Font Warning: Font shape `T1/cmtt/m/n' in size <42> not available size <35.83> substituted on input line 89",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 108,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <29.39987> not available size <24.88> substituted on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 108,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <42> not available size <24.88> substituted on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 108,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <29.39987> not available size <24.88> substituted on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 108,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <42> not available size <24.88> substituted on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 108,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <29.39987> not available size <24.88> substituted on input line 108",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 123,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <50.39987> not available size <24.88> substituted on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 123,
+  "message": "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <35.27975> not available size <24.88> substituted on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 123,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <50.39987> not available size <24.88> substituted on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 123,
+  "message": "LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <35.27975> not available size <24.88> substituted on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 123,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <50.39987> not available size <24.88> substituted on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": 123,
+  "message": "LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <35.27975> not available size <24.88> substituted on input line 123",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "poster.tex",
+  "line": null,
+  "message": "LaTeX Font Warning: Size substitutions with differences up to 25.51987pt have occurred",
+  "detail": [],
+  "hint": null
+ }
+]

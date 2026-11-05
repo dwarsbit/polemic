@@ -1,0 +1,33 @@
+{
+ "id": 206,
+ "source": "GitHub",
+ "name": "josephwright/ltx-talk",
+ "url": "https://github.com/josephwright/ltx-talk",
+ "type": "Slides",
+ "version": "91a445b7e61080f6f0d1eb7ffc4706ea8e7f9cb5",
+ "files": 160,
+ "main": "ltx-talk-code.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "ltx-talk-code.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 7172,
+  "tail": "exit 12, PDF found\n  Reference `doc/function//textsubscript@offset' on page 6 undefined on input line 414\n  Reference `doc/function//thepage' on page 6 undefined on input line 424\n  Reference `doc/function//stdcolor' on page 7 undefined on input line 103\n  Reference `doc/function//color' on page 8 undefined on input line 150\n  Reference `doc/function//pagecolor' on page 8 undefined on input line 176\n  Reference `doc/function//stdset@color' on page 8 undefined on input line 183\n  Reference `doc/function//set@color' on page 8 undefined on input line 192\n And 51 more --- see log file 'ltx-talk-code.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 4338,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 1,
+ "warnings": 7,
+ "firstError": "LaTeX Error: \\begin{tabular} on input line 77 ended by \\end{document}.",
+ "outcome": "both-fail"
+}

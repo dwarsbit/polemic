@@ -1,0 +1,31 @@
+{
+ "id": 447,
+ "source": "GitHub",
+ "name": "ptytb/pyroboros",
+ "url": "https://github.com/ptytb/pyroboros",
+ "type": "Cheat sheet",
+ "version": "e759e4543a6e02a9b471db1fdf83d330e5f8331d",
+ "files": 11,
+ "main": "Pyroboros.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Pyroboros.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 3869
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3526,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 25,
+ "outcome": "both-ok"
+}

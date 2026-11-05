@@ -1,0 +1,42 @@
+[
+ {
+  "severity": "warning",
+  "file": "FullProposal.tex",
+  "line": null,
+  "message": "Package biblatex Warning: Patching footnotes failed. Footnote detection will not work",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "SpecificAims.tex",
+  "line": 21,
+  "message": "LaTeX Warning: Citation 'Meyer:CellSys' on page 2 undefined on input line 21",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FullProposal.tex",
+  "line": 35,
+  "message": "LaTeX Warning: Empty bibliography on input line 35",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FullProposal.tex",
+  "line": null,
+  "message": "LaTeX Warning: There were undefined references",
+  "detail": [],
+  "hint": null
+ },
+ {
+  "severity": "warning",
+  "file": "FullProposal.tex",
+  "line": null,
+  "message": "Package biblatex Warning: Please (re)run Biber on the file: FullProposal and rerun LaTeX afterwards",
+  "detail": [],
+  "hint": null
+ }
+]

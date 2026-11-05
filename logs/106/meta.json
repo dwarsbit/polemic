@@ -1,0 +1,32 @@
+{
+ "id": 106,
+ "source": "GitHub",
+ "name": "monetjoe/latex_paper_templates",
+ "url": "https://github.com/monetjoe/latex_paper_templates",
+ "type": "Paper",
+ "version": "9c557c9dcea8cc06ffe64a6d5cf61c85b8c70ef2",
+ "files": 8,
+ "main": "finalversion.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "finalversion.tex",
+  "engine": "xelatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 7596
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 3297,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 0,
+ "outcome": "both-ok"
+}

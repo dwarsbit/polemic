@@ -1,0 +1,32 @@
+{
+ "id": 46,
+ "source": "GitHub",
+ "name": "F5Soft/xmu-template",
+ "url": "https://github.com/F5Soft/xmu-template",
+ "type": "Thesis",
+ "version": "e6b7808d5a8480872c90881a8a58ad36edc441a6",
+ "files": 17,
+ "main": "example-minimal.tex",
+ "engine": "xelatex",
+ "baseline": {
+  "main": "example-minimal.tex",
+  "engine": "xelatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 64353,
+  "tail": "exit 12, PDF found\n  Missing character: There is no E (\"45) in font nullfont!\n  Missing character: There is no n (\"6E) in font nullfont!\n  Missing character: There is no g (\"67) in font nullfont!\n  Missing character: There is no l (\"6C) in font nullfont!\n  Missing character: There is no i (\"69) in font nullfont!\n  Missing character: There is no s (\"73) in font nullfont!\n  Missing character: There is no h (\"68) in font nullfont!\n And 230 more --- see log file 'example-minimal.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 32290,
+  "outputs": [
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 23,
+ "warnings": 8,
+ "firstError": "Package fontspec Error: The font \"Times New Roman\" cannot be found; this may be but usually is not a fontspec bug. Either there is a typo in the font name/file, the font is not installed (correctly), or there is a bug in the underlying font loading engine (XeTeX/luaotfload).",
+ "outcome": "both-fail"
+}

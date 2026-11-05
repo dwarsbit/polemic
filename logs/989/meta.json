@@ -1,0 +1,33 @@
+{
+ "id": 989,
+ "source": "CTAN",
+ "name": "beamertheme-mirage",
+ "url": "https://ctan.org/pkg/beamertheme-mirage",
+ "type": "Slides",
+ "version": "1.2",
+ "files": 18,
+ "main": "beamertheme-mirage-doc.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "beamertheme-mirage-doc.tex",
+  "engine": "pdflatex",
+  "ok": false,
+  "exit": 12,
+  "timedOut": false,
+  "durationMs": 2066,
+  "tail": "exit 12, PDF found\n  ! LaTeX Error: Unicode character 蜃 (U+8703)\n  ! LaTeX Error: Unicode character 楼 (U+697C)\n  ! LaTeX Error: Unicode character 与 (U+4E0E)\n  ! LaTeX Error: Unicode character 主 (U+4E3B)\n  ! LaTeX Error: Unicode character 题 (U+9898)\n  ! LaTeX Error: Unicode character 林 (U+6797)\n  ! LaTeX Error: Unicode character 莲 (U+83B2)\n And 426 more --- see log file 'beamertheme-mirage-doc.log'"
+ },
+ "polemic": {
+  "status": "failure",
+  "durationMs": 897,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 363,
+ "warnings": 1,
+ "firstError": "LaTeX Error: Unicode character 蜃 (U+8703)",
+ "outcome": "both-fail"
+}

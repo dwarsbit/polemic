@@ -1,0 +1,31 @@
+{
+ "id": 465,
+ "source": "GitHub",
+ "name": "astoff/tikz-cd",
+ "url": "https://github.com/astoff/tikz-cd",
+ "type": "Figures",
+ "version": "ca0b856c01c1205abc58985e09c656e944b0b4b1",
+ "files": 9,
+ "main": "tikz-cd-doc.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "tikz-cd-doc.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 7964
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 7294,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 14,
+ "outcome": "both-ok"
+}

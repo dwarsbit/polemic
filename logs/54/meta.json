@@ -1,0 +1,32 @@
+{
+ "id": 54,
+ "source": "GitHub",
+ "name": "mcmanigle/OxThesis",
+ "url": "https://github.com/mcmanigle/OxThesis",
+ "type": "Thesis",
+ "version": "7623477f07599dbdebfcd9699b3e9b905f93777f",
+ "files": 18,
+ "main": "Oxford_Thesis.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "Oxford_Thesis.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 11898
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 7472,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log",
+   "blg"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

@@ -1,0 +1,31 @@
+{
+ "id": 972,
+ "source": "CTAN",
+ "name": "ejpecp",
+ "url": "https://ctan.org/pkg/ejpecp",
+ "type": "Paper",
+ "version": "1.11.3",
+ "files": 8,
+ "main": "sample.tex",
+ "engine": "pdflatex",
+ "baseline": {
+  "main": "sample.tex",
+  "engine": "pdflatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 1544
+ },
+ "polemic": {
+  "status": "success",
+  "durationMs": 1125,
+  "outputs": [
+   "pdf",
+   "synctex",
+   "log"
+  ]
+ },
+ "errors": 0,
+ "warnings": 1,
+ "outcome": "both-ok"
+}

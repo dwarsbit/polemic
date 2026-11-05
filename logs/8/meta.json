@@ -1,0 +1,32 @@
+{
+ "id": 8,
+ "source": "GitHub",
+ "name": "Zeta611/snu-cse-bsc-thesis",
+ "url": "https://github.com/Zeta611/snu-cse-bsc-thesis",
+ "type": "Thesis",
+ "version": "cd08b5fbef63d9c199ec99fc73670582aeb41a01",
+ "files": 14,
+ "main": "example/example-en.tex",
+ "engine": "pdflatex",
+ "detectedEngine": "lualatex (latexmkrc)",
+ "baseline": {
+  "main": "example/example-en.tex",
+  "engine": "lualatex",
+  "ok": true,
+  "exit": 0,
+  "timedOut": false,
+  "durationMs": 19189
+ },
+ "polemic": {
+  "status": "timeout",
+  "durationMs": 240011,
+  "outputs": [
+   "pdf",
+   "log"
+  ]
+ },
+ "errors": 5,
+ "warnings": 3,
+ "firstError": "Class snu-cse-bsc-thesis Error: This class only supports XeLaTeX and LuaLaTeX..",
+ "outcome": "polemic-only-fail"
+}
