@@ -54,7 +54,7 @@ pub struct AiSettings {
 pub struct GrammarSettings {
     /// Off unless false is stored: on by default.
     pub enabled: Option<bool>,
-    /// "builtin", "polemic" (the account's server, Professional) or
+    /// "builtin", "polemic" (the account's server) or
     /// "languagetool" (`language_tool_url`). None: LanguageTool when a
     /// URL is set, else built in.
     pub provider: Option<String>,
@@ -133,7 +133,7 @@ pub struct Settings {
     pub assistant_mode: Option<String>,
     pub grammar: GrammarSettings,
     pub user_words: Vec<String>,
-    /// The Polemic server for the Professional account; None means
+    /// The Polemic server of the account; None means
     /// app.polemicapp.com. The token itself is in the credential store.
     pub account_server: Option<String>,
     /// The name on suggestions (track changes); later comments too.
@@ -142,8 +142,8 @@ pub struct Settings {
     pub author_initials: Option<String>,
     /// Accounts for private HTTPS remotes; tokens in the credential store.
     pub git_accounts: Vec<GitAccount>,
-    /// Where compiles run: "local" or "polemic" (the account's server,
-    /// Professional). None means on this computer.
+    /// Where compiles run: "local" or "polemic" (the account's server).
+    /// None means on this computer.
     pub compile_provider: Option<String>,
 }
 

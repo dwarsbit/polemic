@@ -65,7 +65,7 @@ describe("CompileSettingsSection", () => {
         email: "ada@example.com",
         emailVerified: true,
         createdAt: "2026-10-28T10:00:00.000Z",
-        plan: "professional",
+        plan: "pro",
       },
       problem: null,
     };
@@ -100,15 +100,20 @@ describe("CompileSettingsSection", () => {
     expect(useSettingsStore.getState().settingsSection).toBe("account");
   });
 
-  it("says Professional is needed on the free plan", async () => {
+  it("offers compiling with Polemic on the Free plan", async () => {
     account.status = {
       ...account.status,
       user: { ...account.status.user!, plan: "free" },
     };
+    await render(<CompileSettingsSection />);
+    expect(button("With Polemic").disabled).toBe(false);
+  });
+
+  it("says when an older server asks for a paid plan", async () => {
     account.cloud = "planRequired";
     await render(<CompileSettingsSection />);
     expect(button("With Polemic").disabled).toBe(true);
-    expect(host.textContent).toContain("needs Polemic Professional");
+    expect(host.textContent).toContain("needs a paid plan");
     await click("See plans");
     expect(openUrl).toHaveBeenCalledWith("https://polemic.example.org/account");
   });

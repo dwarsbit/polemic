@@ -10,7 +10,7 @@ const ada: AccountUser = {
   email: "ada@example.com",
   emailVerified: true,
   createdAt: "2026-10-28T10:00:00.000Z",
-  plan: "professional",
+  plan: "student",
 };
 
 const server = { status: null as unknown as AccountStatus, finishSignIn: () => {} };
@@ -90,7 +90,7 @@ describe("AccountSettingsSection", () => {
     await act(async () => server.finishSignIn());
     expect(host.textContent).toContain("Ada Lovelace");
     expect(host.textContent).toContain("ada@example.com");
-    expect(host.textContent).toContain("Polemic Professional");
+    expect(host.textContent).toContain("Student plan");
 
     await click("Sign out");
     expect(tauri.accountSignOut).toHaveBeenCalledOnce();

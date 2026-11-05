@@ -81,7 +81,7 @@ function formatDate(iso: string): string {
 }
 
 /**
- * Share for review (Professional): publishes the project one way to the
+ * Share for review: publishes the project one way to the
  * account's server, with the PDF of the last compile, and manages the
  * review links that open it in a browser. The folder stays the source
  * of truth; publishing again replaces the version reviewers see.
@@ -241,7 +241,7 @@ function ShareBody() {
 
       {signedOut && (
         <p className="text-xs text-muted-foreground">
-          Sharing is part of Polemic Professional.{" "}
+          Sharing needs a free Polemic account.{" "}
           <button
             type="button"
             className={link}
@@ -249,7 +249,7 @@ function ShareBody() {
           >
             Sign in
           </button>{" "}
-          to your Polemic account first.
+          first.
         </p>
       )}
 
@@ -295,6 +295,14 @@ function ShareBody() {
                         made {formatDate(l.createdAt)}
                         {l.expiresAt ? `, expires ${formatDate(l.expiresAt)}` : ""}
                       </span>
+                      {l.active === false && (
+                        <span
+                          className="rounded-full border px-1.5 text-[10px] text-muted-foreground"
+                          title="Your plan includes fewer active review links than you have. Delete a link, or upgrade on your account page."
+                        >
+                          Paused
+                        </span>
+                      )}
                       <Button
                         size="icon"
                         variant="ghost"
@@ -434,7 +442,7 @@ function ShareBody() {
       {error !== null && error.kind !== "signedOut" && (
         <p className="text-xs text-destructive" role="alert">
           {error.message}
-          {error.kind === "planRequired" && accountPage && (
+          {(error.kind === "planRequired" || error.kind === "limitReached") && accountPage && (
             <>
               {" "}
               <button

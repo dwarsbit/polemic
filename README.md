@@ -31,8 +31,9 @@
 
 Polemic is an open-source desktop editor for LaTeX, for macOS, Windows and
 Linux. It compiles with the TeX distribution on your machine and keeps your
-files where they are. Polemic Professional adds online services: review
-links, grammar checking in almost every language and cloud compile. The
+files where they are. A free Polemic account adds online services: review
+links, grammar checking in almost every language and cloud compile, with
+more storage and compile time on the Student and Pro plans. The
 [documentation](https://polemicapp.com/docs) covers installation, your first
 project and every feature below.
 
@@ -50,7 +51,7 @@ project and every feature below.
 - **BibTeX and Zotero**: every entry in your bibliography, searchable, with
   unused and missing entries marked. Cite from Zotero too.
 - **Grammar checking**: spelling and grammar underlined as you write, in
-  English. Polemic Professional adds almost every language.
+  English. With a free Polemic account, almost every language.
 
 ### Compile
 
@@ -61,14 +62,14 @@ project and every feature below.
 - **Assistant** (optional, your own AI provider): a chat that reads your
   project and helps with LaTeX errors, packages, tables and layout. You
   review every change.
-- **Cloud compile** (Polemic Professional): compile online, with no TeX
-  distribution to install.
+- **Cloud compile** (Polemic account): compile online, with no TeX
+  distribution to install. Your plan sets the compile time each day.
 
 ### Revise
 
 - **Comments**: mark passages with comments by category, from "Source
   needed" to "Wording", without touching the LaTeX.
-- **Review links** (Polemic Professional): reviewers read your paper in
+- **Review links** (Polemic account): reviewers read your paper in
   their browser and comment, and their comments arrive in your editor.
 - **Snapshots and Git**: keep the history of your project with built-in
   snapshots or Git, and push to GitHub or GitLab.
@@ -90,9 +91,9 @@ switched off. See the [security page](https://polemicapp.com/docs/reference/secu
 | Visual editor | Yes | Yes | No |
 | Live PDF preview | Yes | Yes | Yes |
 | SyncTeX | Yes | Yes | Yes |
-| Compile without installing TeX | Professional | Yes | No |
+| Compile without installing TeX | Yes, with an account | Yes | No |
 | Comments | Yes | Yes | No |
-| Review links | Professional | Yes | No |
+| Review links | Yes, with an account | Yes | No |
 | Edit together in real time | No | Yes | No |
 
 - **Compared with Overleaf**: Overleaf runs in the browser, and co-authors

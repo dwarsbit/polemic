@@ -9,12 +9,21 @@ import {
   accountSignOut,
   accountStatus,
   type AccountStatus,
+  type AccountUser,
 } from "@/lib/tauri";
 
 export const DEFAULT_ACCOUNT_SERVER = "https://app.polemicapp.com";
 
+/** Plan names as the account page shows them; "professional" comes from servers before the current plans. */
+const PLAN_NAMES: Record<NonNullable<AccountUser["plan"]>, string> = {
+  free: "Free",
+  student: "Student",
+  pro: "Pro",
+  professional: "Pro",
+};
+
 /**
- * The Polemic account (Professional edition): the server, who is
+ * The Polemic account: the server, who is
  * signed in, and sign-in through the browser. The token stays in the
  * Rust side and the OS credential store; this page only sees the user.
  */
@@ -104,7 +113,7 @@ export function AccountSettingsSection() {
           </Button>
         </div>
         <p className="mt-1 text-xs text-muted-foreground">
-          {DEFAULT_ACCOUNT_SERVER} for Polemic Professional, or your
+          {DEFAULT_ACCOUNT_SERVER} for Polemic's online services, or your
           organization&rsquo;s own Polemic server. Changing it signs you out.
         </p>
       </div>
@@ -136,10 +145,7 @@ export function AccountSettingsSection() {
                   <p className="truncate text-sm font-medium">{status.user.name}</p>
                   <p className="truncate text-xs text-muted-foreground">
                     {status.user.email}
-                    {status.user.plan &&
-                      (status.user.plan === "professional"
-                        ? " · Polemic Professional"
-                        : " · Free plan")}
+                    {status.user.plan && ` · ${PLAN_NAMES[status.user.plan]} plan`}
                   </p>
                 </>
               ) : (
@@ -164,7 +170,7 @@ export function AccountSettingsSection() {
               <p className="text-sm font-medium">Not signed in</p>
               <p className="text-xs text-muted-foreground">
                 {status?.problem ??
-                  "Everything that runs on your computer works without an account. Sign in to use Polemic Professional services."}
+                  "Everything that runs on your computer works without an account. Sign in for the online services: review links, grammar checking and cloud compile."}
               </p>
             </div>
             <Button

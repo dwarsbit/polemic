@@ -1,4 +1,4 @@
-//! The Polemic Professional account: signing in to a Polemic server
+//! The Polemic account: signing in to a Polemic server
 //! (app.polemicapp.com, or a self-hosted install) from the editor.
 //!
 //! Sign-in follows RFC 8252: the editor listens on a random loopback
@@ -42,7 +42,7 @@ pub struct AccountUser {
     pub email: String,
     pub email_verified: bool,
     pub created_at: String,
-    /// "free" or "professional"; None from servers before billing.
+    /// "free", "student" or "pro" ("professional" from older servers); None from servers before billing.
     #[serde(default)]
     pub plan: Option<String>,
 }

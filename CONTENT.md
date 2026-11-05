@@ -28,7 +28,7 @@ Plain, precise and calm, for researchers and students who write papers.
 ## Capitalization
 
 - **Sentence case everywhere**: page titles, headings, nav, docs titles, buttons, menu items, dialog titles, tabs, table headers. "Download for macOS", "New file", "Compile and preview".
-- Proper names keep their own case: LaTeX, BibTeX, Git, GitHub, Zotero, macOS, Polemic Professional.
+- Proper names keep their own case: LaTeX, BibTeX, Git, GitHub, Zotero, macOS. Plan names are capitalized: Free, Student, Pro.
 - Nothing is set in all caps, the logo included: it reads "Polemic".
 
 ## Punctuation
@@ -52,8 +52,8 @@ Plain, precise and calm, for researchers and students who write papers.
 | logo | wordmark, lockup | The mark next to "Polemic" |
 | app icon | tile, favicon | The plum tile with the mark: dock, taskbar, browser tab |
 | app icon and name | lockup | The app icon with "Polemic", horizontal or vertical |
-| Polemic Professional | Pro, Premium, paid plan | The plan's name; "the Professional plan" in running text |
-| online services | hosted services, cloud services | What Polemic Professional adds: review links, grammar checking, cloud compile |
+| Free, Student, Pro | Community, Professional, Premium, tier | The plans of the online services; "the Pro plan" in running text, "Polemic Pro" where it stands alone, as at checkout |
+| online services | hosted services, cloud services | Storage, review links, grammar checking and cloud compile; every plan has them, with different limits |
 | LaTeX, TeX, BibTeX, biblatex, XeLaTeX, LuaLaTeX, pdfLaTeX | Latex, latex, LATEX, Bibtex | Always this casing, also in headings |
 | TeX distribution | TeX install | TeX Live, MacTeX, MiKTeX by name |
 | Git | git | `git` in code font only for the command |
@@ -101,7 +101,7 @@ Add a row whenever a new name comes up. Use one term per concept in every surfac
 **Marketing pages**
 
 - A headline is a short claim about what the reader can do ("Write LaTeX on your own machine"); the subheadline backs it with concrete facts.
-- Every claim is true for the current release. Features that are not released yet say "Coming soon"; online services name their plan (Polemic Professional).
+- Every claim is true for the current release. Features that are not released yet say "Coming soon"; online services name the plans whose limits they mention (Free, Student, Pro).
 - Competitors (Overleaf, TeXstudio) are named only on Compare and in the FAQ, factually and without digs.
 - No lorem ipsum or "Placeholder copy" in anything that ships: a section waits until its copy exists.
 

@@ -15,7 +15,7 @@ interface DialogsState {
   tableDialogOpen: boolean;
   packagesDialogOpen: boolean;
   documentSettingsOpen: boolean;
-  /** Share for review (Professional). */
+  /** Share for review. */
   shareOpen: boolean;
   /** Dev builds only: the Component Gallery screen (Develop menu). */
   galleryOpen: boolean;

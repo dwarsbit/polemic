@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.19.0 (unreleased)
+
+### Changed
+
+- The online services now come with every Polemic account, on the Free, Student and Pro plans. Grammar checking in every language, cloud compile and review links work on the Free plan too; the plan sets your storage, your compile time each day and how many review links work at once. **Settings → Account** shows your plan.
+- When your plan's compile time for the day is used, the preview says so and offers to compile on this computer. Review links your plan has paused show as **Paused** in **Share for review**.
+
 ## 0.18.0 (2026-11-05)
 
 ### Added

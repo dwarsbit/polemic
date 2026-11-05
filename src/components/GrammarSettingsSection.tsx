@@ -26,8 +26,8 @@ export function grammarProvider(grammar: GrammarSettings): GrammarProvider {
 
 /**
  * The grammar checker and its rules: the built-in checker (English,
- * offline), Polemic's (LanguageTool on the account's server, for
- * Professional accounts) or the user's own LanguageTool server, and
+ * offline), Polemic's (LanguageTool on the account's server, on every
+ * plan) or the user's own LanguageTool server, and
  * switches for individual rules.
  */
 export function GrammarSettingsSection() {
@@ -79,7 +79,6 @@ export function GrammarSettingsSection() {
 
   const signedIn = account?.signedIn === true;
   const accountPage = account ? `${account.server}/account` : null;
-  const freePlan = account?.user?.plan === "free";
 
   return (
     <div className="space-y-4 py-4">
@@ -119,7 +118,7 @@ export function GrammarSettingsSection() {
             {!signedIn && (
               <>
                 {" "}
-                With Polemic Professional, Polemic checks every language:{" "}
+                With a free Polemic account, Polemic checks every language:{" "}
                 <button
                   type="button"
                   className="underline underline-offset-2 hover:text-foreground"
@@ -138,20 +137,7 @@ export function GrammarSettingsSection() {
             {signedIn || account === null ? (
               <>
                 Every language, checked on {account?.server ?? "your Polemic server"}.
-                Part of Polemic Professional.
-                {freePlan && accountPage && (
-                  <>
-                    {" "}
-                    <button
-                      type="button"
-                      className="underline underline-offset-2 hover:text-foreground"
-                      onClick={() => void openUrl(accountPage)}
-                    >
-                      Subscribe
-                    </button>{" "}
-                    to use it.
-                  </>
-                )}
+                Included on every plan.
               </>
             ) : (
               <>
