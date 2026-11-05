@@ -1279,7 +1279,11 @@ async fn compile_project(
     validate_tex_arg(&project_dir, &main_tex)?;
     let main_source = fs::read_to_string(project_file(&project_dir, &main_tex)?)
         .unwrap_or_default();
-    let engine = profile::resolve(&profile::load(&dir), &main_source);
+    // The engine guess also reads the project's own .cls, .sty and latexmkrc files.
+    let read = |rel: &str| {
+        files::resolve_in_project(&project_dir, rel).ok().and_then(|path| fs::read_to_string(path).ok())
+    };
+    let engine = profile::resolve_in_project(&profile::load(&dir), &main_tex, &main_source, &read);
     if settings::snapshot(&app)?.compile_provider.as_deref() == Some("polemic") {
         return compile_with_polemic(&app, &dir, &main_tex, engine).await;
     }
