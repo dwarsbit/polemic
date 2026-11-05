@@ -105,7 +105,12 @@ beforeEach(() => {
   });
   useEditorStore.setState({ content: disk["main.tex"] });
   useSettingsStore.setState({
-    ai: { provider: null, baseUrl: "http://localhost:11434/v1", apiKey: "k", model: "m" },
+    ai: {
+      provider: null,
+      baseUrl: "http://localhost:11434/v1",
+      apiKey: "k",
+      model: "m",
+    },
     assistantMode: "latex",
     assistantCompileProjects: [],
   });
