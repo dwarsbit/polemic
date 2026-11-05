@@ -61,7 +61,7 @@ jobs:
       - name: Debug the baseline container
         if: env.HAS_TOKEN == 'true' && github.event_name == 'pull_request'
         run: |
-          set -x
+          set -x +e
           mkdir -p /tmp/dbg && printf '%s\n' '\documentclass{article}\begin{document}Hi\end{document}' > /tmp/dbg/t.tex
           docker run --rm --entrypoint latexmk polemic-compile -v; echo "exit $?"
           docker run --rm --entrypoint timeout polemic-compile 20 latexmk -v; echo "exit $?"
