@@ -87,6 +87,25 @@ hardware token to manage. It costs about USD 10/month (Basic tier).
 The client secret expires (at most after 24 months); renew it in the app
 registration and update `AZURE_CLIENT_SECRET` before then.
 
+To check the Windows secrets without releasing, run the _Windows signing
+check_ workflow (Actions tab → Windows signing check → Run workflow). It
+signs a test file and shows the signing tool's full error if that fails.
+Common errors:
+
+- `AADSTS7000215: Invalid client secret`: `AZURE_CLIENT_SECRET` holds the
+  secret's ID instead of its value. Create a new secret and copy the
+  **Value** column.
+- `AADSTS700016` or `AADSTS90002`: `AZURE_CLIENT_ID` or `AZURE_TENANT_ID`
+  is wrong.
+- `No subscriptions found`: the app registration has no role in the
+  subscription yet. Check step 7 and wait a few minutes after assigning
+  the role. If it persists, also give the app the _Reader_ role on the
+  Artifact Signing account.
+- `403 Forbidden` from signtool: the app lacks the _Certificate Profile
+  Signer_ role (step 7), or the account or profile name is wrong.
+- A connection or DNS error: the endpoint doesn't match the account's
+  region.
+
 ## Checking a release
 
 After running the Release workflow, open its run in the Actions tab. A

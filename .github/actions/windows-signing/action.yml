@@ -1,0 +1,70 @@
+name: Configure Windows signing
+description: >
+  Sets up Azure Artifact Signing (formerly Trusted Signing) for the Tauri
+  bundler, then signs a test file so a bad secret or a missing Azure role
+  fails here with the signing tool's own error, instead of as "failed to run
+  artifact-signing-cli" after the full build. Without AZURE_CLIENT_ID the
+  build stays unsigned. The sign command is added to tauri.conf.json here
+  rather than committed, so local Windows builds don't need Azure access.
+
+inputs:
+  client-id:
+    required: false
+  client-secret:
+    required: false
+  tenant-id:
+    required: false
+  endpoint:
+    required: false
+  account:
+    required: false
+  certificate-profile:
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        AZURE_CLIENT_ID: ${{ inputs.client-id }}
+        AZURE_CLIENT_SECRET: ${{ inputs.client-secret }}
+        AZURE_TENANT_ID: ${{ inputs.tenant-id }}
+        AZURE_ARTIFACT_SIGNING_ENDPOINT: ${{ inputs.endpoint }}
+        AZURE_ARTIFACT_SIGNING_ACCOUNT: ${{ inputs.account }}
+        AZURE_ARTIFACT_SIGNING_CERTIFICATE_PROFILE: ${{ inputs.certificate-profile }}
+      run: |
+        if [ -z "$AZURE_CLIENT_ID" ]; then
+          echo "::warning::AZURE_CLIENT_ID not set; Windows build will be unsigned"
+          exit 0
+        fi
+        for name in AZURE_CLIENT_ID AZURE_CLIENT_SECRET AZURE_TENANT_ID AZURE_ARTIFACT_SIGNING_ENDPOINT AZURE_ARTIFACT_SIGNING_ACCOUNT AZURE_ARTIFACT_SIGNING_CERTIFICATE_PROFILE; do
+          if [ -z "${!name}" ]; then
+            echo "::error::$name secret is missing"
+            exit 1
+          fi
+          echo "$name=${!name}" >> "$GITHUB_ENV"
+        done
+        signtool="$(ls "/c/Program Files (x86)/Windows Kits/10/bin/"10.*/x64/signtool.exe | sort -V | tail -n 1)"
+        export SIGNTOOL_PATH="$(cygpath -w "$signtool")"
+        echo "SIGNTOOL_PATH=$SIGNTOOL_PATH" >> "$GITHUB_ENV"
+        cargo install artifact-signing-cli --version 0.11.0 --locked
+
+        # Sign a copy of the (unsigned) CLI itself as a test.
+        test_file="$RUNNER_TEMP/signing-check.exe"
+        cp "$(cygpath "${CARGO_HOME:-$USERPROFILE\.cargo}")/bin/artifact-signing-cli.exe" "$test_file"
+        if ! artifact-signing-cli -e "$AZURE_ARTIFACT_SIGNING_ENDPOINT" -d "Polemic signing check" "$(cygpath -w "$test_file")"; then
+          echo "::error::Test signing failed; see the output above. Check the AZURE_* secrets and docs/signing.md."
+          exit 1
+        fi
+        "$signtool" verify //pa //v "$(cygpath -w "$test_file")"
+
+        node -e '
+          const fs = require("fs");
+          const path = "src-tauri/tauri.conf.json";
+          const conf = JSON.parse(fs.readFileSync(path, "utf8"));
+          conf.bundle.windows = {
+            ...conf.bundle.windows,
+            signCommand: `artifact-signing-cli -e ${process.argv[1]} -d Polemic %1`,
+          };
+          fs.writeFileSync(path, JSON.stringify(conf, null, 2) + "\n");
+        ' "$AZURE_ARTIFACT_SIGNING_ENDPOINT"
