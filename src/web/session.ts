@@ -5,6 +5,7 @@
  */
 
 import { useCommentsStore } from "@/store/comments";
+import { startPresence } from "@/web/presence";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import {
@@ -27,6 +28,9 @@ const SAVE_DELAY_MS = 800;
 
 export function startWebSession(): () => void {
   const stops: (() => void)[] = [];
+
+  // Who else is in the project, and where.
+  stops.push(startPresence());
 
   // Changes from others: reload the file tree and the open file, and
   // the comments when theirs (or a reviewer's) changed.
@@ -54,9 +58,11 @@ export function startWebSession(): () => void {
   stops.push(
     useEditorStore.subscribe((state, previous) => {
       // A loaded file (docVersion moved) is not an edit.
+      // Nor is someone else's edit coming in (the content is what was saved).
       if (
         state.content === previous.content ||
-        state.docVersion !== previous.docVersion
+        state.docVersion !== previous.docVersion ||
+        state.content === useProjectStore.getState().lastSavedContent
       )
         return;
       if (saveTimer !== null) clearTimeout(saveTimer);

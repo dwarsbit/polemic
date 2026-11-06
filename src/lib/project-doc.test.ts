@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import * as Y from "yjs";
 import {
+  carryOffset,
   applyTextMerge,
   applyFileChange,
   applyFolder,
@@ -213,6 +214,21 @@ describe("textEdits", () => {
     ytext.insert(0, "Hello world\nsecond\n");
     applyTextDiff(ytext, "Hello there world\nsecond line\n");
     expect(ytext.toString()).toBe("Hello there world\nsecond line\n");
+  });
+});
+
+describe("carryOffset", () => {
+  it("keeps a place in the text while edits around it come and go", () => {
+    const before = "Intro.\nThe cat sat.\nEnd.";
+    const at = before.indexOf("sat");
+    const after = "Intro, longer.\nThe cat sat.\nEnd!";
+    expect(
+      after.slice(carryOffset(before, after, at), carryOffset(before, after, at) + 3),
+    ).toBe("sat");
+    expect(carryOffset(before, before, 4)).toBe(4);
+    // A place in deleted text goes to where the deletion was.
+    expect(carryOffset("abcdef", "af", 3)).toBe(1);
+    expect(carryOffset("abc", "", 3)).toBe(0);
   });
 });
 

@@ -56,7 +56,7 @@ project, file, comment and compile commands from that document:
 - Edits save after a short pause in typing. A save carries the text the
   edit started from, and `applyTextMerge` moves the edit past changes
   others made since, so both are kept. Changes from others reload the file
-  tree and the open file once it has no unsaved edits.
+  tree and reach the open file once it has no unsaved edits.
 - New projects start from the desktop app's templates: `src/lib/templates.ts`
   reads the table in `src-tauri/src/templates.rs` at build time, so there is
   one list.
@@ -78,6 +78,15 @@ project, file, comment and compile commands from that document:
   read in the browser: `src/lib/logparse.ts` and `src/lib/synctex.ts` are
   ports of the desktop app's Rust parser and the review page's SyncTeX
   reader, with their tests.
+- Presence (`src/web/presence.ts`) travels as awareness on the sync
+  connection: each tab shares the file it has open and its cursor, as
+  relative positions in that file's Y.Text. The server sets whose state it
+  is from the connection's account, so names can't be faked. The top bar
+  shows who else is in the project, and the code editor shows their cursors
+  and selections (`src/lib/remote-cursors.ts`).
+- Edits from others come into the code editor as changes outside its undo
+  history (`applyRemoteContent`), so your cursor, selection and undo stay;
+  behind the Visual face the file reloads.
 - Comments from others (collaborators, or reviewers on a review link) show
   up as they arrive: a remote change to a file in `.polemic/comments/`
   reloads the Comments panel. Suggestions carry the account's name unless

@@ -61,6 +61,25 @@ export function flushQueuedEditsForView(): void {
   }
 }
 
+type RemoteContentHandler = (content: string) => boolean;
+
+let remoteContentHandler: RemoteContentHandler | null = null;
+
+/** Called by the editor component to take in changes made elsewhere. */
+export function setRemoteContentHandler(h: RemoteContentHandler | null) {
+  remoteContentHandler = h;
+}
+
+/**
+ * Bring a change of the open file made elsewhere (someone else's edit,
+ * another program) into the source editor as edits, so the cursor, the
+ * selection and the undo history stay. False when the source editor
+ * isn't showing; the caller reloads the file instead.
+ */
+export function applyRemoteContent(content: string): boolean {
+  return remoteContentHandler?.(content) ?? false;
+}
+
 type HistoryHandler = (direction: "undo" | "redo") => boolean;
 
 let historyHandler: HistoryHandler | null = null;
