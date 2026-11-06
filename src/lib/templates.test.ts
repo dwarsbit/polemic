@@ -1,7 +1,8 @@
 // Mirrors the tests in src-tauri/src/templates.rs, on the table as the
 // browser build reads it.
 import { describe, expect, it } from "vitest";
-import { TEMPLATES } from "@/lib/templates";
+import { parseTemplates, TEMPLATES } from "@/lib/templates";
+import source from "../../src-tauri/src/templates.rs?raw";
 
 describe("TEMPLATES", () => {
   it("reads every template in templates.rs", () => {
@@ -43,5 +44,9 @@ describe("TEMPLATES", () => {
       expect(bib).toMatch(/^@article\{knuth84,/);
     }
     expect(papers[0].requires[2]).toEqual({ file: "zi4", package: "inconsolata" });
+  });
+
+  it("reads a Windows checkout's CRLF line ends as LF", () => {
+    expect(parseTemplates(source.replace(/\n/g, "\r\n"))).toEqual(TEMPLATES);
   });
 });

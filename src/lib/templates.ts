@@ -27,7 +27,9 @@ function field(block: string, name: string): string {
   return unquote(match[1]);
 }
 
-export function parseTemplates(rust: string): Template[] {
+export function parseTemplates(source: string): Template[] {
+  // A Windows checkout may have CRLF line ends; templates use LF.
+  const rust = source.replace(/\r\n/g, "\n");
   // Top-level `const NAME: &str = r"...";`, which file entries may name.
   const constants = new Map<string, string>();
   for (const match of rust.matchAll(
