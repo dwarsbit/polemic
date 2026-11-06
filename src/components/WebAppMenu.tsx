@@ -8,6 +8,7 @@ import {
   Menu,
   MessageSquareWarning,
   Settings,
+  Share2,
 } from "lucide-react";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { Button } from "@/components/ui/button";
@@ -72,6 +73,10 @@ export function WebAppMenu() {
         {projectOpen && (
           <>
             <DropdownMenuSeparator />
+            <DropdownMenuItem onSelect={() => dialogs().setShareOpen(true)}>
+              <Share2 />
+              Share for review…
+            </DropdownMenuItem>
             <DropdownMenuItem onSelect={() => void exportPdfAs()}>
               <Download />
               Download PDF

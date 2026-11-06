@@ -63,6 +63,23 @@ describe("web invoke", () => {
     const settings = await invoke<Settings>("get_settings");
     expect(settings).toEqual(withProjects(defaultSettings()));
     expect(settings.compileProvider).toBe("polemic");
+    expect(settings.grammar.provider).toBe("polemic");
+  });
+
+  it("turns writing aids stored as off back on, once", async () => {
+    localStorage.setItem(
+      "polemic.settings",
+      JSON.stringify({
+        ...defaultSettings(),
+        spellcheck: false,
+        grammar: { enabled: false },
+      }),
+    );
+    let settings = await invoke<Settings>("get_settings");
+    expect(settings.spellcheck).toBeNull();
+    expect(settings.grammar.enabled).toBeNull();
+    await invoke("update_preferences", { spellcheck: false });
+    settings = await invoke<Settings>("get_settings");
     expect(settings.spellcheck).toBe(false);
   });
 

@@ -25,9 +25,7 @@ export function defaultSettings(): Settings {
     syntaxTheme: null,
     panelLayout: null,
     previewZoom: null,
-    // Spelling and grammar run through Rust on the desktop; off until
-    // the browser has its own.
-    spellcheck: false,
+    spellcheck: null,
     spellcheckLanguage: null,
     supsubBraces: null,
     convertDoubleDollar: null,
@@ -45,8 +43,9 @@ export function defaultSettings(): Settings {
     ai: null,
     assistantCompileProjects: [],
     assistantMode: null,
+    // Online, grammar is checked by the server's LanguageTool.
     grammar: {
-      enabled: false,
+      enabled: null,
       provider: "polemic",
       languageToolUrl: null,
       englishVariant: null,
@@ -69,13 +68,34 @@ export function loadSettings(): Settings {
     if (raw) {
       const stored: unknown = JSON.parse(raw);
       if (typeof stored === "object" && stored !== null && !Array.isArray(stored)) {
-        return { ...defaultSettings(), ...(stored as Partial<Settings>) };
+        return upgrade({ ...defaultSettings(), ...(stored as Partial<Settings>) });
       }
     }
   } catch {
     // Unreadable: start from the defaults.
   }
   return defaultSettings();
+}
+
+const VERSION_KEY = "polemic.settings.version";
+/** 2: spelling and grammar run in the browser. */
+const VERSION = 2;
+
+/** Settings stored before writing aids came to the browser stored them
+ *  as off, which was the only state then: back to the defaults. */
+function upgrade(settings: Settings): Settings {
+  try {
+    if (Number(localStorage.getItem(VERSION_KEY)) >= VERSION) return settings;
+    localStorage.setItem(VERSION_KEY, String(VERSION));
+  } catch {
+    return settings;
+  }
+  if (settings.spellcheck === false) settings.spellcheck = null;
+  if (settings.grammar.enabled === false) {
+    settings.grammar = { ...settings.grammar, enabled: null };
+  }
+  saveSettings(settings);
+  return settings;
 }
 
 function saveSettings(settings: Settings) {

@@ -28,6 +28,7 @@ import {
   shareCreateLink,
   shareDeleteLink,
   shareLinks,
+  sharePublish,
   shareSnapshots,
   shareStatus,
   shareStop,
@@ -35,6 +36,7 @@ import {
   type ShareError,
   type ShareStatus,
 } from "@/lib/tauri";
+import { features } from "@/lib/target";
 import { useProjectStore } from "@/store/project";
 import { useSettingsStore } from "@/store/settings";
 import { useCommentsStore } from "@/store/comments";
@@ -163,11 +165,18 @@ function ShareBody() {
     attempt(async () => {
       if (!dir || !project) return;
       try {
-        const snapshot = await publishForReview(
-          publishApi(dir),
-          { name: project.name, main: mainFile },
-          setStep,
-        );
+        // The browser's project is the server's: nothing to upload first.
+        let snapshot: PublishedSnapshot;
+        if (features.localFiles) {
+          snapshot = await publishForReview(
+            publishApi(dir),
+            { name: project.name, main: mainFile },
+            setStep,
+          );
+        } else {
+          setStep("publishing");
+          snapshot = await sharePublish(dir, mainFile);
+        }
         setLatest(snapshot);
         // A publish pulls reviewers' comments into the folder first.
         void useCommentsStore.getState().load();
@@ -229,9 +238,19 @@ function ShareBody() {
       <DialogHeader>
         <DialogTitle>Share for review</DialogTitle>
         <DialogDescription className="text-xs">
-          Publish this project to {status?.server ?? "your Polemic server"} so reviewers
-          can read the source and its PDF in a browser. Your files stay where they are;
-          the server keeps a copy for the links.
+          {features.localFiles ? (
+            <>
+              Publish this project to {status?.server ?? "your Polemic server"} so
+              reviewers can read the source and its PDF in a browser. Your files stay
+              where they are; the server keeps a copy for the links.
+            </>
+          ) : (
+            <>
+              Publish this project so reviewers can read the source and its PDF in a
+              browser. They see the version you published last, with the PDF of your
+              last compile.
+            </>
+          )}
         </DialogDescription>
       </DialogHeader>
 
@@ -398,7 +417,8 @@ function ShareBody() {
             </section>
           )}
 
-          {shared && (
+          {/* In the browser, the server's copy is the project itself. */}
+          {shared && features.localFiles && (
             <section className="space-y-2 border-t pt-3">
               {confirmStop ? (
                 <div className="space-y-2">

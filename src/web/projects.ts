@@ -63,7 +63,7 @@ export function projectIdOf(path: string): string | null {
   return /^[A-Za-z0-9_-]+$/.test(id) ? id : null;
 }
 
-interface OpenProject {
+export interface OpenProject {
   id: string;
   path: string;
   info: ServerProject;
@@ -80,6 +80,8 @@ interface OpenProject {
   commentIds: Set<string>;
   pdf: Uint8Array | null;
   synctex: SyncTex | null;
+  /** The last compile's SyncTeX as the server sent it, for publishing. */
+  synctexGz: Uint8Array | null;
 }
 
 let current: OpenProject | null = null;
@@ -87,23 +89,54 @@ let compileController: AbortController | null = null;
 
 // --- remote changes ------------------------------------------------------
 
-type Listener = () => void;
+/** What a remote change touched, as far as the editor cares. */
+export interface ProjectChange {
+  /** Comments may have been added, changed or deleted. */
+  comments: boolean;
+}
+
+type Listener = (change: ProjectChange) => void;
 const listeners = new Set<Listener>();
 let notifyTimer: ReturnType<typeof setTimeout> | null = null;
+let pending: ProjectChange = { comments: false };
 
 /** Called (debounced) when the open project changes other than through
- *  this tab's own writes: someone else's edit, or a merge with one. */
+ *  this tab's own writes: someone else's edit, a reviewer's comment, or
+ *  a merge with one. */
 export function onProjectChange(listener: Listener): () => void {
   listeners.add(listener);
   return () => listeners.delete(listener);
 }
 
-function notifySoon() {
+function notifySoon(comments: boolean) {
+  pending = { comments: pending.comments || comments };
   if (notifyTimer !== null) clearTimeout(notifyTimer);
   notifyTimer = setTimeout(() => {
     notifyTimer = null;
-    for (const listener of listeners) listener();
+    const change = pending;
+    pending = { comments: false };
+    for (const listener of listeners) listener(change);
   }, 250);
+}
+
+/** Whether a transaction may have touched a comment file. A file whose
+ *  path is gone (deleted) counts: it may have been one. */
+function touchesComments(doc: Y.Doc, transaction: Y.Transaction): boolean {
+  const paths = doc.getMap<string>("paths");
+  const texts = doc.getMap("texts");
+  const isComment = (id: string) => {
+    const path = paths.get(id);
+    return path === undefined || path.startsWith(COMMENTS);
+  };
+  for (const [type, keys] of transaction.changed) {
+    if ((type as unknown) === paths || (type as unknown) === texts) {
+      for (const key of keys) if (key !== null && isComment(key)) return true;
+    } else if (type.parent === texts) {
+      const id = type._item?.parentSub;
+      if (id && isComment(id)) return true;
+    }
+  }
+  return false;
 }
 
 /** Whether edits of the open project have not reached the server yet. */
@@ -179,9 +212,12 @@ async function open(path: string): Promise<OpenProject> {
   const info = await fetchInfo(id);
   const doc = new Y.Doc();
   const provider = await connect(id, doc);
-  doc.on("update", (_update: Uint8Array, origin: unknown) => {
-    if (origin !== LOCAL_ORIGIN) notifySoon();
-  });
+  doc.on(
+    "update",
+    (_update: Uint8Array, origin: unknown, _doc: Y.Doc, transaction: Y.Transaction) => {
+      if (origin !== LOCAL_ORIGIN) notifySoon(touchesComments(doc, transaction));
+    },
+  );
   current = {
     id,
     path,
@@ -195,12 +231,13 @@ async function open(path: string): Promise<OpenProject> {
     commentIds: new Set(),
     pdf: null,
     synctex: null,
+    synctexGz: null,
   };
   return current;
 }
 
 /** The open project for a command's `projectDir`. */
-function project(args: Args): OpenProject {
+export function project(args: Args): OpenProject {
   const dir = String(args.projectDir ?? args.path ?? "");
   if (!current || current.path !== dir) throw "This project isn't open.";
   return current;
@@ -348,7 +385,7 @@ function writeText(
     if (base !== null) applyTextMerge(text, base, content);
     else applyTextDiff(text, content);
   }, LOCAL_ORIGIN);
-  if (text.toString() !== content) notifySoon();
+  if (text.toString() !== content) notifySoon(path.startsWith(COMMENTS));
 }
 
 function readJson<T>(open: OpenProject, path: string, fallback: T): T {
@@ -627,18 +664,14 @@ function compileErrorFor(e: ServerError): CompileError {
 /** Longest a compile runs on the server. */
 const SERVER_COMPILE_MINUTES = 4;
 
-/** Waits until the server has every edit, so the compile sees them. */
-function edgesSynced(open: OpenProject): Promise<void> {
+/** Waits until the server has every edit, so what it reads has them;
+ *  rejects with `timeout` when they don't get there. */
+export function edgesSynced(open: OpenProject, timeout: unknown): Promise<void> {
   if (open.provider.unsyncedChanges === 0) return Promise.resolve();
   return new Promise((resolve, reject) => {
     const timer = setTimeout(() => {
       open.provider.off("unsyncedChanges", check);
-      reject(
-        compileError(
-          "unavailable",
-          "Your latest edits haven't reached Polemic yet. Check your connection and compile again.",
-        ),
-      );
+      reject(timeout);
     }, 15_000);
     const check = () => {
       if (open.provider.unsyncedChanges > 0) return;
@@ -661,7 +694,13 @@ async function compile(open: OpenProject, main: string): Promise<CompileOutcome>
   });
   const engine = resolveEngine(config, main, read(main) ?? "", read);
   try {
-    await edgesSynced(open);
+    await edgesSynced(
+      open,
+      compileError(
+        "unavailable",
+        "Your latest edits haven't reached Polemic yet. Check your connection and compile again.",
+      ),
+    );
     if (controller.signal.aborted) throw cancelled();
     const answer = await request<CompileAnswer>(`/api/projects/${open.id}/compile`, {
       method: "POST",
@@ -689,6 +728,7 @@ async function compile(open: OpenProject, main: string): Promise<CompileOutcome>
     if (pdf) open.pdf = pdf;
     const synctex = fetched.get("synctex");
     if (synctex) {
+      open.synctexGz = synctex;
       const stream = new Blob([synctex as Uint8Array<ArrayBuffer>])
         .stream()
         .pipeThrough(new DecompressionStream("gzip"));
@@ -753,8 +793,24 @@ async function serverProjects(): Promise<RecentProject[]> {
   }));
 }
 
+let accountName: Promise<string | null> | null = null;
+
+/** The signed-in account's name, asked once per page load. */
+function signedInName(): Promise<string | null> {
+  accountName ??= request<{ user?: { name?: unknown } } | null>("/api/auth/get-session")
+    .then((session) => {
+      const name = session?.user?.name;
+      return typeof name === "string" && name.trim() !== "" ? name.trim() : null;
+    })
+    .catch(() => null);
+  return accountName;
+}
+
 async function settingsWithProjects(): Promise<Settings> {
-  return { ...loadSettings(), recentProjects: await serverProjects() };
+  const [recentProjects, name] = await Promise.all([serverProjects(), signedInName()]);
+  const settings = loadSettings();
+  // Suggestions carry the account's name unless another one is set.
+  return { ...settings, authorName: settings.authorName ?? name, recentProjects };
 }
 
 // --- commands ------------------------------------------------------------

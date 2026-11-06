@@ -6,6 +6,7 @@ import { Switch } from "@/components/ui/switch";
 import { ToggleButton } from "@/components/ui/toggle-button";
 import { ToggleButtonGroup } from "@/components/ui/toggle-button-group";
 import { useGrammarStatus } from "@/lib/grammar-check";
+import { features } from "@/lib/target";
 import {
   accountStatus,
   grammarRules,
@@ -42,6 +43,7 @@ export function GrammarSettingsSection() {
   const provider = grammarProvider(grammar);
 
   useEffect(() => {
+    if (!features.grammarChoice) return;
     let live = true;
     accountStatus()
       .then((s) => live && setAccount(s))
@@ -79,6 +81,20 @@ export function GrammarSettingsSection() {
 
   const signedIn = account?.signedIn === true;
   const accountPage = account ? `${account.server}/account` : null;
+
+  // Online, Polemic's checker is the only one.
+  if (!features.grammarChoice) {
+    return (
+      <div className="space-y-4 py-4">
+        {problem && (
+          <p className="text-xs text-destructive" role="status">
+            {problem.message}
+          </p>
+        )}
+        <GrammarRulesList />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4 py-4">
@@ -286,19 +302,21 @@ function GrammarRulesList() {
     <div>
       <p className="text-xs text-muted-foreground">
         Rules switched off ({grammar.disabledRules.length}). Right-click an underline
-        and pick “Turn off this rule”, or find one here.
+        and pick “Turn off this rule”{rules.length > 0 ? ", or find one here" : ""}.
       </p>
       {grammar.disabledRules.length > 0 && (
         <ul className="mt-1 divide-y">
           {grammar.disabledRules.map((id) => row(id, false))}
         </ul>
       )}
-      <Input
-        className="mt-2"
-        placeholder="Find a rule (e.g. passive, comma, article)"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+      {rules.length > 0 && (
+        <Input
+          className="mt-2"
+          placeholder="Find a rule (e.g. passive, comma, article)"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      )}
       {matches.length > 0 && (
         <ul className="mt-1 max-h-64 divide-y overflow-y-auto">
           {matches.map((rule) => row(rule.id, true))}

@@ -4,6 +4,7 @@
  * changes from others reach the open file. Started once by App.
  */
 
+import { useCommentsStore } from "@/store/comments";
 import { useEditorStore } from "@/store/editor";
 import { useProjectStore } from "@/store/project";
 import {
@@ -27,8 +28,14 @@ const SAVE_DELAY_MS = 800;
 export function startWebSession(): () => void {
   const stops: (() => void)[] = [];
 
-  // Changes from others: reload the file tree and the open file.
-  stops.push(onProjectChange(() => void useProjectStore.getState().syncFromDisk()));
+  // Changes from others: reload the file tree and the open file, and
+  // the comments when theirs (or a reviewer's) changed.
+  stops.push(
+    onProjectChange((change) => {
+      void useProjectStore.getState().syncFromDisk();
+      if (change.comments) void useCommentsStore.getState().load();
+    }),
+  );
 
   // Saving as you type: a background save after a pause, so the
   // compile and everyone else see the edit.

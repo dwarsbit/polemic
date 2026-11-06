@@ -7,7 +7,9 @@
  */
 
 import { projectCommands } from "@/web/projects";
+import { reviewCommands } from "@/web/review";
 import { settingsCommands } from "@/web/settings";
+import { writingCommands } from "@/web/writing";
 
 /** Why a command fails in the browser. Shown to the user as is. */
 export const NOT_AVAILABLE = "This isn't available in your browser yet.";
@@ -25,6 +27,8 @@ const nothing: Record<string, Handler> = {
 const commands: Record<string, Handler> = {
   ...settingsCommands,
   ...projectCommands,
+  ...reviewCommands,
+  ...writingCommands,
   ...nothing,
 };
 

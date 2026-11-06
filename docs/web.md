@@ -78,6 +78,29 @@ project, file, comment and compile commands from that document:
   read in the browser: `src/lib/logparse.ts` and `src/lib/synctex.ts` are
   ports of the desktop app's Rust parser and the review page's SyncTeX
   reader, with their tests.
+- Comments from others (collaborators, or reviewers on a review link) show
+  up as they arrive: a remote change to a file in `.polemic/comments/`
+  reloads the Comments panel. Suggestions carry the account's name unless
+  another one is set in the settings.
+
+## Review and writing aids
+
+- **Share for review** (`src/web/review.ts`) answers the desktop app's
+  `share_*` commands for the open project. The project already is the
+  server's, so publishing waits for every edit to reach the server, uploads
+  this tab's last PDF and SyncTeX as assets, then posts the snapshot. Only
+  the owner shares a project; one published from the desktop app is shared
+  from there. There is no "Stop sharing": the server's copy is the project.
+- Spelling runs in the browser: `src/lib/spell.ts` is a port of
+  `src-tauri/src/spell.rs` with the same English word list (loaded on first
+  use) and suggestions. Downloaded languages go to Cache Storage; words
+  added to the dictionary to local storage.
+- Grammar goes to the server's LanguageTool at `/api/grammar/v2/check`
+  with the session cookie, on every plan. `src/lib/languagetool.ts` ports
+  the desktop client: blocks joined into as few checks as the server's
+  limit allows, issues split back, a 429's wait honored. There is no
+  built-in checker, so no choice of checker.
+- DOI lookup asks doi.org from the browser, when online lookup is on.
 
 `features` in `src/lib/target.ts` lists the desktop features the browser
 leaves out:
@@ -88,7 +111,7 @@ leaves out:
 - TeX on this computer and the choice of where to compile
 - the desktop sign-in (the browser uses the site's session)
 - the assistant
-- spelling and grammar checks
+- the built-in grammar checker, and with it the choice of checker
 - reference sources outside the project: .bib files and Zotero
 
 Components check those flags rather than the target, so each hidden feature
