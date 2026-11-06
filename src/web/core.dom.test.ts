@@ -137,8 +137,10 @@ describe("web invoke", () => {
     );
   });
 
-  it("has no templates yet", async () => {
-    expect(await invoke("list_templates")).toEqual([]);
+  it("offers the desktop app's templates", async () => {
+    const templates = await invoke<{ id: string; files?: unknown }[]>("list_templates");
+    expect(templates.map((t) => t.id)).toContain("article");
+    expect(templates[0].files).toBeUndefined();
   });
 
   it("offers a channel that nothing sends on", () => {

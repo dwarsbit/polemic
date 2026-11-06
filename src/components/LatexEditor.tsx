@@ -122,7 +122,14 @@ import {
   spellcheckExtension,
 } from "@/lib/spellcheck";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
-import { gitShowHead, isTauri, readProjectFile, synctexForward } from "@/lib/tauri";
+import {
+  gitShowHead,
+  importAssets,
+  isTauri,
+  readProjectFile,
+  synctexForward,
+} from "@/lib/tauri";
+import { isWeb } from "@/lib/target";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useCommentsStore } from "@/store/comments";
@@ -1162,7 +1169,48 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
         }
       })();
     }
+    // The browser build: files dropped from the computer go into
+    // assets/ the same way. Caught before CodeMirror, which would paste
+    // a dropped file's text.
+    const stopFileDrop: (() => void)[] = [];
+    if (isWeb) {
+      const hasFiles = (event: DragEvent) =>
+        event.dataTransfer?.types.includes("Files") ?? false;
+      const listen = (
+        type: "dragover" | "dragleave" | "drop",
+        run: (e: DragEvent) => void,
+      ) => {
+        view.dom.addEventListener(type, run, true);
+        stopFileDrop.push(() => view.dom.removeEventListener(type, run, true));
+      };
+      listen("dragover", (event) => {
+        if (!hasFiles(event)) return;
+        event.preventDefault();
+        showIndicator(event.clientX, event.clientY);
+      });
+      listen("dragleave", () => showIndicator(null, 0));
+      listen("drop", (event) => {
+        if (!hasFiles(event)) return;
+        event.preventDefault();
+        event.stopPropagation();
+        showIndicator(null, 0);
+        const files = [...(event.dataTransfer?.files ?? [])];
+        const { project } = useProjectStore.getState();
+        if (project === null || project.readOnly || files.length === 0) return;
+        const { clientX: x, clientY: y } = event;
+        void import("@/web/uploads")
+          .then(({ rememberFile }) =>
+            importAssets(project.path, files.map(rememberFile)),
+          )
+          .then((rel) => {
+            insertDropped(x, y, rel);
+            void useProjectStore.getState().refreshFiles();
+          })
+          .catch((e) => usePreviewStore.getState().setNotice(String(e)));
+      });
+    }
     return () => {
+      for (const stop of stopFileDrop) stop();
       setInsertHandler(null);
       setEditorCommandHandler(null);
       setTableAtCursorHandler(null);

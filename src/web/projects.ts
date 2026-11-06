@@ -8,6 +8,7 @@
  */
 
 import { HocuspocusProvider } from "@hocuspocus/provider";
+import { strToU8, unzipSync, zipSync, type Zippable } from "fflate";
 import * as Y from "yjs";
 import type {
   AssetTags,
@@ -36,13 +37,18 @@ import {
   applyTextDiff,
   applyTextMerge,
   LOCAL_ORIGIN,
+  MAX_FILE_BYTES,
   normalizePath,
   projectFiles,
+  readSnapshot,
   textAt,
+  type FolderEntry,
 } from "@/lib/project-doc";
 import { forward, parseSyncTex, sourceAt, type SyncTex } from "@/lib/synctex";
+import { TEMPLATES, templateInfos } from "@/lib/templates";
 import { fetchBytes, request, ServerError, type ServerProject } from "@/web/server";
 import { loadSettings, updateSettings } from "@/web/settings";
+import { pickedFile } from "@/web/uploads";
 
 const PATH_PREFIX = "/projects/";
 const SYNC_PATH = "/api/sync";
@@ -61,6 +67,9 @@ interface OpenProject {
   id: string;
   path: string;
   info: ServerProject;
+  /** The owner's storage was full when the project opened: the server
+   *  takes no changes until there is room. */
+  storageFull: boolean;
   doc: Y.Doc;
   provider: HocuspocusProvider;
   /** Folders made in this tab that hold no file yet (the document has no folders). */
@@ -177,6 +186,8 @@ async function open(path: string): Promise<OpenProject> {
     id,
     path,
     info,
+    // The server connects a writable project read-only when its owner's storage is full.
+    storageFull: info.writable && provider.authorizedScope === "readonly",
     doc,
     provider,
     folders: new Set(),
@@ -198,8 +209,15 @@ function project(args: Args): OpenProject {
 const READ_ONLY_DESKTOP =
   "This project is published from the desktop app. Change it there.";
 
+function storageFull(info: ServerProject): string {
+  return info.role === "owner"
+    ? "Your storage is full, so this project can't be changed. Delete files or other projects to make room, or change your plan on your account page."
+    : `${info.owner.name}'s storage is full, so this project can't be changed for now.`;
+}
+
 function requireWritable(open: OpenProject) {
-  if (open.info.writable) return;
+  if (open.info.writable && !open.storageFull) return;
+  if (open.info.writable) throw storageFull(open.info);
   throw open.info.source === "desktop" && open.info.role === "owner"
     ? READ_ONLY_DESKTOP
     : "You can only read this project. Ask its owner to make you an editor.";
@@ -212,7 +230,7 @@ export function closeProject(): void {
 
 /** The read-only notice for the open project, or null when it is writable. */
 export function readOnlyReason(): string | null {
-  if (!current || current.info.writable) return null;
+  if (!current) return null;
   try {
     requireWritable(current);
   } catch (reason) {
@@ -347,6 +365,153 @@ function readJson<T>(open: OpenProject, path: string, fallback: T): T {
 function writeJson(open: OpenProject, path: string, value: unknown) {
   const json = JSON.stringify(value, null, 2);
   if (textAt(open.doc, path)?.toString() !== json) writeText(open, path, json, null);
+}
+
+// --- adding files --------------------------------------------------------
+
+const MAX_FILE_MB = MAX_FILE_BYTES / 1024 / 1024;
+
+/** The message for a refused upload. */
+function uploadError(open: OpenProject, e: unknown, path: string): unknown {
+  if (!(e instanceof ServerError)) return e;
+  if (e.code === "quota_exceeded") {
+    return open.info.role === "owner"
+      ? `${path} doesn't fit in your storage. Delete files or other projects to make room, or change your plan on your account page.`
+      : `${path} doesn't fit in ${open.info.owner.name}'s storage.`;
+  }
+  if (e.code === "asset_too_large") return `${path} is larger than ${MAX_FILE_MB} MB.`;
+  return e.message;
+}
+
+/**
+ * Adds files to the open project, as a folder snapshot would: the
+ * excludes apply, text files go into the document, and other files are
+ * uploaded first, so nobody meets a missing one. Returns what was added.
+ */
+async function addFiles(
+  open: OpenProject,
+  files: { path: string; bytes: Uint8Array }[],
+): Promise<FolderEntry[]> {
+  const big = files.find((file) => file.bytes.length > MAX_FILE_BYTES);
+  if (big) throw `${big.path} is larger than ${MAX_FILE_MB} MB.`;
+  const entries = await readSnapshot(files);
+  const bytes = new Map(files.map((file) => [normalizePath(file.path), file.bytes]));
+  for (const entry of entries) {
+    if (entry.kind !== "asset" || open.assets.has(entry.hash)) continue;
+    const body = bytes.get(entry.path)!;
+    try {
+      await request(`/api/projects/${open.id}/assets/${entry.hash}`, {
+        method: "PUT",
+        headers: { "content-type": entry.type },
+        body: body as Uint8Array<ArrayBuffer>,
+      });
+    } catch (e) {
+      throw uploadError(open, e, entry.path);
+    }
+    open.assets.set(entry.hash, body);
+  }
+  open.doc.transact(() => {
+    for (const entry of entries) applyFileChange(open.doc, entry);
+  }, LOCAL_ORIGIN);
+  return entries;
+}
+
+/** `path`, or with -1, -2 and so on before the extension while it is taken. */
+function freePath(open: OpenProject, path: string, taken: Set<string>): string {
+  const slash = path.lastIndexOf("/");
+  const dot = path.lastIndexOf(".");
+  const [stem, ext] =
+    dot > slash + 1 ? [path.slice(0, dot), path.slice(dot)] : [path, ""];
+  let free = path;
+  for (let n = 1; exists(open, free) || taken.has(free); n++)
+    free = `${stem}-${n}${ext}`;
+  taken.add(free);
+  return free;
+}
+
+/** Copies picked files into assets/, as the desktop app's import does. */
+async function importAssets(open: OpenProject, sources: string[]): Promise<string[]> {
+  const files: { path: string; bytes: Uint8Array }[] = [];
+  const result: string[] = [];
+  const taken = new Set<string>();
+  for (const source of sources) {
+    const file = pickedFile(source);
+    if (!file) {
+      // A file already in the project passes through.
+      const inside = normalizePath(source);
+      if (inside && exists(open, inside)) {
+        result.push(inside);
+        continue;
+      }
+      throw `Can't read ${source}.`;
+    }
+    const path = freePath(open, `assets/${file.name}`, taken);
+    files.push({ path, bytes: new Uint8Array(await file.arrayBuffer()) });
+    result.push(path);
+  }
+  const added = new Set((await addFiles(open, files)).map((entry) => entry.path));
+  return result.filter((path) => added.has(path) || exists(open, path));
+}
+
+// --- zip files -----------------------------------------------------------
+
+/** The files of a zip, without folder entries and macOS extras, and
+ *  without the one folder that holds everything, when there is one. */
+export function unzipProject(zip: Uint8Array): { path: string; bytes: Uint8Array }[] {
+  let entries: Record<string, Uint8Array>;
+  try {
+    entries = unzipSync(zip);
+  } catch {
+    throw "This file isn't a zip file, or it is damaged.";
+  }
+  const files = Object.entries(entries)
+    .filter(([path]) => !path.endsWith("/") && !path.split("/").includes("__MACOSX"))
+    .map(([path, bytes]) => ({ path: path.replace(/\\/g, "/"), bytes }));
+  const top = files[0]?.path.split("/")[0];
+  if (top && files.every((file) => file.path.startsWith(`${top}/`))) {
+    for (const file of files) file.path = file.path.slice(top.length + 1);
+  }
+  return files;
+}
+
+/** Creates a project from a zip's files; nothing is left behind when it fails. */
+export async function importProjectZip(name: string, zip: File): Promise<ProjectInfo> {
+  const files = unzipProject(new Uint8Array(await zip.arrayBuffer()));
+  if (files.length === 0) throw "This zip file is empty.";
+  const created = await request<ServerProject>("/api/projects", {
+    method: "POST",
+    json: { name, source: "online" },
+  });
+  try {
+    const opened = await open(projectPath(created.id));
+    await addFiles(opened, files);
+    return info(opened);
+  } catch (e) {
+    close();
+    await request<void>(`/api/projects/${created.id}`, { method: "DELETE" }).catch(
+      () => undefined,
+    );
+    throw e;
+  }
+}
+
+/** The open project as a zip: every file, the hidden ones included. */
+export async function projectZip(): Promise<{ name: string; bytes: Uint8Array }> {
+  if (!current) throw "This project isn't open.";
+  const open = current;
+  const { texts, assets } = projectFiles(open.doc);
+  const files: Zippable = {};
+  for (const [path] of texts) files[path] = strToU8(readText(open, path));
+  for (const [path, ref] of assets) {
+    let bytes = open.assets.get(ref.hash);
+    if (!bytes) {
+      bytes = await fetchBytes(`/api/projects/${open.id}/assets/${ref.hash}`);
+      open.assets.set(ref.hash, bytes);
+    }
+    // Images and PDFs are compressed already.
+    files[path] = [bytes, { level: 0 }];
+  }
+  return { name: open.info.name, bytes: zipSync(files, { level: 6 }) };
 }
 
 // --- comments ------------------------------------------------------------
@@ -592,31 +757,6 @@ async function settingsWithProjects(): Promise<Settings> {
   return { ...loadSettings(), recentProjects: await serverProjects() };
 }
 
-/** A new project's first file: the desktop app's Article template. */
-const STARTER = `\\documentclass[11pt]{article}
-
-\\usepackage[T1]{fontenc}
-\\usepackage{amsmath}
-\\usepackage{graphicx}
-\\usepackage{hyperref}
-
-\\title{Untitled Article}
-\\author{}
-\\date{}
-
-\\begin{document}
-
-\\maketitle
-
-\\section{Introduction}
-
-Write here.
-
-\\section{Conclusion}
-
-\\end{document}
-`;
-
 // --- commands ------------------------------------------------------------
 
 type Args = Record<string, unknown>;
@@ -630,13 +770,18 @@ const info = (open: OpenProject): ProjectInfo => ({
 export const projectCommands: Record<string, (args: Args) => unknown> = {
   get_settings: () => settingsWithProjects(),
 
+  list_templates: () => templateInfos(),
+
   create_project: async (args) => {
+    const id = String(args.templateId ?? "article");
+    const template = TEMPLATES.find((t) => t.id === id);
+    if (!template) throw `Unknown template: ${id}`;
     const created = await request<ServerProject>("/api/projects", {
       method: "POST",
       json: { name: String(args.name ?? "").trim(), source: "online" },
     });
     const opened = await open(projectPath(created.id));
-    writeText(opened, "main.tex", STARTER, null);
+    for (const file of template.files) writeText(opened, file.path, file.text, null);
     return info(opened);
   },
 
@@ -725,6 +870,12 @@ export const projectCommands: Record<string, (args: Args) => unknown> = {
       open.assets.set(ref.hash, bytes);
     }
     return bytes;
+  },
+
+  import_assets: (args) => {
+    const open = project(args);
+    requireWritable(open);
+    return importAssets(open, (args.sources as string[]) ?? []);
   },
 
   get_project_config: (args) => ({
