@@ -803,11 +803,15 @@ function detailOf(project: ServerProject): string {
 
 async function serverProjects(): Promise<RecentProject[]> {
   const { projects } = await request<{ projects: ServerProject[] }>("/api/projects");
-  return projects.map((project) => ({
-    name: project.name,
-    path: projectPath(project.id),
-    detail: detailOf(project),
-  }));
+  return projects.map((project) => {
+    const changed = Date.parse(project.updatedAt);
+    return {
+      name: project.name,
+      path: projectPath(project.id),
+      detail: detailOf(project),
+      ...(Number.isFinite(changed) ? { openedAt: changed } : {}),
+    };
+  });
 }
 
 type Account = { id: string; name: string | null };

@@ -11,6 +11,10 @@ use tauri::{AppHandle, Manager};
 pub struct RecentProject {
     pub name: String,
     pub path: String,
+    /// When the project was last opened, in milliseconds since the Unix
+    /// epoch. Missing for entries saved before the start screen showed it.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub opened_at: Option<u64>,
 }
 
 /// One reference source: where "Add from Sources…" searches. Bib
@@ -237,6 +241,10 @@ pub fn upsert_recent(settings: &mut Settings, name: &str, path: &str) {
         .insert(0, RecentProject {
             name: name.to_string(),
             path: path.to_string(),
+            opened_at: std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .ok()
+                .map(|d| d.as_millis() as u64),
         });
     settings.recent_projects.truncate(20);
 }

@@ -18,8 +18,10 @@ export interface TexStatus {
 export interface RecentProject {
   name: string;
   path: string;
-  /** Shown under the name instead of the path (the browser build: whose it is). */
+  /** Shown under the name (the browser build: whose it is). */
   detail?: string;
+  /** When it was last opened (desktop) or changed (browser), in ms since the epoch. */
+  openedAt?: number;
 }
 
 /** A reference source: a .bib file/folder anywhere on the filesystem
