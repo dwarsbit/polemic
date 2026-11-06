@@ -86,7 +86,11 @@ import {
   setApplyEditsHandler,
   setCursorReader,
   setHistoryHandler,
+  setRemoteContentHandler,
 } from "@/lib/editor-edits";
+import { carryOffset, textEdits } from "@/lib/project-doc";
+import { remoteCursors, setRemoteCursors } from "@/lib/remote-cursors";
+import { reportPresence, usePresenceStore } from "@/store/presence";
 import { askAboutSelection } from "@/lib/assistant/entry";
 import { planUsepackageRemoval } from "@/lib/packages";
 import {
@@ -182,11 +186,22 @@ const graphicsPath = spanHighlightField("cm-graphics-path");
 export function LatexEditor({ visible = true }: { visible?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<EditorView | null>(null);
+  /** Shows others' cursors in the open file (set while the view is mounted). */
+  const showPeersRef = useRef<(() => void) | null>(null);
   // Read by long-lived handlers that must know whether Visual is the
   // face in front.
   const visibleRef = useRef(visible);
   useEffect(() => {
     visibleRef.current = visible;
+    // Others see this cursor only while the code face is in front.
+    const view = viewRef.current;
+    const file = useProjectStore.getState().activeFile;
+    if (visible && view) {
+      const { anchor, head } = view.state.selection.main;
+      reportPresence(file, { anchor, head, text: view.state.doc.toString() });
+    } else {
+      reportPresence(file, null);
+    }
   }, [visible]);
   const highlightCompartmentRef = useRef<Compartment | null>(null);
   const mathHoverCompartmentRef = useRef<Compartment | null>(null);
@@ -507,6 +522,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
           lineWidthGutter,
           commentGutter,
           trackChanges,
+          remoteCursors,
           EditorView.theme({
             "&": { height: "100%" },
             ".cm-scroller": {
@@ -838,6 +854,18 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
             },
           }),
           EditorView.updateListener.of((update) => {
+            // Where this cursor is, for others in the project (online).
+            if (
+              visibleRef.current &&
+              (update.selectionSet || update.docChanged || update.focusChanged)
+            ) {
+              const { anchor, head } = update.state.selection.main;
+              reportPresence(useProjectStore.getState().activeFile, {
+                anchor,
+                head,
+                text: update.state.doc.toString(),
+              });
+            }
             if (update.docChanged) {
               const content = update.state.doc.toString();
               setContent(content);
@@ -866,6 +894,33 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       parent: container,
     });
     viewRef.current = view;
+    // Others' cursors in this file (online), carried over any edits
+    // this editor has that the shared text doesn't yet.
+    let shownPeers = false;
+    const showPeers = () => {
+      const file = useProjectStore.getState().activeFile;
+      const peers = usePresenceStore
+        .getState()
+        .peers.filter(
+          (peer) => peer.file === file && peer.selection && peer.text !== null,
+        );
+      if (peers.length === 0 && !shownPeers) return;
+      shownPeers = peers.length > 0;
+      const doc = view.state.doc.toString();
+      view.dispatch({
+        effects: setRemoteCursors.of(
+          peers.map((peer) => ({
+            id: peer.clientId,
+            name: peer.name,
+            color: peer.color,
+            anchor: carryOffset(peer.text!, doc, peer.selection!.anchor),
+            head: carryOffset(peer.text!, doc, peer.selection!.head),
+          })),
+        ),
+      });
+    };
+    showPeersRef.current = showPeers;
+    const stopPeers = usePresenceStore.subscribe(showPeers);
     // Keep the options card anchored while the editor scrolls.
     view.scrollDOM.addEventListener("scroll", refreshGraphicsAssist);
     // Serve the keymap, command palette, menu item, and format-on-save:
@@ -1078,6 +1133,23 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       if (hidden) useEditorStore.getState().loadContent(view.state.doc.toString());
       return true;
     });
+    // Changes made elsewhere (someone else, another program) arrive as
+    // edits outside the undo history: the cursor and history map
+    // through them. Behind the Visual face it reloads instead.
+    setRemoteContentHandler((content) => {
+      if (!visibleRef.current) return false;
+      const changes = textEdits(view.state.doc.toString(), content);
+      if (changes.length > 0) {
+        view.dispatch({
+          changes,
+          annotations: [
+            Transaction.addToHistory.of(false),
+            Transaction.remote.of(true),
+          ],
+        });
+      }
+      return true;
+    });
     // Undo/redo from outside the editor (the outline panel). Behind
     // the Visual face only while this view still matches the store:
     // anything typed there since is not in this history.
@@ -1225,6 +1297,9 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
       setRemoveUsepackageHandler(null);
       setApplyEditsHandler(null);
       setHistoryHandler(null);
+      setRemoteContentHandler(null);
+      stopPeers();
+      showPeersRef.current = null;
       setCursorReader(null);
       if (docMetaTimer !== undefined) clearTimeout(docMetaTimer);
       indicator.remove();
@@ -1266,6 +1341,11 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
     }
     // Fixes planned against the freshly loaded content land here.
     flushQueuedEditsForView();
+    // Another file, other people in it.
+    showPeersRef.current?.();
+    // Behind the Visual face: the file, without a cursor.
+    if (!visibleRef.current)
+      reportPresence(useProjectStore.getState().activeFile, null);
   }, [docVersion]);
 
   // Git change bars: the HEAD version comes through react-query (so

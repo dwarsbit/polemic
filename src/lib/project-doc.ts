@@ -417,7 +417,7 @@ export function applyTextDiff(target: Y.Text, text: string): void {
 /** Where `pos` of the base text lands after `edits`. A point where an
  *  edit inserted text goes behind that text when `pastInsert`; a point
  *  inside a replaced range goes to its end when `toEnd`, else its start. */
-function mapPosition(
+export function mapPosition(
   edits: TextEdit[],
   pos: number,
   pastInsert: boolean,
@@ -437,6 +437,13 @@ function mapPosition(
     }
   }
   return pos + delta;
+}
+
+/** Where `offset` of `from` lands once `from` became `to`. */
+export function carryOffset(from: string, to: string, offset: number): number {
+  const at =
+    from === to ? offset : mapPosition(textEdits(from, to), offset, false, false);
+  return Math.max(0, Math.min(at, to.length));
 }
 
 /**

@@ -19,6 +19,7 @@ import { extractLabels } from "@/lib/outline";
 import { extractRefPositions } from "@/lib/label-refs";
 import { formatDocument } from "@/lib/editor-format";
 import { flushPendingSerialize } from "@/lib/visual/pending-serialize";
+import { applyRemoteContent } from "@/lib/editor-edits";
 import { invalidateGitState } from "@/lib/query-client";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
@@ -356,12 +357,15 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       // The visual face serializes on a debounce; pending edits land
       // in the store (and this buffer list) before anything writes.
       flushPendingSerialize();
-      const { project, buffers, activeFile } = get();
+      const { project, buffers, activeFile, lastSavedContent } = get();
       const paths = Object.keys(buffers);
       if (paths.length === 0 || !project) return;
       const written: Record<string, string> = {};
       for (const path of paths) {
-        await api.writeProjectFile(project.path, path, buffers[path]);
+        // The open file's edits start from what was last saved, so a
+        // write that merges (the browser) keeps others' changes since.
+        const base = path === activeFile ? lastSavedContent : null;
+        await api.writeProjectFile(project.path, path, buffers[path], base);
         written[path] = buffers[path];
       }
       void invalidateGitState();
@@ -825,8 +829,9 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         useEditorStore.getState().content !== lastSavedContent;
       // Unsaved edits win for now; the next save asks before overwriting.
       if (dirty) return;
-      useEditorStore.getState().loadContent(onDisk);
+      // Saved first, so the editor's change reads as no edit of ours.
       set({ lastSavedContent: onDisk });
+      if (!applyRemoteContent(onDisk)) useEditorStore.getState().loadContent(onDisk);
       get().refreshDocMeta(activeFile, onDisk);
     },
 

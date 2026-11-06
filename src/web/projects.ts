@@ -196,9 +196,19 @@ function connect(id: string, doc: Y.Doc): Promise<HocuspocusProvider> {
   });
 }
 
+type ConnectListener = (open: OpenProject | null) => void;
+const connectListeners = new Set<ConnectListener>();
+
+/** Called with the project once it is open, and with null once it closes. */
+export function onProjectConnect(listener: ConnectListener): () => void {
+  connectListeners.add(listener);
+  return () => connectListeners.delete(listener);
+}
+
 function close() {
   compileController?.abort();
   compileController = null;
+  if (current) for (const listener of connectListeners) listener(null);
   current?.provider.destroy();
   current?.doc.destroy();
   current = null;
@@ -233,6 +243,7 @@ async function open(path: string): Promise<OpenProject> {
     synctex: null,
     synctexGz: null,
   };
+  for (const listener of connectListeners) listener(current);
   return current;
 }
 
@@ -793,18 +804,26 @@ async function serverProjects(): Promise<RecentProject[]> {
   }));
 }
 
-let accountName: Promise<string | null> | null = null;
+let account: Promise<{ id: string; name: string | null } | null> | null = null;
 
-/** The signed-in account's name, asked once per page load. */
-function signedInName(): Promise<string | null> {
-  accountName ??= request<{ user?: { name?: unknown } } | null>("/api/auth/get-session")
+/** The signed-in account, asked once per page load. */
+export function signedInAccount(): Promise<{ id: string; name: string | null } | null> {
+  account ??= request<{ user?: { id?: unknown; name?: unknown } } | null>(
+    "/api/auth/get-session",
+  )
     .then((session) => {
-      const name = session?.user?.name;
-      return typeof name === "string" && name.trim() !== "" ? name.trim() : null;
+      const { id, name } = session?.user ?? {};
+      if (typeof id !== "string") return null;
+      return {
+        id,
+        name: typeof name === "string" && name.trim() !== "" ? name.trim() : null,
+      };
     })
     .catch(() => null);
-  return accountName;
+  return account;
 }
+
+const signedInName = async () => (await signedInAccount())?.name ?? null;
 
 async function settingsWithProjects(): Promise<Settings> {
   const [recentProjects, name] = await Promise.all([serverProjects(), signedInName()]);

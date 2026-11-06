@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { EditorFaceToggle } from "@/components/EditorFaceToggle";
+import { PresenceAvatars } from "@/components/PresenceAvatars";
 import { WebAppMenu } from "@/components/WebAppMenu";
 import {
   STOPLIGHT_WIDTH,
@@ -183,6 +184,7 @@ export function TopBar() {
         </div>
       </div>
       <div className="flex items-center gap-2 pr-3">
+        {showProjectControls && <PresenceAvatars />}
         {showProjectControls && (
           <Button
             variant={previewVisible ? "secondary" : "ghost"}
