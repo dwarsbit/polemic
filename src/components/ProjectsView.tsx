@@ -63,6 +63,7 @@ export function ProjectsView() {
   const [name, setName] = useState("");
   const [newName, setNewName] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [loadFailed, setLoadFailed] = useState(false);
   const [busy, setBusy] = useState(false);
   const [action, setAction] = useState<ActionDialog>({ kind: "none" });
   const [cloneUrl, setCloneUrl] = useState("");
@@ -79,7 +80,10 @@ export function ProjectsView() {
   useEffect(() => {
     void getSettings()
       .then(setSettings)
-      .catch((e) => setError(String(e)));
+      .catch((e) => {
+        setError(String(e));
+        setLoadFailed(true);
+      });
     void listTemplates()
       .then(setTemplates)
       .catch((e) => setError(String(e)));
@@ -352,7 +356,9 @@ export function ProjectsView() {
           {features.localFiles ? "Recent" : "Projects"}
         </h2>
         {settings === null ? (
-          <p className="text-sm text-muted-foreground">Loading…</p>
+          <p className="text-sm text-muted-foreground">
+            {loadFailed ? "Couldn't load your projects." : "Loading…"}
+          </p>
         ) : projects.length === 0 ? (
           <p className="text-sm text-muted-foreground">
             {features.localFiles

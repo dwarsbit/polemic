@@ -46,7 +46,13 @@ import {
 } from "@/lib/project-doc";
 import { forward, parseSyncTex, sourceAt, type SyncTex } from "@/lib/synctex";
 import { TEMPLATES, templateInfos } from "@/lib/templates";
-import { fetchBytes, request, ServerError, type ServerProject } from "@/web/server";
+import {
+  fetchBytes,
+  goSignIn,
+  request,
+  ServerError,
+  type ServerProject,
+} from "@/web/server";
 import { loadSettings, updateSettings } from "@/web/settings";
 import { pickedFile } from "@/web/uploads";
 
@@ -804,23 +810,42 @@ async function serverProjects(): Promise<RecentProject[]> {
   }));
 }
 
-let account: Promise<{ id: string; name: string | null } | null> | null = null;
+type Account = { id: string; name: string | null };
+
+let account: Promise<Account | null> | null = null;
+
+async function askAccount(): Promise<Account | null> {
+  const session = await request<{ user?: { id?: unknown; name?: unknown } } | null>(
+    "/api/auth/get-session",
+  );
+  const { id, name } = session?.user ?? {};
+  if (typeof id !== "string") return null;
+  return {
+    id,
+    name: typeof name === "string" && name.trim() !== "" ? name.trim() : null,
+  };
+}
 
 /** The signed-in account, asked once per page load. */
-export function signedInAccount(): Promise<{ id: string; name: string | null } | null> {
-  account ??= request<{ user?: { id?: unknown; name?: unknown } } | null>(
-    "/api/auth/get-session",
-  )
-    .then((session) => {
-      const { id, name } = session?.user ?? {};
-      if (typeof id !== "string") return null;
-      return {
-        id,
-        name: typeof name === "string" && name.trim() !== "" ? name.trim() : null,
-      };
-    })
-    .catch(() => null);
+export function signedInAccount(): Promise<Account | null> {
+  account ??= askAccount().catch(() => null);
   return account;
+}
+
+/** Before the app shows: signed out goes to the sign-in page. Throws the
+ *  message to show when Polemic can't say who is signed in. */
+export async function requireAccount(): Promise<void> {
+  let found: Account | null;
+  try {
+    found = await askAccount();
+  } catch (e) {
+    if (e instanceof ServerError && e.status >= 500) {
+      throw "Polemic is unavailable right now. Reload the page to try again.";
+    }
+    throw e instanceof Error ? e.message : String(e);
+  }
+  if (!found) return goSignIn();
+  account = Promise.resolve(found);
 }
 
 const signedInName = async () => (await signedInAccount())?.name ?? null;

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { hasTrafficLights } from "@/lib/platform";
+import { isWeb } from "@/lib/target";
 import "./index.css";
 
 // The macOS desktop app: the window uses the system vibrancy material
@@ -21,6 +22,10 @@ if (import.meta.env.DEV && new URLSearchParams(location.search).has("lab")) {
       </React.StrictMode>,
     ),
   );
+} else if (isWeb) {
+  // The browser build shows nothing until it knows who is signed in:
+  // signed out goes to the sign-in page.
+  void import("./web/start").then(({ startWeb }) => startWeb(root, <App />));
 } else {
   root.render(
     <React.StrictMode>

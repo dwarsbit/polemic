@@ -11,6 +11,7 @@
 ### Fixed
 
 - Picking a spelling language that has to be downloaded now switches to it right away. Before, the setting kept showing English and words already marked weren't checked again until you reopened Polemic.
+- When Polemic can't load your recent projects, the start screen now says so. Before, it kept showing **Loading…**.
 
 ## 0.18.0 (2026-11-05)
 
