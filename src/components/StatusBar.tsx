@@ -63,7 +63,7 @@ function CompileStatus() {
 
 const GRAMMAR_PROBLEMS: Record<GrammarError["kind"], string> = {
   signedOut: "Grammar: signed out",
-  planRequired: "Grammar: needs Professional",
+  planRequired: "Grammar: needs a paid plan",
   tooLong: "Grammar: paragraph too long",
   rateLimited: "Grammar: paused",
   unavailable: "Grammar unavailable",

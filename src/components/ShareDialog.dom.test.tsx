@@ -72,6 +72,7 @@ vi.mock("@/lib/tauri", () => ({
       role,
       expiresAt: null,
       createdAt: "2026-10-30T12:05:00.000Z",
+      active: true,
     };
     server.links = [made, ...server.links];
     return { ...made, url: "https://polemic.example.org/r/secret-token" };
@@ -140,7 +141,7 @@ describe("ShareDialog", () => {
   it("asks a signed-out user to sign in", async () => {
     server.status = { ...server.status, signedIn: false };
     await render();
-    expect(text()).toContain("Sharing is part of Polemic Professional.");
+    expect(text()).toContain("Sharing needs a free Polemic account.");
     expect(button("Publish for review")).toBeUndefined();
     await click("Sign in");
     expect(useSettingsStore.getState().settingsSection).toBe("account");
@@ -190,14 +191,31 @@ describe("ShareDialog", () => {
     expect(document.body.querySelector("input[readonly]")).toBeNull();
   });
 
-  it("explains a free plan, with the account page", async () => {
+  it("marks links the plan has paused", async () => {
+    server.status.link = {
+      server: server.status.server,
+      projectId: "p".repeat(22),
+      name: "Thesis",
+    };
+    server.published = 1;
+    server.links = [
+      { id: "a".repeat(22), role: "viewer", expiresAt: null, createdAt: "2026-10-30T12:05:00.000Z", active: true },
+      { id: "b".repeat(22), role: "commenter", expiresAt: null, createdAt: "2026-10-29T12:05:00.000Z", active: false },
+    ];
+    await render();
+    const items = [...document.body.querySelectorAll("li")].map((li) => li.textContent ?? "");
+    expect(items.filter((t) => t.includes("Paused"))).toHaveLength(1);
+    expect(items.find((t) => t.includes("Paused"))).toContain("Can comment");
+  });
+
+  it("explains a server that asks for a paid plan, with the account page", async () => {
     server.publishError = {
       kind: "planRequired",
-      message: "Sharing needs Polemic Professional.",
+      message: "Sharing needs a paid plan on this server.",
     };
     await render();
     await click("Publish for review");
-    expect(text()).toContain("Sharing needs Polemic Professional.");
+    expect(text()).toContain("Sharing needs a paid plan on this server.");
     await click("See plans");
     expect(openUrl).toHaveBeenCalledWith("https://polemic.example.org/account");
   });

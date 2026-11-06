@@ -467,9 +467,9 @@ export function SettingsDialog({
               id: "account",
               label: "Polemic account",
               description:
-                "Sign in for Polemic Professional services. Local features never need an account.",
+                "Sign in for the online services. Local features never need an account.",
               keywords:
-                "sign in sign out login logout account professional server self-hosted",
+                "sign in sign out login logout account plan free student pro server self-hosted",
               control: null,
             },
           ],
@@ -864,9 +864,9 @@ export function SettingsDialog({
               id: "grammar-checker",
               label: "Checker and rules",
               description:
-                "Built in, offline and English only. Polemic (Professional) or a LanguageTool server check every language.",
+                "Built in, offline and English only. Polemic or a LanguageTool server check every language.",
               keywords:
-                "languagetool polemic professional server rules disable passive voice checker",
+                "languagetool polemic server rules disable passive voice checker",
               control: null,
             },
           ],
@@ -889,9 +889,9 @@ export function SettingsDialog({
               id: "compile-provider",
               label: "Where to compile",
               description:
-                "On this computer with your TeX distribution, or with Polemic (Professional) without installing TeX.",
+                "On this computer with your TeX distribution, or with Polemic without installing TeX.",
               keywords:
-                "cloud server polemic professional compile remote online tex live",
+                "cloud server polemic compile remote online tex live",
               control: null,
             },
           ],

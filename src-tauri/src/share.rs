@@ -37,8 +37,10 @@ const MAX_UPDATE_BYTES: usize = 16 * 1024 * 1024;
 pub enum ShareErrorKind {
     /// No account token, or the server no longer accepts it.
     SignedOut,
-    /// The account is on the free plan.
+    /// The server asks for a paid plan (servers before the Free plan).
     PlanRequired,
+    /// The plan's limit, such as Free's one active review link.
+    LimitReached,
     /// The server copy is gone (deleted from another computer or the
     /// account page); the link is forgotten.
     NotFound,
@@ -104,14 +106,22 @@ fn error_for(status: u16, body: &ErrorBody) -> ShareError {
     use ShareErrorKind::*;
     match (status, body.error.as_str()) {
         (401, _) => ShareError::signed_out(),
-        (402, _) => ShareError::new(PlanRequired, "Sharing needs Polemic Professional."),
+        (402, _) => ShareError::new(PlanRequired, "Sharing needs a paid plan on this server."),
+        (409, "review_link_limit") => ShareError::new(
+            LimitReached,
+            if body.message.is_empty() {
+                "Your plan has no more active review links. Delete a link, or upgrade on your account page."
+            } else {
+                body.message.as_str()
+            },
+        ),
         (404, "not_found") => ShareError::new(
             NotFound,
             "The shared copy of this project no longer exists on the server.",
         ),
         (413, "quota_exceeded") => ShareError::new(
             TooLarge,
-            "Your server storage is full. Delete shared projects you no longer need from your account page.",
+            "Your storage is full. Delete shared projects you no longer need, or upgrade on your account page.",
         ),
         (413, _) if !body.message.is_empty() => ShareError::new(TooLarge, body.message.clone()),
         (500..=599, _) => ShareError::new(
@@ -398,9 +408,16 @@ pub struct ReviewLink {
     pub role: String,
     pub expires_at: Option<String>,
     pub created_at: String,
+    /// False when the owner's plan has fewer active links than this; servers before plans send none.
+    #[serde(default = "active_by_default")]
+    pub active: bool,
     /// Only when the link was just made: the server keeps the token's hash.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
+}
+
+fn active_by_default() -> bool {
+    true
 }
 
 #[derive(Deserialize)]
@@ -816,7 +833,7 @@ pub async fn share_folder(project_dir: String) -> Result<Vec<FolderEntry>, Share
         .map_err(|e| e.to_string())?
 }
 
-/// Creates the server project for this folder (Professional) and
+/// Creates the server project for this folder and
 /// remembers it; an existing link is returned as it is.
 #[tauri::command]
 pub async fn share_create(
@@ -1179,6 +1196,11 @@ mod tests {
             error_for(402, &body("plan_required", "x")).kind,
             PlanRequired
         );
+        let limit = error_for(409, &body("review_link_limit", "One active review link."));
+        assert_eq!((limit.kind, limit.message.as_str()), (LimitReached, "One active review link."));
+        let link: ReviewLink =
+            serde_json::from_str(r#"{"id":"l","role":"viewer","expiresAt":null,"createdAt":"t"}"#).unwrap();
+        assert!(link.active, "links from servers before plans work");
         assert_eq!(
             error_for(404, &body("not_found", "No such project")).kind,
             NotFound

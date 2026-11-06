@@ -90,11 +90,11 @@ export interface Settings {
   compileProvider: CompileProvider | null;
 }
 
-/** On this computer, or on the Polemic account's server (Professional). */
+/** On this computer, or on the Polemic account's server. */
 export type CompileProvider = "local" | "polemic";
 
 /** Grammar checking: built-in Harper (English), LanguageTool on the
- *  Polemic account's server (Professional), or the user's own LanguageTool. */
+ *  Polemic account's server, or the user's own LanguageTool. */
 export interface GrammarSettings {
   /** null means on. */
   enabled: boolean | null;
@@ -320,6 +320,7 @@ export interface CompileError {
     | "disabled"
     | "tooLarge"
     | "rateLimited"
+    | "limitReached"
     | "unavailable"
     | "superseded"
     | "cancelled"
@@ -991,7 +992,7 @@ export function projectNameFromRemote(url: string): string {
   return last.replace(/\.git$/, "");
 }
 
-// --- Polemic account (Professional) -------------------------------------------
+// --- Polemic account ---------------------------------------------------------
 
 /** The signed-in user, as the server's GET /api/me returns it. */
 export interface AccountUser {
@@ -1000,8 +1001,8 @@ export interface AccountUser {
   email: string;
   emailVerified: boolean;
   createdAt: string;
-  /** null from servers without billing. */
-  plan: "free" | "professional" | null;
+  /** null from servers without billing; "professional" from servers before the Free, Student and Pro plans. */
+  plan: "free" | "student" | "pro" | "professional" | null;
 }
 
 export interface AccountStatus {
@@ -1036,7 +1037,7 @@ export function accountSignOut(): Promise<void> {
   return invoke("account_sign_out");
 }
 
-// --- Publish for review (Professional, phase 5a) -----------------------------
+// --- Publish for review (phase 5a) -------------------------------------------
 
 /** The server project a folder publishes to (kept in the app data folder). */
 export interface ShareLink {
@@ -1054,7 +1055,13 @@ export interface ShareStatus {
 /** Errors of the share_* commands (src-tauri/src/share.rs). */
 export interface ShareError {
   kind:
-    "signedOut" | "planRequired" | "notFound" | "tooLarge" | "unavailable" | "failed";
+    | "signedOut"
+    | "planRequired"
+    | "limitReached"
+    | "notFound"
+    | "tooLarge"
+    | "unavailable"
+    | "failed";
   message: string;
 }
 
@@ -1073,6 +1080,8 @@ export interface ReviewLink {
   /** null: the link works until it is deleted. */
   expiresAt: string | null;
   createdAt: string;
+  /** False when the owner's plan has fewer active links than this: the link is paused. */
+  active: boolean;
   /** Only right after the link was made; the server keeps a hash. */
   url?: string;
 }

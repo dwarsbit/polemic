@@ -3,8 +3,8 @@
 //! LanguageTool, any language, either through a server the user
 //! configures (one running locally, or the public service, opt-in like
 //! the DOI lookup) or through the Polemic account's server, which
-//! speaks LanguageTool's API under /api/grammar/v2 for Professional
-//! accounts. Spelling stays with `spell`, so Harper's own spellcheck
+//! speaks LanguageTool's API under /api/grammar/v2 on every plan.
+//! Spelling stays with `spell`, so Harper's own spellcheck
 //! rule is off. Offsets are UTF-16 code units, as JavaScript counts.
 
 use harper_core::linting::LintGroup;
@@ -227,7 +227,7 @@ fn split_matches(matches: Vec<LtMatch>, blocks: &[String], starts: &[usize]) -> 
 pub enum Provider<'a> {
     /// Harper, built in.
     Builtin,
-    /// LanguageTool on the Polemic account's server (Professional).
+    /// LanguageTool on the Polemic account's server.
     Polemic,
     /// The user's own LanguageTool server, up to /v2.
     LanguageTool(&'a str),
@@ -268,7 +268,7 @@ pub const POLEMIC_MAX_CHARS: usize = 100_000;
 pub enum GrammarErrorKind {
     /// No account token, or the server no longer accepts it.
     SignedOut,
-    /// The account is on the free plan.
+    /// The server asks for a paid plan (servers before the Free plan).
     PlanRequired,
     /// A check was longer than the server takes.
     TooLong,
@@ -361,7 +361,7 @@ fn error_for(status: u16, retry_after: Option<&str>, body: &str, polemic: bool) 
         401 if polemic => GrammarError::signed_out(),
         402 if polemic => GrammarError::new(
             PlanRequired,
-            "Grammar checking with Polemic needs Polemic Professional.",
+            "Grammar checking with Polemic needs a paid plan on this server.",
         ),
         404 if polemic => GrammarError::new(
             Unavailable,

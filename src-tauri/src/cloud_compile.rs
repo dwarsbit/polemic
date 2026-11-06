@@ -1,5 +1,5 @@
 //! Compile with Polemic (phase 6): latexmk runs on the account's
-//! server instead of a local TeX install, for Professional accounts.
+//! server instead of a local TeX install, on every plan.
 //!
 //! The editor sends a manifest of the project's files by SHA-256 (the
 //! same files a linked project syncs, see `excludes`), uploads the ones
@@ -45,7 +45,7 @@ pub enum CompileErrorKind {
     NoTex,
     /// No account token, or the server no longer accepts it.
     SignedOut,
-    /// The account is on the free plan.
+    /// The server asks for a paid plan (servers before the Free plan).
     PlanRequired,
     /// The server has no cloud compile.
     Disabled,
@@ -53,6 +53,8 @@ pub enum CompileErrorKind {
     TooLarge,
     /// Too many compiles, or every slot busy; `retry_after` says when.
     RateLimited,
+    /// Today's compile time on the plan is used; `retry_after` is the next UTC day.
+    LimitReached,
     /// The server or its compile service can't be reached.
     Unavailable,
     /// A newer compile of the same account (another window or computer).
@@ -329,7 +331,7 @@ fn error_for(status: u16, retry_after: Option<&str>, body: &ErrorBody) -> Compil
         (401, _) => CompileError::signed_out(),
         (402, _) => CompileError::new(
             PlanRequired,
-            "Compiling with Polemic needs Polemic Professional.",
+            "Compiling with Polemic needs a paid plan on this server.",
         ),
         (404, _) => CompileError::new(Disabled, "This Polemic server has no cloud compile."),
         (409, "superseded") => CompileError::new(
@@ -338,6 +340,17 @@ fn error_for(status: u16, retry_after: Option<&str>, body: &ErrorBody) -> Compil
         ),
         (413, _) if !body.message.is_empty() => CompileError::new(TooLarge, body.message.clone()),
         (413, _) => too_large(),
+        (429, "compile_limit") => CompileError {
+            retry_after: Some(seconds()),
+            ..CompileError::new(
+                LimitReached,
+                if body.message.is_empty() {
+                    "You've used today's compile time with Polemic. Compile on this computer, or upgrade your plan."
+                } else {
+                    body.message.as_str()
+                },
+            )
+        },
         (429, _) => wait(RateLimited, "Too many compiles."),
         (503, _) => wait(RateLimited, "Every compile slot on the server is busy."),
         (500..=599, _) => CompileError::new(
@@ -726,6 +739,11 @@ mod tests {
         assert_eq!((large.kind, large.message.as_str()), (TooLarge, "At most 5000 files"));
         let limited = error_for(429, Some("30"), &body("rate_limited", "x"));
         assert_eq!((limited.kind, limited.retry_after), (RateLimited, Some(30)));
+        let used = error_for(429, Some("600"), &body("compile_limit", "You've used today's 5 minutes."));
+        assert_eq!(
+            (used.kind, used.message.as_str(), used.retry_after),
+            (LimitReached, "You've used today's 5 minutes.", Some(600))
+        );
         let busy = error_for(503, None, &body("compile_busy", "x"));
         assert_eq!((busy.kind, busy.retry_after), (RateLimited, Some(DEFAULT_RETRY_AFTER)));
         let bad = error_for(400, None, &body("invalid_request", "\"a\" is a file and a folder"));

@@ -119,7 +119,7 @@ export function CommandPalette() {
         id: "account",
         title: "Polemic account…",
         icon: UserRound,
-        keywords: "sign in sign out login logout professional server",
+        keywords: "sign in sign out login logout plan free student pro server",
         run: () => useSettingsStore.getState().openSettings("account"),
       },
       {
@@ -323,7 +323,7 @@ export function CommandPalette() {
         id: "share",
         title: "Share for review…",
         icon: Share2,
-        keywords: "publish review link reviewer supervisor professional",
+        keywords: "publish review link reviewer supervisor",
         run: () => useDialogsStore.getState().setShareOpen(true),
       },
       {

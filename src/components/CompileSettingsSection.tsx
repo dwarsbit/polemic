@@ -18,9 +18,9 @@ const link = "underline underline-offset-2 hover:text-foreground";
 
 /**
  * Where compiles run: on this computer with the user's TeX install, or
- * with Polemic on the account's server (Professional). Says why the
- * server is not an option when signed out, on the free plan, or when
- * the server has no cloud compile.
+ * with Polemic on the account's server, on every plan. Says why the
+ * server is not an option when signed out, when the server asks for a
+ * paid plan, or when it has no cloud compile.
  */
 export function CompileSettingsSection() {
   const provider = useSettingsStore((s) => s.compileProvider);
@@ -58,8 +58,9 @@ export function CompileSettingsSection() {
   const signedIn = account?.signedIn === true && cloud !== "signedOut";
   const server = account?.server ?? "your Polemic server";
   const accountPage = account ? `${account.server}/account` : null;
-  const freePlan = account?.user?.plan === "free" || cloud === "planRequired";
-  const usable = signedIn && !freePlan && cloud !== "disabled";
+  // Servers from before the Free plan answered 402 without a subscription.
+  const planRequired = cloud === "planRequired";
+  const usable = signedIn && !planRequired && cloud !== "disabled";
 
   return (
     <div className="space-y-2 py-2">
@@ -77,7 +78,7 @@ export function CompileSettingsSection() {
           value="polemic"
           size="sm"
           disabled={!usable && provider !== "polemic"}
-          title={usable ? undefined : "Needs a Polemic Professional account"}
+          title={usable ? undefined : "Needs a Polemic account"}
         >
           With Polemic
         </ToggleButton>
@@ -93,22 +94,31 @@ export function CompileSettingsSection() {
           <>
             On {server}, with TeX Live and the same latexmk rules. Fonts installed
             only on this computer are not there: put their files in the project.
+            Your plan sets the compile time you get each day.
+            {accountPage && (
+              <>
+                {" "}
+                <button type="button" className={link} onClick={() => void openUrl(accountPage)}>
+                  See your usage
+                </button>
+              </>
+            )}
           </>
         )}
       </p>
 
       {account !== null && !signedIn && (
         <p className="text-xs text-muted-foreground">
-          Compiling with Polemic is part of Polemic Professional.{" "}
+          Compiling with Polemic needs a free Polemic account.{" "}
           <button type="button" className={link} onClick={() => openSettings("account")}>
             Sign in
           </button>{" "}
-          to your Polemic account first.
+          first.
         </p>
       )}
-      {signedIn && freePlan && (
+      {signedIn && planRequired && (
         <p className="text-xs text-muted-foreground">
-          Compiling with Polemic needs Polemic Professional.
+          Compiling with Polemic needs a paid plan on {server}.
           {accountPage && (
             <>
               {" "}
@@ -156,7 +166,7 @@ export function CompileErrorActions({ kind }: { kind: CompileError["kind"] | nul
         <div className="flex flex-wrap items-center gap-2 text-xs">
           {action("Compile with Polemic", () => void compileOn("polemic"))}
           <span className="text-muted-foreground">
-            on Polemic's server (Professional), or{" "}
+            on Polemic's server, or{" "}
             <button type="button" className={link} onClick={() => openSettings("tex")}>
               install TeX
             </button>
@@ -173,6 +183,7 @@ export function CompileErrorActions({ kind }: { kind: CompileError["kind"] | nul
         </div>
       );
     case "disabled":
+    case "limitReached":
       return action("Compile on this computer", () => void compileOn("local"));
     default:
       return null;
