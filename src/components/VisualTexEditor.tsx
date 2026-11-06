@@ -432,6 +432,7 @@ export function VisualTexEditor() {
       WritingChecks,
     ],
     content: docFromTex(entryContent),
+    editable: !useProjectStore.getState().project?.readOnly,
     editorProps: {
       // A cross-file outline move steps in both files: Tiptap's history
       // holds only this file's half of it. The store copy is compared,

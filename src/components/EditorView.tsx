@@ -97,6 +97,7 @@ export function EditorView() {
   );
   const [issuesTool, setIssuesTool] = useState<IssuesTool>("issues");
   const activeFile = useProjectStore((s) => s.activeFile);
+  const readOnly = useProjectStore((s) => s.project?.readOnly ?? null);
   const projectPath = useProjectStore((s) => s.project?.path ?? null);
   // The assistant's conversation belongs to one project.
   useEffect(() => {
@@ -313,10 +314,19 @@ export function EditorView() {
                 </Panel>
                 {navigatorOpen && <Separator className={HANDLE_X} />}
                 <Panel id="editor" defaultSize="42%" minSize="25%">
-                  <div className="flex h-full flex-col overflow-hidden rounded-xl border bg-card shadow-sm">
+                  <div
+                    // The editors read the project's read-only state when they mount.
+                    key={projectPath ?? ""}
+                    className="flex h-full flex-col overflow-hidden rounded-xl border bg-card shadow-sm"
+                  >
+                    {readOnly && (
+                      <p className="border-b bg-muted px-3 py-1.5 text-xs text-muted-foreground">
+                        {readOnly}
+                      </p>
+                    )}
                     <TabsBar />
                     <IncludeBreadcrumbs />
-                    {!activeFileIsBib && !texVisual && <EditorToolbar />}
+                    {!activeFileIsBib && !texVisual && !readOnly && <EditorToolbar />}
                     <div className="min-h-0 flex-1">
                       {activeFileIsBib ? (
                         <BibFileEditor />

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import * as Y from "yjs";
 import {
+  applyTextMerge,
   applyFileChange,
   applyFolder,
   applyFileDelete,
@@ -457,5 +458,45 @@ describe("applyFolder", () => {
     doc.on("afterTransaction", (tr: Y.Transaction) => origins.push(tr.origin));
     applyFolder(doc, [text("main.tex", "b"), text("x.tex", "c")]);
     expect(origins).toEqual([LOCAL_ORIGIN]);
+  });
+});
+
+describe("applyTextMerge", () => {
+  const merged = (base: string, theirs: string, ours: string) => {
+    const doc = new Y.Doc();
+    const text = doc.getText("t");
+    text.insert(0, theirs);
+    applyTextMerge(text, base, ours);
+    return text.toString();
+  };
+
+  it("writes the edit as is when nobody else changed the text", () => {
+    expect(merged("one two", "one two", "one 2")).toBe("one 2");
+  });
+
+  it("keeps their edit and ours in different places", () => {
+    const base = "Intro.\nMethods.\nResults.\n";
+    const theirs = "Intro, revised.\nMethods.\nResults.\n";
+    const ours = "Intro.\nMethods.\nResults and discussion.\n";
+    expect(merged(base, theirs, ours)).toBe(
+      "Intro, revised.\nMethods.\nResults and discussion.\n",
+    );
+  });
+
+  it("keeps both edits on one line", () => {
+    expect(merged("a b c", "A b c", "a b C")).toBe("A b C");
+  });
+
+  it("puts our insert after theirs at the same place", () => {
+    expect(merged("ab", "aXb", "aYb")).toBe("aXYb");
+  });
+
+  it("lets our edit replace theirs where both changed the same words", () => {
+    expect(merged("the cat sat", "the dog sat", "the bird sat")).toBe("the bird sat");
+  });
+
+  it("keeps their insert when we delete around it", () => {
+    expect(merged("abcdef", "abcXdef", "af")).toBe("af");
+    expect(merged("abc\ndef\n", "abc\nnew\ndef\n", "def\n")).toBe("new\ndef\n");
   });
 });

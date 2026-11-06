@@ -18,6 +18,8 @@ export interface TexStatus {
 export interface RecentProject {
   name: string;
   path: string;
+  /** Shown under the name instead of the path (the browser build: whose it is). */
+  detail?: string;
 }
 
 /** A reference source: a .bib file/folder anywhere on the filesystem
@@ -218,6 +220,8 @@ export function setAssistantCompile(
 export interface ProjectInfo {
   name: string;
   path: string;
+  /** Why the project can't be changed here, when it can't (the browser build). */
+  readOnly?: string | null;
 }
 
 export interface CommentAnchor {
@@ -594,12 +598,15 @@ export function readProjectFile(projectDir: string, path: string): Promise<strin
   return invoke<string>("read_project_file", { projectDir, path });
 }
 
+/** `base` is the text the edit started from: the browser build merges
+ *  the edit with changes others made since. The desktop app ignores it. */
 export function writeProjectFile(
   projectDir: string,
   path: string,
   content: string,
+  base?: string | null,
 ): Promise<void> {
-  return invoke<void>("write_project_file", { projectDir, path, content });
+  return invoke<void>("write_project_file", { projectDir, path, content, base });
 }
 
 /** Read one .bib file of a configured bib source (bib sources live

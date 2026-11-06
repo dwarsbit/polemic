@@ -50,6 +50,9 @@ export function BibEditor({ visible = true }: { visible?: boolean }) {
         doc: useEditorStore.getState().content,
         extensions: [
           basicSetup,
+          EditorState.readOnly.of(
+            Boolean(useProjectStore.getState().project?.readOnly),
+          ),
           bibSyntax,
           highlightCompartment.of(
             editorHighlightExtension(

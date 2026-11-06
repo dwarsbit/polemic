@@ -23,6 +23,7 @@ import { invalidateGitState } from "@/lib/query-client";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useSettingsStore } from "@/store/settings";
+import { isWeb } from "@/lib/target";
 
 interface ProjectState {
   project: api.ProjectInfo | null;
@@ -745,8 +746,9 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       if (!dirty) return false;
       if (!project) return false;
       // Changed on disk since it was loaded or saved (git checkout,
-      // another editor): never overwrite that silently.
-      if (lastSavedContent !== null) {
+      // another editor): never overwrite that silently. In the browser
+      // the write merges with changes others made since instead.
+      if (lastSavedContent !== null && !isWeb) {
         const onDisk = await api
           .readProjectFile(project.path, activeFile)
           .catch(() => null);
@@ -764,7 +766,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       if (useSettingsStore.getState().formatOnSave && !opts?.background)
         formatDocument();
       const content = useEditorStore.getState().content;
-      await api.writeProjectFile(project.path, activeFile, content);
+      await api.writeProjectFile(project.path, activeFile, content, lastSavedContent);
       void invalidateGitState();
       set({
         lastSavedContent:

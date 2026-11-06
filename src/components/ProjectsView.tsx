@@ -306,7 +306,9 @@ export function ProjectsView() {
         )}
         {error && <p className="mt-2 text-xs text-destructive">{error}</p>}
         <Separator className="my-4" />
-        <h2 className="mb-2 text-xs font-medium">Recent</h2>
+        <h2 className="mb-2 text-xs font-medium">
+          {features.localFiles ? "Recent" : "Projects"}
+        </h2>
         {settings === null ? (
           <p className="text-sm text-muted-foreground">Loading…</p>
         ) : projects.length === 0 ? (
@@ -334,7 +336,7 @@ export function ProjectsView() {
                       {project.name}
                     </span>
                     <span className="truncate text-xs text-muted-foreground">
-                      {project.path}
+                      {project.detail ?? project.path}
                     </span>
                   </button>
                   <div className="flex shrink-0 items-center gap-1 opacity-0 transition-opacity group-focus-within:opacity-100 group-hover:opacity-100">
@@ -363,7 +365,9 @@ export function ProjectsView() {
                       variant="ghost"
                       size="icon"
                       className="hover:text-destructive"
-                      title="Move project to trash"
+                      title={
+                        features.localFiles ? "Move project to trash" : "Delete project"
+                      }
                       onClick={() => setAction({ kind: "delete", ...project })}
                     >
                       <Trash2 />
@@ -402,10 +406,17 @@ export function ProjectsView() {
               }}
             />
           ) : action.kind === "delete" ? (
-            <p className="text-sm">
-              Move <span className="font-medium">{action.name}</span> to the trash? You
-              can restore it from there until you empty the trash.
-            </p>
+            features.localFiles ? (
+              <p className="text-sm">
+                Move <span className="font-medium">{action.name}</span> to the trash?
+                You can restore it from there until you empty the trash.
+              </p>
+            ) : (
+              <p className="text-sm">
+                Delete <span className="font-medium">{action.name}</span> with its
+                files, comments and review links? This can't be undone.
+              </p>
+            )
           ) : action.kind === "clone" ? (
             <div className="flex flex-col gap-2">
               <Input
@@ -445,7 +456,9 @@ export function ProjectsView() {
               onClick={() => void confirmAction()}
             >
               {action.kind === "delete"
-                ? "Move to trash"
+                ? features.localFiles
+                  ? "Move to trash"
+                  : "Delete"
                 : action.kind === "clone"
                   ? busy
                     ? "Cloning…"

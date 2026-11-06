@@ -414,6 +414,59 @@ export function applyTextDiff(target: Y.Text, text: string): void {
   }
 }
 
+/** Where `pos` of the base text lands after `edits`. A point where an
+ *  edit inserted text goes behind that text when `pastInsert`; a point
+ *  inside a replaced range goes to its end when `toEnd`, else its start. */
+function mapPosition(
+  edits: TextEdit[],
+  pos: number,
+  pastInsert: boolean,
+  toEnd: boolean,
+): number {
+  let delta = 0;
+  for (const edit of edits) {
+    if (edit.to < pos || (edit.to === pos && edit.from < pos)) {
+      delta += edit.insert.length - (edit.to - edit.from);
+    } else if (edit.from < pos && pos < edit.to) {
+      return edit.from + delta + (toEnd ? edit.insert.length : 0);
+    } else if (edit.from === pos && edit.to === pos) {
+      if (pastInsert) delta += edit.insert.length;
+      break;
+    } else {
+      break;
+    }
+  }
+  return pos + delta;
+}
+
+/**
+ * Write `text`, edited from `base`, into a Y.Text that others may have
+ * changed since `base`: the edits from `base` to `text` are moved past
+ * theirs, so both survive. Where both changed the same range, this
+ * edit replaces theirs.
+ */
+export function applyTextMerge(target: Y.Text, base: string, text: string): void {
+  const current = target.toString();
+  if (current === base) {
+    applyTextDiff(target, text);
+    return;
+  }
+  const theirs = textEdits(base, current);
+  // Text they inserted at either end of our range stays; text they
+  // changed inside it is replaced.
+  const ours = textEdits(base, text).map((edit) => {
+    const from = mapPosition(theirs, edit.from, true, false);
+    const to = Math.max(from, mapPosition(theirs, edit.to, false, true));
+    return { from, to, insert: edit.insert };
+  });
+  for (let i = ours.length - 1; i >= 0; i--) {
+    const { from, to, insert } = ours[i];
+    const end = Math.min(to, target.length);
+    if (end > from) target.delete(from, end - from);
+    if (insert) target.insert(Math.min(from, target.length), insert);
+  }
+}
+
 // --- the document ------------------------------------------------------
 
 const texts = (doc: Y.Doc) => doc.getMap<Y.Text>("texts");
@@ -479,6 +532,20 @@ function resolvePaths(doc: Y.Doc): {
     if (!textPaths.has(target)) assetPaths.set(target, ref);
   }
   return { texts: textPaths, assets: assetPaths };
+}
+
+/** The text files (path → file id) and assets by path, as `readProject` sees them. */
+export function projectFiles(doc: Y.Doc): {
+  texts: Map<string, string>;
+  assets: Map<string, AssetRef>;
+} {
+  return resolvePaths(doc);
+}
+
+/** The Y.Text of the text file at `path`, or null. */
+export function textAt(doc: Y.Doc, path: string): Y.Text | null {
+  const id = resolvePaths(doc).texts.get(path);
+  return id ? (texts(doc).get(id) ?? null) : null;
 }
 
 /** The project as the disk should hold it. */

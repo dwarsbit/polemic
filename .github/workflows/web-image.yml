@@ -1,0 +1,108 @@
+name: Web image
+
+# The editor's browser build as an image (docker/web), which
+# polemic-server's Compose stack serves at /projects. Built and checked on
+# every pull request that touches it; pushed to ghcr.io from main.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "public/**"
+      - "index.html"
+      - "vite.config.ts"
+      - "tsconfig*.json"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "docker/web/**"
+      - ".github/workflows/web-image.yml"
+  pull_request:
+    paths:
+      - "src/**"
+      - "public/**"
+      - "index.html"
+      - "vite.config.ts"
+      - "tsconfig*.json"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "docker/web/**"
+      - ".github/workflows/web-image.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: web-image-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  IMAGE: ghcr.io/${{ github.repository_owner }}/polemic-web
+
+jobs:
+  image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/web/Dockerfile
+          platforms: linux/amd64
+          load: true
+          tags: polemic-web:check
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Check the routes
+        run: |
+          docker run -d --rm -p 8080:80 --name web polemic-web:check
+          sleep 2
+          expect() {
+            code=$(curl -s -o /tmp/body -w '%{http_code}' "http://localhost:8080$1")
+            [ "$code" = "$2" ] || { echo "$1: $code, expected $2"; exit 1; }
+            grep -q "$3" /tmp/body || { echo "$1: no $3 in the answer"; exit 1; }
+            echo "$1: $code"
+          }
+          expect /projects 200 '<div id="root">'
+          expect /projects/ 200 '<div id="root">'
+          expect /projects/AbC123_x 200 '<div id="root">'
+          asset=$(grep -o '/projects/assets/index-[^"]*\.js' /tmp/body | head -1)
+          expect "$asset" 200 ''
+          docker stop web
+
+      - uses: docker/login-action@v3
+        if: github.event_name != 'pull_request'
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: meta
+        if: github.event_name != 'pull_request'
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.IMAGE }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha,format=long
+
+      - name: Push
+        if: github.event_name != 'pull_request'
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/web/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha

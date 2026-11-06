@@ -1,14 +1,26 @@
 # The browser build
 
-Polemic also builds for the browser, from the same front end. It will run on
-app.polemicapp.com next to the account pages and use the Polemic server for
-projects, compiling and review. The plan has six steps; this is the first:
-the build itself, with the desktop features it can't offer hidden.
+Polemic also builds for the browser, from the same front end. It runs at
+`/projects` on the Polemic server's own origin (app.polemicapp.com), next to
+the account pages, and keeps projects on the server: you sign in on the
+site, pick or create a project, edit it with changes saved as you type, and
+compile it on the server with the PDF, issues and SyncTeX in the preview.
 
 ```bash
-pnpm dev:web      # http://localhost:1420
-pnpm build:web    # dist-web/
+pnpm dev:web      # http://localhost:1420/projects/
+pnpm build:web    # dist-web/, served at /projects/
 ```
+
+`pnpm dev:web` passes `/api` on to a Polemic server running locally
+(`POLEMIC_SERVER`, default `http://localhost:4000`, the API without Caddy).
+Start that API with `PUBLIC_URL=http://localhost:1420`, so the dev server is
+its origin for cookies and live sync. Signed out, the app sends you to the
+server's `/sign-in`, which the dev server doesn't have: sign in through
+`/api/auth/sign-in/email` instead.
+
+The image in `docker/web` serves the build with Caddy; the Web image
+workflow pushes it to `ghcr.io/dwarsbit/polemic-web` from main, and
+polemic-server's Compose stack routes `/projects` to it.
 
 ## How it works
 
@@ -27,10 +39,39 @@ app version. `--mode web` points those imports at `src/web/` instead
 Settings live in the browser's local storage, in the same shape as the
 desktop app's settings file (`src/web/settings.ts`).
 
+## Projects
+
+A project is the server's live document for it (layout in
+`src/lib/project-doc.ts`), not a folder. `src/web/projects.ts` answers the
+project, file, comment and compile commands from that document:
+
+- The project list comes from `GET /api/projects`; a project's path in the
+  editor is `/projects/<id>`, which is also its address in the browser
+  (`src/web/session.ts` keeps the two in step).
+- Opening a project connects to `/api/sync` with the session cookie and
+  waits for the server's copy. Files are the document's texts and assets;
+  folders exist through their files (an empty one lasts until the tab
+  closes). `.polemic/` holds the comments, `project.json` and
+  `assets.json`, as on disk.
+- Edits save after a short pause in typing. A save carries the text the
+  edit started from, and `applyTextMerge` moves the edit past changes
+  others made since, so both are kept. Changes from others reload the file
+  tree and the open file once it has no unsaved edits.
+- Projects published from the desktop app open read-only (the server
+  refuses browser writes to them until linked projects); so do projects
+  you can only comment on or view.
+- Compiling waits until the server has every edit, then asks
+  `POST /api/projects/:id/compile` with the engine the desktop app would
+  pick (`src/lib/engine.ts`). The log, SyncTeX and bibliography output are
+  read in the browser: `src/lib/logparse.ts` and `src/lib/synctex.ts` are
+  ports of the desktop app's Rust parser and the review page's SyncTeX
+  reader, with their tests.
+
 `features` in `src/lib/target.ts` lists the desktop features the browser
 leaves out:
 
 - folders on this computer: open a folder, the projects folder, file pickers
+  (uploading files and zips comes later)
 - Git and snapshots
 - TeX on this computer and the choice of where to compile
 - the desktop sign-in (the browser uses the site's session)
