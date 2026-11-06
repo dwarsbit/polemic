@@ -49,8 +49,8 @@
   --color-background: var(--background);
   --color-primary-fill: var(--primary-fill);
   --color-primary-edge: var(--primary-edge);
-  /* The one tint (plum): focus rings, text selection, selected rows,
-     pills. Soft and edge are its translucent fill and border. */
+  /* The one tint (the primary): focus rings, text selection, selected
+     rows, pills. Soft and edge are its translucent fill and border. */
   --color-tint: var(--tint);
   --color-tint-foreground: var(--tint-foreground);
   --color-tint-soft: var(--tint-soft);
@@ -72,12 +72,13 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Design tokens: shadcn semantic tokens on Tailwind's mauve gray scale
-   (a warm purple gray, hue ~320-326), a near-black primary, and plum as
-   the only tint. Plum is not a Tailwind color: it is the dusty purple
-   #816682 (oklch 54.7% 0.054 325) at the mauve hue, with more chroma so
-   it reads as an accent against the grays. Its steps (200-700) match
-   indigo's lightness. The comments name the Tailwind step each value is. */
+/* Design tokens (Sheet UI kit): shadcn semantic tokens on Tailwind's
+   mauve gray scale (a warm purple gray, hue ~320-326) with the brand
+   primary as the one accent. The primary is the app icon's tile, #372AAC
+   (oklch 39.8% 0.195 277.366); primary-dark (32%) is its hairline edge
+   and tinted text, primary-light (60%) stands in for it in dark mode and
+   primary-tint (93%) is the text selection. The comments name the
+   Tailwind step or brand color each value is. */
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(14.5% 0.008 326); /* mauve-950 */
@@ -85,12 +86,11 @@
   --card-foreground: oklch(14.5% 0.008 326);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(14.5% 0.008 326);
-  --primary: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  --primary: oklch(39.8% 0.195 277.366); /* primary */
   --primary-foreground: oklch(98.5% 0 0); /* mauve-50 */
-  /* The primary button: a fill two steps lighter than --primary, with
-     a --primary hairline edge. */
-  --primary-fill: oklch(36.4% 0.029 323.89); /* mauve-700 */
-  --primary-edge: oklch(21.2% 0.019 322.12); /* mauve-900 */
+  /* The primary button: a primary fill with a primary-dark hairline edge. */
+  --primary-fill: oklch(39.8% 0.195 277.366); /* primary */
+  --primary-edge: oklch(32% 0.17 277.366); /* primary-dark */
   --secondary: oklch(96% 0.003 325.6); /* mauve-100 */
   --secondary-foreground: oklch(21.2% 0.019 322.12);
   --muted: oklch(96% 0.003 325.6);
@@ -100,12 +100,12 @@
   --destructive: oklch(57.7% 0.245 27.325); /* red-600 */
   --border: oklch(92.2% 0.005 325.62); /* mauve-200 */
   --input: oklch(92.2% 0.005 325.62);
-  --ring: oklch(58.5% 0.16 325); /* plum-500 */
-  --selection: oklch(87% 0.06 325); /* plum-200 */
-  --tint: oklch(58.5% 0.16 325); /* plum-500 */
-  --tint-foreground: oklch(45.7% 0.15 325); /* plum-700 */
-  --tint-soft: oklch(58.5% 0.16 325 / 10%);
-  --tint-edge: oklch(58.5% 0.16 325 / 25%);
+  --ring: oklch(39.8% 0.195 277.366); /* primary */
+  --selection: oklch(93% 0.035 277.366); /* primary-tint */
+  --tint: oklch(39.8% 0.195 277.366); /* primary: selected rows, pills, focus */
+  --tint-foreground: oklch(32% 0.17 277.366); /* primary-dark: tinted text */
+  --tint-soft: oklch(39.8% 0.195 277.366 / 8%);
+  --tint-edge: oklch(39.8% 0.195 277.366 / 25%);
   --success: oklch(59.6% 0.145 163.225); /* emerald-600 */
   --warning: oklch(66.6% 0.179 58.318); /* amber-600 */
   --info: oklch(58.8% 0.158 241.966); /* sky-600 */
@@ -114,16 +114,16 @@
   --chart-3: oklch(43.5% 0.029 321.78); /* mauve-600 */
   --chart-4: oklch(36.4% 0.029 323.89); /* mauve-700 */
   --chart-5: oklch(26.3% 0.024 320.12); /* mauve-800 */
-  --radius: 0.45rem;
+  --radius: 0.5rem; /* 8px: the tile's corner at control size */
   /* The window backdrop behind the floating cards. */
   --sidebar: oklch(98.5% 0 0); /* mauve-50 */
   --sidebar-foreground: oklch(14.5% 0.008 326);
-  --sidebar-primary: oklch(21.2% 0.019 322.12);
+  --sidebar-primary: oklch(39.8% 0.195 277.366);
   --sidebar-primary-foreground: oklch(98.5% 0 0);
   --sidebar-accent: oklch(96% 0.003 325.6);
   --sidebar-accent-foreground: oklch(21.2% 0.019 322.12);
   --sidebar-border: oklch(92.2% 0.005 325.62);
-  --sidebar-ring: oklch(58.5% 0.16 325);
+  --sidebar-ring: oklch(39.8% 0.195 277.366);
 }
 
 /* macOS vibrancy: the chrome (header, rails, status bar) is fully
@@ -147,10 +147,10 @@ html.mac.dark body {
   --card-foreground: oklch(98.5% 0 0);
   --popover: oklch(21.2% 0.019 322.12);
   --popover-foreground: oklch(98.5% 0 0);
-  --primary: oklch(92.2% 0.005 325.62); /* mauve-200 */
-  --primary-foreground: oklch(21.2% 0.019 322.12);
-  --primary-fill: oklch(92.2% 0.005 325.62);
-  --primary-edge: oklch(92.2% 0.005 325.62);
+  --primary: oklch(60% 0.17 277.366); /* primary-light */
+  --primary-foreground: oklch(14.5% 0.008 326); /* mauve-950 */
+  --primary-fill: oklch(60% 0.17 277.366);
+  --primary-edge: oklch(60% 0.17 277.366);
   --secondary: oklch(26.3% 0.024 320.12); /* mauve-800 */
   --secondary-foreground: oklch(98.5% 0 0);
   --muted: oklch(26.3% 0.024 320.12);
@@ -160,12 +160,12 @@ html.mac.dark body {
   --destructive: oklch(70.4% 0.191 22.216); /* red-400 */
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(67.3% 0.14 325); /* plum-400 */
-  --selection: oklch(58.5% 0.16 325 / 40%);
-  --tint: oklch(67.3% 0.14 325); /* plum-400 */
-  --tint-foreground: oklch(78.5% 0.1 325); /* plum-300 */
-  --tint-soft: oklch(67.3% 0.14 325 / 15%);
-  --tint-edge: oklch(67.3% 0.14 325 / 30%);
+  --ring: oklch(60% 0.17 277.366); /* primary-light */
+  --selection: oklch(60% 0.17 277.366 / 35%);
+  --tint: oklch(60% 0.17 277.366); /* primary-light */
+  --tint-foreground: oklch(75% 0.12 277.366);
+  --tint-soft: oklch(60% 0.17 277.366 / 15%);
+  --tint-edge: oklch(60% 0.17 277.366 / 35%);
   --success: oklch(76.5% 0.177 163.223); /* emerald-400 */
   --warning: oklch(82.8% 0.189 84.429); /* amber-400 */
   --info: oklch(74.6% 0.16 232.661); /* sky-400 */
@@ -176,12 +176,12 @@ html.mac.dark body {
   --chart-5: oklch(26.3% 0.024 320.12);
   --sidebar: oklch(14.5% 0.008 326); /* mauve-950 */
   --sidebar-foreground: oklch(98.5% 0 0);
-  --sidebar-primary: oklch(67.3% 0.14 325);
-  --sidebar-primary-foreground: oklch(98.5% 0 0);
+  --sidebar-primary: oklch(60% 0.17 277.366);
+  --sidebar-primary-foreground: oklch(14.5% 0.008 326);
   --sidebar-accent: oklch(26.3% 0.024 320.12);
   --sidebar-accent-foreground: oklch(98.5% 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(67.3% 0.14 325);
+  --sidebar-ring: oklch(60% 0.17 277.366);
 }
 
 @layer base {
@@ -944,13 +944,13 @@ html.caret-style-block .cm-editor .cm-focused > .cm-scroller > .cm-cursorLayer {
   vertical-align: baseline;
   border-radius: 4px;
 }
-/* Focused raw editor: the border turns plum — no outline rings. */
+/* Focused raw editor: the border takes the tint, no outline rings. */
 .visual-editor .vis-raw-edit:focus {
   border-color: var(--tint-edge);
 }
 
 /* Node selection (atoms show their raw editor on selection): a quiet
-   plum tint instead of a ring. */
+   tint instead of a ring. */
 .visual-editor .vis-selected {
   border-radius: 4px;
   background: var(--tint-soft);
@@ -1250,31 +1250,4 @@ svg.vis-title-icon {
 .visual-editor .vis-table-edit:hover {
   color: var(--foreground);
   background: var(--accent);
-}
-
-/* Plum wallpaper behind the start screen: the website's `purple` wallpaper
-   (polemic-website components/wallpaper.tsx), a vertical gradient around
-   plum #816682 with a grey noise overlay in mix-blend-overlay. Keep the
-   gradient stops and noise identical to the website. */
-.wallpaper-plum {
-  position: relative;
-  isolation: isolate;
-  background-image: linear-gradient(to bottom, #8b718c, #745a76);
-}
-.dark .wallpaper-plum {
-  background-image: linear-gradient(to bottom, #412c42, #3c1a26);
-}
-.wallpaper-plum::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.3;
-  mix-blend-mode: overlay;
-  background-position: center;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='1.4' numOctaves='1' seed='2' stitchTiles='stitch' result='n'/%3E%3CfeComponentTransfer result='g'%3E%3CfeFuncR type='linear' slope='4' intercept='1'/%3E%3CfeFuncG type='linear' slope='4' intercept='1'/%3E%3CfeFuncB type='linear' slope='4' intercept='1'/%3E%3C/feComponentTransfer%3E%3CfeColorMatrix type='saturate' values='0' in='g'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-.dark .wallpaper-plum::before {
-  opacity: 0.25;
 }

@@ -1,15 +1,5 @@
-import { useEffect, useState } from "react";
-import {
-  ChevronDown,
-  FolderOpen,
-  GitBranch,
-  Pencil,
-  Pin,
-  PinOff,
-  Plus,
-  Trash2,
-  Upload,
-} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, Pencil, Pin, PinOff, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -26,8 +16,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import { TemplateArt } from "@/components/TemplateArt";
 import {
   createProject,
   deleteProject,
@@ -48,8 +36,8 @@ import { UsageSummary } from "@/components/UsageSummary";
 import { useProjectStore } from "@/store/project";
 import { features } from "@/lib/target";
 
-/** Journal and conference templates share one tile with a menu, so the
- *  grid keeps the general-purpose templates up front. */
+/** Journal and conference templates share one segment with a menu, so
+ *  the picker keeps the general-purpose templates up front. */
 const PUBLISHER_TEMPLATES = ["acm", "ieee", "lncs", "elsevier"];
 
 type ActionDialog =
@@ -76,6 +64,7 @@ export function ProjectsView() {
     null,
   );
   const openProject = useProjectStore((s) => s.openProject);
+  const nameInput = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     void getSettings()
@@ -211,18 +200,22 @@ export function ProjectsView() {
     }
   }
 
-  const publisherTemplates = templates.filter((t) => PUBLISHER_TEMPLATES.includes(t.id));
+  const publisherTemplates = templates.filter((t) =>
+    PUBLISHER_TEMPLATES.includes(t.id),
+  );
   const selectedPublisher = publisherTemplates.find((t) => t.id === templateId);
 
   return (
     <div className="flex h-full flex-col items-center overflow-y-auto px-4 pt-10 pb-16 text-foreground">
-      <h1 className="mt-auto mb-10 shrink-0 text-white">
-        <PolemicLogoVertical icon="white" className="h-24 w-auto" />
+      <h1 className="mt-auto mb-8 shrink-0 text-foreground">
+        <PolemicLogoVertical className="h-28 w-auto" />
       </h1>
       <div className="mb-auto w-full max-w-lg shrink-0 rounded-xl border bg-card p-6 shadow-lg">
         <div className="flex gap-2">
           <Input
+            ref={nameInput}
             autoFocus
+            className="h-9"
             placeholder="New project name"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -232,29 +225,35 @@ export function ProjectsView() {
           />
           <Button
             size="lg"
-            variant={name.trim() === "" ? "secondary" : "default"}
-            onClick={() => void handleCreate()}
-            disabled={busy || name.trim() === ""}
+            onClick={() => {
+              // An empty name has nothing to create: point at the field.
+              if (name.trim() === "") nameInput.current?.focus();
+              else void handleCreate();
+            }}
+            disabled={busy}
           >
-            <Plus />
             Create
           </Button>
         </div>
         {templates.length > 0 && (
-          <div className="mt-2">
-            <p className="mb-1.5 text-xs font-medium">Template</p>
-            <div className="grid grid-cols-3 gap-1.5">
+          <div className="mt-3">
+            <div
+              role="radiogroup"
+              aria-label="Template"
+              className="flex flex-wrap gap-0.5 rounded-md bg-muted p-0.5"
+            >
               {templates
                 .filter((t) => !PUBLISHER_TEMPLATES.includes(t.id))
                 .map((template) => (
                   <button
                     key={template.id}
                     type="button"
+                    role="radio"
+                    aria-checked={templateId === template.id}
                     title={template.description}
-                    className={templateTile(templateId === template.id)}
+                    className={templateSegment(templateId === template.id)}
                     onClick={() => setTemplateId(template.id)}
                   >
-                    <TemplateArt id={template.id} />
                     {template.name}
                   </button>
                 ))}
@@ -263,17 +262,16 @@ export function ProjectsView() {
                   <DropdownMenuTrigger asChild>
                     <button
                       type="button"
+                      role="radio"
+                      aria-checked={selectedPublisher !== undefined}
                       title={selectedPublisher?.description}
-                      className={templateTile(selectedPublisher !== undefined)}
+                      className={templateSegment(selectedPublisher !== undefined)}
                     >
-                      <TemplateArt id={selectedPublisher?.id ?? publisherTemplates[0].id} />
-                      <span className="flex items-center gap-0.5">
-                        {selectedPublisher?.name ?? "Publisher"}
-                        <ChevronDown className="size-3 opacity-60" />
-                      </span>
+                      {selectedPublisher?.name ?? "Publisher"}
+                      <ChevronDown className="size-3 opacity-60" />
                     </button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-64">
+                  <DropdownMenuContent align="start" className="w-64">
                     <DropdownMenuRadioGroup
                       value={selectedPublisher?.id ?? ""}
                       onValueChange={setTemplateId}
@@ -304,93 +302,59 @@ export function ProjectsView() {
             )}
           </div>
         )}
-        {features.localFiles && (
-          <>
-            <Separator className="mt-3" />
-            <div className="mt-3 flex gap-2">
-              <Button
-                variant="outline"
-                className="flex-1"
-                onClick={() => void handleOpenFolder()}
-              >
-                <FolderOpen />
-                Open folder…
-              </Button>
-              <Button
-                variant="outline"
-                className="flex-1"
-                title="Clone a git repository into a new project"
-                onClick={() => {
-                  setError(null);
-                  setCloneUrl("");
-                  setCloneName(null);
-                  setAction({ kind: "clone" });
-                }}
-              >
-                <GitBranch />
-                Clone repository…
-              </Button>
-            </div>
-          </>
-        )}
-        {!features.localFiles && (
-          <>
-            <Separator className="mt-3" />
-            <div className="mt-3 flex gap-2">
-              <Button
-                variant="outline"
-                className="flex-1"
-                title="Make a project from the files in a zip, named as above or after the zip"
-                disabled={busy}
-                onClick={() => void handleUploadZip()}
-              >
-                <Upload />
-                Upload a zip…
-              </Button>
-            </div>
-          </>
-        )}
         {error && <p className="mt-2 text-xs text-destructive">{error}</p>}
-        <Separator className="my-4" />
-        <h2 className="mb-2 text-xs font-medium">
+        <h2 className="mt-5 mb-1.5 text-2xs font-semibold tracking-wider text-muted-foreground uppercase">
           {features.localFiles ? "Recent" : "Projects"}
         </h2>
         {settings === null ? (
-          <p className="text-sm text-muted-foreground">
+          <p className="px-2 py-1.5 text-sm text-muted-foreground">
             {loadFailed ? "Couldn't load your projects." : "Loading…"}
           </p>
         ) : projects.length === 0 ? (
-          <p className="text-sm text-muted-foreground">
+          <p className="px-2 py-1.5 text-sm text-muted-foreground">
             {features.localFiles
               ? "No projects yet. Create one above or open a folder."
               : "No projects yet. Create one above."}
           </p>
         ) : (
-          <ul className="space-y-1">
+          <ul className="-mx-1 space-y-0.5">
             {projects.map((project) => {
               const pinned = settings.pinnedProjects.includes(project.path);
               return (
                 <li
                   key={project.path}
-                  className="group flex items-center justify-between rounded-md px-2 py-1.5 hover:bg-accent"
+                  className="group relative flex items-center rounded-md hover:bg-muted"
                 >
                   <button
                     type="button"
-                    className="flex min-w-0 flex-1 flex-col text-left"
+                    className="flex min-w-0 flex-1 items-baseline gap-3 px-2.5 py-1.5 text-left"
+                    title={features.localFiles ? project.path : undefined}
                     onClick={() => void handleOpen(project.path)}
                   >
-                    <span className="truncate text-sm font-medium">
-                      {pinned && <Pin className="mr-1 inline size-3 -rotate-45" />}
-                      {project.name}
+                    <span className="flex min-w-0 flex-1 flex-col">
+                      <span className="truncate text-sm">
+                        {pinned && (
+                          <Pin className="mr-1 inline size-3 -rotate-45 text-muted-foreground" />
+                        )}
+                        {project.name}
+                      </span>
+                      {project.detail && (
+                        <span className="truncate text-xs text-muted-foreground">
+                          {project.detail}
+                        </span>
+                      )}
                     </span>
-                    <span className="truncate text-xs text-muted-foreground">
-                      {project.detail ?? project.path}
-                    </span>
+                    {project.openedAt !== undefined && (
+                      <span className="shrink-0 text-2xs text-muted-foreground group-focus-within:invisible group-hover:invisible">
+                        {formatOpened(project.openedAt)}
+                      </span>
+                    )}
                   </button>
-                  <div className="flex shrink-0 items-center gap-1 opacity-0 transition-opacity group-focus-within:opacity-100 group-hover:opacity-100">
+                  {/* Over the date on hover, so the row keeps its height. */}
+                  <div className="absolute inset-y-0 right-1 flex items-center gap-0.5 opacity-0 transition-opacity group-focus-within:opacity-100 group-hover:opacity-100">
                     <Button
                       variant="ghost"
-                      size="icon"
+                      size="icon-sm"
                       title={pinned ? "Unpin project" : "Pin project"}
                       onClick={() => {
                         void setPinnedProject(project.path, !pinned).then(refresh);
@@ -400,7 +364,7 @@ export function ProjectsView() {
                     </Button>
                     <Button
                       variant="ghost"
-                      size="icon"
+                      size="icon-sm"
                       title="Rename project"
                       onClick={() => {
                         setNewName(project.name);
@@ -411,7 +375,7 @@ export function ProjectsView() {
                     </Button>
                     <Button
                       variant="ghost"
-                      size="icon"
+                      size="icon-sm"
                       className="hover:text-destructive"
                       title={
                         features.localFiles ? "Move project to trash" : "Delete project"
@@ -426,6 +390,36 @@ export function ProjectsView() {
             })}
           </ul>
         )}
+        <div className="mt-4 flex flex-wrap gap-2">
+          {features.localFiles ? (
+            <>
+              <Button variant="outline" onClick={() => void handleOpenFolder()}>
+                Open folder…
+              </Button>
+              <Button
+                variant="outline"
+                title="Clone a Git repository into a new project"
+                onClick={() => {
+                  setError(null);
+                  setCloneUrl("");
+                  setCloneName(null);
+                  setAction({ kind: "clone" });
+                }}
+              >
+                Clone from Git…
+              </Button>
+            </>
+          ) : (
+            <Button
+              variant="outline"
+              title="Make a project from the files in a zip, named as above or after the zip"
+              disabled={busy}
+              onClick={() => void handleUploadZip()}
+            >
+              Upload a zip…
+            </Button>
+          )}
+        </div>
         {/* Signed in with the site's session: the plan's limits. */}
         {!features.desktopAccount && <UsageSummary />}
       </div>
@@ -522,9 +516,27 @@ export function ProjectsView() {
   );
 }
 
-function templateTile(selected: boolean): string {
+/** One segment of the template picker. */
+function templateSegment(selected: boolean): string {
   return cn(
-    "flex flex-col items-center gap-1 rounded-md border px-2 py-2.5 text-xs transition-colors",
-    selected ? "border-tint bg-tint-soft font-medium" : "hover:bg-accent",
+    "inline-flex flex-auto items-center justify-center gap-1 rounded-sm px-2 py-1 text-[13px] font-medium whitespace-nowrap transition-colors",
+    selected
+      ? "bg-background text-foreground shadow-xs"
+      : "text-muted-foreground hover:text-foreground",
   );
+}
+
+/** "Today", "Yesterday", "Oct 28", or "Oct 28, 2025" in another year. */
+export function formatOpened(time: number, now = new Date()): string {
+  const date = new Date(time);
+  const day = (d: Date) =>
+    new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+  const days = Math.round((day(now) - day(date)) / 86_400_000);
+  if (days === 0) return "Today";
+  if (days === 1) return "Yesterday";
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    ...(date.getFullYear() === now.getFullYear() ? {} : { year: "numeric" }),
+  });
 }

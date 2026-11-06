@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { X } from "lucide-react";
+import { FileText, X } from "lucide-react";
 import { ScrollArea as ScrollAreaPrimitive } from "radix-ui";
 import { Button } from "@/components/ui/button";
 import {
@@ -106,10 +106,10 @@ export function TabsBar() {
   }, [activeFile, openFiles]);
 
   return (
-    // The bar's bottom line is a pseudo-element so the active tab, drawn
-    // above it, can cover it and open into the editor below.
-    <div className="relative flex h-9 shrink-0 items-end gap-0.5 bg-muted/40 px-1.5 pt-1 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-border">
-      {/* Raised above the bar's bottom line so the active tab covers it. */}
+    // Flat tabs on a hairline. The bottom line is a pseudo-element so the
+    // active tab's underline, drawn above it, can sit on top of it.
+    <div className="relative flex h-9 shrink-0 items-end px-1.5 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-border">
+      {/* Raised above the bar's bottom line so the underline covers it. */}
       <ScrollAreaPrimitive.Root
         type="hover"
         scrollHideDelay={400}
@@ -121,7 +121,7 @@ export function TabsBar() {
           className="size-full"
           style={{ maskImage: fadeMask(overflow.start, overflow.end) }}
         >
-          <div className="flex h-full items-end gap-0.5">
+          <div className="flex h-9 items-end gap-0.5">
             {openFiles.map((file) => {
               const active = file === activeFile;
               return (
@@ -178,10 +178,10 @@ export function TabsBar() {
                     setDragging(null);
                   }}
                   className={cn(
-                    "group flex h-8 shrink-0 items-center gap-1.5 rounded-t-md border px-2.5 text-xs",
+                    "group relative flex h-9 shrink-0 items-center gap-1.5 rounded-t-md px-2.5 text-xs",
                     active
-                      ? "relative z-10 border-border border-b-transparent bg-card text-foreground"
-                      : "border-transparent text-muted-foreground hover:bg-accent/50",
+                      ? "text-foreground after:absolute after:inset-x-2 after:bottom-0 after:h-0.5 after:rounded-t-xs after:bg-tint"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground",
                     dragging === file && "opacity-40",
                   )}
                   onAuxClick={(e) => {
@@ -190,21 +190,30 @@ export function TabsBar() {
                 >
                   <button
                     type="button"
-                    className="max-w-40 truncate"
+                    className="flex min-w-0 items-center gap-1.5"
                     title={file}
                     onClick={() => void openFile(file)}
                   >
-                    {file.split("/").pop()}
+                    <FileText
+                      className={cn(
+                        "size-3.5 shrink-0",
+                        active ? "text-tint" : "opacity-70",
+                      )}
+                    />
+                    <span className="max-w-40 truncate">{file.split("/").pop()}</span>
                   </button>
                   <span
                     className={cn(
                       "size-1.5 rounded-full",
-                      isDirty(file) ? "bg-tint" : "bg-transparent",
+                      isDirty(file) ? "bg-warning" : "bg-transparent",
                     )}
                   />
                   <button
                     type="button"
-                    className="rounded p-0.5 opacity-0 hover:bg-accent group-hover:opacity-100"
+                    className={cn(
+                      "-mr-1 rounded p-0.5 hover:bg-muted hover:opacity-100 group-hover:opacity-100",
+                      active ? "opacity-70" : "opacity-0",
+                    )}
                     title="Close tab"
                     onClick={() => requestClose(file)}
                   >
