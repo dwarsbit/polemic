@@ -407,9 +407,6 @@ function App() {
           className={cn(
             "flex h-screen flex-col text-foreground",
             hasTrafficLights && fullscreen && "pt-7",
-            // The start screen's wallpaper runs behind the (empty) top bar
-            // up to the window's top edge.
-            !hasProject && "wallpaper-plum",
           )}
         >
           <TopBar />

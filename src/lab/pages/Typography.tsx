@@ -216,18 +216,22 @@ export function TypographyPage() {
 
       <LabSection
         title="Color roles"
-        note="The mauve gray scale carries all surfaces and text. Plum is the only tint: focus rings, text selection, selected rows and pills. One hue per status meaning, as tokens, so panels stop mixing amber-400/500/600/700 and orange."
+        note="The mauve gray scale carries all surfaces and text. The primary (indigo) is the only tint: focus rings, text selection, selected rows and pills. One hue per status meaning, as tokens, so panels stop mixing amber-400/500/600/700 and orange."
       >
         <div className="grid grid-cols-4 gap-3">
           <Swatch name="Foreground" className="bg-foreground" />
           <Swatch name="Muted foreground" className="bg-muted-foreground" />
           <Swatch name="Border" className="bg-border" />
           <Swatch name="Muted / accent" className="bg-muted" />
-          <Swatch name="Tint" className="bg-tint" text="plum-500 · ring, selection" />
+          <Swatch
+            name="Tint"
+            className="bg-tint"
+            text="primary · ring, selected rows"
+          />
           <Swatch
             name="Tint soft"
             className="bg-tint-soft"
-            text="plum 10% · pills, selected rows"
+            text="primary 8% · pills, selected rows"
           />
           <Swatch name="Success" className="bg-success" text="emerald-600 / 400" />
           <Swatch name="Warning" className="bg-warning" text="amber-600 / 400" />

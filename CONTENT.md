@@ -48,9 +48,9 @@ Plain, precise and calm, for researchers and students who write papers.
 | Write | Not | Note |
 | --- | --- | --- |
 | Polemic | POLEMIC, polemic | Title case everywhere, the logo included |
-| mark | symbol, glyph | The outlined square with the slash, on its own |
+| mark | symbol, glyph | The tile with the page and the slash, in one color, on its own |
 | logo | wordmark, lockup | The mark next to "Polemic" |
-| app icon | tile, favicon | The plum tile with the mark: dock, taskbar, browser tab |
+| app icon | tile, favicon | The white page with the slash on the indigo tile: dock, taskbar, browser tab |
 | app icon and name | lockup | The app icon with "Polemic", horizontal or vertical |
 | Free, Student, Pro | Community, Professional, Premium, tier | The plans of the online services; "the Pro plan" in running text, "Polemic Pro" where it stands alone, as at checkout |
 | online services | hosted services, cloud services | Storage, review links, grammar checking and cloud compile; every plan has them, with different limits |
