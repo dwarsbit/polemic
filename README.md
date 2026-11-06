@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://polemicapp.com">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="assets/logo/polemic-lockup-icon-vertical-white.svg">
-      <img src="assets/logo/polemic-lockup-icon-vertical.svg" alt="Polemic" height="120">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/readme/polemic-logo-vertical-white.svg">
+      <img src="assets/readme/polemic-logo-vertical.svg" alt="Polemic" height="120">
     </picture>
   </a>
 </p>
