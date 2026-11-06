@@ -57,9 +57,21 @@ project, file, comment and compile commands from that document:
   edit started from, and `applyTextMerge` moves the edit past changes
   others made since, so both are kept. Changes from others reload the file
   tree and the open file once it has no unsaved edits.
+- New projects start from the desktop app's templates: `src/lib/templates.ts`
+  reads the table in `src-tauri/src/templates.rs` at build time, so there is
+  one list.
+- Files come in through the browser's file picker or a drop on the editor
+  (`src/web/uploads.ts` names picked files for `import_assets`), and a zip
+  makes a new project. Both go through `readSnapshot`, as a desktop publish
+  does: the same excludes, text into the document, other files uploaded as
+  assets first. The app menu downloads the PDF and the project as a zip.
 - Projects published from the desktop app open read-only (the server
   refuses browser writes to them until linked projects); so do projects
-  you can only comment on or view.
+  you can only comment on or view, and projects whose owner's storage is
+  full (the server connects them read-only).
+- The start screen shows storage and today's compile time from
+  `GET /api/usage`; a full storage or used-up compile time says so where it
+  stops you, with a link to the account page.
 - Compiling waits until the server has every edit, then asks
   `POST /api/projects/:id/compile` with the engine the desktop app would
   pick (`src/lib/engine.ts`). The log, SyncTeX and bibliography output are
@@ -70,8 +82,8 @@ project, file, comment and compile commands from that document:
 `features` in `src/lib/target.ts` lists the desktop features the browser
 leaves out:
 
-- folders on this computer: open a folder, the projects folder, file pickers
-  (uploading files and zips comes later)
+- folders on this computer: open a folder, the projects folder, saving to a
+  place you pick (files are picked and downloaded instead)
 - Git and snapshots
 - TeX on this computer and the choice of where to compile
 - the desktop sign-in (the browser uses the site's session)

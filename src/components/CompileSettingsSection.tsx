@@ -11,6 +11,7 @@ import {
   type CompileError,
   type CompileProvider,
 } from "@/lib/tauri";
+import { features } from "@/lib/target";
 import { usePreviewStore } from "@/store/preview";
 import { useSettingsStore } from "@/store/settings";
 
@@ -143,7 +144,8 @@ export function CompileSettingsSection() {
 /**
  * What the user can do about a compile error: compile with Polemic when
  * no TeX is installed, sign in, or go back to this computer when the
- * server cannot compile.
+ * server cannot compile. In the browser, which only compiles with
+ * Polemic, a plan's limit links to the account page.
  */
 export function CompileErrorActions({ kind }: { kind: CompileError["kind"] | null }) {
   const setProvider = useSettingsStore((s) => s.setCompileProvider);
@@ -159,6 +161,12 @@ export function CompileErrorActions({ kind }: { kind: CompileError["kind"] | nul
       {label}
     </Button>
   );
+
+  if (!features.localTex) {
+    return kind === "limitReached" || kind === "planRequired"
+      ? action("See your plan", () => void openUrl("/account"))
+      : null;
+  }
 
   switch (kind) {
     case "noTex":

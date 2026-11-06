@@ -8,6 +8,7 @@ import {
   PinOff,
   Plus,
   Trash2,
+  Upload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -43,6 +44,7 @@ import {
 } from "@/lib/tauri";
 import { cn } from "@/lib/utils";
 import { PolemicLogoVertical } from "@/components/PolemicLogo";
+import { UsageSummary } from "@/components/UsageSummary";
 import { useProjectStore } from "@/store/project";
 import { features } from "@/lib/target";
 
@@ -121,6 +123,29 @@ export function ProjectsView() {
       await openProject(info.path);
     } catch (e) {
       setError(String(e));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  /** The browser build: a new project from a zip's files. */
+  async function handleUploadZip() {
+    setError(null);
+    const [{ pickFiles }, { importProjectZip }] = await Promise.all([
+      import("@/web/uploads"),
+      import("@/web/projects"),
+    ]);
+    const [zip] = await pickFiles({ multiple: false, accept: ".zip" });
+    if (!zip) return;
+    setBusy(true);
+    try {
+      const info = await importProjectZip(
+        name.trim() || zip.name.replace(/\.zip$/i, ""),
+        zip,
+      );
+      await openProject(info.path);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
     } finally {
       setBusy(false);
     }
@@ -304,6 +329,23 @@ export function ProjectsView() {
             </div>
           </>
         )}
+        {!features.localFiles && (
+          <>
+            <Separator className="mt-3" />
+            <div className="mt-3 flex gap-2">
+              <Button
+                variant="outline"
+                className="flex-1"
+                title="Make a project from the files in a zip, named as above or after the zip"
+                disabled={busy}
+                onClick={() => void handleUploadZip()}
+              >
+                <Upload />
+                Upload a zip…
+              </Button>
+            </div>
+          </>
+        )}
         {error && <p className="mt-2 text-xs text-destructive">{error}</p>}
         <Separator className="my-4" />
         <h2 className="mb-2 text-xs font-medium">
@@ -378,6 +420,8 @@ export function ProjectsView() {
             })}
           </ul>
         )}
+        {/* Signed in with the site's session: the plan's limits. */}
+        {!features.desktopAccount && <UsageSummary />}
       </div>
 
       <Dialog

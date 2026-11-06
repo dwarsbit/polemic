@@ -36,7 +36,6 @@ import {
   resolveGraphicsRef,
 } from "@/lib/graphics-refs";
 import { showNativeContextMenu } from "@/lib/native-menu";
-import { features } from "@/lib/target";
 import { importAssets, readAsset, readProjectFile, type FileEntry } from "@/lib/tauri";
 import { useAssetsStore } from "@/store/assets";
 
@@ -281,7 +280,7 @@ export function AssetsPanel() {
         label="Assets"
 
         actions={
-          features.localFiles && (
+          !project?.readOnly && (
             <Button
               variant="ghost"
               size="icon-sm"

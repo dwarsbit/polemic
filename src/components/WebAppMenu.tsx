@@ -1,5 +1,7 @@
 import {
   Command,
+  Download,
+  FileArchive,
   Info,
   Keyboard,
   LifeBuoy,
@@ -18,14 +20,36 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { HELP_URL, ISSUES_URL } from "@/lib/links";
+import { exportPdfAs } from "@/lib/pdf-export";
 import { formatShortcut } from "@/lib/platform";
 import { useDialogsStore } from "@/store/dialogs";
+import { usePreviewStore } from "@/store/preview";
+import { useProjectStore } from "@/store/project";
 import { useSettingsStore } from "@/store/settings";
+
+/** Saves the open project as a zip, with every file. */
+async function downloadProject() {
+  try {
+    const { projectZip } = await import("@/web/projects");
+    const { name, bytes } = await projectZip();
+    const url = URL.createObjectURL(
+      new Blob([bytes as Uint8Array<ArrayBuffer>], { type: "application/zip" }),
+    );
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${name}.zip`;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 10_000);
+  } catch (e) {
+    usePreviewStore.getState().setNotice(e instanceof Error ? e.message : String(e));
+  }
+}
 
 /** The browser build's app menu: what the desktop app keeps in its
  *  native menu bar under Polemic and Help. */
 export function WebAppMenu() {
   const dialogs = () => useDialogsStore.getState();
+  const projectOpen = useProjectStore((s) => s.project !== null);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -45,6 +69,19 @@ export function WebAppMenu() {
           <Settings />
           Settings…
         </DropdownMenuItem>
+        {projectOpen && (
+          <>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onSelect={() => void exportPdfAs()}>
+              <Download />
+              Download PDF
+            </DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => void downloadProject()}>
+              <FileArchive />
+              Download project
+            </DropdownMenuItem>
+          </>
+        )}
         <DropdownMenuSeparator />
         <DropdownMenuItem onSelect={() => void openUrl(HELP_URL)}>
           <LifeBuoy />

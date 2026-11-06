@@ -33,8 +33,8 @@ describe("web dialogs", () => {
     expect(await second).toBe(true);
   });
 
-  it("has no file pickers", async () => {
-    expect(await open()).toBeNull();
+  it("picks no folders and no place to save", async () => {
+    expect(await open({ directory: true })).toBeNull();
     expect(await save()).toBeNull();
   });
 });

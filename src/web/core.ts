@@ -16,7 +16,6 @@ type Handler = (args: Record<string, unknown>) => unknown;
 
 /** Desktop features with nothing to do in the browser; their panels are hidden. */
 const nothing: Record<string, Handler> = {
-  list_templates: () => [],
   list_snapshots: () => [],
   git_available: () => false,
   set_project_menu_enabled: () => undefined,
@@ -35,7 +34,13 @@ export async function invoke<T>(
 ): Promise<T> {
   const handler = commands[cmd];
   if (!handler) throw NOT_AVAILABLE;
-  return (await handler(args)) as T;
+  try {
+    return (await handler(args)) as T;
+  } catch (e) {
+    // As from Tauri: the message alone (compile errors stay objects).
+    if (e instanceof Error && e.name !== "AbortError") throw e.message;
+    throw e;
+  }
 }
 
 /** Tauri's message channel from Rust; nothing sends on it in the browser. */

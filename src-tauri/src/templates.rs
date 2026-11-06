@@ -42,6 +42,9 @@ const SAMPLE_BIB: &str = r"@article{knuth84,
 }
 ";
 
+/// The browser build reads this table from this file's source
+/// (src/lib/templates.ts, tested in templates.test.ts): keep to the
+/// shapes used here, raw strings for file contents.
 pub const TEMPLATES: [Template; 9] = [
     Template {
         id: "blank",
