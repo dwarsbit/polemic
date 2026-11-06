@@ -47,6 +47,6 @@ describe("TEMPLATES", () => {
   });
 
   it("reads a Windows checkout's CRLF line ends as LF", () => {
-    expect(parseTemplates(source.replace(/\n/g, "\r\n"))).toEqual(TEMPLATES);
+    expect(parseTemplates(source.replace(/\r?\n/g, "\r\n"))).toEqual(TEMPLATES);
   });
 });
