@@ -285,6 +285,8 @@ export function SettingsDialog({
       const content = await response.text();
       await installSpellcheckLanguage(lang, content);
       setDownloaded((prev) => (prev.includes(lang) ? prev : [...prev, lang]));
+      // Installing switched to it: the select and the editors follow.
+      useSettingsStore.setState({ spellcheckLanguage: lang });
     } catch (e) {
       setLangError(String(e));
     } finally {
@@ -751,7 +753,6 @@ export function SettingsDialog({
     },
     {
       id: "writing",
-      hidden: !features.writingAids,
       label: "Writing",
       icon: SpellCheck,
       intro: "Spelling and grammar checks, in both the code and the visual editor.",
@@ -858,13 +859,14 @@ export function SettingsDialog({
           ],
         },
         {
-          title: "Checker and rules",
+          title: features.grammarChoice ? "Checker and rules" : "Rules",
           rows: [
             {
               id: "grammar-checker",
-              label: "Checker and rules",
-              description:
-                "Built in, offline and English only. Polemic or a LanguageTool server check every language.",
+              label: features.grammarChoice ? "Checker and rules" : "Rules",
+              description: features.grammarChoice
+                ? "Built in, offline and English only. Polemic or a LanguageTool server check every language."
+                : "Polemic checks every language, on every plan.",
               keywords:
                 "languagetool polemic server rules disable passive voice checker",
               control: null,

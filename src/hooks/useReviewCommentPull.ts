@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { publishApi, pullReviewComments } from "@/lib/share";
+import { features } from "@/lib/target";
 import { shareStatus } from "@/lib/tauri";
 import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
@@ -40,7 +41,8 @@ export function useReviewCommentPull(): void {
   const dir = useProjectStore((s) => s.project?.path ?? null);
 
   useEffect(() => {
-    if (!dir) return;
+    // In the browser, reviewers' comments land in the open project itself.
+    if (!dir || !features.localFiles) return;
     let last = 0;
     const pull = () => {
       last = Date.now();

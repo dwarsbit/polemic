@@ -22,8 +22,9 @@ export const features = {
   desktopAccount: !isWeb,
   /** The assistant, until it runs through the server. */
   assistant: !isWeb,
-  /** Spelling and grammar checks, until they run in the browser. */
-  writingAids: !isWeb,
+  /** The built-in grammar checker, and with it the choice of checker:
+   *  the browser checks with the server's. */
+  grammarChoice: !isWeb,
   /** Reference sources outside the project: .bib files and Zotero. */
   referenceSources: !isWeb,
 } as const;
