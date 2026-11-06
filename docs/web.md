@@ -14,9 +14,12 @@ pnpm build:web    # dist-web/, served at /projects/
 `pnpm dev:web` passes `/api` on to a Polemic server running locally
 (`POLEMIC_SERVER`, default `http://localhost:4000`, the API without Caddy).
 Start that API with `PUBLIC_URL=http://localhost:1420`, so the dev server is
-its origin for cookies and live sync. Signed out, the app sends you to the
-server's `/sign-in`, which the dev server doesn't have: sign in through
-`/api/auth/sign-in/email` instead.
+its origin for cookies and live sync. The app shows nothing until
+`/api/auth/get-session` names an account (`src/web/start.tsx`): signed out,
+it sends you to the server's `/sign-in`, which the dev server doesn't have,
+so sign in through `/api/auth/sign-in/email` instead. An answer that isn't
+the API's JSON, such as the app's own page from a proxy that sends `/api`
+to the wrong container, fails with a message rather than a parse error.
 
 The image in `docker/web` serves the build with Caddy; the Web image
 workflow pushes it to `ghcr.io/dwarsbit/polemic-web` from main, and
