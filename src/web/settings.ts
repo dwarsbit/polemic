@@ -87,7 +87,7 @@ function saveSettings(settings: Settings) {
 }
 
 /** Load, change and store the settings, as settings::update does. */
-function update(change: (s: Settings) => void): Settings {
+export function updateSettings(change: (s: Settings) => void): Settings {
   const settings = loadSettings();
   change(settings);
   saveSettings(settings);
@@ -124,7 +124,7 @@ export const settingsCommands: Record<string, (args: Args) => unknown> = {
   get_settings: () => loadSettings(),
 
   update_preferences: (args) =>
-    update((s) => {
+    updateSettings((s) => {
       const target = s as unknown as Record<string, unknown>;
       for (const key of PREFERENCE_KEYS) {
         if (args[key] !== undefined) target[key] = args[key];
@@ -139,30 +139,30 @@ export const settingsCommands: Record<string, (args: Args) => unknown> = {
     }),
 
   update_grammar_settings: (args) =>
-    update((s) => {
+    updateSettings((s) => {
       s.grammar = args.grammar as Settings["grammar"];
     }),
 
   remove_recent_project: (args) =>
-    update((s) => {
+    updateSettings((s) => {
       s.recentProjects = s.recentProjects.filter((r) => r.path !== args.path);
     }),
 
   set_pinned_project: (args) =>
-    update((s) => {
+    updateSettings((s) => {
       const path = String(args.path);
       s.pinnedProjects = s.pinnedProjects.filter((p) => p !== path);
       if (args.pinned) s.pinnedProjects.unshift(path);
     }),
 
   set_panel_layout: (args) => {
-    update((s) => {
+    updateSettings((s) => {
       s.panelLayout = args.layout as Record<string, number>;
     });
   },
 
   set_preview_zoom: (args) => {
-    update((s) => {
+    updateSettings((s) => {
       s.previewZoom = Number(args.zoom);
     });
   },

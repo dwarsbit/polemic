@@ -6,6 +6,7 @@
  * command does: with a message string.
  */
 
+import { projectCommands } from "@/web/projects";
 import { settingsCommands } from "@/web/settings";
 
 /** Why a command fails in the browser. Shown to the user as is. */
@@ -13,10 +14,19 @@ export const NOT_AVAILABLE = "This isn't available in your browser yet.";
 
 type Handler = (args: Record<string, unknown>) => unknown;
 
+/** Desktop features with nothing to do in the browser; their panels are hidden. */
+const nothing: Record<string, Handler> = {
+  list_templates: () => [],
+  list_snapshots: () => [],
+  git_available: () => false,
+  set_project_menu_enabled: () => undefined,
+  set_menu_checked: () => undefined,
+};
+
 const commands: Record<string, Handler> = {
   ...settingsCommands,
-  // No templates until projects can be created online.
-  list_templates: () => [],
+  ...projectCommands,
+  ...nothing,
 };
 
 export async function invoke<T>(

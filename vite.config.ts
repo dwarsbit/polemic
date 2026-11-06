@@ -22,8 +22,21 @@ const webAliases = [
 ];
 
 // https://vite.dev/config/
+// The browser build talks to polemic-server on its own origin. In
+// development the dev server passes /api on to a server running
+// locally (POLEMIC_SERVER, the API's address).
+const apiProxy = {
+  "/api": {
+    target: process.env.POLEMIC_SERVER ?? "http://localhost:4000",
+    ws: true,
+  },
+};
+
 export default defineConfig(({ mode }) => ({
   plugins: [react(), tailwindcss()],
+
+  // The browser build is served at /projects on the services app.
+  base: mode === "web" ? "/projects/" : "/",
 
   define: {
     __APP_VERSION__: JSON.stringify(version),
@@ -50,6 +63,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     port: 1420,
     strictPort: true,
+    proxy: mode === "web" ? apiProxy : undefined,
     host: host || false,
     hmr: host
       ? {

@@ -1,15 +1,67 @@
 // @vitest-environment happy-dom
-import { beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { Channel, NOT_AVAILABLE, invoke } from "@/web/core";
 import { defaultSettings } from "@/web/settings";
 import type { Settings } from "@/lib/tauri";
 
-beforeEach(() => localStorage.clear());
+/** The server's project list, as GET /api/projects answers it. */
+const serverProjects = [
+  {
+    id: "p1",
+    name: "Street trees",
+    role: "owner",
+    owner: { id: "u1", name: "Ada" },
+    source: "online",
+    writable: true,
+  },
+  {
+    id: "p2",
+    name: "Thesis",
+    role: "owner",
+    owner: { id: "u1", name: "Ada" },
+    source: "desktop",
+    writable: false,
+  },
+  {
+    id: "p3",
+    name: "Night heat",
+    role: "editor",
+    owner: { id: "u2", name: "Bo" },
+    source: "online",
+    writable: true,
+  },
+];
+
+beforeEach(() => {
+  localStorage.clear();
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async (url: string) =>
+      url === "/api/projects"
+        ? Response.json({ projects: serverProjects })
+        : Response.json({ error: "not_found", message: "Not found." }, { status: 404 }),
+    ),
+  );
+});
+afterEach(() => vi.unstubAllGlobals());
+
+const withProjects = (settings: Settings): Settings => ({
+  ...settings,
+  recentProjects: [
+    { name: "Street trees", path: "/projects/p1", detail: "Yours" },
+    {
+      name: "Thesis",
+      path: "/projects/p2",
+      detail: "Yours, read-only: published from the desktop app",
+    },
+    { name: "Night heat", path: "/projects/p3", detail: "Shared by Bo" },
+  ],
+});
 
 describe("web invoke", () => {
   it("starts from the browser defaults", async () => {
     const settings = await invoke<Settings>("get_settings");
-    expect(settings).toEqual(defaultSettings());
+    expect(settings).toEqual(withProjects(defaultSettings()));
     expect(settings.compileProvider).toBe("polemic");
     expect(settings.spellcheck).toBe(false);
   });
@@ -64,14 +116,24 @@ describe("web invoke", () => {
 
   it("falls back to the defaults over unreadable storage", async () => {
     localStorage.setItem("polemic.settings", "{not json");
-    expect(await invoke("get_settings")).toEqual(defaultSettings());
+    expect(await invoke("get_settings")).toEqual(withProjects(defaultSettings()));
     localStorage.setItem("polemic.settings", "[]");
-    expect(await invoke("get_settings")).toEqual(defaultSettings());
+    expect(await invoke("get_settings")).toEqual(withProjects(defaultSettings()));
   });
 
   it("rejects desktop commands with a message, as Tauri does", async () => {
-    await expect(invoke("compile_project", { projectDir: "x" })).rejects.toBe(
-      NOT_AVAILABLE,
+    await expect(invoke("git_commit", { projectDir: "x" })).rejects.toBe(NOT_AVAILABLE);
+  });
+
+  it("refuses project commands for a project that isn't open", async () => {
+    await expect(invoke("list_files", { projectDir: "/projects/p1" })).rejects.toBe(
+      "This project isn't open.",
+    );
+  });
+
+  it("says when a project can't be opened", async () => {
+    await expect(invoke("open_project", { path: "/projects/gone" })).rejects.toThrow(
+      "This project doesn't exist or isn't shared with you.",
     );
   });
 

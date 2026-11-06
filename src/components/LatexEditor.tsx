@@ -463,6 +463,10 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
         doc: useEditorStore.getState().content,
         extensions: [
           basicSetup,
+          // A project that can't be changed here (the browser build).
+          EditorState.readOnly.of(
+            Boolean(useProjectStore.getState().project?.readOnly),
+          ),
           StreamLanguage.define(stex),
           highlightCompartment.of(
             editorHighlightExtension(

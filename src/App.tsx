@@ -111,10 +111,16 @@ function App() {
         useSettingsStore
           .getState()
           .setGitAvailable(await gitAvailable().catch(() => false));
+        // In the browser the address names the project to open.
         const reopen = settings.reopenLastProject ?? true;
-        if (reopen && settings.lastProjectPath) {
+        const startPath = isWeb
+          ? (await import("@/web/session")).projectFromAddress()
+          : reopen
+            ? settings.lastProjectPath
+            : null;
+        if (startPath) {
           try {
-            await openProject(settings.lastProjectPath);
+            await openProject(startPath);
           } catch {
             // Project unavailable: start at the projects view.
           }
@@ -197,6 +203,21 @@ function App() {
       }
     })();
     return () => unlisten?.();
+  }, []);
+
+  // The browser build: the address follows the project, edits save as
+  // you type and others' changes come in (src/web/session.ts).
+  useEffect(() => {
+    if (!isWeb) return;
+    let stop: (() => void) | undefined;
+    let cancelled = false;
+    void import("@/web/session").then(({ startWebSession }) => {
+      if (!cancelled) stop = startWebSession();
+    });
+    return () => {
+      cancelled = true;
+      stop?.();
+    };
   }, []);
 
   // The browser build: a tab closed with unsaved edits asks first, as
