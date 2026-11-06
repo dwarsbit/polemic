@@ -44,6 +44,7 @@ import {
 import { cn } from "@/lib/utils";
 import { PolemicLogoVertical } from "@/components/PolemicLogo";
 import { useProjectStore } from "@/store/project";
+import { features } from "@/lib/target";
 
 /** Journal and conference templates share one tile with a menu, so the
  *  grid keeps the general-purpose templates up front. */
@@ -274,31 +275,35 @@ export function ProjectsView() {
             )}
           </div>
         )}
-        <Separator className="mt-3" />
-        <div className="mt-3 flex gap-2">
-          <Button
-            variant="outline"
-            className="flex-1"
-            onClick={() => void handleOpenFolder()}
-          >
-            <FolderOpen />
-            Open folder…
-          </Button>
-          <Button
-            variant="outline"
-            className="flex-1"
-            title="Clone a git repository into a new project"
-            onClick={() => {
-              setError(null);
-              setCloneUrl("");
-              setCloneName(null);
-              setAction({ kind: "clone" });
-            }}
-          >
-            <GitBranch />
-            Clone repository…
-          </Button>
-        </div>
+        {features.localFiles && (
+          <>
+            <Separator className="mt-3" />
+            <div className="mt-3 flex gap-2">
+              <Button
+                variant="outline"
+                className="flex-1"
+                onClick={() => void handleOpenFolder()}
+              >
+                <FolderOpen />
+                Open folder…
+              </Button>
+              <Button
+                variant="outline"
+                className="flex-1"
+                title="Clone a git repository into a new project"
+                onClick={() => {
+                  setError(null);
+                  setCloneUrl("");
+                  setCloneName(null);
+                  setAction({ kind: "clone" });
+                }}
+              >
+                <GitBranch />
+                Clone repository…
+              </Button>
+            </div>
+          </>
+        )}
         {error && <p className="mt-2 text-xs text-destructive">{error}</p>}
         <Separator className="my-4" />
         <h2 className="mb-2 text-xs font-medium">Recent</h2>
@@ -306,7 +311,9 @@ export function ProjectsView() {
           <p className="text-sm text-muted-foreground">Loading…</p>
         ) : projects.length === 0 ? (
           <p className="text-sm text-muted-foreground">
-            No projects yet. Create one above or open a folder.
+            {features.localFiles
+              ? "No projects yet. Create one above or open a folder."
+              : "No projects yet. Create one above."}
           </p>
         ) : (
           <ul className="space-y-1">

@@ -43,6 +43,7 @@ import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 import { useUiStore } from "@/store/ui";
 import { useEditorStore } from "@/store/editor";
 import { hasConflictMarkers } from "@/lib/conflict-markers";
+import { features } from "@/lib/target";
 import { cn } from "cn";
 
 const COLUMN_PANEL_IDS = ["navigator", "editor", "preview", "properties"];
@@ -91,7 +92,9 @@ export function EditorView() {
   const [propertiesOpen, setPropertiesOpen] = useState(false);
   const [issuesOpen, setIssuesOpen] = useState(true);
   const [navigatorTab, setNavigatorTab] = useState<LeftTab>("files");
-  const [rightTab, setRightTab] = useState<RightTab>("version-control");
+  const [rightTab, setRightTab] = useState<RightTab>(
+    features.versionControl ? "version-control" : "comments",
+  );
   const [issuesTool, setIssuesTool] = useState<IssuesTool>("issues");
   const activeFile = useProjectStore((s) => s.activeFile);
   const projectPath = useProjectStore((s) => s.project?.path ?? null);
@@ -113,17 +116,23 @@ export function EditorView() {
   const face = activeFileIsTex ? texEditorMode : activeFileIsBib ? bibEditorMode : null;
 
   const rightTabs = [
-    {
-      id: "version-control" as const,
-      label: versionControl === "git" ? "Git" : "Snapshots",
-      icon: versionControl === "git" ? GitBranch : Camera,
-    },
-    ...(versionControl === "git"
+    ...(features.versionControl
+      ? [
+          {
+            id: "version-control" as const,
+            label: versionControl === "git" ? "Git" : "Snapshots",
+            icon: versionControl === "git" ? GitBranch : Camera,
+          },
+        ]
+      : []),
+    ...(features.versionControl && versionControl === "git"
       ? [{ id: "history" as const, label: "History", icon: History }]
       : []),
     { id: "comments" as const, label: "Comments", icon: MessageSquare },
     { id: "suggestions" as const, label: "Suggestions", icon: FileDiff },
-    { id: "assistant" as const, label: "Assistant", icon: Sparkles },
+    ...(features.assistant
+      ? [{ id: "assistant" as const, label: "Assistant", icon: Sparkles }]
+      : []),
     { id: "properties" as const, label: "Properties", icon: Info },
   ];
 
@@ -221,10 +230,12 @@ export function EditorView() {
       selectNavigatorTab("bibliography"),
     );
     setPanelCommandHandler("show-version-control", () => {
+      if (!features.versionControl) return;
       setRightTab("version-control");
       if (!propertiesOpen) propertiesRef.current?.expand();
     });
     setPanelCommandHandler("show-assistant", () => {
+      if (!features.assistant) return;
       setRightTab("assistant");
       if (!propertiesOpen) propertiesRef.current?.expand();
     });

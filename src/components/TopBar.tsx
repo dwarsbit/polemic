@@ -12,8 +12,16 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { EditorFaceToggle } from "@/components/EditorFaceToggle";
-import { STOPLIGHT_WIDTH, isMac, isWindows, modKey } from "@/lib/platform";
+import { WebAppMenu } from "@/components/WebAppMenu";
+import {
+  STOPLIGHT_WIDTH,
+  hasTrafficLights,
+  isMac,
+  isWindows,
+  modKey,
+} from "@/lib/platform";
 import { isTauri } from "@/lib/tauri";
+import { isWeb } from "@/lib/target";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 import { useSettingsStore } from "@/store/settings";
@@ -81,7 +89,7 @@ export function TopBar() {
   return (
     <header
       className="relative flex h-11 shrink-0 items-center justify-between bg-transparent text-foreground"
-      style={isMac ? { paddingLeft: STOPLIGHT_WIDTH } : undefined}
+      style={hasTrafficLights ? { paddingLeft: STOPLIGHT_WIDTH } : undefined}
       onPointerDown={(event) => {
         // Drag the window from the header: anywhere except its
         // interactive controls.
@@ -93,6 +101,7 @@ export function TopBar() {
       }}
     >
       <div className="flex min-w-0 items-center gap-3 pl-3">
+        {isWeb && <WebAppMenu />}
         {showProjectControls && (
           <div className="flex min-w-0 items-center gap-1.5">
             {renaming ? (

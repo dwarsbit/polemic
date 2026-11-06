@@ -146,6 +146,8 @@ pnpm tauri build
 
 - [Sign in with GitHub and GitLab](docs/sign-in.md): how the sign-in
   buttons work and how a fork uses its own OAuth apps
+- [The browser build](docs/web.md): the same front end in a browser,
+  for the Polemic server
 - [Releasing](docs/releasing.md): how a version is built and published
 - [Code signing](docs/signing.md): the secrets that sign the macOS and
   Windows builds

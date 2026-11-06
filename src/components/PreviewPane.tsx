@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { CompileErrorActions } from "@/components/CompileSettingsSection";
 import { openPdf, synctexBackward } from "@/lib/tauri";
+import { features } from "@/lib/target";
 import { exportPdfAs } from "@/lib/pdf-export";
 import { modKey, formatShortcut } from "@/lib/platform";
 import { useEditorStore } from "@/store/editor";
@@ -203,14 +204,16 @@ export function PreviewPane() {
           >
             <Download className="size-3.5" />
           </button>
-          <button
-            type="button"
-            className="rounded-md p-1 hover:bg-accent hover:text-foreground"
-            title="Open in default viewer"
-            onClick={() => void handleOpenPdf()}
-          >
-            <ExternalLink className="size-3.5" />
-          </button>
+          {features.localFiles && (
+            <button
+              type="button"
+              className="rounded-md p-1 hover:bg-accent hover:text-foreground"
+              title="Open in default viewer"
+              onClick={() => void handleOpenPdf()}
+            >
+              <ExternalLink className="size-3.5" />
+            </button>
+          )}
           <button
             type="button"
             className="rounded-md p-1 hover:bg-accent hover:text-foreground"

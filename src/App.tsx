@@ -34,15 +34,15 @@ import { insertWithCompletion, runEditorCommand } from "@/lib/editor-commands";
 import { insertAtCursor } from "@/lib/editor-insert";
 import { resyncMenuChecksSoon } from "@/lib/menu-checks";
 import { useUiStore, type EditorFace } from "@/store/ui";
-import { isMac } from "@/lib/platform";
+import { hasTrafficLights } from "@/lib/platform";
+import { HELP_URL, ISSUES_URL } from "@/lib/links";
+import { isWeb } from "@/lib/target";
+import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { useProjectStore } from "@/store/project";
 import { usePreviewStore } from "@/store/preview";
 import { applySettingsSideEffects, useSettingsStore } from "@/store/settings";
 import { useDialogsStore } from "@/store/dialogs";
 import { cn } from "cn";
-
-const HELP_URL = "https://github.com/dwarsbit/polemic#readme";
-const ISSUES_URL = "https://github.com/dwarsbit/polemic/issues/new";
 
 function openExternal(url: string): Promise<void> {
   return import("@tauri-apps/plugin-opener").then(({ openUrl }) => openUrl(url));
@@ -136,7 +136,7 @@ function App() {
 
   // Track macOS fullscreen for the traffic-light padding (all modes).
   useEffect(() => {
-    if (!isMac) return;
+    if (!hasTrafficLights) return;
     let unlisten: (() => void) | undefined;
     void (async () => {
       try {
@@ -197,6 +197,19 @@ function App() {
       }
     })();
     return () => unlisten?.();
+  }, []);
+
+  // The browser build: a tab closed with unsaved edits asks first, as
+  // the desktop window flushes them on close.
+  useEffect(() => {
+    if (!isWeb) return;
+    const onBeforeUnload = (event: BeforeUnloadEvent) => {
+      if (Object.keys(useProjectStore.getState().buffers).length > 0) {
+        event.preventDefault();
+      }
+    };
+    window.addEventListener("beforeunload", onBeforeUnload);
+    return () => window.removeEventListener("beforeunload", onBeforeUnload);
   }, []);
 
   // Refetch git state and reload the file tree and the active file when
@@ -372,7 +385,7 @@ function App() {
         <div
           className={cn(
             "flex h-screen flex-col text-foreground",
-            isMac && fullscreen && "pt-7",
+            hasTrafficLights && fullscreen && "pt-7",
             // The start screen's wallpaper runs behind the (empty) top bar
             // up to the window's top edge.
             !hasProject && "wallpaper-plum",
@@ -404,6 +417,7 @@ function App() {
       />
       {hasProject && <ShareDialog open={shareOpen} onOpenChange={setShareOpen} />}
       {paletteOpen && <CommandPalette />}
+      {isWeb && <ConfirmDialog />}
     </QueryClientProvider>
   );
 }

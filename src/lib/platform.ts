@@ -1,7 +1,13 @@
+import { isWeb } from "@/lib/target";
+
 /** True on macOS, where the traffic lights overlay the app content. */
 export const isMac =
   typeof navigator !== "undefined" &&
   /Mac/.test(navigator.platform || navigator.userAgent);
+
+/** The macOS window's traffic lights sit over the app: the desktop app
+ *  on macOS only, never a browser tab. */
+export const hasTrafficLights = isMac && !isWeb;
 
 /** True on Windows. */
 export const isWindows =

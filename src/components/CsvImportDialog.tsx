@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { open as openFileDialog } from "@tauri-apps/plugin-dialog";
 import { FileUp } from "lucide-react";
+import { features } from "@/lib/target";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -193,10 +194,12 @@ function CsvImport({ initialPath }: { initialPath: string | null }) {
                 ))}
               </SelectContent>
             </Select>
-            <Button variant="outline" size="sm" onClick={() => void importFile()}>
-              <FileUp />
-              Import file…
-            </Button>
+            {features.localFiles && (
+              <Button variant="outline" size="sm" onClick={() => void importFile()}>
+                <FileUp />
+                Import file…
+              </Button>
+            )}
           </div>
           {error && <p className="text-xs text-destructive">{error}</p>}
           {data !== null && (
