@@ -43,6 +43,8 @@ export function goSignIn(): Promise<never> {
 }
 
 const UNREACHABLE = "Could not reach Polemic. Check your connection and try again.";
+const UNREADABLE =
+  "Polemic sent an answer this page can't read. Reload the page to try again.";
 
 /** A request to the API: JSON in (`json`) and out, or raw bytes out (`bytes`). */
 export async function request<T>(
@@ -67,7 +69,16 @@ export async function request<T>(
   if (response.status === 401) return goSignIn();
   if (!response.ok) throw await errorOf(response);
   if (response.status === 204) return undefined as T;
-  return (bytes ? await response.arrayBuffer() : await response.json()) as T;
+  if (bytes) return (await response.arrayBuffer()) as T;
+  // Anything but the API's JSON (a web page from a misrouted proxy, say).
+  if (!response.headers.get("content-type")?.includes("json")) {
+    throw new ServerError(response.status, "unreadable", UNREADABLE);
+  }
+  try {
+    return (await response.json()) as T;
+  } catch {
+    throw new ServerError(response.status, "unreadable", UNREADABLE);
+  }
 }
 
 async function errorOf(response: Response): Promise<ServerError> {

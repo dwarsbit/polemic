@@ -8,16 +8,23 @@
 	encode zstd gzip
 
 	# Vite puts a content hash in these file names.
-	@hashed path /projects/assets/*
-	header @hashed Cache-Control "public, max-age=31536000, immutable"
+	handle /projects/assets/* {
+		header Cache-Control "public, max-age=31536000, immutable"
+		file_server
+	}
 
 	# Every other path under /projects is the app (/projects/<id> opens a project).
-	@app {
-		path /projects /projects/*
-		not path /projects/assets/*
+	@app path /projects /projects/*
+	handle @app {
+		header Cache-Control "no-cache"
+		try_files {path} /projects/index.html
+		file_server
 	}
-	header @app Cache-Control "no-cache"
-	try_files {path} /projects/index.html
 
-	file_server
+	# Nothing else is served here: /api and the rest belong to the server's
+	# own proxy, and a request that reaches this container by mistake gets
+	# a 404 rather than the app's page.
+	handle {
+		respond 404
+	}
 }
