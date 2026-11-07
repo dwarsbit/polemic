@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.20.0 (unreleased)
+
+### Added
+
+- **Settings → Account** links to your account page, where you can download a copy of your data or delete your account, and to the privacy policy.
+
 ## 0.19.0 (2026-11-06)
 
 ### Changed

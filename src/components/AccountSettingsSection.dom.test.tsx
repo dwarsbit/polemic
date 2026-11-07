@@ -41,6 +41,9 @@ vi.mock("@/lib/tauri", () => ({
   }),
 }));
 
+vi.mock("@tauri-apps/plugin-opener", () => ({ openUrl: vi.fn(async () => {}) }));
+
+import { openUrl } from "@tauri-apps/plugin-opener";
 import { AccountSettingsSection } from "@/components/AccountSettingsSection";
 import * as tauri from "@/lib/tauri";
 
@@ -95,6 +98,24 @@ describe("AccountSettingsSection", () => {
     await click("Sign out");
     expect(tauri.accountSignOut).toHaveBeenCalledOnce();
     expect(host.textContent).toContain("Not signed in");
+  });
+
+  it("opens the account page and the privacy policy when signed in", async () => {
+    server.status = { ...server.status, signedIn: true, user: ada };
+    await render();
+    expect(host.textContent).toContain("download your data or delete your account");
+    await click("Open account page");
+    expect(openUrl).toHaveBeenCalledWith("https://app.polemicapp.com/account");
+    await click("Privacy policy");
+    expect(openUrl).toHaveBeenCalledWith("https://polemicapp.com/privacy");
+  });
+
+  it("links a self-hosted server's account page, without Polemic's privacy policy", async () => {
+    server.status = { ...server.status, server: "https://polemic.example.org", signedIn: true, user: ada };
+    await render();
+    await click("Open account page");
+    expect(openUrl).toHaveBeenCalledWith("https://polemic.example.org/account");
+    expect(button("Privacy policy")).toBeUndefined();
   });
 
   it("cancels a pending sign-in", async () => {
