@@ -471,7 +471,7 @@ export function SettingsDialog({
               description:
                 "Sign in for the online services. Local features never need an account.",
               keywords:
-                "sign in sign out login logout account plan free student pro server self-hosted",
+                "sign in sign out login logout account plan free student pro server self-hosted privacy data export download delete gdpr",
               control: null,
             },
           ],

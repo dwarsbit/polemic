@@ -1,3 +1,4 @@
+import { openUrl } from "@tauri-apps/plugin-opener";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,6 +14,9 @@ import {
 } from "@/lib/tauri";
 
 export const DEFAULT_ACCOUNT_SERVER = "https://app.polemicapp.com";
+export const PRIVACY_POLICY_URL = "https://polemicapp.com/privacy";
+
+const link = "underline underline-offset-2 hover:text-foreground";
 
 /** Plan names as the account page shows them; "professional" comes from servers before the current plans. */
 const PLAN_NAMES: Record<NonNullable<AccountUser["plan"]>, string> = {
@@ -183,6 +187,31 @@ export function AccountSettingsSection() {
           </div>
         )}
       </div>
+      {status?.signedIn && busy === null && (
+        <p className="text-xs text-muted-foreground">
+          On your account page you can change your plan, see your signed-in
+          devices, download your data or delete your account.{" "}
+          <button
+            type="button"
+            className={link}
+            onClick={() => void openUrl(`${status.server}/account`)}
+          >
+            Open account page
+          </button>
+          {status.server === DEFAULT_ACCOUNT_SERVER && (
+            <>
+              {" · "}
+              <button
+                type="button"
+                className={link}
+                onClick={() => void openUrl(PRIVACY_POLICY_URL)}
+              >
+                Privacy policy
+              </button>
+            </>
+          )}
+        </p>
+      )}
       {error && <p className="text-xs text-destructive">{error}</p>}
     </div>
   );
