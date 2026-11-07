@@ -75,7 +75,7 @@ export function WebAppMenu() {
             <DropdownMenuSeparator />
             <DropdownMenuItem onSelect={() => dialogs().setShareOpen(true)}>
               <Share2 />
-              Share for review…
+              Share…
             </DropdownMenuItem>
             <DropdownMenuItem onSelect={() => void exportPdfAs()}>
               <Download />

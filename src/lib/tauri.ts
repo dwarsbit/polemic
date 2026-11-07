@@ -23,9 +23,12 @@ const CHANGES_FILES = new Set([
   "git_resolve_conflict",
 ]);
 
-export type ProjectFilesChange = { kind: "scan" } | { kind: "rename"; from: string; to: string };
+export type ProjectFilesChange =
+  { kind: "scan" } | { kind: "rename"; from: string; to: string };
 
-const fileListeners = new Set<(projectDir: string, change: ProjectFilesChange) => void>();
+const fileListeners = new Set<
+  (projectDir: string, change: ProjectFilesChange) => void
+>();
 
 /** Calls `listener` after each command that changed a project's files. */
 export function onProjectFilesChanged(
@@ -1202,6 +1205,74 @@ export function shareDeleteLink(projectDir: string, linkId: string): Promise<voi
   return invoke("share_delete_link", { projectDir, linkId });
 }
 
+// --- people (phase 5b) --------------------------------------------------------
+
+/** Roles an invite grants. Editors need only a free account; what they
+ *  add counts against the owner's storage. */
+export type InviteRole = "editor" | "commenter";
+
+export interface ProjectMember {
+  userId: string;
+  name: string;
+  email: string;
+  /** "viewer" only for members from before invites. */
+  role: InviteRole | "viewer";
+  addedAt: string;
+}
+
+export interface ProjectInvite {
+  id: string;
+  email: string;
+  role: InviteRole;
+  createdAt: string;
+  expiresAt: string;
+}
+
+export interface ProjectMembers {
+  members: ProjectMember[];
+  invites: ProjectInvite[];
+}
+
+/** The shared project as the account sees it: its role and owner. */
+export function shareInfo(projectDir: string): Promise<AccountProject> {
+  return invoke<AccountProject>("share_info", { projectDir });
+}
+
+/** Members and open invites; owner only. */
+export function shareMembers(projectDir: string): Promise<ProjectMembers> {
+  return invoke<ProjectMembers>("share_members", { projectDir });
+}
+
+/** Emails an invite; inviting an address again sends a new link. */
+export function shareInvite(
+  projectDir: string,
+  email: string,
+  role: InviteRole,
+): Promise<ProjectInvite> {
+  return invoke<ProjectInvite>("share_invite", { projectDir, email, role });
+}
+
+export function shareCancelInvite(projectDir: string, inviteId: string): Promise<void> {
+  return invoke("share_cancel_invite", { projectDir, inviteId });
+}
+
+export function shareSetRole(
+  projectDir: string,
+  userId: string,
+  role: InviteRole,
+): Promise<ProjectMember> {
+  return invoke<ProjectMember>("share_set_role", { projectDir, userId, role });
+}
+
+export function shareRemoveMember(projectDir: string, userId: string): Promise<void> {
+  return invoke("share_remove_member", { projectDir, userId });
+}
+
+/** Leaves a project someone else shared; the folder stops syncing and stays as it is. */
+export function shareLeave(projectDir: string): Promise<void> {
+  return invoke("share_leave", { projectDir });
+}
+
 /** The comment ids the folder holds, and those it has held while shared. */
 export function shareCommentState(
   projectDir: string,
@@ -1236,11 +1307,17 @@ export interface AccountProject {
   updatedAt: string;
 }
 
-export function linkLoad(projectDir: string): Promise<{ state: string | null; pending: string[] }> {
+export function linkLoad(
+  projectDir: string,
+): Promise<{ state: string | null; pending: string[] }> {
   return invoke("link_load", { projectDir });
 }
 
-export function linkSave(projectDir: string, state: string, pending: string[]): Promise<void> {
+export function linkSave(
+  projectDir: string,
+  state: string,
+  pending: string[],
+): Promise<void> {
   return invoke("link_save", { projectDir, state, pending });
 }
 
@@ -1258,7 +1335,11 @@ export function linkWriteText(
   return invoke<boolean>("link_write_text", { projectDir, path, text, expected });
 }
 
-export function linkWriteAsset(projectDir: string, path: string, hash: string): Promise<void> {
+export function linkWriteAsset(
+  projectDir: string,
+  path: string,
+  hash: string,
+): Promise<void> {
   return invoke("link_write_asset", { projectDir, path, hash });
 }
 
@@ -1275,6 +1356,9 @@ export function linkAccountProjects(): Promise<AccountProject[]> {
 }
 
 /** A new folder in the projects folder for a project on the account, linked; the first sync fills it. */
-export function linkOpenAccountProject(projectId: string, name: string): Promise<ProjectInfo> {
+export function linkOpenAccountProject(
+  projectId: string,
+  name: string,
+): Promise<ProjectInfo> {
   return invoke<ProjectInfo>("link_open_account_project", { projectId, name });
 }

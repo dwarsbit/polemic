@@ -66,7 +66,7 @@ export function LinkStatusIndicator() {
   );
 }
 
-/** Said once per project: it now syncs both ways, or a drive syncs its folder too. */
+/** Said once per project: it now syncs both ways, a drive syncs its folder too, or it has a Git remote while shared. */
 export function LinkNoticeDialog() {
   const notice = useLinkStore((s) => s.notice);
   const dismiss = useLinkStore((s) => s.dismissNotice);
@@ -77,7 +77,9 @@ export function LinkNoticeDialog() {
           <DialogTitle>
             {notice?.upgraded
               ? "This project now syncs with your browser"
-              : "Two syncs on one folder"}
+              : notice?.drive
+                ? "Two syncs on one folder"
+                : "Git on a shared project"}
           </DialogTitle>
           <DialogDescription className="space-y-2 text-xs">
             {notice?.upgraded && (
@@ -92,6 +94,14 @@ export function LinkNoticeDialog() {
                 This folder is in {notice.drive}, which syncs it too. Two syncs on the
                 same files can get in each other's way, so use one or the other: move
                 the project out of {notice.drive}, or stop sharing it.
+              </span>
+            )}
+            {notice?.git && (
+              <span className="block">
+                This folder has a Git remote, and other people work on this project too.
+                Their changes already arrive here, so pulling them through Git adds
+                nothing. If a Git merge leaves conflict markers, they reach everyone, so
+                let one person push to the remote.
               </span>
             )}
           </DialogDescription>

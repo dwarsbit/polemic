@@ -52,6 +52,28 @@ starts from the server's document, which the folder then overrides.
 it and saves an empty document as the copy, so the first run writes every
 file the server has into the folder.
 
+## People
+
+The owner invites people by email from the Share dialog
+(`src/components/SharePeople.tsx`; `share_members`, `share_invite`,
+`share_cancel_invite`, `share_set_role`, `share_remove_member` in
+`share.rs`, and the same commands in `src/web/review.ts`). The server
+emails a link to its invite page, which signs the person up or in. An
+editor then opens the project from their account and syncs their own
+folder, with a free account; what they add counts against the owner's
+storage. Commenters read and comment in the browser.
+
+On open, `share_info` gives the account's role: the run pushes only when
+the role writes, so a member made commenter keeps their edits on their
+computer. Someone invited sees whose project it is and can leave it
+(`share_leave`): the server takes them out, and the folder stops syncing
+and keeps its files. Publishing, review links and stopping sharing are
+the owner's.
+
+A folder with a Git remote, on a project other people work on, gets a
+one-time notice: their changes already arrive through the server, and
+conflict markers from a Git merge would reach everyone.
+
 ## Tests
 
 `src/lib/link-sync.test.ts` covers the run against an in-memory folder

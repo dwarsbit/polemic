@@ -3,7 +3,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import * as Y from "yjs";
-import type { ReviewLink, ShareStatus } from "@/lib/tauri";
+import type {
+  AccountProject,
+  ProjectMembers,
+  ReviewLink,
+  ShareStatus,
+} from "@/lib/tauri";
 
 /** The Rust side, as far as the dialog can tell. */
 const server = {
@@ -11,7 +16,19 @@ const server = {
   links: [] as ReviewLink[],
   published: 0,
   publishError: null as unknown,
+  info: null as AccountProject | null,
+  people: { members: [], invites: [] } as ProjectMembers,
 };
+
+const ownerInfo = (): AccountProject => ({
+  id: "p".repeat(22),
+  name: "Thesis",
+  role: "owner",
+  writable: true,
+  source: "linked",
+  owner: { id: "ada", name: "Ada" },
+  updatedAt: "2026-11-07T12:00:00.000Z",
+});
 const emptyUpdate = () => {
   let binary = "";
   for (const b of Y.encodeStateAsUpdate(new Y.Doc())) binary += String.fromCharCode(b);
@@ -85,6 +102,34 @@ vi.mock("@/lib/tauri", () => ({
   linkEnable: vi.fn(async () => server.status.link),
   readProjectFile: vi.fn(async () => "x"),
   onProjectFilesChanged: vi.fn(() => () => {}),
+  shareInfo: vi.fn(async () => server.info ?? ownerInfo()),
+  shareMembers: vi.fn(async () => structuredClone(server.people)),
+  shareInvite: vi.fn(async (_dir: string, email: string, role: "editor" | "commenter") => {
+    const invite = {
+      id: "i".repeat(22),
+      email,
+      role,
+      createdAt: "2026-11-07T12:00:00.000Z",
+      expiresAt: "2026-11-21T12:00:00.000Z",
+    };
+    server.people.invites.unshift(invite);
+    return invite;
+  }),
+  shareCancelInvite: vi.fn(async (_dir: string, id: string) => {
+    server.people.invites = server.people.invites.filter((i) => i.id !== id);
+  }),
+  shareSetRole: vi.fn(async (_dir: string, userId: string, role: "editor" | "commenter") => {
+    const member = server.people.members.find((m) => m.userId === userId)!;
+    member.role = role;
+    return member;
+  }),
+  shareRemoveMember: vi.fn(async (_dir: string, userId: string) => {
+    server.people.members = server.people.members.filter((m) => m.userId !== userId);
+  }),
+  shareLeave: vi.fn(async () => {
+    server.status = { ...server.status, link: null };
+  }),
+  gitStatus: vi.fn(async () => ({ remote: null })),
   shareStop: vi.fn(async () => {
     server.status = { ...server.status, link: null };
     server.published = 0;
@@ -132,6 +177,8 @@ describe("ShareDialog", () => {
     server.links = [];
     server.published = 0;
     server.publishError = null;
+    server.info = null;
+    server.people = { members: [], invites: [] };
     useProjectStore.setState({
       project: { name: "Thesis", path: "/home/ada/thesis" },
       mainFile: "main.tex",
@@ -264,5 +311,116 @@ describe("ShareDialog", () => {
     expect(useLinkStore.getState().status).toBeNull();
     expect(text()).toContain("Not published yet.");
     expect(text()).not.toContain("Review links");
+  });
+
+  const linked = () => {
+    server.status.link = {
+      server: server.status.server,
+      projectId: "p".repeat(22),
+      name: "Thesis",
+      twoWay: true,
+    };
+  };
+
+  const type = async (input: HTMLInputElement, value: string) => {
+    const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")!.set!;
+    await act(async () => {
+      setter.call(input, value);
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+  };
+
+  it("invites people by email and lists them for the owner", async () => {
+    linked();
+    server.people.members = [
+      {
+        userId: "grace",
+        name: "Grace",
+        email: "grace@example.com",
+        role: "editor",
+        addedAt: "2026-11-06T12:00:00.000Z",
+      },
+    ];
+    await render();
+    expect(text()).toContain("People");
+    expect(text()).toContain("grace@example.com");
+
+    expect(button("Invite")!.disabled).toBe(true);
+    const email = document.body.querySelector(
+      'input[aria-label="Email address to invite"]',
+    ) as HTMLInputElement;
+    await type(email, "alan@example.com");
+    await click("Invite");
+    expect(tauri.shareInvite).toHaveBeenCalledWith(
+      "/home/ada/thesis",
+      "alan@example.com",
+      "editor",
+    );
+    expect(text()).toContain("Invite sent to alan@example.com.");
+    expect(text()).toContain("Invited · can edit");
+
+    await click("Cancel invite");
+    expect(tauri.shareCancelInvite).toHaveBeenCalledWith("/home/ada/thesis", "i".repeat(22));
+    expect(text()).not.toContain("Invited · can edit");
+
+    await act(async () =>
+      (
+        document.body.querySelector('button[aria-label="Remove Grace"]') as HTMLButtonElement
+      ).click(),
+    );
+    expect(tauri.shareRemoveMember).toHaveBeenCalledWith("/home/ada/thesis", "grace");
+    expect(text()).not.toContain("grace@example.com");
+  });
+
+  it("shows someone invited whose project it is, and lets them leave", async () => {
+    linked();
+    server.info = { ...ownerInfo(), role: "editor", owner: { id: "leon", name: "Leon" } };
+    await render();
+    expect(text()).toContain("Leon shared this project with you.");
+    expect(text()).toContain("Can edit. Only Leon can invite people");
+    // Owner-only parts are hidden, and nothing owner-only is asked for.
+    expect(button("Publish for review")).toBeUndefined();
+    expect(button("Stop sharing…")).toBeUndefined();
+    expect(text()).not.toContain("People");
+    expect(tauri.shareLinks).not.toHaveBeenCalled();
+    expect(tauri.shareMembers).not.toHaveBeenCalled();
+
+    await click("Leave project…");
+    expect(tauri.shareLeave).not.toHaveBeenCalled();
+    expect(text()).toContain("This folder stops syncing and keeps its files.");
+    await click("Leave project");
+    expect(tauri.shareLeave).toHaveBeenCalledWith("/home/ada/thesis");
+    expect(text()).toContain("Not shared yet.");
+  });
+
+  it("keeps a commenter's changes on this computer", async () => {
+    linked();
+    server.info = {
+      ...ownerInfo(),
+      role: "commenter",
+      writable: false,
+      owner: { id: "leon", name: "Leon" },
+    };
+    await act(async () => useLinkStore.getState().start("/home/ada/thesis"));
+    expect(useLinkStore.getState().status?.kind).toBe("synced");
+    expect(tauri.sharePush).not.toHaveBeenCalled();
+  });
+
+  it("warns once about a Git remote on a project others work on", async () => {
+    linked();
+    localStorage.clear();
+    server.info = { ...ownerInfo(), role: "editor", owner: { id: "leon", name: "Leon" } };
+    vi.mocked(tauri.gitStatus).mockResolvedValue({ remote: "git@example.com:a/b.git" } as never);
+    await act(async () => useLinkStore.getState().start("/home/ada/thesis"));
+    expect(useLinkStore.getState().notice).toMatchObject({ git: true, upgraded: false });
+    useLinkStore.getState().dismissNotice();
+    await act(async () => useLinkStore.getState().start("/home/ada/thesis"));
+    expect(useLinkStore.getState().notice).toBeNull();
+
+    // The owner is warned only once someone else is in the project.
+    localStorage.clear();
+    server.info = null;
+    await act(async () => useLinkStore.getState().start("/home/ada/thesis"));
+    expect(useLinkStore.getState().notice).toBeNull();
   });
 });

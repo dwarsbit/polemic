@@ -99,12 +99,13 @@ project, file, comment and compile commands from that document:
 
 ## Review and writing aids
 
-- **Share for review** (`src/web/review.ts`) answers the desktop app's
+- **Share** (`src/web/review.ts`) answers the desktop app's
   `share_*` commands for the open project. The project already is the
   server's, so publishing waits for every edit to reach the server, uploads
   this tab's last PDF and SyncTeX as assets, then posts the snapshot. Only
-  the owner shares a project; one published from the desktop app is shared
-  from there. There is no "Stop sharing": the server's copy is the project.
+  the owner publishes and invites people; one published from the desktop
+  app is shared from there. Someone invited can leave the project. There is
+  no "Stop sharing": the server's copy is the project.
 - Spelling runs in the browser: `src/lib/spell.ts` is a port of
   `src-tauri/src/spell.rs` with the same English word list (loaded on first
   use) and suggestions. Downloaded languages go to Cache Storage; words
