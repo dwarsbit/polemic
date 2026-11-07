@@ -1273,6 +1273,47 @@ export function shareLeave(projectDir: string): Promise<void> {
   return invoke("share_leave", { projectDir });
 }
 
+/** How an online snapshot came to be: once an hour while the project
+ *  changes, just before a restore, or published for review. */
+export type HistoryKind = "hourly" | "restore" | "published";
+
+/** One of the project's online snapshots. */
+export interface HistorySnapshot {
+  id: string;
+  kind: HistoryKind;
+  size: number;
+  createdAt: string;
+}
+
+/** An online snapshot's files: texts, and other files by their hash. */
+export interface HistoryFiles {
+  snapshot: HistorySnapshot;
+  files: { path: string; text: string }[];
+  assets: { path: string; hash: string; size: number; type: string }[];
+}
+
+/** The shared project's online snapshots, newest first. */
+export function shareHistory(projectDir: string): Promise<HistorySnapshot[]> {
+  return invoke<HistorySnapshot[]>("share_history", { projectDir });
+}
+
+export function shareHistoryFiles(
+  projectDir: string,
+  snapshotId: string,
+): Promise<HistoryFiles> {
+  return invoke<HistoryFiles>("share_history_files", { projectDir, snapshotId });
+}
+
+/** Restores the whole project from an online snapshot, or only `paths`,
+ *  for everyone working on it. The project as it was is kept first. */
+export function shareRestore(
+  projectDir: string,
+  snapshotId: string,
+  paths?: string[],
+): Promise<void> {
+  return invoke("share_restore", { projectDir, snapshotId, paths: paths ?? null });
+}
+
 /** The comment ids the folder holds, and those it has held while shared. */
 export function shareCommentState(
   projectDir: string,

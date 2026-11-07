@@ -122,7 +122,8 @@ leaves out:
 
 - folders on this computer: open a folder, the projects folder, saving to a
   place you pick (files are picked and downloaded instead)
-- Git and snapshots
+- Git and the snapshots kept on this computer (the **Snapshots** panel shows
+  the server's instead; see [linked-projects.md](linked-projects.md))
 - TeX on this computer and the choice of where to compile
 - the desktop sign-in (the browser uses the site's session)
 - the assistant

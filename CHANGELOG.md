@@ -9,6 +9,7 @@
 - A shared project inside iCloud Drive, Google Drive, Proton Drive, Dropbox or OneDrive gets a one-time warning, since two syncs on the same files can get in each other's way.
 - Invite people to a shared project by email from **Share**, as editors or commenters. Editors work on the project in their own desktop app or in the browser with a free account, and what they add counts toward your storage. You can change what each person can do, cancel invites and remove people. A project someone shared with you shows whose it is, and you can leave it.
 - A shared project with a Git remote, that other people work on too, gets a one-time notice: their changes already arrive through Polemic, and conflict markers from a Git merge would reach everyone.
+- Shared projects have online snapshots, kept once an hour while anyone works on them: all of the last two days, then one a day for 30 days. They don't count toward your storage. **Online snapshots** in the desktop app, and **Snapshots** in the browser, show what changed since one, and the owner and editors can restore the whole project or a single file for everyone. Comments stay as they are, and the project as it was before is kept as a snapshot, so a restore can be undone.
 
 ### Changed
 

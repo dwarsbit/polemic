@@ -8,6 +8,8 @@
 
 import type { PublishedSnapshot } from "@/lib/share";
 import type {
+  HistoryFiles,
+  HistorySnapshot,
   ProjectInvite,
   ProjectMember,
   ProjectMembers,
@@ -15,7 +17,7 @@ import type {
   ShareError,
   ShareStatus,
 } from "@/lib/tauri";
-import { sha256Hex } from "@/lib/project-doc";
+import { readProject, sha256Hex, type FolderEntry } from "@/lib/project-doc";
 import {
   edgesSynced,
   project,
@@ -228,7 +230,54 @@ export const reviewCommands: Record<string, (args: Args) => unknown> = {
       }),
     );
   },
+
+  /** The project as it is now, as the desktop app reads a folder. */
+  share_folder: (args): FolderEntry[] => {
+    const { texts, assets } = readProject(project(args).doc);
+    return [
+      ...[...texts].map(([path, { text }]): FolderEntry => ({ path, kind: "text", text })),
+      ...[...assets].map(([path, asset]): FolderEntry => ({ path, kind: "asset", ...asset })),
+    ];
+  },
+
+  share_history: async (args) => {
+    const open = project(args);
+    const { snapshots } = await call<{ snapshots: HistorySnapshot[] }>(
+      `/api/projects/${open.id}/history`,
+    );
+    return snapshots;
+  },
+
+  share_history_files: (args) =>
+    aboutSnapshot(
+      call<HistoryFiles>(
+        `/api/projects/${project(args).id}/history/${encodeURIComponent(String(args.snapshotId))}`,
+      ),
+    ),
+
+  share_restore: (args) =>
+    aboutSnapshot(
+      call(
+        `/api/projects/${project(args).id}/history/${encodeURIComponent(String(args.snapshotId))}/restore`,
+        {
+          method: "POST",
+          json: Array.isArray(args.paths) ? { paths: args.paths } : {},
+        },
+      ),
+    ),
 };
+
+/** A snapshot that is gone, as share.rs says it. */
+async function aboutSnapshot<T>(pending: Promise<T>): Promise<T> {
+  try {
+    return await pending;
+  } catch (e) {
+    if (isShareErrorOf(e, "notFound")) {
+      throw shareError("failed", "This snapshot is no longer kept. Pick a newer one.");
+    }
+    throw e;
+  }
+}
 
 /** Someone or something already gone is what a delete asked for. */
 async function gone(pending: Promise<unknown>): Promise<void> {
