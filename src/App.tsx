@@ -38,7 +38,9 @@ import { hasTrafficLights } from "@/lib/platform";
 import { HELP_URL, ISSUES_URL } from "@/lib/links";
 import { isWeb } from "@/lib/target";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
+import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
+import { setFolderChangeHandler, useLinkStore } from "@/store/link";
 import { usePreviewStore } from "@/store/preview";
 import { applySettingsSideEffects, useSettingsStore } from "@/store/settings";
 import { useDialogsStore } from "@/store/dialogs";
@@ -233,6 +235,22 @@ function App() {
     return () => window.removeEventListener("beforeunload", onBeforeUnload);
   }, []);
 
+  // What a linked project's sync writes reaches the open files, and
+  // comments from the browser reach the Comments panel.
+  useEffect(() => {
+    setFolderChangeHandler((dir, changes) => {
+      if (useProjectStore.getState().project?.path !== dir) return;
+      void useProjectStore.getState().applyFolderChanges(changes);
+      const comments = changes.some((c) =>
+        (c.kind === "move" ? [c.from, c.to] : [c.path]).some((p) =>
+          p.startsWith(".polemic/comments/"),
+        ),
+      );
+      if (comments) void useCommentsStore.getState().load();
+    });
+    return () => setFolderChangeHandler(() => {});
+  }, []);
+
   // Refetch git state and reload the file tree and the active file when
   // the desktop window regains focus, picking up changes made outside
   // the app (git CLI, other editors). The webview does not emit the
@@ -261,6 +279,8 @@ function App() {
           if (focused) {
             void refetchGitState();
             void useProjectStore.getState().syncFromDisk();
+            // Changes made outside the app (git, another editor) go up too.
+            void useLinkStore.getState().syncNow();
           } else saveOnBlur();
         });
       } catch {

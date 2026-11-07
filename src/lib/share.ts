@@ -181,7 +181,7 @@ export function fromBase64(base64: string): Uint8Array {
 }
 
 /** An update that changes nothing: no structs, no deletions. */
-const isEmptyUpdate = (update: Uint8Array) =>
+export const isEmptyUpdate = (update: Uint8Array) =>
   update.length === 2 && update[0] === 0 && update[1] === 0;
 
 /**

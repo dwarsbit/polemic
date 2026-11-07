@@ -29,7 +29,7 @@ vi.mock("@/lib/tauri", () => ({
   shareCreate: vi.fn(async (_dir: string, name: string) => {
     server.status = {
       ...server.status,
-      link: { server: server.status.server, projectId: "p".repeat(22), name },
+      link: { server: server.status.server, projectId: "p".repeat(22), name, twoWay: true },
     };
     return server.status.link;
   }),
@@ -80,6 +80,11 @@ vi.mock("@/lib/tauri", () => ({
   shareDeleteLink: vi.fn(async (_dir: string, id: string) => {
     server.links = server.links.filter((l) => l.id !== id);
   }),
+  linkLoad: vi.fn(async () => ({ state: null, pending: [] })),
+  linkSave: vi.fn(async () => {}),
+  linkEnable: vi.fn(async () => server.status.link),
+  readProjectFile: vi.fn(async () => "x"),
+  onProjectFilesChanged: vi.fn(() => () => {}),
   shareStop: vi.fn(async () => {
     server.status = { ...server.status, link: null };
     server.published = 0;
@@ -92,6 +97,7 @@ import * as tauri from "@/lib/tauri";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { useProjectStore } from "@/store/project";
 import { useSettingsStore } from "@/store/settings";
+import { useLinkStore } from "@/store/link";
 
 let root: Root | null = null;
 
@@ -133,6 +139,7 @@ describe("ShareDialog", () => {
     useSettingsStore.setState({ settingsDialogOpen: false, settingsSection: null });
   });
   afterEach(() => {
+    useLinkStore.getState().stop();
     act(() => root?.unmount());
     root = null;
     document.body.innerHTML = "";
@@ -147,6 +154,20 @@ describe("ShareDialog", () => {
     expect(useSettingsStore.getState().settingsSection).toBe("account");
   });
 
+  it("shares the project, which then syncs", async () => {
+    await render();
+    expect(text()).toContain("Not shared yet.");
+    await click("Share this project");
+    expect(tauri.shareCreate).toHaveBeenCalledWith("/home/ada/thesis", "Thesis");
+    // The folder went up to the new server copy.
+    expect(tauri.sharePush).toHaveBeenCalled();
+    expect(text()).toContain("Synced.");
+    await click("Open in your browser");
+    expect(openUrl).toHaveBeenCalledWith(`https://polemic.example.org/projects/${"p".repeat(22)}`);
+    expect(text()).toContain("Not published yet.");
+    expect(tauri.sharePublish).not.toHaveBeenCalled();
+  });
+
   it("publishes the project with its main file, then offers links", async () => {
     await render();
     expect(text()).toContain("Not published yet.");
@@ -154,6 +175,10 @@ describe("ShareDialog", () => {
     await click("Publish for review");
     expect(tauri.shareCreate).toHaveBeenCalledWith("/home/ada/thesis", "Thesis");
     expect(tauri.sharePublish).toHaveBeenCalledWith("/home/ada/thesis", "main.tex");
+    // Synced before the version was fixed.
+    expect(vi.mocked(tauri.sharePush).mock.invocationCallOrder[0]).toBeLessThan(
+      vi.mocked(tauri.sharePublish).mock.invocationCallOrder[0],
+    );
     expect(text()).toContain("Published ");
     expect(button("Publish again")).toBeDefined();
     expect(text()).toContain("Review links");
@@ -165,6 +190,7 @@ describe("ShareDialog", () => {
       server: server.status.server,
       projectId: "p".repeat(22),
       name: "Thesis",
+      twoWay: true,
     };
     server.published = 1;
     await render();
@@ -196,6 +222,7 @@ describe("ShareDialog", () => {
       server: server.status.server,
       projectId: "p".repeat(22),
       name: "Thesis",
+      twoWay: true,
     };
     server.published = 1;
     server.links = [
@@ -225,6 +252,7 @@ describe("ShareDialog", () => {
       server: server.status.server,
       projectId: "p".repeat(22),
       name: "Thesis",
+      twoWay: true,
     };
     server.published = 1;
     await render();
@@ -233,6 +261,7 @@ describe("ShareDialog", () => {
     expect(text()).toContain("Your files stay as they are.");
     await click("Stop sharing");
     expect(tauri.shareStop).toHaveBeenCalledWith("/home/ada/thesis");
+    expect(useLinkStore.getState().status).toBeNull();
     expect(text()).toContain("Not published yet.");
     expect(text()).not.toContain("Review links");
   });

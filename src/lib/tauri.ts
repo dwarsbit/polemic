@@ -1,6 +1,55 @@
-import { Channel, invoke } from "@tauri-apps/api/core";
+import { Channel, invoke as tauriInvoke } from "@tauri-apps/api/core";
 import type { FolderEntry } from "@/lib/project-doc";
 import type { PublishedSnapshot } from "@/lib/share";
+
+/**
+ * Commands that change a project's files. A linked project syncs after
+ * each (src/store/link.ts); a rename says what moved, so the file keeps
+ * its history on the server.
+ */
+const CHANGES_FILES = new Set([
+  "save_comments",
+  "write_project_file",
+  "create_project_entry",
+  "rename_entry",
+  "delete_entry",
+  "import_assets",
+  "save_asset_meta",
+  "save_project_config",
+  "restore_snapshot",
+  "restore_snapshot_file",
+  "git_pull",
+  "git_abort_merge",
+  "git_resolve_conflict",
+]);
+
+export type ProjectFilesChange = { kind: "scan" } | { kind: "rename"; from: string; to: string };
+
+const fileListeners = new Set<(projectDir: string, change: ProjectFilesChange) => void>();
+
+/** Calls `listener` after each command that changed a project's files. */
+export function onProjectFilesChanged(
+  listener: (projectDir: string, change: ProjectFilesChange) => void,
+): () => void {
+  fileListeners.add(listener);
+  return () => fileListeners.delete(listener);
+}
+
+function invoke<T>(command: string, args?: Record<string, unknown>): Promise<T> {
+  const result = tauriInvoke<T>(command, args);
+  if (CHANGES_FILES.has(command) && typeof args?.projectDir === "string") {
+    const dir = args.projectDir;
+    const change: ProjectFilesChange =
+      command === "rename_entry"
+        ? { kind: "rename", from: String(args.path), to: String(args.newPath) }
+        : { kind: "scan" };
+    void result.then(
+      () => fileListeners.forEach((listener) => listener(dir, change)),
+      () => {},
+    );
+  }
+  return result;
+}
 
 export interface ToolInfo {
   found: boolean;
@@ -1053,6 +1102,8 @@ export interface ShareLink {
   server: string;
   projectId: string;
   name: string;
+  /** Syncs both ways (phase 5b); false for links that publish one way. */
+  twoWay: boolean;
 }
 
 export interface ShareStatus {
@@ -1170,4 +1221,60 @@ export function shareSaveComments(
 /** Deletes the server copy and its links; the folder is not touched. */
 export function shareStop(projectDir: string): Promise<void> {
   return invoke("share_stop", { projectDir });
+}
+
+// --- linked projects (src-tauri/src/link.rs) ---------------------------------
+
+/** A project on the account, as GET /api/projects lists it. */
+export interface AccountProject {
+  id: string;
+  name: string;
+  role: "owner" | "editor" | "commenter" | "viewer";
+  writable: boolean;
+  source: string;
+  owner: { id: string; name: string } | null;
+  updatedAt: string;
+}
+
+export function linkLoad(projectDir: string): Promise<{ state: string | null; pending: string[] }> {
+  return invoke("link_load", { projectDir });
+}
+
+export function linkSave(projectDir: string, state: string, pending: string[]): Promise<void> {
+  return invoke("link_save", { projectDir, state, pending });
+}
+
+/** Turns a link that publishes one way into one that syncs both ways. */
+export function linkEnable(projectDir: string): Promise<ShareLink> {
+  return invoke<ShareLink>("link_enable", { projectDir });
+}
+
+export function linkWriteText(
+  projectDir: string,
+  path: string,
+  text: string,
+  expected: string | null,
+): Promise<boolean> {
+  return invoke<boolean>("link_write_text", { projectDir, path, text, expected });
+}
+
+export function linkWriteAsset(projectDir: string, path: string, hash: string): Promise<void> {
+  return invoke("link_write_asset", { projectDir, path, hash });
+}
+
+export function linkMove(projectDir: string, from: string, to: string): Promise<void> {
+  return invoke("link_move", { projectDir, from, to });
+}
+
+export function linkRemove(projectDir: string, path: string): Promise<void> {
+  return invoke("link_remove", { projectDir, path });
+}
+
+export function linkAccountProjects(): Promise<AccountProject[]> {
+  return invoke<AccountProject[]>("link_account_projects");
+}
+
+/** A new folder in the projects folder for a project on the account, linked; the first sync fills it. */
+export function linkOpenAccountProject(projectId: string, name: string): Promise<ProjectInfo> {
+  return invoke<ProjectInfo>("link_open_account_project", { projectId, name });
 }

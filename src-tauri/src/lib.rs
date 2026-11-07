@@ -17,6 +17,7 @@ mod grammar;
 mod ai;
 mod bib_lookup;
 mod settings;
+mod link;
 mod share;
 mod snapshots;
 mod spell;
@@ -1011,6 +1012,10 @@ fn rename_project(
     }
     let old_path = dir.to_string_lossy().to_string();
     let new_path = new_dir.to_string_lossy().to_string();
+    // A shared project keeps syncing under its new name.
+    if let Ok(links) = share::links_path(&app) {
+        share::move_links(&links, &dir, &new_dir)?;
+    }
     settings::update(&app, |s| {
         if let Some(v) = s.main_files.remove(&old_path) {
             s.main_files.insert(new_path.clone(), v);
@@ -2684,6 +2689,15 @@ pub fn run() {    tauri::Builder::default()
             share::share_comment_state,
             share::share_save_comments,
             share::share_stop,
+            link::link_load,
+            link::link_save,
+            link::link_enable,
+            link::link_write_text,
+            link::link_write_asset,
+            link::link_move,
+            link::link_remove,
+            link::link_account_projects,
+            link::link_open_account_project,
             account::account_status,
             account::account_set_server,
             account::account_sign_in,

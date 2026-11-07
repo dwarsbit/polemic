@@ -260,6 +260,11 @@ pub struct ShareLink {
     /// here, so it is not pulled again and the next publish removes it.
     #[serde(default, skip_serializing_if = "BTreeSet::is_empty")]
     pub seen_comments: BTreeSet<String>,
+    /// The folder syncs both ways with the server copy (phase 5b,
+    /// `link.rs`). Links from before that publish one way until the
+    /// editor turns them into two-way links.
+    #[serde(default)]
+    pub two_way: bool,
 }
 
 #[derive(Serialize, Deserialize, Default)]
@@ -285,6 +290,29 @@ pub fn link_in(file: &Path, dir: &Path, server: &str) -> Option<ShareLink> {
         .links
         .remove(&dir.to_string_lossy().to_string())
         .filter(|link| link.server == server)
+}
+
+/// The folder linked to `project_id` on `server`, if any.
+pub fn folder_linked_to(file: &Path, server: &str, project_id: &str) -> Option<PathBuf> {
+    let _guard = LINKS_LOCK.lock().ok()?;
+    read_links(file)
+        .links
+        .into_iter()
+        .find(|(_, link)| link.server == server && link.project_id == project_id)
+        .map(|(dir, _)| PathBuf::from(dir))
+}
+
+/// Moves the link of a folder that was renamed.
+pub fn move_links(file: &Path, from: &Path, to: &Path) -> Result<(), String> {
+    let _guard = LINKS_LOCK.lock().map_err(|e| e.to_string())?;
+    let mut links = read_links(file);
+    let Some(link) = links.links.remove(&from.to_string_lossy().to_string()) else {
+        return Ok(());
+    };
+    links.links.insert(to.to_string_lossy().to_string(), link);
+    let json = serde_json::to_vec_pretty(&links).map_err(|e| e.to_string())?;
+    crate::files::write_atomic(file, &json)
+        .map_err(|e| format!("could not save the share link: {e}"))
 }
 
 /// Stores the folder's link, or forgets it (None).
@@ -378,6 +406,26 @@ pub struct ProjectInfo {
     pub name: String,
     pub role: String,
     pub writable: bool,
+    /// "desktop", "online" or "linked"; servers before linked projects
+    /// send no "linked".
+    #[serde(default)]
+    pub source: String,
+    #[serde(default)]
+    pub owner: Option<ProjectOwner>,
+    #[serde(default)]
+    pub updated_at: String,
+}
+
+#[derive(Deserialize, Serialize, Clone, Debug, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub struct ProjectOwner {
+    pub id: String,
+    pub name: String,
+}
+
+#[derive(Deserialize)]
+struct Projects {
+    projects: Vec<ProjectInfo>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
@@ -491,9 +539,52 @@ impl<'a> Session<'a> {
         self.json(
             self.client
                 .post(self.url("/api/projects"))
-                .json(&serde_json::json!({ "name": name })),
+                .json(&serde_json::json!({ "name": name, "source": "linked" })),
         )
         .await
+    }
+
+    /// The projects the account owns or was invited to.
+    pub async fn projects(&self) -> Result<Vec<ProjectInfo>, ShareError> {
+        let projects: Projects = self
+            .json(self.client.get(self.url("/api/projects")))
+            .await?;
+        Ok(projects.projects)
+    }
+
+    /// Marks a project published one way as linked, so the browser
+    /// edits it too. Other projects keep their source.
+    pub async fn link_project(&self, id: &str) -> Result<ProjectInfo, ShareError> {
+        let id = checked_id(id)?;
+        self.json(
+            self.client
+                .patch(self.url(&format!("/api/projects/{id}")))
+                .json(&serde_json::json!({ "source": "linked" })),
+        )
+        .await
+    }
+
+    /// An asset's bytes, checked against its hash.
+    pub async fn fetch_asset(&self, id: &str, hash: &str) -> Result<Vec<u8>, ShareError> {
+        let id = checked_id(id)?;
+        if hash.len() != 64 || !hash.bytes().all(|b| b.is_ascii_hexdigit()) {
+            return Err(format!("invalid asset hash: {hash}").into());
+        }
+        let bytes = self
+            .send(
+                self.client
+                    .get(self.url(&format!("/api/projects/{id}/assets/{hash}"))),
+            )
+            .await?
+            .bytes()
+            .await
+            .map_err(|_| unreachable(self.server))?;
+        if cloud_compile::hash_bytes(&bytes) != hash {
+            return Err("A file came from the server damaged. It is fetched again on the next sync."
+                .to_string()
+                .into());
+        }
+        Ok(bytes.to_vec())
     }
 
     pub async fn delete_project(&self, id: &str) -> Result<(), ShareError> {
@@ -751,14 +842,14 @@ pub struct ShareStatus {
     pub link: Option<ShareLink>,
 }
 
-struct Context {
-    server: String,
+pub(crate) struct Context {
+    pub(crate) server: String,
     token: String,
-    dir: PathBuf,
-    links: PathBuf,
+    pub(crate) dir: PathBuf,
+    pub(crate) links: PathBuf,
 }
 
-fn links_path(app: &tauri::AppHandle) -> Result<PathBuf, String> {
+pub(crate) fn links_path(app: &tauri::AppHandle) -> Result<PathBuf, String> {
     use tauri::Manager;
     let data = app
         .path()
@@ -767,7 +858,7 @@ fn links_path(app: &tauri::AppHandle) -> Result<PathBuf, String> {
     Ok(links_file(&data))
 }
 
-fn context(app: &tauri::AppHandle, project_dir: &str) -> Result<Context, ShareError> {
+pub(crate) fn context(app: &tauri::AppHandle, project_dir: &str) -> Result<Context, ShareError> {
     let dir = crate::canonical_project(project_dir)?;
     let server = crate::account::server_of(app)?;
     let token = crate::account::token_with(&server, &crate::account::STORE)
@@ -781,19 +872,19 @@ fn context(app: &tauri::AppHandle, project_dir: &str) -> Result<Context, ShareEr
 }
 
 impl Context {
-    fn link(&self) -> Result<ShareLink, ShareError> {
+    pub(crate) fn link(&self) -> Result<ShareLink, ShareError> {
         link_in(&self.links, &self.dir, &self.server).ok_or_else(|| {
             ShareError::new(ShareErrorKind::NotFound, "This project is not shared yet.")
         })
     }
 
-    fn session(&self) -> Result<Session<'_>, ShareError> {
+    pub(crate) fn session(&self) -> Result<Session<'_>, ShareError> {
         Session::new(&self.server, &self.token)
     }
 
     /// Passes a call's result on; a token the server refuses is
     /// forgotten, and so is the link to a server copy that no longer exists.
-    fn check<T>(&self, result: Result<T, ShareError>) -> Result<T, ShareError> {
+    pub(crate) fn check<T>(&self, result: Result<T, ShareError>) -> Result<T, ShareError> {
         match &result {
             Err(e) if e.kind == ShareErrorKind::SignedOut => {
                 crate::account::forget_rejected_with(
@@ -803,6 +894,9 @@ impl Context {
                 );
             }
             Err(e) if e.kind == ShareErrorKind::NotFound => {
+                if let Some(link) = link_in(&self.links, &self.dir, &self.server) {
+                    crate::link::forget_state(&self.links, &link);
+                }
                 let _ = set_link_in(&self.links, &self.dir, None);
             }
             _ => {}
@@ -851,6 +945,7 @@ pub async fn share_create(
         project_id: project.id,
         name: project.name,
         seen_comments: BTreeSet::new(),
+        two_way: true,
     };
     set_link_in(&cx.links, &cx.dir, Some(link.clone()))?;
     Ok(link)
@@ -1007,9 +1102,12 @@ pub async fn share_stop(app: tauri::AppHandle, project_dir: String) -> Result<()
     let Ok(link) = cx.link() else {
         return Ok(());
     };
-    let id = link.project_id;
+    let id = link.project_id.clone();
     match cx.check(cx.session()?.delete_project(&id).await) {
-        Ok(()) => set_link_in(&cx.links, &cx.dir, None).map_err(ShareError::from),
+        Ok(()) => {
+            crate::link::forget_state(&cx.links, &link);
+            set_link_in(&cx.links, &cx.dir, None).map_err(ShareError::from)
+        }
         // Already gone: run() has forgotten the link.
         Err(e) if e.kind == ShareErrorKind::NotFound => Ok(()),
         Err(e) => Err(e),
@@ -1138,6 +1236,7 @@ mod tests {
             project_id: "p".repeat(22),
             name: "Thesis".into(),
             seen_comments: BTreeSet::new(),
+            two_way: false,
         };
         set_link_in(&file, a, Some(link.clone())).unwrap();
         assert_eq!(link_in(&file, a, "https://app.test"), Some(link.clone()));
@@ -1163,6 +1262,7 @@ mod tests {
             project_id: "p".repeat(22),
             name: "Thesis".into(),
             seen_comments: BTreeSet::new(),
+            two_way: false,
         };
         set_link_in(&file, a, Some(link)).unwrap();
         let ids = |list: &[&str]| list.iter().map(|id| id.to_string()).collect::<Vec<_>>();
