@@ -7,9 +7,21 @@
  */
 
 import type { PublishedSnapshot } from "@/lib/share";
-import type { ReviewLink, ShareError, ShareStatus } from "@/lib/tauri";
+import type {
+  ProjectInvite,
+  ProjectMember,
+  ProjectMembers,
+  ReviewLink,
+  ShareError,
+  ShareStatus,
+} from "@/lib/tauri";
 import { sha256Hex } from "@/lib/project-doc";
-import { edgesSynced, project, type OpenProject } from "@/web/projects";
+import {
+  edgesSynced,
+  project,
+  signedInAccount,
+  type OpenProject,
+} from "@/web/projects";
 import { request, ServerError } from "@/web/server";
 
 type Args = Record<string, unknown>;
@@ -58,7 +70,12 @@ function shareable(open: OpenProject): void {
       `Only ${open.info.owner.name} can share this project for review.`,
     );
   }
-  if (open.info.source === "desktop") {
+  publishedHere(open);
+}
+
+/** A project published one way from the desktop app is shared there. */
+function publishedHere(open: OpenProject): void {
+  if (open.info.role === "owner" && open.info.source === "desktop") {
     throw shareError(
       "failed",
       "This project is published from the desktop app. Share it from there.",
@@ -123,7 +140,7 @@ function checkedUrl(url: unknown): string {
 export const reviewCommands: Record<string, (args: Args) => unknown> = {
   share_status: (args): ShareStatus => {
     const open = project(args);
-    shareable(open);
+    publishedHere(open);
     const server = window.location.origin;
     return {
       server,
@@ -167,4 +184,61 @@ export const reviewCommands: Record<string, (args: Args) => unknown> = {
         method: "DELETE",
       },
     ),
+
+  share_info: (args) => project(args).info,
+
+  share_members: (args) =>
+    call<ProjectMembers>(`/api/projects/${project(args).id}/members`),
+
+  share_invite: (args) =>
+    call<ProjectInvite>(`/api/projects/${project(args).id}/invites`, {
+      method: "POST",
+      json: { email: String(args.email ?? "").trim(), role: args.role },
+    }),
+
+  share_cancel_invite: (args) =>
+    gone(
+      call(
+        `/api/projects/${project(args).id}/invites/${encodeURIComponent(String(args.inviteId))}`,
+        { method: "DELETE" },
+      ),
+    ),
+
+  share_set_role: (args) =>
+    call<ProjectMember>(
+      `/api/projects/${project(args).id}/members/${encodeURIComponent(String(args.userId))}`,
+      { method: "PATCH", json: { role: args.role } },
+    ),
+
+  share_remove_member: (args) =>
+    gone(
+      call(
+        `/api/projects/${project(args).id}/members/${encodeURIComponent(String(args.userId))}`,
+        { method: "DELETE" },
+      ),
+    ),
+
+  share_leave: async (args) => {
+    const open = project(args);
+    const me = await signedInAccount();
+    if (!me) throw shareError("signedOut", "Sign in to your Polemic account first.");
+    await gone(
+      call(`/api/projects/${open.id}/members/${encodeURIComponent(me.id)}`, {
+        method: "DELETE",
+      }),
+    );
+  },
 };
+
+/** Someone or something already gone is what a delete asked for. */
+async function gone(pending: Promise<unknown>): Promise<void> {
+  try {
+    await pending;
+  } catch (e) {
+    if (isShareErrorOf(e, "notFound")) return;
+    throw e;
+  }
+}
+
+const isShareErrorOf = (e: unknown, kind: ShareError["kind"]) =>
+  typeof e === "object" && e !== null && (e as ShareError).kind === kind;

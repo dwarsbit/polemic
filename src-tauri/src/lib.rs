@@ -2373,7 +2373,7 @@ fn build_app_menu(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     let sources = item("sources", "Bibliography sources…", None)?;
     let take_snapshot = item("take_snapshot", "Take snapshot", None)?;
     let commit = item("commit", "Commit…", Some("CmdOrCtrl+K"))?;
-    let share = item("share", "Share for review…", None)?;
+    let share = item("share", "Share…", None)?;
 
     // App and Help
     let settings = item("settings", "Settings…", Some("CmdOrCtrl+,"))?;
@@ -2689,6 +2689,13 @@ pub fn run() {    tauri::Builder::default()
             share::share_comment_state,
             share::share_save_comments,
             share::share_stop,
+            share::share_info,
+            share::share_members,
+            share::share_invite,
+            share::share_cancel_invite,
+            share::share_set_role,
+            share::share_remove_member,
+            share::share_leave,
             link::link_load,
             link::link_save,
             link::link_enable,

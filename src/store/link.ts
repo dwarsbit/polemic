@@ -14,7 +14,10 @@ import {
   linkWriteText,
   onProjectFilesChanged,
   readProjectFile,
+  gitStatus,
   shareFolder,
+  shareInfo,
+  shareMembers,
   sharePush,
   shareStatus,
   shareSync,
@@ -57,20 +60,47 @@ export interface LinkNotice {
   upgraded: boolean;
   /** The sync service whose folder holds the project, e.g. iCloud Drive. */
   drive: string | null;
+  /** The folder has a Git remote, and other people work on the project. */
+  git: boolean;
 }
 
 const DRIVE_WARNED = "polemic.linkDriveWarned";
+const GIT_WARNED = "polemic.linkGitWarned";
 
-/** True the first time for `dir`, then false: the drive warning shows once. */
-function warnDriveOnce(dir: string): boolean {
+function warnedFor(key: string): string[] | null {
   try {
-    const warned: string[] = JSON.parse(localStorage.getItem(DRIVE_WARNED) ?? "[]");
+    return JSON.parse(localStorage.getItem(key) ?? "[]") as string[];
+  } catch {
+    return null;
+  }
+}
+
+/** True the first time for `dir`, then false: the warning shows once. */
+function warnOnce(key: string, dir: string): boolean {
+  try {
+    const warned = warnedFor(key) ?? [];
     if (warned.includes(dir)) return false;
-    localStorage.setItem(DRIVE_WARNED, JSON.stringify([...warned, dir]));
+    localStorage.setItem(key, JSON.stringify([...warned, dir]));
   } catch {
     // No storage: warn every time rather than never.
   }
   return true;
+}
+
+/**
+ * Whether to warn about a Git remote: the folder has one and other
+ * people work on the project, so a merge's conflict markers would reach
+ * them too. Asked once per folder; any failure means no warning.
+ */
+async function gitShared(dir: string, role: string | null): Promise<boolean> {
+  if (warnedFor(GIT_WARNED)?.includes(dir)) return false;
+  try {
+    if (!(await gitStatus(dir)).remote) return false;
+    if (role === "owner") return (await shareMembers(dir)).members.length > 0;
+    return role !== null;
+  } catch {
+    return false;
+  }
 }
 
 /** How often the server is asked for changes, with the window in front and behind. */
@@ -198,11 +228,21 @@ export const useLinkStore = create<LinkState>((set, get) => {
         return;
       }
       if (get().dir !== dir) return;
+      // The role decides whether this folder's changes go up; offline,
+      // they are kept and go up once the server says they may.
+      const info = await Promise.resolve()
+        .then(() => shareInfo(dir))
+        .catch(() => null);
+      if (get().dir !== dir) return;
       const drive = syncedDriveOf(dir);
-      if (upgraded || (drive && warnDriveOnce(dir))) {
-        set({ notice: { upgraded, drive } });
+      const git =
+        (await gitShared(dir, info?.role ?? null)) && warnOnce(GIT_WARNED, dir);
+      if (get().dir !== dir) return;
+      const driveNow = drive && warnOnce(DRIVE_WARNED, dir) ? drive : null;
+      if (upgraded || git || driveNow) {
+        set({ notice: { upgraded, drive: driveNow, git } });
       }
-      sync = new LinkSync(linkApi(dir));
+      sync = new LinkSync(linkApi(dir), { writable: info?.writable ?? true });
       failures = 0;
       unlisten = onProjectFilesChanged((changed, change) => {
         if (changed !== get().dir || !sync) return;

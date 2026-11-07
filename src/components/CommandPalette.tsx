@@ -321,7 +321,7 @@ export function CommandPalette() {
       },
       {
         id: "share",
-        title: "Share for review…",
+        title: "Share…",
         icon: Share2,
         keywords: "publish review link reviewer supervisor",
         run: () => useDialogsStore.getState().setShareOpen(true),

@@ -17,17 +17,23 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { SharePeople, ROLE_LABELS } from "@/components/SharePeople";
 import { type PublishedSnapshot } from "@/lib/share";
 import {
   isShareError,
   shareCreate,
   shareCreateLink,
   shareDeleteLink,
+  shareInfo,
+  shareLeave,
   shareLinks,
+  shareMembers,
   sharePublish,
   shareSnapshots,
   shareStatus,
   shareStop,
+  type AccountProject,
+  type ProjectMembers,
   type ReviewLink,
   type ShareError,
   type ShareStatus,
@@ -79,16 +85,30 @@ function toShareError(e: unknown): ShareError {
 
 interface ShareState {
   status: ShareStatus;
+  /** The account's role and the owner; null while not shared. */
+  info: AccountProject | null;
   latest: PublishedSnapshot | null;
   links: ReviewLink[];
+  /** Members and invites, for the owner; null for others, or from a server without invites. */
+  people: ProjectMembers | null;
 }
 
-/** The folder's link, then, when shared, its latest version and links. */
+/**
+ * The folder's link, then, when shared, the account's role; for the
+ * owner also the latest version, the links and the people.
+ */
 async function loadShare(dir: string): Promise<ShareState> {
   const status = await shareStatus(dir);
-  if (!status.signedIn || !status.link) return { status, latest: null, links: [] };
-  const [snapshots, links] = await Promise.all([shareSnapshots(dir), shareLinks(dir)]);
-  return { status, latest: snapshots[0] ?? null, links };
+  const none = { status, info: null, latest: null, links: [], people: null };
+  if (!status.signedIn || !status.link) return none;
+  const info = await shareInfo(dir);
+  if (info.role !== "owner") return { ...none, info };
+  const [snapshots, links, people] = await Promise.all([
+    shareSnapshots(dir),
+    shareLinks(dir),
+    shareMembers(dir).catch(() => null),
+  ]);
+  return { status, info, latest: snapshots[0] ?? null, links, people };
 }
 
 function formatDate(iso: string): string {
@@ -99,11 +119,13 @@ function formatDate(iso: string): string {
 }
 
 /**
- * Share for review. On the desktop, sharing links the folder with a
- * copy on the account's server that syncs both ways (store/link.ts),
- * so the project also opens in the browser. Publishing fixes the
- * version reviewers see, with the PDF of the last compile, and the
- * review links open it. The folder stays the place you work.
+ * Share. On the desktop, sharing links the folder with a copy on the
+ * account's server that syncs both ways (store/link.ts), so the
+ * project also opens in the browser. The owner invites people to edit
+ * or comment; publishing fixes the version reviewers see, with the PDF
+ * of the last compile, and the review links open it. The folder stays
+ * the place you work. Someone invited sees whose project it is and can
+ * leave it.
  */
 export function ShareDialog({
   open,
@@ -127,25 +149,31 @@ function ShareBody() {
   const mainFile = useProjectStore((s) => s.mainFile);
   const openSettings = useSettingsStore((s) => s.openSettings);
 
+  const leaveProject = useProjectStore((s) => s.leaveProject);
   const [status, setStatus] = useState<ShareStatus | null>(null);
+  const [info, setInfo] = useState<AccountProject | null>(null);
+  const [people, setPeople] = useState<ProjectMembers | null>(null);
   const [latest, setLatest] = useState<PublishedSnapshot | null>(null);
   const [links, setLinks] = useState<ReviewLink[]>([]);
   const [step, setStep] = useState<Step | null>(null);
   const linkStatus = useLinkStore((s) => s.status);
-  const [busy, setBusy] = useState<"link" | "stop" | null>(null);
+  const [busy, setBusy] = useState<"link" | "stop" | "leave" | null>(null);
   const [error, setError] = useState<ShareError | null>(null);
   const [role, setRole] = useState<ReviewLink["role"]>("commenter");
   const [expiry, setExpiry] = useState<(typeof EXPIRY)[number]["value"]>("never");
   const [created, setCreated] = useState<ReviewLink | null>(null);
   const [copied, setCopied] = useState(false);
   const [confirmStop, setConfirmStop] = useState(false);
+  const [confirmLeave, setConfirmLeave] = useState(false);
 
   const dir = project?.path ?? null;
 
   const show = useCallback((state: ShareState) => {
     setStatus(state.status);
+    setInfo(state.info);
     setLatest(state.latest);
     setLinks(state.links);
+    setPeople(state.people);
   }, []);
 
   const refresh = useCallback(async () => {
@@ -264,6 +292,26 @@ function ShareBody() {
       }
     });
 
+  /** Someone invited leaves: the server copy stays the owner's; the folder stays as it is. */
+  const leave = () =>
+    attempt(async () => {
+      if (!dir) return;
+      setBusy("leave");
+      try {
+        useLinkStore.getState().stop();
+        await shareLeave(dir);
+        setConfirmLeave(false);
+        // In the browser the project was the server's: back to the list.
+        if (!features.localFiles) {
+          await leaveProject();
+          return;
+        }
+        await refresh();
+      } finally {
+        setBusy(null);
+      }
+    });
+
   const copy = (url: string) => {
     void navigator.clipboard?.writeText(url).then(() => setCopied(true));
   };
@@ -272,24 +320,34 @@ function ShareBody() {
   const signedOut =
     status !== null && (!status.signedIn || error?.kind === "signedOut");
   const shared = status?.link != null;
+  // Before sharing, the folder is this account's to share.
+  const owner = !shared || info?.role === "owner";
+  const invited = shared && info !== null && info.role !== "owner";
   const publishing = step !== null;
 
   return (
     <>
       <DialogHeader>
-        <DialogTitle>Share for review</DialogTitle>
+        <DialogTitle>Share</DialogTitle>
         <DialogDescription className="text-xs">
-          {features.localFiles ? (
+          {invited ? (
             <>
-              Share this project with your Polemic account to open it in your browser and
-              to give reviewers a link. Your files stay where they are, and the account
-              keeps a copy in sync with them.
+              {info.owner?.name ?? "Someone"} shared this project with you.{" "}
+              {info.writable
+                ? "You can edit it, and your changes reach everyone working on it."
+                : "You can read it and comment on it."}
+            </>
+          ) : features.localFiles ? (
+            <>
+              Share this project with your Polemic account to open it in your browser,
+              invite people to work on it and give reviewers a link. Your files stay
+              where they are, and the account keeps a copy in sync with them.
             </>
           ) : (
             <>
-              Publish this project so reviewers can read the source and its PDF in a
-              browser. They see the version you published last, with the PDF of your
-              last compile.
+              Invite people to work on this project, or publish it so reviewers can read
+              the source and its PDF in a browser. Reviewers see the version you
+              published last, with the PDF of your last compile.
             </>
           )}
         </DialogDescription>
@@ -328,7 +386,9 @@ function ShareBody() {
                       size="sm"
                       variant="outline"
                       onClick={() =>
-                        void openUrl(`${status.server}/projects/${status.link!.projectId}`)
+                        void openUrl(
+                          `${status.server}/projects/${status.link!.projectId}`,
+                        )
                       }
                     >
                       Open in your browser
@@ -346,11 +406,15 @@ function ShareBody() {
               ) : (
                 <>
                   <p className="text-xs text-muted-foreground">
-                    Not shared yet. Saved changes sync both ways once you share: what you
-                    save here appears in your browser, and changes made there arrive in this
-                    folder.
+                    Not shared yet. Saved changes sync both ways once you share: what
+                    you save here appears in your browser, and changes made there arrive
+                    in this folder.
                   </p>
-                  <Button size="sm" disabled={step !== null} onClick={() => void share()}>
+                  <Button
+                    size="sm"
+                    disabled={step !== null}
+                    onClick={() => void share()}
+                  >
                     {step === "sharing" && <Loader2 className="size-3 animate-spin" />}
                     Share this project
                   </Button>
@@ -359,28 +423,51 @@ function ShareBody() {
             </section>
           )}
 
-          <section className="space-y-2">
-            <h3 className="text-xs font-medium">Published version</h3>
-            <p className="text-xs text-muted-foreground" role="status">
-              {publishing
-                ? STEP_LABELS[step]
-                : latest
-                  ? `Published ${formatDate(latest.createdAt)}.`
-                  : "Not published yet."}
-              {!publishing && latest && latest.pdf === null && (
-                <>
-                  {" "}
-                  No PDF went with it: compile, then publish again so reviewers see one.
-                </>
-              )}
-            </p>
-            <Button size="sm" disabled={publishing} onClick={() => void publish()}>
-              {publishing && <Loader2 className="size-3 animate-spin" />}
-              {latest ? "Publish again" : "Publish for review"}
-            </Button>
-          </section>
+          {shared && owner && people && dir && (
+            <SharePeople
+              dir={dir}
+              people={people}
+              onChange={setPeople}
+              attempt={attempt}
+            />
+          )}
 
-          {shared && (
+          {invited && (
+            <section className="space-y-2">
+              <h3 className="text-xs font-medium">Your role</h3>
+              <p className="text-xs text-muted-foreground">
+                {ROLE_LABELS[info.role === "owner" ? "editor" : info.role]}. Only{" "}
+                {info.owner?.name ?? "the owner"} can invite people, publish and make
+                review links.
+              </p>
+            </section>
+          )}
+
+          {owner && (
+            <section className="space-y-2">
+              <h3 className="text-xs font-medium">Published version</h3>
+              <p className="text-xs text-muted-foreground" role="status">
+                {publishing
+                  ? STEP_LABELS[step]
+                  : latest
+                    ? `Published ${formatDate(latest.createdAt)}.`
+                    : "Not published yet."}
+                {!publishing && latest && latest.pdf === null && (
+                  <>
+                    {" "}
+                    No PDF went with it: compile, then publish again so reviewers see
+                    one.
+                  </>
+                )}
+              </p>
+              <Button size="sm" disabled={publishing} onClick={() => void publish()}>
+                {publishing && <Loader2 className="size-3 animate-spin" />}
+                {latest ? "Publish again" : "Publish for review"}
+              </Button>
+            </section>
+          )}
+
+          {shared && owner && (
             <section className="space-y-2">
               <h3 className="text-xs font-medium">Review links</h3>
               {links.length === 0 ? (
@@ -503,14 +590,56 @@ function ShareBody() {
           )}
 
           {/* In the browser, the server's copy is the project itself. */}
-          {shared && features.localFiles && (
+          {invited && (
+            <section className="space-y-2 border-t pt-3">
+              {confirmLeave ? (
+                <div className="space-y-2">
+                  <p className="text-xs text-muted-foreground">
+                    Leave {info.owner?.name ?? "the owner"}&apos;s project?{" "}
+                    {features.localFiles
+                      ? "This folder stops syncing and keeps its files."
+                      : "It leaves your list of projects."}{" "}
+                    Only the owner can invite you again.
+                  </p>
+                  <div className="flex gap-2">
+                    <Button
+                      size="sm"
+                      variant="destructive"
+                      disabled={busy === "leave"}
+                      onClick={() => void leave()}
+                    >
+                      {busy === "leave" && <Loader2 className="size-3 animate-spin" />}
+                      Leave project
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => setConfirmLeave(false)}
+                    >
+                      Cancel
+                    </Button>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  className="text-xs text-muted-foreground underline-offset-2 hover:text-destructive hover:underline"
+                  onClick={() => setConfirmLeave(true)}
+                >
+                  Leave project…
+                </button>
+              )}
+            </section>
+          )}
+
+          {shared && owner && features.localFiles && (
             <section className="space-y-2 border-t pt-3">
               {confirmStop ? (
                 <div className="space-y-2">
                   <p className="text-xs text-muted-foreground">
                     Delete the server copy, its published versions and every review
-                    link? The project no longer opens in your browser. Your files stay as
-                    they are.
+                    link? The project no longer opens in your browser, and people you
+                    invited lose it. Your files stay as they are.
                   </p>
                   <div className="flex gap-2">
                     <Button
@@ -548,18 +677,19 @@ function ShareBody() {
       {error !== null && error.kind !== "signedOut" && (
         <p className="text-xs text-destructive" role="alert">
           {error.message}
-          {(error.kind === "planRequired" || error.kind === "limitReached") && accountPage && (
-            <>
-              {" "}
-              <button
-                type="button"
-                className={link}
-                onClick={() => void openUrl(accountPage)}
-              >
-                See plans
-              </button>
-            </>
-          )}
+          {(error.kind === "planRequired" || error.kind === "limitReached") &&
+            accountPage && (
+              <>
+                {" "}
+                <button
+                  type="button"
+                  className={link}
+                  onClick={() => void openUrl(accountPage)}
+                >
+                  See plans
+                </button>
+              </>
+            )}
         </p>
       )}
     </>

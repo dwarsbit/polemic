@@ -478,6 +478,76 @@ struct Links {
     links: Vec<ReviewLink>,
 }
 
+/// Someone the owner invited who accepted (contracts' `projectMemberInfo`).
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub struct ProjectMember {
+    pub user_id: String,
+    pub name: String,
+    pub email: String,
+    /// "editor" or "commenter"; "viewer" for members from before invites.
+    pub role: String,
+    pub added_at: String,
+}
+
+/// An invite not accepted yet (contracts' `projectInviteInfo`).
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub struct ProjectInvite {
+    pub id: String,
+    pub email: String,
+    pub role: String,
+    pub created_at: String,
+    pub expires_at: String,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub struct Members {
+    pub members: Vec<ProjectMember>,
+    pub invites: Vec<ProjectInvite>,
+}
+
+#[derive(Deserialize)]
+struct Me {
+    id: String,
+}
+
+/// Account ids (Better Auth's): letters, digits, `-` and `_`.
+fn checked_user_id(id: &str) -> Result<&str, ShareError> {
+    if !id.is_empty()
+        && id.len() <= 64
+        && id
+            .bytes()
+            .all(|b| b.is_ascii_alphanumeric() || b == b'-' || b == b'_')
+    {
+        Ok(id)
+    } else {
+        Err(format!("invalid user id: {id}").into())
+    }
+}
+
+fn checked_invite_role(role: &str) -> Result<&str, ShareError> {
+    if role == "editor" || role == "commenter" {
+        Ok(role)
+    } else {
+        Err(format!("unknown role: {role}").into())
+    }
+}
+
+/// For a member or an invite that is gone: a 404 there is about that
+/// person, not the project, so it must not forget the link (`check`).
+fn about_member(e: ShareError) -> ShareError {
+    if e.kind == ShareErrorKind::NotFound {
+        ShareError::new(
+            ShareErrorKind::Failed,
+            "That person is no longer in this project.",
+        )
+    } else {
+        e
+    }
+}
+
 #[derive(Deserialize)]
 struct StoredAsset {
     hash: String,
@@ -818,6 +888,97 @@ impl<'a> Session<'a> {
         .await
         .map(drop)
     }
+
+    /// The project as the account sees it: its role and owner.
+    pub async fn project(&self, id: &str) -> Result<ProjectInfo, ShareError> {
+        let id = checked_id(id)?;
+        self.json(self.client.get(self.url(&format!("/api/projects/{id}"))))
+            .await
+    }
+
+    /// Members and open invites (owner only).
+    pub async fn members(&self, id: &str) -> Result<Members, ShareError> {
+        let id = checked_id(id)?;
+        self.json(
+            self.client
+                .get(self.url(&format!("/api/projects/{id}/members"))),
+        )
+        .await
+    }
+
+    /// Emails an invite to `email` as editor or commenter (owner only).
+    pub async fn invite(
+        &self,
+        id: &str,
+        email: &str,
+        role: &str,
+    ) -> Result<ProjectInvite, ShareError> {
+        let id = checked_id(id)?;
+        let role = checked_invite_role(role)?;
+        self.json(
+            self.client
+                .post(self.url(&format!("/api/projects/{id}/invites")))
+                .json(&serde_json::json!({ "email": email.trim(), "role": role })),
+        )
+        .await
+    }
+
+    /// Cancels an invite; one already gone is fine.
+    pub async fn cancel_invite(&self, id: &str, invite_id: &str) -> Result<(), ShareError> {
+        let id = checked_id(id)?;
+        let invite_id = checked_id(invite_id)?;
+        match self
+            .send(
+                self.client
+                    .delete(self.url(&format!("/api/projects/{id}/invites/{invite_id}"))),
+            )
+            .await
+        {
+            Err(e) if e.kind != ShareErrorKind::NotFound => Err(e),
+            _ => Ok(()),
+        }
+    }
+
+    pub async fn set_role(
+        &self,
+        id: &str,
+        user_id: &str,
+        role: &str,
+    ) -> Result<ProjectMember, ShareError> {
+        let id = checked_id(id)?;
+        let user_id = checked_user_id(user_id)?;
+        let role = checked_invite_role(role)?;
+        self.json(
+            self.client
+                .patch(self.url(&format!("/api/projects/{id}/members/{user_id}")))
+                .json(&serde_json::json!({ "role": role })),
+        )
+        .await
+        .map_err(about_member)
+    }
+
+    /// Takes someone out of the project (owner), or the account itself
+    /// (leaving). Someone already gone is fine.
+    pub async fn remove_member(&self, id: &str, user_id: &str) -> Result<(), ShareError> {
+        let id = checked_id(id)?;
+        let user_id = checked_user_id(user_id)?;
+        match self
+            .send(
+                self.client
+                    .delete(self.url(&format!("/api/projects/{id}/members/{user_id}"))),
+            )
+            .await
+        {
+            Err(e) if e.kind != ShareErrorKind::NotFound => Err(e),
+            _ => Ok(()),
+        }
+    }
+
+    /// The signed-in account's id.
+    pub async fn me(&self) -> Result<String, ShareError> {
+        let me: Me = self.json(self.client.get(self.url("/api/me"))).await?;
+        Ok(me.id)
+    }
 }
 
 pub fn decode_base64(value: &str) -> Result<Vec<u8>, ShareError> {
@@ -1049,6 +1210,93 @@ pub async fn share_delete_link(
     let cx = context(&app, &project_dir)?;
     let id = cx.link()?.project_id;
     cx.check(cx.session()?.delete_link(&id, &link_id).await)
+}
+
+/// The shared project as the account sees it: role and owner.
+#[tauri::command]
+pub async fn share_info(
+    app: tauri::AppHandle,
+    project_dir: String,
+) -> Result<ProjectInfo, ShareError> {
+    let cx = context(&app, &project_dir)?;
+    let id = cx.link()?.project_id;
+    cx.check(cx.session()?.project(&id).await)
+}
+
+#[tauri::command]
+pub async fn share_members(
+    app: tauri::AppHandle,
+    project_dir: String,
+) -> Result<Members, ShareError> {
+    let cx = context(&app, &project_dir)?;
+    let id = cx.link()?.project_id;
+    cx.check(cx.session()?.members(&id).await)
+}
+
+#[tauri::command]
+pub async fn share_invite(
+    app: tauri::AppHandle,
+    project_dir: String,
+    email: String,
+    role: String,
+) -> Result<ProjectInvite, ShareError> {
+    let cx = context(&app, &project_dir)?;
+    let id = cx.link()?.project_id;
+    cx.check(cx.session()?.invite(&id, &email, &role).await)
+}
+
+#[tauri::command]
+pub async fn share_cancel_invite(
+    app: tauri::AppHandle,
+    project_dir: String,
+    invite_id: String,
+) -> Result<(), ShareError> {
+    let cx = context(&app, &project_dir)?;
+    let id = cx.link()?.project_id;
+    cx.check(cx.session()?.cancel_invite(&id, &invite_id).await)
+}
+
+#[tauri::command]
+pub async fn share_set_role(
+    app: tauri::AppHandle,
+    project_dir: String,
+    user_id: String,
+    role: String,
+) -> Result<ProjectMember, ShareError> {
+    let cx = context(&app, &project_dir)?;
+    let id = cx.link()?.project_id;
+    cx.check(cx.session()?.set_role(&id, &user_id, &role).await)
+}
+
+#[tauri::command]
+pub async fn share_remove_member(
+    app: tauri::AppHandle,
+    project_dir: String,
+    user_id: String,
+) -> Result<(), ShareError> {
+    let cx = context(&app, &project_dir)?;
+    let id = cx.link()?.project_id;
+    cx.check(cx.session()?.remove_member(&id, &user_id).await)
+}
+
+/// Leaves a project someone else shared: the account is taken out of
+/// it and the folder stops syncing. The folder stays as it is.
+#[tauri::command]
+pub async fn share_leave(app: tauri::AppHandle, project_dir: String) -> Result<(), ShareError> {
+    let cx = context(&app, &project_dir)?;
+    let Ok(link) = cx.link() else {
+        return Ok(());
+    };
+    let session = cx.session()?;
+    let me = cx.check(session.me().await)?;
+    match cx.check(session.remove_member(&link.project_id, &me).await) {
+        Ok(()) => {
+            crate::link::forget_state(&cx.links, &link);
+            set_link_in(&cx.links, &cx.dir, None).map_err(ShareError::from)
+        }
+        Err(e) if e.kind == ShareErrorKind::NotFound => Ok(()),
+        Err(e) => Err(e),
+    }
 }
 
 /// What the folder holds and has held of the project's comments.

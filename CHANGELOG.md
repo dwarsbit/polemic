@@ -4,9 +4,15 @@
 
 ### Added
 
-- Shared projects now sync both ways with your Polemic account. What you save in the desktop app appears within seconds when you open the project in your browser, and changes made there arrive in the folder. A file you have open with unsaved edits takes in the changes and keeps yours. Changes you make offline sync when you're back online. Projects you shared before sync the next time you open them, after a one-time notice, and become editable in the browser. The status bar shows whether the project is synced, and **Share for review** opens it in your browser.
+- Shared projects now sync both ways with your Polemic account. What you save in the desktop app appears within seconds when you open the project in your browser, and changes made there arrive in the folder. A file you have open with unsaved edits takes in the changes and keeps yours. Changes you make offline sync when you're back online. Projects you shared before sync the next time you open them, after a one-time notice, and become editable in the browser. The status bar shows whether the project is synced, and **Share** opens it in your browser.
 - **Open from your account…** on the start screen opens a project you made in your browser, or shared from another computer, in a new folder in your projects folder that stays in sync.
 - A shared project inside iCloud Drive, Google Drive, Proton Drive, Dropbox or OneDrive gets a one-time warning, since two syncs on the same files can get in each other's way.
+- Invite people to a shared project by email from **Share**, as editors or commenters. Editors work on the project in their own desktop app or in the browser with a free account, and what they add counts toward your storage. You can change what each person can do, cancel invites and remove people. A project someone shared with you shows whose it is, and you can leave it.
+- A shared project with a Git remote, that other people work on too, gets a one-time notice: their changes already arrive through Polemic, and conflict markers from a Git merge would reach everyone.
+
+### Changed
+
+- **Share for review** is now **Share**, since it also invites people.
 
 ## 0.20.0 (2026-11-07)
 
