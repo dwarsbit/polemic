@@ -25,6 +25,8 @@ import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useSettingsStore } from "@/store/settings";
 import { isWeb } from "@/lib/target";
+import { mergeText, type FolderChange } from "@/lib/link-sync";
+import { useLinkStore } from "@/store/link";
 
 interface ProjectState {
   project: api.ProjectInfo | null;
@@ -81,6 +83,9 @@ interface ProjectState {
   /** Pick up outside changes (git, other editors): refresh the file
    *  tree and reload the active file when it has no unsaved edits. */
   syncFromDisk: () => Promise<void>;
+  /** A linked project's sync changed files in the folder: open files
+   *  follow, and unsaved edits merge with what arrived. */
+  applyFolderChanges: (changes: FolderChange[]) => Promise<void>;
   refreshSnapshots: () => Promise<void>;
   takeSnapshot: () => Promise<void>;
   restoreSnapshot: (id: string) => Promise<void>;
@@ -443,6 +448,8 @@ export const useProjectStore = create<ProjectState>((set, get) => {
         set({ activeFile: null, lastSavedContent: null });
       }
       await get().refreshSnapshots();
+      // A shared project syncs with its server copy while it is open.
+      void useLinkStore.getState().start(info.path);
       // Backfill cross-file metadata in the background, so opening a
       // project stays fast. Entries collected meanwhile (the opened
       // file, live edits) win.
@@ -503,6 +510,7 @@ export const useProjectStore = create<ProjectState>((set, get) => {
 
     closeProject: () => {
       // Dirty buffers are flushed by the caller (see leaveProject).
+      useLinkStore.getState().stop();
       void api.setProjectMenuEnabled(false);
       useEditorStore.getState().loadContent("");
       set({
@@ -617,6 +625,10 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       if (!project || name === project.name) return;
       const info = await api.renameProject(project.path, name);
       set({ project: info });
+      // The link moved with the folder: sync from the new path.
+      if (useLinkStore.getState().dir === project.path) {
+        void useLinkStore.getState().start(info.path);
+      }
     },
 
     createEntry: async (path, isDir) => {
@@ -833,6 +845,96 @@ export const useProjectStore = create<ProjectState>((set, get) => {
       set({ lastSavedContent: onDisk });
       if (!applyRemoteContent(onDisk)) useEditorStore.getState().loadContent(onDisk);
       get().refreshDocMeta(activeFile, onDisk);
+    },
+
+    applyFolderChanges: async (changes) => {
+      if (!get().project) return;
+      flushPendingSerialize();
+      const moved = (file: string | null) => {
+        if (file === null) return null;
+        for (const change of changes) {
+          if (change.kind !== "move") continue;
+          if (file === change.from) file = change.to;
+        }
+        return file;
+      };
+      const deleted = new Set(
+        changes.flatMap((c) => (c.kind === "delete" ? [c.path] : [])),
+      );
+      const { activeFile, lastSavedContent } = get();
+      const buffers: Record<string, string> = {};
+      for (const [file, content] of Object.entries(get().buffers)) {
+        buffers[moved(file)!] = content;
+      }
+      const active = moved(activeFile);
+      const editorContent = useEditorStore.getState().content;
+      const activeDirty =
+        active !== null &&
+        (buffers[active] !== undefined || editorContent !== lastSavedContent);
+      let nextSaved = lastSavedContent;
+      let nextContent: string | null = null;
+      for (const change of changes) {
+        if (change.kind !== "write") continue;
+        const base = change.before ?? "";
+        if (change.path === active) {
+          nextContent = activeDirty
+            ? mergeText(nextSaved ?? base, editorContent, change.after)
+            : change.after;
+          nextSaved = change.after;
+        } else if (buffers[change.path] !== undefined) {
+          buffers[change.path] = mergeText(base, buffers[change.path], change.after);
+        }
+      }
+      // A file deleted elsewhere closes, unless it has unsaved edits:
+      // saving them brings it back.
+      const gone = (file: string) => deleted.has(file) && buffers[file] === undefined;
+      const openFiles = get()
+        .openFiles.map((f) => moved(f)!)
+        .filter((f) => !(gone(f) && (f !== active || !activeDirty)));
+      set({
+        buffers,
+        openFiles,
+        activeFile: active,
+        mainFile: moved(get().mainFile),
+        lastSavedContent: nextSaved,
+        ...changes.reduce(
+          (meta, c) => (c.kind === "move" ? moveFileMetadata(meta, c.from, c.to) : meta),
+          get() as FileMetadata,
+        ),
+      });
+      if (active !== null && nextContent !== null) {
+        if (!applyRemoteContent(nextContent)) {
+          useEditorStore.getState().loadContent(nextContent);
+        }
+        get().refreshDocMeta(active, nextContent);
+      }
+      if (active !== null && deleted.has(active) && !activeDirty) {
+        useEditorStore.getState().loadContent("");
+        set({ activeFile: null, lastSavedContent: null });
+        const next = openFiles[openFiles.length - 1];
+        if (next) await get().openFile(next);
+      }
+      for (const change of changes) {
+        if (change.kind === "write" && change.path !== active) {
+          get().refreshDocMeta(change.path, buffers[change.path] ?? change.after);
+        }
+      }
+      const project = get().project;
+      if (project) void api.setOpenFiles(project.path, get().openFiles);
+      void invalidateGitState();
+      await get().refreshFiles();
+      // A project opened from the account fills in after it opens: pick
+      // its main file once there is one.
+      const filled = get();
+      if (filled.project && !filled.mainFile) {
+        const main = findFile(filled.files, "main.tex")
+          ? "main.tex"
+          : await detectMainFile(filled.project.path, filled.files);
+        if (main && get().project === filled.project && !get().mainFile) {
+          await get().setMainFile(main);
+          if (!get().activeFile) await get().openFile(main);
+        }
+      }
     },
 
     refreshSnapshots: async () => {

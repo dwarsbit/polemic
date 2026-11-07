@@ -68,10 +68,12 @@ project, file, comment and compile commands from that document:
   makes a new project. Both go through `readSnapshot`, as a desktop publish
   does: the same excludes, text into the document, other files uploaded as
   assets first. The app menu downloads the PDF and the project as a zip.
-- Projects published from the desktop app open read-only (the server
-  refuses browser writes to them until linked projects); so do projects
-  you can only comment on or view, and projects whose owner's storage is
-  full (the server connects them read-only).
+- Projects shared from the desktop app sync both ways with their folder
+  (source `linked`, see `src/lib/link-sync.ts`), so they are edited here
+  like projects made here. Only projects published one way by a desktop
+  app from before linked projects (source `desktop`) open read-only, as
+  do projects you can only comment on or view, and projects whose owner's
+  storage is full (the server connects them read-only).
 - The start screen shows storage and today's compile time from
   `GET /api/usage`; a full storage or used-up compile time says so where it
   stops you, with a link to the account page.

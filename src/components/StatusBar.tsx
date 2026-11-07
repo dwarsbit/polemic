@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Check, Loader2 } from "lucide-react";
+import { LinkNoticeDialog, LinkStatusIndicator } from "@/components/LinkStatus";
 import { SuggestToggle } from "@/components/SuggestToggle";
 import { useGrammarStatus } from "@/lib/grammar-check";
 import { detectTex, type GrammarError, type ToolInfo } from "@/lib/tauri";
@@ -111,6 +112,8 @@ export function StatusBar() {
         {activeFile?.endsWith(".tex") && <SuggestToggle compact />}
       </div>
       <div className="flex shrink-0 items-center gap-3">
+        <LinkStatusIndicator />
+        <LinkNoticeDialog />
         <GrammarStatus />
         <CompileStatus />
         {tex &&

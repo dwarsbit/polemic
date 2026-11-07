@@ -32,6 +32,7 @@ import {
 } from "@/lib/tauri";
 import { cn } from "@/lib/utils";
 import { PolemicLogoVertical } from "@/components/PolemicLogo";
+import { AccountProjectsDialog } from "@/components/AccountProjectsDialog";
 import { UsageSummary } from "@/components/UsageSummary";
 import { useProjectStore } from "@/store/project";
 import { features } from "@/lib/target";
@@ -55,6 +56,7 @@ export function ProjectsView() {
   const [busy, setBusy] = useState(false);
   const [action, setAction] = useState<ActionDialog>({ kind: "none" });
   const [cloneUrl, setCloneUrl] = useState("");
+  const [accountOpen, setAccountOpen] = useState(false);
   // The clone's project name: taken from the URL until the user types one.
   const [cloneName, setCloneName] = useState<string | null>(null);
   const [templates, setTemplates] = useState<TemplateInfo[]>([]);
@@ -408,6 +410,13 @@ export function ProjectsView() {
               >
                 Clone from Git…
               </Button>
+              <Button
+                variant="outline"
+                title="Open a project from your Polemic account, made in your browser or on another computer"
+                onClick={() => setAccountOpen(true)}
+              >
+                Open from your account…
+              </Button>
             </>
           ) : (
             <Button
@@ -424,6 +433,9 @@ export function ProjectsView() {
         {!features.desktopAccount && <UsageSummary />}
       </div>
 
+      {features.localFiles && (
+        <AccountProjectsDialog open={accountOpen} onOpenChange={setAccountOpen} />
+      )}
       <Dialog
         open={action.kind !== "none"}
         onOpenChange={(open) => {

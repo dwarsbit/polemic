@@ -128,7 +128,7 @@ export const reviewCommands: Record<string, (args: Args) => unknown> = {
     return {
       server,
       signedIn: true,
-      link: { server, projectId: open.id, name: open.info.name },
+      link: { server, projectId: open.id, name: open.info.name, twoWay: true },
     };
   },
 
