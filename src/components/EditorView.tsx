@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   Camera,
+  CloudBackup,
   FileDiff,
   GitBranch,
   History,
@@ -26,6 +27,7 @@ import { Sidebar } from "@/components/Sidebar";
 import type { LeftTab } from "@/components/Sidebar";
 import { GitPanel } from "@/components/GitPanel";
 import { HistoryPanel } from "@/components/HistoryPanel";
+import { OnlineSnapshotsPanel } from "@/components/OnlineSnapshotsPanel";
 import { SnapshotsPanel } from "@/components/SnapshotsPanel";
 import { SuggestionsPanel } from "@/components/SuggestionsPanel";
 import { StatusBar } from "@/components/StatusBar";
@@ -42,8 +44,9 @@ import { useReviewCommentPull } from "@/hooks/useReviewCommentPull";
 import { resolveVersionControl, useSettingsStore } from "@/store/settings";
 import { useUiStore } from "@/store/ui";
 import { useEditorStore } from "@/store/editor";
+import { useLinkStore } from "@/store/link";
 import { hasConflictMarkers } from "@/lib/conflict-markers";
-import { features } from "@/lib/target";
+import { features, isWeb } from "@/lib/target";
 import { cn } from "cn";
 
 const COLUMN_PANEL_IDS = ["navigator", "editor", "preview", "properties"];
@@ -57,6 +60,7 @@ const HANDLE_Y = "h-2 w-full rounded bg-transparent hover:bg-primary/20";
 
 type RightTab =
   | "version-control"
+  | "online-snapshots"
   | "history"
   | "comments"
   | "suggestions"
@@ -95,6 +99,7 @@ export function EditorView() {
   const [rightTab, setRightTab] = useState<RightTab>(
     features.versionControl ? "version-control" : "comments",
   );
+  const linkedDir = useLinkStore((s) => s.dir);
   const [issuesTool, setIssuesTool] = useState<IssuesTool>("issues");
   const activeFile = useProjectStore((s) => s.activeFile);
   const readOnly = useProjectStore((s) => s.project?.readOnly ?? null);
@@ -116,6 +121,13 @@ export function EditorView() {
   /** The active file's face, or null for kinds without one. */
   const face = activeFileIsTex ? texEditorMode : activeFileIsBib ? bibEditorMode : null;
 
+  // The server's snapshots: the only ones in the browser, and next to
+  // this computer's for a project that syncs with the account.
+  const onlineSnapshots = isWeb
+    ? "Snapshots"
+    : projectPath !== null && linkedDir === projectPath
+      ? "Online snapshots"
+      : null;
   const rightTabs = [
     ...(features.versionControl
       ? [
@@ -128,6 +140,15 @@ export function EditorView() {
       : []),
     ...(features.versionControl && versionControl === "git"
       ? [{ id: "history" as const, label: "History", icon: History }]
+      : []),
+    ...(onlineSnapshots
+      ? [
+          {
+            id: "online-snapshots" as const,
+            label: onlineSnapshots,
+            icon: isWeb ? Camera : CloudBackup,
+          },
+        ]
       : []),
     { id: "comments" as const, label: "Comments", icon: MessageSquare },
     { id: "suggestions" as const, label: "Suggestions", icon: FileDiff },
@@ -366,7 +387,9 @@ export function EditorView() {
                   <div className={cn(CARD, "flex")}>
                     {propertiesOpen && (
                       <div className="min-h-0 min-w-0 flex-1 overflow-hidden">
-                        {rightTab === "comments" ? (
+                        {rightTab === "online-snapshots" && onlineSnapshots ? (
+                          <OnlineSnapshotsPanel label={onlineSnapshots} />
+                        ) : rightTab === "comments" ? (
                           <CommentsPanel />
                         ) : rightTab === "suggestions" ? (
                           <SuggestionsPanel />

@@ -74,6 +74,26 @@ A folder with a Git remote, on a project other people work on, gets a
 one-time notice: their changes already arrive through the server, and
 conflict markers from a Git merge would reach everyone.
 
+## Snapshots
+
+The server keeps the project's document once an hour while it changes,
+thins those out (all of the last two days, then one a day for 30 days)
+and counts none of them toward storage. The **Online snapshots** panel
+(`src/components/OnlineSnapshotsPanel.tsx`, **Snapshots** in the
+browser) lists them with the published ones and the project as it was
+before each restore (`share_history`). Comparing one with the project
+reads its files (`share_history_files`) and the folder as the sync sees
+it (`share_folder`), with unsaved edits on top
+(`src/lib/online-snapshots.ts`); comments are left out.
+
+The owner and editors restore the whole project or one file
+(`share_restore`). The server keeps the project as it is first, then
+makes the restore as edits on its copy, so every folder and browser gets
+it and comments stay. The desktop app syncs before and after, so the
+folder's saved changes are in the snapshot kept first and the restore
+comes down at once. A 404 for a snapshot is about the snapshot, so it
+never forgets the link.
+
 ## Tests
 
 `src/lib/link-sync.test.ts` covers the run against an in-memory folder

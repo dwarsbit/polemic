@@ -508,6 +508,49 @@ pub struct Members {
     pub invites: Vec<ProjectInvite>,
 }
 
+/// A snapshot of the project's history (contracts' `historySnapshot`):
+/// "hourly" while it changes, "restore" just before a restore, or
+/// "published" for review.
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub struct HistorySnapshot {
+    pub id: String,
+    pub kind: String,
+    pub size: u64,
+    pub created_at: String,
+}
+
+#[derive(Deserialize)]
+struct History {
+    snapshots: Vec<HistorySnapshot>,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub struct HistoryText {
+    pub path: String,
+    pub text: String,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub struct HistoryAsset {
+    pub path: String,
+    pub hash: String,
+    pub size: u64,
+    #[serde(rename = "type")]
+    pub media_type: String,
+}
+
+/// A snapshot's files (contracts' `historyFilesResponse`).
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub struct HistoryFiles {
+    pub snapshot: HistorySnapshot,
+    pub files: Vec<HistoryText>,
+    pub assets: Vec<HistoryAsset>,
+}
+
 #[derive(Deserialize)]
 struct Me {
     id: String,
@@ -542,6 +585,19 @@ fn about_member(e: ShareError) -> ShareError {
         ShareError::new(
             ShareErrorKind::Failed,
             "That person is no longer in this project.",
+        )
+    } else {
+        e
+    }
+}
+
+/// For a snapshot that is gone: a 404 there is about the snapshot, not
+/// the project, so it must not forget the link (`check`).
+fn about_snapshot(e: ShareError) -> ShareError {
+    if e.kind == ShareErrorKind::NotFound {
+        ShareError::new(
+            ShareErrorKind::Failed,
+            "This snapshot is no longer kept. Pick a newer one.",
         )
     } else {
         e
@@ -974,6 +1030,60 @@ impl<'a> Session<'a> {
         }
     }
 
+    /// The project's snapshots, newest first.
+    pub async fn history(&self, id: &str) -> Result<Vec<HistorySnapshot>, ShareError> {
+        let id = checked_id(id)?;
+        let history: History = self
+            .json(
+                self.client
+                    .get(self.url(&format!("/api/projects/{id}/history"))),
+            )
+            .await?;
+        Ok(history.snapshots)
+    }
+
+    /// The files of one snapshot.
+    pub async fn history_files(
+        &self,
+        id: &str,
+        snapshot_id: &str,
+    ) -> Result<HistoryFiles, ShareError> {
+        let id = checked_id(id)?;
+        let snapshot_id = checked_id(snapshot_id)?;
+        self.json(
+            self.client
+                .get(self.url(&format!("/api/projects/{id}/history/{snapshot_id}"))),
+        )
+        .await
+        .map_err(about_snapshot)
+    }
+
+    /// Restores the whole project from a snapshot, or only `paths`, as
+    /// edits on the server's copy (owner and editors).
+    pub async fn restore(
+        &self,
+        id: &str,
+        snapshot_id: &str,
+        paths: Option<&[String]>,
+    ) -> Result<(), ShareError> {
+        let id = checked_id(id)?;
+        let snapshot_id = checked_id(snapshot_id)?;
+        let body = match paths {
+            Some(paths) => serde_json::json!({ "paths": paths }),
+            None => serde_json::json!({}),
+        };
+        self.send(
+            self.client
+                .post(self.url(&format!(
+                    "/api/projects/{id}/history/{snapshot_id}/restore"
+                )))
+                .json(&body),
+        )
+        .await
+        .map(drop)
+        .map_err(about_snapshot)
+    }
+
     /// The signed-in account's id.
     pub async fn me(&self) -> Result<String, ShareError> {
         let me: Me = self.json(self.client.get(self.url("/api/me"))).await?;
@@ -1297,6 +1407,47 @@ pub async fn share_leave(app: tauri::AppHandle, project_dir: String) -> Result<(
         Err(e) if e.kind == ShareErrorKind::NotFound => Ok(()),
         Err(e) => Err(e),
     }
+}
+
+
+/// The project's online snapshots, newest first.
+#[tauri::command]
+pub async fn share_history(
+    app: tauri::AppHandle,
+    project_dir: String,
+) -> Result<Vec<HistorySnapshot>, ShareError> {
+    let cx = context(&app, &project_dir)?;
+    let id = cx.link()?.project_id;
+    cx.check(cx.session()?.history(&id).await)
+}
+
+#[tauri::command]
+pub async fn share_history_files(
+    app: tauri::AppHandle,
+    project_dir: String,
+    snapshot_id: String,
+) -> Result<HistoryFiles, ShareError> {
+    let cx = context(&app, &project_dir)?;
+    let id = cx.link()?.project_id;
+    cx.check(cx.session()?.history_files(&id, &snapshot_id).await)
+}
+
+/// Restores the server's copy from a snapshot; the folder gets it with
+/// the next sync.
+#[tauri::command]
+pub async fn share_restore(
+    app: tauri::AppHandle,
+    project_dir: String,
+    snapshot_id: String,
+    paths: Option<Vec<String>>,
+) -> Result<(), ShareError> {
+    let cx = context(&app, &project_dir)?;
+    let id = cx.link()?.project_id;
+    cx.check(
+        cx.session()?
+            .restore(&id, &snapshot_id, paths.as_deref())
+            .await,
+    )
 }
 
 /// What the folder holds and has held of the project's comments.
@@ -1798,6 +1949,43 @@ mod tests {
         );
         // Roles a link never grants are refused before any request.
         assert!(block(session.create_link(ID, "editor", None)).is_err());
+    }
+
+    #[test]
+    fn reads_and_restores_snapshots_without_forgetting_the_project() {
+        const SNAP: &str = "SnApShOtIdXxXxXxXxXx-_";
+        let snapshot = format!(
+            r#"{{"id":"{SNAP}","kind":"hourly","size":120,"createdAt":"2026-11-07T10:00:00.000Z"}}"#
+        );
+        let (server, handle) = stub(vec![
+            json("200 OK", &format!(r#"{{"snapshots":[{snapshot}]}}"#)),
+            json(
+                "200 OK",
+                &format!(
+                    r#"{{"snapshot":{snapshot},"files":[{{"path":"main.tex","text":"Hi."}}],"assets":[{{"path":"a.png","hash":"ab","size":3,"type":"image/png"}}]}}"#
+                ),
+            ),
+            "HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n".to_string(),
+            json("404 Not Found", r#"{"error":"not_found","message":"No such snapshot"}"#),
+        ]);
+        let session = Session::new(&server, "tok").unwrap();
+        let history = block(session.history(ID)).unwrap();
+        assert_eq!(history[0].kind, "hourly");
+        let files = block(session.history_files(ID, SNAP)).unwrap();
+        assert_eq!(files.files[0].text, "Hi.");
+        assert_eq!(files.assets[0].media_type, "image/png");
+        let paths = vec!["main.tex".to_string()];
+        block(session.restore(ID, SNAP, Some(&paths))).unwrap();
+        // A snapshot that is gone is not a project that is gone.
+        let gone = block(session.restore(ID, SNAP, None)).unwrap_err();
+        assert_eq!(gone.kind, ShareErrorKind::Failed);
+        let seen = handle.join().unwrap();
+        assert_eq!(seen[2].path, format!("/api/projects/{ID}/history/{SNAP}/restore"));
+        let body: serde_json::Value = serde_json::from_slice(&seen[2].body).unwrap();
+        assert_eq!(body, serde_json::json!({ "paths": ["main.tex"] }));
+        let body: serde_json::Value = serde_json::from_slice(&seen[3].body).unwrap();
+        assert_eq!(body, serde_json::json!({}));
+        assert!(block(session.history_files(ID, "../x")).is_err());
     }
 
     /// Against a running Polemic server: POLEMIC_E2E_SERVER, a desktop
