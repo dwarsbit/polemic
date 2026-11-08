@@ -2,7 +2,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import type { AccountStatus, AccountUser } from "@/lib/tauri";
+import type { AccountStatus, AccountUsage, AccountUser } from "@/lib/tauri";
 
 const ada: AccountUser = {
   id: "u1",
@@ -13,7 +13,11 @@ const ada: AccountUser = {
   plan: "student",
 };
 
-const server = { status: null as unknown as AccountStatus, finishSignIn: () => {} };
+const server = {
+  status: null as unknown as AccountStatus,
+  usage: null as AccountUsage | null,
+  finishSignIn: () => {},
+};
 
 vi.mock("@/lib/tauri", () => ({
   accountStatus: vi.fn(async () => server.status),
@@ -36,6 +40,7 @@ vi.mock("@/lib/tauri", () => ({
       }),
   ),
   accountCancelSignIn: vi.fn(async () => {}),
+  accountUsage: vi.fn(async () => server.usage),
   accountSignOut: vi.fn(async () => {
     server.status = { ...server.status, signedIn: false, user: null };
   }),
@@ -59,11 +64,30 @@ async function render() {
 
 const button = (label: string) =>
   [...host.querySelectorAll("button")].find(
-    (b) => b.textContent === label,
+    (b) => b.textContent?.trim() === label,
   ) as HTMLButtonElement;
 
 async function click(label: string) {
   await act(async () => button(label).click());
+}
+
+/** Sign out sits in the "More account actions" menu. */
+async function signOutFromMenu() {
+  const trigger = host.querySelector<HTMLButtonElement>(
+    '[aria-label="More account actions"]',
+  )!;
+  await act(async () => {
+    trigger.dispatchEvent(
+      new PointerEvent("pointerdown", { button: 0, bubbles: true, pointerId: 1 }),
+    );
+  });
+  const item = [...document.querySelectorAll('[role="menuitem"]')].find(
+    (i) => i.textContent?.trim() === "Sign out",
+  )!;
+  item.dispatchEvent(
+    new PointerEvent("click", { button: 0, bubbles: true, pointerId: 1 }),
+  );
+  await act(async () => {});
 }
 
 describe("AccountSettingsSection", () => {
@@ -74,6 +98,15 @@ describe("AccountSettingsSection", () => {
       signedIn: false,
       user: null,
       problem: null,
+    };
+    server.usage = {
+      storage: { usedBytes: 1_200_000_000, limitBytes: 5_000_000_000 },
+      compile: {
+        usedSeconds: 720,
+        limitSeconds: 3000,
+        resetsAt: "2026-11-09T00:00:00.000Z",
+      },
+      reviewLinks: { count: 3, limit: null },
     };
   });
   afterEach(() => {
@@ -94,26 +127,86 @@ describe("AccountSettingsSection", () => {
     expect(host.textContent).toContain("Ada Lovelace");
     expect(host.textContent).toContain("ada@example.com");
     expect(host.textContent).toContain("Student plan");
+    expect(host.textContent).toContain("1.2 GB of 5 GB");
+    expect(host.textContent).toContain("12 of 50 minutes");
+    expect(host.textContent).toContain("Unlimited review links");
 
-    await click("Sign out");
+    await signOutFromMenu();
     expect(tauri.accountSignOut).toHaveBeenCalledOnce();
     expect(host.textContent).toContain("Not signed in");
+  });
+
+  it("opens the sign-up form from Create account", async () => {
+    await render();
+    await click("Create account");
+    expect(tauri.accountSignIn).toHaveBeenCalledWith(true);
+    expect(host.textContent).toContain("Create your account there");
+  });
+
+  it("shows the sign-in photo, else the initials", async () => {
+    server.status = { ...server.status, signedIn: true, user: ada };
+    await render();
+    expect(host.querySelector("img")).toBeNull();
+    expect(host.textContent).toContain("AL");
+    act(() => root?.unmount());
+    host.remove();
+
+    server.status = { ...server.status, avatar: "data:image/png;base64,AAAA" };
+    await render();
+    expect(host.querySelector("img")?.getAttribute("src")).toBe(
+      "data:image/png;base64,AAAA",
+    );
+  });
+
+  it("shows Pro's compile time without a limit, and Free's review link", async () => {
+    server.status = {
+      ...server.status,
+      signedIn: true,
+      user: { ...ada, plan: "free" },
+    };
+    server.usage = {
+      storage: { usedBytes: 100_000_000, limitBytes: 100_000_000 },
+      compile: {
+        usedSeconds: 90,
+        limitSeconds: null,
+        resetsAt: "2026-11-09T00:00:00.000Z",
+      },
+      reviewLinks: { count: 1, limit: 1 },
+    };
+    await render();
+    expect(host.textContent).toContain("Free plan");
+    expect(host.textContent).toContain("1 of 1 active review link");
+    expect(host.textContent).toContain("1.5 minutes");
+    expect(host.textContent).not.toContain("1.5 of");
+  });
+
+  it("hides the plan for servers without plans", async () => {
+    server.status = { ...server.status, signedIn: true, user: { ...ada, plan: null } };
+    await render();
+    expect(host.textContent).not.toContain("Change plan");
+    expect(tauri.accountUsage).not.toHaveBeenCalled();
   });
 
   it("opens the account page and the privacy policy when signed in", async () => {
     server.status = { ...server.status, signedIn: true, user: ada };
     await render();
     expect(host.textContent).toContain("download your data or delete your account");
-    await click("Open account page");
+    await click("Manage account");
     expect(openUrl).toHaveBeenCalledWith("https://app.polemicapp.com/account");
     await click("Privacy policy");
     expect(openUrl).toHaveBeenCalledWith("https://polemicapp.com/privacy");
   });
 
   it("links a self-hosted server's account page, without Polemic's privacy policy", async () => {
-    server.status = { ...server.status, server: "https://polemic.example.org", signedIn: true, user: ada };
+    server.status = {
+      ...server.status,
+      server: "https://polemic.example.org",
+      signedIn: true,
+      user: ada,
+    };
     await render();
-    await click("Open account page");
+    expect(host.textContent).toContain("Server: https://polemic.example.org");
+    await click("Manage account");
     expect(openUrl).toHaveBeenCalledWith("https://polemic.example.org/account");
     expect(button("Privacy policy")).toBeUndefined();
   });
@@ -127,8 +220,10 @@ describe("AccountSettingsSection", () => {
 
   it("saves a self-hosted server before signing in", async () => {
     await render();
+    expect(host.querySelector("#account-server")).toBeNull();
+    await click("Use custom server");
     const input = host.querySelector<HTMLInputElement>("#account-server")!;
-    expect(input.value).toBe("https://app.polemicapp.com");
+    expect(input.value).toBe("");
     await act(async () => {
       const setValue = Object.getOwnPropertyDescriptor(
         HTMLInputElement.prototype,
@@ -141,7 +236,8 @@ describe("AccountSettingsSection", () => {
     expect(button("Sign in").disabled).toBe(true);
     await click("Save");
     expect(tauri.accountSetServer).toHaveBeenCalledWith("https://polemic.example.org/");
-    expect(input.value).toBe("https://polemic.example.org");
+    expect(host.querySelector("#account-server")).toBeNull();
+    expect(host.textContent).toContain("Server: https://polemic.example.org");
     expect(button("Sign in").disabled).toBe(false);
   });
 
@@ -154,6 +250,7 @@ describe("AccountSettingsSection", () => {
     await render();
     expect(host.textContent).toContain("Signed in");
     expect(host.textContent).toContain("Could not reach");
-    expect(button("Sign out")).toBeDefined();
+    await signOutFromMenu();
+    expect(tauri.accountSignOut).toHaveBeenCalledOnce();
   });
 });
