@@ -2711,6 +2711,7 @@ pub fn run() {    tauri::Builder::default()
             account::account_status,
             account::account_set_server,
             account::account_sign_in,
+            account::account_usage,
             account::account_cancel_sign_in,
             account::account_sign_out,
             detect_tex,

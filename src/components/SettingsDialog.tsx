@@ -104,6 +104,8 @@ interface CardDef {
   title: string;
   rows: RowDef[];
   content?: ReactNode;
+  /** The content draws its own card(s): no frame or title. */
+  bare?: boolean;
   hidden?: boolean;
 }
 
@@ -126,6 +128,7 @@ function RowView({ row }: { row: RowDef }) {
 }
 
 function CardView({ card }: { card: CardDef }) {
+  if (card.bare && card.content !== undefined) return <>{card.content}</>;
   return (
     <section className="rounded-xl border bg-card px-4 py-3 shadow-xs">
       <p className="mb-2 text-sm font-medium">{card.title}</p>
@@ -471,11 +474,12 @@ export function SettingsDialog({
               description:
                 "Sign in for the online services. Local features never need an account.",
               keywords:
-                "sign in sign out login logout account plan free student pro server self-hosted privacy data export download delete gdpr",
+                "sign in sign out login logout sign up create account avatar photo account plan free student pro usage storage compile time server custom server self-hosted privacy data export download delete gdpr",
               control: null,
             },
           ],
           content: <AccountSettingsSection />,
+          bare: true,
         },
       ],
     },
@@ -892,8 +896,7 @@ export function SettingsDialog({
               label: "Where to compile",
               description:
                 "On this computer with your TeX distribution, or with Polemic without installing TeX.",
-              keywords:
-                "cloud server polemic compile remote online tex live",
+              keywords: "cloud server polemic compile remote online tex live",
               control: null,
             },
           ],

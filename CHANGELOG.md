@@ -14,6 +14,7 @@
 ### Changed
 
 - **Share for review** is now **Share**, since it also invites people.
+- The account card in Settings is redesigned. Signed in, it shows your photo from Google, Apple or Microsoft sign-in (or your initials), your plan, and how much storage and compile time you've used today. Signed out, **Create account** opens the sign-up form in your browser. The server field is now behind **Use custom server**.
 
 ## 0.20.0 (2026-11-07)
 

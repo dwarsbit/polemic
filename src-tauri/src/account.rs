@@ -18,7 +18,7 @@ use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
 
-use base64::engine::general_purpose::URL_SAFE_NO_PAD;
+use base64::engine::general_purpose::{STANDARD, URL_SAFE_NO_PAD};
 use base64::Engine;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
@@ -31,6 +31,8 @@ pub const DEFAULT_SERVER: &str = "https://app.polemicapp.com";
 /// an account and confirm the email address on the way.
 const SIGN_IN_TIMEOUT: Duration = Duration::from_secs(15 * 60);
 const HTTP_TIMEOUT: Duration = Duration::from_secs(20);
+/// Photos larger than this are not shown (sign-in photos are a few KB).
+const MAX_AVATAR_BYTES: usize = 1024 * 1024;
 const CALLBACK_PATH: &str = "/callback";
 
 /// The signed-in user (`GET /api/me`, contracts' `meResponse`).
@@ -45,6 +47,10 @@ pub struct AccountUser {
     /// "free", "student" or "pro" ("professional" from older servers); None from servers before billing.
     #[serde(default)]
     pub plan: Option<String>,
+    /// Profile photo from Google, Apple or Microsoft sign-in: a URL or a
+    /// data: URL; None for email accounts and from older servers.
+    #[serde(default)]
+    pub image: Option<String>,
 }
 
 /// `POST /api/desktop/token` (contracts' `desktopTokenResponse`).
@@ -78,6 +84,9 @@ pub struct AccountStatus {
     pub user: Option<AccountUser>,
     /// Why the user could not be fetched (offline, server error).
     pub problem: Option<String>,
+    /// The user's photo as a data: URL, so the page can show it under
+    /// its CSP; None without a photo or when it could not be loaded.
+    pub avatar: Option<String>,
 }
 
 pub static STORE: OsStore = OsStore::new("account");
@@ -124,15 +133,26 @@ pub fn code_challenge(verifier: &str) -> String {
     URL_SAFE_NO_PAD.encode(Sha256::digest(verifier.as_bytes()))
 }
 
-/// The browser page that starts the sign-in.
-pub fn authorize_url(server: &str, challenge: &str, redirect_uri: &str, state: &str) -> String {
-    let query = url::form_urlencoded::Serializer::new(String::new())
+/// The browser page that starts the sign-in. `create` opens it on the
+/// sign-up form (OpenID Connect's prompt=create); older servers ignore
+/// it and show the sign-in form, which links to sign-up.
+pub fn authorize_url(
+    server: &str,
+    challenge: &str,
+    redirect_uri: &str,
+    state: &str,
+    create: bool,
+) -> String {
+    let mut query = url::form_urlencoded::Serializer::new(String::new());
+    query
         .append_pair("code_challenge", challenge)
         .append_pair("code_challenge_method", "S256")
         .append_pair("redirect_uri", redirect_uri)
-        .append_pair("state", state)
-        .finish();
-    format!("{server}/desktop/authorize?{query}")
+        .append_pair("state", state);
+    if create {
+        query.append_pair("prompt", "create");
+    }
+    format!("{server}/desktop/authorize?{}", query.finish())
 }
 
 /// The computer's name, shown on the server next to the session.
@@ -306,6 +326,7 @@ async fn error_message(response: reqwest::Response) -> String {
 pub async fn sign_in_with(
     server: &str,
     store: &impl Store,
+    create: bool,
     cancel: Arc<AtomicBool>,
     open: impl FnOnce(&str) -> Result<(), String>,
 ) -> Result<AccountUser, String> {
@@ -321,6 +342,7 @@ pub async fn sign_in_with(
         &code_challenge(&verifier),
         &redirect_uri,
         &state,
+        create,
     ))?;
 
     let deadline = Instant::now() + SIGN_IN_TIMEOUT;
@@ -415,6 +437,7 @@ pub async fn status_with(server: &str, store: &impl Store) -> AccountStatus {
         signed_in: false,
         user: None,
         problem: None,
+        avatar: None,
     };
     let Some(credential) = load(store) else {
         return signed_out;
@@ -423,14 +446,8 @@ pub async fn status_with(server: &str, store: &impl Store) -> AccountStatus {
         let _ = sign_out_with(store).await;
         return signed_out;
     }
-    let fetched = match client() {
-        Ok(client) => {
-            client
-                .get(format!("{server}/api/me"))
-                .bearer_auth(&credential.token)
-                .send()
-                .await
-        }
+    let client = match client() {
+        Ok(client) => client,
         Err(e) => {
             return AccountStatus {
                 problem: Some(e),
@@ -439,6 +456,11 @@ pub async fn status_with(server: &str, store: &impl Store) -> AccountStatus {
             }
         }
     };
+    let fetched = client
+        .get(format!("{server}/api/me"))
+        .bearer_auth(&credential.token)
+        .send()
+        .await;
     match fetched {
         Ok(response) if response.status() == reqwest::StatusCode::UNAUTHORIZED => {
             let _ = store.delete();
@@ -451,6 +473,7 @@ pub async fn status_with(server: &str, store: &impl Store) -> AccountStatus {
             match response.json::<AccountUser>().await {
                 Ok(user) => AccountStatus {
                     signed_in: true,
+                    avatar: avatar_of(&client, user.image.as_deref()).await,
                     user: Some(user),
                     ..signed_out
                 },
@@ -474,6 +497,84 @@ pub async fn status_with(server: &str, store: &impl Store) -> AccountStatus {
             problem: Some(format!("Could not reach {server}.")),
             ..signed_out
         },
+    }
+}
+
+/// The photo as a data: URL. A data: URL from the server is used as is;
+/// an https URL is downloaded (best effort: no photo when it fails).
+async fn avatar_of(client: &reqwest::Client, image: Option<&str>) -> Option<String> {
+    let image = image?;
+    if image.starts_with("data:image/") {
+        return (image.len() <= MAX_AVATAR_BYTES * 4 / 3 + 64).then(|| image.to_string());
+    }
+    if !image.starts_with("https://") {
+        return None;
+    }
+    let response = client
+        .get(image)
+        .timeout(Duration::from_secs(5))
+        .send()
+        .await
+        .ok()?;
+    if !response.status().is_success() {
+        return None;
+    }
+    let mime = avatar_mime(
+        response
+            .headers()
+            .get(reqwest::header::CONTENT_TYPE)?
+            .to_str()
+            .ok()?,
+    )?;
+    if response
+        .content_length()
+        .is_some_and(|n| n > MAX_AVATAR_BYTES as u64)
+    {
+        return None;
+    }
+    let bytes = response.bytes().await.ok()?;
+    (bytes.len() <= MAX_AVATAR_BYTES)
+        .then(|| format!("data:{mime};base64,{}", STANDARD.encode(&bytes)))
+}
+
+/// The photo's type from its Content-Type, when it is one the page shows.
+fn avatar_mime(content_type: &str) -> Option<String> {
+    let mime = content_type.split(';').next()?.trim().to_ascii_lowercase();
+    matches!(
+        mime.as_str(),
+        "image/jpeg" | "image/png" | "image/webp" | "image/gif"
+    )
+    .then_some(mime)
+}
+
+/// GET /api/usage for the signed-in user: storage, today's compile time
+/// and review links against the plan. None when signed out, or from a
+/// server without plans.
+pub async fn usage_with(
+    server: &str,
+    store: &impl Store,
+) -> Result<Option<serde_json::Value>, String> {
+    let Some(token) = token_with(server, store) else {
+        return Ok(None);
+    };
+    let response = client()?
+        .get(format!("{server}/api/usage"))
+        .bearer_auth(&token)
+        .send()
+        .await
+        .map_err(|_| format!("Could not reach {server}."))?;
+    match response.status() {
+        s if s.is_success() => response
+            .json()
+            .await
+            .map(Some)
+            .map_err(|e| format!("Unexpected answer from the server: {e}")),
+        reqwest::StatusCode::NOT_FOUND => Ok(None),
+        reqwest::StatusCode::UNAUTHORIZED => {
+            forget_rejected_with(server, &token, store);
+            Ok(None)
+        }
+        _ => Err(error_message(response).await),
     }
 }
 
@@ -508,7 +609,17 @@ pub async fn account_set_server(
 }
 
 #[tauri::command]
-pub async fn account_sign_in(app: tauri::AppHandle) -> Result<AccountUser, String> {
+pub async fn account_usage(app: tauri::AppHandle) -> Result<Option<serde_json::Value>, String> {
+    let server = server_of(&app)?;
+    usage_with(&server, &STORE).await
+}
+
+/// Signs in through the browser; `create_account` opens the sign-up form.
+#[tauri::command]
+pub async fn account_sign_in(
+    app: tauri::AppHandle,
+    create_account: Option<bool>,
+) -> Result<AccountUser, String> {
     use tauri_plugin_opener::OpenerExt;
     let server = server_of(&app)?;
     let cancel = Arc::new(AtomicBool::new(false));
@@ -517,7 +628,8 @@ pub async fn account_sign_in(app: tauri::AppHandle) -> Result<AccountUser, Strin
             old.store(true, Ordering::Relaxed);
         }
     }
-    let result = sign_in_with(&server, &STORE, cancel.clone(), |url| {
+    let create = create_account.unwrap_or(false);
+    let result = sign_in_with(&server, &STORE, create, cancel.clone(), |url| {
         app.opener()
             .open_url(url, None::<&str>)
             .map_err(|e| format!("could not open the browser: {e}"))
@@ -598,12 +710,31 @@ mod tests {
             "abc",
             "http://127.0.0.1:5000/callback",
             "st",
+            false,
         );
         assert_eq!(
             url,
             "https://app.test/desktop/authorize?code_challenge=abc&code_challenge_method=S256\
              &redirect_uri=http%3A%2F%2F127.0.0.1%3A5000%2Fcallback&state=st"
         );
+        let create = authorize_url(
+            "https://app.test",
+            "abc",
+            "http://127.0.0.1:5000/callback",
+            "st",
+            true,
+        );
+        assert!(create.ends_with("&state=st&prompt=create"));
+    }
+
+    #[test]
+    fn shows_only_photo_types() {
+        assert_eq!(
+            avatar_mime("image/JPEG; charset=binary").as_deref(),
+            Some("image/jpeg")
+        );
+        assert_eq!(avatar_mime("image/svg+xml"), None);
+        assert_eq!(avatar_mime("text/html"), None);
     }
 
     #[test]
@@ -705,7 +836,8 @@ mod tests {
                 server: "https://app.test".into(),
                 signed_in: false,
                 user: None,
-                problem: None
+                problem: None,
+                avatar: None
             }
         );
     }
@@ -737,7 +869,8 @@ mod tests {
     #[test]
     fn users_from_servers_before_billing_have_no_plan() {
         let old = r#"{"id":"u","name":"N","email":"e@x","emailVerified":true,"createdAt":"t"}"#;
-        assert_eq!(serde_json::from_str::<AccountUser>(old).unwrap().plan, None);
+        let user = serde_json::from_str::<AccountUser>(old).unwrap();
+        assert_eq!((user.plan, user.image), (None, None));
         let new = r#"{"id":"u","name":"N","email":"e@x","emailVerified":true,"createdAt":"t","plan":"professional","image":null}"#;
         assert_eq!(
             serde_json::from_str::<AccountUser>(new)
@@ -760,13 +893,19 @@ mod tests {
         let browser = std::env::var("POLEMIC_E2E_BROWSER").expect("POLEMIC_E2E_BROWSER");
         let store = MemoryStore::default();
         tauri::async_runtime::block_on(async {
-            let user = sign_in_with(&server, &store, Arc::new(AtomicBool::new(false)), |url| {
-                std::process::Command::new(&browser)
-                    .arg(url)
-                    .spawn()
-                    .map(|_| ())
-                    .map_err(|e| e.to_string())
-            })
+            let user = sign_in_with(
+                &server,
+                &store,
+                false,
+                Arc::new(AtomicBool::new(false)),
+                |url| {
+                    std::process::Command::new(&browser)
+                        .arg(url)
+                        .spawn()
+                        .map(|_| ())
+                        .map_err(|e| e.to_string())
+                },
+            )
             .await
             .unwrap();
             let status = status_with(&server, &store).await;

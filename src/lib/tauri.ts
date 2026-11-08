@@ -1064,6 +1064,8 @@ export interface AccountUser {
   createdAt: string;
   /** null from servers without billing; "professional" from servers before the Free, Student and Pro plans. */
   plan: "free" | "student" | "pro" | "professional" | null;
+  /** Photo from Google, Apple or Microsoft sign-in; absent from older servers. */
+  image?: string | null;
 }
 
 export interface AccountStatus {
@@ -1073,6 +1075,22 @@ export interface AccountStatus {
   user: AccountUser | null;
   /** Why the user could not be fetched (offline, expired sign-in). */
   problem: string | null;
+  /** The user's photo as a data: URL; null without one. */
+  avatar?: string | null;
+}
+
+/** GET /api/usage: what the signed-in user uses of their plan. */
+export interface AccountUsage {
+  storage: { usedBytes: number; limitBytes: number };
+  /** limitSeconds is null on Pro (fair use). */
+  compile: { usedSeconds: number; limitSeconds: number | null; resetsAt: string };
+  /** limit is null: unlimited. */
+  reviewLinks: { count: number; limit: number | null };
+}
+
+/** null when signed out, or from a server without plans. */
+export function accountUsage(): Promise<AccountUsage | null> {
+  return invoke<AccountUsage | null>("account_usage");
 }
 
 export function accountStatus(): Promise<AccountStatus> {
@@ -1084,9 +1102,12 @@ export function accountSetServer(server: string): Promise<AccountStatus> {
   return invoke<AccountStatus>("account_set_server", { server });
 }
 
-/** Opens the browser and resolves once the user has allowed Polemic there. */
-export function accountSignIn(): Promise<AccountUser> {
-  return invoke<AccountUser>("account_sign_in");
+/**
+ * Opens the browser and resolves once the user has allowed Polemic there.
+ * `createAccount` opens the sign-up form instead of the sign-in form.
+ */
+export function accountSignIn(createAccount = false): Promise<AccountUser> {
+  return invoke<AccountUser>("account_sign_in", { createAccount });
 }
 
 export function accountCancelSignIn(): Promise<void> {
