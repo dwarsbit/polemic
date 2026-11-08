@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import type { CompileIssue } from "@/lib/tauri";
-import { numberLines, runTool, type AssistantHost, type ProposedChange } from "./tools";
+import {
+  describeCall,
+  numberLines,
+  runTool,
+  type AssistantHost,
+  type ProposedChange,
+} from "./tools";
 
 const files: Record<string, string> = {
   "main.tex":
@@ -31,7 +37,7 @@ function fakeHost(overrides: Partial<AssistantHost> = {}) {
       proposed.push(change);
       return proposed.length;
     },
-    flagProse: () => true,
+    mode: () => "syntax",
     ...overrides,
   };
   return { host, proposed };
@@ -100,14 +106,35 @@ describe("runTool", () => {
     expect(proposed[0].prose).toEqual({ removed: ["world"], added: ["reader"] });
   });
 
-  it("does not flag prose outside LaTeX mode", async () => {
-    const { host, proposed } = fakeHost({ flagProse: () => false });
+  it("does not flag prose outside Syntax mode", async () => {
+    const { host, proposed } = fakeHost({ mode: () => "prose" });
     await runTool(host, "propose_change", {
       path: "main.tex",
       explanation: "",
       replacements: [{ find: "Hello world.", replace: "Hello reader." }],
     });
     expect(proposed[0].prose).toBeNull();
+  });
+
+  it("turns down a Prose mode change that alters a number", async () => {
+    const { host, proposed } = fakeHost({
+      mode: () => "prose",
+      readFile: async (path) =>
+        path === "main.tex" ? "\\section{Intro}\nWe measured 3 streets." : null,
+    });
+    const args = {
+      path: "main.tex",
+      explanation: "",
+      replacements: [
+        { find: "We measured 3 streets.", replace: "We measured four streets." },
+      ],
+    };
+    const result = await runTool(host, "propose_change", args);
+    expect(result).toMatch(/^Turned down: this change changes a number\./);
+    expect(proposed).toHaveLength(0);
+    expect(describeCall("propose_change", args, result)).toBe(
+      "Held back a change to main.tex that changes a number",
+    );
   });
 
   it("proposes a new file", async () => {

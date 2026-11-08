@@ -160,7 +160,7 @@ export const useAssistantStore = create<AssistantState>((set, get) => {
       });
       return number;
     },
-    flagProse: () => useSettingsStore.getState().assistantMode === "latex",
+    mode: () => useSettingsStore.getState().assistantMode,
   };
 
   return {

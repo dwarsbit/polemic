@@ -39,12 +39,16 @@ lands in the editor and undoes like any other edit.
 
 ## Choose what it helps with
 
-The menu at the top of the panel sets the mode:
+The menu under the question field sets the mode:
 
-- **LaTeX**: syntax, errors, packages, tables, floats, math and layout. It leaves your
-  text alone, and a change that edits your words shows a warning.
-- **Prose**: wording, clarity and structure of your text.
-- **Both**: LaTeX and your text.
+- **Syntax**: errors, packages, tables, floats, math, references and layout. It leaves
+  your text alone. When a fix has to touch your words, such as a stray percent sign, the
+  change shows a warning.
+- **Prose**: grammar, word choice, clarity and flow. It never changes what your text
+  says: a change that would alter a citation, reference, label, math, a number or a
+  "not", or that spans more than one paragraph, is held back and the assistant tries
+  again. A change in tone, such as a claim worded more strongly, can still get through,
+  so read each change before you apply it.
 
 ## Compiling
 

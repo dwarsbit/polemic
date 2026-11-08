@@ -133,7 +133,8 @@ pub struct Settings {
     pub ai: Option<AiSettings>,
     /// Projects (paths) where the assistant may compile on its own.
     pub assistant_compile_projects: Vec<String>,
-    /// The assistant's mode: "latex" (default), "prose" or "both".
+    /// The assistant's mode: "syntax" (default) or "prose". Older
+    /// versions saved "latex" (now "syntax") and "both" (now "prose").
     pub assistant_mode: Option<String>,
     pub grammar: GrammarSettings,
     pub user_words: Vec<String>,

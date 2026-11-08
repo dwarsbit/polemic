@@ -1,7 +1,8 @@
 /**
  * The assistant's proposed changes: find/replace pairs checked against
  * a file's current text, and a word comparison of the prose before and
- * after, so a change in LaTeX mode can say when it touches the text.
+ * after, so a change in Syntax mode can say when it touches the text,
+ * and the checks that keep a Prose mode change to rewording.
  * Pure: no app state.
  */
 
@@ -103,4 +104,87 @@ export function describeProseChange(change: ProseChange, limit = 6): string {
   if (change.removed.length > 0) parts.push(`removes ${list(change.removed)}`);
   if (change.added.length > 0) parts.push(`adds ${list(change.added)}`);
   return `This change edits your text: it ${parts.join(" and ")}.`;
+}
+
+/** Commands whose argument names something: a citation, reference,
+ *  label, environment or file. The whole call, options included. */
+const NAMING_RE =
+  /\\(?:[a-zA-Z]*(?:cite|ref)[a-zA-Z]*|label|begin|end|input|include|includegraphics)\*?\s*(?:\[[^\]]*\]\s*)*\{[^}]*\}/g;
+const MATH_RE =
+  /\$\$[\s\S]*?\$\$|\$(?:\\.|[^$\\])+\$|\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]|\\begin\{(equation|align|gather|multline|eqnarray|math|displaymath)(\*?)\}[\s\S]*?\\end\{\1\2\}/g;
+const COMMAND_RE = /\\(?:[a-zA-Z@]+\*?|[^a-zA-Z@\s])/g;
+const NUMBER_RE = /\d+(?:[.,]\d+)*/g;
+const NEGATIONS = new Set([
+  "not",
+  "no",
+  "never",
+  "none",
+  "nor",
+  "neither",
+  "nobody",
+  "nothing",
+  "nowhere",
+  "cannot",
+]);
+const PARAGRAPH_BREAK_RE = /\n[ \t]*\n/g;
+const PARAGRAPH_BREAK = /\n[ \t]*\n/;
+
+function sameMultiset(a: string[], b: string[]): boolean {
+  if (a.length !== b.length) return false;
+  const counts = new Map<string, number>();
+  for (const x of a) counts.set(x, (counts.get(x) ?? 0) + 1);
+  for (const x of b) {
+    const left = counts.get(x) ?? 0;
+    if (left === 0) return false;
+    counts.set(x, left - 1);
+  }
+  return true;
+}
+
+const matches = (text: string, re: RegExp) =>
+  [...text.matchAll(re)].map((m) => m[0].replace(/\s+/g, " "));
+
+function negations(text: string): number {
+  return proseWords(text).filter((word) => {
+    const w = word.toLowerCase().replace(/’/g, "'");
+    return NEGATIONS.has(w) || w.endsWith("n't");
+  }).length;
+}
+
+/** Which paragraph of `text` the offset falls in, counted from 0. */
+function paragraphAt(text: string, at: number): number {
+  return [...text.slice(0, at).matchAll(PARAGRAPH_BREAK_RE)].length;
+}
+
+/**
+ * Why a change goes beyond rewording, for Prose mode: it edits a file
+ * other than a .tex file, spans paragraphs, or changes a citation,
+ * reference, label, math, a number, a negation or a command. Null when
+ * it only rewords. Says "this change …", to finish a sentence.
+ */
+export function proseViolation(
+  path: string,
+  before: string,
+  after: string,
+  edits: SourceEdit[],
+): string | null {
+  if (!path.toLowerCase().endsWith(".tex") || before === "")
+    return "edits a file other than your text";
+  const paragraphs = new Set(edits.map((e) => paragraphAt(before, e.from)));
+  const breaks = edits.some(
+    (e) =>
+      PARAGRAPH_BREAK.test(before.slice(e.from, e.to)) ||
+      PARAGRAPH_BREAK.test(e.insert),
+  );
+  if (paragraphs.size > 1 || breaks) return "spans more than one paragraph";
+  if (!sameMultiset(matches(before, NAMING_RE), matches(after, NAMING_RE)))
+    return "changes a citation, reference or label";
+  if (!sameMultiset(matches(before, MATH_RE), matches(after, MATH_RE)))
+    return "changes math";
+  if (!sameMultiset(matches(before, NUMBER_RE), matches(after, NUMBER_RE)))
+    return "changes a number";
+  if (negations(before) !== negations(after)) return "adds or drops a negation";
+  if (!sameMultiset(matches(before, COMMAND_RE), matches(after, COMMAND_RE)))
+    return "changes a command";
+  return null;
 }

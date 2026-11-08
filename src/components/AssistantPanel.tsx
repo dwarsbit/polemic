@@ -33,9 +33,8 @@ import { useSettingsStore, type AssistantMode } from "@/store/settings";
 import { cn } from "cn";
 
 const MODES: { value: AssistantMode; label: string; hint: string }[] = [
-  { value: "latex", label: "LaTeX", hint: "Changes to your text are flagged" },
-  { value: "prose", label: "Prose", hint: "Help with your text" },
-  { value: "both", label: "Both", hint: "LaTeX and your text" },
+  { value: "syntax", label: "Syntax", hint: "Fixes LaTeX, leaves your text alone" },
+  { value: "prose", label: "Prose", hint: "Polishes your text, keeps what it says" },
 ];
 
 /** The composer's mode picker: what the assistant helps with. */
@@ -216,7 +215,7 @@ function Item({ item }: { item: ChatItem }) {
 /**
  * The assistant: a chat about the open project that reads files,
  * checks compile issues and proposes changes as diffs the user applies.
- * The mode picker says whether it helps with LaTeX, the text or both.
+ * The mode picker says whether it fixes LaTeX or polishes the text.
  */
 export function AssistantPanel() {
   const items = useAssistantStore((s) => s.items);
@@ -338,9 +337,11 @@ export function AssistantPanel() {
           <div className="flex h-full flex-col items-center justify-center gap-2 text-center">
             <Sparkles className="size-5 text-muted-foreground" />
             <p className="text-xs text-muted-foreground">
-              {configured
-                ? "Ask about errors, tables, floats, math or packages. The assistant reads your project and proposes changes you review."
-                : "Set up an AI provider to use the assistant."}
+              {!configured
+                ? "Set up an AI provider to use the assistant."
+                : mode === "prose"
+                  ? "Ask for clearer, tighter or more correct wording. The assistant proposes changes you review, and never changes what your text says."
+                  : "Ask about errors, tables, floats, math or packages. The assistant reads your project and proposes changes you review."}
             </p>
             {!configured && (
               <Button
@@ -420,9 +421,11 @@ export function AssistantPanel() {
             disabled={!configured}
             aria-label="Ask the assistant"
             placeholder={
-              configured
-                ? "How do I make this table fit the page?"
-                : "Set up a provider to ask"
+              !configured
+                ? "Set up a provider to ask"
+                : mode === "prose"
+                  ? "Can you make this paragraph clearer?"
+                  : "How do I make this table fit the page?"
             }
             className="block max-h-40 w-full resize-none bg-transparent px-3 pt-2.5 pb-1 text-xs leading-5 outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed"
             onChange={(e) => setDraft(e.target.value)}

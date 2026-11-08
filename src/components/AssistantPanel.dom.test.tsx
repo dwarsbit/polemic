@@ -111,7 +111,7 @@ beforeEach(() => {
       apiKey: "k",
       model: "m",
     },
-    assistantMode: "latex",
+    assistantMode: "syntax",
     assistantCompileProjects: [],
   });
   useAssistantStore.getState().syncProject("/p");

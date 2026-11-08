@@ -18,7 +18,12 @@ import { usePreviewStore } from "@/store/preview";
 
 /** What the assistant helps with: LaTeX only (prose changes are
  *  flagged), prose only, or both. */
-export type AssistantMode = "latex" | "prose" | "both";
+export type AssistantMode = "syntax" | "prose";
+
+/** The saved mode; older versions saved "latex" and "both". */
+export function readAssistantMode(saved: string | null): AssistantMode {
+  return saved === "prose" || saved === "both" ? "prose" : "syntax";
+}
 
 const DEFAULT_GRAMMAR: GrammarSettings = {
   enabled: null,
@@ -141,7 +146,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   panelLayout: null,
   ai: null,
   assistantCompileProjects: [],
-  assistantMode: "latex",
+  assistantMode: "syntax",
   grammar: DEFAULT_GRAMMAR,
   hydrate: (settings) =>
     set({
@@ -179,10 +184,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
       panelLayout: settings.panelLayout,
       ai: settings.ai,
       assistantCompileProjects: settings.assistantCompileProjects ?? [],
-      assistantMode:
-        settings.assistantMode === "prose" || settings.assistantMode === "both"
-          ? settings.assistantMode
-          : "latex",
+      assistantMode: readAssistantMode(settings.assistantMode),
       grammar: { ...DEFAULT_GRAMMAR, ...settings.grammar },
     }),
   setTheme: async (theme) => {
