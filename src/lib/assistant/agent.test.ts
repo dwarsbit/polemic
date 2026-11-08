@@ -19,7 +19,7 @@ const host: AssistantHost = {
   compile: async () => ({ success: true, issues: [] }),
   packageInfo: async () => [],
   propose: () => 1,
-  flagProse: () => true,
+  mode: () => "syntax",
 };
 
 function call(id: string, name: string, args: object): AssistantReply {
@@ -53,7 +53,7 @@ describe("runAgent", () => {
       { role: "assistant", content: "Your document looks fine." },
     ]);
     const history: AgentMessage[] = [
-      { role: "system", content: systemPrompt("latex") },
+      { role: "system", content: systemPrompt("syntax") },
       { role: "user", content: "Check my file." },
     ];
     const steps: string[] = [];
@@ -125,9 +125,8 @@ describe("runAgent", () => {
 
 describe("prompts", () => {
   it("sets the job by mode", () => {
-    expect(systemPrompt("latex")).toMatch(/Do not write, rewrite/);
-    expect(systemPrompt("prose")).toMatch(/Keep every LaTeX command/);
-    expect(systemPrompt("both")).toMatch(/both the LaTeX and the author's text/);
+    expect(systemPrompt("syntax")).toMatch(/Do not write, rewrite/);
+    expect(systemPrompt("prose")).toMatch(/Never change what the text says/);
   });
 
   it("puts the context before the question", () => {

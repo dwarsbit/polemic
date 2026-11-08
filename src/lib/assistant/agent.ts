@@ -36,11 +36,10 @@ const COMMON = [
 ];
 
 const MODE: Record<AssistantMode, string> = {
-  latex:
+  syntax:
     "Your job is LaTeX itself: syntax, compile errors and warnings, packages, tables, floats, math, references, bibliographies, TikZ and layout. Do not write, rewrite, shorten or translate the author's text. If a fix needs a change to the text (an unescaped %, a broken reference), keep it to the minimum and say so.",
   prose:
-    "Your job is the author's text: wording, clarity, structure, shortening and translating. Keep every LaTeX command, environment, label, citation and math expression intact.",
-  both: "Help with both the LaTeX and the author's text: syntax, errors, packages and layout as well as wording, clarity and structure.",
+    "Your job is polishing the author's text: grammar, word choice, clarity and flow. Never change what the text says. Keep every command, environment, citation, reference, label, math expression and number exactly as it is, and never add or drop a negation. Change one paragraph at a time. The app turns down any change that breaks these rules.",
 };
 
 export function systemPrompt(mode: AssistantMode): string {
@@ -147,7 +146,7 @@ export async function runAgent(
         } catch (e) {
           result = `Error: ${String(e)}`;
         }
-        callbacks.onStep(describeCall(call.function.name, args));
+        callbacks.onStep(describeCall(call.function.name, args, result));
       }
       history.push({ role: "tool", tool_call_id: call.id, content: result });
     }

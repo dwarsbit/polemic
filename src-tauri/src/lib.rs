@@ -552,7 +552,7 @@ fn update_preferences(
 ) -> Result<Settings, String> {
     settings::update(&app, |s| {
         if let Some(mode) = assistant_mode {
-            if matches!(mode.as_str(), "latex" | "prose" | "both") {
+            if matches!(mode.as_str(), "syntax" | "prose") {
                 s.assistant_mode = Some(mode);
             }
         }

@@ -11,10 +11,12 @@ import {
   describeProseChange,
   planReplacements,
   proseChange,
+  proseViolation,
   type ProseChange,
   type Replacement,
 } from "./edits";
 import { searchText } from "@/lib/project-search";
+import type { AssistantMode } from "@/store/settings";
 
 /** A change the model proposed, waiting for the user. */
 export interface ProposedChange {
@@ -27,7 +29,7 @@ export interface ProposedChange {
   after: string;
   /** True when the file does not exist yet. */
   creates: boolean;
-  /** Set in LaTeX mode when the change edits the prose. */
+  /** Set in Syntax mode when the change edits the prose. */
   prose: ProseChange | null;
 }
 
@@ -52,8 +54,9 @@ export interface AssistantHost {
   packageInfo(names: string[]): Promise<TexPackageInfo[]>;
   /** Shows a change card; returns its number. */
   propose(change: Omit<ProposedChange, "id">): number;
-  /** Whether prose changes are flagged (LaTeX mode). */
-  flagProse(): boolean;
+  /** The mode: Syntax flags changes to the text, Prose turns down
+   *  changes that go beyond rewording. */
+  mode(): AssistantMode;
 }
 
 /** A tool result longer than this is cut, to keep small models usable. */
@@ -168,7 +171,11 @@ export const TOOL_SPECS: AgentToolSpec[] = [
 ];
 
 /** A short line for the chat about what a tool call did. */
-export function describeCall(name: string, args: Record<string, unknown>): string {
+export function describeCall(
+  name: string,
+  args: Record<string, unknown>,
+  result = "",
+): string {
   const path = typeof args.path === "string" ? args.path : "";
   switch (name) {
     case "list_files":
@@ -183,8 +190,12 @@ export function describeCall(name: string, args: Record<string, unknown>): strin
       return "Compiled the project";
     case "package_info":
       return `Looked up ${Array.isArray(args.names) ? args.names.join(", ") : "packages"}`;
-    case "propose_change":
-      return `Proposed a change to ${path}`;
+    case "propose_change": {
+      const turnedDown = /^Turned down: this change (.+?)\. /.exec(result);
+      return turnedDown
+        ? `Held back a change to ${path} that ${turnedDown[1]}`
+        : `Proposed a change to ${path}`;
+    }
     default:
       return `Called ${name}`;
   }
@@ -324,8 +335,20 @@ export async function runTool(
       const planned = planReplacements(before, replacements);
       if ("error" in planned) return `Error: ${planned.error} Nothing was proposed.`;
       if (planned.after === before) return "Error: the change does not alter the file.";
+      const mode = host.mode();
+      if (mode === "prose") {
+        const violation = proseViolation(
+          path,
+          existing ?? "",
+          planned.after,
+          planned.edits,
+        );
+        if (violation !== null) {
+          return `Turned down: this change ${violation}. Nothing was proposed. In Prose mode a change may only reword: keep commands, citations, references, labels, math, numbers and negations exactly as they are, stay within one paragraph, and try again.`;
+        }
+      }
       const prose =
-        host.flagProse() && path.toLowerCase().endsWith(".tex")
+        mode === "syntax" && path.toLowerCase().endsWith(".tex")
           ? proseChange(before, planned.after)
           : null;
       const id = host.propose({

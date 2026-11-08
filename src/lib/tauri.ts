@@ -131,7 +131,8 @@ export interface Settings {
   ai: AiSettings | null;
   /** Projects (paths) where the assistant may compile on its own. */
   assistantCompileProjects: string[];
-  /** "latex", "prose" or "both"; null means "latex". */
+  /** "syntax" or "prose"; null means "syntax". Older versions saved
+   *  "latex" (read as "syntax") and "both" (read as "prose"). */
   assistantMode: string | null;
   grammar: GrammarSettings;
   /** The Polemic server for the account; null means app.polemicapp.com. */
@@ -508,7 +509,7 @@ export interface EditorPreferences {
   authorName?: string;
   /** Empty clears it. */
   authorInitials?: string;
-  assistantMode?: "latex" | "prose" | "both";
+  assistantMode?: "syntax" | "prose";
 }
 
 export function updatePreferences(prefs: EditorPreferences): Promise<Settings> {

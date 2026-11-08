@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { describeProseChange, planReplacements, proseChange } from "./edits";
+import {
+  describeProseChange,
+  planReplacements,
+  proseChange,
+  proseViolation,
+} from "./edits";
 
 const doc = [
   "\\documentclass{article}",
@@ -69,6 +74,62 @@ describe("proseChange", () => {
     expect(change!.added).toEqual(["The", "results", "appear"]);
     expect(describeProseChange(change!)).toBe(
       "This change edits your text: it removes “Results”, “are” and adds “The”, “results”, “appear”.",
+    );
+  });
+});
+
+describe("proseViolation", () => {
+  const text = [
+    "\\section{Results}",
+    "",
+    "Streets with more canopy were not much cooler at night \\parencite{oke1982}.",
+    "Each ten percent lowered the temperature by $0.38$ K in 3 cities (Table~\\ref{tab:a}).",
+    "",
+    "The effect depends \\emph{strongly} on the weather.",
+  ].join("\n");
+
+  function check(find: string, replace: string, path = "results.tex") {
+    const planned = planReplacements(text, [{ find, replace }]);
+    if ("error" in planned) throw new Error(planned.error);
+    return proseViolation(path, text, planned.after, planned.edits);
+  }
+
+  it("lets rewording through", () => {
+    expect(check("Each ten percent lowered", "Every ten percent reduced")).toBeNull();
+    expect(check("depends \\emph{strongly}", "hinges \\emph{strongly}")).toBeNull();
+  });
+
+  it("turns down changes beyond the wording", () => {
+    expect(check("\\parencite{oke1982}", "\\parencite{bowler2010}")).toBe(
+      "changes a citation, reference or label",
+    );
+    expect(check("(Table~\\ref{tab:a})", "")).toBe(
+      "changes a citation, reference or label",
+    );
+    expect(check("$0.38$", "$0.4$")).toBe("changes math");
+    expect(check("in 3 cities", "in three cities")).toBe("changes a number");
+    expect(check("were not much cooler", "were much cooler")).toBe(
+      "adds or drops a negation",
+    );
+    expect(check("depends \\emph{strongly}", "depends strongly")).toBe(
+      "changes a command",
+    );
+  });
+
+  it("keeps a change to one paragraph and to text files", () => {
+    const planned = planReplacements(text, [
+      { find: "Streets with", replace: "Roads with" },
+      { find: "The effect", replace: "This effect" },
+    ]);
+    if ("error" in planned) throw new Error(planned.error);
+    expect(proseViolation("results.tex", text, planned.after, planned.edits)).toBe(
+      "spans more than one paragraph",
+    );
+    expect(check("weather.", "weather.\n\nMore.")).toBe(
+      "spans more than one paragraph",
+    );
+    expect(check("Streets", "Roads", "references.bib")).toBe(
+      "edits a file other than your text",
     );
   });
 });

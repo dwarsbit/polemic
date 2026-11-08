@@ -13,6 +13,7 @@
 
 ### Changed
 
+- The assistant's modes are now **Syntax** and **Prose**. Syntax fixes LaTeX and leaves your text alone. Prose polishes your wording and never changes what your text says: a change that would alter a citation, reference, math, a number or a "not", or that spans more than one paragraph, is held back. LaTeX becomes Syntax and Both becomes Prose.
 - **Share for review** is now **Share**, since it also invites people.
 - The account card in Settings is redesigned. Signed in, it shows your photo from Google, Apple or Microsoft sign-in (or your initials), your plan, and how much storage and compile time you've used today. Signed out, **Create account** opens the sign-up form in your browser. The server field is now behind **Use custom server**.
 
