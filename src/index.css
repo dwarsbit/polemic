@@ -74,10 +74,10 @@
 
 /* Design tokens (Sheet UI kit): shadcn semantic tokens on Tailwind's
    mauve gray scale (a warm purple gray, hue ~320-326) with the brand
-   primary as the one accent. The primary is the app icon's tile, #372AAC
-   (oklch 39.8% 0.195 277.366); primary-dark (32%) is its hairline edge
-   and tinted text, primary-light (60%) stands in for it in dark mode and
-   primary-tint (93%) is the text selection. The comments name the
+   primary as the one accent. The primary is the app icon's tile, #623E64
+   (oklch 42% 0.075 325); primary-dark (35%) is its hairline edge
+   and tinted text, primary-light (68%) stands in for it in dark mode and
+   primary-tint (93.5%) is the text selection. The comments name the
    Tailwind step or brand color each value is. */
 :root {
   --background: oklch(1 0 0);
@@ -86,11 +86,11 @@
   --card-foreground: oklch(14.5% 0.008 326);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(14.5% 0.008 326);
-  --primary: oklch(39.8% 0.195 277.366); /* primary */
+  --primary: oklch(42% 0.075 325); /* primary */
   --primary-foreground: oklch(98.5% 0 0); /* mauve-50 */
   /* The primary button: a primary fill with a primary-dark hairline edge. */
-  --primary-fill: oklch(39.8% 0.195 277.366); /* primary */
-  --primary-edge: oklch(32% 0.17 277.366); /* primary-dark */
+  --primary-fill: oklch(42% 0.075 325); /* primary */
+  --primary-edge: oklch(35% 0.065 325); /* primary-dark */
   --secondary: oklch(96% 0.003 325.6); /* mauve-100 */
   --secondary-foreground: oklch(21.2% 0.019 322.12);
   --muted: oklch(96% 0.003 325.6);
@@ -100,12 +100,12 @@
   --destructive: oklch(57.7% 0.245 27.325); /* red-600 */
   --border: oklch(92.2% 0.005 325.62); /* mauve-200 */
   --input: oklch(92.2% 0.005 325.62);
-  --ring: oklch(39.8% 0.195 277.366); /* primary */
-  --selection: oklch(93% 0.035 277.366); /* primary-tint */
-  --tint: oklch(39.8% 0.195 277.366); /* primary: selected rows, pills, focus */
-  --tint-foreground: oklch(32% 0.17 277.366); /* primary-dark: tinted text */
-  --tint-soft: oklch(39.8% 0.195 277.366 / 8%);
-  --tint-edge: oklch(39.8% 0.195 277.366 / 25%);
+  --ring: oklch(42% 0.075 325); /* primary */
+  --selection: oklch(93.5% 0.027 325); /* primary-tint */
+  --tint: oklch(42% 0.075 325); /* primary: selected rows, pills, focus */
+  --tint-foreground: oklch(35% 0.065 325); /* primary-dark: tinted text */
+  --tint-soft: oklch(42% 0.075 325 / 8%);
+  --tint-edge: oklch(42% 0.075 325 / 25%);
   --success: oklch(59.6% 0.145 163.225); /* emerald-600 */
   --warning: oklch(66.6% 0.179 58.318); /* amber-600 */
   --info: oklch(58.8% 0.158 241.966); /* sky-600 */
@@ -118,12 +118,12 @@
   /* The window backdrop behind the floating cards. */
   --sidebar: oklch(98.5% 0 0); /* mauve-50 */
   --sidebar-foreground: oklch(14.5% 0.008 326);
-  --sidebar-primary: oklch(39.8% 0.195 277.366);
+  --sidebar-primary: oklch(42% 0.075 325);
   --sidebar-primary-foreground: oklch(98.5% 0 0);
   --sidebar-accent: oklch(96% 0.003 325.6);
   --sidebar-accent-foreground: oklch(21.2% 0.019 322.12);
   --sidebar-border: oklch(92.2% 0.005 325.62);
-  --sidebar-ring: oklch(39.8% 0.195 277.366);
+  --sidebar-ring: oklch(42% 0.075 325);
 }
 
 /* macOS vibrancy: the chrome (header, rails, status bar) is fully
@@ -147,10 +147,10 @@ html.mac.dark body {
   --card-foreground: oklch(98.5% 0 0);
   --popover: oklch(21.2% 0.019 322.12);
   --popover-foreground: oklch(98.5% 0 0);
-  --primary: oklch(60% 0.17 277.366); /* primary-light */
+  --primary: oklch(68% 0.08 325); /* primary-light */
   --primary-foreground: oklch(14.5% 0.008 326); /* mauve-950 */
-  --primary-fill: oklch(60% 0.17 277.366);
-  --primary-edge: oklch(60% 0.17 277.366);
+  --primary-fill: oklch(68% 0.08 325);
+  --primary-edge: oklch(68% 0.08 325);
   --secondary: oklch(26.3% 0.024 320.12); /* mauve-800 */
   --secondary-foreground: oklch(98.5% 0 0);
   --muted: oklch(26.3% 0.024 320.12);
@@ -160,12 +160,12 @@ html.mac.dark body {
   --destructive: oklch(70.4% 0.191 22.216); /* red-400 */
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(60% 0.17 277.366); /* primary-light */
-  --selection: oklch(60% 0.17 277.366 / 35%);
-  --tint: oklch(60% 0.17 277.366); /* primary-light */
-  --tint-foreground: oklch(75% 0.12 277.366);
-  --tint-soft: oklch(60% 0.17 277.366 / 15%);
-  --tint-edge: oklch(60% 0.17 277.366 / 35%);
+  --ring: oklch(68% 0.08 325); /* primary-light */
+  --selection: oklch(68% 0.08 325 / 35%);
+  --tint: oklch(68% 0.08 325); /* primary-light */
+  --tint-foreground: oklch(78% 0.07 325);
+  --tint-soft: oklch(68% 0.08 325 / 15%);
+  --tint-edge: oklch(68% 0.08 325 / 35%);
   --success: oklch(76.5% 0.177 163.223); /* emerald-400 */
   --warning: oklch(82.8% 0.189 84.429); /* amber-400 */
   --info: oklch(74.6% 0.16 232.661); /* sky-400 */
@@ -176,12 +176,12 @@ html.mac.dark body {
   --chart-5: oklch(26.3% 0.024 320.12);
   --sidebar: oklch(14.5% 0.008 326); /* mauve-950 */
   --sidebar-foreground: oklch(98.5% 0 0);
-  --sidebar-primary: oklch(60% 0.17 277.366);
+  --sidebar-primary: oklch(68% 0.08 325);
   --sidebar-primary-foreground: oklch(14.5% 0.008 326);
   --sidebar-accent: oklch(26.3% 0.024 320.12);
   --sidebar-accent-foreground: oklch(98.5% 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(60% 0.17 277.366);
+  --sidebar-ring: oklch(68% 0.08 325);
 }
 
 @layer base {

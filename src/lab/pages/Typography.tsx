@@ -216,7 +216,7 @@ export function TypographyPage() {
 
       <LabSection
         title="Color roles"
-        note="The mauve gray scale carries all surfaces and text. The primary (indigo) is the only tint: focus rings, text selection, selected rows and pills. One hue per status meaning, as tokens, so panels stop mixing amber-400/500/600/700 and orange."
+        note="The mauve gray scale carries all surfaces and text. The primary (plum) is the only tint: focus rings, text selection, selected rows and pills. One hue per status meaning, as tokens, so panels stop mixing amber-400/500/600/700 and orange."
       >
         <div className="grid grid-cols-4 gap-3">
           <Swatch name="Foreground" className="bg-foreground" />

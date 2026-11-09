@@ -48,7 +48,7 @@ export const SYNTAX_THEMES: SyntaxTheme[] = [
     label: "Polemic",
     // The app's mauve grays, commands in the primary, standard accent colors.
     light: paletteStyle({
-      keyword: "oklch(39.8% 0.195 277.366)", // primary
+      keyword: "oklch(42% 0.075 325)", // primary
       comment: "oklch(54.2% 0.034 322.5)", // mauve-500
       string: "oklch(50.8% 0.118 165.612)", // emerald-700
       atom: "oklch(50% 0.134 242.749)", // sky-700
@@ -57,7 +57,7 @@ export const SYNTAX_THEMES: SyntaxTheme[] = [
       invalid: "oklch(58.6% 0.253 17.585)", // rose-600
     }),
     dark: paletteStyle({
-      keyword: "oklch(75% 0.12 277.366)", // primary, light for dark grounds
+      keyword: "oklch(78% 0.07 325)", // primary, light for dark grounds
       comment: "oklch(71.1% 0.019 323.02)", // mauve-400
       string: "oklch(84.5% 0.143 164.978)", // emerald-300
       atom: "oklch(82.8% 0.111 230.318)", // sky-300
