@@ -48,12 +48,15 @@ Plain, precise and calm, for researchers and students who write papers.
 | Write | Not | Note |
 | --- | --- | --- |
 | Polemic | POLEMIC, polemic | Title case everywhere, the logo included |
-| mark | symbol, glyph | The tile with the page and the slash, in one color, on its own |
+| mark | symbol, glyph | The tile with the page knocked out and the slash, on its own |
 | logo | wordmark, lockup | The mark next to "Polemic" |
-| app icon | tile, favicon | The white page with the slash on the plum tile: dock, taskbar, browser tab |
+| app icon | tile, favicon | The plum tile with the white page and the slash: dock, taskbar, browser tab |
 | app icon and name | lockup | The app icon with "Polemic", horizontal or vertical |
 | Free, Student, Pro | Community, Professional, Premium, tier | The plans of the online services; "the Pro plan" in running text, "Polemic Pro" where it stands alone, as at checkout |
 | online services | hosted services, cloud services | Storage, review links, grammar checking and cloud compile; every plan has them, with different limits |
+| cloud compile | online compile, server compile | Compiling on Polemic's servers instead of your own TeX distribution |
+| % used | minutes, seconds, fair use | How much of today's cloud compile you've used, on every plan: "34% used", rounded to a whole percent and never over 100%. Minutes stay on the server |
+| Limited, N× more | minutes per day, fair use, unlimited | How plans compare cloud compile: Free "Limited", Student "10× more", Pro "60× more", from the server's numbers |
 | LaTeX, TeX, BibTeX, biblatex, XeLaTeX, LuaLaTeX, pdfLaTeX | Latex, latex, LATEX, Bibtex | Always this casing, also in headings |
 | TeX distribution | TeX install | TeX Live, MacTeX, MiKTeX by name |
 | Git | git | `git` in code font only for the command |
