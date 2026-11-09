@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { AccountMenu } from "@/components/AccountMenu";
 import { EditorFaceToggle } from "@/components/EditorFaceToggle";
 import { PresenceAvatars } from "@/components/PresenceAvatars";
 import { WebAppMenu } from "@/components/WebAppMenu";
@@ -36,7 +37,8 @@ const REVEAL_LABEL = isMac
 /**
  * The persistent window header: the project menu (rename, reveal,
  * switch) on the left, the Visual/Code switch in the center, and the
- * preview, auto-compile and Compile controls on the right.
+ * preview, auto-compile and Compile controls on the right, then the
+ * account's avatar when signed in.
  */
 export function TopBar() {
   const project = useProjectStore((s) => s.project);
@@ -233,6 +235,7 @@ export function TopBar() {
             </Button>
           </ButtonGroup>
         )}
+        <AccountMenu />
       </div>
     </header>
   );

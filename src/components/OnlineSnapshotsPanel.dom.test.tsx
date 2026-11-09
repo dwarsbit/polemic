@@ -66,6 +66,11 @@ async function settle() {
   });
 }
 
+/** Settles until the changes have loaded: a fixed wait is too short on slow CI runners. */
+async function loaded() {
+  for (let i = 0; i < 100 && text().includes("Loading…"); i++) await settle();
+}
+
 async function render() {
   const host = document.createElement("div");
   document.body.appendChild(host);
@@ -117,7 +122,11 @@ describe("OnlineSnapshotsPanel", () => {
     await click(buttons("Restore this snapshot")[1]);
     expect(text()).toContain("The project as it is now is kept as a snapshot first");
     await click(buttons("Restore")[0]);
-    expect(tauri.shareRestore).toHaveBeenCalledWith("/home/ada/thesis", "s1", undefined);
+    expect(tauri.shareRestore).toHaveBeenCalledWith(
+      "/home/ada/thesis",
+      "s1",
+      undefined,
+    );
     // Saved changes go up first, and the restore comes down right after.
     expect(order).toEqual(["sync", "restore", "sync"]);
   });
@@ -125,11 +134,14 @@ describe("OnlineSnapshotsPanel", () => {
   it("shows what changed since a snapshot, unsaved edits included, and restores a file", async () => {
     await render();
     await click(buttons("View changes against the current project")[1]);
+    await loaded();
     expect(text()).toContain("main.tex");
     expect(text()).toContain("notes.tex");
     expect(text()).toContain("Hello again.");
     await click(buttons("Restore this file from the snapshot")[0]);
-    expect(tauri.shareRestore).toHaveBeenCalledWith("/home/ada/thesis", "s1", ["main.tex"]);
+    expect(tauri.shareRestore).toHaveBeenCalledWith("/home/ada/thesis", "s1", [
+      "main.tex",
+    ]);
   });
 
   it("lets commenters look without restoring", async () => {
