@@ -1,6 +1,7 @@
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { useEffect, useState } from "react";
-import { ExternalLink, LogOut, MoreHorizontal, UserRound } from "lucide-react";
+import { ExternalLink, LogOut, MoreHorizontal } from "lucide-react";
+import { Avatar, PLAN_NAMES, UsageMeters } from "@/components/AccountParts";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,7 +10,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
-import { formatStorage } from "@/components/UsageSummary";
 import { retryGrammar } from "@/lib/grammar-check";
 import {
   accountCancelSignIn,
@@ -20,9 +20,8 @@ import {
   accountUsage,
   type AccountStatus,
   type AccountUsage,
-  type AccountUser,
 } from "@/lib/tauri";
-import { initialsOf } from "@/store/settings";
+import { useAccountStore } from "@/store/account";
 import { cn } from "cn";
 
 export const DEFAULT_ACCOUNT_SERVER = "https://app.polemicapp.com";
@@ -30,85 +29,6 @@ export const PRIVACY_POLICY_URL = "https://polemicapp.com/privacy";
 
 const link = "underline underline-offset-2 hover:text-foreground";
 const card = "rounded-xl border bg-card shadow-xs";
-
-/** Plan names as the account page shows them; "professional" comes from servers before the current plans. */
-const PLAN_NAMES: Record<NonNullable<AccountUser["plan"]>, string> = {
-  free: "Free",
-  student: "Student",
-  pro: "Pro",
-  professional: "Pro",
-};
-
-const minutes = (seconds: number) => Number((seconds / 60).toFixed(1));
-
-/** The sign-in photo, else the initials on a primary circle, else a person icon. */
-function Avatar({
-  name,
-  photo,
-  large,
-}: {
-  name?: string;
-  photo?: string | null;
-  large?: boolean;
-}) {
-  const size = large ? "size-12 text-base" : "size-10 text-sm";
-  if (photo) {
-    return (
-      <img
-        src={photo}
-        alt=""
-        className={cn("shrink-0 rounded-full object-cover", size)}
-      />
-    );
-  }
-  const initials = name ? initialsOf(name) : "";
-  return (
-    <div
-      className={cn(
-        "flex shrink-0 items-center justify-center rounded-full font-semibold",
-        initials
-          ? "bg-primary-fill text-white dark:bg-primary"
-          : "bg-muted text-muted-foreground",
-        size,
-      )}
-      aria-hidden
-    >
-      {initials || <UserRound className="size-5" />}
-    </div>
-  );
-}
-
-function Meter({
-  label,
-  value,
-  share,
-  full,
-}: {
-  label: string;
-  value: string;
-  share: number | null;
-  full: boolean;
-}) {
-  return (
-    <div>
-      <div className="flex items-baseline justify-between gap-2 text-xs">
-        <span className="text-muted-foreground">{label}</span>
-        <span className={cn("tabular-nums", full && "text-warning")}>{value}</span>
-      </div>
-      {share !== null && (
-        <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-muted">
-          <div
-            className={cn(
-              "h-full rounded-full",
-              full ? "bg-warning" : "bg-primary-fill dark:bg-primary",
-            )}
-            style={{ width: `${Math.min(100, Math.max(2, share * 100))}%` }}
-          />
-        </div>
-      )}
-    </div>
-  );
-}
 
 /** The plan with storage and today's compile time, from GET /api/usage. */
 function PlanSummary({
@@ -121,7 +41,6 @@ function PlanSummary({
   onChangePlan: () => void;
 }) {
   const links = usage?.reviewLinks;
-  const { storage, compile } = usage ?? {};
   return (
     <div className="border-t px-4 py-3">
       <div className="flex items-center justify-between gap-4">
@@ -139,30 +58,8 @@ function PlanSummary({
           Change plan
         </Button>
       </div>
-      {storage && compile && (
-        <div className="mt-3 grid grid-cols-2 gap-x-6 gap-y-3">
-          <Meter
-            label="Storage"
-            value={`${formatStorage(storage.usedBytes)} of ${formatStorage(storage.limitBytes)}`}
-            share={storage.usedBytes / storage.limitBytes}
-            full={storage.usedBytes >= storage.limitBytes}
-          />
-          {compile.limitSeconds === null ? (
-            <Meter
-              label="Compile time today"
-              value={`${minutes(compile.usedSeconds)} minutes`}
-              share={null}
-              full={false}
-            />
-          ) : (
-            <Meter
-              label="Compile time today"
-              value={`${minutes(compile.usedSeconds)} of ${minutes(compile.limitSeconds)} minutes`}
-              share={compile.usedSeconds / compile.limitSeconds}
-              full={compile.usedSeconds >= compile.limitSeconds}
-            />
-          )}
-        </div>
+      {usage && (
+        <UsageMeters usage={usage} className="mt-3 grid grid-cols-2 gap-x-6 gap-y-3" />
       )}
     </div>
   );
@@ -187,6 +84,8 @@ export function AccountSettingsSection() {
   function show(next: AccountStatus) {
     setStatus(next);
     setServer(next.server);
+    // The toolbar's avatar follows sign-in and sign-out here.
+    useAccountStore.getState().setStatus(next);
   }
 
   useEffect(() => {
@@ -286,7 +185,7 @@ export function AccountSettingsSection() {
     body = (
       <>
         <div className="flex items-center gap-3 px-4 py-4">
-          <Avatar name={user?.name} photo={status.avatar} large />
+          <Avatar name={user?.name} photo={status.avatar} size="lg" />
           <div className="min-w-0 flex-1">
             {user ? (
               <>

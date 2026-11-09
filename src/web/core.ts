@@ -6,6 +6,7 @@
  * command does: with a message string.
  */
 
+import { accountCommands } from "@/web/account";
 import { projectCommands } from "@/web/projects";
 import { reviewCommands } from "@/web/review";
 import { settingsCommands } from "@/web/settings";
@@ -26,6 +27,7 @@ const nothing: Record<string, Handler> = {
 
 const commands: Record<string, Handler> = {
   ...settingsCommands,
+  ...accountCommands,
   ...projectCommands,
   ...reviewCommands,
   ...writingCommands,
