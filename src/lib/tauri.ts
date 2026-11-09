@@ -1083,8 +1083,8 @@ export interface AccountStatus {
 /** GET /api/usage: what the signed-in user uses of their plan. */
 export interface AccountUsage {
   storage: { usedBytes: number; limitBytes: number };
-  /** limitSeconds is null on Pro (fair use). */
-  compile: { usedSeconds: number; limitSeconds: number | null; resetsAt: string };
+  /** The share of today's compile time used, 0 to 100. The minutes stay on the server. */
+  compile: { usedPercent: number; resetsAt: string };
   /** limit is null: unlimited. */
   reviewLinks: { count: number; limit: number | null };
 }

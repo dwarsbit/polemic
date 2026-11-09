@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 /** GET /api/usage, the parts shown here. */
 interface Usage {
   storage: { usedBytes: number; limitBytes: number };
-  compile: { usedSeconds: number; limitSeconds: number | null };
+  compile: { usedPercent: number };
 }
 
 /** Decimal units, as the plans state them: "100 MB", "5 GB". */
@@ -20,11 +20,14 @@ export function formatStorage(bytes: number): string {
   return `${bytes} B`;
 }
 
-const minutes = (seconds: number) => Number((seconds / 60).toFixed(1));
+/** The share of today's cloud compile used, as every account view says it: "40% used". */
+export function formatCompileUsed(percent: number): string {
+  return `${percent}% used`;
+}
 
 /**
  * The browser build's note under the project list: storage and today's
- * compile time against the plan, with a link to the account page.
+ * the share of today's cloud compile used, with a link to the account page.
  */
 export function UsageSummary() {
   const [usage, setUsage] = useState<Usage | null>(null);
@@ -47,20 +50,18 @@ export function UsageSummary() {
   if (usage === null) return null;
   const { storage, compile } = usage;
   const full = storage.usedBytes >= storage.limitBytes;
-  const compileUsedUp =
-    compile.limitSeconds !== null && compile.usedSeconds >= compile.limitSeconds;
+  const compileUsedUp = compile.usedPercent >= 100;
   return (
     <p className="mt-4 text-xs text-muted-foreground">
       <span className={cn(full && "text-warning")}>
         {full ? "Your storage is full" : "Storage"}: {formatStorage(storage.usedBytes)}{" "}
         of {formatStorage(storage.limitBytes)}.
       </span>{" "}
-      {compile.limitSeconds !== null && (
-        <span className={cn(compileUsedUp && "text-warning")}>
-          Compile time today: {minutes(compile.usedSeconds)} of{" "}
-          {minutes(compile.limitSeconds)} minutes.
-        </span>
-      )}{" "}
+      <span className={cn(compileUsedUp && "text-warning")}>
+        {compileUsedUp
+          ? "Cloud compile is used up for today."
+          : `Cloud compile today: ${formatCompileUsed(compile.usedPercent)}.`}
+      </span>{" "}
       <a
         href="/account"
         target="_blank"

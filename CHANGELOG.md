@@ -6,6 +6,10 @@
 
 - When you're signed in, your photo or initials show at the right end of the toolbar, in the desktop app and in your browser. Click it to see your plan, your storage and today's compile time, and to manage your account or sign out.
 
+### Changed
+
+- Your account shows how much of today's cloud compile you've used as a percentage, on every plan, Pro included.
+
 ## 0.21.0 (2026-11-09)
 
 ### Added

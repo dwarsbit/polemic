@@ -1,5 +1,5 @@
 import { UserRound } from "lucide-react";
-import { formatStorage } from "@/components/UsageSummary";
+import { formatCompileUsed, formatStorage } from "@/components/UsageSummary";
 import type { AccountUsage, AccountUser } from "@/lib/tauri";
 import { initialsOf } from "@/store/settings";
 import { cn } from "cn";
@@ -11,8 +11,6 @@ export const PLAN_NAMES: Record<NonNullable<AccountUser["plan"]>, string> = {
   pro: "Pro",
   professional: "Pro",
 };
-
-const minutes = (seconds: number) => Number((seconds / 60).toFixed(1));
 
 const SIZES = {
   sm: "size-7 text-[11px]",
@@ -66,11 +64,14 @@ function Meter({
   value,
   share,
   full,
+  note,
 }: {
   label: string;
   value: string;
-  share: number | null;
+  share: number;
   full: boolean;
+  /** Shown under the bar once it is full. */
+  note?: string;
 }) {
   return (
     <div>
@@ -78,22 +79,21 @@ function Meter({
         <span className="text-muted-foreground">{label}</span>
         <span className={cn("tabular-nums", full && "text-warning")}>{value}</span>
       </div>
-      {share !== null && (
-        <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-muted">
-          <div
-            className={cn(
-              "h-full rounded-full",
-              full ? "bg-warning" : "bg-primary-fill dark:bg-primary",
-            )}
-            style={{ width: `${Math.min(100, Math.max(2, share * 100))}%` }}
-          />
-        </div>
-      )}
+      <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-muted">
+        <div
+          className={cn(
+            "h-full rounded-full",
+            full ? "bg-warning" : "bg-primary-fill dark:bg-primary",
+          )}
+          style={{ width: `${Math.min(100, Math.max(2, share * 100))}%` }}
+        />
+      </div>
+      {full && note && <p className="mt-1 text-xs text-muted-foreground">{note}</p>}
     </div>
   );
 }
 
-/** Storage and today's compile time against the plan, from GET /api/usage. */
+/** Storage against the plan and the share of today's cloud compile used, from GET /api/usage. */
 export function UsageMeters({
   usage,
   className,
@@ -110,21 +110,13 @@ export function UsageMeters({
         share={storage.usedBytes / storage.limitBytes}
         full={storage.usedBytes >= storage.limitBytes}
       />
-      {compile.limitSeconds === null ? (
-        <Meter
-          label="Compile time today"
-          value={`${minutes(compile.usedSeconds)} minutes`}
-          share={null}
-          full={false}
-        />
-      ) : (
-        <Meter
-          label="Compile time today"
-          value={`${minutes(compile.usedSeconds)} of ${minutes(compile.limitSeconds)} minutes`}
-          share={compile.usedSeconds / compile.limitSeconds}
-          full={compile.usedSeconds >= compile.limitSeconds}
-        />
-      )}
+      <Meter
+        label="Cloud compile today"
+        value={formatCompileUsed(compile.usedPercent)}
+        share={compile.usedPercent / 100}
+        full={compile.usedPercent >= 100}
+        note="More from midnight UTC"
+      />
     </div>
   );
 }
