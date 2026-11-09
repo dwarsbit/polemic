@@ -10,6 +10,7 @@
 
 - Your account shows how much of today's cloud compile you've used as a percentage, on every plan, Pro included.
 - The accent color is now plum, the warm purple of the old app icon, in place of indigo: the app icon, buttons, links, focus rings, selected rows and the commands in the Polemic syntax theme.
+- The interface and the visual view use DM Sans, the typeface of the Polemic logo and website, instead of your computer's system font. It comes with the app, so Polemic looks the same on every computer.
 
 ## 0.21.0 (2026-11-09)
 
