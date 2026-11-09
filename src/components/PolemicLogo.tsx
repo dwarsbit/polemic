@@ -13,7 +13,7 @@ export function PolemicLogoVertical({ className }: { className?: string }) {
         width={255.333}
         height={255.333}
         rx={57.45}
-        fill="#372AAC"
+        fill="#623E64"
       />
       <rect
         x={112.347}
@@ -25,7 +25,7 @@ export function PolemicLogoVertical({ className }: { className?: string }) {
       />
       <path
         d="M166.22 85.54 L216.78 169.8"
-        stroke="#372AAC"
+        stroke="#623E64"
         strokeWidth={17.873}
         strokeLinecap="round"
         fill="none"

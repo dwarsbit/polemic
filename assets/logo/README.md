@@ -1,7 +1,7 @@
 # Logo system
 
-The Sheet logo: a white page with a slash on a primary tile (#372AAC,
-oklch 39.8% 0.195 277.366), and "Polemic" in DM Sans Bold, outlined. Taken from
+The Sheet logo: a white page with a slash on a primary tile (#623E64,
+oklch 42% 0.075 325), and "Polemic" in DM Sans Bold, outlined. Taken from
 the brand kit; the files are plain shapes, so they need no fonts or scripts.
 
 | Variant | File | Use |
@@ -16,7 +16,7 @@ the brand kit; the files are plain shapes, so they need no fonts or scripts.
 The Tauri icons in `src-tauri/icons` come from `pnpm tauri icon assets/app-icon-no-shadow.png`;
 `icon.icns` alone comes from `assets/app-icon.png`, which keeps the Dock shadow.
 
-The files below are earlier explorations (plum and indigo) and are not in use.
+The files below are earlier explorations and are not in use.
 
 ## Logo explorations
 

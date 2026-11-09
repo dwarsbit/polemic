@@ -66,7 +66,7 @@ export const SHELL_NOTES = [
   "Lists: 28px rows, 12px text; the selected row is tinted, hover is the accent surface. Meta text (counts, line numbers, paths) is 11px muted.",
   "Tabs: 36px bar; flat tabs with a 2px primary underline on the active one, the dirty dot is amber. The breadcrumb and the toolbar keep their rows.",
   "Status bar: 28px (was 32), 11px text, a colored dot for the compile state instead of an icon per state.",
-  "Colors: mauve gray scale, indigo primary, also the only tint for focus, selection, selected rows and pills; success, warning, destructive and info are tokens.",
+  "Colors: mauve gray scale, plum primary, also the only tint for focus, selection, selected rows and pills; success, warning, destructive and info are tokens.",
 ];
 
 type LeftTab =
