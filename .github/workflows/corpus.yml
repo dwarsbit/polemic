@@ -36,9 +36,9 @@ jobs:
       - name: Check for the server token
         if: env.HAS_TOKEN != 'true'
         run: echo "::notice::POLEMIC_SERVER_TOKEN is not set (for example on a fork); skipping."
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         if: env.HAS_TOKEN == 'true'
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         if: env.HAS_TOKEN == 'true'
         with:
           repository: dwarsbit/polemic-server
@@ -87,7 +87,7 @@ jobs:
           git push origin HEAD:corpus-results
       - name: Keep the results of a trial batch
         if: env.HAS_TOKEN == 'true' && github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: corpus-trial
           path: results
