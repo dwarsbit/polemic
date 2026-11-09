@@ -77,8 +77,7 @@ describe("AccountMenu", () => {
     server.usage = {
       storage: { usedBytes: 42_000_000, limitBytes: 100_000_000 },
       compile: {
-        usedSeconds: 90,
-        limitSeconds: 300,
+        usedPercent: 30,
         resetsAt: "2026-11-09T00:00:00.000Z",
       },
       reviewLinks: { count: 1, limit: 1 },
@@ -106,7 +105,8 @@ describe("AccountMenu", () => {
     expect(menu.textContent).toContain("ada@example.com");
     expect(menu.textContent).toContain("Free");
     expect(menu.textContent).toContain("42 MB of 100 MB");
-    expect(menu.textContent).toContain("1.5 of 5 minutes");
+    expect(menu.textContent).toContain("Cloud compile today30% used");
+    expect(menu.textContent).not.toContain("minutes");
     expect(menu.textContent).toContain("1 of 1 active review link");
   });
 

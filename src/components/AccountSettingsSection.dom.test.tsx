@@ -102,8 +102,7 @@ describe("AccountSettingsSection", () => {
     server.usage = {
       storage: { usedBytes: 1_200_000_000, limitBytes: 5_000_000_000 },
       compile: {
-        usedSeconds: 720,
-        limitSeconds: 3000,
+        usedPercent: 24,
         resetsAt: "2026-11-09T00:00:00.000Z",
       },
       reviewLinks: { count: 3, limit: null },
@@ -128,7 +127,7 @@ describe("AccountSettingsSection", () => {
     expect(host.textContent).toContain("ada@example.com");
     expect(host.textContent).toContain("Student plan");
     expect(host.textContent).toContain("1.2 GB of 5 GB");
-    expect(host.textContent).toContain("12 of 50 minutes");
+    expect(host.textContent).toContain("24% used");
     expect(host.textContent).toContain("Unlimited review links");
 
     await signOutFromMenu();
@@ -158,7 +157,7 @@ describe("AccountSettingsSection", () => {
     );
   });
 
-  it("shows Pro's compile time without a limit, and Free's review link", async () => {
+  it("shows used-up compile time and Free's review link", async () => {
     server.status = {
       ...server.status,
       signedIn: true,
@@ -167,8 +166,7 @@ describe("AccountSettingsSection", () => {
     server.usage = {
       storage: { usedBytes: 100_000_000, limitBytes: 100_000_000 },
       compile: {
-        usedSeconds: 90,
-        limitSeconds: null,
+        usedPercent: 100,
         resetsAt: "2026-11-09T00:00:00.000Z",
       },
       reviewLinks: { count: 1, limit: 1 },
@@ -176,8 +174,8 @@ describe("AccountSettingsSection", () => {
     await render();
     expect(host.textContent).toContain("Free plan");
     expect(host.textContent).toContain("1 of 1 active review link");
-    expect(host.textContent).toContain("1.5 minutes");
-    expect(host.textContent).not.toContain("1.5 of");
+    expect(host.textContent).toContain("100% used");
+    expect(host.textContent).toContain("More from midnight UTC");
   });
 
   it("hides the plan for servers without plans", async () => {
