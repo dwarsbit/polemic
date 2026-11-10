@@ -1,9 +1,7 @@
 <p align="center">
   <a href="https://polemicapp.com">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="assets/readme/polemic-logo-vertical-white.svg">
-      <img src="assets/readme/polemic-logo-vertical.svg" alt="Polemic" height="120">
-    </picture>
+    <img src="assets/readme/polemic-logo-vertical.svg#gh-light-mode-only" alt="Polemic" height="120">
+    <img src="assets/readme/polemic-logo-vertical-white.svg#gh-dark-mode-only" alt="Polemic" height="120">
   </a>
 </p>
 
@@ -14,9 +12,9 @@
 
 <p align="center">
   <a href="https://github.com/dwarsbit/polemic/actions/workflows/ci.yml"><img src="https://github.com/dwarsbit/polemic/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://github.com/dwarsbit/polemic/releases"><img src="https://img.shields.io/github/v/tag/dwarsbit/polemic?label=version&sort=semver&color=372AAC" alt="Latest version"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/dwarsbit/polemic?color=372AAC" alt="License"></a>
-  <a href="https://polemicapp.com/download"><img src="https://img.shields.io/badge/platforms-macOS%20%7C%20Windows%20%7C%20Linux-372AAC" alt="Platforms: macOS, Windows and Linux"></a>
+  <a href="https://github.com/dwarsbit/polemic/releases"><img src="https://img.shields.io/github/v/tag/dwarsbit/polemic?label=version&sort=semver&color=623E64" alt="Latest version"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/dwarsbit/polemic?color=623E64" alt="License"></a>
+  <a href="https://polemicapp.com/download"><img src="https://img.shields.io/badge/platforms-macOS%20%7C%20Windows%20%7C%20Linux-623E64" alt="Platforms: macOS, Windows and Linux"></a>
 </p>
 
 <p align="center">
