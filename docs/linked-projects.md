@@ -48,9 +48,35 @@ starts from the server's document, which the folder then overrides.
 
 ## Opening a project from the account
 
-`link_open_account_project` makes a folder in the projects folder, links
-it and saves an empty document as the copy, so the first run writes every
-file the server has into the folder.
+**Open from your account…** lists the account's projects
+(`link_account_projects`), each with the folder on this computer linked
+to it, if there is one; such a project opens that folder. For the others
+the dialog asks where to keep the project
+(`src/components/AccountProjectsDialog.tsx`):
+`link_open_account_project` makes a folder in the projects folder, or,
+with `choose`, shows a folder dialog and takes the folder only when it
+is new or empty (`is_empty_folder`; `.DS_Store` and the like don't
+count) and not linked already. Merging a project into a folder with
+files is left out on purpose. Either way the folder is linked and an
+empty document saved as the copy, so the first run writes every file the
+server has into it. The folder dialog runs in Rust, so the webview never
+names a path.
+
+### From the browser
+
+**Open in the desktop app…** in the browser's menu
+(`src/components/OpenInDesktopDialog.tsx`) opens
+`polemic://open?project=<id>`. The desktop app registers the `polemic`
+scheme (`tauri-plugin-deep-link`; installers register it, and an
+AppImage or a dev build claims it at start). `link::open_from_links`
+keeps the project id from such a link (`project_in_link` accepts only a
+plain id) and tells the window with `link://open-project`; the window
+takes it with `link_take_pending_open`, at start too, since a link can
+be what starts the app. It then opens the same dialog on that project,
+so a link alone never writes a folder: the reader still chooses where
+it goes, and a project that isn't in the signed-in account is refused
+with a message. On Windows and Linux a link starts another copy of the
+app with the link as its argument, as opening a second project does.
 
 ## People
 

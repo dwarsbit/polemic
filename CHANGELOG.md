@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.23.0 (unreleased)
+
+### Added
+
+- **Open from your account…** now asks where to keep a project that isn't on your computer yet: in your projects folder, or in a new or empty folder you pick. Projects that are already on this computer say so and open their folder.
+- In your browser, the menu has **Open in the desktop app…**. It opens the project in Polemic on your computer, where you choose its folder, and it stays in sync with what you write in the browser. Without the desktop app, it points you to the download.
+
+### Changed
+
+- In your browser, an empty projects list says how to start: name a project and pick a template, or upload a zip of a project you have.
+
 ## 0.22.0 (2026-11-09)
 
 ### Added

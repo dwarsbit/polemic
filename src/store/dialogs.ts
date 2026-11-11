@@ -17,6 +17,12 @@ interface DialogsState {
   documentSettingsOpen: boolean;
   /** Share: people, publishing and review links. */
   shareOpen: boolean;
+  /** Desktop: Open from your account. With a project id (from an
+   *  "Open in the desktop app" link) it goes straight to that project;
+   *  the whole value null = closed. */
+  accountProjects: { projectId: string | null } | null;
+  /** Browser: how to open the project in the desktop app. */
+  openInDesktopOpen: boolean;
   /** Dev builds only: the Component Gallery screen (Develop menu). */
   galleryOpen: boolean;
   /** The table in the grid editor; null = closed. */
@@ -31,6 +37,8 @@ interface DialogsState {
   setPackagesDialogOpen: (open: boolean) => void;
   setDocumentSettingsOpen: (open: boolean) => void;
   setShareOpen: (open: boolean) => void;
+  setAccountProjects: (request: { projectId: string | null } | null) => void;
+  setOpenInDesktopOpen: (open: boolean) => void;
   setGalleryOpen: (open: boolean) => void;
   setTableGrid: (request: TableGridRequest | null) => void;
   setCsvImport: (request: { path: string | null } | null) => void;
@@ -44,6 +52,8 @@ export const useDialogsStore = create<DialogsState>((set) => ({
   packagesDialogOpen: false,
   documentSettingsOpen: false,
   shareOpen: false,
+  accountProjects: null,
+  openInDesktopOpen: false,
   galleryOpen: false,
   tableGrid: null,
   csvImport: null,
@@ -54,6 +64,8 @@ export const useDialogsStore = create<DialogsState>((set) => ({
   setPackagesDialogOpen: (open) => set({ packagesDialogOpen: open }),
   setDocumentSettingsOpen: (open) => set({ documentSettingsOpen: open }),
   setShareOpen: (open) => set({ shareOpen: open }),
+  setAccountProjects: (request) => set({ accountProjects: request }),
+  setOpenInDesktopOpen: (open) => set({ openInDesktopOpen: open }),
   setGalleryOpen: (open) => set({ galleryOpen: open }),
   setTableGrid: (request) => set({ tableGrid: request }),
   setCsvImport: (request) => set({ csvImport: request }),
