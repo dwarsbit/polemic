@@ -1,9 +1,8 @@
 <p align="center">
-  <a href="https://polemicapp.com">
-    <img src="assets/readme/polemic-logo-vertical.svg#gh-light-mode-only" alt="Polemic" height="120">
-    <img src="assets/readme/polemic-logo-vertical-white.svg#gh-dark-mode-only" alt="Polemic" height="120">
-  </a>
+  <a href="https://polemicapp.com"><img src="assets/readme/polemic-icon.svg" alt="Polemic website" height="80"></a>
 </p>
+
+<h1 align="center">Polemic</h1>
 
 <p align="center">
   <strong>Write, compile, revise</strong><br>
