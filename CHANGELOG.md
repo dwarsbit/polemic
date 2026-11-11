@@ -4,11 +4,15 @@
 
 ### Added
 
+- A **Share** button in the toolbar, in the desktop app and in your browser. It opens a small panel where you invite someone by email and copy a review link. **Manage sharing…** opens the full dialog.
+- Review links can be copied again later, on the computer where you made them. Before, a link was shown once.
 - **Open from your account…** now asks where to keep a project that isn't on your computer yet: in your projects folder, or in a new or empty folder you pick. Projects that are already on this computer say so and open their folder.
 - In your browser, the menu has **Open in the desktop app…**. It opens the project in Polemic on your computer, where you choose its folder, and it stays in sync with what you write in the browser. Without the desktop app, it points you to the download.
 
 ### Changed
 
+- The **Share** dialog is simpler: people first, then review links, with less to read. Your first review link publishes the project for you, and **Publish again** shows reviewers your latest changes.
+- The **Share** dialog mentions sync only when something needs your attention. The status bar still shows whether the project is synced.
 - In your browser, an empty projects list says how to start: name a project and pick a template, or upload a zip of a project you have.
 
 ## 0.22.0 (2026-11-09)
