@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Loader2, X } from "lucide-react";
+import { Loader2, Mail, X } from "lucide-react";
+import { Avatar } from "@/components/AccountParts";
+import { InviteForm, ROLE_LABELS } from "@/components/ShareParts";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -9,98 +10,80 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import type { Share } from "@/hooks/useShare";
 import {
   shareCancelInvite,
-  shareInvite,
   shareMembers,
   shareRemoveMember,
   shareSetRole,
   type InviteRole,
-  type ProjectMembers,
 } from "@/lib/tauri";
-
-export const ROLE_LABELS: Record<InviteRole | "viewer", string> = {
-  editor: "Can edit",
-  commenter: "Can comment",
-  viewer: "Can view",
-};
-
-/** A plain check: the server says what it refuses. */
-const looksLikeEmail = (value: string) =>
-  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+import { useAccountStore } from "@/store/account";
 
 /**
- * Who works on the project, for its owner: members with their role,
- * open invites, and a form to invite someone by email. Editors need
- * only a free account, and what they add counts against the owner's
- * storage.
+ * Who works on the project, for its owner: a form to invite someone by
+ * email, then the owner, the members with their role and the open
+ * invites.
  */
-export function SharePeople({
-  dir,
-  people,
-  onChange,
-  attempt,
-}: {
-  dir: string;
-  people: ProjectMembers;
-  onChange: (people: ProjectMembers) => void;
-  /** Runs an action, showing its error in the dialog. */
-  attempt: (action: () => Promise<void>) => Promise<void>;
-}) {
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState<InviteRole>("editor");
+export function SharePeople({ share }: { share: Share }) {
+  const account = useAccountStore((s) => s.status);
   const [busy, setBusy] = useState<string | null>(null);
-  const [sentTo, setSentTo] = useState<string | null>(null);
+  const { dir, people } = share;
+  if (!dir || !people) return null;
 
-  const reload = async () => onChange(await shareMembers(dir));
-
-  const run = (key: string, action: () => Promise<void>) =>
-    attempt(async () => {
+  const run = (key: string, action: () => Promise<unknown>) =>
+    share.attempt(async () => {
       setBusy(key);
       try {
         await action();
+        share.setPeople(await shareMembers(dir));
       } finally {
         setBusy(null);
       }
     });
 
-  const invite = () =>
-    run("invite", async () => {
-      const address = email.trim();
-      setSentTo(null);
-      await shareInvite(dir, address, role);
-      setEmail("");
-      setSentTo(address);
-      await reload();
-    });
-
   const empty = people.members.length === 0 && people.invites.length === 0;
+  const me = account?.signedIn ? account.user : null;
 
   return (
-    <section className="space-y-2">
-      <h3 className="text-xs font-medium">People</h3>
+    <section className="space-y-2.5">
+      <h3 className="text-sm font-medium">People</h3>
+      <InviteForm share={share} />
       {empty ? (
         <p className="text-xs text-muted-foreground">
-          Invite a co-author or supervisor by email. Editors work on the project in
-          their own desktop app or browser with a free account, and what they add counts
-          toward your storage.
+          Invite co-authors to edit, or a supervisor to comment.
         </p>
       ) : (
-        <ul className="divide-y rounded-md border text-xs">
-          {people.members.map((m) => (
-            <li key={m.userId} className="flex items-center gap-2 px-2 py-1.5">
+        <ul className="space-y-2.5 pt-1">
+          {me && (
+            <li className="flex items-center gap-2.5">
+              <Avatar name={me.name} photo={account?.avatar} size="sm" />
               <span className="min-w-0 flex-1">
-                <span className="block truncate font-medium">{m.name}</span>
-                <span className="block truncate text-muted-foreground">{m.email}</span>
+                <span className="block truncate text-xs font-medium">
+                  {me.name} (you)
+                </span>
+                <span className="block truncate text-xs text-muted-foreground">
+                  {me.email}
+                </span>
+              </span>
+              <span className="w-32 px-2.5 text-xs text-muted-foreground">Owner</span>
+              <span className="size-6 shrink-0" aria-hidden />
+            </li>
+          )}
+          {people.members.map((m) => (
+            <li key={m.userId} className="flex items-center gap-2.5">
+              <Avatar name={m.name} size="sm" />
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-xs font-medium">{m.name}</span>
+                <span className="block truncate text-xs text-muted-foreground">
+                  {m.email}
+                </span>
               </span>
               <Select
                 value={m.role}
                 disabled={busy !== null}
                 onValueChange={(v) =>
-                  void run(m.userId, async () => {
-                    await shareSetRole(dir, m.userId, v as InviteRole);
-                    await reload();
-                  })
+                  void run(m.userId, () => shareSetRole(dir, m.userId, v as InviteRole))
                 }
               >
                 <SelectTrigger
@@ -109,7 +92,7 @@ export function SharePeople({
                 >
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent align="end">
                   <SelectItem value="editor">{ROLE_LABELS.editor}</SelectItem>
                   <SelectItem value="commenter">{ROLE_LABELS.commenter}</SelectItem>
                   {m.role === "viewer" && (
@@ -120,97 +103,46 @@ export function SharePeople({
                 </SelectContent>
               </Select>
               <Button
-                size="icon"
+                size="icon-xs"
                 variant="ghost"
-                className="size-6"
                 aria-label={`Remove ${m.name}`}
                 title="Remove from the project"
                 disabled={busy !== null}
                 onClick={() =>
-                  void run(m.userId, async () => {
-                    await shareRemoveMember(dir, m.userId);
-                    await reload();
-                  })
+                  void run(m.userId, () => shareRemoveMember(dir, m.userId))
                 }
               >
-                {busy === m.userId ? (
-                  <Loader2 className="size-3 animate-spin" />
-                ) : (
-                  <X className="size-3" />
-                )}
+                {busy === m.userId ? <Loader2 className="animate-spin" /> : <X />}
               </Button>
             </li>
           ))}
           {people.invites.map((i) => (
-            <li key={i.id} className="flex items-center gap-2 px-2 py-1.5">
+            <li key={i.id} className="flex items-center gap-2.5">
+              <span
+                className="flex size-7 shrink-0 items-center justify-center rounded-full border border-dashed text-muted-foreground"
+                aria-hidden
+              >
+                <Mail className="size-3.5" />
+              </span>
               <span className="min-w-0 flex-1">
-                <span className="block truncate font-medium">{i.email}</span>
-                <span className="block text-muted-foreground">
+                <span className="block truncate text-xs font-medium">{i.email}</span>
+                <span className="block text-xs text-muted-foreground">
                   Invited · {ROLE_LABELS[i.role].toLowerCase()}
                 </span>
               </span>
               <Button
-                size="sm"
+                size="icon-xs"
                 variant="ghost"
-                className="h-7 text-xs"
+                aria-label={`Cancel the invite for ${i.email}`}
+                title="Cancel invite"
                 disabled={busy !== null}
-                onClick={() =>
-                  void run(i.id, async () => {
-                    await shareCancelInvite(dir, i.id);
-                    await reload();
-                  })
-                }
+                onClick={() => void run(i.id, () => shareCancelInvite(dir, i.id))}
               >
-                {busy === i.id && <Loader2 className="size-3 animate-spin" />}
-                Cancel invite
+                {busy === i.id ? <Loader2 className="animate-spin" /> : <X />}
               </Button>
             </li>
           ))}
         </ul>
-      )}
-
-      <form
-        className="flex flex-wrap items-center gap-2"
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (looksLikeEmail(email)) void invite();
-        }}
-      >
-        <Input
-          type="email"
-          className="h-7 min-w-0 flex-1 text-xs"
-          placeholder="Email address"
-          aria-label="Email address to invite"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            setSentTo(null);
-          }}
-        />
-        <Select value={role} onValueChange={(v) => setRole(v as InviteRole)}>
-          <SelectTrigger className="h-7 text-xs" aria-label="What they can do">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="editor">{ROLE_LABELS.editor}</SelectItem>
-            <SelectItem value="commenter">{ROLE_LABELS.commenter}</SelectItem>
-          </SelectContent>
-        </Select>
-        <Button
-          type="submit"
-          size="sm"
-          variant="outline"
-          className="h-7"
-          disabled={busy !== null || !looksLikeEmail(email)}
-        >
-          {busy === "invite" && <Loader2 className="size-3 animate-spin" />}
-          Invite
-        </Button>
-      </form>
-      {sentTo && (
-        <p className="text-2xs text-muted-foreground" role="status">
-          Invite sent to {sentTo}. The link in it works for 14 days.
-        </p>
       )}
     </section>
   );

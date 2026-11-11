@@ -105,7 +105,9 @@ project, file, comment and compile commands from that document:
   this tab's last PDF and SyncTeX as assets, then posts the snapshot. Only
   the owner publishes and invites people; one published from the desktop
   app is shared from there. Someone invited can leave the project. There is
-  no "Stop sharing": the server's copy is the project.
+  no "Stop sharing": the server's copy is the project. A review link's
+  address comes back only when the link is made, so the app keeps the ones
+  made in this browser (`src/lib/review-links.ts`) to copy them again.
 - Spelling runs in the browser: `src/lib/spell.ts` is a port of
   `src-tauri/src/spell.rs` with the same English word list (loaded on first
   use) and suggestions. Downloaded languages go to Cache Storage; words
