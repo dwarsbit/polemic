@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { AccountMenu } from "@/components/AccountMenu";
 import { EditorFaceToggle } from "@/components/EditorFaceToggle";
 import { PresenceAvatars } from "@/components/PresenceAvatars";
+import { SharePopover } from "@/components/SharePopover";
 import { WebAppMenu } from "@/components/WebAppMenu";
 import {
   STOPLIGHT_WIDTH,
@@ -37,8 +38,8 @@ const REVEAL_LABEL = isMac
 /**
  * The persistent window header: the project menu (rename, reveal,
  * switch) on the left, the Visual/Code switch in the center, and the
- * preview, auto-compile and Compile controls on the right, then the
- * account's avatar when signed in.
+ * preview, auto-compile and Compile controls on the right, then Share
+ * and the account's avatar when signed in.
  */
 export function TopBar() {
   const project = useProjectStore((s) => s.project);
@@ -235,6 +236,7 @@ export function TopBar() {
             </Button>
           </ButtonGroup>
         )}
+        {showProjectControls && <SharePopover />}
         <AccountMenu />
       </div>
     </header>

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.23.0 (unreleased)
+
+### Added
+
+- A **Share** button in the toolbar, in the desktop app and in your browser. It opens a small panel where you invite someone by email and copy a review link. **Manage sharing…** opens the full dialog.
+- Review links can be copied again later, on the computer where you made them. Before, a link was shown once.
+
+### Changed
+
+- The **Share** dialog is simpler: people first, then review links, with less to read. Your first review link publishes the project for you, and **Publish again** shows reviewers your latest changes.
+- The **Share** dialog mentions sync only when something needs your attention. The status bar still shows whether the project is synced.
+
 ## 0.22.0 (2026-11-09)
 
 ### Added

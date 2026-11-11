@@ -54,8 +54,10 @@ file the server has into the folder.
 
 ## People
 
-The owner invites people by email from the Share dialog
-(`src/components/SharePeople.tsx`; `share_members`, `share_invite`,
+The owner invites people by email from the toolbar's Share button
+(`src/components/SharePopover.tsx`) or the Share dialog
+(`src/components/SharePeople.tsx`); both work through
+`src/hooks/useShare.ts` (`share_members`, `share_invite`,
 `share_cancel_invite`, `share_set_role`, `share_remove_member` in
 `share.rs`, and the same commands in `src/web/review.ts`). The server
 emails a link to its invite page, which signs the person up or in. An
