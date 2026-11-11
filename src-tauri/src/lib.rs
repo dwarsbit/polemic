@@ -2650,8 +2650,26 @@ pub fn run() {    tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_window_state::Builder::default().build())
+        .plugin(tauri_plugin_deep_link::init())
         .setup(|app| {
             create_main_window(app)?;
+            {
+                // polemic://open?project=<id>, from "Open in the desktop
+                // app" in the browser. A link that started the app is
+                // kept for the window; one that arrives later tells it.
+                use tauri_plugin_deep_link::DeepLinkExt;
+                app.manage(link::PendingOpen::default());
+                // An AppImage, or a dev build, isn't registered by an
+                // installer: claim the scheme for this copy.
+                #[cfg(any(target_os = "linux", all(debug_assertions, windows)))]
+                let _ = app.deep_link().register_all();
+                if let Ok(Some(urls)) = app.deep_link().get_current() {
+                    link::open_from_links(app.handle(), &urls);
+                }
+                let handle = app.handle().clone();
+                app.deep_link()
+                    .on_open_url(move |event| link::open_from_links(&handle, &event.urls()));
+            }
             app.manage(SettingsState(std::sync::Mutex::new(settings::load(app.handle()))));
             let (user_words, lang) = {
                 let settings_state = app.state::<SettingsState>();
@@ -2708,6 +2726,7 @@ pub fn run() {    tauri::Builder::default()
             link::link_remove,
             link::link_account_projects,
             link::link_open_account_project,
+            link::link_take_pending_open,
             account::account_status,
             account::account_set_server,
             account::account_sign_in,

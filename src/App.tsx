@@ -9,6 +9,8 @@ import { TableGridDialog } from "@/components/TableGridDialog";
 import { CsvImportDialog } from "@/components/CsvImportDialog";
 import { DocumentSettingsDialog } from "@/components/DocumentSettingsDialog";
 import { ShareDialog } from "@/components/ShareDialog";
+import { AccountProjectsDialog } from "@/components/AccountProjectsDialog";
+import { OpenInDesktopDialog } from "@/components/OpenInDesktopDialog";
 import { PackagesDialog } from "@/components/PackagesDialog";
 import { EditorView } from "@/components/EditorView";
 import { ProjectsView } from "@/components/ProjectsView";
@@ -26,6 +28,7 @@ import {
   getSettings,
   gitAvailable,
   isTauri,
+  linkTakePendingOpen,
   openProjectDialog,
   revealBuildFolder,
 } from "@/lib/tauri";
@@ -36,7 +39,7 @@ import { resyncMenuChecksSoon } from "@/lib/menu-checks";
 import { useUiStore, type EditorFace } from "@/store/ui";
 import { hasTrafficLights } from "@/lib/platform";
 import { HELP_URL, ISSUES_URL } from "@/lib/links";
-import { isWeb } from "@/lib/target";
+import { features, isWeb } from "@/lib/target";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { useCommentsStore } from "@/store/comments";
 import { useProjectStore } from "@/store/project";
@@ -294,6 +297,37 @@ function App() {
     };
   }, []);
 
+  // "Open in the desktop app" in the browser opens a polemic:// link:
+  // the app keeps the project it names until the window asks, at
+  // start and whenever one arrives, then offers it as Open from your
+  // account does.
+  useEffect(() => {
+    if (!features.localFiles) return;
+    let unlisten: (() => void) | undefined;
+    let live = true;
+    const take = () =>
+      void linkTakePendingOpen()
+        .then((projectId) => {
+          if (projectId) useDialogsStore.getState().setAccountProjects({ projectId });
+        })
+        .catch(() => {});
+    void (async () => {
+      try {
+        const { listen } = await import("@tauri-apps/api/event");
+        const stop = await listen("link://open-project", take);
+        if (live) unlisten = stop;
+        else stop();
+      } catch {
+        // Not running inside the desktop app.
+      }
+    })();
+    take();
+    return () => {
+      live = false;
+      unlisten?.();
+    };
+  }, []);
+
   // Native OS menu events.
   useEffect(() => {
     let unlisten: (() => void) | undefined;
@@ -454,6 +488,8 @@ function App() {
         onOpenChange={setDocumentSettingsOpen}
       />
       {hasProject && <ShareDialog open={shareOpen} onOpenChange={setShareOpen} />}
+      {features.localFiles && <AccountProjectsDialog />}
+      {isWeb && <OpenInDesktopDialog />}
       {paletteOpen && <CommandPalette />}
       {isWeb && <ConfirmDialog />}
     </QueryClientProvider>

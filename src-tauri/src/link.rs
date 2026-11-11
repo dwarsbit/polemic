@@ -224,11 +224,21 @@ pub fn link_remove(project_dir: String, path: String) -> Result<(), String> {
     trash::delete(&target).map_err(|e| format!("failed to move {path} to trash: {e}"))
 }
 
+/// A project on the account, with the folder on this computer that is
+/// linked to it, if there is one.
+#[derive(Serialize, Debug)]
+#[serde(rename_all = "camelCase")]
+pub struct AccountProject {
+    #[serde(flatten)]
+    pub info: share::ProjectInfo,
+    pub folder: Option<String>,
+}
+
 /// The projects on the account, for opening one in the desktop app.
 #[tauri::command]
 pub async fn link_account_projects(
     app: tauri::AppHandle,
-) -> Result<Vec<share::ProjectInfo>, ShareError> {
+) -> Result<Vec<AccountProject>, ShareError> {
     let server = crate::account::server_of(&app)?;
     let token = crate::account::token_with(&server, &crate::account::STORE)
         .ok_or_else(ShareError::signed_out)?;
@@ -236,18 +246,50 @@ pub async fn link_account_projects(
     if matches!(&result, Err(e) if e.kind == ShareErrorKind::SignedOut) {
         crate::account::forget_rejected_with(&server, &token, &crate::account::STORE);
     }
-    result
+    let links = share::links_path(&app)?;
+    Ok(result?
+        .into_iter()
+        .map(|info| {
+            let folder = share::folder_linked_to(&links, &server, &info.id)
+                .filter(|dir| dir.is_dir())
+                .map(|dir| dir.to_string_lossy().into_owned());
+            AccountProject { info, folder }
+        })
+        .collect())
 }
 
-/// Makes a new folder in the projects folder for a project on the
-/// account and links it; the first sync fills it. A folder already
-/// linked to that project opens instead.
+/// Files the system leaves in a folder the reader still sees as empty.
+const SYSTEM_FILES: [&str; 3] = [".DS_Store", "Thumbs.db", "desktop.ini"];
+
+/// Whether a folder holds nothing of the reader's: a project from the
+/// account only goes into such a folder, so nothing on disk can clash
+/// with what the first sync writes.
+pub fn is_empty_folder(dir: &Path) -> Result<bool, String> {
+    let entries = fs::read_dir(dir).map_err(|e| format!("could not read the folder: {e}"))?;
+    for entry in entries {
+        let name = entry
+            .map_err(|e| format!("could not read the folder: {e}"))?
+            .file_name();
+        if !SYSTEM_FILES.iter().any(|system| name == *system) {
+            return Ok(false);
+        }
+    }
+    Ok(true)
+}
+
+/// Links a folder to a project on the account; the first sync fills it.
+/// A folder already linked to that project opens instead. Without
+/// `choose` the folder is a new one in the projects folder; with it the
+/// reader picks a new or empty folder in a native dialog (None when
+/// cancelled). The dialog runs here, not in the webview, so the path is
+/// the reader's choice rather than whatever a script passes in.
 #[tauri::command]
 pub async fn link_open_account_project(
     app: tauri::AppHandle,
     project_id: String,
     name: String,
-) -> Result<crate::ProjectInfo, ShareError> {
+    choose: bool,
+) -> Result<Option<crate::ProjectInfo>, ShareError> {
     let server = crate::account::server_of(&app)?;
     if crate::account::token_with(&server, &crate::account::STORE).is_none() {
         return Err(ShareError::signed_out());
@@ -255,16 +297,44 @@ pub async fn link_open_account_project(
     let links = share::links_path(&app)?;
     if let Some(dir) = share::folder_linked_to(&links, &server, &project_id) {
         if dir.is_dir() {
-            return crate::admit_project(&app, &dir).map_err(ShareError::from);
+            return crate::admit_project(&app, &dir)
+                .map(Some)
+                .map_err(ShareError::from);
         }
     }
-    let root = crate::settings::effective(&app)?
-        .projects_root
-        .expect("projects root is set by effective()");
-    fs::create_dir_all(&root).map_err(|e| format!("failed to create projects root: {e}"))?;
-    let dir = free_folder(Path::new(&root), &name);
-    fs::create_dir_all(&dir).map_err(|e| format!("failed to create project: {e}"))?;
-    let dir = fs::canonicalize(&dir).map_err(|e| format!("failed to create project: {e}"))?;
+    let dir = if choose {
+        use tauri_plugin_dialog::DialogExt;
+        let picked = app
+            .dialog()
+            .file()
+            .set_title(format!("Choose a new or empty folder for {name}"))
+            .blocking_pick_folder();
+        let Some(picked) = picked else {
+            return Ok(None);
+        };
+        let path = picked.into_path().map_err(|e| e.to_string())?;
+        let dir = fs::canonicalize(&path).map_err(|e| format!("cannot open the folder: {e}"))?;
+        if !is_empty_folder(&dir)? {
+            return Err(ShareError::from(
+                "That folder already has files in it. Choose a new or empty folder.".to_string(),
+            ));
+        }
+        if share::link_in(&links, &dir, &server).is_some() {
+            return Err(ShareError::from(
+                "That folder is already shared as another project. Choose a new or empty folder."
+                    .to_string(),
+            ));
+        }
+        dir
+    } else {
+        let root = crate::settings::effective(&app)?
+            .projects_root
+            .expect("projects root is set by effective()");
+        fs::create_dir_all(&root).map_err(|e| format!("failed to create projects root: {e}"))?;
+        let dir = free_folder(Path::new(&root), &name);
+        fs::create_dir_all(&dir).map_err(|e| format!("failed to create project: {e}"))?;
+        fs::canonicalize(&dir).map_err(|e| format!("failed to create project: {e}"))?
+    };
     let link = ShareLink {
         server,
         project_id,
@@ -281,7 +351,58 @@ pub async fn link_open_account_project(
         },
     )?;
     share::set_link_in(&links, &dir, Some(link))?;
-    crate::admit_project(&app, &dir).map_err(ShareError::from)
+    crate::admit_project(&app, &dir)
+        .map(Some)
+        .map_err(ShareError::from)
+}
+
+// --- opening a project from a link ------------------------------------------------------
+
+/// The project a `polemic://open?project=<id>` link asked for, until the
+/// window takes it. The browser's "Open in the desktop app" makes such
+/// links; the window then offers the project as Open from your account
+/// does, so a link alone never writes a folder.
+#[derive(Default)]
+pub struct PendingOpen(pub std::sync::Mutex<Option<String>>);
+
+/// The project id in a `polemic://open?project=<id>` link. Anything
+/// else, or an id that isn't a plain token, is no project.
+pub fn project_in_link(url: &url::Url) -> Option<String> {
+    if url.scheme() != "polemic" || url.host_str() != Some("open") {
+        return None;
+    }
+    let id = url
+        .query_pairs()
+        .find(|(key, _)| key == "project")
+        .map(|(_, value)| value.into_owned())?;
+    let plain = (8..=64).contains(&id.len())
+        && id
+            .chars()
+            .all(|c| c.is_ascii_alphanumeric() || c == '-' || c == '_');
+    plain.then_some(id)
+}
+
+/// Keeps the project a link asked for and tells the window, in front.
+pub fn open_from_links(app: &tauri::AppHandle, urls: &[url::Url]) {
+    use tauri::{Emitter, Manager};
+    let Some(id) = urls.iter().find_map(project_in_link) else {
+        return;
+    };
+    if let Ok(mut pending) = app.state::<PendingOpen>().0.lock() {
+        *pending = Some(id);
+    }
+    if let Some(window) = app.get_webview_window("main") {
+        let _ = window.unminimize();
+        let _ = window.set_focus();
+    }
+    let _ = app.emit("link://open-project", ());
+}
+
+/// The project a link asked for, once: the window asks when it starts
+/// and when `link://open-project` arrives.
+#[tauri::command]
+pub fn link_take_pending_open(pending: tauri::State<PendingOpen>) -> Option<String> {
+    pending.0.lock().ok().and_then(|mut id| id.take())
 }
 
 #[cfg(test)]
@@ -293,6 +414,39 @@ mod tests {
         let _ = fs::remove_dir_all(&dir);
         fs::create_dir_all(&dir).unwrap();
         dir
+    }
+
+    #[test]
+    fn only_system_files_leave_a_folder_empty() {
+        let dir = temp("empty");
+        assert!(is_empty_folder(&dir).unwrap());
+        fs::write(dir.join(".DS_Store"), "").unwrap();
+        assert!(is_empty_folder(&dir).unwrap());
+        fs::create_dir(dir.join("figures")).unwrap();
+        assert!(!is_empty_folder(&dir).unwrap());
+        fs::remove_dir(dir.join("figures")).unwrap();
+        fs::write(dir.join("main.tex"), "").unwrap();
+        assert!(!is_empty_folder(&dir).unwrap());
+        assert!(is_empty_folder(&dir.join("missing")).is_err());
+    }
+
+    #[test]
+    fn reads_the_project_from_an_open_link() {
+        let project = |link: &str| project_in_link(&url::Url::parse(link).unwrap());
+        assert_eq!(
+            project("polemic://open?project=AAAAAAAAAAAAAAAAAAAA_-"),
+            Some("AAAAAAAAAAAAAAAAAAAA_-".into())
+        );
+        for link in [
+            "polemic://open",
+            "polemic://open?project=",
+            "polemic://open?project=short",
+            "polemic://open?project=../../etc/passwd",
+            "polemic://settings?project=AAAAAAAAAAAAAAAAAAAAAA",
+            "https://open?project=AAAAAAAAAAAAAAAAAAAAAA",
+        ] {
+            assert_eq!(project(link), None, "{link}");
+        }
     }
 
     #[test]

@@ -7,6 +7,7 @@ import {
   LifeBuoy,
   Menu,
   MessageSquareWarning,
+  MonitorDown,
   Settings,
   Share2,
 } from "lucide-react";
@@ -76,6 +77,10 @@ export function WebAppMenu() {
             <DropdownMenuItem onSelect={() => dialogs().setShareOpen(true)}>
               <Share2 />
               Share…
+            </DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => dialogs().setOpenInDesktopOpen(true)}>
+              <MonitorDown />
+              Open in the desktop app…
             </DropdownMenuItem>
             <DropdownMenuItem onSelect={() => void exportPdfAs()}>
               <Download />

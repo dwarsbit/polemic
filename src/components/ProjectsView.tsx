@@ -32,8 +32,8 @@ import {
 } from "@/lib/tauri";
 import { cn } from "@/lib/utils";
 import { PolemicLogoVertical } from "@/components/PolemicLogo";
-import { AccountProjectsDialog } from "@/components/AccountProjectsDialog";
 import { UsageSummary } from "@/components/UsageSummary";
+import { useDialogsStore } from "@/store/dialogs";
 import { useProjectStore } from "@/store/project";
 import { features } from "@/lib/target";
 
@@ -56,7 +56,6 @@ export function ProjectsView() {
   const [busy, setBusy] = useState(false);
   const [action, setAction] = useState<ActionDialog>({ kind: "none" });
   const [cloneUrl, setCloneUrl] = useState("");
-  const [accountOpen, setAccountOpen] = useState(false);
   // The clone's project name: taken from the URL until the user types one.
   const [cloneName, setCloneName] = useState<string | null>(null);
   const [templates, setTemplates] = useState<TemplateInfo[]>([]);
@@ -316,7 +315,7 @@ export function ProjectsView() {
           <p className="px-2 py-1.5 text-sm text-muted-foreground">
             {features.localFiles
               ? "No projects yet. Create one above or open a folder."
-              : "No projects yet. Create one above."}
+              : "No projects yet. Name one above, pick a template and select Create, or upload a zip of a project you have. Projects you share from the desktop app show up here too."}
           </p>
         ) : (
           <ul className="-mx-1 space-y-0.5">
@@ -413,7 +412,9 @@ export function ProjectsView() {
               <Button
                 variant="outline"
                 title="Open a project from your Polemic account, made in your browser or on another computer"
-                onClick={() => setAccountOpen(true)}
+                onClick={() =>
+                  useDialogsStore.getState().setAccountProjects({ projectId: null })
+                }
               >
                 Open from your account…
               </Button>
@@ -433,9 +434,6 @@ export function ProjectsView() {
         {!features.desktopAccount && <UsageSummary />}
       </div>
 
-      {features.localFiles && (
-        <AccountProjectsDialog open={accountOpen} onOpenChange={setAccountOpen} />
-      )}
       <Dialog
         open={action.kind !== "none"}
         onOpenChange={(open) => {

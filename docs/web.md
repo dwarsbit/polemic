@@ -108,6 +108,10 @@ project, file, comment and compile commands from that document:
   no "Stop sharing": the server's copy is the project. A review link's
   address comes back only when the link is made, so the app keeps the ones
   made in this browser (`src/lib/review-links.ts`) to copy them again.
+- **Open in the desktop app…** in the app menu hands the open project to
+  the desktop app with a `polemic://open?project=<id>` link, and says
+  what to do when no app answers. The app then asks where to keep the
+  project (see [linked-projects.md](linked-projects.md)).
 - Spelling runs in the browser: `src/lib/spell.ts` is a port of
   `src-tauri/src/spell.rs` with the same English word list (loaded on first
   use) and suggestions. Downloaded languages go to Cache Storage; words

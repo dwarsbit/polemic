@@ -1414,14 +1414,34 @@ export function linkRemove(projectDir: string, path: string): Promise<void> {
   return invoke("link_remove", { projectDir, path });
 }
 
-export function linkAccountProjects(): Promise<AccountProject[]> {
-  return invoke<AccountProject[]>("link_account_projects");
+/** A project on the account, with the folder on this computer linked to it, if any. */
+export interface AccountProjectRow extends AccountProject {
+  folder: string | null;
 }
 
-/** A new folder in the projects folder for a project on the account, linked; the first sync fills it. */
+export function linkAccountProjects(): Promise<AccountProjectRow[]> {
+  return invoke<AccountProjectRow[]>("link_account_projects");
+}
+
+/**
+ * Links a folder to a project on the account; the first sync fills it.
+ * Without `choose`, a new folder in the projects folder; with it, a new
+ * or empty folder picked in a native dialog (null when cancelled). A
+ * folder already linked to the project opens instead.
+ */
 export function linkOpenAccountProject(
   projectId: string,
   name: string,
-): Promise<ProjectInfo> {
-  return invoke<ProjectInfo>("link_open_account_project", { projectId, name });
+  choose: boolean,
+): Promise<ProjectInfo | null> {
+  return invoke<ProjectInfo | null>("link_open_account_project", {
+    projectId,
+    name,
+    choose,
+  });
+}
+
+/** The project an "Open in the desktop app" link asked for, once. */
+export function linkTakePendingOpen(): Promise<string | null> {
+  return invoke<string | null>("link_take_pending_open");
 }
