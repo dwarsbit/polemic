@@ -5,6 +5,7 @@
  * and sign out.
  */
 
+import { errorText } from "@/lib/error-text";
 import type { AccountStatus, AccountUsage, AccountUser } from "@/lib/tauri";
 import { request, ServerError } from "@/web/server";
 
@@ -15,7 +16,7 @@ async function status(): Promise<AccountStatus> {
     return { server, signedIn: true, user, problem: null, avatar: user.image ?? null };
   } catch (e) {
     // Signed in (the page needs it), but who it is can't be said now.
-    const problem = e instanceof Error ? e.message : String(e);
+    const problem = errorText(e);
     return { server, signedIn: true, user: null, problem, avatar: null };
   }
 }

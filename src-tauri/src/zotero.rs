@@ -7,6 +7,8 @@ use std::io::{Read, Write};
 use std::net::TcpStream;
 use std::time::Duration;
 
+const NO_ANSWER: &str = "Zotero stopped answering. Check that Zotero is open and try again.";
+
 const HOST: &str = "127.0.0.1:23119";
 
 /// Split an HTTP response into its status code and body.
@@ -14,13 +16,13 @@ fn parse_response(raw: &[u8]) -> Result<(u16, String), String> {
     let text = String::from_utf8_lossy(raw);
     let (head, body) = match text.find("\r\n\r\n") {
         Some(index) => (&text[..index], text[index + 4..].to_string()),
-        None => return Err("Zotero sent an incomplete response".into()),
+        None => return Err("Zotero gave an answer Polemic can't read. Try again.".into()),
     };
     let status = head
         .split_whitespace()
         .nth(1)
         .and_then(|code| code.parse::<u16>().ok())
-        .ok_or("Zotero sent an unreadable status line")?;
+        .ok_or("Zotero gave an answer Polemic can't read. Try again.")?;
     Ok((status, body))
 }
 
@@ -40,21 +42,21 @@ pub fn local_get(path: &str, query: &str) -> Result<String, String> {
         return Err("invalid Zotero request".into());
     }
     let mut stream = TcpStream::connect(HOST)
-        .map_err(|e| format!("Zotero is not reachable: {e}"))?;
+        .map_err(|_| "Could not reach Zotero. Check that Zotero is open on this computer.".to_string())?;
     stream
         .set_read_timeout(Some(Duration::from_secs(5)))
-        .map_err(|e| e.to_string())?;
+        .map_err(|_| NO_ANSWER.to_string())?;
     let request = format!(
         "GET /api/{path}?{query} HTTP/1.1\r\nHost: localhost:23119\r\nAccept: application/json\r\nConnection: close\r\n\r\n"
     );
     stream
         .write_all(request.as_bytes())
-        .map_err(|e| e.to_string())?;
+        .map_err(|_| NO_ANSWER.to_string())?;
     let mut raw = Vec::new();
-    stream.read_to_end(&mut raw).map_err(|e| e.to_string())?;
+    stream.read_to_end(&mut raw).map_err(|_| NO_ANSWER.to_string())?;
     let (status, body) = parse_response(&raw)?;
     if !(200..300).contains(&status) {
-        return Err(format!("Zotero request failed ({status})"));
+        return Err(format!("Zotero answered {status}. Check that Zotero is up to date."));
     }
     Ok(body)
 }

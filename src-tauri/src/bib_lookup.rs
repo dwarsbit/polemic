@@ -23,7 +23,7 @@ pub fn check_doi(doi: &str) -> Result<(), String> {
     if valid {
         Ok(())
     } else {
-        Err("that is not a valid DOI".into())
+        Err("That isn't a valid DOI.".into())
     }
 }
 
@@ -55,7 +55,7 @@ pub async fn lookup_bibtex(app: tauri::AppHandle, doi: String) -> Result<String,
         .online_lookup
         .unwrap_or(false);
     if !enabled {
-        return Err("online lookup is off: enable it in Settings > Bibliography".into());
+        return Err("Online lookup is off. Turn it on to look up DOIs and arXiv IDs.".into());
     }
     check_doi(&doi)?;
     let client = reqwest::Client::builder()
@@ -68,20 +68,20 @@ pub async fn lookup_bibtex(app: tauri::AppHandle, doi: String) -> Result<String,
         .header("Accept", "application/x-bibtex; charset=utf-8")
         .send()
         .await
-        .map_err(|e| format!("the lookup failed: {e}"))?;
+        .map_err(|e| crate::errors::no_answer("doi.org", e.is_timeout()))?;
     let status = response.status();
     if status == reqwest::StatusCode::NOT_FOUND {
-        return Err("no record found for that identifier".into());
+        return Err("No record was found for that identifier. Check it for typos.".into());
     }
     if !status.is_success() {
-        return Err(format!("the lookup failed ({status})"));
+        return Err(format!("The lookup failed: doi.org answered {status}."));
     }
     let body = response
         .text()
         .await
-        .map_err(|e| format!("the lookup failed: {e}"))?;
+        .map_err(|_| "The lookup failed. Try again in a moment.".to_string())?;
     if !body.trim_start().starts_with('@') {
-        return Err("the registry returned no BibTeX for that identifier".into());
+        return Err("The registry has no BibTeX for that identifier. Add the entry by hand.".into());
     }
     Ok(body)
 }

@@ -36,7 +36,7 @@ pub fn resolve_in_project(project_dir: &str, rel_path: &str) -> Result<PathBuf, 
         return Err("path traversal is not allowed".into());
     }
     let base = fs::canonicalize(project_dir)
-        .map_err(|e| format!("project directory not accessible: {e}"))?;
+        .map_err(|e| crate::errors::failed("Could not open the project folder", &e))?;
     let target = base.join(rel_path);
     // Symlinks inside the project must not lead out of it: resolve the
     // deepest part of the path that exists (the target itself, or the
@@ -46,9 +46,9 @@ pub fn resolve_in_project(project_dir: &str, rel_path: &str) -> Result<PathBuf, 
         existing = existing.parent().ok_or("path has no existing parent")?;
     }
     let real = fs::canonicalize(existing)
-        .map_err(|e| format!("path not accessible: {e}"))?;
+        .map_err(|e| crate::errors::failed(format_args!("Could not open {rel_path}"), &e))?;
     if !real.starts_with(&base) {
-        return Err("path leads outside the project folder".into());
+        return Err(format!("{rel_path} leads outside the project folder, so Polemic leaves it alone."));
     }
     Ok(target)
 }
@@ -147,29 +147,30 @@ fn configured_sources(app: &tauri::AppHandle) -> Result<Vec<SourceDef>, String> 
 }
 
 fn read_bib_source_file(sources: &[SourceDef], path: &str) -> Result<String, String> {
-    let resolved = fs::canonicalize(path).map_err(|e| format!("file not accessible: {e}"))?;
+    let resolved = fs::canonicalize(path).map_err(|e| crate::errors::failed(format_args!("Could not open {path}"), &e))?;
     if !resolved.is_file() || !is_bib(&resolved) {
-        return Err("not a .bib file".into());
+        return Err("That isn't a .bib file.".into());
     }
     if !settings::bib_source_covers(sources, &resolved) {
-        return Err("file is not in a bib source".into());
+        return Err("That file isn't part of a source in Settings.".into());
     }
-    fs::read_to_string(&resolved).map_err(|e| format!("failed to read file: {e}"))
+    fs::read_to_string(&resolved).map_err(|e| crate::errors::failed(format_args!("Could not open {path}"), &e))
 }
 
 fn list_bib_source(sources: &[SourceDef], path: &str) -> Result<Vec<String>, String> {
-    let resolved = fs::canonicalize(path).map_err(|e| format!("path not accessible: {e}"))?;
+    let resolved = fs::canonicalize(path)
+        .map_err(|e| crate::errors::failed(format_args!("Could not open {path}"), &e))?;
     if !settings::bib_source_covers(sources, &resolved) {
-        return Err("path is not a bib source".into());
+        return Err("That folder isn't a source in Settings.".into());
     }
     if resolved.is_file() {
         if !is_bib(&resolved) {
-            return Err("not a .bib file".into());
+            return Err("That isn't a .bib file.".into());
         }
         return Ok(vec![resolved.to_string_lossy().to_string()]);
     }
     if !resolved.is_dir() {
-        return Err("not a file or folder".into());
+        return Err("That source is neither a file nor a folder.".into());
     }
     let mut out = Vec::new();
     collect_bib(&resolved, &mut out);

@@ -31,24 +31,35 @@ fn validate_id(id: &str) -> Result<(), String> {
     Ok(())
 }
 
+fn copy_failed(path: &Path, e: &std::io::Error) -> String {
+    crate::errors::failed(format_args!("Could not copy {} for the snapshot", path.display()), e)
+}
+
+fn replace_failed(path: &Path, e: &std::io::Error) -> String {
+    crate::errors::failed(
+        format_args!("Could not replace {} with the snapshot's copy", path.display()),
+        e,
+    )
+}
+
 /// Copy a folder tree. Symlinks are skipped: following them would copy
 /// whatever they point at (possibly outside the project) into the copy.
 fn copy_dir_recursive(src: &Path, dst: &Path, skip_top_level: &[&str]) -> Result<(), String> {
-    fs::create_dir_all(dst).map_err(|e| format!("failed to create {}: {e}", dst.display()))?;
-    for entry in fs::read_dir(src).map_err(|e| e.to_string())? {
-        let entry = entry.map_err(|e| e.to_string())?;
+    fs::create_dir_all(dst).map_err(|e| copy_failed(dst, &e))?;
+    for entry in fs::read_dir(src).map_err(|e| copy_failed(src, &e))? {
+        let entry = entry.map_err(|e| copy_failed(src, &e))?;
         let name = entry.file_name().to_string_lossy().to_string();
         if skip_top_level.contains(&name.as_str()) {
             continue;
         }
-        let file_type = entry.file_type().map_err(|e| e.to_string())?;
+        let file_type = entry.file_type().map_err(|e| copy_failed(&entry.path(), &e))?;
         let target = dst.join(entry.file_name());
         if file_type.is_symlink() {
             continue;
         } else if file_type.is_dir() {
             copy_dir_recursive(&entry.path(), &target, &[])?;
         } else {
-            fs::copy(entry.path(), &target).map_err(|e| e.to_string())?;
+            fs::copy(entry.path(), &target).map_err(|e| copy_failed(&entry.path(), &e))?;
         }
     }
     Ok(())
@@ -98,11 +109,11 @@ pub fn restore(dir: &Path, id: &str) -> Result<(), String> {
     validate_id(id)?;
     let snapshot = dir.join(".snapshots").join(id);
     if !snapshot.is_dir() {
-        return Err(format!("snapshot {id} does not exist"));
+        return Err("That snapshot no longer exists.".to_string());
     }
     create(dir)?;
-    for entry in fs::read_dir(dir).map_err(|e| e.to_string())? {
-        let entry = entry.map_err(|e| e.to_string())?;
+    for entry in fs::read_dir(dir).map_err(|e| copy_failed(dir, &e))? {
+        let entry = entry.map_err(|e| copy_failed(dir, &e))?;
         let name = entry.file_name().to_string_lossy().to_string();
         if EXCLUDED.contains(&name.as_str()) {
             continue;
@@ -110,10 +121,10 @@ pub fn restore(dir: &Path, id: &str) -> Result<(), String> {
         let path = entry.path();
         if entry.file_type().map(|t| t.is_dir()).unwrap_or(false) {
             fs::remove_dir_all(&path)
-                .map_err(|e| format!("failed to remove {}: {e}", path.display()))?;
+                .map_err(|e| replace_failed(&path, &e))?;
         } else {
             fs::remove_file(&path)
-                .map_err(|e| format!("failed to remove {}: {e}", path.display()))?;
+                .map_err(|e| replace_failed(&path, &e))?;
         }
     }
     // Older snapshots may still carry a .git copy; never restore it.
@@ -174,7 +185,7 @@ pub fn list_changes(dir: &Path, id: &str) -> Result<Vec<SnapshotChange>, String>
     validate_id(id)?;
     let snapshot = dir.join(".snapshots").join(id);
     if !snapshot.is_dir() {
-        return Err(format!("snapshot {id} does not exist"));
+        return Err("That snapshot no longer exists.".to_string());
     }
 
     let mut old_files = BTreeMap::new();
@@ -269,7 +280,9 @@ pub fn read_file(dir: &Path, id: &str, path: &str) -> Result<String, String> {
     let path = safe_snapshot_rel_path(path)?;
     let snapshot = dir.join(".snapshots").join(id);
     let file = snapshot.join(path);
-    fs::read_to_string(&file).map_err(|e| format!("failed to read {}: {e}", path))
+    fs::read_to_string(&file).map_err(|e| {
+        crate::errors::failed(format_args!("Could not open {path} from the snapshot"), &e)
+    })
 }
 
 /// Make the snapshot's version of one file win in the project.
@@ -279,21 +292,22 @@ pub fn restore_file(dir: &Path, id: &str, path: &str) -> Result<(), String> {
     let path = safe_snapshot_rel_path(path)?;
     let snapshot = dir.join(".snapshots").join(id);
     if !snapshot.is_dir() {
-        return Err(format!("snapshot {id} does not exist"));
+        return Err("That snapshot no longer exists.".to_string());
     }
     let source = snapshot.join(path);
     let target = crate::files::resolve_in_project(&dir.to_string_lossy(), path)?;
     if source.is_file() {
         if let Some(parent) = target.parent() {
             fs::create_dir_all(parent)
-                .map_err(|e| format!("failed to create {}: {e}", parent.display()))?;
+                .map_err(|e| crate::errors::failed(format_args!("Could not restore {path}"), &e))?;
         }
         fs::copy(&source, &target)
-            .map_err(|e| format!("failed to restore {}: {e}", path))?;
+            .map_err(|e| crate::errors::failed(format_args!("Could not restore {path}"), &e))?;
     } else if target.is_file() {
-        fs::remove_file(&target).map_err(|e| format!("failed to remove {}: {e}", path))?;
+        fs::remove_file(&target)
+            .map_err(|e| crate::errors::failed(format_args!("Could not remove {path}"), &e))?;
     } else {
-        return Err(format!("snapshot has no file {path}"));
+        return Err(format!("The snapshot has no file {path}."));
     }
     Ok(())
 }

@@ -102,17 +102,17 @@ pub async fn login_of(endpoints: &Endpoints, token: &str) -> Result<String, Stri
         .bearer_auth(token)
         .send()
         .await
-        .map_err(|e| format!("Could not reach GitHub: {e}"))?;
+        .map_err(|e| crate::errors::no_answer("GitHub", e.is_timeout()))?;
     if response.status() == reqwest::StatusCode::UNAUTHORIZED {
-        return Err("GitHub does not accept this token".into());
+        return Err("GitHub doesn't accept this token. Check it or create a new one.".into());
     }
     if !response.status().is_success() {
-        return Err(format!("GitHub answered {}", response.status()));
+        return Err(format!("GitHub answered {}.", response.status()));
     }
     let user: User = response
         .json()
         .await
-        .map_err(|e| format!("Unexpected answer from GitHub: {e}"))?;
+        .map_err(|_| "GitHub gave an answer Polemic can't read. Try again in a moment.".to_string())?;
     Ok(user.login)
 }
 
@@ -148,13 +148,13 @@ pub async fn create_repo(
         }))
         .send()
         .await
-        .map_err(|e| format!("Could not reach GitHub: {e}"))?;
+        .map_err(|e| crate::errors::no_answer("GitHub", e.is_timeout()))?;
     let status = response.status();
     if status.is_success() {
         let repo: CreatedRepo = response
             .json()
             .await
-            .map_err(|e| format!("Unexpected answer from GitHub: {e}"))?;
+            .map_err(|_| "GitHub gave an answer Polemic can't read. Try again in a moment.".to_string())?;
         return Ok(repo.clone_url);
     }
     let error = response.json::<ApiError>().await.ok();
@@ -322,7 +322,7 @@ pub mod tests {
         let (base, _) = mock_server(Box::new(|_| (200, r#"{"error":"device_flow_disabled"}"#.into())));
         let error = tauri::async_runtime::block_on(request_device_code(&endpoints(&base), "cid"))
             .unwrap_err();
-        assert!(error.contains("device flow is off"), "{error}");
+        assert!(error.contains("Add a token instead"), "{error}");
     }
 
     #[test]
@@ -393,7 +393,7 @@ pub mod tests {
         let e = endpoints(&base);
         assert_eq!(tauri::async_runtime::block_on(login_of(&e, "gho_token")).unwrap(), "ada");
         let error = tauri::async_runtime::block_on(login_of(&e, "wrong")).unwrap_err();
-        assert!(error.contains("does not accept"), "{error}");
+        assert!(error.contains("doesn't accept"), "{error}");
         assert_eq!(seen.lock().unwrap()[0].path, "/user");
     }
 

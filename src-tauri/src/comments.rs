@@ -97,7 +97,7 @@ fn write_one(project_dir: &Path, comment: &Comment) -> Result<(), String> {
         return Ok(());
     }
     crate::files::write_atomic(&path, json.as_bytes())
-        .map_err(|e| format!("failed to write comment: {e}"))
+        .map_err(|e| crate::errors::failed("Could not save the comment", &e))
 }
 
 /// Move comments.json into one file per comment, once.
@@ -168,7 +168,7 @@ pub fn add_new(project_dir: &Path, comments: &[Comment]) -> Result<Vec<String>, 
             continue;
         }
         fs::create_dir_all(comments_dir(project_dir))
-            .map_err(|e| format!("failed to create .polemic/comments: {e}"))?;
+            .map_err(|e| crate::errors::failed("Could not save the comments", &e))?;
         write_one(project_dir, comment)?;
         written.push(comment.id.clone());
     }
@@ -184,7 +184,7 @@ pub fn save(project_dir: &Path, comments: &[Comment]) -> Result<(), String> {
     // A list() first moves any comments.json still there.
     migrate(project_dir);
     fs::create_dir_all(comments_dir(project_dir))
-        .map_err(|e| format!("failed to create .polemic/comments: {e}"))?;
+        .map_err(|e| crate::errors::failed("Could not save the comments", &e))?;
     for comment in comments {
         write_one(project_dir, comment)?;
     }
@@ -194,7 +194,7 @@ pub fn save(project_dir: &Path, comments: &[Comment]) -> Result<(), String> {
             match fs::remove_file(comment_path(project_dir, &id)) {
                 Ok(()) => {}
                 Err(e) if e.kind() == std::io::ErrorKind::NotFound => {}
-                Err(e) => return Err(format!("failed to delete comment: {e}")),
+                Err(e) => return Err(crate::errors::failed("Could not delete the comment", &e)),
             }
         }
     }

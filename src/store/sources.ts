@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { create } from "zustand";
 import {
   getSettings,
@@ -105,7 +106,7 @@ export const useSourcesStore = create<SourcesState>((set, get) => ({
         loading: false,
       });
     } catch (e) {
-      set({ error: String(e), loading: false });
+      set({ error: errorText(e), loading: false });
     }
   },
   addSource: async (draft) => {
@@ -126,7 +127,7 @@ export const useSourcesStore = create<SourcesState>((set, get) => ({
       if (settings === null) return;
       set({ sources: settings.sources, error: null });
     } catch (e) {
-      set({ error: String(e) });
+      set({ error: errorText(e) });
       return;
     }
     await get().refresh();

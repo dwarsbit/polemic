@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import {
   ChevronDown,
   ChevronRight,
@@ -277,7 +278,7 @@ export function IssuesPanel({
     try {
       if (file !== null && file !== activeFile) await openFile(file);
     } catch (e) {
-      usePreviewStore.setState({ error: String(e) });
+      usePreviewStore.setState({ error: errorText(e) });
       return;
     }
     askAboutIssue(issue);

@@ -84,12 +84,12 @@ async fn post_form(
         .form(form)
         .send()
         .await
-        .map_err(|e| format!("Could not reach {}: {e}", flow.provider))?;
+        .map_err(|e| crate::errors::no_answer(flow.provider, e.is_timeout()))?;
     let status = response.status();
     response
         .json()
         .await
-        .map_err(|_| format!("{} answered {status}", flow.provider))
+        .map_err(|_| format!("{} gave an answer Polemic can't read ({status}). Try again in a moment.", flow.provider))
 }
 
 fn tokens_of(body: &serde_json::Value) -> Option<Tokens> {
@@ -116,17 +116,17 @@ pub async fn request_device_code(flow: &Flow, client_id: &str) -> Result<DeviceC
         let p = flow.provider;
         return Err(match error {
             "device_flow_disabled" => {
-                format!("{p} sign-in is not enabled for this app (device flow is off)")
+                format!("{p} sign-in isn't turned on for Polemic there. Add a token instead.")
             }
             "incorrect_client_credentials" | "invalid_client" | "unauthorized_client" => {
-                format!("{p} does not know this app's client ID")
+                format!("{p} doesn't know this version of Polemic. Add a token instead.")
             }
-            "invalid_scope" => format!("{p} refused the permissions Polemic asks for"),
-            other => format!("{p} refused the sign-in: {other}"),
+            "invalid_scope" => format!("{p} refused the permissions Polemic asks for."),
+            other => format!("{p} refused the sign-in ({other})."),
         });
     }
     serde_json::from_value(body)
-        .map_err(|e| format!("Unexpected answer from {}: {e}", flow.provider))
+        .map_err(|_| format!("{} gave an answer Polemic can't read. Try again in a moment.", flow.provider))
 }
 
 /// One poll's answer.
@@ -155,10 +155,10 @@ async fn poll_once(flow: &Flow, client_id: &str, device_code: &str) -> Result<Po
     match body.get("error").and_then(|e| e.as_str()) {
         Some("authorization_pending") => Ok(Poll::Pending),
         Some("slow_down") => Ok(Poll::SlowDown),
-        Some("expired_token") => Err("The code expired before it was entered: sign in again".into()),
-        Some("access_denied") => Err(format!("The sign-in was cancelled on {p}")),
-        Some(other) => Err(format!("{p} refused the sign-in: {other}")),
-        None => Err(format!("Unexpected answer from {p}")),
+        Some("expired_token") => Err("The code expired before it was entered. Sign in again.".into()),
+        Some("access_denied") => Err(format!("The sign-in was cancelled on {p}.")),
+        Some(other) => Err(format!("{p} refused the sign-in ({other}).")),
+        None => Err(format!("{p} gave an answer Polemic can't read. Try again in a moment.")),
     }
 }
 
@@ -183,7 +183,7 @@ pub async fn wait_for_tokens(
             sleep(unit.min(Duration::from_millis(200))).await;
         }
         if Instant::now() > deadline {
-            return Err("The code expired before it was entered: sign in again".into());
+            return Err("The code expired before it was entered. Sign in again.".into());
         }
         match poll_once(flow, client_id, &code.device_code).await? {
             Poll::Done(tokens) => return Ok(tokens),
@@ -222,7 +222,7 @@ async fn sleep(duration: Duration) {
 pub fn check_repo_name(name: &str) -> Result<String, String> {
     let name = name.trim();
     if name.is_empty() {
-        return Err("The repository name is empty".into());
+        return Err("Give the repository a name.".into());
     }
     if name.len() > 100
         || name == "."
@@ -231,7 +231,7 @@ pub fn check_repo_name(name: &str) -> Result<String, String> {
             .chars()
             .all(|c| c.is_ascii_alphanumeric() || matches!(c, '-' | '_' | '.'))
     {
-        return Err("A repository name takes letters, digits, -, _ and . only".into());
+        return Err("A repository name takes letters, digits, -, _ and . only.".into());
     }
     Ok(name.to_string())
 }
@@ -239,10 +239,10 @@ pub fn check_repo_name(name: &str) -> Result<String, String> {
 /// Publish's first step: the project needs a commit and no origin yet.
 pub fn check_can_publish(dir: &std::path::Path) -> Result<(), String> {
     if git::remote_url(dir).is_some() {
-        return Err("This project already has a remote".into());
+        return Err("This project already has a remote.".into());
     }
     if !git::has_commits(dir) {
-        return Err("Make a first commit before publishing".into());
+        return Err("Make a first commit before publishing.".into());
     }
     Ok(())
 }
@@ -294,7 +294,7 @@ mod tests {
             Duration::from_millis(5),
         ))
         .unwrap_err();
-        assert_eq!(error, "The sign-in was cancelled on Host");
+        assert_eq!(error, "The sign-in was cancelled on Host.");
     }
 
     #[test]

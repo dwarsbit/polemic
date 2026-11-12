@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -674,9 +675,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
                   );
                   usePreviewStore.getState().requestScroll(target);
                 } catch (e) {
-                  usePreviewStore
-                    .getState()
-                    .setNotice(`Could not find this line in the PDF: ${e}`);
+                  usePreviewStore.getState().setNotice(errorText(e));
                 }
               })();
               return true;
@@ -1280,7 +1279,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
             insertDropped(x, y, rel);
             void useProjectStore.getState().refreshFiles();
           })
-          .catch((e) => usePreviewStore.getState().setNotice(String(e)));
+          .catch((e) => usePreviewStore.getState().setNotice(errorText(e)));
       });
     }
     return () => {

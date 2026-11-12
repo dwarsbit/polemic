@@ -167,7 +167,7 @@ fn walk(
         excluder.push(rel, text);
     }
     let entries = fs::read_dir(folder)
-        .map_err(|e| format!("could not read {}: {e}", folder.display()))?;
+        .map_err(|e| crate::errors::failed(format_args!("Could not open {}", folder.display()), &e))?;
     for entry in entries.flatten() {
         let Some(name) = entry.file_name().to_str().map(str::to_string) else {
             continue;
@@ -208,7 +208,7 @@ fn walk(
         }
         let modified = meta.modified().unwrap_or(SystemTime::UNIX_EPOCH);
         let hash = hash_file(&abs, meta.len(), modified)
-            .map_err(|e| format!("could not read {path}: {e}"))?;
+            .map_err(|e| crate::errors::failed(format_args!("Could not open {path}"), &e))?;
         out.push(LocalFile {
             file: ManifestFile {
                 path,
@@ -228,7 +228,7 @@ fn walk(
 /// sync (no .git, no build output, .gitignore applied, nothing over
 /// 50 MB), hashed.
 pub(crate) fn local_files(dir: &Path) -> Result<Vec<LocalFile>, CompileError> {
-    let root = fs::canonicalize(dir).map_err(|e| format!("project not accessible: {e}"))?;
+    let root = fs::canonicalize(dir).map_err(|e| crate::errors::failed("Could not open the project folder", &e))?;
     let mut out = Vec::new();
     walk(&root, &root, "", &mut Excluder::default(), &mut out, &mut 0)?;
     out.sort_by(|a, b| a.file.path.cmp(&b.file.path));
@@ -390,7 +390,7 @@ async fn upload_missing(
         let bytes = tauri::async_runtime::spawn_blocking(move || fs::read(abs))
             .await
             .map_err(|e| e.to_string())?
-            .map_err(|e| format!("could not read {}: {e}", local.file.path))?;
+            .map_err(|e| crate::errors::failed(format_args!("Could not open {}", local.file.path), &e))?;
         if hash_bytes(&bytes) != *hash {
             if let Ok(mut hashes) = HASHES.lock() {
                 hashes.remove(&local.abs);
@@ -444,12 +444,12 @@ const OUTPUTS: [(&str, &str); 4] = [
 /// failed compile keeps the last PDF, as latexmk does.
 fn write_outputs(dir: &Path, main: &str, outputs: &[(&str, Vec<u8>)]) -> Result<(), String> {
     let build = dir.join("build");
-    fs::create_dir_all(&build).map_err(|e| format!("could not create build/: {e}"))?;
+    fs::create_dir_all(&build).map_err(|e| crate::errors::failed("Could not create build/ in the project", &e))?;
     let pdf = build.join(crate::pdf_output_path(main));
     for (ext, bytes) in outputs {
         let path = pdf.with_extension(ext);
         crate::files::write_atomic(&path, bytes)
-            .map_err(|e| format!("could not write {}: {e}", path.display()))?;
+            .map_err(|e| crate::errors::failed(format_args!("Could not save {}", path.display()), &e))?;
     }
     let stale = OUTPUTS
         .iter()
@@ -531,7 +531,7 @@ pub async fn compile_with(
             let answer: CompileResponse = response
                 .json()
                 .await
-                .map_err(|e| format!("Unexpected answer from the server: {e}"))?;
+                .map_err(|_| crate::share::UNREADABLE.to_string())?;
             fetch_outputs(&client, server, token, dir, main, &answer.outputs).await?;
             return Ok(Compiled {
                 status: answer.status,

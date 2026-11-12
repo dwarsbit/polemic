@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useState } from "react";
 import { Camera, FileDiff, RotateCcw } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -26,7 +27,7 @@ export function SnapshotsPanel() {
       await useProjectStore.getState().restoreSnapshot(restoreTarget.id);
       setRestoreTarget(null);
     } catch (e) {
-      setDialogError(String(e));
+      setDialogError(errorText(e));
     }
   }
 

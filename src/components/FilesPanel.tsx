@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { FilePlus2, FolderPlus } from "lucide-react";
@@ -117,7 +118,7 @@ export function FilesPanel() {
       }
       setDialogKind(null);
     } catch (e) {
-      setDialogError(String(e));
+      setDialogError(errorText(e));
     }
   }
 

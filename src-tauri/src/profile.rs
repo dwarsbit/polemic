@@ -77,11 +77,11 @@ pub fn save(project_dir: &Path, config: &ProjectConfig) -> Result<(), String> {
     let file = config_file(project_dir);
     if let Some(parent) = file.parent() {
         fs::create_dir_all(parent)
-            .map_err(|e| format!("failed to create .polemic folder: {e}"))?;
+            .map_err(|e| crate::errors::failed("Could not save the document settings", &e))?;
     }
     let json = serde_json::to_string_pretty(config).map_err(|e| e.to_string())?;
     crate::files::write_atomic(&file, json.as_bytes())
-        .map_err(|e| format!("failed to write project settings: {e}"))
+        .map_err(|e| crate::errors::failed("Could not save the document settings", &e))
 }
 
 /// The engine a `% !TEX program = xelatex` (or `TS-program`) line asks

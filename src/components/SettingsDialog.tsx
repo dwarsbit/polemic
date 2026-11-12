@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useEffect, useState, type ReactNode } from "react";
 import { open as openDialog } from "@tauri-apps/plugin-dialog";
 import {
@@ -281,9 +282,15 @@ export function SettingsDialog({
     setLangError(null);
     setDownloading(lang);
     try {
-      const response = await fetch(spellcheckLanguageUrl(lang));
+      const response = await fetch(spellcheckLanguageUrl(lang)).catch(() => {
+        throw new Error(
+          "Could not download the dictionary. Check your internet connection.",
+        );
+      });
       if (!response.ok) {
-        throw new Error(`download failed: ${response.status}`);
+        throw new Error(
+          `The dictionary could not be downloaded (${response.status}). Try again in a moment.`,
+        );
       }
       const content = await response.text();
       await installSpellcheckLanguage(lang, content);
@@ -291,7 +298,7 @@ export function SettingsDialog({
       // Installing switched to it: the select and the editors follow.
       useSettingsStore.setState({ spellcheckLanguage: lang });
     } catch (e) {
-      setLangError(String(e));
+      setLangError(errorText(e));
     } finally {
       setDownloading(null);
     }
@@ -305,7 +312,7 @@ export function SettingsDialog({
         await setProjectsRoot(dir);
         setRoot(dir);
       } catch (e) {
-        setRootError(String(e));
+        setRootError(errorText(e));
       }
     }
   }

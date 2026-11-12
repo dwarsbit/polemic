@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import {
   Command,
   Download,
@@ -43,7 +44,7 @@ async function downloadProject() {
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 10_000);
   } catch (e) {
-    usePreviewStore.getState().setNotice(e instanceof Error ? e.message : String(e));
+    usePreviewStore.getState().setNotice(errorText(e));
   }
 }
 

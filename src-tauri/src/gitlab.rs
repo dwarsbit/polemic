@@ -103,17 +103,17 @@ pub async fn username_of(endpoints: &Endpoints, token: &str) -> Result<String, S
         .bearer_auth(token)
         .send()
         .await
-        .map_err(|e| format!("Could not reach GitLab: {e}"))?;
+        .map_err(|e| crate::errors::no_answer("GitLab", e.is_timeout()))?;
     if response.status() == reqwest::StatusCode::UNAUTHORIZED {
-        return Err("GitLab does not accept this token".into());
+        return Err("GitLab doesn't accept this token. Check it or create a new one.".into());
     }
     if !response.status().is_success() {
-        return Err(format!("GitLab answered {}", response.status()));
+        return Err(format!("GitLab answered {}.", response.status()));
     }
     let user: User = response
         .json()
         .await
-        .map_err(|e| format!("Unexpected answer from GitLab: {e}"))?;
+        .map_err(|_| "GitLab gave an answer Polemic can't read. Try again in a moment.".to_string())?;
     Ok(user.username)
 }
 
@@ -142,13 +142,13 @@ pub async fn create_project(
         }))
         .send()
         .await
-        .map_err(|e| format!("Could not reach GitLab: {e}"))?;
+        .map_err(|e| crate::errors::no_answer("GitLab", e.is_timeout()))?;
     let status = response.status();
     if status.is_success() {
         let project: CreatedProject = response
             .json()
             .await
-            .map_err(|e| format!("Unexpected answer from GitLab: {e}"))?;
+            .map_err(|_| "GitLab gave an answer Polemic can't read. Try again in a moment.".to_string())?;
         return Ok(project.http_url_to_repo);
     }
     // GitLab's message is a string or a map of field → messages.

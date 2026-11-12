@@ -51,11 +51,11 @@ pub fn write_state(links_file: &Path, link: &ShareLink, state: &LocalState) -> R
     let path = state_path(links_file, link);
     if let Some(parent) = path.parent() {
         fs::create_dir_all(parent)
-            .map_err(|e| format!("could not create {}: {e}", parent.display()))?;
+            .map_err(|e| crate::errors::failed("Could not save the project's sync state", &e))?;
     }
     let json = serde_json::to_vec(state).map_err(|e| e.to_string())?;
     crate::files::write_atomic(&path, &json)
-        .map_err(|e| format!("could not save the project's sync state: {e}"))
+        .map_err(|e| crate::errors::failed("Could not save the project's sync state", &e))
 }
 
 /// Drops the copy, once the link is gone.
@@ -71,7 +71,9 @@ pub fn write_text_if(target: &Path, text: &str, expected: Option<&str>) -> Resul
     let current = match fs::read(target) {
         Ok(bytes) => Some(bytes),
         Err(e) if e.kind() == std::io::ErrorKind::NotFound => None,
-        Err(e) => return Err(format!("could not read {}: {e}", target.display())),
+        Err(e) => {
+            return Err(crate::errors::failed(format_args!("Could not open {}", target.display()), &e))
+        }
     };
     let unchanged = match (&current, expected) {
         (None, None) => true,
@@ -87,10 +89,11 @@ pub fn write_text_if(target: &Path, text: &str, expected: Option<&str>) -> Resul
         return Ok(true);
     }
     if let Some(parent) = target.parent() {
-        fs::create_dir_all(parent).map_err(|e| format!("failed to create folder: {e}"))?;
+        fs::create_dir_all(parent)
+            .map_err(|e| crate::errors::failed("Could not create the folder", &e))?;
     }
     crate::files::write_atomic(target, text.as_bytes())
-        .map_err(|e| format!("failed to write {}: {e}", target.display()))?;
+        .map_err(|e| crate::errors::failed(format_args!("Could not save {}", target.display()), &e))?;
     Ok(true)
 }
 
@@ -195,10 +198,11 @@ pub async fn link_write_asset(
     let id = cx.link()?.project_id;
     let bytes = cx.check(cx.session()?.fetch_asset(&id, &hash).await)?;
     if let Some(parent) = target.parent() {
-        fs::create_dir_all(parent).map_err(|e| format!("failed to create folder: {e}"))?;
+        fs::create_dir_all(parent)
+            .map_err(|e| crate::errors::failed("Could not create the folder", &e))?;
     }
     crate::files::write_atomic(&target, &bytes)
-        .map_err(|e| ShareError::from(format!("failed to write {path}: {e}")))
+        .map_err(|e| ShareError::from(crate::errors::failed(format_args!("Could not save {path}"), &e)))
 }
 
 /// Moves a file the server moved. A file already at the target is
@@ -208,9 +212,11 @@ pub fn link_move(project_dir: String, from: String, to: String) -> Result<(), St
     let source = crate::project_file(&project_dir, &from)?;
     let target = crate::project_file(&project_dir, &to)?;
     if let Some(parent) = target.parent() {
-        fs::create_dir_all(parent).map_err(|e| format!("failed to create folder: {e}"))?;
+        fs::create_dir_all(parent)
+            .map_err(|e| crate::errors::failed("Could not create the folder", &e))?;
     }
-    fs::rename(&source, &target).map_err(|e| format!("failed to move {from}: {e}"))
+    fs::rename(&source, &target)
+        .map_err(|e| crate::errors::failed(format_args!("Could not move {from}"), &e))
 }
 
 /// Moves a file the server deleted to the trash, so nothing is lost
@@ -221,7 +227,9 @@ pub fn link_remove(project_dir: String, path: String) -> Result<(), String> {
     if fs::symlink_metadata(&target).is_err() {
         return Ok(());
     }
-    trash::delete(&target).map_err(|e| format!("failed to move {path} to trash: {e}"))
+    trash::delete(&target).map_err(|_| {
+        format!("Could not move {path} to the trash. Close it in other programs and try again.")
+    })
 }
 
 /// A project on the account, with the folder on this computer that is
@@ -265,10 +273,10 @@ const SYSTEM_FILES: [&str; 3] = [".DS_Store", "Thumbs.db", "desktop.ini"];
 /// account only goes into such a folder, so nothing on disk can clash
 /// with what the first sync writes.
 pub fn is_empty_folder(dir: &Path) -> Result<bool, String> {
-    let entries = fs::read_dir(dir).map_err(|e| format!("could not read the folder: {e}"))?;
+    let entries = fs::read_dir(dir).map_err(|e| crate::errors::failed("Could not open the folder", &e))?;
     for entry in entries {
         let name = entry
-            .map_err(|e| format!("could not read the folder: {e}"))?
+            .map_err(|e| crate::errors::failed("Could not open the folder", &e))?
             .file_name();
         if !SYSTEM_FILES.iter().any(|system| name == *system) {
             return Ok(false);
@@ -313,7 +321,7 @@ pub async fn link_open_account_project(
             return Ok(None);
         };
         let path = picked.into_path().map_err(|e| e.to_string())?;
-        let dir = fs::canonicalize(&path).map_err(|e| format!("cannot open the folder: {e}"))?;
+        let dir = fs::canonicalize(&path).map_err(|e| crate::errors::failed("Could not open the folder", &e))?;
         if !is_empty_folder(&dir)? {
             return Err(ShareError::from(
                 "That folder already has files in it. Choose a new or empty folder.".to_string(),
@@ -330,10 +338,13 @@ pub async fn link_open_account_project(
         let root = crate::settings::effective(&app)?
             .projects_root
             .expect("projects root is set by effective()");
-        fs::create_dir_all(&root).map_err(|e| format!("failed to create projects root: {e}"))?;
+        fs::create_dir_all(&root)
+            .map_err(|e| crate::errors::failed("Could not create the projects folder", &e))?;
         let dir = free_folder(Path::new(&root), &name);
-        fs::create_dir_all(&dir).map_err(|e| format!("failed to create project: {e}"))?;
-        fs::canonicalize(&dir).map_err(|e| format!("failed to create project: {e}"))?
+        fs::create_dir_all(&dir)
+            .map_err(|e| crate::errors::failed("Could not create the project folder", &e))?;
+        fs::canonicalize(&dir)
+            .map_err(|e| crate::errors::failed("Could not create the project folder", &e))?
     };
     let link = ShareLink {
         server,

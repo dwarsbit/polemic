@@ -159,8 +159,9 @@ fn settings_path(app: &AppHandle) -> Result<PathBuf, String> {
     let dir = app
         .path()
         .app_config_dir()
-        .map_err(|e| format!("no app config dir: {e}"))?;
-    fs::create_dir_all(&dir).map_err(|e| format!("failed to create config dir: {e}"))?;
+        .map_err(|_| "Polemic could not find its settings folder on this computer.".to_string())?;
+    fs::create_dir_all(&dir)
+        .map_err(|e| crate::errors::failed("Could not save the settings", &e))?;
     Ok(dir.join("settings.json"))
 }
 
@@ -198,7 +199,7 @@ pub fn save(app: &AppHandle, settings: &Settings) -> Result<(), String> {
     let disk = crate::secrets::VAULT.persist(settings);
     let json = serde_json::to_string_pretty(&disk).map_err(|e| e.to_string())?;
     crate::files::write_atomic(&path, json.as_bytes())
-        .map_err(|e| format!("failed to write settings: {e}"))?;
+        .map_err(|e| crate::errors::failed("Could not save the settings", &e))?;
     // The file may hold API keys (no credential store): keep it
     // readable by the user only.
     #[cfg(unix)]
@@ -262,7 +263,7 @@ pub fn check_bib_paths(old: &[SourceDef], new: &[SourceDef]) -> Result<(), Strin
     for source in new.iter().filter(|s| s.kind == "bib") {
         if let Some(path) = source.path.as_deref() {
             if !known.contains(&path) {
-                return Err("bib sources are added through the file picker".into());
+                return Err("Add a .bib source with the button in Settings, so you choose the file yourself.".into());
             }
         }
     }

@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useState } from "react";
 import { Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -75,7 +76,7 @@ function CommentForm({
       }
       onClose();
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
     }
   }
 

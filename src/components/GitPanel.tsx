@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {
@@ -136,7 +137,7 @@ export function GitPanel() {
       await refresh();
       return true;
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
       return false;
     }
   }

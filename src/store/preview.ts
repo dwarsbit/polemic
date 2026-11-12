@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { create } from "zustand";
 import {
   cancelCompile,
@@ -153,7 +154,7 @@ async function runCompile(
         if (generation !== compileGeneration) return;
         set({
           status: "error",
-          error: String(e),
+          error: errorText(e),
           errorKind: "failed",
           issues: outcome.issues,
           log: outcome.log,
@@ -185,5 +186,5 @@ export function compileError(e: unknown): CompileError {
   if (typeof e === "object" && e !== null && "kind" in e && "message" in e) {
     return e as CompileError;
   }
-  return { kind: "failed", message: String(e), retryAfter: null };
+  return { kind: "failed", message: errorText(e), retryAfter: null };
 }

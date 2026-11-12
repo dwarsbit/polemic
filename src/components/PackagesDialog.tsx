@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useEffect, useMemo, useState } from "react";
 import {
   Check,
@@ -83,7 +84,7 @@ export function PackagesDialog({
           }
         })
         .catch((e) => {
-          if (!cancelled) setSearchError(String(e));
+          if (!cancelled) setSearchError(errorText(e));
         })
         .finally(() => {
           if (!cancelled) setSearching(false);
@@ -210,7 +211,7 @@ export function PackagesDialog({
               </p>
               {shownError && (
                 <p className="px-2 py-1 text-xs text-destructive" title={shownError}>
-                  CTAN search failed (offline?): {shownError}
+                  {shownError}
                 </p>
               )}
               {shownResults === null ? (

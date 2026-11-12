@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useEffect, useState } from "react";
 import { Copy, KeyRound, Pencil, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -65,7 +66,7 @@ export function GitAccountsSection() {
     let live = true;
     gitAccounts()
       .then((list) => live && setAccounts(list))
-      .catch((e) => live && setError(String(e)));
+      .catch((e) => live && setError(errorText(e)));
     const all: Hosting[] = ["github", "gitlab"];
     Promise.all(all.map((h) => signInAvailable(h).catch(() => false)))
       .then((available) => live && setHosts(all.filter((_, i) => available[i])))
@@ -84,7 +85,7 @@ export function GitAccountsSection() {
       // Resolves once the code is entered on the host's page.
       setAccounts(await signInFinish(provider));
     } catch (e) {
-      const message = String(e);
+      const message = errorText(e);
       if (!message.includes("Sign-in cancelled")) setError(message);
     } finally {
       setPending(null);
@@ -99,7 +100,7 @@ export function GitAccountsSection() {
       setAccounts(await action());
       return true;
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
       return false;
     } finally {
       setBusy(false);

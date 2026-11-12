@@ -102,6 +102,12 @@ fn tokens(store: &impl Store) -> Tokens {
         .unwrap_or_default()
 }
 
+/// The store's own message as the end of a sentence.
+fn sentence(reason: &str) -> String {
+    let reason = reason.trim().trim_end_matches('.');
+    format!("{reason}.")
+}
+
 fn write(store: &impl Store, tokens: &Tokens) -> Result<(), String> {
     if tokens.is_empty() {
         return store.delete();
@@ -114,7 +120,7 @@ pub fn set_secret_with(store: &impl Store, id: &str, secret: &Secret) -> Result<
     let mut map = tokens(store);
     map.insert(id.to_string(), encode(secret)?);
     write(store, &map)
-        .map_err(|e| format!("Could not save the token in the system's credential store: {e}"))
+        .map_err(|e| format!("Could not save the token in the system's credential store: {}", sentence(&e)))
 }
 
 pub fn remove_token_with(store: &impl Store, id: &str) -> Result<(), String> {
@@ -122,7 +128,8 @@ pub fn remove_token_with(store: &impl Store, id: &str) -> Result<(), String> {
     if map.remove(id).is_none() {
         return Ok(());
     }
-    write(store, &map).map_err(|e| format!("Could not update the credential store: {e}"))
+    write(store, &map)
+        .map_err(|e| format!("Could not update the system's credential store: {}", sentence(&e)))
 }
 
 /// What the store keeps for one account.
@@ -149,7 +156,7 @@ pub fn views_with(accounts: &[GitAccount], store: &impl Store) -> Vec<GitAccount
 pub fn normalize_host(input: &str) -> Result<String, String> {
     let trimmed = input.trim();
     if trimmed.is_empty() {
-        return Err("The host is empty".into());
+        return Err("Enter a host, such as github.com.".into());
     }
     let with_scheme = if trimmed.contains("://") {
         trimmed.to_string()
@@ -157,10 +164,10 @@ pub fn normalize_host(input: &str) -> Result<String, String> {
         format!("https://{trimmed}")
     };
     let url = url::Url::parse(&with_scheme)
-        .map_err(|_| "The host should look like github.com".to_string())?;
+        .map_err(|_| "The host should look like github.com.".to_string())?;
     let host = url
         .host_str()
-        .ok_or_else(|| "The host should look like github.com".to_string())?;
+        .ok_or_else(|| "The host should look like github.com.".to_string())?;
     let port = url.port().map(|p| format!(":{p}")).unwrap_or_default();
     Ok(format!("{}{port}", host.to_ascii_lowercase()))
 }

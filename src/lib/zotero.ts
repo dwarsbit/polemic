@@ -33,7 +33,9 @@ async function fetchJson(url: string, init?: RequestInit): Promise<unknown> {
       headers: { Accept: "application/json", ...init?.headers },
     });
     if (!response.ok) {
-      throw new Error(`Zotero request failed (${response.status})`);
+      throw new Error(
+        `Zotero answered ${response.status}. Check that Zotero is up to date.`,
+      );
     }
     return await response.json();
   } finally {

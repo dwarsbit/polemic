@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { create } from "zustand";
 import { LinkSync, type FolderChange, type LinkApi } from "@/lib/link-sync";
 import { publishApi, pullReviewComments } from "@/lib/share";
@@ -130,7 +131,7 @@ function statusFor(error: unknown): LinkStatus {
   if (!isShareError(error)) {
     return {
       kind: "failed",
-      message: error instanceof Error ? error.message : String(error),
+      message: errorText(error),
     };
   }
   const e: ShareError = error;

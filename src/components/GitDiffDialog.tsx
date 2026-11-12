@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { DiffRows } from "@/components/DiffRows";
@@ -53,7 +54,9 @@ export function GitDiffDialog({
         </DialogHeader>
         <div className="flex-1 min-h-0 px-6 pb-6">
           <ScrollArea className="h-full rounded border p-2">
-            {error && <p className="p-2 text-xs text-destructive">{String(error)}</p>}
+            {error && (
+              <p className="p-2 text-xs text-destructive">{errorText(error)}</p>
+            )}
             {!error && data && data.oldText === "" && data.newText === "" && (
               <p className="p-2 text-xs text-muted-foreground">
                 File is empty on both sides.

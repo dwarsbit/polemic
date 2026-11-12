@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { FileDiff, RefreshCw, RotateCcw } from "lucide-react";
@@ -14,11 +15,6 @@ import {
 import { kindLabel, snapshotTime } from "@/lib/online-snapshots";
 import { shareHistory, shareInfo, type HistorySnapshot } from "@/lib/tauri";
 import { useProjectStore } from "@/store/project";
-
-const errorText = (e: unknown) =>
-  typeof e === "object" && e !== null && "message" in e
-    ? String((e as { message: unknown }).message)
-    : String(e);
 
 /**
  * The shared project's snapshots on the server: one an hour while

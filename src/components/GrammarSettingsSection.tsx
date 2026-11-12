@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useEffect, useMemo, useState } from "react";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { Button } from "@/components/ui/button";
@@ -58,7 +59,7 @@ export function GrammarSettingsSection() {
     try {
       await setGrammar({ ...grammar, provider: next });
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
     }
   }
 
@@ -71,7 +72,7 @@ export function GrammarSettingsSection() {
         languageToolUrl: next.trim() || null,
       });
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
       return;
     }
     setUrl(next);
