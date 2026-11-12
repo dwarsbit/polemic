@@ -5,6 +5,7 @@
  * matching lives in latex-fixes.ts; this module owns the app state.
  */
 
+import { errorText } from "@/lib/error-text";
 import { collectAssetPaths, collectTexPaths } from "./assets";
 import { extractCiteKeys } from "./bibtex";
 import { applyEditsInView, queueEditsForView } from "./editor-edits";
@@ -146,7 +147,7 @@ export async function fixIssue(issue: CompileIssue): Promise<FixOutcome> {
     if (issue.line !== null) useEditorStore.getState().jumpTo(issue.line);
     return "fixed";
   } catch (e) {
-    usePreviewStore.setState({ error: String(e) });
+    usePreviewStore.setState({ error: errorText(e) });
     return "error";
   }
 }

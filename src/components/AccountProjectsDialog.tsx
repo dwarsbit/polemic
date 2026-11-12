@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useEffect, useState } from "react";
 import { ArrowLeft, Folder, FolderOpen, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -79,7 +80,7 @@ function AccountProjects({
       onDone();
       await openProject(info.path);
     } catch (e) {
-      setError(isShareError(e) ? e.message : String(e));
+      setError(errorText(e));
     } finally {
       setOpening(null);
     }
@@ -110,7 +111,7 @@ function AccountProjects({
       .catch((e) => {
         if (!live) return;
         if (isShareError(e) && e.kind === "signedOut") setSignedOut(true);
-        else setError(isShareError(e) ? e.message : String(e));
+        else setError(errorText(e));
         setProjects([]);
       });
     return () => {

@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { create } from "zustand";
 import {
   MAX_STEPS,
@@ -271,11 +272,11 @@ export const useAssistantStore = create<AssistantState>((set, get) => {
           history.length = base;
         }
       } catch (e) {
-        const message = String(e).replace(/^Error: /, "");
+        const message = errorText(e);
         if (cancelled || message === "cancelled") {
           push({ kind: "step", text: "Stopped" });
         } else {
-          push({ kind: "error", text: `The AI request failed: ${message}` });
+          push({ kind: "error", text: message });
         }
         history.length = base;
       } finally {
@@ -330,7 +331,7 @@ export const useAssistantStore = create<AssistantState>((set, get) => {
           }
         }
       } catch (e) {
-        return fail(`The change could not be applied: ${String(e)}`);
+        return fail(errorText(e));
       }
       update(itemId, { status: "applied", note: null });
       notes.push(`The user applied change ${changeNumber(item)}.`);

@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useDialogsStore } from "@/store/dialogs";
 import * as pdfjs from "pdfjs-dist";
@@ -245,7 +246,7 @@ export function AssetsPanel() {
       await importAssets(project.path, sources);
       await useProjectStore.getState().refreshFiles();
     } catch (e) {
-      setImportError(String(e));
+      setImportError(errorText(e));
     }
   }
 

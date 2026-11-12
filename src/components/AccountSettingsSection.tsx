@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { useEffect, useState } from "react";
 import { ExternalLink, LogOut, MoreHorizontal } from "lucide-react";
@@ -92,7 +93,7 @@ export function AccountSettingsSection() {
     let live = true;
     accountStatus()
       .then((s) => live && show(s))
-      .catch((e) => live && setError(String(e)))
+      .catch((e) => live && setError(errorText(e)))
       .finally(() => live && setBusy(null));
     // A sign-in still waiting for the browser keeps going when the page
     // closes (it times out on its own); reopening the page shows the result.
@@ -121,7 +122,7 @@ export function AccountSettingsSection() {
     try {
       await action();
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
     } finally {
       setBusy(null);
     }

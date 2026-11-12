@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useMemo, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { RotateCcw } from "lucide-react";
@@ -129,7 +130,7 @@ export function SnapshotDiffDialog({
       });
       await invalidateGitState();
     } catch (e) {
-      setRestoreError(String(e));
+      setRestoreError(errorText(e));
     }
   }
 

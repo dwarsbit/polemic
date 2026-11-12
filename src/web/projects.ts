@@ -7,6 +7,7 @@
  * else who has it open.
  */
 
+import { errorText } from "@/lib/error-text";
 import { HocuspocusProvider } from "@hocuspocus/provider";
 import { strToU8, unzipSync, zipSync, type Zippable } from "fflate";
 import * as Y from "yjs";
@@ -849,7 +850,7 @@ export async function requireAccount(): Promise<void> {
     if (e instanceof ServerError && e.status >= 500) {
       throw "Polemic is unavailable right now. Reload the page to try again.";
     }
-    throw e instanceof Error ? e.message : String(e);
+    throw errorText(e);
   }
   if (!found) return goSignIn();
   account = Promise.resolve(found);

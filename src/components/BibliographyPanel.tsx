@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   BookPlus,
@@ -452,7 +453,7 @@ export function BibliographyPanel() {
       diskCache.current.files = [];
       setScanTick((tick) => tick + 1);
     } catch (e) {
-      setCreateError(String(e));
+      setCreateError(errorText(e));
     }
   }
 

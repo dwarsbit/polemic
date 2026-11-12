@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useEffect, useRef, useState } from "react";
 import * as pdfjs from "pdfjs-dist";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
@@ -41,7 +42,7 @@ function onCanvasClick(event: MouseEvent) {
       await useProjectStore.getState().openFile(hit.file);
       useEditorStore.getState().jumpTo(hit.line);
     } catch (e) {
-      usePreviewStore.getState().setNotice(`Could not jump to the source: ${e}`);
+      usePreviewStore.getState().setNotice(errorText(e));
     }
   })();
 }
@@ -125,11 +126,11 @@ export function PreviewPane() {
           transform: dpr === 1 ? undefined : [dpr, 0, 0, dpr, 0, 0],
         }).promise;
       }
-    })().catch((e) => {
+    })().catch(() => {
       if (!cancelled) {
         usePreviewStore.setState({
           status: "error",
-          error: `failed to render PDF: ${e}`,
+          error: "The PDF could not be shown. Compile again to make a new one.",
         });
       }
     });
@@ -190,7 +191,7 @@ export function PreviewPane() {
     try {
       await openPdf(project.path, mainFile);
     } catch (e) {
-      usePreviewStore.getState().setNotice(String(e));
+      usePreviewStore.getState().setNotice(errorText(e));
     }
   }
 

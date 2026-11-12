@@ -103,13 +103,13 @@ pub fn normalize_server(input: &str) -> Result<String, String> {
     }
     crate::ai::check_service_url(trimmed, "The server URL")?;
     let url =
-        url::Url::parse(trimmed).map_err(|_| "The server URL is not a valid URL".to_string())?;
+        url::Url::parse(trimmed).map_err(|_| "That isn't a valid server URL. It should look like https://polemic.example.org.".to_string())?;
     if url.host_str().is_none()
         || url.query().is_some()
         || url.fragment().is_some()
         || !url.username().is_empty()
     {
-        return Err("The server URL should look like https://polemic.example.org".into());
+        return Err("The server URL should look like https://polemic.example.org.".into());
     }
     Ok(trimmed.to_string())
 }
@@ -306,7 +306,7 @@ fn wait_for_code(
                         "Polemic was not signed in. You can close this tab.",
                     ),
                 );
-                return Err("Sign-in cancelled in the browser".into());
+                return Err("Sign-in cancelled in the browser.".into());
             }
             Callback::Ignore => respond(&mut stream, "404 Not Found", &page("Not found", "")),
         }
@@ -333,7 +333,7 @@ pub async fn sign_in_with(
     let verifier = random_token(32)?;
     let state = random_token(16)?;
     let listener = TcpListener::bind(("127.0.0.1", 0))
-        .map_err(|e| format!("could not listen for the browser: {e}"))?;
+        .map_err(|e| crate::errors::failed("Could not wait for the sign-in in the browser", &e))?;
     let port = listener.local_addr().map_err(|e| e.to_string())?.port();
     let redirect_uri = format!("http://127.0.0.1:{port}{CALLBACK_PATH}");
 
@@ -363,14 +363,14 @@ pub async fn sign_in_with(
         .json(&body)
         .send()
         .await
-        .map_err(|e| format!("Could not reach {server}: {e}"))?;
+        .map_err(|e| crate::errors::no_answer(&server, e.is_timeout()))?;
     if !response.status().is_success() {
         return Err(error_message(response).await);
     }
     let token: TokenResponse = response
         .json()
         .await
-        .map_err(|e| format!("Unexpected answer from the server: {e}"))?;
+        .map_err(|_| crate::share::UNREADABLE.to_string())?;
 
     let credential = Credential {
         server: server.to_string(),
@@ -568,7 +568,7 @@ pub async fn usage_with(
             .json()
             .await
             .map(Some)
-            .map_err(|e| format!("Unexpected answer from the server: {e}")),
+            .map_err(|_| crate::share::UNREADABLE.to_string()),
         reqwest::StatusCode::NOT_FOUND => Ok(None),
         reqwest::StatusCode::UNAUTHORIZED => {
             forget_rejected_with(server, &token, store);
@@ -632,7 +632,7 @@ pub async fn account_sign_in(
     let result = sign_in_with(&server, &STORE, create, cancel.clone(), |url| {
         app.opener()
             .open_url(url, None::<&str>)
-            .map_err(|e| format!("could not open the browser: {e}"))
+            .map_err(|_| "Could not open your browser for the sign-in.".to_string())
     })
     .await;
     if let Ok(mut pending) = PENDING.lock() {

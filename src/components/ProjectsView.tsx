@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Pencil, Pin, PinOff, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -71,12 +72,12 @@ export function ProjectsView() {
     void getSettings()
       .then(setSettings)
       .catch((e) => {
-        setError(String(e));
+        setError(errorText(e));
         setLoadFailed(true);
       });
     void listTemplates()
       .then(setTemplates)
-      .catch((e) => setError(String(e)));
+      .catch((e) => setError(errorText(e)));
   }, []);
 
   useEffect(() => {
@@ -105,7 +106,7 @@ export function ProjectsView() {
     try {
       setSettings(await getSettings());
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
     }
   }
 
@@ -116,7 +117,7 @@ export function ProjectsView() {
       const info = await createProject(name, templateId);
       await openProject(info.path);
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
     } finally {
       setBusy(false);
     }
@@ -139,7 +140,7 @@ export function ProjectsView() {
       );
       await openProject(info.path);
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setError(errorText(e));
     } finally {
       setBusy(false);
     }
@@ -150,7 +151,7 @@ export function ProjectsView() {
     try {
       await openProject(path);
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
     }
   }
 
@@ -161,7 +162,7 @@ export function ProjectsView() {
       const info = await openProjectDialog();
       if (info !== null) await handleOpen(info.path);
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
     }
   }
 
@@ -197,7 +198,7 @@ export function ProjectsView() {
       }
       setAction({ kind: "none" });
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
     }
   }
 

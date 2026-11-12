@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useEffect, useMemo, useState } from "react";
 import { open as openFileDialog } from "@tauri-apps/plugin-dialog";
 import { FileUp } from "lucide-react";
@@ -89,7 +90,7 @@ function CsvImport({ initialPath }: { initialPath: string | null }) {
         if (!cancelled) setText(content);
       })
       .catch((e) => {
-        if (!cancelled) setError(String(e));
+        if (!cancelled) setError(errorText(e));
       });
     return () => {
       cancelled = true;
@@ -128,7 +129,7 @@ function CsvImport({ initialPath }: { initialPath: string | null }) {
       setText(null);
       setPath(imported);
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
     }
   }
 

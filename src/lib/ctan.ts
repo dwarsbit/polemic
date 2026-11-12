@@ -39,9 +39,11 @@ export async function searchCtan(query: string): Promise<CtanPackage[]> {
   if (trimmed.length === 0) return [];
   const response = await fetch(
     `https://ctan.org/json/2.0/packages?key=${encodeURIComponent(trimmed)}`,
-  );
+  ).catch(() => {
+    throw new Error("Could not reach CTAN. Check your internet connection.");
+  });
   if (!response.ok) {
-    throw new Error(`CTAN search failed: ${response.status}`);
+    throw new Error(`CTAN answered ${response.status}. Try again in a moment.`);
   }
   return parseList(await response.json());
 }

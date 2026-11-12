@@ -16,14 +16,14 @@ use tokio::sync::Notify;
 /// The API key travels in a header: only HTTPS may carry it, except to
 /// a model served on this machine (Ollama, LM Studio, llama.cpp).
 pub fn check_base_url(base_url: &str) -> Result<(), String> {
-    check_service_url(base_url, "the AI base URL")
+    check_service_url(base_url, "The AI base URL")
 }
 
 /// A service URL may use plain http only to this machine; `what` names
 /// it in the error ("the AI base URL").
 pub fn check_service_url(base_url: &str, what: &str) -> Result<(), String> {
     let err =
-        || format!("{what} must start with https:// (plain http is only allowed for localhost)");
+        || format!("{what} must start with https://. Plain http only works for localhost.");
     // Parse rather than split by hand: `http://localhost@evil.example`
     // has evil.example as its host. Userinfo is refused outright, so a
     // credential never rides in the URL.
@@ -55,13 +55,17 @@ fn authorized(request: reqwest::RequestBuilder, api_key: &str) -> reqwest::Reque
 }
 
 /// The error a provider sends with a failed status, or the status alone.
+/// The provider answered, but not in a way Polemic can use.
+const UNREADABLE: &str =
+    "The AI provider gave an answer Polemic can't read. Check the base URL and the model.";
+
 fn provider_error(status: reqwest::StatusCode, text: &str) -> String {
     let body: Value = serde_json::from_str(text).unwrap_or(Value::Null);
     let detail = body["error"]["message"]
         .as_str()
         .or_else(|| body["message"].as_str())
-        .unwrap_or("no further detail");
-    format!("the provider returned {status}: {detail}")
+        .unwrap_or("it gave no further detail.");
+    format!("The AI provider answered {status}: {detail}")
 }
 
 /// The models a provider offers (`GET /models`), as the webview's
@@ -74,17 +78,17 @@ pub async fn ai_list_models(base_url: String, api_key: String) -> Result<Vec<Str
     let response = authorized(reqwest::Client::new().get(&url), &api_key)
         .send()
         .await
-        .map_err(|e| format!("the provider could not be reached: {e}"))?;
+        .map_err(|e| crate::errors::no_answer("the AI provider", e.is_timeout()))?;
     let status = response.status();
     let text = response
         .text()
         .await
-        .map_err(|e| format!("the provider's reply could not be read: {e}"))?;
+        .map_err(|_| UNREADABLE.to_string())?;
     if !status.is_success() {
         return Err(provider_error(status, &text));
     }
     let body: Value = serde_json::from_str(&text)
-        .map_err(|_| "the provider's reply was not a list of models".to_string())?;
+        .map_err(|_| "The AI provider didn't answer with a list of models. Check the base URL.".to_string())?;
     Ok(model_ids(&body))
 }
 
@@ -171,7 +175,7 @@ impl StreamAssembler {
             return Ok(None);
         };
         if let Some(message) = event["error"]["message"].as_str() {
-            return Err(format!("the provider returned an error: {message}"));
+            return Err(format!("The AI provider reported an error: {message}"));
         }
         let delta = &event["choices"][0]["delta"];
         if let Some(calls) = delta["tool_calls"].as_array() {
@@ -232,7 +236,7 @@ fn assistant_message(content: String, calls: Vec<Value>) -> Value {
 fn message_from_completion(body: &Value) -> Result<Value, String> {
     let message = &body["choices"][0]["message"];
     if message.is_null() {
-        return Err("the AI response had no message".into());
+        return Err(UNREADABLE.into());
     }
     let content = message["content"].as_str().unwrap_or("").to_string();
     let calls = message["tool_calls"]
@@ -281,7 +285,7 @@ async fn run_turn(args: &AiAgentArgs, on_event: &Channel<AgentEvent>) -> Result<
         .json(&body)
         .send()
         .await
-        .map_err(|e| format!("the AI request failed: {e}"))?;
+        .map_err(|e| crate::errors::no_answer("the AI provider", e.is_timeout()))?;
     let status = response.status();
     let streamed = response
         .headers()
@@ -292,7 +296,7 @@ async fn run_turn(args: &AiAgentArgs, on_event: &Channel<AgentEvent>) -> Result<
         let text = response
             .text()
             .await
-            .map_err(|e| format!("the AI response could not be read: {e}"))?;
+            .map_err(|_| UNREADABLE.to_string())?;
         if !status.is_success() {
             return Err(provider_error(status, &text));
         }
@@ -311,7 +315,7 @@ async fn run_turn(args: &AiAgentArgs, on_event: &Channel<AgentEvent>) -> Result<
     while let Some(chunk) = response
         .chunk()
         .await
-        .map_err(|e| format!("the AI response was cut off: {e}"))?
+        .map_err(|_| "The AI provider's answer was cut off. Ask again.".to_string())?
     {
         pending.extend_from_slice(&chunk);
         let valid = match std::str::from_utf8(&pending) {

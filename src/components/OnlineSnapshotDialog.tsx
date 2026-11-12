@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useMemo, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { RotateCcw } from "lucide-react";
@@ -62,11 +63,6 @@ export async function restoreOnline(
   await shareRestore(dir, snapshotId, paths);
   if (useLinkStore.getState().dir === dir) await useLinkStore.getState().syncNow();
 }
-
-const errorText = (e: unknown) =>
-  typeof e === "object" && e !== null && "message" in e
-    ? String((e as { message: unknown }).message)
-    : String(e);
 
 export function OnlineSnapshotDialog({
   dir,
@@ -161,7 +157,9 @@ export function OnlineSnapshotDialog({
                       {(change.before !== null || change.after !== null) && (
                         <>
                           <span className="text-success">+{change.addedLines}</span>{" "}
-                          <span className="text-destructive">−{change.removedLines}</span>
+                          <span className="text-destructive">
+                            −{change.removedLines}
+                          </span>
                         </>
                       )}
                     </span>

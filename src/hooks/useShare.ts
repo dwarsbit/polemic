@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useCallback, useEffect, useState } from "react";
 import { type PublishedSnapshot } from "@/lib/share";
 import { keepLinks, rememberLink } from "@/lib/review-links";
@@ -51,7 +52,7 @@ export function syncProblem(status: LinkStatus | null): string | null {
 
 function toShareError(e: unknown): ShareError {
   if (isShareError(e)) return e;
-  return { kind: "failed", message: typeof e === "string" ? e : String(e) };
+  return { kind: "failed", message: errorText(e) };
 }
 
 interface ShareState {

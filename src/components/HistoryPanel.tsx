@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { RefreshCcw } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -69,7 +70,7 @@ export function HistoryPanel() {
         }
       />
       <div className="flex-1 overflow-y-auto p-1.5">
-        {error && <p className="px-2 text-xs text-destructive">{String(error)}</p>}
+        {error && <p className="px-2 text-xs text-destructive">{errorText(error)}</p>}
         {!error && (log ?? []).length === 0 && (
           <p className="px-2 text-xs text-muted-foreground">No commits yet.</p>
         )}

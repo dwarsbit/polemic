@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useEffect, useState } from "react";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { Button } from "@/components/ui/button";
@@ -52,7 +53,7 @@ export function CompileSettingsSection() {
     try {
       await setProvider(next);
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
     }
   }
 

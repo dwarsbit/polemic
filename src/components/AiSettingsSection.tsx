@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { useEffect, useRef, useState } from "react";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { Loader2 } from "lucide-react";
@@ -69,7 +70,7 @@ export function AiSettingsSection() {
     try {
       await setAi(next);
     } catch (e) {
-      setError(String(e));
+      setError(errorText(e));
     }
   }
 
@@ -83,7 +84,7 @@ export function AiSettingsSection() {
       if (request === loadRequest.current) setLoaded({ state: "ok", models });
     } catch (e) {
       if (request === loadRequest.current) {
-        setLoaded({ state: "error", message: String(e) });
+        setLoaded({ state: "error", message: errorText(e) });
       }
     }
   }

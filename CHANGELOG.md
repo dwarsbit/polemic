@@ -11,6 +11,7 @@
 - When a compile fails, the preview names the first error, and **Show the error** takes you to it.
 - The issues list opens by itself when a compile starts to fail. If you close it, it stays closed until a compile works and a later one fails.
 - The marks in the editor show the same wording.
+- Messages for what goes wrong outside a compile say what happened and what to do next. A file that can't be opened or saved names the cause, such as a full disk or a denied permission, instead of a system code. Sign-in, Git, lookup and AI messages name the next step.
 - An open issue offers what Polemic can do about it: **Compile with XeLaTeX** or **Compile with LuaLaTeX** when the document needs another TeX engine, and a link to CTAN for a package or class that isn't found.
 - **Fix** covers more errors and says what it will change: `\newcommand` for a command that exists and `\renewcommand` for one that doesn't, an environment that is never closed, a `}` forgotten at the end of a heading or command, and an image or included file whose name is close to one in the project, also when only capitals or the extension differ.
 - **Ask AI** passes on what Issues says about the error, so the answer starts from there.

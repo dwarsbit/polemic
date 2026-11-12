@@ -22,10 +22,10 @@ pub fn save(
     let file = meta_file(project_dir);
     if let Some(parent) = file.parent() {
         fs::create_dir_all(parent)
-            .map_err(|e| format!("failed to create .polemic folder: {e}"))?;
+            .map_err(|e| crate::errors::failed("Could not save the tags", &e))?;
     }
     let json = serde_json::to_string_pretty(tags).map_err(|e| e.to_string())?;
-    crate::files::write_atomic(&file, json.as_bytes()).map_err(|e| format!("failed to write asset tags: {e}"))
+    crate::files::write_atomic(&file, json.as_bytes()).map_err(|e| crate::errors::failed("Could not save the tags", &e))
 }
 
 /// System fonts for text in SVGs, loaded once per run (loading takes a
@@ -46,22 +46,22 @@ fn fontdb() -> std::sync::Arc<svg2pdf::usvg::fontdb::Database> {
 /// (`\includegraphics` cannot read SVG). Relative references inside
 /// the SVG resolve from its own folder.
 pub fn svg_to_pdf(svg: &Path, pdf: &Path) -> Result<(), String> {
-    let data = fs::read(svg).map_err(|e| format!("cannot read {}: {e}", svg.display()))?;
+    let data = fs::read(svg).map_err(|e| crate::errors::failed(format_args!("Could not open {}", svg.display()), &e))?;
     let options = svg2pdf::usvg::Options {
         resources_dir: svg.parent().map(Path::to_path_buf),
         fontdb: fontdb(),
         ..Default::default()
     };
     let tree = svg2pdf::usvg::Tree::from_data(&data, &options)
-        .map_err(|e| format!("cannot parse {}: {e}", svg.display()))?;
+        .map_err(|_| format!("{} isn't an SVG that Polemic can read.", svg.display()))?;
     let bytes = svg2pdf::to_pdf(
         &tree,
         svg2pdf::ConversionOptions::default(),
         svg2pdf::PageOptions::default(),
     )
-    .map_err(|e| format!("cannot convert {}: {e}", svg.display()))?;
+    .map_err(|_| format!("{} could not be converted to PDF.", svg.display()))?;
     crate::files::write_atomic(pdf, &bytes)
-        .map_err(|e| format!("failed to write {}: {e}", pdf.display()))
+        .map_err(|e| crate::errors::failed(format_args!("Could not save {}", pdf.display()), &e))
 }
 
 /// Whether a path names an SVG file (by extension).

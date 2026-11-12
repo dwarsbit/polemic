@@ -1,4 +1,5 @@
 mod account;
+mod errors;
 mod cloud_compile;
 mod excludes;
 mod files;
@@ -118,10 +119,10 @@ fn locate(tool: &str) -> Option<String> {
 fn validate_project_name(name: &str) -> Result<(), String> {
     let name = name.trim();
     if name.is_empty() {
-        return Err("project name is empty".into());
+        return Err("Give the project a name.".into());
     }
     if name.starts_with('.') || name.contains('/') || name.contains('\\') || name.contains("..") {
-        return Err("invalid project name".into());
+        return Err("A project name can't start with a dot or contain a slash. Choose another name.".into());
     }
     Ok(())
 }
@@ -150,7 +151,7 @@ fn pdf_output_path(main_tex: &str) -> std::path::PathBuf {
 fn validate_tex_arg(project_dir: &str, tex: &str) -> Result<(), String> {
     project_file(project_dir, tex)?;
     if tex.starts_with('-') {
-        return Err(format!("unsupported file name: {tex}"));
+        return Err(format!("{tex} can't be compiled: its name starts with a hyphen. Rename the file."));
     }
     Ok(())
 }
@@ -371,9 +372,9 @@ const COMPILE_TIMEOUT: std::time::Duration = std::time::Duration::from_secs(10 *
 /// The canonical folder of an open project; any other folder is refused.
 fn canonical_project(project_dir: &str) -> Result<std::path::PathBuf, String> {
     let dir = fs::canonicalize(project_dir)
-        .map_err(|e| format!("project directory not accessible: {e}"))?;
+        .map_err(|e| errors::failed("Could not open the project folder", &e))?;
     if !guard::is_allowed(&dir) {
-        return Err("not an open project".into());
+        return Err("This folder isn't an open project.".into());
     }
     Ok(dir)
 }
@@ -388,7 +389,7 @@ fn project_file(project_dir: &str, rel_path: &str) -> Result<std::path::PathBuf,
 /// (which only ever gains folders through open/create).
 fn known_project(app: &tauri::AppHandle, path: &str) -> Result<std::path::PathBuf, String> {
     let dir = fs::canonicalize(path)
-        .map_err(|e| format!("project directory not accessible: {e}"))?;
+        .map_err(|e| errors::failed("Could not open the project folder", &e))?;
     if guard::is_allowed(&dir) {
         return Ok(dir);
     }
@@ -404,7 +405,7 @@ fn known_project(app: &tauri::AppHandle, path: &str) -> Result<std::path::PathBu
     if known {
         Ok(dir)
     } else {
-        Err("unknown project folder; open it with Open Folder… first".into())
+        Err("Polemic doesn't know this folder yet. Open it with Open folder… first.".into())
     }
 }
 
@@ -447,23 +448,26 @@ fn create_project(
     let name = name.trim().to_string();
     let cfg = settings::effective(&app)?;
     let root = cfg.projects_root.expect("projects root is set by effective()");
-    fs::create_dir_all(&root).map_err(|e| format!("failed to create projects root: {e}"))?;
+    fs::create_dir_all(&root)
+        .map_err(|e| errors::failed("Could not create the projects folder", &e))?;
     let dir = std::path::Path::new(&root).join(&name);
     if dir.exists() {
-        return Err(format!("a project named \"{name}\" already exists"));
+        return Err(format!("A project named “{name}” already exists. Choose another name."));
     }
-    fs::create_dir_all(&dir).map_err(|e| format!("failed to create project: {e}"))?;
+    fs::create_dir_all(&dir)
+        .map_err(|e| errors::failed("Could not create the project folder", &e))?;
     // Store the canonical path, like open_project does, so both routes
     // key the recent list and per-project settings the same way.
-    let dir = fs::canonicalize(&dir).map_err(|e| format!("failed to create project: {e}"))?;
+    let dir = fs::canonicalize(&dir)
+        .map_err(|e| errors::failed("Could not create the project folder", &e))?;
     for (path, content) in template.files {
         let target = dir.join(path);
         if let Some(parent) = target.parent() {
             fs::create_dir_all(parent)
-                .map_err(|e| format!("failed to create folder: {e}"))?;
+                .map_err(|e| errors::failed("Could not create the folder", &e))?;
         }
         fs::write(&target, content)
-            .map_err(|e| format!("failed to write template file {path}: {e}"))?;
+            .map_err(|e| errors::failed(format_args!("Could not create {path}"), &e))?;
     }
     guard::allow(&dir);
     let info = project_info(&dir);
@@ -499,13 +503,13 @@ async fn open_project_dialog(app: tauri::AppHandle) -> Result<Option<ProjectInfo
         return Ok(None);
     };
     let path = picked.into_path().map_err(|e| e.to_string())?;
-    let dir = fs::canonicalize(&path).map_err(|e| format!("cannot open project folder: {e}"))?;
+    let dir = fs::canonicalize(&path).map_err(|e| errors::failed("Could not open the folder", &e))?;
     admit_project(&app, &dir).map(Some)
 }
 
 fn admit_project(app: &tauri::AppHandle, dir: &std::path::Path) -> Result<ProjectInfo, String> {
     if !dir.is_dir() {
-        return Err("project path is not a directory".into());
+        return Err("That isn't a folder. Choose the folder that holds your project.".into());
     }
     guard::allow(dir);
     let info = project_info(dir);
@@ -649,9 +653,9 @@ async fn pick_bib_source(app: tauri::AppHandle, folder: bool) -> Result<Option<S
         return Ok(None);
     };
     let path = picked.into_path().map_err(|e| e.to_string())?;
-    let path = fs::canonicalize(&path).map_err(|e| format!("cannot add source: {e}"))?;
+    let path = fs::canonicalize(&path).map_err(|e| errors::failed("Could not add the source", &e))?;
     if !folder && !files::is_bib(&path) {
-        return Err("pick a .bib file".into());
+        return Err("That isn't a .bib file. Choose a file that ends in .bib.".into());
     }
     settings::update(&app, |s| {
         s.sources.push(SourceDef {
@@ -718,7 +722,7 @@ fn update_grammar_settings(
         .map(|u| u.trim().to_string())
         .filter(|u| !u.is_empty());
     if let Some(url) = grammar.language_tool_url.as_deref() {
-        ai::check_service_url(url, "the LanguageTool URL")?;
+        ai::check_service_url(url, "The LanguageTool URL")?;
     }
     if let Some(provider) = grammar.provider.as_deref() {
         if !grammar::PROVIDERS.contains(&provider) {
@@ -850,7 +854,7 @@ fn add_spellcheck_word(
 ) -> Result<(), String> {
     let word = word.trim().to_lowercase();
     if word.is_empty() {
-        return Err("empty word".into());
+        return Err("There is no word to add.".into());
     }
     state.lock().map_err(|e| e.to_string())?.add(&word);
     settings::update(&app, |s| {
@@ -869,9 +873,9 @@ fn spelling_dir(app: &tauri::AppHandle) -> Result<std::path::PathBuf, String> {
     let dir = app
         .path()
         .app_data_dir()
-        .map_err(|e| format!("no app data dir: {e}"))?
+        .map_err(|_| "Polemic could not find its data folder on this computer.".to_string())?
         .join("spelling");
-    fs::create_dir_all(&dir).map_err(|e| format!("failed to create spelling dir: {e}"))?;
+    fs::create_dir_all(&dir).map_err(|e| errors::failed("Could not create the folder for dictionaries", &e))?;
     Ok(dir)
 }
 
@@ -885,7 +889,7 @@ fn load_language_wordlist(
     }
     let file = spelling_dir(app)?.join(format!("{lang}.txt"));
     let content = fs::read_to_string(&file)
-        .map_err(|e| format!("dictionary for \"{lang}\" is not downloaded: {e}"))?;
+        .map_err(|_| format!("The dictionary for “{lang}” isn't downloaded yet. Download it in Settings."))?;
     Ok(spell::SpellState::from_words(
         spell::parse_frequency_list(&content),
         user_words,
@@ -922,7 +926,7 @@ fn install_spellcheck_language(
         return Err(format!("unsupported language: {lang}"));
     }
     let file = spelling_dir(&app)?.join(format!("{lang}.txt"));
-    fs::write(&file, content).map_err(|e| format!("failed to store dictionary: {e}"))?;
+    fs::write(&file, content).map_err(|e| errors::failed("Could not save the dictionary", &e))?;
     set_spellcheck_language_inner(&app, &state, &lang)?;
     settings::update(&app, |s| {
         s.spellcheck_language = Some(lang.clone());
@@ -1003,9 +1007,12 @@ fn rename_project(
         .to_path_buf();
     let new_dir = parent.join(new_name.trim());
     if new_dir.exists() {
-        return Err(format!("\"{}\" already exists", new_name.trim()));
+        return Err(format!(
+            "A folder named “{}” already exists. Choose another name.",
+            new_name.trim()
+        ));
     }
-    fs::rename(&dir, &new_dir).map_err(|e| format!("failed to rename project: {e}"))?;
+    fs::rename(&dir, &new_dir).map_err(|e| errors::failed("Could not rename the project", &e))?;
     if guard::is_allowed(&dir) {
         guard::forget(&dir);
         guard::allow(&new_dir);
@@ -1045,7 +1052,10 @@ fn rename_project(
 #[tauri::command]
 fn delete_project(app: tauri::AppHandle, path: String) -> Result<Settings, String> {
     let dir = known_project(&app, &path)?;
-    trash::delete(&dir).map_err(|e| format!("failed to move project to trash: {e}"))?;
+    trash::delete(&dir).map_err(|_| {
+        "Could not move the project to the trash. Close its files in other programs and try again."
+            .to_string()
+    })?;
     guard::forget(&dir);
     let old_path = dir.to_string_lossy().to_string();
     settings::update(&app, |s| {
@@ -1071,31 +1081,34 @@ fn list_files(project_dir: String) -> Result<Vec<FileEntry>, String> {
 #[tauri::command]
 fn read_project_file(project_dir: String, path: String) -> Result<String, String> {
     let target = project_file(&project_dir, &path)?;
-    fs::read_to_string(&target).map_err(|e| format!("failed to read {path}: {e}"))
+    fs::read_to_string(&target)
+        .map_err(|e| errors::failed(format_args!("Could not open {path}"), &e))
 }
 
 #[tauri::command]
 fn write_project_file(project_dir: String, path: String, content: String) -> Result<(), String> {
     let target = project_file(&project_dir, &path)?;
     if let Some(parent) = target.parent() {
-        fs::create_dir_all(parent).map_err(|e| format!("failed to create folder: {e}"))?;
+        fs::create_dir_all(parent).map_err(|e| errors::failed("Could not create the folder", &e))?;
     }
-    fs::write(&target, content).map_err(|e| format!("failed to write {path}: {e}"))
+    fs::write(&target, content)
+        .map_err(|e| errors::failed(format_args!("Could not save {path}"), &e))
 }
 
 #[tauri::command]
 fn create_project_entry(project_dir: String, path: String, is_dir: bool) -> Result<(), String> {
     let target = project_file(&project_dir, &path)?;
     if target.exists() {
-        return Err(format!("{path} already exists"));
+        return Err(format!("{path} already exists. Choose another name."));
     }
     if is_dir {
-        fs::create_dir_all(&target).map_err(|e| format!("failed to create folder: {e}"))
+        fs::create_dir_all(&target).map_err(|e| errors::failed("Could not create the folder", &e))
     } else {
         if let Some(parent) = target.parent() {
-            fs::create_dir_all(parent).map_err(|e| format!("failed to create folder: {e}"))?;
+            fs::create_dir_all(parent).map_err(|e| errors::failed("Could not create the folder", &e))?;
         }
-        fs::write(&target, "").map_err(|e| format!("failed to create file: {e}"))
+        fs::write(&target, "")
+            .map_err(|e| errors::failed(format_args!("Could not create {path}"), &e))
     }
 }
 
@@ -1104,9 +1117,10 @@ fn rename_entry(project_dir: String, path: String, new_path: String) -> Result<(
     let from = project_file(&project_dir, &path)?;
     let to = project_file(&project_dir, &new_path)?;
     if to.exists() {
-        return Err(format!("{new_path} already exists"));
+        return Err(format!("{new_path} already exists. Choose another name."));
     }
-    fs::rename(&from, &to).map_err(|e| format!("failed to rename: {e}"))
+    fs::rename(&from, &to)
+        .map_err(|e| errors::failed(format_args!("Could not rename {path}"), &e))
 }
 
 /// Move a project file or folder to the OS trash (recoverable, like
@@ -1114,14 +1128,17 @@ fn rename_entry(project_dir: String, path: String, new_path: String) -> Result<(
 #[tauri::command]
 fn delete_entry(project_dir: String, path: String) -> Result<(), String> {
     let target = project_file(&project_dir, &path)?;
-    trash::delete(&target).map_err(|e| format!("failed to move {path} to trash: {e}"))
+    trash::delete(&target).map_err(|_| {
+        format!("Could not move {path} to the trash. Close it in other programs and try again.")
+    })
 }
 
 /// Read any project file as raw bytes (binary-safe), for asset previews.
 #[tauri::command]
 fn read_asset(project_dir: String, path: String) -> Result<tauri::ipc::Response, String> {
     let target = project_file(&project_dir, &path)?;
-    let bytes = fs::read(&target).map_err(|e| format!("failed to read {path}: {e}"))?;
+    let bytes = fs::read(&target)
+        .map_err(|e| errors::failed(format_args!("Could not open {path}"), &e))?;
     Ok(tauri::ipc::Response::new(bytes))
 }
 
@@ -1136,13 +1153,13 @@ fn import_assets(project_dir: String, sources: Vec<String>) -> Result<Vec<String
     let dir = canonical_project(&project_dir)?;
     let assets = dir.join("assets");
     fs::create_dir_all(&assets)
-        .map_err(|e| format!("failed to create assets folder: {e}"))?;
+        .map_err(|e| errors::failed("Could not create the assets folder", &e))?;
     let mut imported = Vec::new();
     for source in sources {
         let from = fs::canonicalize(&source)
-            .map_err(|e| format!("cannot read source file {source}: {e}"))?;
+            .map_err(|e| errors::failed(format_args!("Could not open {source}"), &e))?;
         if !from.is_file() {
-            return Err(format!("not a file: {source}"));
+            return Err(format!("{source} is a folder. Choose files to import."));
         }
         // Already in the project: no copy, just resolve the path.
         if from.strip_prefix(&dir).is_ok() {
@@ -1169,7 +1186,9 @@ fn import_assets(project_dir: String, sources: Vec<String>) -> Result<Vec<String
             dest = assets.join(format!("{stem}-{n}{ext}"));
             n += 1;
         }
-        fs::copy(&from, &dest).map_err(|e| format!("failed to copy {source}: {e}"))?;
+        fs::copy(&from, &dest).map_err(|e| {
+            errors::failed(format_args!("Could not copy {source} into the project"), &e)
+        })?;
         let dest = usable_graphic(&dest, true);
         let rel = dest
             .strip_prefix(&dir)
@@ -1298,14 +1317,14 @@ async fn compile_project(
     tauri::async_runtime::spawn_blocking(move || {
         let started = std::time::SystemTime::now();
         prepare_build_dir(&dir, &main_tex)
-            .map_err(|e| format!("could not create build/: {e}"))?;
+            .map_err(|e| errors::failed("Could not create build/ in the project", &e))?;
         let output = output_with_timeout(latexmk_command(&dir, &main_tex, engine), COMPILE_TIMEOUT).map_err(|e| match e {
             RunError::Spawn(e) => cloud_compile::CompileError::new(
                 cloud_compile::CompileErrorKind::NoTex,
-                format!("failed to run latexmk: {e}\n\nIs a TeX distribution (TeX Live, MacTeX, or MiKTeX) installed and on your PATH?"),
+                format!("latexmk could not be started: {}\n\nCheck that a TeX distribution (TeX Live, MacTeX or MiKTeX) is installed and on your PATH.", errors::system_text(&e)),
             ),
             RunError::TimedOut => format!(
-                "the compile was stopped after {} minutes. The document may loop forever; check recent macro changes.",
+                "The compile was stopped after {} minutes. The document may loop forever: check recent macro changes.",
                 COMPILE_TIMEOUT.as_secs() / 60
             )
             .into(),
@@ -1416,7 +1435,7 @@ fn get_pdf(project_dir: String, main_tex: String) -> Result<tauri::ipc::Response
     let dir = canonical_project(&project_dir)?;
     let pdf_path = dir.join("build").join(pdf_output_path(&main_tex));
     let pdf = fs::read(&pdf_path)
-        .map_err(|e| format!("no PDF found at {}: {e}", pdf_path.display()))?;
+        .map_err(|_| "No PDF yet. Compile the project first.".to_string())?;
     Ok(tauri::ipc::Response::new(pdf))
 }
 
@@ -1442,11 +1461,11 @@ fn open_pdf(app: tauri::AppHandle, project_dir: String, main_tex: String) -> Res
     let dir = canonical_project(&project_dir)?;
     let pdf_path = dir.join("build").join(pdf_output_path(&main_tex));
     if !pdf_path.is_file() {
-        return Err("no compiled PDF yet".into());
+        return Err("No PDF yet. Compile the project first.".into());
     }
     app.opener()
         .open_path(pdf_path.to_string_lossy(), None::<&str>)
-        .map_err(|e| format!("failed to open PDF: {e}"))
+        .map_err(|_| "Could not open the PDF. Check that a PDF viewer is installed.".to_string())
 }
 
 // --- synctex navigation ----------------------------------------------------
@@ -1476,7 +1495,7 @@ fn synctex_forward(
         .current_dir(&dir)
         .output()
         .map_err(|e| {
-            format!("failed to run synctex: {e}\n\nsynctex ships with TeX Live and MacTeX; check that it is on your PATH.")
+            format!("synctex could not be started: {}\n\nIt comes with TeX Live and MacTeX. Check that it is on your PATH.", errors::why(&e))
         })?;
     if !output.status.success() {
         return Err(String::from_utf8_lossy(&output.stderr).to_string());
@@ -1500,7 +1519,7 @@ fn synctex_forward(
     }
     match (page, x, y) {
         (Some(page), Some(x), Some(y)) => Ok(SynctexForward { page, x, y }),
-        _ => Err("synctex returned no usable result".into()),
+        _ => Err("This line isn't in the PDF. Compile again if you changed it.".into()),
     }
 }
 
@@ -1520,7 +1539,9 @@ fn synctex_backward(
         .arg(format!("{page}:{x}:{y}:build/{}", pdf_output_path(&main_tex).display()))
         .current_dir(&dir)
         .output()
-        .map_err(|e| format!("failed to run synctex: {e}"))?;
+        .map_err(|e| {
+            format!("synctex could not be started: {}\n\nIt comes with TeX Live and MacTeX. Check that it is on your PATH.", errors::why(&e))
+        })?;
     if !output.status.success() {
         return Err(String::from_utf8_lossy(&output.stderr).to_string());
     }
@@ -1539,8 +1560,8 @@ fn synctex_backward(
             }
         }
     }
-    let file = file.ok_or("synctex returned no file")?;
-    let line = line.ok_or("synctex returned no line")?;
+    let file = file.ok_or("Nothing in the project matches this place in the PDF.")?;
+    let line = line.ok_or("Nothing in the project matches this place in the PDF.")?;
     // synctex reports absolute paths that may contain "/./"; normalize to
     // a project-relative path.
     // A compile with Polemic records project-relative names.
@@ -1797,7 +1818,7 @@ fn git_account_save(
     let host = git_accounts::normalize_host(&host)?;
     let username = username.trim().to_string();
     if username.is_empty() {
-        return Err("The username is empty".into());
+        return Err("Enter a username.".into());
     }
     let token = token
         .map(|t| t.trim().to_string())
@@ -1820,10 +1841,10 @@ fn save_git_account(
     let existing = settings::snapshot(app)?.git_accounts;
     let id = match id {
         Some(id) if existing.iter().any(|a| a.id == id) => id,
-        Some(_) => return Err("That account no longer exists".into()),
+        Some(_) => return Err("That account no longer exists.".into()),
         None => {
             if secret.is_none() {
-                return Err("A new account needs a token".into());
+                return Err("A new account needs a token.".into());
             }
             // The same host and user twice would be one account.
             existing
@@ -1876,7 +1897,7 @@ impl Hosting {
             Hosting::Github => github::client_id(),
             Hosting::Gitlab => gitlab::client_id(),
         }
-        .ok_or_else(|| format!("{} sign-in is not set up in this build", self.name()))
+        .ok_or_else(|| format!("{} sign-in isn't available in this version of Polemic. Add a token instead.", self.name()))
     }
 }
 
@@ -1939,9 +1960,9 @@ async fn hosting_sign_in_finish(
         .lock()
         .map_err(|e| e.to_string())?
         .clone()
-        .ok_or_else(|| format!("No {} sign-in is waiting", provider.name()))?;
+        .ok_or_else(|| format!("No {} sign-in is waiting. Start the sign-in again.", provider.name()))?;
     if pending_for != provider {
-        return Err(format!("No {} sign-in is waiting", provider.name()));
+        return Err(format!("No {} sign-in is waiting. Start the sign-in again.", provider.name()));
     }
     let unit = std::time::Duration::from_secs(1);
     let result = match provider {
@@ -2024,7 +2045,7 @@ async fn hosting_publish(
         })?;
     let (username, token) = account_credentials(account)
         .await?
-        .ok_or_else(|| format!("The {} account has no token", provider.name()))?;
+        .ok_or_else(|| format!("The {} account has no token. Sign in again or add a token.", provider.name()))?;
     match provider {
         Hosting::Github => {
             github::publish_with(&github::Endpoints::default(), &dir, &username, &token, &name, private)
@@ -2060,14 +2081,14 @@ async fn git_clone_project(
     let root = cfg.projects_root.expect("projects root is set by effective()");
     let dest = std::path::Path::new(&root).join(&name);
     if dest.exists() {
-        return Err(format!("a project named \"{name}\" already exists"));
+        return Err(format!("A project named “{name}” already exists. Choose another name."));
     }
     let clone_dest = dest.clone();
     let credentials = git_credentials(&app, &url).await?;
     tauri::async_runtime::spawn_blocking(move || git::clone(&url, &clone_dest, credentials))
         .await
         .map_err(|e| e.to_string())??;
-    let dir = fs::canonicalize(&dest).map_err(|e| format!("failed to open the clone: {e}"))?;
+    let dir = fs::canonicalize(&dest).map_err(|e| errors::failed("Could not open the cloned project", &e))?;
     admit_project(&app, &dir)
 }
 
@@ -2153,7 +2174,7 @@ fn reveal_build_folder(app: tauri::AppHandle, project_dir: String) -> Result<(),
     let target = if build.is_dir() { build } else { dir };
     app.opener()
         .reveal_item_in_dir(target)
-        .map_err(|e| format!("failed to reveal folder: {e}"))
+        .map_err(|_| "Could not show the folder in your file manager.".to_string())
 }
 
 /// The app menu, kept around so items can be enabled/disabled at runtime.

@@ -4,6 +4,7 @@
  * error and links to it).
  */
 
+import { errorText } from "@/lib/error-text";
 import { useMemo } from "react";
 import { arrangeIssues, firstError, type IssueRow } from "@/lib/issue-list";
 import { runPanelCommand } from "@/lib/panel-commands";
@@ -28,7 +29,7 @@ export async function jumpToIssue(issue: CompileIssue): Promise<void> {
     await useProjectStore.getState().openFile(file);
     useEditorStore.getState().jumpTo(issue.line);
   } catch (e) {
-    usePreviewStore.setState({ error: String(e) });
+    usePreviewStore.setState({ error: errorText(e) });
   }
 }
 
@@ -84,7 +85,7 @@ export async function compileWithEngine(engine: TexEngine): Promise<void> {
     const config = await getProjectConfig(project.path);
     await saveProjectConfig(project.path, { ...config, engine });
   } catch (e) {
-    usePreviewStore.getState().setNotice(`Could not change the TeX engine: ${e}`);
+    usePreviewStore.getState().setNotice(errorText(e));
     return;
   }
   await usePreviewStore.getState().compileNow();

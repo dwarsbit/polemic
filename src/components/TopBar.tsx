@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { cn } from "cn";
 import { useState } from "react";
 import { ChevronDown, Eye, FolderOpen, Loader2, Pencil, Play, Zap } from "lucide-react";
@@ -72,7 +73,7 @@ export function TopBar() {
       await useProjectStore.getState().renameProject(trimmed);
       setRenaming(false);
     } catch (e) {
-      setRenameError(String(e));
+      setRenameError(errorText(e));
     }
   }
 

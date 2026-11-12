@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { save as saveDialog } from "@tauri-apps/plugin-dialog";
 import { exportPdf } from "@/lib/tauri";
 import { isWeb } from "@/lib/target";
@@ -22,7 +23,7 @@ export async function exportPdfAs(): Promise<void> {
       await exportPdf(project.path, mainFile, dest);
     }
   } catch (e) {
-    usePreviewStore.getState().setNotice(String(e));
+    usePreviewStore.getState().setNotice(errorText(e));
   }
 }
 

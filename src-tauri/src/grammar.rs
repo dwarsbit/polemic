@@ -38,6 +38,10 @@ pub struct GrammarRule {
 }
 
 /// Harper's rule ids that never apply here.
+/// LanguageTool answered, but not with what Polemic expects.
+const UNREADABLE: &str =
+    "LanguageTool gave an answer Polemic can't read. Check the LanguageTool URL in Settings.";
+
 const HARPER_OFF: [&str; 1] = ["SpellCheck"];
 
 /// UTF-16 offset of every char boundary in `text` (len = chars + 1).
@@ -468,7 +472,7 @@ async fn request_check(
     let body: LtResponse = response
         .json()
         .await
-        .map_err(|e| GrammarError::from(format!("unexpected LanguageTool answer: {e}")))?;
+        .map_err(|_| GrammarError::from(UNREADABLE.to_string()))?;
     Ok(body.matches)
 }
 

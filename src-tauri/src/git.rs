@@ -241,11 +241,19 @@ fn finish(output: std::process::Output, args: &[&str]) -> Result<String, String>
     })
 }
 
+/// Git itself didn't start: almost always, it isn't installed.
+fn git_not_started(e: &std::io::Error) -> String {
+    format!(
+        "Git could not be started: {}\n\nCheck that Git is installed and on your PATH.",
+        crate::errors::why(e)
+    )
+}
+
 fn run_git(dir: &Path, args: &[&str]) -> Result<String, String> {
     let output = git_command(dir)
         .args(args)
         .output()
-        .map_err(|e| format!("failed to run git: {e}"))?;
+        .map_err(|e| git_not_started(&e))?;
     finish(output, args)
 }
 
@@ -259,7 +267,7 @@ fn run_remote_git(dir: &Path, credentials: Credentials, args: &[&str]) -> Result
     let output = remote_git_command(dir, credentials)
         .args(args)
         .output()
-        .map_err(|e| format!("failed to run git: {e}"))?;
+        .map_err(|e| git_not_started(&e))?;
     finish(output, args)
 }
 
@@ -406,10 +414,10 @@ fn merge_in_progress(dir: &Path) -> bool {
 pub fn check_remote_url(url: &str) -> Result<String, String> {
     let url = url.trim();
     if url.is_empty() {
-        return Err("The remote URL is empty".into());
+        return Err("Enter the remote's URL.".into());
     }
     if url.starts_with('-') || url.contains(char::is_whitespace) {
-        return Err("That is not a remote URL".into());
+        return Err("That isn't a remote URL.".into());
     }
     let scheme_ok = ["https://", "http://", "ssh://", "git://", "file://"]
         .iter()
@@ -447,7 +455,7 @@ pub fn set_remote(dir: &Path, url: &str) -> Result<(), String> {
 }
 
 fn need_remote(dir: &Path) -> Result<String, String> {
-    remote_url(dir).ok_or_else(|| "This project has no remote yet".to_string())
+    remote_url(dir).ok_or_else(|| "This project has no remote yet. Add one first.".to_string())
 }
 
 fn current_branch(dir: &Path) -> Result<String, String> {
@@ -455,7 +463,7 @@ fn current_branch(dir: &Path) -> Result<String, String> {
         .map(|b| b.trim().to_string())
         .unwrap_or_default();
     if branch.is_empty() {
-        return Err("Not on a branch: check out a branch first".into());
+        return Err("The project isn't on a branch. Check out a branch first.".into());
     }
     Ok(branch)
 }
@@ -476,7 +484,7 @@ pub fn fetch(dir: &Path, credentials: Credentials) -> Result<(), String> {
 pub fn pull(dir: &Path, credentials: Credentials) -> Result<PullOutcome, String> {
     need_remote(dir)?;
     if merge_in_progress(dir) {
-        return Err("A merge is in progress: resolve the conflicts and commit, or abort the merge".into());
+        return Err("A merge is in progress. Resolve the conflicts and commit, or abort the merge.".into());
     }
     let branch = current_branch(dir)?;
     let before = head(dir);
@@ -573,12 +581,13 @@ pub fn mark_resolved(dir: &Path, path: &str, file: Option<&Path>) -> Result<(), 
 pub fn clone(url: &str, dest: &Path, credentials: Credentials) -> Result<(), String> {
     let url = check_remote_url(url)?;
     if dest.exists() {
-        return Err(format!("{} already exists", dest.display()));
+        return Err(format!("{} already exists. Choose another name.", dest.display()));
     }
     let parent = dest
         .parent()
         .ok_or_else(|| "The clone destination has no parent folder".to_string())?;
-    std::fs::create_dir_all(parent).map_err(|e| format!("failed to create projects root: {e}"))?;
+    std::fs::create_dir_all(parent)
+        .map_err(|e| crate::errors::failed("Could not create the projects folder", &e))?;
     let dest_str = dest.to_string_lossy().to_string();
     run_remote_git(parent, credentials, &["clone", "--", &url, &dest_str])
         .map(|_| ())
@@ -602,19 +611,21 @@ fn friendly_remote_error(stderr: &str) -> String {
         || lower.contains("authentication failed")
         || lower.contains("terminal prompts disabled")
     {
-        "The remote refused the credentials. Add a git account in Settings or check the token".into()
+        "The remote refused the sign-in. Add a Git account in Settings or check its token.".into()
     } else if lower.contains("permission denied (publickey)") {
-        "SSH key not accepted: add your key to the ssh agent or use an HTTPS remote".into()
+        "The remote didn't accept your SSH key. Add the key to your SSH agent or use an HTTPS remote.".into()
     } else if lower.contains("host key verification failed") {
-        "The SSH host is not known yet: connect once from a terminal to accept its key".into()
+        "The SSH host isn't known yet. Connect to it once from a terminal to accept its key.".into()
     } else if lower.contains("src refspec") {
-        "Nothing to push yet: make a commit first".into()
+        "There is nothing to push yet. Make a commit first.".into()
     } else if lower.contains("fetch first") || lower.contains("non-fast-forward") {
-        "The remote has commits you do not have: pull first, then push".into()
+        "The remote has commits you don't have yet. Pull first, then push.".into()
     } else if lower.contains("would be overwritten by merge") {
-        "Commit or discard your local changes before pulling".into()
+        "Pulling would overwrite changes you haven't committed. Commit or discard them first.".into()
     } else if lower.contains("could not resolve host") || lower.contains("could not connect") {
-        "The remote cannot be reached: check the connection".into()
+        "Could not reach the remote. Check your internet connection.".into()
+    } else if lower.contains("repository not found") || lower.contains("does not appear to be a git repository") {
+        "The remote repository wasn't found. Check the remote URL and that your account may open it.".into()
     } else {
         stderr.to_string()
     }
@@ -637,7 +648,8 @@ pub fn init(dir: &Path) -> Result<(), String> {
         }
     }
     if changed {
-        std::fs::write(&gitignore, content).map_err(|e| e.to_string())?;
+        std::fs::write(&gitignore, content)
+            .map_err(|e| crate::errors::failed("Could not save .gitignore", &e))?;
     }
     Ok(())
 }
@@ -663,7 +675,7 @@ pub fn unstage(dir: &Path, paths: &[String]) -> Result<(), String> {
 
 pub fn commit(dir: &Path, message: &str) -> Result<GitCommitInfo, String> {
     if message.trim().is_empty() {
-        return Err("commit message is empty".into());
+        return Err("Write a commit message first.".into());
     }
     run_git(dir, &["commit", "-m", message])?;
     let hash = run_git(dir, &["rev-parse", "HEAD"])?.trim().to_string();
@@ -939,7 +951,7 @@ mod tests {
         push(&a, None).unwrap();
         write_and_commit(&b, "b.tex", "b\n", "b's file");
         let refused = push(&b, None).unwrap_err();
-        assert!(refused.contains("pull first"), "{refused}");
+        assert!(refused.contains("Pull first"), "{refused}");
         assert_eq!(pull(&b, None).unwrap(), PullOutcome::Updated);
         assert!(b.join("a.tex").exists());
         assert!(!status(&b).merging);

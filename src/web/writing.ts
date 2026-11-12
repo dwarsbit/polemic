@@ -76,7 +76,8 @@ async function load(lang: string): Promise<SpellState> {
     return SpellState.fromLines(await response.text(), userWords());
   }
   const content = await storedList(lang);
-  if (content === null) throw `The dictionary for "${lang}" is not downloaded.`;
+  if (content === null)
+    throw `The dictionary for “${lang}” isn't downloaded yet. Download it in Settings.`;
   return new SpellState(parseFrequencyList(content), userWords());
 }
 
@@ -154,10 +155,10 @@ async function requestCheck(
   }
   try {
     return ((await response.json()) as { matches: LtMatch[] }).matches;
-  } catch (e) {
+  } catch {
     throw {
       kind: "failed",
-      message: `unexpected LanguageTool answer: ${String(e)}`,
+      message: "LanguageTool gave an answer Polemic can't read. Try again in a moment.",
       retryAfter: null,
     } satisfies GrammarError;
   }
@@ -189,7 +190,7 @@ export function checkDoi(doi: string): void {
     doi.length <= 200 &&
     /^[!-~]+$/.test(doi) &&
     !/[?#\\"<>]/.test(doi);
-  if (!valid) throw "that is not a valid DOI";
+  if (!valid) throw "That isn't a valid DOI.";
 }
 
 /** Percent-encodes what a URL path can't hold, as bib_lookup.rs does. */
@@ -202,7 +203,7 @@ export function encodeDoi(doi: string): string {
 
 async function lookupBibtex(doi: string): Promise<string> {
   if (!loadSettings().onlineLookup) {
-    throw "online lookup is off: enable it in Settings > Bibliography";
+    throw "Online lookup is off. Turn it on to look up DOIs and arXiv IDs.";
   }
   checkDoi(doi);
   let response: Response;
@@ -213,13 +214,14 @@ async function lookupBibtex(doi: string): Promise<string> {
       signal: AbortSignal.timeout(15_000),
     });
   } catch {
-    throw "the lookup failed: doi.org could not be reached";
+    throw "Could not reach doi.org. Check your internet connection.";
   }
-  if (response.status === 404) throw "no record found for that identifier";
-  if (!response.ok) throw `the lookup failed (${response.status})`;
+  if (response.status === 404)
+    throw "No record was found for that identifier. Check it for typos.";
+  if (!response.ok) throw `The lookup failed: doi.org answered ${response.status}.`;
   const body = await response.text();
   if (!body.trimStart().startsWith("@")) {
-    throw "the registry returned no BibTeX for that identifier";
+    throw "The registry has no BibTeX for that identifier. Add the entry by hand.";
   }
   return body;
 }
@@ -236,7 +238,7 @@ export const writingCommands: Record<string, (args: Args) => unknown> = {
     const word = String(args.word ?? "")
       .trim()
       .toLowerCase();
-    if (!word) throw "empty word";
+    if (!word) throw "There is no word to add.";
     const words = userWords();
     if (!words.includes(word)) saveUserWords([...words, word]);
     (await speller()).add(word);

@@ -1,3 +1,4 @@
+import { errorText } from "@/lib/error-text";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { useEffect, useState } from "react";
 import { ExternalLink, LogOut, UserRound } from "lucide-react";
@@ -53,7 +54,7 @@ export function AccountMenu() {
       await accountSignOut();
       setUsage(null);
     } catch (e) {
-      usePreviewStore.getState().setNotice(String(e));
+      usePreviewStore.getState().setNotice(errorText(e));
     }
     await useAccountStore.getState().refresh();
   }

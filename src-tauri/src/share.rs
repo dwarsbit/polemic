@@ -24,6 +24,10 @@ use base64::Engine as _;
 
 use crate::cloud_compile::{self, CompileErrorKind};
 
+/// The server answered, but not with what Polemic expects.
+pub(crate) const UNREADABLE: &str =
+    "The server gave an answer Polemic can't read. Try again in a moment.";
+
 const CONNECT_TIMEOUT: Duration = Duration::from_secs(20);
 /// Uploads of up to 50 MiB on a slow line.
 const REQUEST_TIMEOUT: Duration = Duration::from_secs(10 * 60);
@@ -228,7 +232,8 @@ pub fn folder_entries(dir: &Path) -> Result<Vec<FolderEntry>, ShareError> {
         let path = local.file.path;
         // Only text candidates are read here; assets are read when uploaded.
         let text = if !is_binary_extension(&path) {
-            let bytes = fs::read(&local.abs).map_err(|e| format!("could not read {path}: {e}"))?;
+            let bytes = fs::read(&local.abs)
+                .map_err(|e| crate::errors::failed(format_args!("Could not open {path}"), &e))?;
             decode_text(&path, bytes)
         } else {
             None
@@ -312,7 +317,7 @@ pub fn move_links(file: &Path, from: &Path, to: &Path) -> Result<(), String> {
     links.links.insert(to.to_string_lossy().to_string(), link);
     let json = serde_json::to_vec_pretty(&links).map_err(|e| e.to_string())?;
     crate::files::write_atomic(file, &json)
-        .map_err(|e| format!("could not save the share link: {e}"))
+        .map_err(|e| crate::errors::failed("Could not save the link to the project in your account", &e))
 }
 
 /// Stores the folder's link, or forgets it (None).
@@ -330,11 +335,11 @@ pub fn set_link_in(file: &Path, dir: &Path, link: Option<ShareLink>) -> Result<(
     }
     if let Some(parent) = file.parent() {
         fs::create_dir_all(parent)
-            .map_err(|e| format!("could not create {}: {e}", parent.display()))?;
+            .map_err(|e| crate::errors::failed("Could not save the link to the project in your account", &e))?;
     }
     let json = serde_json::to_vec_pretty(&links).map_err(|e| e.to_string())?;
     crate::files::write_atomic(file, &json)
-        .map_err(|e| format!("could not save the share link: {e}"))
+        .map_err(|e| crate::errors::failed("Could not save the link to the project in your account", &e))
 }
 
 /// Adds comment ids to the folder's link (see ShareLink::seen_comments).
@@ -361,7 +366,7 @@ pub fn see_comments_in(
     }
     let json = serde_json::to_vec_pretty(&links).map_err(|e| e.to_string())?;
     crate::files::write_atomic(file, &json)
-        .map_err(|e| format!("could not save the share link: {e}"))
+        .map_err(|e| crate::errors::failed("Could not save the link to the project in your account", &e))
 }
 
 // --- the server --------------------------------------------------------------------
@@ -652,7 +657,7 @@ impl<'a> Session<'a> {
             .await?
             .json()
             .await
-            .map_err(|e| format!("Unexpected answer from the server: {e}").into())
+            .map_err(|_| UNREADABLE.to_string().into())
     }
 
     pub async fn create_project(&self, name: &str) -> Result<ProjectInfo, ShareError> {
@@ -776,7 +781,7 @@ impl<'a> Session<'a> {
         let bytes = tauri::async_runtime::spawn_blocking(move || fs::read(path))
             .await
             .map_err(|e| e.to_string())?
-            .map_err(|e| format!("could not read {}: {e}", abs.display()))?;
+            .map_err(|e| crate::errors::failed(format_args!("Could not open {}", abs.display()), &e))?;
         if cloud_compile::hash_bytes(&bytes) != hash {
             return Ok(None);
         }
@@ -922,7 +927,7 @@ impl<'a> Session<'a> {
             .await?;
         // The link must open on the account's server: never hand out another host.
         let Some(url) = link.url.as_deref() else {
-            return Err("The server did not return the link.".to_string().into());
+            return Err("The server did not return the link. Try again in a moment.".to_string().into());
         };
         let server_origin = url::Url::parse(self.server)
             .map_err(|e| e.to_string())?
