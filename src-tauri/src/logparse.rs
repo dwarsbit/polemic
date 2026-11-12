@@ -16,6 +16,11 @@ pub struct CompileIssue {
     /// What to do about it, for issues whose message alone does not
     /// say (a crashed biber, a missing .bib file).
     pub hint: Option<String>,
+    /// What TeX was reading when the error occurred, when that is not
+    /// the source line itself: the argument or the command it was
+    /// expanding (`<argument> \foo`, `\mycmd ->\frrac`). The offending
+    /// token ends it.
+    pub reading: Option<String>,
 }
 
 /// The place of an error that -file-line-error prints: a file of the
@@ -101,6 +106,16 @@ fn is_warning_line(line: &str) -> bool {
 /// Where the next message starts: TeX's context for an error ends there.
 fn starts_message(line: &str) -> bool {
     line.starts_with('!') || split_file_line(line).is_some() || is_warning_line(line)
+}
+
+/// The line right after an error, when TeX shows there what it was
+/// expanding (`<argument> \foo`, `\mycmd ->\frrac`) rather than the
+/// source line or its help text.
+fn is_reading(line: &str) -> bool {
+    !line.is_empty()
+        && context_line_no(line).is_none()
+        && !line.starts_with("See the ")
+        && !line.starts_with("Type ")
 }
 
 /// How far below an error its `l.N` line is looked for: past TeX's
@@ -265,10 +280,10 @@ fn looks_like_path(token: &str) -> bool {
         || (token.contains('/') && token.rsplit('/').next().is_some_and(|name| name.contains('.')))
 }
 
-/// The lines a message continues on: `(pkg)   …` lines, as LaTeX and
-/// its packages print them, and for warnings any indented line. Returns
-/// the text to append and the index of the first unconsumed line.
-fn continuation(lines: &[&str], start: usize, indented_too: bool) -> (String, usize) {
+/// The lines a message continues on: `(pkg)   …` and indented lines,
+/// as LaTeX and its packages print them. Returns the text to append and
+/// the index of the first unconsumed line.
+fn continuation(lines: &[&str], start: usize) -> (String, usize) {
     let mut text = String::new();
     let mut i = start;
     while i < lines.len() {
@@ -284,7 +299,7 @@ fn continuation(lines: &[&str], start: usize, indented_too: bool) -> (String, us
             .map(|(_, rest)| rest.trim());
         let part = match paren {
             Some(rest) => rest,
-            None if indented_too && line.starts_with(' ') && !line.trim().is_empty() => line.trim(),
+            None if line.starts_with(' ') && !line.trim().is_empty() => line.trim(),
             None => break,
         };
         text.push(' ');
@@ -356,6 +371,7 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
             message,
             detail: Vec::new(),
             hint: None,
+            reading: None,
         };
         let mut issue = None;
         let mut next = i + 1;
@@ -364,7 +380,7 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
         // A `!` line: an error that names no place of its own.
         let bare = line.strip_prefix('!').map(str::trim).filter(|rest| !rest.starts_with("==>"));
         if let Some((place, message)) = parse_error_line(line) {
-            let (more, consumed) = continuation(&lines, next, false);
+            let (more, consumed) = continuation(&lines, next);
             next = consumed;
             let message = format!("{message}{more}");
             issue = Some(match place {
@@ -375,13 +391,13 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
                 }
             });
         } else if let Some(rest) = bare {
-            let (more, consumed) = continuation(&lines, next, false);
+            let (more, consumed) = continuation(&lines, next);
             next = consumed;
             // No place of its own: it is in the file TeX is reading.
             in_package = files.in_package_file();
             issue = Some(error(files.innermost_project_file(), None, format!("{rest}{more}")));
         } else if is_warning_line(line) {
-            let (more, consumed) = continuation(&lines, next, true);
+            let (more, consumed) = continuation(&lines, next);
             next = consumed;
             let message = format!("{line}{more}");
             let message = message.trim_end_matches('.');
@@ -395,9 +411,11 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
                 message: message.to_string(),
                 detail: Vec::new(),
                 hint: None,
+            reading: None,
             });
         }
         if let Some(mut found) = issue.take_if(|issue| issue.severity == "error") {
+            let first = lines.get(next).copied().unwrap_or("");
             let (detail, consumed) = detail_from(&lines, next);
             // A package's own source is no context for the document.
             if !detail.is_empty() && !in_package {
@@ -405,6 +423,9 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
                     found.line = context_line_no(&detail[0]);
                 }
                 found.detail = detail;
+                if is_reading(first) {
+                    found.reading = Some(first.to_string());
+                }
             }
             next = consumed.max(next);
             found.hint = error_hint(&found.message);
@@ -681,6 +702,7 @@ pub fn parse_bib_tool_failure(latexmk_output: &str, blg: Option<&str>) -> Option
         message,
         detail: reasons.iter().skip(1).take(3).map(|(r, _)| r.clone()).collect(),
         hint: Some(hint),
+        reading: None,
     })
 }
 
@@ -707,6 +729,7 @@ pub fn parse_run_failure(latexmk_output: &str) -> Option<CompileIssue> {
         message,
         detail: Vec::new(),
         hint: Some(hint),
+        reading: None,
     };
     for (rule, _) in failed_rules(latexmk_output) {
         if let Some((tool, built)) = other_tool(&rule) {
@@ -1050,5 +1073,32 @@ I was expecting a `,' or a `}'
     #[test]
     fn leaves_texs_own_errors_to_the_log() {
         assert!(parse_run_failure("Collected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'build/main.log' and/or above output for details\n").is_none());
+    }
+
+    #[test]
+    fn keeps_the_macro_tex_was_expanding() {
+        let issues = parse_issues("./main.tex:7: Undefined control sequence.\n\\mycmd ->\\undefinedthing \n                         \nl.7 \\mycmd\n          \n");
+        assert_eq!(issues[0].reading.as_deref(), Some("\\mycmd ->\\undefinedthing"));
+        assert_eq!(issues[0].detail[0], "l.7 \\mycmd");
+    }
+
+    #[test]
+    fn keeps_the_argument_tex_was_reading() {
+        let issues = parse_issues("./main.tex:9: Undefined control sequence.\n<argument> \\foo \n                 bar\nl.9 \\section{\\foo bar}\n");
+        assert_eq!(issues[0].reading.as_deref(), Some("<argument> \\foo"));
+    }
+
+    #[test]
+    fn keeps_nothing_when_the_error_is_on_the_source_line_itself() {
+        let issues = parse_issues("./main.tex:3: Undefined control sequence.\nl.3 \\frrac\n          {a}{b}\n");
+        assert_eq!(issues[0].reading, None);
+    }
+
+    #[test]
+    fn joins_the_indented_rest_of_an_error_message() {
+        let issues = parse_issues("./main.tex:5: LaTeX Error: Command \\vec already defined.\n               Or name \\end... illegal, see p.192 of the manual.\n\nSee the LaTeX manual or LaTeX Companion for explanation.\nType  H <return>  for immediate help.\n ...                                              \n                                                  \nl.5 \\newcommand{\\vec}\n");
+        assert_eq!(issues[0].message, "LaTeX Error: Command \\vec already defined. Or name \\end... illegal, see p.192 of the manual.");
+        assert_eq!(issues[0].reading, None);
+        assert_eq!(issues[0].detail[0], "l.5 \\newcommand{\\vec}");
     }
 }

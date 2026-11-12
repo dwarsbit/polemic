@@ -13,6 +13,7 @@ import {
   type GrammarSettings,
   type Settings,
 } from "@/lib/tauri";
+import { features } from "@/lib/target";
 import { applyTheme, type ThemePreference } from "@/lib/theme";
 import { usePreviewStore } from "@/store/preview";
 
@@ -345,4 +346,11 @@ export function suggestionAuthor(
   const name = state.authorName.trim();
   if (name === "") return null;
   return { name, initials: state.authorInitials || initialsOf(name) || "A" };
+}
+
+/** Whether compiles run on Polemic's server: always in the browser,
+ *  by choice in the desktop app. */
+export function useCloudCompile(): boolean {
+  const provider = useSettingsStore((s) => s.compileProvider);
+  return !features.localTex || provider === "polemic";
 }

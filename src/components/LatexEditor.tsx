@@ -53,6 +53,7 @@ import {
   takeFaceAnchor,
 } from "@/lib/visual/face-anchor";
 import { mathHover, mathHoverEnabled } from "@/lib/math-hover";
+import { explainIssue } from "@/lib/explain-issue";
 import { envPairing } from "@/lib/env-pairing";
 import { conflictMarkers } from "@/lib/conflict-markers";
 import { gitLineGutter, setGitLines } from "@/lib/git-gutter";
@@ -140,7 +141,7 @@ import { useCommentsStore } from "@/store/comments";
 import { setEditorCommandHandler } from "@/lib/editor-commands";
 import { useProjectStore } from "@/store/project";
 import { useSuggestStore } from "@/store/suggest";
-import { suggestionAuthor } from "@/store/settings";
+import { suggestionAuthor, useCloudCompile } from "@/store/settings";
 
 interface SpellPopover {
   issue: WritingIssue;
@@ -216,6 +217,7 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
   const spellcheckEnabled = useSettingsStore((s) => s.spellcheckEnabled);
   const spellcheckLanguage = useSettingsStore((s) => s.spellcheckLanguage);
   const issues = usePreviewStore((s) => s.issues);
+  const cloud = useCloudCompile();
   const activeFile = useProjectStore((s) => s.activeFile);
   const projectPath = useProjectStore((s) => s.project?.path);
   const files = useProjectStore((s) => s.files);
@@ -1423,16 +1425,20 @@ export function LatexEditor({ visible = true }: { visible?: boolean }) {
         if (issue.file !== activeFile || issue.line === null) continue;
         const lineNo = Math.min(issue.line, view.state.doc.lines);
         const line = view.state.doc.line(lineNo);
+        // In plain words where the catalog has them, with what to do.
+        const explanation = explainIssue(issue, { cloud });
+        const advice = issue.hint ?? explanation?.help;
+        const title = explanation?.title ?? issue.message;
         diagnostics.push({
           from: line.from,
           to: line.to,
           severity: issue.severity === "error" ? "error" : "warning",
-          message: issue.message,
+          message: advice ? `${title}\n${advice}` : title,
         });
       }
     }
     view.dispatch(setDiagnostics(view.state, diagnostics));
-  }, [issues, activeFile, docVersion]);
+  }, [issues, activeFile, docVersion, cloud]);
 
   // Debounced spellcheck over the current document.
   useEffect(() => {

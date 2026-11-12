@@ -1363,6 +1363,7 @@ async fn compile_with_polemic(
                 hint: Some(
                     "The document may loop forever; check recent macro changes. A long document can compile on this computer, which allows 10 minutes.".into(),
                 ),
+                reading: None,
             },
         );
     }

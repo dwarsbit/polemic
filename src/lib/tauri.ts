@@ -358,6 +358,10 @@ export interface CompileIssue {
   /** What to do about it, when the message alone does not say (a
    *  crashed biber, a missing .bib file). */
   hint?: string | null;
+  /** What TeX was reading when the error occurred, when that is not the
+   *  source line itself: the argument or the command it was expanding
+   *  (`<argument> \foo`, `\mycmd ->\frrac`). The offending token ends it. */
+  reading?: string | null;
 }
 
 export interface CompileOutcome {
