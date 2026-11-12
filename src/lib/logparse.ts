@@ -56,6 +56,15 @@ const isWarningLine = (line: string) =>
 const startsMessage = (line: string) =>
   line.startsWith("!") || FILE_LINE.test(line) || isWarningLine(line);
 
+/** The line right after an error, when TeX shows there what it was
+ *  expanding (`<argument> \foo`, `\mycmd ->\frrac`) rather than the
+ *  source line or its help text. */
+const isReading = (line: string) =>
+  line !== "" &&
+  !CONTEXT_LINE.test(line) &&
+  !line.startsWith("See the ") &&
+  !line.startsWith("Type ");
+
 /** How far below an error its `l.N` line is looked for: past TeX's
  *  help text and the macros it was expanding. */
 const CONTEXT_REACH = 40;
@@ -174,13 +183,9 @@ class FileStack {
 
 const PACKAGE_PREFIX = /^\(([\p{L}\p{N}\-_.]+)\)( .*)$/u;
 
-/** The lines a message continues on: `(pkg)   …`, and for warnings
- *  any indented line. */
-function continuation(
-  lines: string[],
-  start: number,
-  indentedToo: boolean,
-): [string, number] {
+/** The lines a message continues on: `(pkg)   …` and indented lines,
+ *  as LaTeX and its packages print them. */
+function continuation(lines: string[], start: number): [string, number] {
   let text = "";
   let i = start;
   while (i < lines.length) {
@@ -188,8 +193,7 @@ function continuation(
     const paren = PACKAGE_PREFIX.exec(line);
     let part: string;
     if (paren) part = paren[2].trim();
-    else if (indentedToo && line.startsWith(" ") && line.trim() !== "")
-      part = line.trim();
+    else if (line.startsWith(" ") && line.trim() !== "") part = line.trim();
     else break;
     text += " " + part;
     i++;
@@ -221,7 +225,7 @@ function issueOf(
   line: number | null,
   message: string,
 ): CompileIssue {
-  return { severity, file, line, message, detail: [], hint: null };
+  return { severity, file, line, message, detail: [], hint: null, reading: null };
 }
 
 const isEmergencyStop = (issue: CompileIssue) =>
@@ -268,7 +272,7 @@ export function parseIssues(log: string): CompileIssue[] {
     const placed = parseErrorLine(line);
     if (placed) {
       const [place, message] = placed;
-      const [more, consumed] = continuation(lines, next, false);
+      const [more, consumed] = continuation(lines, next);
       next = consumed;
       inPackage = place === "outside";
       issue =
@@ -276,7 +280,7 @@ export function parseIssues(log: string): CompileIssue[] {
           ? issueOf("error", files.innermostProjectFile(), null, message + more)
           : issueOf("error", place.file, place.line, message + more);
     } else if (bare) {
-      const [more, consumed] = continuation(lines, next, false);
+      const [more, consumed] = continuation(lines, next);
       next = consumed;
       // No place of its own: it is in the file TeX is reading.
       inPackage = files.inPackageFile();
@@ -287,17 +291,19 @@ export function parseIssues(log: string): CompileIssue[] {
         line.slice(1).trim() + more,
       );
     } else if (isWarningLine(line)) {
-      const [more, consumed] = continuation(lines, next, true);
+      const [more, consumed] = continuation(lines, next);
       next = consumed;
       const message = (line + more).replace(/\.+$/, "");
       const lineNo = files.inPackageFile() ? null : warningLine(message);
       issue = issueOf("warning", files.currentProjectFile(), lineNo, message);
     }
     if (issue?.severity === "error") {
+      const first = lines[next] ?? "";
       const [detail, consumed] = detailFrom(lines, next);
       if (detail.length > 0 && !inPackage) {
         issue.line ??= contextLineNo(detail[0]);
         issue.detail = detail;
+        if (isReading(first)) issue.reading = first;
       }
       next = Math.max(consumed, next);
       issue.hint = errorHint(issue.message);
@@ -526,6 +532,7 @@ export function parseBibToolFailure(
     message,
     detail: reasons.slice(1, 4).map(([reason]) => reason),
     hint: bibToolHint(tool, first?.[0] ?? ""),
+    reading: null,
   };
 }
 
@@ -559,6 +566,7 @@ export function parseRunFailure(latexmkOutput: string): CompileIssue | null {
       message: `${tool[0]} failed, so ${tool[1]} was not built`,
       detail: [],
       hint: `The compile log has the full output of ${tool[0]}.`,
+      reading: null,
     };
   }
   if (/^Latexmk: Maximum runs of \S+ reached/m.test(latexmkOutput)) {
@@ -569,6 +577,7 @@ export function parseRunFailure(latexmkOutput: string): CompileIssue | null {
       message: "The document kept changing between runs, so the compile stopped",
       detail: [],
       hint: "Something changes on every run, such as a reference that moves to another page each time. The compile log shows what changed.",
+      reading: null,
     };
   }
   return null;

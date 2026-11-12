@@ -7,15 +7,17 @@ import {
   Wrench,
 } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { CompileIssue } from "@/lib/tauri";
+import { explainIssue } from "@/lib/explain-issue";
 import { fixIssue, planIssueFixes } from "@/lib/fix-issue";
 import type { TexFix } from "@/lib/latex-fixes";
 import { askAboutIssue } from "@/lib/assistant/entry";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
+import { useCloudCompile } from "@/store/settings";
 
 /** Bottom-dock tools, selected by the bottom icons of the left rail. */
 export type IssuesTool = "issues" | "log" | "search";
@@ -73,6 +75,26 @@ export function IssuesPanel({
       cancelled = true;
     };
   }, [issues]);
+
+  // Each issue in plain words where the catalog has it, and the line
+  // on what to do: shown once per piece of advice, not on every row
+  // that shares it.
+  const cloud = useCloudCompile();
+  const rows = useMemo(() => {
+    const advised = new Set<string>();
+    return issues.map((issue) => {
+      const explanation = explainIssue(issue, { cloud });
+      const advice = issue.hint ?? explanation?.help ?? null;
+      const repeated = advice !== null && advised.has(advice);
+      if (advice !== null) advised.add(advice);
+      return {
+        title: explanation?.title ?? issue.message,
+        // TeX's own words stay one hover away.
+        original: explanation ? issue.message : undefined,
+        advice: repeated ? null : advice,
+      };
+    });
+  }, [issues, cloud]);
 
   const errors = issues.filter((i) => i.severity === "error").length;
   const warnings = issues.length - errors;
@@ -165,7 +187,12 @@ export function IssuesPanel({
                     }}
                   >
                     {issueIcon(issue)}
-                    <span className="min-w-0 flex-1 truncate">{issue.message}</span>
+                    <span
+                      className="min-w-0 flex-1 truncate"
+                      title={rows[index].original}
+                    >
+                      {rows[index].title}
+                    </span>
                     {fixes[index] && (
                       <Button
                         variant="ghost"
@@ -201,9 +228,9 @@ export function IssuesPanel({
                       </span>
                     )}
                   </div>
-                  {issue.hint && (
+                  {rows[index].advice && (
                     <p className="pr-2 pb-1 pl-7.5 text-2xs text-muted-foreground">
-                      {issue.hint}
+                      {rows[index].advice}
                     </p>
                   )}
                 </li>

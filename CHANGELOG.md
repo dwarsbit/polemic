@@ -1,6 +1,12 @@
 # Changelog
 
-## 0.23.1 (unreleased)
+## 0.24.0 (unreleased)
+
+### Changed
+
+- The issues list says the most common LaTeX errors in plain words and tells you what to do. "Undefined control sequence" becomes "Unknown command `\frrac`", with the command named even when the error is inside a macro or an argument. A missing package, image or file, a document that needs XeLaTeX or LuaLaTeX, a character pdfLaTeX can't print, a `$` or a brace that is missing and many more read the same way. TeX's own message shows when you hold the pointer over an issue.
+- The marks in the editor show the same wording.
+- Advice that applies to several issues shows once, on the first of them.
 
 ### Fixed
 

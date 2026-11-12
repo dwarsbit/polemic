@@ -322,3 +322,38 @@ describe("parseRunFailure", () => {
     ).toBeNull();
   });
 });
+
+describe("what TeX was reading", () => {
+  it("keeps the macro TeX was expanding", () => {
+    const [issue] = parseIssues(
+      "./main.tex:7: Undefined control sequence.\n\\mycmd ->\\undefinedthing \n                         \nl.7 \\mycmd\n          \n",
+    );
+    expect(issue.reading).toBe("\\mycmd ->\\undefinedthing");
+    expect(issue.detail[0]).toBe("l.7 \\mycmd");
+  });
+
+  it("keeps the argument TeX was reading", () => {
+    const [issue] = parseIssues(
+      "./main.tex:9: Undefined control sequence.\n<argument> \\foo \n                 bar\nl.9 \\section{\\foo bar}\n",
+    );
+    expect(issue.reading).toBe("<argument> \\foo");
+  });
+
+  it("keeps nothing when the error is on the source line itself", () => {
+    const [issue] = parseIssues(
+      "./main.tex:3: Undefined control sequence.\nl.3 \\frrac\n          {a}{b}\n",
+    );
+    expect(issue.reading).toBeNull();
+  });
+
+  it("joins the indented rest of an error message", () => {
+    const [issue] = parseIssues(
+      "./main.tex:5: LaTeX Error: Command \\vec already defined.\n               Or name \\end... illegal, see p.192 of the manual.\n\nSee the LaTeX manual or LaTeX Companion for explanation.\nType  H <return>  for immediate help.\n ...                                              \n                                                  \nl.5 \\newcommand{\\vec}\n",
+    );
+    expect(issue.message).toBe(
+      "LaTeX Error: Command \\vec already defined. Or name \\end... illegal, see p.192 of the manual.",
+    );
+    expect(issue.reading).toBeNull();
+    expect(issue.detail[0]).toBe("l.5 \\newcommand{\\vec}");
+  });
+});
