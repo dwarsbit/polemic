@@ -12,11 +12,13 @@ import {
   ZoomOut,
 } from "lucide-react";
 import { CompileErrorActions } from "@/components/CompileSettingsSection";
+import { Button } from "@/components/ui/button";
 import { openPdf, synctexBackward } from "@/lib/tauri";
 import { features } from "@/lib/target";
 import { exportPdfAs } from "@/lib/pdf-export";
 import { modKey, formatShortcut } from "@/lib/platform";
 import { useEditorStore } from "@/store/editor";
+import { placeInWords, showIssue, useFirstError } from "@/lib/show-issue";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 
@@ -49,6 +51,15 @@ export function PreviewPane() {
   const pdfBytes = usePreviewStore((s) => s.pdfBytes);
   const error = usePreviewStore((s) => s.error);
   const errorKind = usePreviewStore((s) => s.errorKind);
+  // The error to fix first, named here so the reader need not look for it.
+  const cause = useFirstError();
+  const causeIssue = cause?.entries[0].issue ?? null;
+  const causePlace = causeIssue ? placeInWords(causeIssue) : null;
+  const showCause = causeIssue && (
+    <Button variant="outline" size="sm" onClick={() => showIssue(causeIssue)}>
+      Show the error
+    </Button>
+  );
   const notice = usePreviewStore((s) => s.notice);
   const scrollTarget = usePreviewStore((s) => s.scrollTarget);
   const scrollVersion = usePreviewStore((s) => s.scrollVersion);
@@ -262,9 +273,11 @@ export function PreviewPane() {
             <div className="flex-1 space-y-2">
               <p className="max-h-24 overflow-auto whitespace-pre-wrap">
                 {error ??
-                  "The last compile failed. This is the previous PDF; the errors are in Issues."}
+                  (cause
+                    ? `The compile failed: ${cause.title}${causePlace ? ` (${causePlace})` : ""}. This is the previous PDF.`
+                    : "The last compile failed. This is the previous PDF; the errors are in Issues.")}
               </p>
-              <CompileErrorActions kind={error ? errorKind : null} />
+              {error ? <CompileErrorActions kind={errorKind} /> : showCause}
             </div>
           </div>
         )}
@@ -278,6 +291,16 @@ export function PreviewPane() {
               {error}
             </pre>
             <CompileErrorActions kind={errorKind} />
+          </div>
+        ) : status === "error" && cause ? (
+          <div className="flex h-full flex-col items-center justify-center gap-2 p-6 text-center">
+            <AlertTriangle className="size-8 text-destructive" />
+            <p className="text-sm font-medium">The compile failed</p>
+            <p className="max-w-80 text-sm">{cause.title}</p>
+            {causePlace && (
+              <p className="font-mono text-xs text-muted-foreground">{causePlace}</p>
+            )}
+            {showCause}
           </div>
         ) : status === "error" ? (
           <div className="flex h-full items-center justify-center">

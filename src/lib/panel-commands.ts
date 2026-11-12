@@ -9,6 +9,7 @@ export type PanelCommand =
   | "toggle-right"
   | "toggle-search"
   | "toggle-issues"
+  | "show-issues"
   | "toggle-log"
   | "show-bibliography"
   | "show-version-control"

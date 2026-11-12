@@ -4,9 +4,13 @@
 
 ### Changed
 
-- The issues list says the most common LaTeX errors in plain words and tells you what to do. "Undefined control sequence" becomes "Unknown command `\frrac`", with the command named even when the error is inside a macro or an argument. A missing package, image or file, a document that needs XeLaTeX or LuaLaTeX, a character pdfLaTeX can't print, a `$` or a brace that is missing and many more read the same way. TeX's own message shows when you hold the pointer over an issue.
+- The issues list says the most common LaTeX errors in plain words. "Undefined control sequence" becomes "Unknown command `\frrac`", with the command named even when the error is inside a macro or an argument. A missing package, image or file, a document that needs XeLaTeX or LuaLaTeX, a character pdfLaTeX can't print, a `$` or a brace that is missing and many more read the same way.
+- Open an issue to see what to do about it, the source line with the place marked and TeX's own message.
+- The error to fix first is on top and open. The errors after it fold into one row, since they usually disappear with the first. An error that repeats is one row that says how often.
+- Warnings of one kind, such as citations without a bibliography entry or font variants that were replaced, are one row that lists each place.
+- When a compile fails, the preview names the first error, and **Show the error** takes you to it.
+- The issues list opens by itself when a compile starts to fail. If you close it, it stays closed until a compile works and a later one fails.
 - The marks in the editor show the same wording.
-- Advice that applies to several issues shows once, on the first of them.
 
 ### Fixed
 
