@@ -1,5 +1,6 @@
 import {
   ChevronDown,
+  ChevronRight,
   CircleAlert,
   Loader2,
   Sparkles,
@@ -10,11 +11,12 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { CompileIssue } from "@/lib/tauri";
-import { explainIssue } from "@/lib/explain-issue";
 import { fixIssue, planIssueFixes } from "@/lib/fix-issue";
+import { arrangeIssues, firstError, sourceSpot, type IssueRow } from "@/lib/issue-list";
 import type { TexFix } from "@/lib/latex-fixes";
 import { askAboutIssue } from "@/lib/assistant/entry";
-import { useEditorStore } from "@/store/editor";
+import { jumpToIssue } from "@/lib/show-issue";
+import { cn } from "@/lib/utils";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 import { useCloudCompile } from "@/store/settings";
@@ -22,25 +24,97 @@ import { useCloudCompile } from "@/store/settings";
 /** Bottom-dock tools, selected by the bottom icons of the left rail. */
 export type IssuesTool = "issues" | "log" | "search";
 
-function issueIcon(issue: CompileIssue) {
-  if (issue.severity === "error") {
+/** How many issues an open row lists before it sums up the rest. */
+const LISTED = 40;
+
+function issueIcon(severity: CompileIssue["severity"]) {
+  if (severity === "error") {
     return <CircleAlert className="mt-0.5 size-3.5 shrink-0 text-destructive" />;
   }
   return <TriangleAlert className="mt-0.5 size-3.5 shrink-0 text-warning" />;
 }
 
-async function jumpToIssue(issue: CompileIssue) {
-  const { project, mainFile } = useProjectStore.getState();
-  if (!project) return;
-  const file = issue.file ?? mainFile;
-  if (!file || issue.line === null) return;
-  try {
-    await useProjectStore.getState().openFile(file);
-    useEditorStore.getState().jumpTo(issue.line);
-  } catch (e) {
-    usePreviewStore.setState({ error: String(e) });
-  }
+function place(issue: CompileIssue): string | null {
+  if (issue.file === null) return null;
+  return issue.line !== null ? `${issue.file}:${issue.line}` : issue.file;
 }
+
+/** The source line of an error, with what TeX stopped at marked. */
+function SourceLine({ issue }: { issue: CompileIssue }) {
+  const spot = sourceSpot(issue);
+  if (spot === null) {
+    // Not a source line: the further reasons a bibliography tool gave.
+    return issue.detail.length > 0 ? (
+      <pre className="overflow-x-auto rounded-md bg-muted/60 px-2 py-1 font-mono text-2xs">
+        {issue.detail.join("\n")}
+      </pre>
+    ) : null;
+  }
+  return (
+    <pre className="overflow-x-auto rounded-md bg-muted/60 px-2 py-1 font-mono text-2xs">
+      <span className="mr-2 text-muted-foreground select-none">{spot.line}</span>
+      {spot.before}
+      <span className="rounded-xs bg-destructive/15 text-destructive underline decoration-wavy underline-offset-2">
+        {spot.at}
+      </span>
+      <span className="text-muted-foreground">{spot.after}</span>
+    </pre>
+  );
+}
+
+/** What an open row shows below its title. */
+function IssueDetails({ row }: { row: IssueRow }) {
+  const [head] = row.entries;
+  const several = row.entries.length > 1;
+  const sameMessage = row.entries.every(
+    (entry) => entry.issue.message === head.issue.message,
+  );
+  return (
+    <div className="space-y-1.5 pr-2 pb-2 pl-11.5 text-2xs">
+      {row.advice && <p>{row.advice}</p>}
+      {!several && <SourceLine issue={head.issue} />}
+      {several && (
+        <ul className="flex flex-wrap gap-x-3 gap-y-0.5">
+          {row.entries.slice(0, LISTED).map((entry, index) => {
+            const where = place(entry.issue);
+            const name = entry.title !== row.title && !sameMessage ? entry.title : null;
+            return (
+              <li key={index} className={name ? "w-full" : undefined}>
+                <button
+                  type="button"
+                  className="flex max-w-full items-baseline gap-2 rounded-sm text-left hover:underline disabled:no-underline"
+                  title={name ? entry.issue.message : undefined}
+                  disabled={entry.issue.line === null}
+                  onClick={() => void jumpToIssue(entry.issue)}
+                >
+                  {name && <span className="truncate">{name}</span>}
+                  {where && (
+                    <span className="shrink-0 font-mono text-muted-foreground">
+                      {where}
+                    </span>
+                  )}
+                </button>
+              </li>
+            );
+          })}
+          {row.entries.length > LISTED && (
+            <li className="w-full text-muted-foreground">
+              and {row.entries.length - LISTED} more
+            </li>
+          )}
+        </ul>
+      )}
+      {head.explanation && sameMessage && (
+        <p className="text-muted-foreground">
+          TeX's message: <span className="font-mono">{head.issue.message}</span>
+        </p>
+      )}
+    </div>
+  );
+}
+
+/** The row that folds the errors after the first one. */
+const FOLLOW_ON = "follow-on";
 
 /** The bottom dock, spanning the width of the center stack. Shows the
  *  issues list or the full compile log, depending on the left rail. */
@@ -61,7 +135,6 @@ export function IssuesPanel({
     issues: CompileIssue[];
     fixes: (TexFix | null)[];
   } | null>(null);
-  const fixes = planned?.issues === issues ? planned.fixes : [];
   useEffect(() => {
     let cancelled = false;
     void planIssueFixes(issues)
@@ -76,25 +149,25 @@ export function IssuesPanel({
     };
   }, [issues]);
 
-  // Each issue in plain words where the catalog has it, and the line
-  // on what to do: shown once per piece of advice, not on every row
-  // that shares it.
   const cloud = useCloudCompile();
-  const rows = useMemo(() => {
-    const advised = new Set<string>();
-    return issues.map((issue) => {
-      const explanation = explainIssue(issue, { cloud });
-      const advice = issue.hint ?? explanation?.help ?? null;
-      const repeated = advice !== null && advised.has(advice);
-      if (advice !== null) advised.add(advice);
-      return {
-        title: explanation?.title ?? issue.message,
-        // TeX's own words stay one hover away.
-        original: explanation ? issue.message : undefined,
-        advice: repeated ? null : advice,
-      };
+  const list = useMemo(() => arrangeIssues(issues, { cloud }), [issues, cloud]);
+  const fixFor = useMemo(() => {
+    const byIssue = new Map<CompileIssue, TexFix>();
+    if (planned?.issues !== issues) return byIssue;
+    issues.forEach((issue, index) => {
+      const fix = planned.fixes[index];
+      if (fix) byIssue.set(issue, fix);
     });
-  }, [issues, cloud]);
+    return byIssue;
+  }, [issues, planned]);
+
+  // What the reader opened or closed, by row. The error to fix first
+  // is open until they close it; the errors after it stay folded.
+  const [toggled, setToggled] = useState<ReadonlyMap<string, boolean>>(new Map());
+  const openByDefault = firstError(list)?.key;
+  const isOpen = (key: string) => toggled.get(key) ?? key === openByDefault;
+  const setOpen = (key: string, open: boolean) =>
+    setToggled((before) => new Map(before).set(key, open));
 
   const errors = issues.filter((i) => i.severity === "error").length;
   const warnings = issues.length - errors;
@@ -124,6 +197,96 @@ export function IssuesPanel({
       return;
     }
     askAboutIssue(issue);
+  }
+
+  function issueRow(row: IssueRow) {
+    const [{ issue }] = row.entries;
+    const open = isOpen(row.key);
+    const fix = fixFor.get(issue);
+    const where = place(issue);
+    // Jump to the place and show what the row has to say.
+    const select = () => {
+      void jumpToIssue(issue);
+      setOpen(row.key, true);
+    };
+    const action =
+      "h-5 shrink-0 gap-1 px-1.5 text-2xs text-muted-foreground focus-visible:opacity-100";
+    const quiet = !open && "opacity-0 group-hover:opacity-100";
+    return (
+      <li key={row.key}>
+        <div
+          role="button"
+          tabIndex={0}
+          className="group flex w-full cursor-pointer items-start gap-1.5 rounded-md px-1.5 py-1 text-left text-xs hover:bg-accent"
+          onClick={select}
+          onKeyDown={(e) => {
+            if (e.target !== e.currentTarget) return;
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              select();
+            }
+          }}
+        >
+          <button
+            type="button"
+            className="mt-0.5 shrink-0 rounded-sm text-muted-foreground hover:text-foreground"
+            title={open ? "Hide details" : "Show details"}
+            aria-expanded={open}
+            onClick={(e) => {
+              e.stopPropagation();
+              setOpen(row.key, !open);
+            }}
+          >
+            <ChevronRight
+              className={cn("size-3.5 transition-transform", open && "rotate-90")}
+            />
+          </button>
+          {issueIcon(row.severity)}
+          <span className={cn("min-w-0 flex-1", !open && "truncate")}>
+            {row.title}
+            {row.repeats !== null && (
+              <span className="ml-1.5 text-2xs text-muted-foreground">
+                {row.repeats} times
+              </span>
+            )}
+          </span>
+          {fix && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className={cn(action, quiet)}
+              title={fix.title}
+              onClick={(e) => {
+                e.stopPropagation();
+                void onFix(issue);
+              }}
+            >
+              <Wrench className="size-3" />
+              Fix
+            </Button>
+          )}
+          <Button
+            variant="ghost"
+            size="sm"
+            className={cn(action, quiet)}
+            title="Ask the assistant for a fix"
+            onClick={(e) => {
+              e.stopPropagation();
+              void onAiFix(issue);
+            }}
+          >
+            <Sparkles className="size-3" />
+            Ask AI
+          </Button>
+          {where && (
+            <span className="shrink-0 font-mono text-2xs leading-4.5 text-muted-foreground">
+              {where}
+            </span>
+          )}
+        </div>
+        {open && <IssueDetails row={row} />}
+      </li>
+    );
   }
 
   return (
@@ -172,69 +335,35 @@ export function IssuesPanel({
             </p>
           ) : (
             <ul className="space-y-0.5">
-              {issues.map((issue, index) => (
-                <li key={index}>
-                  <div
-                    role="button"
-                    tabIndex={0}
-                    className="group flex w-full cursor-pointer items-start gap-2 rounded-md px-2 py-1 text-left text-xs hover:bg-accent"
-                    onClick={() => void jumpToIssue(issue)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        void jumpToIssue(issue);
-                      }
-                    }}
+              {list.first.map(issueRow)}
+              {list.followOnCount > 0 && (
+                <li>
+                  <button
+                    type="button"
+                    className="flex w-full items-center gap-1.5 rounded-md px-1.5 py-1 text-left text-xs text-muted-foreground hover:bg-accent"
+                    aria-expanded={isOpen(FOLLOW_ON)}
+                    onClick={() => setOpen(FOLLOW_ON, !isOpen(FOLLOW_ON))}
                   >
-                    {issueIcon(issue)}
-                    <span
-                      className="min-w-0 flex-1 truncate"
-                      title={rows[index].original}
-                    >
-                      {rows[index].title}
-                    </span>
-                    {fixes[index] && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="h-5 shrink-0 gap-1 px-1.5 text-2xs text-muted-foreground opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
-                        title={fixes[index].title}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          void onFix(issue);
-                        }}
-                      >
-                        <Wrench className="size-3" />
-                        Fix
-                      </Button>
-                    )}
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="h-5 shrink-0 gap-1 px-1.5 text-2xs text-muted-foreground opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
-                      title="Ask the assistant for a fix"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        void onAiFix(issue);
-                      }}
-                    >
-                      <Sparkles className="size-3" />
-                      Ask AI
-                    </Button>
-                    {issue.file && (
-                      <span className="shrink-0 font-mono text-2xs leading-4.5 text-muted-foreground">
-                        {issue.file}
-                        {issue.line !== null ? `:${issue.line}` : ""}
-                      </span>
-                    )}
-                  </div>
-                  {rows[index].advice && (
-                    <p className="pr-2 pb-1 pl-7.5 text-2xs text-muted-foreground">
-                      {rows[index].advice}
-                    </p>
+                    <ChevronRight
+                      className={cn(
+                        "size-3.5 shrink-0 transition-transform",
+                        isOpen(FOLLOW_ON) && "rotate-90",
+                      )}
+                    />
+                    {list.followOnCount === 1
+                      ? "1 more error"
+                      : `${list.followOnCount} more errors`}
+                    , most likely caused by the first
+                  </button>
+                  {isOpen(FOLLOW_ON) && (
+                    <ul className="ml-3 space-y-0.5 border-l pl-1">
+                      {list.followOn.map(issueRow)}
+                    </ul>
                   )}
                 </li>
-              ))}
+              )}
+              {list.tools.map(issueRow)}
+              {list.warnings.map(issueRow)}
             </ul>
           )
         ) : log === null ? (

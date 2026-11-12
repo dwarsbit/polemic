@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Camera,
   CloudBackup,
@@ -16,6 +16,7 @@ import { CommentsPanel } from "@/components/CommentsPanel";
 import { IncludeBreadcrumbs } from "@/components/IncludeBreadcrumbs";
 import { IssuesPanel } from "@/components/IssuesPanel";
 import type { IssuesTool } from "@/components/IssuesPanel";
+import { watchCompileFailures } from "@/lib/show-issue";
 import { LatexEditor } from "@/components/LatexEditor";
 import { BibFileEditor } from "@/components/BibFileEditor";
 import { LeftRail } from "@/components/LeftRail";
@@ -197,6 +198,27 @@ export function EditorView() {
     if (!issuesOpen) issuesRef.current?.expand();
   }
 
+  function showIssues() {
+    setIssuesTool("issues");
+    if (!issuesOpen) issuesRef.current?.expand();
+  }
+
+  // Issues comes up by itself when compiles start to fail, unless the
+  // dock is busy with something else (search, the log).
+  const issuesOpenNow = useRef(issuesOpen);
+  useEffect(() => {
+    issuesOpenNow.current = issuesOpen;
+  });
+  useEffect(
+    () =>
+      watchCompileFailures(() => {
+        if (issuesOpenNow.current) return;
+        setIssuesTool("issues");
+        issuesRef.current?.expand();
+      }),
+    [issuesRef],
+  );
+
   function toggleNavigator() {
     const panel = navigatorRef.current;
     if (!panel) return;
@@ -247,6 +269,7 @@ export function EditorView() {
     setPanelCommandHandler("toggle-right", toggleProperties);
     setPanelCommandHandler("toggle-search", () => selectIssuesTool("search"));
     setPanelCommandHandler("toggle-issues", () => selectIssuesTool("issues"));
+    setPanelCommandHandler("show-issues", showIssues);
     setPanelCommandHandler("toggle-log", () => selectIssuesTool("log"));
     setPanelCommandHandler("show-bibliography", () =>
       selectNavigatorTab("bibliography"),
@@ -267,6 +290,7 @@ export function EditorView() {
       setPanelCommandHandler("toggle-right", null);
       setPanelCommandHandler("toggle-search", null);
       setPanelCommandHandler("toggle-issues", null);
+      setPanelCommandHandler("show-issues", null);
       setPanelCommandHandler("toggle-log", null);
       setPanelCommandHandler("show-bibliography", null);
       setPanelCommandHandler("show-version-control", null);

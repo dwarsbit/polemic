@@ -14,6 +14,12 @@ export interface Explanation {
   title: string;
   /** What it means and what to do about it. */
   help: string;
+  /**
+   * What several issues of this kind are called after their number:
+   * "citations without a bibliography entry". Issues that share it
+   * can be listed as one.
+   */
+  many?: string;
 }
 
 export interface ExplainContext {
@@ -76,6 +82,10 @@ function engineAskedFor(message: string): string | null {
   if (xe && lua) return "XeLaTeX or LuaLaTeX";
   return xe ? "XeLaTeX" : "LuaLaTeX";
 }
+
+const BOOKMARK_HELP =
+  "Math or a command in a heading is left out of the bookmark. Give a plain version with \\texorpdfstring{…}{plain text}.";
+const BOOKMARK_MANY = "parts of headings that PDF bookmarks can't show";
 
 /** Characters that show as nothing, and what to do about each. */
 const INVISIBLE: Record<string, [string, string]> = {
@@ -491,6 +501,7 @@ const RULES: Rule[] = [
     (m) => ({
       title: `No label ${m[1]} for this reference`,
       help: "Check the spelling, or add \\label{…} where the reference should point.",
+      many: "references without a label",
     }),
   ),
   on(
@@ -498,20 +509,75 @@ const RULES: Rule[] = [
     (m) => ({
       title: `No bibliography entry ${m[1]} for this citation`,
       help: "Check the key, or add the entry to your .bib file.",
+      many: "citations without a bibliography entry",
     }),
   ),
   on(/^LaTeX Warning: Label [`']([^`']+)' multiply defined/, (m) => ({
     title: `The label ${m[1]} is used more than once`,
     help: "References to it point at one of them only. Give each \\label its own name.",
+    many: "labels used more than once",
+  })),
+  on(/^Package natbib Warning: Citation [`']([^`']+)' multiply defined/, (m) => ({
+    title: `The citation key ${m[1]} is defined more than once`,
+    help: "Two bibliography entries share this key. Rename one of them.",
+    many: "citation keys defined more than once",
+  })),
+  on(
+    /^Package glossaries\S* Warning: Glossary entry [`']([^`']+)' has not been defined/,
+    (m) => ({
+      title: `No glossary entry ${m[1]}`,
+      help: "Check the label, or define the entry.",
+      many: "glossary entries that aren't defined",
+    }),
+  ),
+  on(/^LaTeX Warning: File [`']([^`']+)' not found/, (m, _, ctx) => ({
+    ...missingFile(m[1], false, ctx),
+    many: "files not found",
   })),
   on(/^LaTeX Warning: Float too large for page by ([\d.]+)pt/, (m) => ({
     title: `A figure or table is ${Math.round(Number(m[1]))} pt too tall for the page`,
     help: "Make it smaller, for example with a smaller height for \\includegraphics.",
+    many: "figures or tables too tall for the page",
   })),
+  on(/^LaTeX Warning: Marginpar on page \d+ moved/, () => ({
+    title: "A margin note was moved",
+    help: "It would overlap the one before it, so it sits lower than the text it belongs to.",
+    many: "margin notes moved",
+  })),
+  on(/^LaTeX Font Warning: Font shape [`'][^`']+' undefined/, () => ({
+    title: "A font variant is replaced by another",
+    help: "The font has no such weight or shape, for example bold small caps, so the PDF uses the closest one it has.",
+    many: "font variants replaced by another",
+  })),
+  on(
+    /^LaTeX Font Warning: Font shape [`'][^`']+' in size <[\d.]+> not available/,
+    () => ({
+      title: "A font size is replaced by the closest one",
+      help: "The font comes in fixed sizes only. For any size, load a scalable font, for example with \\usepackage{lmodern}.",
+      many: "font sizes replaced by the closest one",
+    }),
+  ),
+  on(
+    /^Package xeCJK Warning: CJKfamily .* does not contain glyph [`'](.+?)' \((U\+[0-9A-F]+)\)/,
+    (m) => ({
+      title: `The font has no character ${m[1]} (${m[2]})`,
+      help: "It is left out of the PDF. Use a font that has this character.",
+      many: "characters missing from the font",
+    }),
+  ),
   on(/^Package hyperref Warning: Token not allowed in a PDF string/, () => ({
     title: "A heading has something PDF bookmarks can't show",
-    help: "Math or a command in a heading is left out of the bookmark. Give a plain version with \\texorpdfstring{…}{plain text}.",
+    help: BOOKMARK_HELP,
+    many: BOOKMARK_MANY,
   })),
+  on(
+    /^Package hyperref Warning: Glyph not defined in PU encoding, removing [`'](.+?)'/,
+    (m) => ({
+      title: `PDF bookmarks can't show ${m[1]}`,
+      help: BOOKMARK_HELP,
+      many: BOOKMARK_MANY,
+    }),
+  ),
 ];
 
 /** The issue in plain words, or null when TeX's message has to do. */
