@@ -20,6 +20,9 @@ export type FixRule =
   | "missing-math"
   | "environment-package"
   | "mismatched-end"
+  | "already-defined"
+  | "not-yet-defined"
+  | "unclosed-argument"
   | "missing-file"
   | "undefined-reference"
   | "undefined-citation"
@@ -39,6 +42,11 @@ export interface FixContext {
   doc: string;
   /** Project-relative asset paths, for missing-file fixes. */
   assets: string[];
+  /** Project-relative .tex paths, for a missing \input or \include. */
+  texFiles?: string[];
+  /** The folder of the main file, which paths in the source start from
+   *  ("" when it is the project folder). */
+  baseDir?: string;
   /** Cite keys available in the bibliography sources. */
   bibKeys: string[];
 }
@@ -254,6 +262,23 @@ function fixEnvironmentPackage(issue: CompileIssue, ctx: FixContext): TexFix | n
   };
 }
 
+/** The environments open at `offset`, outermost first. Comments are
+ *  skipped; verbatim text is not, so a rule that relies on this checks
+ *  what it finds. */
+function openEnvironments(doc: string, offset: number): string[] {
+  const open: string[] = [];
+  const token = /(?<!\\)%.*$|\\(begin|end)\{([^{}]+)\}/gm;
+  for (const match of doc.slice(0, offset).matchAll(token)) {
+    if (match[1] === "begin") {
+      open.push(match[2]);
+    } else if (match[1] === "end") {
+      const at = open.lastIndexOf(match[2]);
+      if (at !== -1) open.length = at;
+    }
+  }
+  return open;
+}
+
 function fixMismatchedEnd(issue: CompileIssue, ctx: FixContext): TexFix | null {
   const m = /\\begin\{(\S+?)\} on input line \d+ ended by \\end\{(\S+?)\}\.?$/.exec(
     issue.message,
@@ -265,6 +290,22 @@ function fixMismatchedEnd(issue: CompileIssue, ctx: FixContext): TexFix | null {
   const searchFrom = line === null ? 0 : line.from;
   const at = ctx.doc.indexOf(`\\end{${end}}`, searchFrom);
   if (at === -1) return null;
+  // An \end that closes an environment further out is right itself:
+  // the inner one was never closed.
+  const outer = openEnvironments(ctx.doc, at).slice(0, -1);
+  if (end === "document" || outer.includes(end)) {
+    const lineStart = ctx.doc.lastIndexOf("\n", at - 1) + 1;
+    const lead = ctx.doc.slice(lineStart, at);
+    const ownLine = lead.trim() === "";
+    return {
+      title: `Add \\end{${begin}} before \\end{${end}}`,
+      edits: [
+        ownLine
+          ? { from: lineStart, to: lineStart, insert: `${lead}\\end{${begin}}\n` }
+          : { from: at, to: at, insert: `\\end{${begin}}` },
+      ],
+    };
+  }
   const nameFrom = at + 5;
   return {
     title: `Change \\end{${end}} to \\end{${begin}}`,
@@ -272,36 +313,154 @@ function fixMismatchedEnd(issue: CompileIssue, ctx: FixContext): TexFix | null {
   };
 }
 
+/** `\newcommand` for a name that exists, or `\renewcommand` for one
+ *  that doesn't: swap the one for the other on the line of the error. */
+function fixDefinition(
+  issue: CompileIssue,
+  ctx: FixContext,
+  exists: boolean,
+): TexFix | null {
+  const m = /Command (\\[A-Za-z]+) (?:already defined|undefined)\./.exec(issue.message);
+  const line = lineRange(ctx.doc, issue.line);
+  if (!m || line === null) return null;
+  const name = m[1].slice(1);
+  const text = ctx.doc.slice(line.from, line.to);
+  const [wrong, right] = exists ? ["new", "renew"] : ["renew", "new"];
+  for (const [kind, target] of [
+    ["command", `\\\\${name}`],
+    ["environment", name],
+  ]) {
+    const found = new RegExp(
+      `\\\\${wrong}${kind}\\*?\\s*\\{?\\s*${target}(?![A-Za-z])`,
+    ).exec(text);
+    if (found) {
+      const from = line.from + found.index + 1;
+      return {
+        title: `Change \\${wrong}${kind} to \\${right}${kind}`,
+        edits: [{ from, to: from + wrong.length, insert: right }],
+      };
+    }
+  }
+  return null;
+}
+
+/** Brace depth at the end of `text`, which starts at a command:
+ *  0 when its arguments close. Escaped braces and comments don't count. */
+function openBraces(text: string): number {
+  let depth = 0;
+  for (const match of text.matchAll(/\\.|(?<!\\)%.*$|[{}]/gm)) {
+    if (match[0] === "{") depth++;
+    else if (match[0] === "}") depth = Math.max(0, depth - 1);
+  }
+  return depth;
+}
+
+/**
+ * An argument that never closes: `\section{Results` with the `}`
+ * forgotten. TeX notices at the end of the paragraph (or of the file),
+ * so the command is looked up from there back, and the brace goes at
+ * the end of its line.
+ */
+function fixUnclosedArgument(issue: CompileIssue, ctx: FixContext): TexFix | null {
+  const m =
+    /^(?:Paragraph ended before|File ended while scanning use of) (\\[A-Za-z]+)(?: was complete)?\.$/.exec(
+      issue.message,
+    );
+  if (!m) return null;
+  const stop = lineRange(ctx.doc, issue.line)?.to ?? ctx.doc.length;
+  const before = ctx.doc.slice(0, stop);
+  const command = new RegExp(`\\${m[1]}(?![A-Za-z])`, "g");
+  const uses = [...before.matchAll(command)].map((use) => use.index);
+  for (const at of uses.reverse()) {
+    const rest = ctx.doc.slice(at);
+    const paragraphEnd = rest.search(/\n[ \t]*\n/);
+    const paragraph = paragraphEnd === -1 ? rest : rest.slice(0, paragraphEnd);
+    if (openBraces(paragraph) !== 1) continue;
+    const lineEnd = ctx.doc.indexOf("\n", at);
+    const text = ctx.doc.slice(at, lineEnd === -1 ? ctx.doc.length : lineEnd);
+    // Before a comment and trailing spaces, so the brace counts.
+    const comment = /(?<!\\)%/.exec(text);
+    const kept = (comment ? text.slice(0, comment.index) : text).trimEnd();
+    // Only when the line itself leaves the brace open: an argument
+    // that runs over several lines could end anywhere.
+    if (openBraces(kept) !== 1) return null;
+    const lineNo = ctx.doc.slice(0, at).split("\n").length;
+    return {
+      title: `Add the missing } at the end of line ${lineNo}`,
+      edits: [{ from: at + kept.length, to: at + kept.length, insert: "}" }],
+    };
+  }
+  return null;
+}
+
 function basename(path: string): string {
   const parts = path.split(/[\\/]/).filter(Boolean);
   return parts[parts.length - 1] ?? path;
 }
 
+/** The file a "not found" message names, in any of TeX's wordings. */
+const MISSING_FILE = [
+  /File [`']([^`']+)' not found/,
+  /Unable to load picture or PDF file '([^']+)'/,
+  /I can't find file [`']([^`']+)'/,
+];
+
+function missingFileName(message: string): string | null {
+  for (const pattern of MISSING_FILE) {
+    const match = pattern.exec(message);
+    if (match) return match[1];
+  }
+  return null;
+}
+
+const EXTENSION = /\.[A-Za-z0-9]+$/;
+
 function fixMissingFile(issue: CompileIssue, ctx: FixContext): TexFix | null {
-  const m = /File [`']([^`']+)' not found\./.exec(issue.message);
-  const missing = m?.[1] ?? null;
-  if (missing === null || ctx.assets.length === 0) return null;
+  const missing = missingFileName(issue.message);
+  // Packages and classes are not project files.
+  if (missing === null || /\.(sty|cls)$/i.test(missing)) return null;
+  const base = ctx.baseDir ? `${ctx.baseDir}/` : "";
+  const candidates = [...ctx.assets, ...(ctx.texFiles ?? [])]
+    .filter((path) => path.startsWith(base))
+    .map((path) => path.slice(base.length));
+  // Names are compared without extension (LaTeX adds it) and without
+  // regard to capitals, which only some computers tell apart.
+  const stem = (path: string) => basename(path).replace(EXTENSION, "").toLowerCase();
+  const wanted = stem(missing);
+  const extension = EXTENSION.exec(missing)?.[0].toLowerCase() ?? null;
   let best: string | null = null;
-  let bestDist = 3;
-  for (const asset of ctx.assets) {
-    const dist = editDistance(basename(asset), basename(missing));
+  let bestDist = Math.min(3, wanted.length);
+  for (const candidate of candidates) {
+    if (
+      extension !== null &&
+      EXTENSION.exec(candidate)?.[0].toLowerCase() !== extension
+    ) {
+      continue;
+    }
+    const dist = editDistance(stem(candidate), wanted);
     if (dist < bestDist) {
-      best = asset;
+      best = candidate;
       bestDist = dist;
     }
   }
-  if (best === null || best === missing) return null;
+  if (best === null) return null;
   const line = lineRange(ctx.doc, issue.line);
   if (line === null) return null;
   const text = ctx.doc.slice(line.from, line.to);
-  const at = text.indexOf(basename(missing));
+  // Written as the source wrote it: with or without the extension,
+  // which LaTeX may have added in its message.
+  const named = basename(missing);
+  const bare = text.includes(named) ? extension === null : true;
+  const at = text.indexOf(bare ? named.replace(EXTENSION, "") : named);
   if (at === -1) return null;
+  const target = bare ? best.replace(EXTENSION, "") : best;
   const open = text.lastIndexOf("{", at);
   const close = text.indexOf("}", at);
   if (open === -1 || close === -1 || close < at) return null;
+  if (text.slice(open + 1, close).trim() === target) return null;
   return {
-    title: `Point the include at ${best}`,
-    edits: [{ from: line.from + open + 1, to: line.from + close, insert: best }],
+    title: `Change the path to ${target}`,
+    edits: [{ from: line.from + open + 1, to: line.from + close, insert: target }],
   };
 }
 
@@ -368,7 +527,22 @@ export function detectFixRule(issue: CompileIssue): FixRule | null {
   if (/\\begin\{\S+?\} on input line \d+ ended by \\end\{\S+?\}\.?$/.test(message)) {
     return "mismatched-end";
   }
-  if (/File [`'][^`']+' not found\./.test(message)) return "missing-file";
+  if (/^LaTeX Error: Command \\[A-Za-z]+ already defined\./.test(message)) {
+    return "already-defined";
+  }
+  if (/^LaTeX Error: Command \\[A-Za-z]+ undefined\./.test(message)) {
+    return "not-yet-defined";
+  }
+  if (
+    /^(Paragraph ended before|File ended while scanning use of) \\[A-Za-z]+/.test(
+      message,
+    )
+  ) {
+    return "unclosed-argument";
+  }
+  if (issue.severity === "error" && missingFileName(message) !== null) {
+    return "missing-file";
+  }
   if (/^LaTeX Warning: Reference [`']/.test(message)) return "undefined-reference";
   if (/^LaTeX Warning: Citation [`']/.test(message)) return "undefined-citation";
   if (/^LaTeX Warning: Label\(s\) may have changed/.test(message)) return "rerun";
@@ -387,6 +561,12 @@ export function planFix(issue: CompileIssue, ctx: FixContext): TexFix | null {
       return fixEnvironmentPackage(issue, ctx);
     case "mismatched-end":
       return fixMismatchedEnd(issue, ctx);
+    case "already-defined":
+      return fixDefinition(issue, ctx, true);
+    case "not-yet-defined":
+      return fixDefinition(issue, ctx, false);
+    case "unclosed-argument":
+      return fixUnclosedArgument(issue, ctx);
     case "missing-file":
       return fixMissingFile(issue, ctx);
     case "undefined-reference":

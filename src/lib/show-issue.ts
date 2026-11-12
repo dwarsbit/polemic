@@ -7,7 +7,12 @@
 import { useMemo } from "react";
 import { arrangeIssues, firstError, type IssueRow } from "@/lib/issue-list";
 import { runPanelCommand } from "@/lib/panel-commands";
-import type { CompileIssue } from "@/lib/tauri";
+import {
+  getProjectConfig,
+  saveProjectConfig,
+  type CompileIssue,
+  type TexEngine,
+} from "@/lib/tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
@@ -68,4 +73,19 @@ export function watchCompileFailures(onFailure: () => void): () => void {
       onFailure();
     }
   });
+}
+
+/** Make `engine` the project's TeX engine and compile with it. */
+export async function compileWithEngine(engine: TexEngine): Promise<void> {
+  const { project } = useProjectStore.getState();
+  if (!project) return;
+  try {
+    // Merge: the project's settings hold more than the engine.
+    const config = await getProjectConfig(project.path);
+    await saveProjectConfig(project.path, { ...config, engine });
+  } catch (e) {
+    usePreviewStore.getState().setNotice(`Could not change the TeX engine: ${e}`);
+    return;
+  }
+  await usePreviewStore.getState().compileNow();
 }

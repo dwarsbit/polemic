@@ -28,7 +28,7 @@ import {
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
-import { useSettingsStore } from "@/store/settings";
+import { compilesInCloud, useSettingsStore } from "@/store/settings";
 
 export type ChangeStatus = "pending" | "applied" | "discarded";
 
@@ -190,6 +190,7 @@ export const useAssistantStore = create<AssistantState>((set, get) => {
         cursorLine: cursor?.line ?? null,
         selection: context.selection,
         issue: context.issue,
+        cloud: compilesInCloud(),
       };
       const chips: string[] = [];
       if (context.selection !== null) {

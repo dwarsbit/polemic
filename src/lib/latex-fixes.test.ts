@@ -180,6 +180,172 @@ describe("planFix rules", () => {
     expect(apply(doc, fixed!.edits)).toContain("\\includegraphics{figures/plot.png}");
   });
 
+  it("finds a missing image or include by a close name", () => {
+    const include = (name: string) =>
+      DOC.replace("x_1", `\\includegraphics[width=3cm]{${name}}`);
+    const fix = (message: string, name: string, extra: Partial<FixContext>) => {
+      const doc = include(name);
+      const plan = planFix(issue({ line: 4, message }), ctx(doc, extra));
+      return plan === null ? null : apply(doc, plan.edits).split("\n")[3];
+    };
+    const assets = ["figures/Plot.png", "figures/logo.pdf"];
+    // No extension in the source, capitals that differ.
+    expect(
+      fix(
+        "Package pdftex.def Error: File `figures/plot' not found: using draft setting.",
+        "figures/plot",
+        { assets },
+      ),
+    ).toContain("{figures/Plot}");
+    // A typo, in XeLaTeX's words.
+    expect(
+      fix("Unable to load picture or PDF file 'figures/lgo.pdf'.", "figures/lgo.pdf", {
+        assets,
+      }),
+    ).toContain("{figures/logo.pdf}");
+    // Another kind of file is not a match.
+    expect(
+      fix("LaTeX Error: File `figures/logo.png' not found.", "figures/logo.png", {
+        assets: ["figures/logo.pdf"],
+      }),
+    ).toBeNull();
+    // Paths start at the main file's folder.
+    expect(
+      fix("LaTeX Error: File `fig/plot.png' not found.", "fig/plot.png", {
+        assets: ["paper/figures/plot.png", "old/plot.png"],
+        baseDir: "paper",
+      }),
+    ).toContain("{figures/plot.png}");
+    // A package is not a project file.
+    expect(
+      fix("LaTeX Error: File `plot.sty' not found.", "plot", { assets: ["plot.png"] }),
+    ).toBeNull();
+  });
+
+  it("finds a missing \\input among the .tex files", () => {
+    const doc = DOC.replace("The value x_1 is nice.", "\\input{chapters/intro}");
+    const plan = planFix(
+      issue({ line: 4, message: "LaTeX Error: File `chapters/intro.tex' not found." }),
+      ctx(doc, {
+        texFiles: ["main.tex", "chapters/introduction.tex", "chapters/Intro.tex"],
+      }),
+    );
+    expect(apply(doc, plan!.edits)).toContain("\\input{chapters/Intro}");
+  });
+
+  it("closes an environment that an outer \\end found open", () => {
+    const doc = [
+      "\\begin{document}",
+      "\\begin{figure}",
+      "  \\begin{center}",
+      "    A",
+      "\\end{figure}",
+      "\\begin{itemize}",
+      "  \\item B",
+      "  \\end{document}",
+      "",
+    ].join("\n");
+    const inner = planFix(
+      issue({
+        line: 5,
+        message: "LaTeX Error: \\begin{center} on input line 3 ended by \\end{figure}.",
+      }),
+      ctx(doc),
+    )!;
+    expect(inner.title).toBe("Add \\end{center} before \\end{figure}");
+    expect(apply(doc, inner.edits)).toContain("    A\n\\end{center}\n\\end{figure}");
+    const last = planFix(
+      issue({
+        line: 8,
+        message:
+          "LaTeX Error: \\begin{itemize} on input line 6 ended by \\end{document}.",
+      }),
+      ctx(doc),
+    )!;
+    expect(apply(doc, last.edits)).toContain(
+      "  \\item B\n  \\end{itemize}\n  \\end{document}",
+    );
+    // Not an outer environment: the name of the \end is what's wrong.
+    const renamed = planFix(
+      issue({
+        line: 5,
+        message: "LaTeX Error: \\begin{center} on input line 3 ended by \\end{centre}.",
+      }),
+      ctx(doc.replace("\\end{figure}", "\\end{centre}")),
+    )!;
+    expect(renamed.title).toBe("Change \\end{centre} to \\end{center}");
+  });
+
+  it("swaps \\newcommand and \\renewcommand", () => {
+    const doc = [
+      "\\newcommand{\\vec}[1]{\\mathbf{#1}}",
+      "\\renewcommand*\\tens[1]{\\mathsf{#1}}",
+      "\\newenvironment{proof}{}{}",
+      "\\newcommand{\\vector}{v}",
+      "",
+    ].join("\n");
+    const fix = (line: number, message: string) => {
+      const plan = planFix(issue({ line, message }), ctx(doc));
+      return plan === null ? null : apply(doc, plan.edits).split("\n")[line - 1];
+    };
+    expect(fix(1, "LaTeX Error: Command \\vec already defined.")).toBe(
+      "\\renewcommand{\\vec}[1]{\\mathbf{#1}}",
+    );
+    expect(fix(2, "LaTeX Error: Command \\tens undefined.")).toBe(
+      "\\newcommand*\\tens[1]{\\mathsf{#1}}",
+    );
+    expect(fix(3, "LaTeX Error: Command \\proof already defined.")).toBe(
+      "\\renewenvironment{proof}{}{}",
+    );
+    // The line defines another command: nothing to swap.
+    expect(fix(4, "LaTeX Error: Command \\vec already defined.")).toBeNull();
+    // A counter is not made with \newcommand.
+    expect(
+      detectFixRule(
+        issue({ message: "LaTeX Error: Command \\c@lemma already defined." }),
+      ),
+    ).toBeNull();
+  });
+
+  it("closes an argument on the line that leaves it open", () => {
+    const doc = [
+      "\\section{Results  % the main part",
+      "Streets with \\textbf{more} canopy were cooler.",
+      "",
+      "\\textbf{This runs",
+      "over two lines.",
+      "",
+      "Done.",
+      "",
+    ].join("\n");
+    const heading = planFix(
+      issue({ line: 3, message: "Paragraph ended before \\section was complete." }),
+      ctx(doc),
+    )!;
+    expect(heading.title).toBe("Add the missing } at the end of line 1");
+    expect(apply(doc, heading.edits).split("\n")[0]).toBe(
+      "\\section{Results}  % the main part",
+    );
+    const bold = planFix(
+      issue({ line: 6, message: "Paragraph ended before \\textbf was complete." }),
+      ctx(doc),
+    )!;
+    expect(apply(doc, bold.edits).split("\n")[3]).toBe("\\textbf{This runs}");
+    // Every use closes: the cause is somewhere else.
+    expect(
+      planFix(
+        issue({ line: 3, message: "Paragraph ended before \\textbf was complete." }),
+        ctx(doc),
+      ),
+    ).toBeNull();
+    expect(
+      planFix(
+        issue({ line: 8, message: "File ended while scanning use of \\textbf." }),
+        ctx(doc.replace("over two lines.", "over {two lines.")),
+      ),
+    ).toBeNull();
+  });
+
   it("recompiles when the referenced label exists, else renames the ref", () => {
     const existing = planFix(
       issue({

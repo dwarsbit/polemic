@@ -1,10 +1,26 @@
 // @vitest-environment happy-dom
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
+
+const saved = vi.hoisted(() => ({
+  config: vi.fn<(dir: string, config: unknown) => Promise<void>>(async () => {}),
+  opened: vi.fn<(url: string) => Promise<void>>(async () => {}),
+}));
+vi.mock("@/lib/tauri", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@/lib/tauri")>()),
+  getProjectConfig: vi.fn(async () => ({ engine: "auto", ignoredWords: ["Utrecht"] })),
+  saveProjectConfig: saved.config,
+  readProjectFile: vi.fn(
+    async () => "\\documentclass{article}\n\\newcommand{\\vec}{v}\n",
+  ),
+}));
+vi.mock("@tauri-apps/plugin-opener", () => ({ openUrl: saved.opened }));
+
 import { IssuesPanel } from "@/components/IssuesPanel";
 import type { CompileIssue } from "@/lib/tauri";
 import { usePreviewStore } from "@/store/preview";
+import { useProjectStore } from "@/store/project";
 import { useSettingsStore } from "@/store/settings";
 
 const error = (message: string, extra: Partial<CompileIssue> = {}): CompileIssue => ({
@@ -33,9 +49,14 @@ afterEach(() => {
   act(() => root?.unmount());
   root = null;
   document.body.innerHTML = "";
-  usePreviewStore.setState({ issues: [], status: "idle" });
+  usePreviewStore.setState({ issues: [], status: "idle", engine: null });
   useSettingsStore.setState({ compileProvider: "local" });
+  useProjectStore.setState({ project: null, mainFile: null });
+  vi.clearAllMocks();
 });
+
+const buttonNamed = (host: Element, text: string) =>
+  [...host.querySelectorAll("button")].find((button) => button.textContent === text);
 
 const click = (target: Element | null | undefined) =>
   act(async () => {
@@ -153,5 +174,71 @@ describe("IssuesPanel", () => {
       error("BibTeX failed: Repeated entry", { hint: "Rename one of them." }),
     ]);
     expect(own.querySelector("li")!.textContent).toContain("Rename one of them.");
+  });
+
+  it("compiles with the engine a document needs", async () => {
+    useProjectStore.setState({ project: { name: "Paper", path: "/paper" } });
+    const compileNow = vi.fn(async () => {});
+    usePreviewStore.setState({ engine: "pdflatex", compileNow });
+    const host = await mount([
+      error(
+        "Fatal Package fontspec Error: The fontspec package requires either XeTeX or LuaTeX.",
+        { line: null },
+      ),
+    ]);
+    expect(buttonNamed(host, "Compile with LuaLaTeX")).toBeDefined();
+    await click(buttonNamed(host, "Compile with XeLaTeX"));
+    // The project's other settings stay as they are.
+    expect(saved.config).toHaveBeenCalledWith("/paper", {
+      engine: "xelatex",
+      ignoredWords: ["Utrecht"],
+    });
+    expect(compileNow).toHaveBeenCalledTimes(1);
+  });
+
+  it("doesn't offer the engine the compile already ran with", async () => {
+    usePreviewStore.setState({ engine: "xelatex" });
+    const host = await mount([
+      error("Package luatexja-core Error: This package requires Lua(HB)(La)TeX."),
+      error(
+        "LaTeX Error: Unicode character 。 (U+3002) not set up for use with LaTeX.",
+      ),
+    ]);
+    expect(buttonNamed(host, "Compile with LuaLaTeX")).toBeDefined();
+    expect(buttonNamed(host, "Compile with XeLaTeX")).toBeUndefined();
+  });
+
+  it("looks a missing package up on CTAN", async () => {
+    const host = await mount([error("LaTeX Error: File `siunitx.sty' not found.")]);
+    await click(buttonNamed(host, "Look up siunitx on CTAN"));
+    expect(saved.opened).toHaveBeenCalledWith("https://ctan.org/pkg/siunitx");
+  });
+
+  it("links to the guide's section on this kind of error", async () => {
+    const host = await mount([error("Missing $ inserted.")]);
+    await click(buttonNamed(host, "More about this kind of error →"));
+    expect(saved.opened).toHaveBeenCalledWith(
+      "https://polemicapp.com/docs/guides/latex-errors#math",
+    );
+    // Nothing to link to for an error the catalog doesn't know.
+    const other = await mount([
+      error("Package caption Error: Undefined justification."),
+    ]);
+    expect(buttonNamed(other, "More about this kind of error →")).toBeUndefined();
+  });
+
+  it("names the fix it has for an error", async () => {
+    useProjectStore.setState({
+      project: { name: "Paper", path: "/paper" },
+      mainFile: "main.tex",
+    });
+    const host = await mount([
+      error("LaTeX Error: Command \\vec already defined.", { line: 2 }),
+    ]);
+    // The fix is planned against the file, which takes a moment.
+    await act(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 20));
+    });
+    expect(buttonNamed(host, "Change \\newcommand to \\renewcommand")).toBeDefined();
   });
 });
