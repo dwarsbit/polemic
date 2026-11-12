@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.23.1 (unreleased)
+
+### Fixed
+
+- Errors in files that TeX finds through the main file's folder now show in the issues list. Before, a project with its main file in a subfolder could fail with no error to show.
+- A missing package, class or file now points at the line where the compile stopped. The "Emergency stop" that follows it is no longer listed as an error of its own.
+- When a class or package stops because it needs XeLaTeX or LuaLaTeX, the issues list says so instead of showing only "Emergency stop".
+- A failed BibTeX, glossary or index run is reported in the issues list. Before, some of these compiles failed with no error to show. BibTeX errors such as a repeated entry point at the line in your `.bib` file.
+- **Fix** is offered for more errors, because Polemic now finds the source line that TeX prints below its help text.
+- The hint about fonts that Polemic's server doesn't have no longer shows on the error that says a document needs XeLaTeX or LuaLaTeX.
+
 ## 0.23.0 (2026-11-11)
 
 ### Added

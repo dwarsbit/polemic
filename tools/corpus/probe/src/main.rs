@@ -119,6 +119,9 @@ fn main() {
                 issues.retain(|issue| !logparse::is_rerun_bib_tool_warning(issue));
                 issues.insert(0, failure);
             }
+            if let Some(failure) = logparse::parse_run_failure(&read(&args[2])) {
+                issues.insert(0, failure);
+            }
             logparse::add_font_hints(&mut issues);
             println!("{}", serde_json::to_string(&issues).unwrap());
         }
