@@ -12,6 +12,7 @@ import type {
   AgentToolSpec,
   CompileIssue,
 } from "@/lib/tauri";
+import { explainIssue } from "@/lib/explain-issue";
 import type { AssistantMode } from "@/store/settings";
 import { describeCall, runTool, TOOL_SPECS, type AssistantHost } from "./tools";
 
@@ -53,6 +54,9 @@ export interface AskContext {
   cursorLine: number | null;
   selection: { path: string; fromLine: number; toLine: number; text: string } | null;
   issue: CompileIssue | null;
+  /** The compile ran on Polemic's server, where the reader can't
+   *  install packages or fonts. */
+  cloud?: boolean;
 }
 
 /** The user's message with its context, as the model reads it. */
@@ -78,6 +82,13 @@ export function userMessage(text: string, context: AskContext): string {
       `About this ${severity}${file ? ` in ${file}${line !== null ? `:${line}` : ""}` : ""}: ${message}`,
       ...detail.map((d) => `  ${d}`),
     );
+    // What the Issues panel told the user, so the answer builds on it.
+    const { reading } = context.issue;
+    if (reading) lines.push(`TeX was reading: ${reading}`);
+    const explanation = explainIssue(context.issue, { cloud: context.cloud ?? false });
+    if (explanation) {
+      lines.push(`Shown to the user as: ${explanation.title}. ${explanation.help}`);
+    }
   }
   if (lines.length === 0) return text;
   return `${lines.join("\n")}\n\n${text}`;

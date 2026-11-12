@@ -79,6 +79,19 @@ export function collectAssetPaths(entries: FileEntry[]): string[] {
   return out;
 }
 
+/** All .tex files in the tree, depth first. */
+export function collectTexPaths(entries: FileEntry[]): string[] {
+  const out: string[] = [];
+  const walk = (list: FileEntry[]) => {
+    for (const entry of list) {
+      if (entry.isDir) walk(entry.children);
+      else if (entry.path.toLowerCase().endsWith(".tex")) out.push(entry.path);
+    }
+  };
+  walk(entries);
+  return out;
+}
+
 /** The file-type filter categories of the asset panel. */
 export type AssetFilter = "all" | "image" | "pdf" | "data" | "other";
 

@@ -5,13 +5,13 @@
  * matching lives in latex-fixes.ts; this module owns the app state.
  */
 
-import { collectAssetPaths } from "./assets";
+import { collectAssetPaths, collectTexPaths } from "./assets";
 import { extractCiteKeys } from "./bibtex";
 import { applyEditsInView, queueEditsForView } from "./editor-edits";
 import { detectFixRule, planFix, type FixContext, type TexFix } from "./latex-fixes";
 import type { SourceEdit } from "./label-index";
 import { projectBibKeys } from "./project-bib";
-import { readProjectFile, type CompileIssue } from "./tauri";
+import { readProjectFile, type CompileIssue, type FileEntry } from "./tauri";
 import { useEditorStore } from "@/store/editor";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
@@ -57,6 +57,19 @@ async function fileText(file: string): Promise<string | null> {
   }
 }
 
+/** The project's files as a fix that points at one needs them. */
+function projectPlaces(
+  files: FileEntry[],
+  mainFile: string | null,
+): Pick<FixContext, "assets" | "texFiles" | "baseDir"> {
+  const slash = mainFile?.lastIndexOf("/") ?? -1;
+  return {
+    assets: collectAssetPaths(files),
+    texFiles: collectTexPaths(files),
+    baseDir: slash === -1 ? "" : mainFile!.slice(0, slash),
+  };
+}
+
 /**
  * The fix each issue would get right now, by index (null where no rule
  * applies or the rule declines), so the Issues panel offers Fix only
@@ -69,7 +82,7 @@ export async function planIssueFixes(
   if (!issues.some((issue) => detectFixRule(issue) !== null))
     return issues.map(() => null);
   const { files, mainFile } = useProjectStore.getState();
-  const assets = collectAssetPaths(files);
+  const places = projectPlaces(files, mainFile);
   const bibKeys = await citableKeys();
   const bibFailed = bibToolFailed(issues);
   const texts = new Map<string, string | null>();
@@ -87,7 +100,7 @@ export async function planIssueFixes(
     }
     if (!texts.has(file)) texts.set(file, await fileText(file));
     const doc = texts.get(file) ?? null;
-    plans.push(doc === null ? null : planFix(issue, { doc, assets, bibKeys }));
+    plans.push(doc === null ? null : planFix(issue, { doc, ...places, bibKeys }));
   }
   return plans;
 }
@@ -120,7 +133,7 @@ export async function fixIssue(issue: CompileIssue): Promise<FixOutcome> {
     }
     const ctx: FixContext = {
       doc: useEditorStore.getState().content,
-      assets: collectAssetPaths(files),
+      ...projectPlaces(files, mainFile),
       bibKeys: await citableKeys(),
     };
     const fix = planFix(issue, ctx);

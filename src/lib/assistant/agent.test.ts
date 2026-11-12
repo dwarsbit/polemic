@@ -8,6 +8,7 @@ import {
   type AssistantReply,
   type SendTurn,
 } from "./agent";
+import { explainIssue } from "@/lib/explain-issue";
 import type { AssistantHost } from "./tools";
 
 const host: AssistantHost = {
@@ -148,5 +149,41 @@ describe("prompts", () => {
         issue: null,
       }),
     ).toBe("Hi");
+  });
+
+  it("gives an issue with what the user was told about it", () => {
+    const message = userMessage("Fix this error.", {
+      activeFile: null,
+      cursorLine: null,
+      selection: null,
+      issue: {
+        severity: "error",
+        file: "main.tex",
+        line: 7,
+        message: "Undefined control sequence.",
+        detail: ["l.7 \\mycmd"],
+        reading: "\\mycmd ->\\frrac",
+      },
+    });
+    expect(message).toBe(
+      [
+        "About this error in main.tex:7: Undefined control sequence.",
+        "  l.7 \\mycmd",
+        "TeX was reading: \\mycmd ->\\frrac",
+        "Shown to the user as: Unknown command \\frrac. " +
+          explainIssue(
+            {
+              severity: "error",
+              file: null,
+              line: null,
+              message: "Undefined control sequence.",
+              detail: [],
+            },
+            { cloud: false },
+          )!.help,
+        "",
+        "Fix this error.",
+      ].join("\n"),
+    );
   });
 });

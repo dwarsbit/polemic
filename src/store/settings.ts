@@ -354,3 +354,10 @@ export function useCloudCompile(): boolean {
   const provider = useSettingsStore((s) => s.compileProvider);
   return !features.localTex || provider === "polemic";
 }
+
+/** The same outside a component. */
+export function compilesInCloud(): boolean {
+  return (
+    !features.localTex || useSettingsStore.getState().compileProvider === "polemic"
+  );
+}

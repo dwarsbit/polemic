@@ -2,6 +2,7 @@ import {
   ChevronDown,
   ChevronRight,
   CircleAlert,
+  ExternalLink,
   Loader2,
   Sparkles,
   TriangleAlert,
@@ -15,11 +16,15 @@ import { fixIssue, planIssueFixes } from "@/lib/fix-issue";
 import { arrangeIssues, firstError, sourceSpot, type IssueRow } from "@/lib/issue-list";
 import type { TexFix } from "@/lib/latex-fixes";
 import { askAboutIssue } from "@/lib/assistant/entry";
-import { jumpToIssue } from "@/lib/show-issue";
+import { ctanPageUrl } from "@/lib/ctan";
+import type { Explanation } from "@/lib/explain-issue";
+import { LATEX_ERRORS_URL } from "@/lib/links";
+import { compileWithEngine, jumpToIssue } from "@/lib/show-issue";
 import { cn } from "@/lib/utils";
 import { usePreviewStore } from "@/store/preview";
 import { useProjectStore } from "@/store/project";
 import { useCloudCompile } from "@/store/settings";
+import { openUrl } from "@tauri-apps/plugin-opener";
 
 /** Bottom-dock tools, selected by the bottom icons of the left rail. */
 export type IssuesTool = "issues" | "log" | "search";
@@ -62,8 +67,86 @@ function SourceLine({ issue }: { issue: CompileIssue }) {
   );
 }
 
+const ENGINE_NAMES = { xelatex: "XeLaTeX", lualatex: "LuaLaTeX" } as const;
+
+/** What Polemic can do about an issue, as buttons under the advice. */
+function IssueActions({
+  explanation,
+  fix,
+  onFix,
+}: {
+  explanation: Explanation | null;
+  fix: TexFix | undefined;
+  onFix: () => void;
+}) {
+  const action = explanation?.action;
+  const topic = explanation?.topic;
+  const engine = usePreviewStore((s) => s.engine);
+  const readOnly = useProjectStore((s) => s.project?.readOnly ?? null) !== null;
+  const buttons = [];
+  if (fix) {
+    buttons.push(
+      <Button key="fix" variant="outline" size="xs" onClick={onFix}>
+        <Wrench className="size-3" />
+        {fix.title}
+      </Button>,
+    );
+  }
+  if (action?.kind === "engine" && !readOnly) {
+    for (const name of action.engines) {
+      if (name === engine) continue;
+      buttons.push(
+        <Button
+          key={name}
+          variant="outline"
+          size="xs"
+          onClick={() => void compileWithEngine(name)}
+        >
+          Compile with {ENGINE_NAMES[name]}
+        </Button>,
+      );
+    }
+  }
+  if (action?.kind === "ctan") {
+    buttons.push(
+      <Button
+        key="ctan"
+        variant="outline"
+        size="xs"
+        onClick={() => void openUrl(ctanPageUrl(action.name))}
+      >
+        Look up {action.name} on CTAN
+        <ExternalLink className="size-3" />
+      </Button>,
+    );
+  }
+  if (topic) {
+    buttons.push(
+      <button
+        key="guide"
+        type="button"
+        className="px-1 text-muted-foreground hover:text-foreground hover:underline"
+        onClick={() => void openUrl(`${LATEX_ERRORS_URL}#${topic}`)}
+      >
+        More about this kind of error →
+      </button>,
+    );
+  }
+  return buttons.length > 0 ? (
+    <div className="flex flex-wrap items-center gap-1.5">{buttons}</div>
+  ) : null;
+}
+
 /** What an open row shows below its title. */
-function IssueDetails({ row }: { row: IssueRow }) {
+function IssueDetails({
+  row,
+  fix,
+  onFix,
+}: {
+  row: IssueRow;
+  fix: TexFix | undefined;
+  onFix: () => void;
+}) {
   const [head] = row.entries;
   const several = row.entries.length > 1;
   const sameMessage = row.entries.every(
@@ -72,6 +155,7 @@ function IssueDetails({ row }: { row: IssueRow }) {
   return (
     <div className="space-y-1.5 pr-2 pb-2 pl-11.5 text-2xs">
       {row.advice && <p>{row.advice}</p>}
+      <IssueActions explanation={head.explanation} fix={fix} onFix={onFix} />
       {!several && <SourceLine issue={head.issue} />}
       {several && (
         <ul className="flex flex-wrap gap-x-3 gap-y-0.5">
@@ -284,7 +368,7 @@ export function IssuesPanel({
             </span>
           )}
         </div>
-        {open && <IssueDetails row={row} />}
+        {open && <IssueDetails row={row} fix={fix} onFix={() => void onFix(issue)} />}
       </li>
     );
   }

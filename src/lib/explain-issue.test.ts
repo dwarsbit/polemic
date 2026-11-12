@@ -106,6 +106,47 @@ describe("explainIssue", () => {
     ).toBeNull();
   });
 
+  it("offers the engines a document asks for", () => {
+    const action = (message: string) => explain(message)?.action;
+    expect(
+      action(
+        "Fatal Package fontspec Error: The fontspec package requires either XeTeX or LuaTeX.",
+      ),
+    ).toEqual({ kind: "engine", engines: ["xelatex", "lualatex"] });
+    expect(action("XeTeX is required to compile this document.")).toEqual({
+      kind: "engine",
+      engines: ["xelatex"],
+    });
+    expect(
+      action("Package luatexja-core Error: This package requires Lua(HB)(La)TeX."),
+    ).toEqual({ kind: "engine", engines: ["lualatex"] });
+    expect(
+      action(
+        "LaTeX Error: Unicode character 。 (U+3002) not set up for use with LaTeX.",
+      ),
+    ).toEqual({ kind: "engine", engines: ["xelatex", "lualatex"] });
+    // A space that got pasted in is to be replaced, whatever the engine.
+    expect(
+      action(
+        "LaTeX Error: Unicode character \u00a0 (U+00A0) not set up for use with LaTeX.",
+      ),
+    ).toBeUndefined();
+  });
+
+  it("offers to look up a package or class, not a file of the project", () => {
+    expect(explain("LaTeX Error: File `siunitx.sty' not found.")?.action).toEqual({
+      kind: "ctan",
+      name: "siunitx",
+    });
+    expect(explain("LaTeX Error: File `thesis.cls' not found.")?.action).toEqual({
+      kind: "ctan",
+      name: "thesis",
+    });
+    expect(
+      explain("LaTeX Error: File `chapters/intro.tex' not found.")?.action,
+    ).toBeUndefined();
+  });
+
   it("names a font that can't be found, not the engine", () => {
     expect(
       title(
@@ -220,6 +261,24 @@ describe("explainIssue", () => {
         warning,
       ),
     ).toBeNull();
+  });
+
+  it("says which section of the guide covers an issue", () => {
+    const topic = (message: string) => explain(message)?.topic;
+    expect(topic("Undefined control sequence.")).toBe("commands");
+    expect(topic("LaTeX Error: File `a.sty' not found.")).toBe("files");
+    expect(topic("XeTeX is required to compile this document.")).toBe(
+      "engine-and-fonts",
+    );
+    expect(topic("Missing $ inserted.")).toBe("math");
+    expect(topic("Too many }'s.")).toBe("braces");
+    expect(topic("Misplaced alignment tab character &.")).toBe("tables-and-lists");
+    expect(topic("LaTeX Error: Too many unprocessed floats.")).toBe("floats");
+    expect(topic("LaTeX Error: Option clash for package xcolor.")).toBe("packages");
+    expect(
+      explain("LaTeX Warning: Label `a' multiply defined", { severity: "warning" })
+        ?.topic,
+    ).toBe("warnings");
   });
 
   it("keeps TeX's message for what the catalog doesn't cover", () => {
