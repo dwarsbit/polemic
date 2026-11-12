@@ -1,6 +1,11 @@
 // Mirrors the tests in src-tauri/src/logparse.rs.
 import { describe, expect, it } from "vitest";
-import { addFontHints, parseBibToolFailure, parseIssues } from "@/lib/logparse";
+import {
+  addFontHints,
+  parseBibToolFailure,
+  parseIssues,
+  parseRunFailure,
+} from "@/lib/logparse";
 
 describe("parseIssues", () => {
   it("hints at fonts missing on the server", () => {
@@ -149,6 +154,82 @@ l.5 y_1
     expect(issues[0].detail).toEqual([]);
     expect(issues[1].detail[0]).toBe("l.5 y_1");
   });
+
+  it("reads errors in files named without ./", () => {
+    const issues = parseIssues(
+      "(./demo/trigon_demo.tex (demo/frames.tex\ndemo/frames.tex:45: Package pdftex.def Error: File `shots/layout.jpg' not found: using draft setting.\n\nSee the pdftex.def package documentation for explanation.\nType  H <return>  for immediate help.\n ...                                              \n                                                  \nl.45 ...width]{shots/layout.jpg}}\n                                 \nLaTeX Warning: Float too large for page by 3.0pt on input line 50.\n))\n",
+    );
+    expect(issues).toHaveLength(2);
+    expect(issues[0]).toMatchObject({
+      severity: "error",
+      file: "demo/frames.tex",
+      line: 45,
+    });
+    // The context is found past TeX's help text.
+    expect(issues[0].detail[0]).toBe("l.45 ...width]{shots/layout.jpg}}");
+    expect(issues[1]).toMatchObject({ file: "demo/frames.tex", line: 50 });
+  });
+
+  it("places a missing file where TeX stopped", () => {
+    const issues = parseIssues(
+      "(./doc/main.tex\n\n! LaTeX Error: File `dtklogos.sty' not found.\n\nType X to quit or <RETURN> to proceed,\nor enter new name. (Default extension: sty)\n\nEnter file name: \n./doc/main.tex:11: Emergency stop.\n<read *> \n         \nl.11 \\usepackage\n                [table]{xcolor}^^M\n*** (cannot \\read from terminal in nonstop modes)\n\n!  ==> Fatal error occurred, no output PDF file produced!\n",
+    );
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toMatchObject({
+      message: "LaTeX Error: File `dtklogos.sty' not found.",
+      file: "doc/main.tex",
+      line: 11,
+    });
+    expect(issues[0].detail[0]).toBe("l.11 \\usepackage");
+  });
+
+  it("says why TeX stopped when no error does", () => {
+    const notice = parseIssues(
+      "(./thesis.cls\n\n ********************************************\n * XeTeX is required to compile this document.\n * Sorry!\n ********************************************\n\n./thesis.cls:67: Emergency stop.\n<read *> \n         \nl.67 \\RequireXeTeX\n                  \n*** (cannot \\read from terminal in nonstop modes)\n",
+    );
+    expect(notice).toHaveLength(1);
+    expect(notice[0]).toMatchObject({
+      message: "XeTeX is required to compile this document.",
+      file: "thesis.cls",
+      line: 67,
+    });
+    const aborted = parseIssues(
+      "(./main.tex)\n! Emergency stop.\n<*> main.tex\n            \n*** (job aborted, no legal \\end found)\n",
+    );
+    expect(aborted).toHaveLength(1);
+    expect(aborted[0].message).toBe(
+      "Emergency stop (job aborted, no legal \\end found).",
+    );
+  });
+
+  it("drops an emergency stop that follows an error", () => {
+    const issues = parseIssues(
+      "./main.tex:5: Undefined control sequence.\nl.5 \\foo\n        \n! Emergency stop.\n<*> main.tex\n            \n*** (job aborted, no legal \\end found)\n",
+    );
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toMatchObject({
+      message: "Undefined control sequence.",
+      line: 5,
+    });
+  });
+
+  it("keeps a package's own source out of the context", () => {
+    const issues = parseIssues(
+      "(./main.tex\nLaTeX2e <2025-11-01>\n(/usr/local/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty\n/usr/local/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty:100: Fatal Package fontspec Error: The fontspec package requires either XeTeX or\n(fontspec)                      LuaTeX.\n\nType <return> to continue.\n ...                                              \n                                                  \nl.100 \\msg_fatal:nn {fontspec} {cannot-use-pdftex}\n\n/usr/local/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty:100:  ==> Fatal error occurred, no output PDF file produced!\n",
+    );
+    addFontHints(issues);
+    expect(issues[0].detail).toEqual([]);
+    // The hint is for a font that is missing, not for the wrong engine.
+    expect(issues[0].hint).toBeNull();
+  });
+
+  it("does not take log prose for an error", () => {
+    expect(
+      parseIssues(
+        "<recently read> x.y:3: z\nl.4 a.tex:12: b\nsee (table) 1.tex:3: x\n",
+      ),
+    ).toEqual([]);
+  });
 });
 
 describe("parseBibToolFailure", () => {
@@ -202,5 +283,42 @@ I was expecting a \`,' or a \`}'
     const out =
       "Running 'biber  \"build/main.bcf\"'\nLatexmk: All targets are up-to-date\n";
     expect(parseBibToolFailure(out, null)).toBeNull();
+  });
+
+  it("finds the failed tool in latexmk's error summary", () => {
+    const issue = parseBibToolFailure(
+      "Latexmk: Errors, so I did not complete making targets\nCollected error summary (may duplicate other messages):\n  bibtex build/main: Bibtex errors: See file 'build/main.blg'\n\nLatexmk: Missing bbl file 'build/main.bbl' in following:\n No file main.bbl.\n",
+      "This is BibTeX, Version 0.99d\nRepeated entry---line 1506 of file references.bib\n : @inproceedings{hutter2011sequential\n :                                    ,\nI'm skipping whatever remains of this entry\n",
+    )!;
+    expect(issue.message).toBe("BibTeX failed: Repeated entry");
+    expect(issue).toMatchObject({ file: "references.bib", line: 1506 });
+    expect(issue.hint).toContain("same key");
+  });
+});
+
+describe("parseRunFailure", () => {
+  it("reports a failed glossary run", () => {
+    const issue = parseRunFailure(
+      "Collected error summary (may duplicate other messages):\n  cusdep glo gls build/main: Command for 'cusdep glo gls build/main' gave return code 65280\n",
+    )!;
+    expect(issue.severity).toBe("error");
+    expect(issue.message).toBe("makeglossaries failed, so the glossary was not built");
+    expect(issue.hint).toContain("makeglossaries");
+  });
+
+  it("reports a document that never settles", () => {
+    expect(
+      parseRunFailure(
+        "Latexmk: Maximum runs of pdflatex reached without getting stable files\n",
+      )!.message,
+    ).toMatch(/^The document kept changing/);
+  });
+
+  it("leaves TeX's own errors to the log", () => {
+    expect(
+      parseRunFailure(
+        "Collected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'build/main.log' and/or above output for details\n",
+      ),
+    ).toBeNull();
   });
 });

@@ -1264,6 +1264,9 @@ fn compile_outcome(
         issues.retain(|issue| !logparse::is_rerun_bib_tool_warning(issue));
         issues.insert(0, failure);
     }
+    if let Some(failure) = logparse::parse_run_failure(&log) {
+        issues.insert(0, failure);
+    }
     CompileOutcome {
         success,
         issues,

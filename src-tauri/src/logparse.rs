@@ -18,33 +18,70 @@ pub struct CompileIssue {
     pub hint: Option<String>,
 }
 
-/// Parse an error line produced by pdflatex with -file-line-error,
-/// e.g. `./chapters/intro.tex:12: Undefined control sequence.`
-fn parse_file_line_error(line: &str) -> Option<(String, u32, String)> {
-    let rest = line.strip_prefix("./")?;
-    let idx = rest.find(": ")?;
-    let (loc, message) = (&rest[..idx], &rest[idx + 2..]);
-    let (file, num) = loc.rsplit_once(':')?;
-    let line_no = num.parse::<u32>().ok()?;
-    Some((file.to_string(), line_no, message.to_string()))
+/// The place of an error that -file-line-error prints: a file of the
+/// project, or one outside it (the TeX distribution, a parent folder).
+enum Place {
+    Project(String, u32),
+    Outside,
 }
 
-/// An error raised inside a file of the TeX distribution, as
-/// -file-line-error prints it: `/usr/…/fontspec.sty:100: Fatal Package
-/// fontspec Error: …`. Returns the message; the place is the package's,
-/// not the project's. TeX's closing `==> Fatal error occurred` adds
-/// nothing and is left out.
-fn parse_package_file_error(line: &str) -> Option<String> {
-    let drive = line.len() > 2 && line.as_bytes()[0].is_ascii_alphabetic() && line.as_bytes()[1] == b':';
-    if !line.starts_with('/') && !drive {
+/// Splits `path:12: message` at the first `:<digits>: `.
+fn split_file_line(line: &str) -> Option<(&str, u32, &str)> {
+    let bytes = line.as_bytes();
+    let mut from = 0;
+    while let Some(found) = line[from..].find(':') {
+        let colon = from + found;
+        let digits = bytes[colon + 1..].iter().take_while(|b| b.is_ascii_digit()).count();
+        let end = colon + 1 + digits;
+        if digits > 0 && colon > 0 && line[end..].starts_with(": ") {
+            let n = line[colon + 1..end].parse::<u32>().ok()?;
+            return Some((&line[..colon], n, &line[end + 2..]));
+        }
+        from = colon + 1;
+    }
+    None
+}
+
+/// Whether a path without `./` reads as a file name, not as log prose.
+fn reads_as_file_name(path: &str) -> bool {
+    let Some(first) = path.chars().next() else {
+        return false;
+    };
+    if first.is_whitespace() || "!(<*\\".contains(first) || context_line_no(path).is_some() {
+        return false;
+    }
+    if path.chars().skip(1).any(|c| "()<>\\\"`'".contains(c)) {
+        return false;
+    }
+    path.rsplit_once('.').is_some_and(|(stem, ext)| {
+        !stem.is_empty()
+            && (1..=10).contains(&ext.len())
+            && ext.chars().all(|c| c.is_ascii_alphanumeric() || c == '_' || c == '-')
+    })
+}
+
+/// An error line as -file-line-error prints it:
+/// `./chapters/intro.tex:12: Undefined control sequence.` A file TeX found
+/// through the main file's folder has no `./` (`demo/frames.tex:45: …`).
+/// TeX's closing `==> Fatal error occurred` says nothing and is left out.
+fn parse_error_line(line: &str) -> Option<(Place, String)> {
+    let (path, line_no, rest) = split_file_line(line)?;
+    let message = rest.trim();
+    if message.is_empty() || message.starts_with("==>") {
         return None;
     }
-    let from = if drive { 2 } else { 0 };
-    let idx = from + line[from..].find(": ")?;
-    let (_, num) = line[..idx].rsplit_once(':')?;
-    num.parse::<u32>().ok()?;
-    let message = line[idx + 2..].trim();
-    (!message.is_empty() && !message.starts_with("==>")).then(|| message.to_string())
+    let bytes = path.as_bytes();
+    let drive = bytes.len() > 2
+        && bytes[0].is_ascii_alphabetic()
+        && bytes[1] == b':'
+        && (bytes[2] == b'/' || bytes[2] == b'\\');
+    if path.starts_with('/') || drive || path.starts_with("../") {
+        return Some((Place::Outside, message.to_string()));
+    }
+    if let Some(file) = path.strip_prefix("./") {
+        return Some((Place::Project(file.to_string(), line_no), message.to_string()));
+    }
+    reads_as_file_name(path).then(|| (Place::Project(path.to_string(), line_no), message.to_string()))
 }
 
 /// The context line TeX prints after an error: `l.12 ...` with the
@@ -56,28 +93,33 @@ fn context_line_no(detail_line: &str) -> Option<u32> {
     digits.parse::<u32>().ok()
 }
 
-/// The error context block: the `l.N` line, when it follows the
-/// error directly or after one `<inserted text>`-style line, plus
-/// its indented continuation lines. Returns the block and the index
-/// of the first unconsumed line.
+fn is_warning_line(line: &str) -> bool {
+    (line.starts_with("LaTeX") && line.contains("Warning:"))
+        || ((line.starts_with("Package ") || line.starts_with("Class ")) && line.contains(" Warning:"))
+}
+
+/// Where the next message starts: TeX's context for an error ends there.
+fn starts_message(line: &str) -> bool {
+    line.starts_with('!') || split_file_line(line).is_some() || is_warning_line(line)
+}
+
+/// How far below an error its `l.N` line is looked for: past TeX's
+/// help text and the macros it was expanding.
+const CONTEXT_REACH: usize = 40;
+
+/// The error's context block: the `l.N` line that follows it, before
+/// the next message, plus up to three indented continuations. Returns
+/// the block and the index of the first unconsumed line.
 fn detail_from(lines: &[&str], start: usize) -> (Vec<String>, usize) {
-    let is_context_line = |l: &str| {
-        let Some(rest) = l.strip_prefix('l') else {
-            return false;
-        };
-        let Some(rest) = rest.strip_prefix('.') else {
-            return false;
-        };
-        rest.chars().next().is_some_and(|c| c.is_ascii_digit())
-    };
     let mut ctx_at = None;
-    if start < lines.len() && is_context_line(lines[start]) {
-        ctx_at = Some(start);
-    } else if start + 1 < lines.len()
-        && lines[start].starts_with('<')
-        && is_context_line(lines[start + 1])
-    {
-        ctx_at = Some(start + 1);
+    for (i, line) in lines.iter().enumerate().skip(start).take(CONTEXT_REACH) {
+        if context_line_no(line).is_some() {
+            ctx_at = Some(i);
+            break;
+        }
+        if starts_message(line) {
+            break;
+        }
     }
     let Some(at) = ctx_at else {
         return (Vec::new(), start);
@@ -124,12 +166,28 @@ fn error_hint(message: &str) -> Option<String> {
     None
 }
 
+/// A file of the project, as TeX names it: `./intro.tex`, or without
+/// `./` when TeX found it through the main file's folder. Files of the
+/// TeX distribution have absolute paths; build/ holds TeX's own output.
+fn is_project_file(token: &str) -> bool {
+    let bytes = token.as_bytes();
+    let drive = bytes.len() > 2
+        && bytes[0].is_ascii_alphabetic()
+        && bytes[1] == b':'
+        && (bytes[2] == b'/' || bytes[2] == b'\\');
+    if token.starts_with('/') || drive || token.starts_with("../") {
+        return false;
+    }
+    let file = token.strip_prefix("./").unwrap_or(token);
+    !file.starts_with("build/") && !file.contains("://")
+}
+
 /// The files TeX has open, read from the `(./chapters/intro.tex` and
 /// `)` it prints while compiling. Parentheses that open no file (a
 /// message's "(or package)") are counted so their `)` closes nothing.
 struct FileStack {
-    /// Each open file, and whether it is a project file (`./…`,
-    /// outside build/) rather than one from the TeX distribution.
+    /// Each open file, and whether it is a project file rather than
+    /// one from the TeX distribution.
     open: Vec<(String, bool)>,
     other_parens: usize,
 }
@@ -170,9 +228,8 @@ impl FileStack {
                         .next()
                         .unwrap_or("");
                     if looks_like_path(token) {
-                        let project = token.starts_with("./") && !token.starts_with("./build/");
                         let file = token.strip_prefix("./").unwrap_or(token).to_string();
-                        self.open.push((file, project));
+                        self.open.push((file, is_project_file(token)));
                         i += 1 + token.len();
                         continue;
                     }
@@ -254,11 +311,37 @@ fn is_unresolved_reference_warning(issue: &CompileIssue) -> bool {
         || m.starts_with("Package biblatex Warning: Please rerun LaTeX")
 }
 
+/// Why TeX stopped, for an "Emergency stop" that no error explains: the
+/// notice an engine test prints just before it (`* XeTeX is required to
+/// compile this document.`), or TeX's own `*** (job aborted, …)` after it.
+fn stop_reason(lines: &[&str], at: usize) -> Option<String> {
+    for line in lines[at.saturating_sub(8)..at].iter().rev() {
+        let notice = line.trim_start().strip_prefix("* ").filter(|text| {
+            text.strip_suffix(" is required to compile this document.").is_some_and(|what| !what.is_empty())
+        });
+        if let Some(notice) = notice {
+            return Some(notice.to_string());
+        }
+    }
+    for line in lines.iter().skip(at + 1).take(7) {
+        let aborted = line
+            .strip_prefix("*** (")
+            .and_then(|rest| rest.strip_suffix(')'))
+            .filter(|reason| reason.len() > "job aborted, ".len() && reason.starts_with("job aborted, "));
+        if let Some(aborted) = aborted {
+            return Some(format!("Emergency stop ({aborted})."));
+        }
+    }
+    None
+}
+
 pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
     let lines: Vec<&str> = log_text.lines().map(|l| l.trim_end()).collect();
     let mut issues: Vec<CompileIssue> = Vec::new();
     let mut seen = std::collections::HashSet::new();
     let mut files = FileStack::new();
+    // The index of the last error, if it has no place yet.
+    let mut unplaced: Option<usize> = None;
     let mut i = 0;
     while i < lines.len() {
         let line = lines[i];
@@ -266,96 +349,102 @@ pub fn parse_issues(log_text: &str) -> Vec<CompileIssue> {
             i += 1;
             continue;
         }
+        let error = |file: Option<String>, line: Option<u32>, message: String| CompileIssue {
+            severity: "error".into(),
+            file,
+            line,
+            message,
+            detail: Vec::new(),
+            hint: None,
+        };
         let mut issue = None;
         let mut next = i + 1;
         // The l.N line after an error in a package counts that package's lines.
         let mut in_package = false;
-        if let Some((file, line_no, message)) = parse_file_line_error(line) {
+        // A `!` line: an error that names no place of its own.
+        let bare = line.strip_prefix('!').map(str::trim).filter(|rest| !rest.starts_with("==>"));
+        if let Some((place, message)) = parse_error_line(line) {
             let (more, consumed) = continuation(&lines, next, false);
             next = consumed;
+            let message = format!("{message}{more}");
+            issue = Some(match place {
+                Place::Project(file, line_no) => error(Some(file), Some(line_no), message),
+                Place::Outside => {
+                    in_package = true;
+                    error(files.innermost_project_file(), None, message)
+                }
+            });
+        } else if let Some(rest) = bare {
+            let (more, consumed) = continuation(&lines, next, false);
+            next = consumed;
+            // No place of its own: it is in the file TeX is reading.
+            in_package = files.in_package_file();
+            issue = Some(error(files.innermost_project_file(), None, format!("{rest}{more}")));
+        } else if is_warning_line(line) {
+            let (more, consumed) = continuation(&lines, next, true);
+            next = consumed;
+            let message = format!("{line}{more}");
+            let message = message.trim_end_matches('.');
+            // A line number inside a package's own file leads
+            // nowhere in the project.
+            let line_no = warning_line(message).filter(|_| !files.in_package_file());
             issue = Some(CompileIssue {
-                severity: "error".into(),
-                file: Some(file),
-                line: Some(line_no),
-                message: format!("{message}{more}"),
+                severity: "warning".into(),
+                file: files.current_project_file(),
+                line: line_no,
+                message: message.to_string(),
                 detail: Vec::new(),
                 hint: None,
             });
-        } else if let Some(message) = parse_package_file_error(line) {
-            let (more, consumed) = continuation(&lines, next, false);
-            next = consumed;
-            in_package = true;
-            issue = Some(CompileIssue {
-                severity: "error".into(),
-                file: files.innermost_project_file(),
-                line: None,
-                message: format!("{message}{more}"),
-                detail: Vec::new(),
-                hint: None,
-            });
-        } else if let Some(rest) = line.strip_prefix('!') {
-            let (more, consumed) = continuation(&lines, next, false);
-            next = consumed;
-            issue = Some(CompileIssue {
-                severity: "error".into(),
-                file: None,
-                line: None,
-                message: format!("{}{more}", rest.trim()),
-                detail: Vec::new(),
-                hint: None,
-            });
-        } else {
-            let is_latex_warning = line.starts_with("LaTeX") && line.contains("Warning:");
-            let is_package_warning = (line.starts_with("Package ") || line.starts_with("Class "))
-                && line.contains(" Warning:");
-            if is_latex_warning || is_package_warning {
-                let (more, consumed) = continuation(&lines, next, true);
-                next = consumed;
-                let message = format!("{line}{more}");
-                let message = message.trim_end_matches('.');
-                // A line number inside a package's own file leads
-                // nowhere in the project.
-                let line_no = warning_line(message).filter(|_| !files.in_package_file());
-                issue = Some(CompileIssue {
-                    severity: "warning".into(),
-                    file: files.current_project_file(),
-                    line: line_no,
-                    message: message.to_string(),
-                    detail: Vec::new(),
-                    hint: None,
-                });
+        }
+        if let Some(mut found) = issue.take_if(|issue| issue.severity == "error") {
+            let (detail, consumed) = detail_from(&lines, next);
+            // A package's own source is no context for the document.
+            if !detail.is_empty() && !in_package {
+                if found.line.is_none() {
+                    found.line = context_line_no(&detail[0]);
+                }
+                found.detail = detail;
+            }
+            next = consumed.max(next);
+            found.hint = error_hint(&found.message);
+            let mut keep = true;
+            if found.message.starts_with("Emergency stop") {
+                if issues.iter().any(|earlier| earlier.severity == "error") {
+                    // TeX gave up: the errors before it say why. One without a
+                    // place (a file LaTeX could not find) is where TeX stopped.
+                    if let (Some(at), Some(_)) = (unplaced, found.line) {
+                        issues[at].file = found.file.clone();
+                        issues[at].line = found.line;
+                        issues[at].detail = found.detail.clone();
+                    }
+                    keep = false;
+                } else if let Some(reason) = stop_reason(&lines, i) {
+                    found.message = reason;
+                }
+            }
+            unplaced = None;
+            if keep {
+                issue = Some(found);
             }
         }
-        if let Some(mut issue) = issue {
-            if issue.severity == "error" {
-                let (detail, consumed) = detail_from(&lines, next);
-                if !detail.is_empty() {
-                    if issue.line.is_none() && !in_package {
-                        if let Some(n) = context_line_no(&detail[0]) {
-                            issue.line = Some(n);
-                        }
-                    }
-                    issue.detail = detail;
-                }
-                next = consumed.max(next);
-                issue.hint = error_hint(&issue.message);
-            }
+        if let Some(issue) = issue {
             // The same message at the same place, again (a font that
             // is missing on every page), says nothing new; one without
             // a line has no place, so the file does not count.
             let file = issue.line.and(issue.file.clone());
             let key = (issue.severity.clone(), file, issue.line, issue.message.clone());
             if seen.insert(key) {
+                if bare.is_some() && issue.severity == "error" && issue.line.is_none() {
+                    unplaced = Some(issues.len());
+                }
                 issues.push(issue);
             }
-            for consumed in &lines[i..next] {
-                files.read(consumed);
-            }
-            i = next;
-            continue;
         }
-        files.read(line);
-        i += 1;
+        for consumed in &lines[i..next] {
+            files.read(consumed);
+        }
+        i = next;
     }
     if issues.iter().any(|issue| issue.severity == "error") {
         issues.retain(|issue| !is_unresolved_reference_warning(issue));
@@ -381,6 +470,27 @@ impl BibTool {
     }
 }
 
+/// The rules latexmk lists under "Collected error summary" when it gives
+/// up, as (rule, what it says): `bibtex build/main: Bibtex errors: See
+/// file 'build/main.blg'`, `cusdep glo gls build/main: Command for … gave
+/// return code 512`.
+fn failed_rules(latexmk_output: &str) -> Vec<(String, String)> {
+    let mut rules = Vec::new();
+    let mut in_summary = false;
+    for line in latexmk_output.lines() {
+        if line.starts_with("Collected error summary") {
+            in_summary = true;
+        } else if in_summary && line.starts_with("  ") {
+            if let Some(at) = line.find(": ").filter(|at| *at > 0) {
+                rules.push((line[..at].trim().to_lowercase(), line[at + 2..].to_string()));
+            }
+        } else if !line.trim().is_empty() {
+            in_summary = false;
+        }
+    }
+    rules
+}
+
 /// Which bibliography tool failed, judging by latexmk's own report:
 /// an error return, errors in the .blg, or no .blg at all. Rules are
 /// named after the command (`biber build/main`, `bibtex build/main`).
@@ -402,6 +512,14 @@ fn failed_bib_tool(latexmk_output: &str) -> Option<BibTool> {
         }
         // bibtex8 and upbibtex share BibTeX's rule name prefix.
         if says("bibtex") || rule.as_deref().is_some_and(|r| r.contains("bibtex")) {
+            return Some(BibTool::Bibtex);
+        }
+    }
+    for (rule, _) in failed_rules(latexmk_output) {
+        if rule.starts_with("biber") {
+            return Some(BibTool::Biber);
+        }
+        if rule.starts_with("bibtex") {
             return Some(BibTool::Bibtex);
         }
     }
@@ -429,16 +547,29 @@ fn bib_tool_reasons(
                 }
                 BibTool::Bibtex => {
                     // `I couldn't open database file refs.bib` and
-                    // friends, or a message followed by `---line 5 of
-                    // file refs.bib`.
-                    if let Some(rest) = line.strip_prefix("---line ") {
-                        let mut parts = rest.splitn(2, " of file ");
+                    // friends, or a message with `---line 5 of file
+                    // refs.bib` after it, on the same line or the next.
+                    let located = line
+                        .find("---line ")
+                        .filter(|_| !line.starts_with("Warning--") && !line.starts_with("while executing"));
+                    if let Some(at) = located {
+                        let mut parts = line[at + "---line ".len()..].splitn(2, " of file ");
                         let line_no = parts.next().and_then(|n| n.trim().parse::<u32>().ok());
                         let file = parts.next().map(str::trim);
-                        if let (Some(n), Some(file), Some(prev)) = (line_no, file, i.checked_sub(1)) {
-                            let location = (!file.starts_with('/')).then(|| (file.to_string(), n));
-                            reasons.push((lines[prev].trim().to_string(), location));
+                        let message = if at > 0 {
+                            &line[..at]
+                        } else {
+                            i.checked_sub(1).map_or("", |prev| lines[prev])
+                        };
+                        if let (Some(n), Some(file), false) = (line_no, file, message.trim().is_empty()) {
+                            // A place in the .aux file is TeX's own output, not the project's.
+                            let outside = file.starts_with('/') || file.ends_with(".aux");
+                            let location = (!outside).then(|| (file.to_string(), n));
+                            reasons.push((message.trim().to_string(), location));
                         }
+                    } else if let Some(rest) = line.strip_prefix("A bad cross reference---") {
+                        let rest = format!("{rest} {}", lines.get(i + 1).copied().unwrap_or(""));
+                        reasons.push((format!("A bad cross reference: {}", rest.trim()), None));
                     } else if line.starts_with("I couldn't open")
                         || line.starts_with("I found no")
                     {
@@ -501,7 +632,16 @@ fn bib_tool_hint(tool: BibTool, reason: &str) -> String {
     if lower.contains("found no \\bibstyle") {
         return "Add a style, e.g. \\bibliographystyle{plain}.".into();
     }
-    if lower.contains("syntax error") || lower.contains("bibtex subsystem") {
+    if lower.starts_with("repeated entry") {
+        return "Two entries in the .bib file have the same key. Rename or remove one of them.".into();
+    }
+    if lower.starts_with("a bad cross reference") {
+        return "The crossref field names an entry that is not in the .bib file.".into();
+    }
+    if lower.contains("syntax error")
+        || lower.contains("bibtex subsystem")
+        || lower.starts_with("i was expecting")
+    {
         return "An entry in the .bib file is malformed; the Bibliography panel flags entries it cannot parse.".into();
     }
     if tool == BibTool::Biber
@@ -544,6 +684,53 @@ pub fn parse_bib_tool_failure(latexmk_output: &str, blg: Option<&str>) -> Option
     })
 }
 
+/// The tool behind a latexmk rule that is not TeX or the bibliography,
+/// and what it builds: ("makeglossaries", "the glossary").
+fn other_tool(rule: &str) -> Option<(&'static str, &'static str)> {
+    let mut words = rule.split_whitespace();
+    match (words.next(), words.next()) {
+        (Some("cusdep"), Some("glo" | "acn")) => Some(("makeglossaries", "the glossary")),
+        (Some("cusdep"), Some("nlo")) => Some(("makeindex", "the nomenclature")),
+        (Some("makeindex"), _) => Some(("makeindex", "the index")),
+        _ => None,
+    }
+}
+
+/// A latexmk run that failed outside TeX and the bibliography: a
+/// glossary or index tool that stopped, or a document that never settles.
+/// Like bibliography failures, these never reach the LaTeX .log.
+pub fn parse_run_failure(latexmk_output: &str) -> Option<CompileIssue> {
+    let failure = |message: String, hint: String| CompileIssue {
+        severity: "error".into(),
+        file: None,
+        line: None,
+        message,
+        detail: Vec::new(),
+        hint: Some(hint),
+    };
+    for (rule, _) in failed_rules(latexmk_output) {
+        if let Some((tool, built)) = other_tool(&rule) {
+            return Some(failure(
+                format!("{tool} failed, so {built} was not built"),
+                format!("The compile log has the full output of {tool}."),
+            ));
+        }
+    }
+    let never_settles = latexmk_output.lines().any(|line| {
+        line.strip_prefix("Latexmk: Maximum runs of ").is_some_and(|rest| {
+            rest.split_once(' ').is_some_and(|(rule, after)| !rule.is_empty() && after.starts_with("reached"))
+        })
+    });
+    never_settles.then(|| {
+        failure(
+            "The document kept changing between runs, so the compile stopped".into(),
+            "Something changes on every run, such as a reference that moves to another page each time. \
+             The compile log shows what changed."
+                .into(),
+        )
+    })
+}
+
 /// Whether an issue only repeats what a bibliography failure already
 /// says (biblatex's "Please (re)run Biber").
 pub fn is_rerun_bib_tool_warning(issue: &CompileIssue) -> bool {
@@ -554,7 +741,7 @@ pub fn is_rerun_bib_tool_warning(issue: &CompileIssue) -> bool {
 /// one installed on this computer, which the server does not have.
 pub fn add_font_hints(issues: &mut [CompileIssue]) {
     for issue in issues {
-        if issue.hint.is_none() && issue.message.contains("fontspec Error: The font") {
+        if issue.hint.is_none() && issue.message.contains("fontspec Error: The font \"") {
             issue.hint = Some(
                 "Polemic's server has TeX Live's fonts, not the ones installed on this \
                  computer. Put the font file (.otf or .ttf) in the project and load it by \
@@ -778,5 +965,90 @@ I was expecting a `,' or a `}'
     fn ignores_runs_where_the_bib_tool_succeeded() {
         let out = "Running 'biber  \"build/main.bcf\"'\nLatexmk: All targets are up-to-date\n";
         assert!(parse_bib_tool_failure(out, None).is_none());
+    }
+
+    #[test]
+    fn reads_errors_in_files_named_without_dot_slash() {
+        let issues = parse_issues("(./demo/trigon_demo.tex (demo/frames.tex\ndemo/frames.tex:45: Package pdftex.def Error: File `shots/layout.jpg' not found: using draft setting.\n\nSee the pdftex.def package documentation for explanation.\nType  H <return>  for immediate help.\n ...                                              \n                                                  \nl.45 ...width]{shots/layout.jpg}}\n                                 \nLaTeX Warning: Float too large for page by 3.0pt on input line 50.\n))\n");
+        assert_eq!(issues.len(), 2);
+        assert_eq!(issues[0].severity, "error");
+        assert_eq!(issues[0].file.as_deref(), Some("demo/frames.tex"));
+        assert_eq!(issues[0].line, Some(45));
+        // The context is found past TeX's help text.
+        assert_eq!(issues[0].detail[0], "l.45 ...width]{shots/layout.jpg}}");
+        assert_eq!(issues[1].file.as_deref(), Some("demo/frames.tex"));
+        assert_eq!(issues[1].line, Some(50));
+    }
+
+    #[test]
+    fn places_a_missing_file_where_tex_stopped() {
+        let issues = parse_issues("(./doc/main.tex\n\n! LaTeX Error: File `dtklogos.sty' not found.\n\nType X to quit or <RETURN> to proceed,\nor enter new name. (Default extension: sty)\n\nEnter file name: \n./doc/main.tex:11: Emergency stop.\n<read *> \n         \nl.11 \\usepackage\n                [table]{xcolor}^^M\n*** (cannot \\read from terminal in nonstop modes)\n\n!  ==> Fatal error occurred, no output PDF file produced!\n");
+        assert_eq!(issues.len(), 1);
+        assert_eq!(issues[0].message, "LaTeX Error: File `dtklogos.sty' not found.");
+        assert_eq!(issues[0].file.as_deref(), Some("doc/main.tex"));
+        assert_eq!(issues[0].line, Some(11));
+        assert_eq!(issues[0].detail[0], "l.11 \\usepackage");
+    }
+
+    #[test]
+    fn says_why_tex_stopped_when_no_error_does() {
+        let notice = parse_issues("(./thesis.cls\n\n ********************************************\n * XeTeX is required to compile this document.\n * Sorry!\n ********************************************\n\n./thesis.cls:67: Emergency stop.\n<read *> \n         \nl.67 \\RequireXeTeX\n                  \n*** (cannot \\read from terminal in nonstop modes)\n");
+        assert_eq!(notice.len(), 1);
+        assert_eq!(notice[0].message, "XeTeX is required to compile this document.");
+        assert_eq!(notice[0].file.as_deref(), Some("thesis.cls"));
+        assert_eq!(notice[0].line, Some(67));
+        let aborted = parse_issues("(./main.tex)\n! Emergency stop.\n<*> main.tex\n            \n*** (job aborted, no legal \\end found)\n");
+        assert_eq!(aborted.len(), 1);
+        assert_eq!(aborted[0].message, "Emergency stop (job aborted, no legal \\end found).");
+    }
+
+    #[test]
+    fn drops_an_emergency_stop_that_follows_an_error() {
+        let issues = parse_issues("./main.tex:5: Undefined control sequence.\nl.5 \\foo\n        \n! Emergency stop.\n<*> main.tex\n            \n*** (job aborted, no legal \\end found)\n");
+        assert_eq!(issues.len(), 1);
+        assert_eq!(issues[0].message, "Undefined control sequence.");
+        assert_eq!(issues[0].line, Some(5));
+    }
+
+    #[test]
+    fn keeps_a_packages_own_source_out_of_the_context() {
+        let mut issues = parse_issues("(./main.tex\nLaTeX2e <2025-11-01>\n(/usr/local/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty\n/usr/local/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty:100: Fatal Package fontspec Error: The fontspec package requires either XeTeX or\n(fontspec)                      LuaTeX.\n\nType <return> to continue.\n ...                                              \n                                                  \nl.100 \\msg_fatal:nn {fontspec} {cannot-use-pdftex}\n\n/usr/local/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty:100:  ==> Fatal error occurred, no output PDF file produced!\n");
+        add_font_hints(&mut issues);
+        assert!(issues[0].detail.is_empty());
+        // The hint is for a font that is missing, not for the wrong engine.
+        assert_eq!(issues[0].hint, None);
+    }
+
+    #[test]
+    fn does_not_take_log_prose_for_an_error() {
+        assert!(parse_issues("<recently read> x.y:3: z\nl.4 a.tex:12: b\nsee (table) 1.tex:3: x\n").is_empty());
+    }
+
+    #[test]
+    fn finds_the_failed_tool_in_latexmks_error_summary() {
+        let issue = parse_bib_tool_failure("Latexmk: Errors, so I did not complete making targets\nCollected error summary (may duplicate other messages):\n  bibtex build/main: Bibtex errors: See file 'build/main.blg'\n\nLatexmk: Missing bbl file 'build/main.bbl' in following:\n No file main.bbl.\n", Some("This is BibTeX, Version 0.99d\nRepeated entry---line 1506 of file references.bib\n : @inproceedings{hutter2011sequential\n :                                    ,\nI'm skipping whatever remains of this entry\n")).unwrap();
+        assert_eq!(issue.message, "BibTeX failed: Repeated entry");
+        assert_eq!(issue.file.as_deref(), Some("references.bib"));
+        assert_eq!(issue.line, Some(1506));
+        assert!(issue.hint.unwrap().contains("same key"));
+    }
+
+    #[test]
+    fn reports_a_failed_glossary_run() {
+        let issue = parse_run_failure("Collected error summary (may duplicate other messages):\n  cusdep glo gls build/main: Command for 'cusdep glo gls build/main' gave return code 65280\n").unwrap();
+        assert_eq!(issue.severity, "error");
+        assert_eq!(issue.message, "makeglossaries failed, so the glossary was not built");
+        assert!(issue.hint.unwrap().contains("makeglossaries"));
+    }
+
+    #[test]
+    fn reports_a_document_that_never_settles() {
+        let issue = parse_run_failure("Latexmk: Maximum runs of pdflatex reached without getting stable files\n").unwrap();
+        assert!(issue.message.starts_with("The document kept changing"));
+    }
+
+    #[test]
+    fn leaves_texs_own_errors_to_the_log() {
+        assert!(parse_run_failure("Collected error summary (may duplicate other messages):\n  pdflatex: Command for 'pdflatex' gave return code 1\n      Refer to 'build/main.log' and/or above output for details\n").is_none());
     }
 }

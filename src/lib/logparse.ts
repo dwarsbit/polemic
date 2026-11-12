@@ -7,38 +7,36 @@
 
 import type { CompileIssue } from "@/lib/tauri";
 
-/** `./chapters/intro.tex:12: Undefined control sequence.` (-file-line-error). */
-function parseFileLineError(line: string): [string, number, string] | null {
-  if (!line.startsWith("./")) return null;
-  const rest = line.slice(2);
-  const idx = rest.indexOf(": ");
-  if (idx < 0) return null;
-  const loc = rest.slice(0, idx);
-  const message = rest.slice(idx + 2);
-  const colon = loc.lastIndexOf(":");
-  if (colon < 0) return null;
-  const num = loc.slice(colon + 1);
-  if (!/^\d+$/.test(num)) return null;
-  return [loc.slice(0, colon), Number(num), message];
-}
+/** The place of an error that -file-line-error prints: a file of the
+ *  project, or one outside it (the TeX distribution, a parent folder). */
+type ErrorPlace = { file: string; line: number } | "outside";
+
+const FILE_LINE = /^(.+?):(\d+): (.*)$/;
 
 /**
- * An error raised inside a file of the TeX distribution:
- * `/usr/…/fontspec.sty:100: Fatal Package fontspec Error: …`. The
- * message only; TeX's closing `==> Fatal error occurred` is left out.
+ * An error line as -file-line-error prints it:
+ * `./chapters/intro.tex:12: Undefined control sequence.` A file TeX found
+ * through the main file's folder has no `./` (`demo/frames.tex:45: …`).
+ * TeX's closing `==> Fatal error occurred` says nothing and is left out.
  */
-function parsePackageFileError(line: string): string | null {
-  const drive = line.length > 2 && /^[A-Za-z]:/.test(line);
-  if (!line.startsWith("/") && !drive) return null;
-  const from = drive ? 2 : 0;
-  const found = line.slice(from).indexOf(": ");
-  if (found < 0) return null;
-  const idx = from + found;
-  const head = line.slice(0, idx);
-  const colon = head.lastIndexOf(":");
-  if (colon < 0 || !/^\d+$/.test(head.slice(colon + 1))) return null;
-  const message = line.slice(idx + 2).trim();
-  return message !== "" && !message.startsWith("==>") ? message : null;
+function parseErrorLine(line: string): [ErrorPlace, string] | null {
+  const match = FILE_LINE.exec(line);
+  if (!match) return null;
+  const [, path, num, rest] = match;
+  const message = rest.trim();
+  if (message === "" || message.startsWith("==>")) return null;
+  const absolute = path.startsWith("/") || /^[A-Za-z]:[/\\]/.test(path);
+  if (absolute || path.startsWith("../")) return ["outside", message];
+  if (path.startsWith("./")) {
+    return [{ file: path.slice(2), line: Number(num) }, message];
+  }
+  // Without `./`, only what reads as a file name: no log prose.
+  if (
+    /^l\.\d/.test(path) ||
+    !/^[^\s!(<*\\][^()<>\\"`']*\.[A-Za-z0-9_-]{1,10}$/.test(path)
+  )
+    return null;
+  return [{ file: path, line: Number(num) }, message];
 }
 
 const CONTEXT_LINE = /^l\.(\d+)/;
@@ -49,14 +47,31 @@ function contextLineNo(line: string): number | null {
   return match ? Number(match[1]) : null;
 }
 
-/** The error's context block: the `l.N` line, directly or after one
- *  `<inserted text>` line, plus up to three indented continuations. */
+const isWarningLine = (line: string) =>
+  (line.startsWith("LaTeX") && line.includes("Warning:")) ||
+  ((line.startsWith("Package ") || line.startsWith("Class ")) &&
+    line.includes(" Warning:"));
+
+/** Where the next message starts: TeX's context for an error ends there. */
+const startsMessage = (line: string) =>
+  line.startsWith("!") || FILE_LINE.test(line) || isWarningLine(line);
+
+/** How far below an error its `l.N` line is looked for: past TeX's
+ *  help text and the macros it was expanding. */
+const CONTEXT_REACH = 40;
+
+/** The error's context block: the `l.N` line that follows it, before
+ *  the next message, plus up to three indented continuations. */
 function detailFrom(lines: string[], start: number): [string[], number] {
-  const isContext = (line: string | undefined) =>
-    line !== undefined && CONTEXT_LINE.test(line);
   let at: number | null = null;
-  if (isContext(lines[start])) at = start;
-  else if (lines[start]?.startsWith("<") && isContext(lines[start + 1])) at = start + 1;
+  const end = Math.min(lines.length, start + CONTEXT_REACH);
+  for (let i = start; i < end; i++) {
+    if (CONTEXT_LINE.test(lines[i])) {
+      at = i;
+      break;
+    }
+    if (startsMessage(lines[i])) break;
+  }
   if (at === null) return [[], start];
   const detail = [lines[at]];
   let i = at + 1;
@@ -102,6 +117,16 @@ function looksLikePath(token: string): boolean {
   return token.includes("/") && name.includes(".");
 }
 
+/** A file of the project, as TeX names it: `./intro.tex`, or without
+ *  `./` when TeX found it through the main file's folder. Files of the
+ *  TeX distribution have absolute paths; build/ holds TeX's own output. */
+function isProjectFile(token: string): boolean {
+  const drive = /^[A-Za-z]:[/\\]/.test(token);
+  if (token.startsWith("/") || drive || token.startsWith("../")) return false;
+  const file = token.startsWith("./") ? token.slice(2) : token;
+  return !file.startsWith("build/") && !file.includes("://");
+}
+
 /** The files TeX has open, from the `(./intro.tex` and `)` it prints. */
 class FileStack {
   /** Each open file, and whether it is a project file. */
@@ -132,8 +157,8 @@ class FileStack {
       if (c === "(") {
         const token = line.slice(i + 1).split(/[\s()]/)[0] ?? "";
         if (looksLikePath(token)) {
-          const project = token.startsWith("./") && !token.startsWith("./build/");
-          this.open.push([token.startsWith("./") ? token.slice(2) : token, project]);
+          const file = token.startsWith("./") ? token.slice(2) : token;
+          this.open.push([file, isProjectFile(token)]);
           i += 1 + token.length;
           continue;
         }
@@ -199,12 +224,34 @@ function issueOf(
   return { severity, file, line, message, detail: [], hint: null };
 }
 
+const isEmergencyStop = (issue: CompileIssue) =>
+  issue.message.startsWith("Emergency stop");
+
+/**
+ * Why TeX stopped, for an "Emergency stop" that no error explains: the
+ * notice an engine test prints just before it (`* XeTeX is required to
+ * compile this document.`), or TeX's own `*** (job aborted, …)` after it.
+ */
+function stopReason(lines: string[], at: number): string | null {
+  for (let i = at - 1; i >= Math.max(0, at - 8); i--) {
+    const notice = /^\s*\* (.+ is required to compile this document\.)$/.exec(lines[i]);
+    if (notice) return notice[1];
+  }
+  for (let i = at + 1; i < Math.min(lines.length, at + 8); i++) {
+    const aborted = /^\*\*\* \((job aborted, .+)\)$/.exec(lines[i]);
+    if (aborted) return `Emergency stop (${aborted[1]}).`;
+  }
+  return null;
+}
+
 export function parseIssues(log: string): CompileIssue[] {
   const lines = log.split("\n").map((line) => line.trimEnd());
   if (lines[lines.length - 1] === "") lines.pop();
   const issues: CompileIssue[] = [];
   const seen = new Set<string>();
   const files = new FileStack();
+  // The last error, if it has no place yet.
+  let unplaced: CompileIssue | null = null;
   let i = 0;
   while (i < lines.length) {
     const line = lines[i];
@@ -214,45 +261,63 @@ export function parseIssues(log: string): CompileIssue[] {
     }
     let issue: CompileIssue | null = null;
     let next = i + 1;
+    // The l.N line after an error in a package counts that package's lines.
     let inPackage = false;
-    const fileLine = parseFileLineError(line);
-    const packageError = fileLine ? null : parsePackageFileError(line);
-    if (fileLine) {
+    // A `!` line: an error that names no place of its own.
+    const bare = line.startsWith("!") && !line.slice(1).trim().startsWith("==>");
+    const placed = parseErrorLine(line);
+    if (placed) {
+      const [place, message] = placed;
       const [more, consumed] = continuation(lines, next, false);
       next = consumed;
-      issue = issueOf("error", fileLine[0], fileLine[1], fileLine[2] + more);
-    } else if (packageError !== null) {
+      inPackage = place === "outside";
+      issue =
+        place === "outside"
+          ? issueOf("error", files.innermostProjectFile(), null, message + more)
+          : issueOf("error", place.file, place.line, message + more);
+    } else if (bare) {
       const [more, consumed] = continuation(lines, next, false);
       next = consumed;
-      inPackage = true;
-      issue = issueOf("error", files.innermostProjectFile(), null, packageError + more);
-    } else if (line.startsWith("!")) {
-      const [more, consumed] = continuation(lines, next, false);
+      // No place of its own: it is in the file TeX is reading.
+      inPackage = files.inPackageFile();
+      issue = issueOf(
+        "error",
+        files.innermostProjectFile(),
+        null,
+        line.slice(1).trim() + more,
+      );
+    } else if (isWarningLine(line)) {
+      const [more, consumed] = continuation(lines, next, true);
       next = consumed;
-      issue = issueOf("error", null, null, line.slice(1).trim() + more);
-    } else {
-      const latexWarning = line.startsWith("LaTeX") && line.includes("Warning:");
-      const packageWarning =
-        (line.startsWith("Package ") || line.startsWith("Class ")) &&
-        line.includes(" Warning:");
-      if (latexWarning || packageWarning) {
-        const [more, consumed] = continuation(lines, next, true);
-        next = consumed;
-        const message = (line + more).replace(/\.+$/, "");
-        const lineNo = files.inPackageFile() ? null : warningLine(message);
-        issue = issueOf("warning", files.currentProjectFile(), lineNo, message);
+      const message = (line + more).replace(/\.+$/, "");
+      const lineNo = files.inPackageFile() ? null : warningLine(message);
+      issue = issueOf("warning", files.currentProjectFile(), lineNo, message);
+    }
+    if (issue?.severity === "error") {
+      const [detail, consumed] = detailFrom(lines, next);
+      if (detail.length > 0 && !inPackage) {
+        issue.line ??= contextLineNo(detail[0]);
+        issue.detail = detail;
       }
+      next = Math.max(consumed, next);
+      issue.hint = errorHint(issue.message);
+      if (isEmergencyStop(issue)) {
+        if (issues.some((earlier) => earlier.severity === "error")) {
+          // TeX gave up: the errors before it say why. One without a
+          // place (a file LaTeX could not find) is where TeX stopped.
+          if (unplaced !== null && issue.line !== null) {
+            unplaced.file = issue.file;
+            unplaced.line = issue.line;
+            unplaced.detail = issue.detail;
+          }
+          issue = null;
+        } else {
+          issue.message = stopReason(lines, i) ?? issue.message;
+        }
+      }
+      unplaced = null;
     }
     if (issue) {
-      if (issue.severity === "error") {
-        const [detail, consumed] = detailFrom(lines, next);
-        if (detail.length > 0) {
-          if (issue.line === null && !inPackage) issue.line = contextLineNo(detail[0]);
-          issue.detail = detail;
-        }
-        next = Math.max(consumed, next);
-        issue.hint = errorHint(issue.message);
-      }
       // The same message at the same place again says nothing new; one
       // without a line has no place, so its file does not count.
       const key = JSON.stringify([
@@ -264,13 +329,11 @@ export function parseIssues(log: string): CompileIssue[] {
       if (!seen.has(key)) {
         seen.add(key);
         issues.push(issue);
+        if (bare && issue.line === null) unplaced = issue;
       }
-      for (const read of lines.slice(i, next)) files.read(read);
-      i = next;
-      continue;
     }
-    files.read(line);
-    i++;
+    for (const read of lines.slice(i, next)) files.read(read);
+    i = next;
   }
   const kept = issues.some((issue) => issue.severity === "error")
     ? issues.filter((issue) => !isUnresolvedReferenceWarning(issue))
@@ -286,6 +349,29 @@ export function parseIssues(log: string): CompileIssue[] {
 type BibTool = "biber" | "bibtex";
 
 const toolName = (tool: BibTool) => (tool === "biber" ? "biber" : "BibTeX");
+
+/**
+ * The rules latexmk lists under "Collected error summary" when it gives
+ * up, as [rule, what it says]: `bibtex build/main: Bibtex errors: See
+ * file 'build/main.blg'`, `cusdep glo gls build/main: Command for … gave
+ * return code 512`.
+ */
+function failedRules(latexmkOutput: string): [string, string][] {
+  const rules: [string, string][] = [];
+  let inSummary = false;
+  for (const line of latexmkOutput.split("\n")) {
+    if (line.startsWith("Collected error summary")) {
+      inSummary = true;
+    } else if (inSummary && line.startsWith("  ")) {
+      const at = line.indexOf(": ");
+      if (at > 0)
+        rules.push([line.slice(0, at).trim().toLowerCase(), line.slice(at + 2)]);
+    } else if (line.trim() !== "") {
+      inSummary = false;
+    }
+  }
+  return rules;
+}
 
 /** Which bibliography tool failed, judging by latexmk's own report. */
 function failedBibTool(latexmkOutput: string): BibTool | null {
@@ -303,6 +389,10 @@ function failedBibTool(latexmkOutput: string): BibTool | null {
       lower.startsWith(`could not find all ${tool} source files`);
     if (says("biber")) return "biber";
     if (says("bibtex") || (rule?.includes("bibtex") ?? false)) return "bibtex";
+  }
+  for (const [rule] of failedRules(latexmkOutput)) {
+    if (rule.startsWith("biber")) return "biber";
+    if (rule.startsWith("bibtex")) return "bibtex";
   }
   return null;
 }
@@ -324,16 +414,27 @@ function bibToolReasons(
         if (idx >= 0) reasons.push([line.slice(idx + "ERROR - ".length), null]);
         return;
       }
-      if (line.startsWith("---line ")) {
-        const [num, file] = line.slice("---line ".length).split(" of file ", 2);
+      // `I couldn't open database file refs.bib` and friends, or a
+      // message with `---line 5 of file refs.bib` after it, on the same
+      // line or the next.
+      const at = line.indexOf("---line ");
+      if (
+        at >= 0 &&
+        !line.startsWith("Warning--") &&
+        !line.startsWith("while executing")
+      ) {
+        const [num, file] = line.slice(at + "---line ".length).split(" of file ", 2);
         const lineNo = /^\d+$/.test(num?.trim() ?? "") ? Number(num.trim()) : null;
-        if (lineNo !== null && file !== undefined && i > 0) {
+        const message = at > 0 ? line.slice(0, at) : (lines[i - 1] ?? "");
+        if (lineNo !== null && file !== undefined && message.trim() !== "") {
           const name = file.trim();
-          reasons.push([
-            lines[i - 1].trim(),
-            name.startsWith("/") ? null : [name, lineNo],
-          ]);
+          // A place in the .aux file is TeX's own output, not the project's.
+          const outside = name.startsWith("/") || name.endsWith(".aux");
+          reasons.push([message.trim(), outside ? null : [name, lineNo]]);
         }
+      } else if (line.startsWith("A bad cross reference---")) {
+        const rest = `${line.slice("A bad cross reference---".length)} ${lines[i + 1] ?? ""}`;
+        reasons.push([`A bad cross reference: ${rest.trim()}`, null]);
       } else if (line.startsWith("I couldn't open") || line.startsWith("I found no")) {
         reasons.push([line.split("---")[0].trim(), null]);
       }
@@ -383,7 +484,17 @@ function bibToolHint(tool: BibTool, reason: string): string {
   if (lower.includes("found no \\bibstyle")) {
     return "Add a style, e.g. \\bibliographystyle{plain}.";
   }
-  if (lower.includes("syntax error") || lower.includes("bibtex subsystem")) {
+  if (lower.startsWith("repeated entry")) {
+    return "Two entries in the .bib file have the same key. Rename or remove one of them.";
+  }
+  if (lower.startsWith("a bad cross reference")) {
+    return "The crossref field names an entry that is not in the .bib file.";
+  }
+  if (
+    lower.includes("syntax error") ||
+    lower.includes("bibtex subsystem") ||
+    lower.startsWith("i was expecting")
+  ) {
     return "An entry in the .bib file is malformed; the Bibliography panel flags entries it cannot parse.";
   }
   if (
@@ -418,6 +529,51 @@ export function parseBibToolFailure(
   };
 }
 
+/** The tool behind a latexmk rule that is not TeX or the bibliography,
+ *  and what it builds: [tool, "the glossary"]. */
+function otherTool(rule: string): [string, string] | null {
+  const words = rule.split(/\s+/);
+  if (words[0] === "cusdep") {
+    if (words[1] === "glo" || words[1] === "acn")
+      return ["makeglossaries", "the glossary"];
+    if (words[1] === "nlo") return ["makeindex", "the nomenclature"];
+    return null;
+  }
+  if (words[0] === "makeindex") return ["makeindex", "the index"];
+  return null;
+}
+
+/**
+ * A latexmk run that failed outside TeX and the bibliography: a
+ * glossary or index tool that stopped, or a document that never settles.
+ * Like bibliography failures, these never reach the LaTeX .log.
+ */
+export function parseRunFailure(latexmkOutput: string): CompileIssue | null {
+  for (const [rule] of failedRules(latexmkOutput)) {
+    const tool = otherTool(rule);
+    if (tool === null) continue;
+    return {
+      severity: "error",
+      file: null,
+      line: null,
+      message: `${tool[0]} failed, so ${tool[1]} was not built`,
+      detail: [],
+      hint: `The compile log has the full output of ${tool[0]}.`,
+    };
+  }
+  if (/^Latexmk: Maximum runs of \S+ reached/m.test(latexmkOutput)) {
+    return {
+      severity: "error",
+      file: null,
+      line: null,
+      message: "The document kept changing between runs, so the compile stopped",
+      detail: [],
+      hint: "Something changes on every run, such as a reference that moves to another page each time. The compile log shows what changed.",
+    };
+  }
+  return null;
+}
+
 /** Whether an issue only repeats a bibliography failure ("Please (re)run Biber"). */
 export function isRerunBibToolWarning(issue: CompileIssue): boolean {
   return issue.message.startsWith("Package biblatex Warning: Please (re)run");
@@ -426,7 +582,7 @@ export function isRerunBibToolWarning(issue: CompileIssue): boolean {
 /** A font fontspec cannot find is usually one on this computer, not on the server. */
 export function addFontHints(issues: CompileIssue[]): void {
   for (const issue of issues) {
-    if (!issue.hint && issue.message.includes("fontspec Error: The font")) {
+    if (!issue.hint && issue.message.includes('fontspec Error: The font "')) {
       issue.hint =
         "Polemic's server has TeX Live's fonts, not the ones installed on this computer. Put the font file (.otf or .ttf) in the project and load it by file name, e.g. \\setmainfont{MyFont-Regular.otf}.";
     }

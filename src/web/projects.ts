@@ -29,6 +29,7 @@ import {
   isRerunBibToolWarning,
   parseBibToolFailure,
   parseIssues,
+  parseRunFailure,
 } from "@/lib/logparse";
 import {
   applyFileChange,
@@ -760,6 +761,8 @@ async function compile(open: OpenProject, main: string): Promise<CompileOutcome>
     );
     if (failure)
       issues = [failure, ...issues.filter((issue) => !isRerunBibToolWarning(issue))];
+    const runFailure = parseRunFailure(answer.output);
+    if (runFailure) issues.unshift(runFailure);
     addFontHints(issues);
     if (answer.status === "timeout") {
       issues.unshift({
